@@ -11,7 +11,6 @@
 import 'package:twitter_openapi_dart/api.dart';
 import 'package:test/test.dart';
 
-
 /// tests for DefaultApi
 void main() {
   // final instance = DefaultApi();
@@ -30,6 +29,5 @@ void main() {
     test('test vptSi88PiaQhBevFbGVlGgFollowersPost', () async {
       // TODO
     });
-
   });
 }

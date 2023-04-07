@@ -29,7 +29,13 @@ part 'auth/http_bearer_auth.dart';
 
 part 'api/default_api.dart';
 
-part 'model/order.dart';
+part 'model/home_timeline_data.dart';
+part 'model/home_timeline_home.dart';
+part 'model/home_timeline_response.dart';
+part 'model/home_timeline_urt.dart';
+part 'model/home_timeline_urt_instructions_inner.dart';
+part 'model/instruction_type.dart';
+part 'model/timeline_add_entries.dart';
 
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};

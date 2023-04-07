@@ -16,20 +16,20 @@ class DefaultApi {
 
   final ApiClient apiClient;
 
-  /// get following user list
+  /// get timeline
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [Order] order (required):
+  /// * [HomeTimelineData] homeTimelineData (required):
   ///   Update an existent pet in the store
-  Future<Response> faBzCqZXuQCb4PhB0RHqHwFollowingPostWithHttpInfo(Order order,) async {
+  Future<Response> bntFPEOxs3GYdPaS6CjUcgHomeTimelineGetWithHttpInfo(HomeTimelineData homeTimelineData,) async {
     // ignore: prefer_const_declarations
-    final path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
+    final path = r'/BntFPEOxs3GYdPaS6CjUcg/HomeTimeline';
 
     // ignore: prefer_final_locals
-    Object? postBody = order;
+    Object? postBody = homeTimelineData;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -40,7 +40,61 @@ class DefaultApi {
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// get timeline
+  ///
+  /// Parameters:
+  ///
+  /// * [HomeTimelineData] homeTimelineData (required):
+  ///   Update an existent pet in the store
+  Future<HomeTimelineData?> bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(HomeTimelineData homeTimelineData,) async {
+    final response = await bntFPEOxs3GYdPaS6CjUcgHomeTimelineGetWithHttpInfo(homeTimelineData,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HomeTimelineData',) as HomeTimelineData;
+    
+    }
+    return null;
+  }
+
+  /// get following user list
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [HomeTimelineData] homeTimelineData (required):
+  ///   Update an existent pet in the store
+  Future<Response> faBzCqZXuQCb4PhB0RHqHwFollowingGetWithHttpInfo(HomeTimelineData homeTimelineData,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
+
+    // ignore: prefer_final_locals
+    Object? postBody = homeTimelineData;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
       queryParams,
       postBody,
       headerParams,
@@ -53,10 +107,10 @@ class DefaultApi {
   ///
   /// Parameters:
   ///
-  /// * [Order] order (required):
+  /// * [HomeTimelineData] homeTimelineData (required):
   ///   Update an existent pet in the store
-  Future<Order?> faBzCqZXuQCb4PhB0RHqHwFollowingPost(Order order,) async {
-    final response = await faBzCqZXuQCb4PhB0RHqHwFollowingPostWithHttpInfo(order,);
+  Future<HomeTimelineData?> faBzCqZXuQCb4PhB0RHqHwFollowingGet(HomeTimelineData homeTimelineData,) async {
+    final response = await faBzCqZXuQCb4PhB0RHqHwFollowingGetWithHttpInfo(homeTimelineData,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -64,7 +118,7 @@ class DefaultApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Order',) as Order;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HomeTimelineData',) as HomeTimelineData;
     
     }
     return null;
@@ -76,14 +130,14 @@ class DefaultApi {
   ///
   /// Parameters:
   ///
-  /// * [Order] order (required):
+  /// * [HomeTimelineData] homeTimelineData (required):
   ///   Update an existent pet in the store
-  Future<Response> vptSi88PiaQhBevFbGVlGgFollowersPostWithHttpInfo(Order order,) async {
+  Future<Response> vptSi88PiaQhBevFbGVlGgFollowersGetWithHttpInfo(HomeTimelineData homeTimelineData,) async {
     // ignore: prefer_const_declarations
     final path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
 
     // ignore: prefer_final_locals
-    Object? postBody = order;
+    Object? postBody = homeTimelineData;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -94,7 +148,7 @@ class DefaultApi {
 
     return apiClient.invokeAPI(
       path,
-      'POST',
+      'GET',
       queryParams,
       postBody,
       headerParams,
@@ -107,10 +161,10 @@ class DefaultApi {
   ///
   /// Parameters:
   ///
-  /// * [Order] order (required):
+  /// * [HomeTimelineData] homeTimelineData (required):
   ///   Update an existent pet in the store
-  Future<Order?> vptSi88PiaQhBevFbGVlGgFollowersPost(Order order,) async {
-    final response = await vptSi88PiaQhBevFbGVlGgFollowersPostWithHttpInfo(order,);
+  Future<HomeTimelineData?> vptSi88PiaQhBevFbGVlGgFollowersGet(HomeTimelineData homeTimelineData,) async {
+    final response = await vptSi88PiaQhBevFbGVlGgFollowersGetWithHttpInfo(homeTimelineData,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -118,7 +172,7 @@ class DefaultApi {
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Order',) as Order;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'HomeTimelineData',) as HomeTimelineData;
     
     }
     return null;

@@ -41,13 +41,13 @@ import 'package:twitter_openapi_dart/api.dart';
 
 
 final api_instance = DefaultApi();
-final order = Order(); // Order | Update an existent pet in the store
+final homeTimelineData = HomeTimelineData(); // HomeTimelineData | Update an existent pet in the store
 
 try {
-    final result = api_instance.faBzCqZXuQCb4PhB0RHqHwFollowingPost(order);
+    final result = api_instance.bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData);
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->faBzCqZXuQCb4PhB0RHqHwFollowingPost: $e\n');
+    print('Exception when calling DefaultApi->bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet: $e\n');
 }
 
 ```
@@ -58,13 +58,20 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**faBzCqZXuQCb4PhB0RHqHwFollowingPost**](doc\/DefaultApi.md#fabzcqzxuqcb4phb0rhqhwfollowingpost) | **POST** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-*DefaultApi* | [**vptSi88PiaQhBevFbGVlGgFollowersPost**](doc\/DefaultApi.md#vptsi88piaqhbevfbgvlggfollowerspost) | **POST** /VptSi88PiaQhBevFbGVlGg/Followers | 
+*DefaultApi* | [**bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet**](doc\/DefaultApi.md#bntfpeoxs3gydpas6cjucghometimelineget) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
+*DefaultApi* | [**faBzCqZXuQCb4PhB0RHqHwFollowingGet**](doc\/DefaultApi.md#fabzcqzxuqcb4phb0rhqhwfollowingget) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+*DefaultApi* | [**vptSi88PiaQhBevFbGVlGgFollowersGet**](doc\/DefaultApi.md#vptsi88piaqhbevfbgvlggfollowersget) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
 
 
 ## Documentation For Models
 
- - [Order](doc\/Order.md)
+ - [HomeTimelineData](doc\/HomeTimelineData.md)
+ - [HomeTimelineHome](doc\/HomeTimelineHome.md)
+ - [HomeTimelineResponse](doc\/HomeTimelineResponse.md)
+ - [HomeTimelineUrt](doc\/HomeTimelineUrt.md)
+ - [HomeTimelineUrtInstructionsInner](doc\/HomeTimelineUrtInstructionsInner.md)
+ - [InstructionType](doc\/InstructionType.md)
+ - [TimelineAddEntries](doc\/TimelineAddEntries.md)
 
 
 ## Documentation For Authorization

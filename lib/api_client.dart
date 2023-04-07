@@ -190,8 +190,20 @@ class ApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
-        case 'Order':
-          return Order.fromJson(value);
+        case 'HomeTimelineData':
+          return HomeTimelineData.fromJson(value);
+        case 'HomeTimelineHome':
+          return HomeTimelineHome.fromJson(value);
+        case 'HomeTimelineResponse':
+          return HomeTimelineResponse.fromJson(value);
+        case 'HomeTimelineUrt':
+          return HomeTimelineUrt.fromJson(value);
+        case 'HomeTimelineUrtInstructionsInner':
+          return HomeTimelineUrtInstructionsInner.fromJson(value);
+        case 'InstructionType':
+          return InstructionTypeTypeTransformer().decode(value);
+        case 'TimelineAddEntries':
+          return TimelineAddEntries.fromJson(value);
         default:
           dynamic match;
           if (value is List && (match = _regList.firstMatch(targetType)?.group(1)) != null) {
