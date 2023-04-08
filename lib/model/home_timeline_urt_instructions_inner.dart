@@ -48,14 +48,18 @@ class HomeTimelineUrtInstructionsInner {
   String toString() => 'HomeTimelineUrtInstructionsInner[type=$type, entries=$entries]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (type != null) {
-      _json[r'type'] = type;
+    final json = <String, dynamic>{};
+    if (this.type != null) {
+      json[r'type'] = this.type;
+    } else {
+      json[r'type'] = null;
     }
-    if (entries != null) {
-      _json[r'entries'] = entries;
+    if (this.entries != null) {
+      json[r'entries'] = this.entries;
+    } else {
+      json[r'entries'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [HomeTimelineUrtInstructionsInner] instance and imports its values from

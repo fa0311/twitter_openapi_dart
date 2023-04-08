@@ -37,11 +37,13 @@ class HomeTimelineResponse {
   String toString() => 'HomeTimelineResponse[data=$data]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (data != null) {
-      _json[r'data'] = data;
+    final json = <String, dynamic>{};
+    if (this.data != null) {
+      json[r'data'] = this.data;
+    } else {
+      json[r'data'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [HomeTimelineResponse] instance and imports its values from

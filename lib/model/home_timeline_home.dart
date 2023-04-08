@@ -37,11 +37,13 @@ class HomeTimelineHome {
   String toString() => 'HomeTimelineHome[homeTimelineUrt=$homeTimelineUrt]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-    if (homeTimelineUrt != null) {
-      _json[r'home_timeline_urt'] = homeTimelineUrt;
+    final json = <String, dynamic>{};
+    if (this.homeTimelineUrt != null) {
+      json[r'home_timeline_urt'] = this.homeTimelineUrt;
+    } else {
+      json[r'home_timeline_urt'] = null;
     }
-    return _json;
+    return json;
   }
 
   /// Returns a new [HomeTimelineHome] instance and imports its values from

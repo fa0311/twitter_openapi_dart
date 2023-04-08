@@ -16,7 +16,7 @@ void main() {
   // final instance = HomeTimelineUrt();
 
   group('test HomeTimelineUrt', () {
-    // HomeTimelineUrtInstructions instructions
+    // List<HomeTimelineUrtInstructionsInner> instructions (default value: const [])
     test('to test the property `instructions`', () async {
       // TODO
     });

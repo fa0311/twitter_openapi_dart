@@ -67,7 +67,7 @@ class InstructionTypeTypeTransformer {
   /// and users are still using an old app with the old code.
   InstructionType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
-      switch (data.toString()) {
+      switch (data) {
         case r'TimelineAddEntries': return InstructionType.timelineAddEntries;
         case r'TimelineTerminateTimeline': return InstructionType.timelineTerminateTimeline;
         default:

@@ -31,9 +31,9 @@ class HomeTimelineUrt {
   String toString() => 'HomeTimelineUrt[instructions=$instructions]';
 
   Map<String, dynamic> toJson() {
-    final _json = <String, dynamic>{};
-      _json[r'instructions'] = instructions;
-    return _json;
+    final json = <String, dynamic>{};
+      json[r'instructions'] = this.instructions;
+    return json;
   }
 
   /// Returns a new [HomeTimelineUrt] instance and imports its values from
