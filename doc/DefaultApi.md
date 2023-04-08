@@ -25,13 +25,13 @@ get timeline
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api_instance = DefaultApi();
-final homeTimelineData = HomeTimelineData(); // HomeTimelineData | Update an existent pet in the store
+final api = TwitterOpenapiDart().getDefaultApi();
+final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
 
 try {
-    final result = api_instance.bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData);
-    print(result);
-} catch (e) {
+    final response = api.bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DefaultApi->bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet: $e\n');
 }
 ```
@@ -68,13 +68,13 @@ get following user list
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api_instance = DefaultApi();
-final homeTimelineData = HomeTimelineData(); // HomeTimelineData | Update an existent pet in the store
+final api = TwitterOpenapiDart().getDefaultApi();
+final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
 
 try {
-    final result = api_instance.faBzCqZXuQCb4PhB0RHqHwFollowingGet(homeTimelineData);
-    print(result);
-} catch (e) {
+    final response = api.faBzCqZXuQCb4PhB0RHqHwFollowingGet(homeTimelineData);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DefaultApi->faBzCqZXuQCb4PhB0RHqHwFollowingGet: $e\n');
 }
 ```
@@ -111,13 +111,13 @@ get followers user list
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api_instance = DefaultApi();
-final homeTimelineData = HomeTimelineData(); // HomeTimelineData | Update an existent pet in the store
+final api = TwitterOpenapiDart().getDefaultApi();
+final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
 
 try {
-    final result = api_instance.vptSi88PiaQhBevFbGVlGgFollowersGet(homeTimelineData);
-    print(result);
-} catch (e) {
+    final response = api.vptSi88PiaQhBevFbGVlGgFollowersGet(homeTimelineData);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DefaultApi->vptSi88PiaQhBevFbGVlGgFollowersGet: $e\n');
 }
 ```

@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:twitter_openapi_dart/api.dart';
 import 'package:test/test.dart';
+import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TimelineAddEntries
 void main() {
-  // final instance = TimelineAddEntries();
+  final instance = TimelineAddEntriesBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test TimelineAddEntries', () {
+  group(TimelineAddEntries, () {
     // InstructionType type
     test('to test the property `type`', () async {
       // TODO
@@ -26,7 +17,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }
