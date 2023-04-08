@@ -5,9 +5,7 @@ Remove-Item -Recurse lib
 Remove-Item -Recurse test
 Remove-Item -Recurse .gitignore
 Remove-Item -Recurse .openapi-generator-ignore
-Remove-Item -Recurse .travis.yml
 Remove-Item -Recurse analysis_options.yaml
-Remove-Item -Recurse git_push.sh
 Remove-Item -Recurse pubspec.lock
 Remove-Item -Recurse pubspec.yaml
 Remove-Item -Recurse README.md
