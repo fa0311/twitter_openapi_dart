@@ -16,7 +16,7 @@ part 'home_timeline_data.g.dart';
 @BuiltValue()
 abstract class HomeTimelineData implements Built<HomeTimelineData, HomeTimelineDataBuilder> {
   @BuiltValueField(wireName: r'home')
-  HomeTimelineHome? get home;
+  HomeTimelineHome get home;
 
   HomeTimelineData._();
 
@@ -41,13 +41,11 @@ class _$HomeTimelineDataSerializer implements PrimitiveSerializer<HomeTimelineDa
     HomeTimelineData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.home != null) {
-      yield r'home';
-      yield serializers.serialize(
-        object.home,
-        specifiedType: const FullType(HomeTimelineHome),
-      );
-    }
+    yield r'home';
+    yield serializers.serialize(
+      object.home,
+      specifiedType: const FullType(HomeTimelineHome),
+    );
   }
 
   @override

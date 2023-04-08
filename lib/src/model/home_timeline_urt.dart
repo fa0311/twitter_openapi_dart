@@ -3,8 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/instruction_union.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart/src/model/home_timeline_urt_instructions_inner.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,10 +15,18 @@ part 'home_timeline_urt.g.dart';
 ///
 /// Properties:
 /// * [instructions] 
+/// * [metadata] 
+/// * [responseObjects] 
 @BuiltValue()
 abstract class HomeTimelineUrt implements Built<HomeTimelineUrt, HomeTimelineUrtBuilder> {
   @BuiltValueField(wireName: r'instructions')
-  BuiltList<HomeTimelineUrtInstructionsInner>? get instructions;
+  BuiltList<InstructionUnion> get instructions;
+
+  @BuiltValueField(wireName: r'metadata')
+  JsonObject get metadata;
+
+  @BuiltValueField(wireName: r'responseObjects')
+  JsonObject get responseObjects;
 
   HomeTimelineUrt._();
 
@@ -42,13 +51,21 @@ class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt
     HomeTimelineUrt object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.instructions != null) {
-      yield r'instructions';
-      yield serializers.serialize(
-        object.instructions,
-        specifiedType: const FullType(BuiltList, [FullType(HomeTimelineUrtInstructionsInner)]),
-      );
-    }
+    yield r'instructions';
+    yield serializers.serialize(
+      object.instructions,
+      specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
+    );
+    yield r'metadata';
+    yield serializers.serialize(
+      object.metadata,
+      specifiedType: const FullType(JsonObject),
+    );
+    yield r'responseObjects';
+    yield serializers.serialize(
+      object.responseObjects,
+      specifiedType: const FullType(JsonObject),
+    );
   }
 
   @override
@@ -75,9 +92,23 @@ class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt
         case r'instructions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(HomeTimelineUrtInstructionsInner)]),
-          ) as BuiltList<HomeTimelineUrtInstructionsInner>;
+            specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
+          ) as BuiltList<InstructionUnion>;
           result.instructions.replace(valueDes);
+          break;
+        case r'metadata':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.metadata = valueDes;
+          break;
+        case r'responseObjects':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.responseObjects = valueDes;
           break;
         default:
           unhandled.add(key);

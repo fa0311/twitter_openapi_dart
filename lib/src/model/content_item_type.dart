@@ -7,19 +7,19 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'instruction_type.g.dart';
+part 'content_item_type.g.dart';
 
-class InstructionType extends EnumClass {
+class ContentItemType extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: r'TimelineAddEntries')
-  static const InstructionType timelineAddEntries = _$timelineAddEntries;
+  @BuiltValueEnumConst(wireName: r'TimelineTweet')
+  static const ContentItemType timelineTweet = _$timelineTweet;
 
-  static Serializer<InstructionType> get serializer => _$instructionTypeSerializer;
+  static Serializer<ContentItemType> get serializer => _$contentItemTypeSerializer;
 
-  const InstructionType._(String name): super(name);
+  const ContentItemType._(String name): super(name);
 
-  static BuiltSet<InstructionType> get values => _$values;
-  static InstructionType valueOf(String name) => _$valueOf(name);
+  static BuiltSet<ContentItemType> get values => _$values;
+  static ContentItemType valueOf(String name) => _$valueOf(name);
 }
 
 /// Optionally, enum_class can generate a mixin to go with your enum for use
@@ -28,5 +28,5 @@ class InstructionType extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class InstructionTypeMixin = Object with _$InstructionTypeMixin;
+abstract class ContentItemTypeMixin = Object with _$ContentItemTypeMixin;
 

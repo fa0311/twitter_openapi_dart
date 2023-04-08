@@ -9,30 +9,32 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet**](DefaultApi.md#bntfpeoxs3gydpas6cjucghometimelineget) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[**faBzCqZXuQCb4PhB0RHqHwFollowingGet**](DefaultApi.md#fabzcqzxuqcb4phb0rhqhwfollowingget) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-[**vptSi88PiaQhBevFbGVlGgFollowersGet**](DefaultApi.md#vptsi88piaqhbevfbgvlggfollowersget) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
+[**getFollowers**](DefaultApi.md#getfollowers) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
+[**getFollowing**](DefaultApi.md#getfollowing) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[**getHomeTimeline**](DefaultApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 
 
-# **bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet**
-> HomeTimelineData bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData)
+# **getFollowers**
+> HomeTimelineData getFollowers(variables, features, queryId)
 
 
 
-get timeline
+get user list of followers
 
 ### Example
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getDefaultApi();
-final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
+final String variables = variables_example; // String | 
+final String features = features_example; // String | 
+final String queryId = queryId_example; // String | 
 
 try {
-    final response = api.bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData);
+    final response = api.getFollowers(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet: $e\n');
+    print('Exception when calling DefaultApi->getFollowers: $e\n');
 }
 ```
 
@@ -40,7 +42,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **homeTimelineData** | [**HomeTimelineData**](HomeTimelineData.md)| Update an existent pet in the store | 
+ **variables** | **String**|  | 
+ **features** | **String**|  | 
+ **queryId** | **String**|  | [default to 'VptSi88PiaQhBevFbGVlGg']
 
 ### Return type
 
@@ -52,30 +56,32 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **faBzCqZXuQCb4PhB0RHqHwFollowingGet**
-> HomeTimelineData faBzCqZXuQCb4PhB0RHqHwFollowingGet(homeTimelineData)
+# **getFollowing**
+> HomeTimelineData getFollowing(variables, features, queryId)
 
 
 
-get following user list
+get user list of following
 
 ### Example
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getDefaultApi();
-final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
+final String variables = variables_example; // String | 
+final String features = features_example; // String | 
+final String queryId = queryId_example; // String | 
 
 try {
-    final response = api.faBzCqZXuQCb4PhB0RHqHwFollowingGet(homeTimelineData);
+    final response = api.getFollowing(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->faBzCqZXuQCb4PhB0RHqHwFollowingGet: $e\n');
+    print('Exception when calling DefaultApi->getFollowing: $e\n');
 }
 ```
 
@@ -83,7 +89,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **homeTimelineData** | [**HomeTimelineData**](HomeTimelineData.md)| Update an existent pet in the store | 
+ **variables** | **String**|  | 
+ **features** | **String**|  | 
+ **queryId** | **String**|  | [default to 'FaBzCqZXuQCb4PhB0RHqHw']
 
 ### Return type
 
@@ -95,30 +103,32 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **vptSi88PiaQhBevFbGVlGgFollowersGet**
-> HomeTimelineData vptSi88PiaQhBevFbGVlGgFollowersGet(homeTimelineData)
+# **getHomeTimeline**
+> HomeTimelineResponse getHomeTimeline(variables, features, queryId)
 
 
 
-get followers user list
+get tweet list of timeline
 
 ### Example
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getDefaultApi();
-final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
+final String variables = variables_example; // String | 
+final String features = features_example; // String | 
+final String queryId = queryId_example; // String | 
 
 try {
-    final response = api.vptSi88PiaQhBevFbGVlGgFollowersGet(homeTimelineData);
+    final response = api.getHomeTimeline(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->vptSi88PiaQhBevFbGVlGgFollowersGet: $e\n');
+    print('Exception when calling DefaultApi->getHomeTimeline: $e\n');
 }
 ```
 
@@ -126,11 +136,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **homeTimelineData** | [**HomeTimelineData**](HomeTimelineData.md)| Update an existent pet in the store | 
+ **variables** | **String**|  | 
+ **features** | **String**|  | 
+ **queryId** | **String**|  | [default to 'BntFPEOxs3GYdPaS6CjUcg']
 
 ### Return type
 
-[**HomeTimelineData**](HomeTimelineData.md)
+[**HomeTimelineResponse**](HomeTimelineResponse.md)
 
 ### Authorization
 
@@ -138,7 +150,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

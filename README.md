@@ -47,13 +47,15 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 
 final api = TwitterOpenapiDart().getDefaultApi();
-final HomeTimelineData homeTimelineData = ; // HomeTimelineData | Update an existent pet in the store
+final String variables = variables_example; // String | 
+final String features = features_example; // String | 
+final String queryId = queryId_example; // String | 
 
 try {
-    final response = await api.bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(homeTimelineData);
+    final response = await api.getFollowers(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling DefaultApi->bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet: $e\n");
+    print("Exception when calling DefaultApi->getFollowers: $e\n");
 }
 
 ```
@@ -64,20 +66,28 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*DefaultApi*](doc\DefaultApi.md) | [**bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet**](doc\DefaultApi.md#bntfpeoxs3gydpas6cjucghometimelineget) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[*DefaultApi*](doc\DefaultApi.md) | [**faBzCqZXuQCb4PhB0RHqHwFollowingGet**](doc\DefaultApi.md#fabzcqzxuqcb4phb0rhqhwfollowingget) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-[*DefaultApi*](doc\DefaultApi.md) | [**vptSi88PiaQhBevFbGVlGgFollowersGet**](doc\DefaultApi.md#vptsi88piaqhbevfbgvlggfollowersget) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
+[*DefaultApi*](doc\DefaultApi.md) | [**getFollowers**](doc\DefaultApi.md#getfollowers) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
+[*DefaultApi*](doc\DefaultApi.md) | [**getFollowing**](doc\DefaultApi.md#getfollowing) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[*DefaultApi*](doc\DefaultApi.md) | [**getHomeTimeline**](doc\DefaultApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 
 
 ## Documentation For Models
 
+ - [ContentEntryType](doc\ContentEntryType.md)
+ - [ContentItemType](doc\ContentItemType.md)
+ - [ContentUnion](doc\ContentUnion.md)
+ - [Entry](doc\Entry.md)
  - [HomeTimelineData](doc\HomeTimelineData.md)
  - [HomeTimelineHome](doc\HomeTimelineHome.md)
  - [HomeTimelineResponse](doc\HomeTimelineResponse.md)
  - [HomeTimelineUrt](doc\HomeTimelineUrt.md)
- - [HomeTimelineUrtInstructionsInner](doc\HomeTimelineUrtInstructionsInner.md)
  - [InstructionType](doc\InstructionType.md)
+ - [InstructionUnion](doc\InstructionUnion.md)
+ - [ItemContent](doc\ItemContent.md)
  - [TimelineAddEntries](doc\TimelineAddEntries.md)
+ - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
+ - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
+ - [TypeName](doc\TypeName.md)
 
 
 ## Documentation For Authorization

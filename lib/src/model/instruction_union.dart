@@ -3,21 +3,23 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/entry.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
 
-part 'home_timeline_urt_instructions_inner.g.dart';
+part 'instruction_union.g.dart';
 
-/// HomeTimelineUrtInstructionsInner
+/// InstructionUnion
 ///
 /// Properties:
 /// * [type] 
 /// * [entries] 
 @BuiltValue()
-abstract class HomeTimelineUrtInstructionsInner implements Built<HomeTimelineUrtInstructionsInner, HomeTimelineUrtInstructionsInnerBuilder> {
+abstract class InstructionUnion implements Built<InstructionUnion, InstructionUnionBuilder> {
   /// One Of [TimelineAddEntries]
   OneOf get oneOf;
 
@@ -27,18 +29,18 @@ abstract class HomeTimelineUrtInstructionsInner implements Built<HomeTimelineUrt
     r'TimelineAddEntries': TimelineAddEntries,
   };
 
-  HomeTimelineUrtInstructionsInner._();
+  InstructionUnion._();
 
-  factory HomeTimelineUrtInstructionsInner([void updates(HomeTimelineUrtInstructionsInnerBuilder b)]) = _$HomeTimelineUrtInstructionsInner;
+  factory InstructionUnion([void updates(InstructionUnionBuilder b)]) = _$InstructionUnion;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HomeTimelineUrtInstructionsInnerBuilder b) => b;
+  static void _defaults(InstructionUnionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineUrtInstructionsInner> get serializer => _$HomeTimelineUrtInstructionsInnerSerializer();
+  static Serializer<InstructionUnion> get serializer => _$InstructionUnionSerializer();
 }
 
-extension HomeTimelineUrtInstructionsInnerDiscriminatorExt on HomeTimelineUrtInstructionsInner {
+extension InstructionUnionDiscriminatorExt on InstructionUnion {
     String? get discriminatorValue {
         if (this is TimelineAddEntries) {
             return r'TimelineAddEntries';
@@ -46,7 +48,7 @@ extension HomeTimelineUrtInstructionsInnerDiscriminatorExt on HomeTimelineUrtIns
         return null;
     }
 }
-extension HomeTimelineUrtInstructionsInnerBuilderDiscriminatorExt on HomeTimelineUrtInstructionsInnerBuilder {
+extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
     String? get discriminatorValue {
         if (this is TimelineAddEntriesBuilder) {
             return r'TimelineAddEntries';
@@ -55,16 +57,16 @@ extension HomeTimelineUrtInstructionsInnerBuilderDiscriminatorExt on HomeTimelin
     }
 }
 
-class _$HomeTimelineUrtInstructionsInnerSerializer implements PrimitiveSerializer<HomeTimelineUrtInstructionsInner> {
+class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUnion> {
   @override
-  final Iterable<Type> types = const [HomeTimelineUrtInstructionsInner, _$HomeTimelineUrtInstructionsInner];
+  final Iterable<Type> types = const [InstructionUnion, _$InstructionUnion];
 
   @override
-  final String wireName = r'HomeTimelineUrtInstructionsInner';
+  final String wireName = r'InstructionUnion';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    HomeTimelineUrtInstructionsInner object, {
+    InstructionUnion object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
   }
@@ -72,7 +74,7 @@ class _$HomeTimelineUrtInstructionsInnerSerializer implements PrimitiveSerialize
   @override
   Object serialize(
     Serializers serializers,
-    HomeTimelineUrtInstructionsInner object, {
+    InstructionUnion object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     final oneOf = object.oneOf;
@@ -80,15 +82,15 @@ class _$HomeTimelineUrtInstructionsInnerSerializer implements PrimitiveSerialize
   }
 
   @override
-  HomeTimelineUrtInstructionsInner deserialize(
+  InstructionUnion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = HomeTimelineUrtInstructionsInnerBuilder();
+    final result = InstructionUnionBuilder();
     Object? oneOfDataSrc;
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(HomeTimelineUrtInstructionsInner.discriminatorFieldName) + 1;
+    final discIndex = serializedList.indexOf(InstructionUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
     final oneOfTypes = [TimelineAddEntries, ];

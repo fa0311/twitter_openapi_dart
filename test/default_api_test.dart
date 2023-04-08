@@ -7,24 +7,24 @@ void main() {
   final instance = TwitterOpenapiDart().getDefaultApi();
 
   group(DefaultApi, () {
-    // get timeline
+    // get user list of followers
     //
-    //Future<HomeTimelineData> bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet(HomeTimelineData homeTimelineData) async
-    test('test bntFPEOxs3GYdPaS6CjUcgHomeTimelineGet', () async {
+    //Future<HomeTimelineData> getFollowers(String variables, String features, String queryId) async
+    test('test getFollowers', () async {
       // TODO
     });
 
-    // get following user list
+    // get user list of following
     //
-    //Future<HomeTimelineData> faBzCqZXuQCb4PhB0RHqHwFollowingGet(HomeTimelineData homeTimelineData) async
-    test('test faBzCqZXuQCb4PhB0RHqHwFollowingGet', () async {
+    //Future<HomeTimelineData> getFollowing(String variables, String features, String queryId) async
+    test('test getFollowing', () async {
       // TODO
     });
 
-    // get followers user list
+    // get tweet list of timeline
     //
-    //Future<HomeTimelineData> vptSi88PiaQhBevFbGVlGgFollowersGet(HomeTimelineData homeTimelineData) async
-    test('test vptSi88PiaQhBevFbGVlGgFollowersGet', () async {
+    //Future<HomeTimelineResponse> getHomeTimeline(String variables, String features, String queryId) async
+    test('test getHomeTimeline', () async {
       // TODO
     });
 

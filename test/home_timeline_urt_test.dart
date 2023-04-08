@@ -7,8 +7,18 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(HomeTimelineUrt, () {
-    // BuiltList<HomeTimelineUrtInstructionsInner> instructions
+    // BuiltList<InstructionUnion> instructions
     test('to test the property `instructions`', () async {
+      // TODO
+    });
+
+    // JsonObject metadata
+    test('to test the property `metadata`', () async {
+      // TODO
+    });
+
+    // JsonObject responseObjects
+    test('to test the property `responseObjects`', () async {
       // TODO
     });
 

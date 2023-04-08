@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // String entries
+    // BuiltList<Entry> entries
     test('to test the property `entries`', () async {
       // TODO
     });

@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/entry.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -18,10 +20,10 @@ part 'timeline_add_entries.g.dart';
 abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
   @BuiltValueField(wireName: r'type')
   InstructionType? get type;
-  // enum typeEnum {  TimelineAddEntries,  TimelineTerminateTimeline,  };
+  // enum typeEnum {  TimelineAddEntries,  };
 
   @BuiltValueField(wireName: r'entries')
-  String? get entries;
+  BuiltList<Entry>? get entries;
 
   TimelineAddEntries._();
 
@@ -57,7 +59,7 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
       yield r'entries';
       yield serializers.serialize(
         object.entries,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(BuiltList, [FullType(Entry)]),
       );
     }
   }
@@ -93,9 +95,9 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.entries = valueDes;
+            specifiedType: const FullType(BuiltList, [FullType(Entry)]),
+          ) as BuiltList<Entry>;
+          result.entries.replace(valueDes);
           break;
         default:
           unhandled.add(key);

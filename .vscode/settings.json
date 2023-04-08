@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "swaggerviewer:openapi": "file:///z%3A/Project/flutter/twitter_openapi_dart/twitter-openapi/openapi-3.0.yaml"
+  }
+}
