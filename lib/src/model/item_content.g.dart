@@ -12,9 +12,9 @@ class _$ItemContent extends ItemContent {
   @override
   final ContentItemType itemType;
   @override
-  final String? tweetDisplayType;
+  final String tweetDisplayType;
   @override
-  final JsonObject? tweetResults;
+  final ItemResult tweetResults;
 
   factory _$ItemContent([void Function(ItemContentBuilder)? updates]) =>
       (new ItemContentBuilder()..update(updates))._build();
@@ -22,11 +22,15 @@ class _$ItemContent extends ItemContent {
   _$ItemContent._(
       {required this.typename,
       required this.itemType,
-      this.tweetDisplayType,
-      this.tweetResults})
+      required this.tweetDisplayType,
+      required this.tweetResults})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(typename, r'ItemContent', 'typename');
     BuiltValueNullFieldError.checkNotNull(itemType, r'ItemContent', 'itemType');
+    BuiltValueNullFieldError.checkNotNull(
+        tweetDisplayType, r'ItemContent', 'tweetDisplayType');
+    BuiltValueNullFieldError.checkNotNull(
+        tweetResults, r'ItemContent', 'tweetResults');
   }
 
   @override
@@ -84,9 +88,10 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   set tweetDisplayType(String? tweetDisplayType) =>
       _$this._tweetDisplayType = tweetDisplayType;
 
-  JsonObject? _tweetResults;
-  JsonObject? get tweetResults => _$this._tweetResults;
-  set tweetResults(JsonObject? tweetResults) =>
+  ItemResultBuilder? _tweetResults;
+  ItemResultBuilder get tweetResults =>
+      _$this._tweetResults ??= new ItemResultBuilder();
+  set tweetResults(ItemResultBuilder? tweetResults) =>
       _$this._tweetResults = tweetResults;
 
   ItemContentBuilder() {
@@ -99,7 +104,7 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
       _typename = $v.typename;
       _itemType = $v.itemType;
       _tweetDisplayType = $v.tweetDisplayType;
-      _tweetResults = $v.tweetResults;
+      _tweetResults = $v.tweetResults.toBuilder();
       _$v = null;
     }
     return this;
@@ -120,14 +125,28 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   ItemContent build() => _build();
 
   _$ItemContent _build() {
-    final _$result = _$v ??
-        new _$ItemContent._(
-            typename: BuiltValueNullFieldError.checkNotNull(
-                typename, r'ItemContent', 'typename'),
-            itemType: BuiltValueNullFieldError.checkNotNull(
-                itemType, r'ItemContent', 'itemType'),
-            tweetDisplayType: tweetDisplayType,
-            tweetResults: tweetResults);
+    _$ItemContent _$result;
+    try {
+      _$result = _$v ??
+          new _$ItemContent._(
+              typename: BuiltValueNullFieldError.checkNotNull(
+                  typename, r'ItemContent', 'typename'),
+              itemType: BuiltValueNullFieldError.checkNotNull(
+                  itemType, r'ItemContent', 'itemType'),
+              tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
+                  tweetDisplayType, r'ItemContent', 'tweetDisplayType'),
+              tweetResults: tweetResults.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tweetResults';
+        tweetResults.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'ItemContent', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

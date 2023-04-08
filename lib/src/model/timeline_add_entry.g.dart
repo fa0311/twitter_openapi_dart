@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'entry.dart';
+part of 'timeline_add_entry.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$Entry extends Entry {
+class _$TimelineAddEntry extends TimelineAddEntry {
   @override
   final ContentUnion content;
   @override
@@ -14,28 +14,33 @@ class _$Entry extends Entry {
   @override
   final String sortIndex;
 
-  factory _$Entry([void Function(EntryBuilder)? updates]) =>
-      (new EntryBuilder()..update(updates))._build();
+  factory _$TimelineAddEntry(
+          [void Function(TimelineAddEntryBuilder)? updates]) =>
+      (new TimelineAddEntryBuilder()..update(updates))._build();
 
-  _$Entry._(
+  _$TimelineAddEntry._(
       {required this.content, required this.entryId, required this.sortIndex})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(content, r'Entry', 'content');
-    BuiltValueNullFieldError.checkNotNull(entryId, r'Entry', 'entryId');
-    BuiltValueNullFieldError.checkNotNull(sortIndex, r'Entry', 'sortIndex');
+    BuiltValueNullFieldError.checkNotNull(
+        content, r'TimelineAddEntry', 'content');
+    BuiltValueNullFieldError.checkNotNull(
+        entryId, r'TimelineAddEntry', 'entryId');
+    BuiltValueNullFieldError.checkNotNull(
+        sortIndex, r'TimelineAddEntry', 'sortIndex');
   }
 
   @override
-  Entry rebuild(void Function(EntryBuilder) updates) =>
+  TimelineAddEntry rebuild(void Function(TimelineAddEntryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EntryBuilder toBuilder() => new EntryBuilder()..replace(this);
+  TimelineAddEntryBuilder toBuilder() =>
+      new TimelineAddEntryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Entry &&
+    return other is TimelineAddEntry &&
         content == other.content &&
         entryId == other.entryId &&
         sortIndex == other.sortIndex;
@@ -53,7 +58,7 @@ class _$Entry extends Entry {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Entry')
+    return (newBuiltValueToStringHelper(r'TimelineAddEntry')
           ..add('content', content)
           ..add('entryId', entryId)
           ..add('sortIndex', sortIndex))
@@ -61,8 +66,9 @@ class _$Entry extends Entry {
   }
 }
 
-class EntryBuilder implements Builder<Entry, EntryBuilder> {
-  _$Entry? _$v;
+class TimelineAddEntryBuilder
+    implements Builder<TimelineAddEntry, TimelineAddEntryBuilder> {
+  _$TimelineAddEntry? _$v;
 
   ContentUnionBuilder? _content;
   ContentUnionBuilder get content =>
@@ -77,11 +83,11 @@ class EntryBuilder implements Builder<Entry, EntryBuilder> {
   String? get sortIndex => _$this._sortIndex;
   set sortIndex(String? sortIndex) => _$this._sortIndex = sortIndex;
 
-  EntryBuilder() {
-    Entry._defaults(this);
+  TimelineAddEntryBuilder() {
+    TimelineAddEntry._defaults(this);
   }
 
-  EntryBuilder get _$this {
+  TimelineAddEntryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _content = $v.content.toBuilder();
@@ -93,29 +99,29 @@ class EntryBuilder implements Builder<Entry, EntryBuilder> {
   }
 
   @override
-  void replace(Entry other) {
+  void replace(TimelineAddEntry other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Entry;
+    _$v = other as _$TimelineAddEntry;
   }
 
   @override
-  void update(void Function(EntryBuilder)? updates) {
+  void update(void Function(TimelineAddEntryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Entry build() => _build();
+  TimelineAddEntry build() => _build();
 
-  _$Entry _build() {
-    _$Entry _$result;
+  _$TimelineAddEntry _build() {
+    _$TimelineAddEntry _$result;
     try {
       _$result = _$v ??
-          new _$Entry._(
+          new _$TimelineAddEntry._(
               content: content.build(),
               entryId: BuiltValueNullFieldError.checkNotNull(
-                  entryId, r'Entry', 'entryId'),
+                  entryId, r'TimelineAddEntry', 'entryId'),
               sortIndex: BuiltValueNullFieldError.checkNotNull(
-                  sortIndex, r'Entry', 'sortIndex'));
+                  sortIndex, r'TimelineAddEntry', 'sortIndex'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -123,7 +129,7 @@ class EntryBuilder implements Builder<Entry, EntryBuilder> {
         content.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'Entry', _$failedField, e.toString());
+            r'TimelineAddEntry', _$failedField, e.toString());
       }
       rethrow;
     }

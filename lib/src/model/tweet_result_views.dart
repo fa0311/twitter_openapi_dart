@@ -3,73 +3,67 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/content_union.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'entry.g.dart';
+part 'tweet_result_views.g.dart';
 
-/// Entry
+/// TweetResultViews
 ///
 /// Properties:
-/// * [content] 
-/// * [entryId] 
-/// * [sortIndex] 
+/// * [count] 
+/// * [state] 
 @BuiltValue()
-abstract class Entry implements Built<Entry, EntryBuilder> {
-  @BuiltValueField(wireName: r'content')
-  ContentUnion get content;
+abstract class TweetResultViews implements Built<TweetResultViews, TweetResultViewsBuilder> {
+  @BuiltValueField(wireName: r'count')
+  String? get count;
 
-  @BuiltValueField(wireName: r'entryId')
-  String get entryId;
+  @BuiltValueField(wireName: r'state')
+  String? get state;
 
-  @BuiltValueField(wireName: r'sortIndex')
-  String get sortIndex;
+  TweetResultViews._();
 
-  Entry._();
-
-  factory Entry([void updates(EntryBuilder b)]) = _$Entry;
+  factory TweetResultViews([void updates(TweetResultViewsBuilder b)]) = _$TweetResultViews;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(EntryBuilder b) => b;
+  static void _defaults(TweetResultViewsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<Entry> get serializer => _$EntrySerializer();
+  static Serializer<TweetResultViews> get serializer => _$TweetResultViewsSerializer();
 }
 
-class _$EntrySerializer implements PrimitiveSerializer<Entry> {
+class _$TweetResultViewsSerializer implements PrimitiveSerializer<TweetResultViews> {
   @override
-  final Iterable<Type> types = const [Entry, _$Entry];
+  final Iterable<Type> types = const [TweetResultViews, _$TweetResultViews];
 
   @override
-  final String wireName = r'Entry';
+  final String wireName = r'TweetResultViews';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    Entry object, {
+    TweetResultViews object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'content';
-    yield serializers.serialize(
-      object.content,
-      specifiedType: const FullType(ContentUnion),
-    );
-    yield r'entryId';
-    yield serializers.serialize(
-      object.entryId,
-      specifiedType: const FullType(String),
-    );
-    yield r'sortIndex';
-    yield serializers.serialize(
-      object.sortIndex,
-      specifiedType: const FullType(String),
-    );
+    if (object.count != null) {
+      yield r'count';
+      yield serializers.serialize(
+        object.count,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.state != null) {
+      yield r'state';
+      yield serializers.serialize(
+        object.state,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    Entry object, {
+    TweetResultViews object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -80,33 +74,26 @@ class _$EntrySerializer implements PrimitiveSerializer<Entry> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required EntryBuilder result,
+    required TweetResultViewsBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'content':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ContentUnion),
-          ) as ContentUnion;
-          result.content.replace(valueDes);
-          break;
-        case r'entryId':
+        case r'count':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.entryId = valueDes;
+          result.count = valueDes;
           break;
-        case r'sortIndex':
+        case r'state':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.sortIndex = valueDes;
+          result.state = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -117,12 +104,12 @@ class _$EntrySerializer implements PrimitiveSerializer<Entry> {
   }
 
   @override
-  Entry deserialize(
+  TweetResultViews deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = EntryBuilder();
+    final result = TweetResultViewsBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

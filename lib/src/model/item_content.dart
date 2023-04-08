@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
-import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,17 +22,17 @@ part 'item_content.g.dart';
 abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
   // enum itemTypeEnum {  TimelineTweet,  };
 
   @BuiltValueField(wireName: r'tweetDisplayType')
-  String? get tweetDisplayType;
+  String get tweetDisplayType;
 
   @BuiltValueField(wireName: r'tweet_results')
-  JsonObject? get tweetResults;
+  ItemResult get tweetResults;
 
   ItemContent._();
 
@@ -67,20 +67,16 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
       object.itemType,
       specifiedType: const FullType(ContentItemType),
     );
-    if (object.tweetDisplayType != null) {
-      yield r'tweetDisplayType';
-      yield serializers.serialize(
-        object.tweetDisplayType,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.tweetResults != null) {
-      yield r'tweet_results';
-      yield serializers.serialize(
-        object.tweetResults,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
+    yield r'tweetDisplayType';
+    yield serializers.serialize(
+      object.tweetDisplayType,
+      specifiedType: const FullType(String),
+    );
+    yield r'tweet_results';
+    yield serializers.serialize(
+      object.tweetResults,
+      specifiedType: const FullType(ItemResult),
+    );
   }
 
   @override
@@ -128,9 +124,9 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
         case r'tweet_results':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.tweetResults = valueDes;
+            specifiedType: const FullType(ItemResult),
+          ) as ItemResult;
+          result.tweetResults.replace(valueDes);
           break;
         default:
           unhandled.add(key);

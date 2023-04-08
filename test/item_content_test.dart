@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // JsonObject tweetResults
+    // ItemResult tweetResults
     test('to test the property `tweetResults`', () async {
       // TODO
     });

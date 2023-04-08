@@ -17,7 +17,6 @@ import 'package:twitter_openapi_dart/src/model/date.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_union.dart';
-import 'package:twitter_openapi_dart/src/model/entry.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_data.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_home.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_response.dart';
@@ -25,10 +24,21 @@ import 'package:twitter_openapi_dart/src/model/home_timeline_urt.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_union.dart';
 import 'package:twitter_openapi_dart/src/model/item_content.dart';
+import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_legacy.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_result.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_result_edit_control.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_result_edit_prespective.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_result_views.dart';
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
+import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
+import 'package:twitter_openapi_dart/src/model/user_result.dart';
+import 'package:twitter_openapi_dart/src/model/user_result_core.dart';
+import 'package:twitter_openapi_dart/src/model/user_results.dart';
 
 part 'serializers.g.dart';
 
@@ -36,7 +46,6 @@ part 'serializers.g.dart';
   ContentEntryType,
   ContentItemType,
   ContentUnion,
-  Entry,
   HomeTimelineData,
   HomeTimelineHome,
   HomeTimelineResponse,
@@ -44,10 +53,21 @@ part 'serializers.g.dart';
   InstructionType,
   InstructionUnion,
   ItemContent,
+  ItemResult,
   TimelineAddEntries,
+  TimelineAddEntry,
   TimelineTimelineCursor,
   TimelineTimelineItem,
+  TweetLegacy,
+  TweetResult,
+  TweetResultEditControl,
+  TweetResultEditPrespective,
+  TweetResultViews,
   TypeName,
+  UserLegacy,
+  UserResult,
+  UserResultCore,
+  UserResults,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

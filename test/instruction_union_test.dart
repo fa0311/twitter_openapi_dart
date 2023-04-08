@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<Entry> entries
+    // BuiltList<TimelineAddEntry> entries
     test('to test the property `entries`', () async {
       // TODO
     });

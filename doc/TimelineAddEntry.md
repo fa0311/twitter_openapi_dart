@@ -1,4 +1,4 @@
-# twitter_openapi_dart.model.Entry
+# twitter_openapi_dart.model.TimelineAddEntry
 
 ## Load the model package
 ```dart

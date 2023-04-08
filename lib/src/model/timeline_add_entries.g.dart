@@ -8,15 +8,20 @@ part of 'timeline_add_entries.dart';
 
 class _$TimelineAddEntries extends TimelineAddEntries {
   @override
-  final InstructionType? type;
+  final InstructionType type;
   @override
-  final BuiltList<Entry>? entries;
+  final BuiltList<TimelineAddEntry> entries;
 
   factory _$TimelineAddEntries(
           [void Function(TimelineAddEntriesBuilder)? updates]) =>
       (new TimelineAddEntriesBuilder()..update(updates))._build();
 
-  _$TimelineAddEntries._({this.type, this.entries}) : super._();
+  _$TimelineAddEntries._({required this.type, required this.entries})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(type, r'TimelineAddEntries', 'type');
+    BuiltValueNullFieldError.checkNotNull(
+        entries, r'TimelineAddEntries', 'entries');
+  }
 
   @override
   TimelineAddEntries rebuild(
@@ -61,10 +66,11 @@ class TimelineAddEntriesBuilder
   InstructionType? get type => _$this._type;
   set type(InstructionType? type) => _$this._type = type;
 
-  ListBuilder<Entry>? _entries;
-  ListBuilder<Entry> get entries =>
-      _$this._entries ??= new ListBuilder<Entry>();
-  set entries(ListBuilder<Entry>? entries) => _$this._entries = entries;
+  ListBuilder<TimelineAddEntry>? _entries;
+  ListBuilder<TimelineAddEntry> get entries =>
+      _$this._entries ??= new ListBuilder<TimelineAddEntry>();
+  set entries(ListBuilder<TimelineAddEntry>? entries) =>
+      _$this._entries = entries;
 
   TimelineAddEntriesBuilder() {
     TimelineAddEntries._defaults(this);
@@ -74,7 +80,7 @@ class TimelineAddEntriesBuilder
     final $v = _$v;
     if ($v != null) {
       _type = $v.type;
-      _entries = $v.entries?.toBuilder();
+      _entries = $v.entries.toBuilder();
       _$v = null;
     }
     return this;
@@ -98,12 +104,15 @@ class TimelineAddEntriesBuilder
     _$TimelineAddEntries _$result;
     try {
       _$result = _$v ??
-          new _$TimelineAddEntries._(type: type, entries: _entries?.build());
+          new _$TimelineAddEntries._(
+              type: BuiltValueNullFieldError.checkNotNull(
+                  type, r'TimelineAddEntries', 'type'),
+              entries: entries.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entries';
-        _entries?.build();
+        entries.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TimelineAddEntries', _$failedField, e.toString());

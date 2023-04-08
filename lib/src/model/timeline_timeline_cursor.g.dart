@@ -70,21 +70,33 @@ class _$TimelineTimelineCursorCursorTypeEnumSerializer
 
 class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   @override
-  final TypeName? typename;
+  final TypeName typename;
   @override
-  final ContentEntryType? entryType;
+  final ContentEntryType entryType;
   @override
-  final TimelineTimelineCursorCursorTypeEnum? cursorType;
+  final TimelineTimelineCursorCursorTypeEnum cursorType;
   @override
-  final String? value;
+  final String value;
 
   factory _$TimelineTimelineCursor(
           [void Function(TimelineTimelineCursorBuilder)? updates]) =>
       (new TimelineTimelineCursorBuilder()..update(updates))._build();
 
   _$TimelineTimelineCursor._(
-      {this.typename, this.entryType, this.cursorType, this.value})
-      : super._();
+      {required this.typename,
+      required this.entryType,
+      required this.cursorType,
+      required this.value})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        typename, r'TimelineTimelineCursor', 'typename');
+    BuiltValueNullFieldError.checkNotNull(
+        entryType, r'TimelineTimelineCursor', 'entryType');
+    BuiltValueNullFieldError.checkNotNull(
+        cursorType, r'TimelineTimelineCursor', 'cursorType');
+    BuiltValueNullFieldError.checkNotNull(
+        value, r'TimelineTimelineCursor', 'value');
+  }
 
   @override
   TimelineTimelineCursor rebuild(
@@ -181,10 +193,14 @@ class TimelineTimelineCursorBuilder
   _$TimelineTimelineCursor _build() {
     final _$result = _$v ??
         new _$TimelineTimelineCursor._(
-            typename: typename,
-            entryType: entryType,
-            cursorType: cursorType,
-            value: value);
+            typename: BuiltValueNullFieldError.checkNotNull(
+                typename, r'TimelineTimelineCursor', 'typename'),
+            entryType: BuiltValueNullFieldError.checkNotNull(
+                entryType, r'TimelineTimelineCursor', 'entryType'),
+            cursorType: BuiltValueNullFieldError.checkNotNull(
+                cursorType, r'TimelineTimelineCursor', 'cursorType'),
+            value: BuiltValueNullFieldError.checkNotNull(
+                value, r'TimelineTimelineCursor', 'value'));
     replace(_$result);
     return _$result;
   }

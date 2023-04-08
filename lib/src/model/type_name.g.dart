@@ -11,6 +11,10 @@ const TypeName _$timelineTimelineItem =
     const TypeName._('timelineTimelineItem');
 const TypeName _$timelineTimelineCursor =
     const TypeName._('timelineTimelineCursor');
+const TypeName _$tweetWithVisibilityResults =
+    const TypeName._('tweetWithVisibilityResults');
+const TypeName _$tweet = const TypeName._('tweet');
+const TypeName _$user = const TypeName._('user');
 
 TypeName _$valueOf(String name) {
   switch (name) {
@@ -20,6 +24,12 @@ TypeName _$valueOf(String name) {
       return _$timelineTimelineItem;
     case 'timelineTimelineCursor':
       return _$timelineTimelineCursor;
+    case 'tweetWithVisibilityResults':
+      return _$tweetWithVisibilityResults;
+    case 'tweet':
+      return _$tweet;
+    case 'user':
+      return _$user;
     default:
       throw new ArgumentError(name);
   }
@@ -29,6 +39,9 @@ final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$timelineTweet,
   _$timelineTimelineItem,
   _$timelineTimelineCursor,
+  _$tweetWithVisibilityResults,
+  _$tweet,
+  _$user,
 ]);
 
 class _$TypeNameMeta {
@@ -36,6 +49,9 @@ class _$TypeNameMeta {
   TypeName get timelineTweet => _$timelineTweet;
   TypeName get timelineTimelineItem => _$timelineTimelineItem;
   TypeName get timelineTimelineCursor => _$timelineTimelineCursor;
+  TypeName get tweetWithVisibilityResults => _$tweetWithVisibilityResults;
+  TypeName get tweet => _$tweet;
+  TypeName get user => _$user;
   TypeName valueOf(String name) => _$valueOf(name);
   BuiltSet<TypeName> get values => _$values;
 }
@@ -52,11 +68,17 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'timelineTweet': 'TimelineTweet',
     'timelineTimelineItem': 'TimelineTimelineItem',
     'timelineTimelineCursor': 'TimelineTimelineCursor',
+    'tweetWithVisibilityResults': 'TweetWithVisibilityResults',
+    'tweet': 'Tweet',
+    'user': 'User',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
     'TimelineTimelineItem': 'timelineTimelineItem',
     'TimelineTimelineCursor': 'timelineTimelineCursor',
+    'TweetWithVisibilityResults': 'tweetWithVisibilityResults',
+    'Tweet': 'tweet',
+    'User': 'user',
   };
 
   @override

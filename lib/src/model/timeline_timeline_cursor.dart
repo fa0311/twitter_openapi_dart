@@ -21,19 +21,19 @@ part 'timeline_timeline_cursor.g.dart';
 @BuiltValue()
 abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
-  TypeName? get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  };
+  TypeName get typename;
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'entryType')
-  ContentEntryType? get entryType;
+  ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  };
 
   @BuiltValueField(wireName: r'cursorType')
-  TimelineTimelineCursorCursorTypeEnum? get cursorType;
+  TimelineTimelineCursorCursorTypeEnum get cursorType;
   // enum cursorTypeEnum {  Top,  Bottom,  };
 
   @BuiltValueField(wireName: r'value')
-  String? get value;
+  String get value;
 
   TimelineTimelineCursor._();
 
@@ -58,34 +58,26 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
     TimelineTimelineCursor object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.typename != null) {
-      yield r'__typename';
-      yield serializers.serialize(
-        object.typename,
-        specifiedType: const FullType(TypeName),
-      );
-    }
-    if (object.entryType != null) {
-      yield r'entryType';
-      yield serializers.serialize(
-        object.entryType,
-        specifiedType: const FullType(ContentEntryType),
-      );
-    }
-    if (object.cursorType != null) {
-      yield r'cursorType';
-      yield serializers.serialize(
-        object.cursorType,
-        specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
-      );
-    }
-    if (object.value != null) {
-      yield r'value';
-      yield serializers.serialize(
-        object.value,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'__typename';
+    yield serializers.serialize(
+      object.typename,
+      specifiedType: const FullType(TypeName),
+    );
+    yield r'entryType';
+    yield serializers.serialize(
+      object.entryType,
+      specifiedType: const FullType(ContentEntryType),
+    );
+    yield r'cursorType';
+    yield serializers.serialize(
+      object.cursorType,
+      specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
+    );
+    yield r'value';
+    yield serializers.serialize(
+      object.value,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/entry.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,11 +19,11 @@ part 'timeline_add_entries.g.dart';
 @BuiltValue()
 abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
   @BuiltValueField(wireName: r'type')
-  InstructionType? get type;
-  // enum typeEnum {  TimelineAddEntries,  };
+  InstructionType get type;
+  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineTerminateTimeline,  TimelineShowAlert,  };
 
   @BuiltValueField(wireName: r'entries')
-  BuiltList<Entry>? get entries;
+  BuiltList<TimelineAddEntry> get entries;
 
   TimelineAddEntries._();
 
@@ -48,20 +48,16 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
     TimelineAddEntries object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.type != null) {
-      yield r'type';
-      yield serializers.serialize(
-        object.type,
-        specifiedType: const FullType(InstructionType),
-      );
-    }
-    if (object.entries != null) {
-      yield r'entries';
-      yield serializers.serialize(
-        object.entries,
-        specifiedType: const FullType(BuiltList, [FullType(Entry)]),
-      );
-    }
+    yield r'type';
+    yield serializers.serialize(
+      object.type,
+      specifiedType: const FullType(InstructionType),
+    );
+    yield r'entries';
+    yield serializers.serialize(
+      object.entries,
+      specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+    );
   }
 
   @override
@@ -95,8 +91,8 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(Entry)]),
-          ) as BuiltList<Entry>;
+            specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+          ) as BuiltList<TimelineAddEntry>;
           result.entries.replace(valueDes);
           break;
         default:

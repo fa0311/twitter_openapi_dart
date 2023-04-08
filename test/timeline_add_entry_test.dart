@@ -1,12 +1,12 @@
 import 'package:test/test.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
-// tests for Entry
+// tests for TimelineAddEntry
 void main() {
-  final instance = EntryBuilder();
+  final instance = TimelineAddEntryBuilder();
   // TODO add properties to the builder and call build()
 
-  group(Entry, () {
+  group(TimelineAddEntry, () {
     // ContentUnion content
     test('to test the property `content`', () async {
       // TODO
