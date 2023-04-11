@@ -30,7 +30,7 @@ part 'user_result.g.dart';
 abstract class UserResult implements Built<UserResult, UserResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'affiliates_highlighted_label')
   JsonObject get affiliatesHighlightedLabel;

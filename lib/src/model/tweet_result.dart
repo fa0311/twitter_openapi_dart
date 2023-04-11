@@ -31,7 +31,7 @@ part 'tweet_result.g.dart';
 abstract class TweetResult implements Built<TweetResult, TweetResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;

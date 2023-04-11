@@ -5,23 +5,18 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
-import 'package:twitter_openapi_dart/src/model/item_content.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_timeline_item.g.dart';
+part 'timeline_timeline_module.g.dart';
 
-/// TimelineTimelineItem
+/// TimelineTimelineModule
 ///
 /// Properties:
 /// * [typename] 
 /// * [entryType] 
-/// * [itemContent] 
-/// * [clientEventInfo] 
-/// * [feedbackInfo] 
 @BuiltValue()
-abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
+abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
@@ -30,36 +25,27 @@ abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, Timel
   ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
-  @BuiltValueField(wireName: r'itemContent')
-  ItemContent get itemContent;
+  TimelineTimelineModule._();
 
-  @BuiltValueField(wireName: r'clientEventInfo')
-  JsonObject? get clientEventInfo;
-
-  @BuiltValueField(wireName: r'feedbackInfo')
-  JsonObject? get feedbackInfo;
-
-  TimelineTimelineItem._();
-
-  factory TimelineTimelineItem([void updates(TimelineTimelineItemBuilder b)]) = _$TimelineTimelineItem;
+  factory TimelineTimelineModule([void updates(TimelineTimelineModuleBuilder b)]) = _$TimelineTimelineModule;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineTimelineItemBuilder b) => b;
+  static void _defaults(TimelineTimelineModuleBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTimelineItem> get serializer => _$TimelineTimelineItemSerializer();
+  static Serializer<TimelineTimelineModule> get serializer => _$TimelineTimelineModuleSerializer();
 }
 
-class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTimelineItem> {
+class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<TimelineTimelineModule> {
   @override
-  final Iterable<Type> types = const [TimelineTimelineItem, _$TimelineTimelineItem];
+  final Iterable<Type> types = const [TimelineTimelineModule, _$TimelineTimelineModule];
 
   @override
-  final String wireName = r'TimelineTimelineItem';
+  final String wireName = r'TimelineTimelineModule';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineTimelineItem object, {
+    TimelineTimelineModule object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'__typename';
@@ -72,31 +58,12 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
       object.entryType,
       specifiedType: const FullType(ContentEntryType),
     );
-    yield r'itemContent';
-    yield serializers.serialize(
-      object.itemContent,
-      specifiedType: const FullType(ItemContent),
-    );
-    if (object.clientEventInfo != null) {
-      yield r'clientEventInfo';
-      yield serializers.serialize(
-        object.clientEventInfo,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    if (object.feedbackInfo != null) {
-      yield r'feedbackInfo';
-      yield serializers.serialize(
-        object.feedbackInfo,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TimelineTimelineItem object, {
+    TimelineTimelineModule object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -107,7 +74,7 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineTimelineItemBuilder result,
+    required TimelineTimelineModuleBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -128,27 +95,6 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
           ) as ContentEntryType;
           result.entryType = valueDes;
           break;
-        case r'itemContent':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ItemContent),
-          ) as ItemContent;
-          result.itemContent.replace(valueDes);
-          break;
-        case r'clientEventInfo':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.clientEventInfo = valueDes;
-          break;
-        case r'feedbackInfo':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.feedbackInfo = valueDes;
-          break;
         default:
           unhandled.add(key);
           unhandled.add(value);
@@ -158,12 +104,12 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
   }
 
   @override
-  TimelineTimelineItem deserialize(
+  TimelineTimelineModule deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineTimelineItemBuilder();
+    final result = TimelineTimelineModuleBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -10,22 +10,22 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **blockedBy** | **bool** |  | [default to false]
 **blocking** | **bool** |  | [default to false]
-**canDm** | **bool** |  | 
-**canMediaTag** | **bool** |  | 
-**createdAt** | **String** |  | 
-**defaultProfile** | **bool** |  | 
-**defaultProfileImage** | **bool** |  | 
-**description** | **String** |  | 
+**canDm** | **bool** |  | [default to false]
+**canMediaTag** | **bool** |  | [default to false]
+**createdAt** | **String** |  | [optional] 
+**defaultProfile** | **bool** |  | [default to false]
+**defaultProfileImage** | **bool** |  | [default to false]
+**description** | **String** |  | [optional] 
 **entities** | [**JsonObject**](.md) |  | [optional] 
-**fastFollowersCount** | **int** |  | 
+**fastFollowersCount** | **int** |  | [optional] 
 **favouritesCount** | **int** |  | 
 **followRequestSent** | **bool** |  | [default to false]
 **followedBy** | **bool** |  | [default to false]
 **followersCount** | **int** |  | 
 **following** | **bool** |  | [default to false]
 **friendsCount** | **int** |  | 
-**hasCustomTimelines** | **bool** |  | 
-**isTranslator** | **bool** |  | 
+**hasCustomTimelines** | **bool** |  | [default to false]
+**isTranslator** | **bool** |  | [default to false]
 **listedCount** | **int** |  | 
 **location** | **String** |  | 
 **mediaCount** | **int** |  | 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **normalFollowersCount** | **int** |  | 
 **notifications** | **bool** |  | [default to false]
 **pinnedTweetIdsStr** | **BuiltList&lt;String&gt;** |  | 
-**possiblySensitive** | **bool** |  | 
+**possiblySensitive** | **bool** |  | [default to false]
 **profileBannerExtensions** | [**JsonObject**](.md) |  | [optional] 
 **profileBannerUrl** | **String** |  | [optional] 
 **profileImageExtensions** | [**JsonObject**](.md) |  | [optional] 
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **translatorType** | **String** |  | 
 **url** | **String** |  | [optional] 
 **verified** | **bool** |  | 
-**wantRetweets** | **bool** |  | 
+**wantRetweets** | **bool** |  | [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

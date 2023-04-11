@@ -13,6 +13,8 @@ const TypeName _$timelineTimelineCursor =
     const TypeName._('timelineTimelineCursor');
 const TypeName _$tweetWithVisibilityResults =
     const TypeName._('tweetWithVisibilityResults');
+const TypeName _$timelineTimelineModule =
+    const TypeName._('timelineTimelineModule');
 const TypeName _$tweet = const TypeName._('tweet');
 const TypeName _$user = const TypeName._('user');
 
@@ -26,6 +28,8 @@ TypeName _$valueOf(String name) {
       return _$timelineTimelineCursor;
     case 'tweetWithVisibilityResults':
       return _$tweetWithVisibilityResults;
+    case 'timelineTimelineModule':
+      return _$timelineTimelineModule;
     case 'tweet':
       return _$tweet;
     case 'user':
@@ -40,6 +44,7 @@ final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$timelineTimelineItem,
   _$timelineTimelineCursor,
   _$tweetWithVisibilityResults,
+  _$timelineTimelineModule,
   _$tweet,
   _$user,
 ]);
@@ -50,6 +55,7 @@ class _$TypeNameMeta {
   TypeName get timelineTimelineItem => _$timelineTimelineItem;
   TypeName get timelineTimelineCursor => _$timelineTimelineCursor;
   TypeName get tweetWithVisibilityResults => _$tweetWithVisibilityResults;
+  TypeName get timelineTimelineModule => _$timelineTimelineModule;
   TypeName get tweet => _$tweet;
   TypeName get user => _$user;
   TypeName valueOf(String name) => _$valueOf(name);
@@ -69,6 +75,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'timelineTimelineItem': 'TimelineTimelineItem',
     'timelineTimelineCursor': 'TimelineTimelineCursor',
     'tweetWithVisibilityResults': 'TweetWithVisibilityResults',
+    'timelineTimelineModule': 'TimelineTimelineModule',
     'tweet': 'Tweet',
     'user': 'User',
   };
@@ -77,6 +84,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'TimelineTimelineItem': 'timelineTimelineItem',
     'TimelineTimelineCursor': 'timelineTimelineCursor',
     'TweetWithVisibilityResults': 'tweetWithVisibilityResults',
+    'TimelineTimelineModule': 'timelineTimelineModule',
     'Tweet': 'tweet',
     'User': 'user',
   };

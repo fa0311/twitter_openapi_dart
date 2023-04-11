@@ -41,7 +41,7 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   bool get bookmarked;
 
   @BuiltValueField(wireName: r'created_at')
-  String get createdAt;
+  String? get createdAt;
 
   @BuiltValueField(wireName: r'conversation_id_str')
   String get conversationIdStr;
@@ -126,11 +126,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.bookmarked,
       specifiedType: const FullType(bool),
     );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(String),
-    );
+    if (object.createdAt != null) {
+      yield r'created_at';
+      yield serializers.serialize(
+        object.createdAt,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'conversation_id_str';
     yield serializers.serialize(
       object.conversationIdStr,

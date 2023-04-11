@@ -67,7 +67,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   bool get canMediaTag;
 
   @BuiltValueField(wireName: r'created_at')
-  String get createdAt;
+  String? get createdAt;
 
   @BuiltValueField(wireName: r'default_profile')
   bool get defaultProfile;
@@ -76,13 +76,13 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   bool get defaultProfileImage;
 
   @BuiltValueField(wireName: r'description')
-  String get description;
+  String? get description;
 
   @BuiltValueField(wireName: r'entities')
   JsonObject? get entities;
 
   @BuiltValueField(wireName: r'fast_followers_count')
-  int get fastFollowersCount;
+  int? get fastFollowersCount;
 
   @BuiltValueField(wireName: r'favourites_count')
   int get favouritesCount;
@@ -179,12 +179,20 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   static void _defaults(UserLegacyBuilder b) => b
       ..blockedBy = false
       ..blocking = false
+      ..canDm = false
+      ..canMediaTag = false
+      ..defaultProfile = false
+      ..defaultProfileImage = false
       ..followRequestSent = false
       ..followedBy = false
       ..following = false
+      ..hasCustomTimelines = false
+      ..isTranslator = false
       ..muting = false
       ..notifications = false
-      ..protected = false;
+      ..possiblySensitive = false
+      ..protected = false
+      ..wantRetweets = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserLegacy> get serializer => _$UserLegacySerializer();
@@ -222,11 +230,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.canMediaTag,
       specifiedType: const FullType(bool),
     );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(String),
-    );
+    if (object.createdAt != null) {
+      yield r'created_at';
+      yield serializers.serialize(
+        object.createdAt,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'default_profile';
     yield serializers.serialize(
       object.defaultProfile,
@@ -237,11 +247,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.defaultProfileImage,
       specifiedType: const FullType(bool),
     );
-    yield r'description';
-    yield serializers.serialize(
-      object.description,
-      specifiedType: const FullType(String),
-    );
+    if (object.description != null) {
+      yield r'description';
+      yield serializers.serialize(
+        object.description,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.entities != null) {
       yield r'entities';
       yield serializers.serialize(
@@ -249,11 +261,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
         specifiedType: const FullType(JsonObject),
       );
     }
-    yield r'fast_followers_count';
-    yield serializers.serialize(
-      object.fastFollowersCount,
-      specifiedType: const FullType(int),
-    );
+    if (object.fastFollowersCount != null) {
+      yield r'fast_followers_count';
+      yield serializers.serialize(
+        object.fastFollowersCount,
+        specifiedType: const FullType(int),
+      );
+    }
     yield r'favourites_count';
     yield serializers.serialize(
       object.favouritesCount,

@@ -29,6 +29,7 @@ import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_legacy.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_result.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_result_edit_control.dart';
@@ -58,6 +59,7 @@ part 'serializers.g.dart';
   TimelineAddEntry,
   TimelineTimelineCursor,
   TimelineTimelineItem,
+  TimelineTimelineModule,
   TweetLegacy,
   TweetResult,
   TweetResultEditControl,

@@ -8,23 +8,11 @@ part of 'instruction_type.dart';
 
 const InstructionType _$timelineAddEntries =
     const InstructionType._('timelineAddEntries');
-const InstructionType _$timelineAddToModule =
-    const InstructionType._('timelineAddToModule');
-const InstructionType _$timelineTerminateTimeline =
-    const InstructionType._('timelineTerminateTimeline');
-const InstructionType _$timelineShowAlert =
-    const InstructionType._('timelineShowAlert');
 
 InstructionType _$valueOf(String name) {
   switch (name) {
     case 'timelineAddEntries':
       return _$timelineAddEntries;
-    case 'timelineAddToModule':
-      return _$timelineAddToModule;
-    case 'timelineTerminateTimeline':
-      return _$timelineTerminateTimeline;
-    case 'timelineShowAlert':
-      return _$timelineShowAlert;
     default:
       throw new ArgumentError(name);
   }
@@ -33,17 +21,11 @@ InstructionType _$valueOf(String name) {
 final BuiltSet<InstructionType> _$values =
     new BuiltSet<InstructionType>(const <InstructionType>[
   _$timelineAddEntries,
-  _$timelineAddToModule,
-  _$timelineTerminateTimeline,
-  _$timelineShowAlert,
 ]);
 
 class _$InstructionTypeMeta {
   const _$InstructionTypeMeta();
   InstructionType get timelineAddEntries => _$timelineAddEntries;
-  InstructionType get timelineAddToModule => _$timelineAddToModule;
-  InstructionType get timelineTerminateTimeline => _$timelineTerminateTimeline;
-  InstructionType get timelineShowAlert => _$timelineShowAlert;
   InstructionType valueOf(String name) => _$valueOf(name);
   BuiltSet<InstructionType> get values => _$values;
 }
@@ -60,15 +42,9 @@ class _$InstructionTypeSerializer
     implements PrimitiveSerializer<InstructionType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineAddEntries': 'TimelineAddEntries',
-    'timelineAddToModule': 'TimelineAddToModule',
-    'timelineTerminateTimeline': 'TimelineTerminateTimeline',
-    'timelineShowAlert': 'TimelineShowAlert',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineAddEntries': 'timelineAddEntries',
-    'TimelineAddToModule': 'timelineAddToModule',
-    'TimelineTerminateTimeline': 'timelineTerminateTimeline',
-    'TimelineShowAlert': 'timelineShowAlert',
   };
 
   @override

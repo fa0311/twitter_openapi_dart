@@ -15,6 +15,8 @@ class ContentEntryType extends EnumClass {
   static const ContentEntryType timelineTimelineItem = _$timelineTimelineItem;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineCursor')
   static const ContentEntryType timelineTimelineCursor = _$timelineTimelineCursor;
+  @BuiltValueEnumConst(wireName: r'TimelineTimelineModule')
+  static const ContentEntryType timelineTimelineModule = _$timelineTimelineModule;
 
   static Serializer<ContentEntryType> get serializer => _$contentEntryTypeSerializer;
 

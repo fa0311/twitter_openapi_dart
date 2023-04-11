@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/item_content.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
@@ -28,7 +29,7 @@ part 'content_union.g.dart';
 /// * [value] 
 @BuiltValue()
 abstract class ContentUnion implements Built<ContentUnion, ContentUnionBuilder> {
-  /// One Of [TimelineTimelineCursor], [TimelineTimelineItem]
+  /// One Of [TimelineTimelineCursor], [TimelineTimelineItem], [TimelineTimelineModule]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'entryType';
@@ -36,6 +37,7 @@ abstract class ContentUnion implements Built<ContentUnion, ContentUnionBuilder> 
   static const Map<String, Type> discriminatorMapping = {
     r'TimelineTimelineCursor': TimelineTimelineCursor,
     r'TimelineTimelineItem': TimelineTimelineItem,
+    r'TimelineTimelineModule': TimelineTimelineModule,
   };
 
   ContentUnion._();
@@ -57,6 +59,9 @@ extension ContentUnionDiscriminatorExt on ContentUnion {
         if (this is TimelineTimelineItem) {
             return r'TimelineTimelineItem';
         }
+        if (this is TimelineTimelineModule) {
+            return r'TimelineTimelineModule';
+        }
         return null;
     }
 }
@@ -67,6 +72,9 @@ extension ContentUnionBuilderDiscriminatorExt on ContentUnionBuilder {
         }
         if (this is TimelineTimelineItemBuilder) {
             return r'TimelineTimelineItem';
+        }
+        if (this is TimelineTimelineModuleBuilder) {
+            return r'TimelineTimelineModule';
         }
         return null;
     }
@@ -108,7 +116,7 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
     final discIndex = serializedList.indexOf(ContentUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineTimelineCursor, TimelineTimelineItem, ];
+    final oneOfTypes = [TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule, ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -125,6 +133,13 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
           specifiedType: FullType(TimelineTimelineItem),
         ) as TimelineTimelineItem;
         oneOfType = TimelineTimelineItem;
+        break;
+      case r'TimelineTimelineModule':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineTimelineModule),
+        ) as TimelineTimelineModule;
+        oneOfType = TimelineTimelineModule;
         break;
       default:
         throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");

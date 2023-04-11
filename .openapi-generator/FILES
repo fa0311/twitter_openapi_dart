@@ -18,6 +18,7 @@ doc/TimelineAddEntries.md
 doc/TimelineAddEntry.md
 doc/TimelineTimelineCursor.md
 doc/TimelineTimelineItem.md
+doc/TimelineTimelineModule.md
 doc/TweetLegacy.md
 doc/TweetResult.md
 doc/TweetResultEditControl.md
@@ -53,6 +54,7 @@ lib/src/model/timeline_add_entries.dart
 lib/src/model/timeline_add_entry.dart
 lib/src/model/timeline_timeline_cursor.dart
 lib/src/model/timeline_timeline_item.dart
+lib/src/model/timeline_timeline_module.dart
 lib/src/model/tweet_legacy.dart
 lib/src/model/tweet_result.dart
 lib/src/model/tweet_result_edit_control.dart
@@ -82,6 +84,7 @@ test/timeline_add_entries_test.dart
 test/timeline_add_entry_test.dart
 test/timeline_timeline_cursor_test.dart
 test/timeline_timeline_item_test.dart
+test/timeline_timeline_module_test.dart
 test/tweet_legacy_test.dart
 test/tweet_result_edit_control_test.dart
 test/tweet_result_edit_prespective_test.dart

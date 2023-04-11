@@ -17,12 +17,12 @@ void main() {
       // TODO
     });
 
-    // bool canDm
+    // bool canDm (default value: false)
     test('to test the property `canDm`', () async {
       // TODO
     });
 
-    // bool canMediaTag
+    // bool canMediaTag (default value: false)
     test('to test the property `canMediaTag`', () async {
       // TODO
     });
@@ -32,12 +32,12 @@ void main() {
       // TODO
     });
 
-    // bool defaultProfile
+    // bool defaultProfile (default value: false)
     test('to test the property `defaultProfile`', () async {
       // TODO
     });
 
-    // bool defaultProfileImage
+    // bool defaultProfileImage (default value: false)
     test('to test the property `defaultProfileImage`', () async {
       // TODO
     });
@@ -87,12 +87,12 @@ void main() {
       // TODO
     });
 
-    // bool hasCustomTimelines
+    // bool hasCustomTimelines (default value: false)
     test('to test the property `hasCustomTimelines`', () async {
       // TODO
     });
 
-    // bool isTranslator
+    // bool isTranslator (default value: false)
     test('to test the property `isTranslator`', () async {
       // TODO
     });
@@ -137,7 +137,7 @@ void main() {
       // TODO
     });
 
-    // bool possiblySensitive
+    // bool possiblySensitive (default value: false)
     test('to test the property `possiblySensitive`', () async {
       // TODO
     });
@@ -197,7 +197,7 @@ void main() {
       // TODO
     });
 
-    // bool wantRetweets
+    // bool wantRetweets (default value: false)
     test('to test the property `wantRetweets`', () async {
       // TODO
     });

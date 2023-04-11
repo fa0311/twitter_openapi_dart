@@ -87,6 +87,7 @@ Class | Method | HTTP request | Description
  - [TimelineAddEntry](doc\TimelineAddEntry.md)
  - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
+ - [TimelineTimelineModule](doc\TimelineTimelineModule.md)
  - [TweetLegacy](doc\TweetLegacy.md)
  - [TweetResult](doc\TweetResult.md)
  - [TweetResultEditControl](doc\TweetResultEditControl.md)

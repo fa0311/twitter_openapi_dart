@@ -22,7 +22,7 @@ part 'item_content.g.dart';
 abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;

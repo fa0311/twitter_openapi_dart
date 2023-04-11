@@ -16,17 +16,17 @@ class _$UserLegacy extends UserLegacy {
   @override
   final bool canMediaTag;
   @override
-  final String createdAt;
+  final String? createdAt;
   @override
   final bool defaultProfile;
   @override
   final bool defaultProfileImage;
   @override
-  final String description;
+  final String? description;
   @override
   final JsonObject? entities;
   @override
-  final int fastFollowersCount;
+  final int? fastFollowersCount;
   @override
   final int favouritesCount;
   @override
@@ -94,12 +94,12 @@ class _$UserLegacy extends UserLegacy {
       required this.blocking,
       required this.canDm,
       required this.canMediaTag,
-      required this.createdAt,
+      this.createdAt,
       required this.defaultProfile,
       required this.defaultProfileImage,
-      required this.description,
+      this.description,
       this.entities,
-      required this.fastFollowersCount,
+      this.fastFollowersCount,
       required this.favouritesCount,
       required this.followRequestSent,
       required this.followedBy,
@@ -137,15 +137,9 @@ class _$UserLegacy extends UserLegacy {
     BuiltValueNullFieldError.checkNotNull(
         canMediaTag, r'UserLegacy', 'canMediaTag');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'UserLegacy', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(
         defaultProfile, r'UserLegacy', 'defaultProfile');
     BuiltValueNullFieldError.checkNotNull(
         defaultProfileImage, r'UserLegacy', 'defaultProfileImage');
-    BuiltValueNullFieldError.checkNotNull(
-        description, r'UserLegacy', 'description');
-    BuiltValueNullFieldError.checkNotNull(
-        fastFollowersCount, r'UserLegacy', 'fastFollowersCount');
     BuiltValueNullFieldError.checkNotNull(
         favouritesCount, r'UserLegacy', 'favouritesCount');
     BuiltValueNullFieldError.checkNotNull(
@@ -594,19 +588,18 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
                   canDm, r'UserLegacy', 'canDm'),
               canMediaTag: BuiltValueNullFieldError.checkNotNull(
                   canMediaTag, r'UserLegacy', 'canMediaTag'),
-              createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, r'UserLegacy', 'createdAt'),
+              createdAt: createdAt,
               defaultProfile: BuiltValueNullFieldError.checkNotNull(
                   defaultProfile, r'UserLegacy', 'defaultProfile'),
               defaultProfileImage: BuiltValueNullFieldError.checkNotNull(
                   defaultProfileImage, r'UserLegacy', 'defaultProfileImage'),
-              description: BuiltValueNullFieldError.checkNotNull(
-                  description, r'UserLegacy', 'description'),
+              description: description,
               entities: entities,
-              fastFollowersCount:
-                  BuiltValueNullFieldError.checkNotNull(fastFollowersCount, r'UserLegacy', 'fastFollowersCount'),
-              favouritesCount: BuiltValueNullFieldError.checkNotNull(favouritesCount, r'UserLegacy', 'favouritesCount'),
-              followRequestSent: BuiltValueNullFieldError.checkNotNull(followRequestSent, r'UserLegacy', 'followRequestSent'),
+              fastFollowersCount: fastFollowersCount,
+              favouritesCount: BuiltValueNullFieldError.checkNotNull(
+                  favouritesCount, r'UserLegacy', 'favouritesCount'),
+              followRequestSent: BuiltValueNullFieldError.checkNotNull(
+                  followRequestSent, r'UserLegacy', 'followRequestSent'),
               followedBy: BuiltValueNullFieldError.checkNotNull(followedBy, r'UserLegacy', 'followedBy'),
               followersCount: BuiltValueNullFieldError.checkNotNull(followersCount, r'UserLegacy', 'followersCount'),
               following: BuiltValueNullFieldError.checkNotNull(following, r'UserLegacy', 'following'),

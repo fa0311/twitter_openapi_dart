@@ -20,7 +20,7 @@ part 'timeline_add_entries.g.dart';
 abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
-  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineTerminateTimeline,  TimelineShowAlert,  };
+  // enum typeEnum {  TimelineAddEntries,  };
 
   @BuiltValueField(wireName: r'entries')
   BuiltList<TimelineAddEntry> get entries;

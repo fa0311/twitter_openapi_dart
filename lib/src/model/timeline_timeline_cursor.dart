@@ -22,11 +22,11 @@ part 'timeline_timeline_cursor.g.dart';
 abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType get entryType;
-  // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  };
+  // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
   @BuiltValueField(wireName: r'cursorType')
   TimelineTimelineCursorCursorTypeEnum get cursorType;

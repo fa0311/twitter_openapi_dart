@@ -26,6 +26,7 @@ export 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 export 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 export 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 export 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
+export 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 export 'package:twitter_openapi_dart/src/model/tweet_legacy.dart';
 export 'package:twitter_openapi_dart/src/model/tweet_result.dart';
 export 'package:twitter_openapi_dart/src/model/tweet_result_edit_control.dart';
