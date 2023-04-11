@@ -3,125 +3,41 @@
 part of 'timeline_add_entries.dart';
 
 // **************************************************************************
-// BuiltValueGenerator
+// JsonSerializableGenerator
 // **************************************************************************
 
-class _$TimelineAddEntries extends TimelineAddEntries {
-  @override
-  final InstructionType type;
-  @override
-  final BuiltList<TimelineAddEntry> entries;
+TimelineAddEntries _$TimelineAddEntriesFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'TimelineAddEntries',
+      json,
+      ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const ['type', 'entries'],
+        );
+        final val = TimelineAddEntries(
+          type: $checkedConvert(
+              'type', (v) => $enumDecode(_$InstructionTypeEnumMap, v)),
+          entries: $checkedConvert(
+              'entries',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      TimelineAddEntry.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
+    );
 
-  factory _$TimelineAddEntries(
-          [void Function(TimelineAddEntriesBuilder)? updates]) =>
-      (new TimelineAddEntriesBuilder()..update(updates))._build();
+Map<String, dynamic> _$TimelineAddEntriesToJson(TimelineAddEntries instance) =>
+    <String, dynamic>{
+      'type': _$InstructionTypeEnumMap[instance.type]!,
+      'entries': instance.entries.map((e) => e.toJson()).toList(),
+    };
 
-  _$TimelineAddEntries._({required this.type, required this.entries})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'TimelineAddEntries', 'type');
-    BuiltValueNullFieldError.checkNotNull(
-        entries, r'TimelineAddEntries', 'entries');
-  }
-
-  @override
-  TimelineAddEntries rebuild(
-          void Function(TimelineAddEntriesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  TimelineAddEntriesBuilder toBuilder() =>
-      new TimelineAddEntriesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TimelineAddEntries &&
-        type == other.type &&
-        entries == other.entries;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, entries.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TimelineAddEntries')
-          ..add('type', type)
-          ..add('entries', entries))
-        .toString();
-  }
-}
-
-class TimelineAddEntriesBuilder
-    implements Builder<TimelineAddEntries, TimelineAddEntriesBuilder> {
-  _$TimelineAddEntries? _$v;
-
-  InstructionType? _type;
-  InstructionType? get type => _$this._type;
-  set type(InstructionType? type) => _$this._type = type;
-
-  ListBuilder<TimelineAddEntry>? _entries;
-  ListBuilder<TimelineAddEntry> get entries =>
-      _$this._entries ??= new ListBuilder<TimelineAddEntry>();
-  set entries(ListBuilder<TimelineAddEntry>? entries) =>
-      _$this._entries = entries;
-
-  TimelineAddEntriesBuilder() {
-    TimelineAddEntries._defaults(this);
-  }
-
-  TimelineAddEntriesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _type = $v.type;
-      _entries = $v.entries.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(TimelineAddEntries other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TimelineAddEntries;
-  }
-
-  @override
-  void update(void Function(TimelineAddEntriesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TimelineAddEntries build() => _build();
-
-  _$TimelineAddEntries _build() {
-    _$TimelineAddEntries _$result;
-    try {
-      _$result = _$v ??
-          new _$TimelineAddEntries._(
-              type: BuiltValueNullFieldError.checkNotNull(
-                  type, r'TimelineAddEntries', 'type'),
-              entries: entries.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'entries';
-        entries.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'TimelineAddEntries', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-// ignore_for_file: deprecated_member_use_from_same_package,type=lint
+const _$InstructionTypeEnumMap = {
+  InstructionType.timelineAddEntries: 'TimelineAddEntries',
+  InstructionType.timelineAddToModule: 'TimelineAddToModule',
+  InstructionType.timelineTerminateTimeline: 'TimelineTerminateTimeline',
+  InstructionType.timelineShowAlert: 'TimelineShowAlert',
+};

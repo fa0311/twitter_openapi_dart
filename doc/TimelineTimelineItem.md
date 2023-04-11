@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **itemContent** | [**ItemContent**](ItemContent.md) |  | 
-**clientEventInfo** | [**JsonObject**](.md) |  | [optional] 
-**feedbackInfo** | [**JsonObject**](.md) |  | [optional] 
+**clientEventInfo** | **Object** |  | [optional] 
+**feedbackInfo** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

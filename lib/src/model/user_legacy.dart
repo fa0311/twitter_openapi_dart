@@ -3,732 +3,660 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'user_legacy.g.dart';
 
-/// UserLegacy
-///
-/// Properties:
-/// * [blockedBy] 
-/// * [blocking] 
-/// * [canDm] 
-/// * [canMediaTag] 
-/// * [createdAt] 
-/// * [defaultProfile] 
-/// * [defaultProfileImage] 
-/// * [description] 
-/// * [entities] 
-/// * [fastFollowersCount] 
-/// * [favouritesCount] 
-/// * [followRequestSent] 
-/// * [followedBy] 
-/// * [followersCount] 
-/// * [following] 
-/// * [friendsCount] 
-/// * [hasCustomTimelines] 
-/// * [isTranslator] 
-/// * [listedCount] 
-/// * [location] 
-/// * [mediaCount] 
-/// * [muting] 
-/// * [name] 
-/// * [normalFollowersCount] 
-/// * [notifications] 
-/// * [pinnedTweetIdsStr] 
-/// * [possiblySensitive] 
-/// * [profileBannerExtensions] 
-/// * [profileBannerUrl] 
-/// * [profileImageExtensions] 
-/// * [profileImageUrlHttps] 
-/// * [profileInterstitialType] 
-/// * [protected] 
-/// * [screenName] 
-/// * [statusesCount] 
-/// * [translatorType] 
-/// * [url] 
-/// * [verified] 
-/// * [wantRetweets] 
-@BuiltValue()
-abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
-  @BuiltValueField(wireName: r'blocked_by')
-  bool get blockedBy;
 
-  @BuiltValueField(wireName: r'blocking')
-  bool get blocking;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserLegacy {
+  /// Returns a new [UserLegacy] instance.
+  UserLegacy({
 
-  @BuiltValueField(wireName: r'can_dm')
-  bool get canDm;
+     this.blockedBy = false,
 
-  @BuiltValueField(wireName: r'can_media_tag')
-  bool get canMediaTag;
+     this.blocking = false,
 
-  @BuiltValueField(wireName: r'created_at')
-  String get createdAt;
+    required  this.canDm,
 
-  @BuiltValueField(wireName: r'default_profile')
-  bool get defaultProfile;
+    required  this.canMediaTag,
 
-  @BuiltValueField(wireName: r'default_profile_image')
-  bool get defaultProfileImage;
+    required  this.createdAt,
 
-  @BuiltValueField(wireName: r'description')
-  String get description;
+    required  this.defaultProfile,
 
-  @BuiltValueField(wireName: r'entities')
-  JsonObject? get entities;
+    required  this.defaultProfileImage,
 
-  @BuiltValueField(wireName: r'fast_followers_count')
-  int get fastFollowersCount;
+    required  this.description,
 
-  @BuiltValueField(wireName: r'favourites_count')
-  int get favouritesCount;
+     this.entities,
 
-  @BuiltValueField(wireName: r'follow_request_sent')
-  bool get followRequestSent;
+    required  this.fastFollowersCount,
 
-  @BuiltValueField(wireName: r'followed_by')
-  bool get followedBy;
+    required  this.favouritesCount,
 
-  @BuiltValueField(wireName: r'followers_count')
-  int get followersCount;
+     this.followRequestSent = false,
 
-  @BuiltValueField(wireName: r'following')
-  bool get following;
+     this.followedBy = false,
 
-  @BuiltValueField(wireName: r'friends_count')
-  int get friendsCount;
+    required  this.followersCount,
 
-  @BuiltValueField(wireName: r'has_custom_timelines')
-  bool get hasCustomTimelines;
+     this.following = false,
 
-  @BuiltValueField(wireName: r'is_translator')
-  bool get isTranslator;
+    required  this.friendsCount,
 
-  @BuiltValueField(wireName: r'listed_count')
-  int get listedCount;
+    required  this.hasCustomTimelines,
 
-  @BuiltValueField(wireName: r'location')
-  String get location;
+    required  this.isTranslator,
 
-  @BuiltValueField(wireName: r'media_count')
-  int get mediaCount;
+    required  this.listedCount,
 
-  @BuiltValueField(wireName: r'muting')
-  bool get muting;
+    required  this.location,
 
-  @BuiltValueField(wireName: r'name')
-  String get name;
+    required  this.mediaCount,
 
-  @BuiltValueField(wireName: r'normal_followers_count')
-  int get normalFollowersCount;
+     this.muting = false,
 
-  @BuiltValueField(wireName: r'notifications')
-  bool get notifications;
+    required  this.name,
 
-  @BuiltValueField(wireName: r'pinned_tweet_ids_str')
-  BuiltList<String> get pinnedTweetIdsStr;
+    required  this.normalFollowersCount,
 
-  @BuiltValueField(wireName: r'possibly_sensitive')
-  bool get possiblySensitive;
+     this.notifications = false,
 
-  @BuiltValueField(wireName: r'profile_banner_extensions')
-  JsonObject? get profileBannerExtensions;
+    required  this.pinnedTweetIdsStr,
 
-  @BuiltValueField(wireName: r'profile_banner_url')
-  String? get profileBannerUrl;
+    required  this.possiblySensitive,
 
-  @BuiltValueField(wireName: r'profile_image_extensions')
-  JsonObject? get profileImageExtensions;
+     this.profileBannerExtensions,
 
-  @BuiltValueField(wireName: r'profile_image_url_https')
-  String get profileImageUrlHttps;
+     this.profileBannerUrl,
 
-  @BuiltValueField(wireName: r'profile_interstitial_type')
-  String get profileInterstitialType;
+     this.profileImageExtensions,
 
-  @BuiltValueField(wireName: r'protected')
-  bool get protected;
+    required  this.profileImageUrlHttps,
 
-  @BuiltValueField(wireName: r'screen_name')
-  String get screenName;
+    required  this.profileInterstitialType,
 
-  @BuiltValueField(wireName: r'statuses_count')
-  int get statusesCount;
+     this.protected = false,
 
-  @BuiltValueField(wireName: r'translator_type')
-  String get translatorType;
+    required  this.screenName,
 
-  @BuiltValueField(wireName: r'url')
-  String? get url;
+    required  this.statusesCount,
 
-  @BuiltValueField(wireName: r'verified')
-  bool get verified;
+    required  this.translatorType,
 
-  @BuiltValueField(wireName: r'want_retweets')
-  bool get wantRetweets;
+     this.url,
 
-  UserLegacy._();
+    required  this.verified,
 
-  factory UserLegacy([void updates(UserLegacyBuilder b)]) = _$UserLegacy;
+    required  this.wantRetweets,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserLegacyBuilder b) => b
-      ..blockedBy = false
-      ..blocking = false
-      ..followRequestSent = false
-      ..followedBy = false
-      ..following = false
-      ..muting = false
-      ..notifications = false
-      ..protected = false;
+  @JsonKey(
+    defaultValue: false,
+    name: r'blocked_by',
+    required: true,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserLegacy> get serializer => _$UserLegacySerializer();
-}
 
-class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
-  @override
-  final Iterable<Type> types = const [UserLegacy, _$UserLegacy];
+  final bool blockedBy;
 
-  @override
-  final String wireName = r'UserLegacy';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserLegacy object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'blocked_by';
-    yield serializers.serialize(
-      object.blockedBy,
-      specifiedType: const FullType(bool),
-    );
-    yield r'blocking';
-    yield serializers.serialize(
-      object.blocking,
-      specifiedType: const FullType(bool),
-    );
-    yield r'can_dm';
-    yield serializers.serialize(
-      object.canDm,
-      specifiedType: const FullType(bool),
-    );
-    yield r'can_media_tag';
-    yield serializers.serialize(
-      object.canMediaTag,
-      specifiedType: const FullType(bool),
-    );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(String),
-    );
-    yield r'default_profile';
-    yield serializers.serialize(
-      object.defaultProfile,
-      specifiedType: const FullType(bool),
-    );
-    yield r'default_profile_image';
-    yield serializers.serialize(
-      object.defaultProfileImage,
-      specifiedType: const FullType(bool),
-    );
-    yield r'description';
-    yield serializers.serialize(
-      object.description,
-      specifiedType: const FullType(String),
-    );
-    if (object.entities != null) {
-      yield r'entities';
-      yield serializers.serialize(
-        object.entities,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    yield r'fast_followers_count';
-    yield serializers.serialize(
-      object.fastFollowersCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'favourites_count';
-    yield serializers.serialize(
-      object.favouritesCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'follow_request_sent';
-    yield serializers.serialize(
-      object.followRequestSent,
-      specifiedType: const FullType(bool),
-    );
-    yield r'followed_by';
-    yield serializers.serialize(
-      object.followedBy,
-      specifiedType: const FullType(bool),
-    );
-    yield r'followers_count';
-    yield serializers.serialize(
-      object.followersCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'following';
-    yield serializers.serialize(
-      object.following,
-      specifiedType: const FullType(bool),
-    );
-    yield r'friends_count';
-    yield serializers.serialize(
-      object.friendsCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'has_custom_timelines';
-    yield serializers.serialize(
-      object.hasCustomTimelines,
-      specifiedType: const FullType(bool),
-    );
-    yield r'is_translator';
-    yield serializers.serialize(
-      object.isTranslator,
-      specifiedType: const FullType(bool),
-    );
-    yield r'listed_count';
-    yield serializers.serialize(
-      object.listedCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'location';
-    yield serializers.serialize(
-      object.location,
-      specifiedType: const FullType(String),
-    );
-    yield r'media_count';
-    yield serializers.serialize(
-      object.mediaCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'muting';
-    yield serializers.serialize(
-      object.muting,
-      specifiedType: const FullType(bool),
-    );
-    yield r'name';
-    yield serializers.serialize(
-      object.name,
-      specifiedType: const FullType(String),
-    );
-    yield r'normal_followers_count';
-    yield serializers.serialize(
-      object.normalFollowersCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'notifications';
-    yield serializers.serialize(
-      object.notifications,
-      specifiedType: const FullType(bool),
-    );
-    yield r'pinned_tweet_ids_str';
-    yield serializers.serialize(
-      object.pinnedTweetIdsStr,
-      specifiedType: const FullType(BuiltList, [FullType(String)]),
-    );
-    yield r'possibly_sensitive';
-    yield serializers.serialize(
-      object.possiblySensitive,
-      specifiedType: const FullType(bool),
-    );
-    if (object.profileBannerExtensions != null) {
-      yield r'profile_banner_extensions';
-      yield serializers.serialize(
-        object.profileBannerExtensions,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    if (object.profileBannerUrl != null) {
-      yield r'profile_banner_url';
-      yield serializers.serialize(
-        object.profileBannerUrl,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.profileImageExtensions != null) {
-      yield r'profile_image_extensions';
-      yield serializers.serialize(
-        object.profileImageExtensions,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    yield r'profile_image_url_https';
-    yield serializers.serialize(
-      object.profileImageUrlHttps,
-      specifiedType: const FullType(String),
-    );
-    yield r'profile_interstitial_type';
-    yield serializers.serialize(
-      object.profileInterstitialType,
-      specifiedType: const FullType(String),
-    );
-    yield r'protected';
-    yield serializers.serialize(
-      object.protected,
-      specifiedType: const FullType(bool),
-    );
-    yield r'screen_name';
-    yield serializers.serialize(
-      object.screenName,
-      specifiedType: const FullType(String),
-    );
-    yield r'statuses_count';
-    yield serializers.serialize(
-      object.statusesCount,
-      specifiedType: const FullType(int),
-    );
-    yield r'translator_type';
-    yield serializers.serialize(
-      object.translatorType,
-      specifiedType: const FullType(String),
-    );
-    if (object.url != null) {
-      yield r'url';
-      yield serializers.serialize(
-        object.url,
-        specifiedType: const FullType(String),
-      );
-    }
-    yield r'verified';
-    yield serializers.serialize(
-      object.verified,
-      specifiedType: const FullType(bool),
-    );
-    yield r'want_retweets';
-    yield serializers.serialize(
-      object.wantRetweets,
-      specifiedType: const FullType(bool),
-    );
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    UserLegacy object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    defaultValue: false,
+    name: r'blocking',
+    required: true,
+    includeIfNull: false
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserLegacyBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'blocked_by':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.blockedBy = valueDes;
-          break;
-        case r'blocking':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.blocking = valueDes;
-          break;
-        case r'can_dm':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.canDm = valueDes;
-          break;
-        case r'can_media_tag':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.canMediaTag = valueDes;
-          break;
-        case r'created_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.createdAt = valueDes;
-          break;
-        case r'default_profile':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.defaultProfile = valueDes;
-          break;
-        case r'default_profile_image':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.defaultProfileImage = valueDes;
-          break;
-        case r'description':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.description = valueDes;
-          break;
-        case r'entities':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.entities = valueDes;
-          break;
-        case r'fast_followers_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.fastFollowersCount = valueDes;
-          break;
-        case r'favourites_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.favouritesCount = valueDes;
-          break;
-        case r'follow_request_sent':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.followRequestSent = valueDes;
-          break;
-        case r'followed_by':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.followedBy = valueDes;
-          break;
-        case r'followers_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.followersCount = valueDes;
-          break;
-        case r'following':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.following = valueDes;
-          break;
-        case r'friends_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.friendsCount = valueDes;
-          break;
-        case r'has_custom_timelines':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.hasCustomTimelines = valueDes;
-          break;
-        case r'is_translator':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isTranslator = valueDes;
-          break;
-        case r'listed_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.listedCount = valueDes;
-          break;
-        case r'location':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.location = valueDes;
-          break;
-        case r'media_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.mediaCount = valueDes;
-          break;
-        case r'muting':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.muting = valueDes;
-          break;
-        case r'name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.name = valueDes;
-          break;
-        case r'normal_followers_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.normalFollowersCount = valueDes;
-          break;
-        case r'notifications':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.notifications = valueDes;
-          break;
-        case r'pinned_tweet_ids_str':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
-          result.pinnedTweetIdsStr.replace(valueDes);
-          break;
-        case r'possibly_sensitive':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.possiblySensitive = valueDes;
-          break;
-        case r'profile_banner_extensions':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.profileBannerExtensions = valueDes;
-          break;
-        case r'profile_banner_url':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.profileBannerUrl = valueDes;
-          break;
-        case r'profile_image_extensions':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.profileImageExtensions = valueDes;
-          break;
-        case r'profile_image_url_https':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.profileImageUrlHttps = valueDes;
-          break;
-        case r'profile_interstitial_type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.profileInterstitialType = valueDes;
-          break;
-        case r'protected':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.protected = valueDes;
-          break;
-        case r'screen_name':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.screenName = valueDes;
-          break;
-        case r'statuses_count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(int),
-          ) as int;
-          result.statusesCount = valueDes;
-          break;
-        case r'translator_type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.translatorType = valueDes;
-          break;
-        case r'url':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.url = valueDes;
-          break;
-        case r'verified':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.verified = valueDes;
-          break;
-        case r'want_retweets':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.wantRetweets = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final bool blocking;
+
+
+
+  @JsonKey(
+    
+    name: r'can_dm',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool canDm;
+
+
+
+  @JsonKey(
+    
+    name: r'can_media_tag',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool canMediaTag;
+
+
+
+  @JsonKey(
+    
+    name: r'created_at',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String createdAt;
+
+
+
+  @JsonKey(
+    
+    name: r'default_profile',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool defaultProfile;
+
+
+
+  @JsonKey(
+    
+    name: r'default_profile_image',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool defaultProfileImage;
+
+
+
+  @JsonKey(
+    
+    name: r'description',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String description;
+
+
+
+  @JsonKey(
+    
+    name: r'entities',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? entities;
+
+
+
+  @JsonKey(
+    
+    name: r'fast_followers_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int fastFollowersCount;
+
+
+
+  @JsonKey(
+    
+    name: r'favourites_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int favouritesCount;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'follow_request_sent',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool followRequestSent;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'followed_by',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool followedBy;
+
+
+
+  @JsonKey(
+    
+    name: r'followers_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int followersCount;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'following',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool following;
+
+
+
+  @JsonKey(
+    
+    name: r'friends_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int friendsCount;
+
+
+
+  @JsonKey(
+    
+    name: r'has_custom_timelines',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool hasCustomTimelines;
+
+
+
+  @JsonKey(
+    
+    name: r'is_translator',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool isTranslator;
+
+
+
+  @JsonKey(
+    
+    name: r'listed_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int listedCount;
+
+
+
+  @JsonKey(
+    
+    name: r'location',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String location;
+
+
+
+  @JsonKey(
+    
+    name: r'media_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int mediaCount;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'muting',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool muting;
+
+
+
+  @JsonKey(
+    
+    name: r'name',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String name;
+
+
+
+  @JsonKey(
+    
+    name: r'normal_followers_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int normalFollowersCount;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'notifications',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool notifications;
+
+
+
+  @JsonKey(
+    
+    name: r'pinned_tweet_ids_str',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final List<String> pinnedTweetIdsStr;
+
+
+
+  @JsonKey(
+    
+    name: r'possibly_sensitive',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool possiblySensitive;
+
+
+
+  @JsonKey(
+    
+    name: r'profile_banner_extensions',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? profileBannerExtensions;
+
+
+
+  @JsonKey(
+    
+    name: r'profile_banner_url',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? profileBannerUrl;
+
+
+
+  @JsonKey(
+    
+    name: r'profile_image_extensions',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? profileImageExtensions;
+
+
+
+  @JsonKey(
+    
+    name: r'profile_image_url_https',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String profileImageUrlHttps;
+
+
+
+  @JsonKey(
+    
+    name: r'profile_interstitial_type',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String profileInterstitialType;
+
+
+
+  @JsonKey(
+    defaultValue: false,
+    name: r'protected',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool protected;
+
+
+
+  @JsonKey(
+    
+    name: r'screen_name',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String screenName;
+
+
+
+  @JsonKey(
+    
+    name: r'statuses_count',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final int statusesCount;
+
+
+
+  @JsonKey(
+    
+    name: r'translator_type',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final String translatorType;
+
+
+
+  @JsonKey(
+    
+    name: r'url',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? url;
+
+
+
+  @JsonKey(
+    
+    name: r'verified',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool verified;
+
+
+
+  @JsonKey(
+    
+    name: r'want_retweets',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final bool wantRetweets;
+
+
 
   @override
-  UserLegacy deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserLegacyBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  bool operator ==(Object other) => identical(this, other) || other is UserLegacy &&
+     other.blockedBy == blockedBy &&
+     other.blocking == blocking &&
+     other.canDm == canDm &&
+     other.canMediaTag == canMediaTag &&
+     other.createdAt == createdAt &&
+     other.defaultProfile == defaultProfile &&
+     other.defaultProfileImage == defaultProfileImage &&
+     other.description == description &&
+     other.entities == entities &&
+     other.fastFollowersCount == fastFollowersCount &&
+     other.favouritesCount == favouritesCount &&
+     other.followRequestSent == followRequestSent &&
+     other.followedBy == followedBy &&
+     other.followersCount == followersCount &&
+     other.following == following &&
+     other.friendsCount == friendsCount &&
+     other.hasCustomTimelines == hasCustomTimelines &&
+     other.isTranslator == isTranslator &&
+     other.listedCount == listedCount &&
+     other.location == location &&
+     other.mediaCount == mediaCount &&
+     other.muting == muting &&
+     other.name == name &&
+     other.normalFollowersCount == normalFollowersCount &&
+     other.notifications == notifications &&
+     other.pinnedTweetIdsStr == pinnedTweetIdsStr &&
+     other.possiblySensitive == possiblySensitive &&
+     other.profileBannerExtensions == profileBannerExtensions &&
+     other.profileBannerUrl == profileBannerUrl &&
+     other.profileImageExtensions == profileImageExtensions &&
+     other.profileImageUrlHttps == profileImageUrlHttps &&
+     other.profileInterstitialType == profileInterstitialType &&
+     other.protected == protected &&
+     other.screenName == screenName &&
+     other.statusesCount == statusesCount &&
+     other.translatorType == translatorType &&
+     other.url == url &&
+     other.verified == verified &&
+     other.wantRetweets == wantRetweets;
+
+  @override
+  int get hashCode =>
+    blockedBy.hashCode +
+    blocking.hashCode +
+    canDm.hashCode +
+    canMediaTag.hashCode +
+    createdAt.hashCode +
+    defaultProfile.hashCode +
+    defaultProfileImage.hashCode +
+    description.hashCode +
+    entities.hashCode +
+    fastFollowersCount.hashCode +
+    favouritesCount.hashCode +
+    followRequestSent.hashCode +
+    followedBy.hashCode +
+    followersCount.hashCode +
+    following.hashCode +
+    friendsCount.hashCode +
+    hasCustomTimelines.hashCode +
+    isTranslator.hashCode +
+    listedCount.hashCode +
+    location.hashCode +
+    mediaCount.hashCode +
+    muting.hashCode +
+    name.hashCode +
+    normalFollowersCount.hashCode +
+    notifications.hashCode +
+    pinnedTweetIdsStr.hashCode +
+    possiblySensitive.hashCode +
+    profileBannerExtensions.hashCode +
+    profileBannerUrl.hashCode +
+    profileImageExtensions.hashCode +
+    profileImageUrlHttps.hashCode +
+    profileInterstitialType.hashCode +
+    protected.hashCode +
+    screenName.hashCode +
+    statusesCount.hashCode +
+    translatorType.hashCode +
+    url.hashCode +
+    verified.hashCode +
+    wantRetweets.hashCode;
+
+  factory UserLegacy.fromJson(Map<String, dynamic> json) => _$UserLegacyFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserLegacyToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

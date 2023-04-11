@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for ItemContent
 void main() {
-  final instance = ItemContentBuilder();
-  // TODO add properties to the builder and call build()
+  final ItemContent? instance = /* ItemContent(...) */ null;
+  // TODO add properties to the entity
 
   group(ItemContent, () {
     // TypeName typename

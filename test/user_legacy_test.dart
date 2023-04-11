@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for UserLegacy
 void main() {
-  final instance = UserLegacyBuilder();
-  // TODO add properties to the builder and call build()
+  final UserLegacy? instance = /* UserLegacy(...) */ null;
+  // TODO add properties to the entity
 
   group(UserLegacy, () {
     // bool blockedBy (default value: false)
@@ -47,7 +47,7 @@ void main() {
       // TODO
     });
 
-    // JsonObject entities
+    // Object entities
     test('to test the property `entities`', () async {
       // TODO
     });
@@ -132,7 +132,7 @@ void main() {
       // TODO
     });
 
-    // BuiltList<String> pinnedTweetIdsStr
+    // List<String> pinnedTweetIdsStr
     test('to test the property `pinnedTweetIdsStr`', () async {
       // TODO
     });
@@ -142,7 +142,7 @@ void main() {
       // TODO
     });
 
-    // JsonObject profileBannerExtensions
+    // Object profileBannerExtensions
     test('to test the property `profileBannerExtensions`', () async {
       // TODO
     });
@@ -152,7 +152,7 @@ void main() {
       // TODO
     });
 
-    // JsonObject profileImageExtensions
+    // Object profileImageExtensions
     test('to test the property `profileImageExtensions`', () async {
       // TODO
     });

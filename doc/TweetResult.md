@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **restId** | **String** |  | 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
-**unmentionData** | [**JsonObject**](.md) |  | [optional] 
+**unmentionData** | **Object** |  | [optional] 
 **editControl** | [**TweetResultEditControl**](TweetResultEditControl.md) |  | 
 **editPrespective** | [**TweetResultEditPrespective**](TweetResultEditPrespective.md) |  | 
 **isTranslatable** | **bool** |  | [default to false]

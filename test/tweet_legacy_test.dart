@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TweetLegacy
 void main() {
-  final instance = TweetLegacyBuilder();
-  // TODO add properties to the builder and call build()
+  final TweetLegacy? instance = /* TweetLegacy(...) */ null;
+  // TODO add properties to the entity
 
   group(TweetLegacy, () {
     // int bookmarkCount
@@ -27,12 +27,12 @@ void main() {
       // TODO
     });
 
-    // BuiltList<int> displayTextRange
+    // List<int> displayTextRange
     test('to test the property `displayTextRange`', () async {
       // TODO
     });
 
-    // JsonObject entities
+    // Object entities
     test('to test the property `entities`', () async {
       // TODO
     });

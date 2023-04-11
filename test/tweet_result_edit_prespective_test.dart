@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TweetResultEditPrespective
 void main() {
-  final instance = TweetResultEditPrespectiveBuilder();
-  // TODO add properties to the builder and call build()
+  final TweetResultEditPrespective? instance = /* TweetResultEditPrespective(...) */ null;
+  // TODO add properties to the entity
 
   group(TweetResultEditPrespective, () {
     // bool favorited

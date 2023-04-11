@@ -3,11 +3,11 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TweetResultEditControl
 void main() {
-  final instance = TweetResultEditControlBuilder();
-  // TODO add properties to the builder and call build()
+  final TweetResultEditControl? instance = /* TweetResultEditControl(...) */ null;
+  // TODO add properties to the entity
 
   group(TweetResultEditControl, () {
-    // BuiltList<String> editTweetIds
+    // List<String> editTweetIds
     test('to test the property `editTweetIds`', () async {
       // TODO
     });

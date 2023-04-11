@@ -6,175 +6,116 @@
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/item_content.dart';
-import 'package:built_value/json_object.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'timeline_timeline_item.g.dart';
 
-/// TimelineTimelineItem
-///
-/// Properties:
-/// * [typename] 
-/// * [entryType] 
-/// * [itemContent] 
-/// * [clientEventInfo] 
-/// * [feedbackInfo] 
-@BuiltValue()
-abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
-  @BuiltValueField(wireName: r'__typename')
-  TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
 
-  @BuiltValueField(wireName: r'entryType')
-  ContentEntryType get entryType;
-  // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  };
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class TimelineTimelineItem {
+  /// Returns a new [TimelineTimelineItem] instance.
+  TimelineTimelineItem({
 
-  @BuiltValueField(wireName: r'itemContent')
-  ItemContent get itemContent;
+    required  this.typename,
 
-  @BuiltValueField(wireName: r'clientEventInfo')
-  JsonObject? get clientEventInfo;
+    required  this.entryType,
 
-  @BuiltValueField(wireName: r'feedbackInfo')
-  JsonObject? get feedbackInfo;
+    required  this.itemContent,
 
-  TimelineTimelineItem._();
+     this.clientEventInfo,
 
-  factory TimelineTimelineItem([void updates(TimelineTimelineItemBuilder b)]) = _$TimelineTimelineItem;
+     this.feedbackInfo,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineTimelineItemBuilder b) => b;
+  @JsonKey(
+    
+    name: r'__typename',
+    required: true,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTimelineItem> get serializer => _$TimelineTimelineItemSerializer();
-}
 
-class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTimelineItem> {
-  @override
-  final Iterable<Type> types = const [TimelineTimelineItem, _$TimelineTimelineItem];
+  final TypeName typename;
 
-  @override
-  final String wireName = r'TimelineTimelineItem';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    TimelineTimelineItem object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'__typename';
-    yield serializers.serialize(
-      object.typename,
-      specifiedType: const FullType(TypeName),
-    );
-    yield r'entryType';
-    yield serializers.serialize(
-      object.entryType,
-      specifiedType: const FullType(ContentEntryType),
-    );
-    yield r'itemContent';
-    yield serializers.serialize(
-      object.itemContent,
-      specifiedType: const FullType(ItemContent),
-    );
-    if (object.clientEventInfo != null) {
-      yield r'clientEventInfo';
-      yield serializers.serialize(
-        object.clientEventInfo,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    if (object.feedbackInfo != null) {
-      yield r'feedbackInfo';
-      yield serializers.serialize(
-        object.feedbackInfo,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-  }
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    TimelineTimelineItem object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
+  @JsonKey(
+    
+    name: r'entryType',
+    required: true,
+    includeIfNull: false
+  )
 
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required TimelineTimelineItemBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'__typename':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(TypeName),
-          ) as TypeName;
-          result.typename = valueDes;
-          break;
-        case r'entryType':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ContentEntryType),
-          ) as ContentEntryType;
-          result.entryType = valueDes;
-          break;
-        case r'itemContent':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ItemContent),
-          ) as ItemContent;
-          result.itemContent.replace(valueDes);
-          break;
-        case r'clientEventInfo':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.clientEventInfo = valueDes;
-          break;
-        case r'feedbackInfo':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.feedbackInfo = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+
+  final ContentEntryType entryType;
+
+
+
+  @JsonKey(
+    
+    name: r'itemContent',
+    required: true,
+    includeIfNull: false
+  )
+
+
+  final ItemContent itemContent;
+
+
+
+  @JsonKey(
+    
+    name: r'clientEventInfo',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? clientEventInfo;
+
+
+
+  @JsonKey(
+    
+    name: r'feedbackInfo',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final Object? feedbackInfo;
+
+
 
   @override
-  TimelineTimelineItem deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = TimelineTimelineItemBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  bool operator ==(Object other) => identical(this, other) || other is TimelineTimelineItem &&
+     other.typename == typename &&
+     other.entryType == entryType &&
+     other.itemContent == itemContent &&
+     other.clientEventInfo == clientEventInfo &&
+     other.feedbackInfo == feedbackInfo;
+
+  @override
+  int get hashCode =>
+    typename.hashCode +
+    entryType.hashCode +
+    itemContent.hashCode +
+    clientEventInfo.hashCode +
+    feedbackInfo.hashCode;
+
+  factory TimelineTimelineItem.fromJson(Map<String, dynamic> json) => _$TimelineTimelineItemFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TimelineTimelineItemToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

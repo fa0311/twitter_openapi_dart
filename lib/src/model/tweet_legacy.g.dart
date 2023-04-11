@@ -3,367 +3,109 @@
 part of 'tweet_legacy.dart';
 
 // **************************************************************************
-// BuiltValueGenerator
+// JsonSerializableGenerator
 // **************************************************************************
 
-class _$TweetLegacy extends TweetLegacy {
-  @override
-  final int bookmarkCount;
-  @override
-  final bool bookmarked;
-  @override
-  final String createdAt;
-  @override
-  final String conversationIdStr;
-  @override
-  final BuiltList<int> displayTextRange;
-  @override
-  final JsonObject entities;
-  @override
-  final int favoriteCount;
-  @override
-  final bool favorited;
-  @override
-  final String fullText;
-  @override
-  final bool isQuoteStatus;
-  @override
-  final String lang;
-  @override
-  final bool? possiblySensitive;
-  @override
-  final bool? possiblySensitiveEditable;
-  @override
-  final int quoteCount;
-  @override
-  final int replyCount;
-  @override
-  final int retweetCount;
-  @override
-  final bool retweeted;
-  @override
-  final String userIdStr;
-  @override
-  final String idStr;
+TweetLegacy _$TweetLegacyFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'TweetLegacy',
+      json,
+      ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const [
+            'bookmark_count',
+            'bookmarked',
+            'created_at',
+            'conversation_id_str',
+            'display_text_range',
+            'entities',
+            'favorite_count',
+            'favorited',
+            'full_text',
+            'is_quote_status',
+            'lang',
+            'quote_count',
+            'reply_count',
+            'retweet_count',
+            'retweeted',
+            'user_id_str',
+            'id_str'
+          ],
+        );
+        final val = TweetLegacy(
+          bookmarkCount: $checkedConvert('bookmark_count', (v) => v as int),
+          bookmarked: $checkedConvert('bookmarked', (v) => v as bool),
+          createdAt: $checkedConvert('created_at', (v) => v as String),
+          conversationIdStr:
+              $checkedConvert('conversation_id_str', (v) => v as String),
+          displayTextRange: $checkedConvert('display_text_range',
+              (v) => (v as List<dynamic>).map((e) => e as int).toList()),
+          entities: $checkedConvert('entities', (v) => v as Object),
+          favoriteCount: $checkedConvert('favorite_count', (v) => v as int),
+          favorited: $checkedConvert('favorited', (v) => v as bool),
+          fullText: $checkedConvert('full_text', (v) => v as String),
+          isQuoteStatus: $checkedConvert('is_quote_status', (v) => v as bool),
+          lang: $checkedConvert('lang', (v) => v as String),
+          possiblySensitive:
+              $checkedConvert('possibly_sensitive', (v) => v as bool? ?? false),
+          possiblySensitiveEditable: $checkedConvert(
+              'possibly_sensitive_editable', (v) => v as bool? ?? false),
+          quoteCount: $checkedConvert('quote_count', (v) => v as int),
+          replyCount: $checkedConvert('reply_count', (v) => v as int),
+          retweetCount: $checkedConvert('retweet_count', (v) => v as int),
+          retweeted: $checkedConvert('retweeted', (v) => v as bool),
+          userIdStr: $checkedConvert('user_id_str', (v) => v as String),
+          idStr: $checkedConvert('id_str', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'bookmarkCount': 'bookmark_count',
+        'createdAt': 'created_at',
+        'conversationIdStr': 'conversation_id_str',
+        'displayTextRange': 'display_text_range',
+        'favoriteCount': 'favorite_count',
+        'fullText': 'full_text',
+        'isQuoteStatus': 'is_quote_status',
+        'possiblySensitive': 'possibly_sensitive',
+        'possiblySensitiveEditable': 'possibly_sensitive_editable',
+        'quoteCount': 'quote_count',
+        'replyCount': 'reply_count',
+        'retweetCount': 'retweet_count',
+        'userIdStr': 'user_id_str',
+        'idStr': 'id_str'
+      },
+    );
 
-  factory _$TweetLegacy([void Function(TweetLegacyBuilder)? updates]) =>
-      (new TweetLegacyBuilder()..update(updates))._build();
+Map<String, dynamic> _$TweetLegacyToJson(TweetLegacy instance) {
+  final val = <String, dynamic>{
+    'bookmark_count': instance.bookmarkCount,
+    'bookmarked': instance.bookmarked,
+    'created_at': instance.createdAt,
+    'conversation_id_str': instance.conversationIdStr,
+    'display_text_range': instance.displayTextRange,
+    'entities': instance.entities,
+    'favorite_count': instance.favoriteCount,
+    'favorited': instance.favorited,
+    'full_text': instance.fullText,
+    'is_quote_status': instance.isQuoteStatus,
+    'lang': instance.lang,
+  };
 
-  _$TweetLegacy._(
-      {required this.bookmarkCount,
-      required this.bookmarked,
-      required this.createdAt,
-      required this.conversationIdStr,
-      required this.displayTextRange,
-      required this.entities,
-      required this.favoriteCount,
-      required this.favorited,
-      required this.fullText,
-      required this.isQuoteStatus,
-      required this.lang,
-      this.possiblySensitive,
-      this.possiblySensitiveEditable,
-      required this.quoteCount,
-      required this.replyCount,
-      required this.retweetCount,
-      required this.retweeted,
-      required this.userIdStr,
-      required this.idStr})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        bookmarkCount, r'TweetLegacy', 'bookmarkCount');
-    BuiltValueNullFieldError.checkNotNull(
-        bookmarked, r'TweetLegacy', 'bookmarked');
-    BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'TweetLegacy', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(
-        conversationIdStr, r'TweetLegacy', 'conversationIdStr');
-    BuiltValueNullFieldError.checkNotNull(
-        displayTextRange, r'TweetLegacy', 'displayTextRange');
-    BuiltValueNullFieldError.checkNotNull(entities, r'TweetLegacy', 'entities');
-    BuiltValueNullFieldError.checkNotNull(
-        favoriteCount, r'TweetLegacy', 'favoriteCount');
-    BuiltValueNullFieldError.checkNotNull(
-        favorited, r'TweetLegacy', 'favorited');
-    BuiltValueNullFieldError.checkNotNull(fullText, r'TweetLegacy', 'fullText');
-    BuiltValueNullFieldError.checkNotNull(
-        isQuoteStatus, r'TweetLegacy', 'isQuoteStatus');
-    BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang');
-    BuiltValueNullFieldError.checkNotNull(
-        quoteCount, r'TweetLegacy', 'quoteCount');
-    BuiltValueNullFieldError.checkNotNull(
-        replyCount, r'TweetLegacy', 'replyCount');
-    BuiltValueNullFieldError.checkNotNull(
-        retweetCount, r'TweetLegacy', 'retweetCount');
-    BuiltValueNullFieldError.checkNotNull(
-        retweeted, r'TweetLegacy', 'retweeted');
-    BuiltValueNullFieldError.checkNotNull(
-        userIdStr, r'TweetLegacy', 'userIdStr');
-    BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr');
-  }
-
-  @override
-  TweetLegacy rebuild(void Function(TweetLegacyBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  TweetLegacyBuilder toBuilder() => new TweetLegacyBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TweetLegacy &&
-        bookmarkCount == other.bookmarkCount &&
-        bookmarked == other.bookmarked &&
-        createdAt == other.createdAt &&
-        conversationIdStr == other.conversationIdStr &&
-        displayTextRange == other.displayTextRange &&
-        entities == other.entities &&
-        favoriteCount == other.favoriteCount &&
-        favorited == other.favorited &&
-        fullText == other.fullText &&
-        isQuoteStatus == other.isQuoteStatus &&
-        lang == other.lang &&
-        possiblySensitive == other.possiblySensitive &&
-        possiblySensitiveEditable == other.possiblySensitiveEditable &&
-        quoteCount == other.quoteCount &&
-        replyCount == other.replyCount &&
-        retweetCount == other.retweetCount &&
-        retweeted == other.retweeted &&
-        userIdStr == other.userIdStr &&
-        idStr == other.idStr;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, bookmarkCount.hashCode);
-    _$hash = $jc(_$hash, bookmarked.hashCode);
-    _$hash = $jc(_$hash, createdAt.hashCode);
-    _$hash = $jc(_$hash, conversationIdStr.hashCode);
-    _$hash = $jc(_$hash, displayTextRange.hashCode);
-    _$hash = $jc(_$hash, entities.hashCode);
-    _$hash = $jc(_$hash, favoriteCount.hashCode);
-    _$hash = $jc(_$hash, favorited.hashCode);
-    _$hash = $jc(_$hash, fullText.hashCode);
-    _$hash = $jc(_$hash, isQuoteStatus.hashCode);
-    _$hash = $jc(_$hash, lang.hashCode);
-    _$hash = $jc(_$hash, possiblySensitive.hashCode);
-    _$hash = $jc(_$hash, possiblySensitiveEditable.hashCode);
-    _$hash = $jc(_$hash, quoteCount.hashCode);
-    _$hash = $jc(_$hash, replyCount.hashCode);
-    _$hash = $jc(_$hash, retweetCount.hashCode);
-    _$hash = $jc(_$hash, retweeted.hashCode);
-    _$hash = $jc(_$hash, userIdStr.hashCode);
-    _$hash = $jc(_$hash, idStr.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TweetLegacy')
-          ..add('bookmarkCount', bookmarkCount)
-          ..add('bookmarked', bookmarked)
-          ..add('createdAt', createdAt)
-          ..add('conversationIdStr', conversationIdStr)
-          ..add('displayTextRange', displayTextRange)
-          ..add('entities', entities)
-          ..add('favoriteCount', favoriteCount)
-          ..add('favorited', favorited)
-          ..add('fullText', fullText)
-          ..add('isQuoteStatus', isQuoteStatus)
-          ..add('lang', lang)
-          ..add('possiblySensitive', possiblySensitive)
-          ..add('possiblySensitiveEditable', possiblySensitiveEditable)
-          ..add('quoteCount', quoteCount)
-          ..add('replyCount', replyCount)
-          ..add('retweetCount', retweetCount)
-          ..add('retweeted', retweeted)
-          ..add('userIdStr', userIdStr)
-          ..add('idStr', idStr))
-        .toString();
-  }
-}
-
-class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
-  _$TweetLegacy? _$v;
-
-  int? _bookmarkCount;
-  int? get bookmarkCount => _$this._bookmarkCount;
-  set bookmarkCount(int? bookmarkCount) =>
-      _$this._bookmarkCount = bookmarkCount;
-
-  bool? _bookmarked;
-  bool? get bookmarked => _$this._bookmarked;
-  set bookmarked(bool? bookmarked) => _$this._bookmarked = bookmarked;
-
-  String? _createdAt;
-  String? get createdAt => _$this._createdAt;
-  set createdAt(String? createdAt) => _$this._createdAt = createdAt;
-
-  String? _conversationIdStr;
-  String? get conversationIdStr => _$this._conversationIdStr;
-  set conversationIdStr(String? conversationIdStr) =>
-      _$this._conversationIdStr = conversationIdStr;
-
-  ListBuilder<int>? _displayTextRange;
-  ListBuilder<int> get displayTextRange =>
-      _$this._displayTextRange ??= new ListBuilder<int>();
-  set displayTextRange(ListBuilder<int>? displayTextRange) =>
-      _$this._displayTextRange = displayTextRange;
-
-  JsonObject? _entities;
-  JsonObject? get entities => _$this._entities;
-  set entities(JsonObject? entities) => _$this._entities = entities;
-
-  int? _favoriteCount;
-  int? get favoriteCount => _$this._favoriteCount;
-  set favoriteCount(int? favoriteCount) =>
-      _$this._favoriteCount = favoriteCount;
-
-  bool? _favorited;
-  bool? get favorited => _$this._favorited;
-  set favorited(bool? favorited) => _$this._favorited = favorited;
-
-  String? _fullText;
-  String? get fullText => _$this._fullText;
-  set fullText(String? fullText) => _$this._fullText = fullText;
-
-  bool? _isQuoteStatus;
-  bool? get isQuoteStatus => _$this._isQuoteStatus;
-  set isQuoteStatus(bool? isQuoteStatus) =>
-      _$this._isQuoteStatus = isQuoteStatus;
-
-  String? _lang;
-  String? get lang => _$this._lang;
-  set lang(String? lang) => _$this._lang = lang;
-
-  bool? _possiblySensitive;
-  bool? get possiblySensitive => _$this._possiblySensitive;
-  set possiblySensitive(bool? possiblySensitive) =>
-      _$this._possiblySensitive = possiblySensitive;
-
-  bool? _possiblySensitiveEditable;
-  bool? get possiblySensitiveEditable => _$this._possiblySensitiveEditable;
-  set possiblySensitiveEditable(bool? possiblySensitiveEditable) =>
-      _$this._possiblySensitiveEditable = possiblySensitiveEditable;
-
-  int? _quoteCount;
-  int? get quoteCount => _$this._quoteCount;
-  set quoteCount(int? quoteCount) => _$this._quoteCount = quoteCount;
-
-  int? _replyCount;
-  int? get replyCount => _$this._replyCount;
-  set replyCount(int? replyCount) => _$this._replyCount = replyCount;
-
-  int? _retweetCount;
-  int? get retweetCount => _$this._retweetCount;
-  set retweetCount(int? retweetCount) => _$this._retweetCount = retweetCount;
-
-  bool? _retweeted;
-  bool? get retweeted => _$this._retweeted;
-  set retweeted(bool? retweeted) => _$this._retweeted = retweeted;
-
-  String? _userIdStr;
-  String? get userIdStr => _$this._userIdStr;
-  set userIdStr(String? userIdStr) => _$this._userIdStr = userIdStr;
-
-  String? _idStr;
-  String? get idStr => _$this._idStr;
-  set idStr(String? idStr) => _$this._idStr = idStr;
-
-  TweetLegacyBuilder() {
-    TweetLegacy._defaults(this);
-  }
-
-  TweetLegacyBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _bookmarkCount = $v.bookmarkCount;
-      _bookmarked = $v.bookmarked;
-      _createdAt = $v.createdAt;
-      _conversationIdStr = $v.conversationIdStr;
-      _displayTextRange = $v.displayTextRange.toBuilder();
-      _entities = $v.entities;
-      _favoriteCount = $v.favoriteCount;
-      _favorited = $v.favorited;
-      _fullText = $v.fullText;
-      _isQuoteStatus = $v.isQuoteStatus;
-      _lang = $v.lang;
-      _possiblySensitive = $v.possiblySensitive;
-      _possiblySensitiveEditable = $v.possiblySensitiveEditable;
-      _quoteCount = $v.quoteCount;
-      _replyCount = $v.replyCount;
-      _retweetCount = $v.retweetCount;
-      _retweeted = $v.retweeted;
-      _userIdStr = $v.userIdStr;
-      _idStr = $v.idStr;
-      _$v = null;
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
     }
-    return this;
   }
 
-  @override
-  void replace(TweetLegacy other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TweetLegacy;
-  }
-
-  @override
-  void update(void Function(TweetLegacyBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TweetLegacy build() => _build();
-
-  _$TweetLegacy _build() {
-    _$TweetLegacy _$result;
-    try {
-      _$result = _$v ??
-          new _$TweetLegacy._(
-              bookmarkCount: BuiltValueNullFieldError.checkNotNull(
-                  bookmarkCount, r'TweetLegacy', 'bookmarkCount'),
-              bookmarked: BuiltValueNullFieldError.checkNotNull(
-                  bookmarked, r'TweetLegacy', 'bookmarked'),
-              createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, r'TweetLegacy', 'createdAt'),
-              conversationIdStr: BuiltValueNullFieldError.checkNotNull(
-                  conversationIdStr, r'TweetLegacy', 'conversationIdStr'),
-              displayTextRange: displayTextRange.build(),
-              entities: BuiltValueNullFieldError.checkNotNull(
-                  entities, r'TweetLegacy', 'entities'),
-              favoriteCount: BuiltValueNullFieldError.checkNotNull(
-                  favoriteCount, r'TweetLegacy', 'favoriteCount'),
-              favorited: BuiltValueNullFieldError.checkNotNull(
-                  favorited, r'TweetLegacy', 'favorited'),
-              fullText: BuiltValueNullFieldError.checkNotNull(
-                  fullText, r'TweetLegacy', 'fullText'),
-              isQuoteStatus: BuiltValueNullFieldError.checkNotNull(isQuoteStatus, r'TweetLegacy', 'isQuoteStatus'),
-              lang: BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang'),
-              possiblySensitive: possiblySensitive,
-              possiblySensitiveEditable: possiblySensitiveEditable,
-              quoteCount: BuiltValueNullFieldError.checkNotNull(quoteCount, r'TweetLegacy', 'quoteCount'),
-              replyCount: BuiltValueNullFieldError.checkNotNull(replyCount, r'TweetLegacy', 'replyCount'),
-              retweetCount: BuiltValueNullFieldError.checkNotNull(retweetCount, r'TweetLegacy', 'retweetCount'),
-              retweeted: BuiltValueNullFieldError.checkNotNull(retweeted, r'TweetLegacy', 'retweeted'),
-              userIdStr: BuiltValueNullFieldError.checkNotNull(userIdStr, r'TweetLegacy', 'userIdStr'),
-              idStr: BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'displayTextRange';
-        displayTextRange.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'TweetLegacy', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
+  writeNotNull('possibly_sensitive', instance.possiblySensitive);
+  writeNotNull(
+      'possibly_sensitive_editable', instance.possiblySensitiveEditable);
+  val['quote_count'] = instance.quoteCount;
+  val['reply_count'] = instance.replyCount;
+  val['retweet_count'] = instance.retweetCount;
+  val['retweeted'] = instance.retweeted;
+  val['user_id_str'] = instance.userIdStr;
+  val['id_str'] = instance.idStr;
+  return val;
 }
-
-// ignore_for_file: deprecated_member_use_from_same_package,type=lint

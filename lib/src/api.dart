@@ -3,8 +3,6 @@
 //
 
 import 'package:dio/dio.dart';
-import 'package:built_value/serializer.dart';
-import 'package:twitter_openapi_dart/src/serializers.dart';
 import 'package:twitter_openapi_dart/src/auth/api_key_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/bearer_auth.dart';
@@ -15,14 +13,11 @@ class TwitterOpenapiDart {
   static const String basePath = r'https://twitter.com/i/api/graphql';
 
   final Dio dio;
-  final Serializers serializers;
-
   TwitterOpenapiDart({
     Dio? dio,
-    Serializers? serializers,
     String? basePathOverride,
     List<Interceptor>? interceptors,
-  })  : this.serializers = serializers ?? standardSerializers,
+  })  : 
         this.dio = dio ??
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
@@ -68,6 +63,6 @@ class TwitterOpenapiDart {
   /// Get DefaultApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   DefaultApi getDefaultApi() {
-    return DefaultApi(dio, serializers);
+    return DefaultApi(dio);
   }
 }

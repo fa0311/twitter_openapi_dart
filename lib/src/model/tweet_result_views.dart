@@ -3,124 +3,68 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'tweet_result_views.g.dart';
 
-/// TweetResultViews
-///
-/// Properties:
-/// * [count] 
-/// * [state] 
-@BuiltValue()
-abstract class TweetResultViews implements Built<TweetResultViews, TweetResultViewsBuilder> {
-  @BuiltValueField(wireName: r'count')
-  String? get count;
 
-  @BuiltValueField(wireName: r'state')
-  String? get state;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class TweetResultViews {
+  /// Returns a new [TweetResultViews] instance.
+  TweetResultViews({
 
-  TweetResultViews._();
+     this.count,
 
-  factory TweetResultViews([void updates(TweetResultViewsBuilder b)]) = _$TweetResultViews;
+     this.state,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TweetResultViewsBuilder b) => b;
+  @JsonKey(
+    
+    name: r'count',
+    required: false,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<TweetResultViews> get serializer => _$TweetResultViewsSerializer();
-}
 
-class _$TweetResultViewsSerializer implements PrimitiveSerializer<TweetResultViews> {
-  @override
-  final Iterable<Type> types = const [TweetResultViews, _$TweetResultViews];
+  final String? count;
 
-  @override
-  final String wireName = r'TweetResultViews';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    TweetResultViews object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.count != null) {
-      yield r'count';
-      yield serializers.serialize(
-        object.count,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.state != null) {
-      yield r'state';
-      yield serializers.serialize(
-        object.state,
-        specifiedType: const FullType(String),
-      );
-    }
-  }
+
+  @JsonKey(
+    
+    name: r'state',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final String? state;
+
+
 
   @override
-  Object serialize(
-    Serializers serializers,
-    TweetResultViews object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required TweetResultViewsBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'count':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.count = valueDes;
-          break;
-        case r'state':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.state = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+  bool operator ==(Object other) => identical(this, other) || other is TweetResultViews &&
+     other.count == count &&
+     other.state == state;
 
   @override
-  TweetResultViews deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = TweetResultViewsBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  int get hashCode =>
+    count.hashCode +
+    state.hashCode;
+
+  factory TweetResultViews.fromJson(Map<String, dynamic> json) => _$TweetResultViewsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TweetResultViewsToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

@@ -8,7 +8,7 @@ import 'package:twitter_openapi_dart/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**editTweetIds** | **BuiltList&lt;String&gt;** |  | [optional] 
+**editTweetIds** | **List&lt;String&gt;** |  | [optional] 
 **editableUntilMsecs** | **String** |  | [optional] 
 **isEditEligible** | **bool** |  | [optional] 
 **editsRemaining** | **String** |  | [optional] 

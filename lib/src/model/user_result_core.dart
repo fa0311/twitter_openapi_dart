@@ -4,104 +4,52 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/user_results.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'user_result_core.g.dart';
 
-/// UserResultCore
-///
-/// Properties:
-/// * [userResults] 
-@BuiltValue()
-abstract class UserResultCore implements Built<UserResultCore, UserResultCoreBuilder> {
-  @BuiltValueField(wireName: r'user_results')
-  UserResults get userResults;
 
-  UserResultCore._();
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class UserResultCore {
+  /// Returns a new [UserResultCore] instance.
+  UserResultCore({
 
-  factory UserResultCore([void updates(UserResultCoreBuilder b)]) = _$UserResultCore;
+    required  this.userResults,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserResultCoreBuilder b) => b;
+  @JsonKey(
+    
+    name: r'user_results',
+    required: true,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserResultCore> get serializer => _$UserResultCoreSerializer();
-}
 
-class _$UserResultCoreSerializer implements PrimitiveSerializer<UserResultCore> {
-  @override
-  final Iterable<Type> types = const [UserResultCore, _$UserResultCore];
+  final UserResults userResults;
 
-  @override
-  final String wireName = r'UserResultCore';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    UserResultCore object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'user_results';
-    yield serializers.serialize(
-      object.userResults,
-      specifiedType: const FullType(UserResults),
-    );
-  }
 
   @override
-  Object serialize(
-    Serializers serializers,
-    UserResultCore object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required UserResultCoreBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'user_results':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(UserResults),
-          ) as UserResults;
-          result.userResults.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+  bool operator ==(Object other) => identical(this, other) || other is UserResultCore &&
+     other.userResults == userResults;
 
   @override
-  UserResultCore deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserResultCoreBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  int get hashCode =>
+    userResults.hashCode;
+
+  factory UserResultCore.fromJson(Map<String, dynamic> json) => _$UserResultCoreFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserResultCoreToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

@@ -6,4 +6,4 @@ additionalProperties:
   pubVersion: 0.0.1
   pubAuthor: yuki
   pubHomepage: https://github.com/vrchatapi/vrchatapi-dart
-  # serializationLibrary: json_serializable
+  serializationLibrary: json_serializable

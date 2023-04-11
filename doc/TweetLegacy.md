@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **bookmarked** | **bool** |  | 
 **createdAt** | **String** |  | 
 **conversationIdStr** | **String** |  | 
-**displayTextRange** | **BuiltList&lt;int&gt;** |  | 
-**entities** | [**JsonObject**](.md) |  | 
+**displayTextRange** | **List&lt;int&gt;** |  | 
+**entities** | **Object** |  | 
 **favoriteCount** | **int** |  | 
 **favorited** | **bool** |  | 
 **fullText** | **String** |  | 

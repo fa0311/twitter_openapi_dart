@@ -3,169 +3,63 @@
 part of 'timeline_timeline_item.dart';
 
 // **************************************************************************
-// BuiltValueGenerator
+// JsonSerializableGenerator
 // **************************************************************************
 
-class _$TimelineTimelineItem extends TimelineTimelineItem {
-  @override
-  final TypeName typename;
-  @override
-  final ContentEntryType entryType;
-  @override
-  final ItemContent itemContent;
-  @override
-  final JsonObject? clientEventInfo;
-  @override
-  final JsonObject? feedbackInfo;
+TimelineTimelineItem _$TimelineTimelineItemFromJson(
+        Map<String, dynamic> json) =>
+    $checkedCreate(
+      'TimelineTimelineItem',
+      json,
+      ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const ['__typename', 'entryType', 'itemContent'],
+        );
+        final val = TimelineTimelineItem(
+          typename: $checkedConvert(
+              '__typename', (v) => $enumDecode(_$TypeNameEnumMap, v)),
+          entryType: $checkedConvert(
+              'entryType', (v) => $enumDecode(_$ContentEntryTypeEnumMap, v)),
+          itemContent: $checkedConvert('itemContent',
+              (v) => ItemContent.fromJson(v as Map<String, dynamic>)),
+          clientEventInfo: $checkedConvert('clientEventInfo', (v) => v),
+          feedbackInfo: $checkedConvert('feedbackInfo', (v) => v),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'typename': '__typename'},
+    );
 
-  factory _$TimelineTimelineItem(
-          [void Function(TimelineTimelineItemBuilder)? updates]) =>
-      (new TimelineTimelineItemBuilder()..update(updates))._build();
+Map<String, dynamic> _$TimelineTimelineItemToJson(
+    TimelineTimelineItem instance) {
+  final val = <String, dynamic>{
+    '__typename': _$TypeNameEnumMap[instance.typename]!,
+    'entryType': _$ContentEntryTypeEnumMap[instance.entryType]!,
+    'itemContent': instance.itemContent.toJson(),
+  };
 
-  _$TimelineTimelineItem._(
-      {required this.typename,
-      required this.entryType,
-      required this.itemContent,
-      this.clientEventInfo,
-      this.feedbackInfo})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        typename, r'TimelineTimelineItem', 'typename');
-    BuiltValueNullFieldError.checkNotNull(
-        entryType, r'TimelineTimelineItem', 'entryType');
-    BuiltValueNullFieldError.checkNotNull(
-        itemContent, r'TimelineTimelineItem', 'itemContent');
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
   }
 
-  @override
-  TimelineTimelineItem rebuild(
-          void Function(TimelineTimelineItemBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  TimelineTimelineItemBuilder toBuilder() =>
-      new TimelineTimelineItemBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TimelineTimelineItem &&
-        typename == other.typename &&
-        entryType == other.entryType &&
-        itemContent == other.itemContent &&
-        clientEventInfo == other.clientEventInfo &&
-        feedbackInfo == other.feedbackInfo;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, typename.hashCode);
-    _$hash = $jc(_$hash, entryType.hashCode);
-    _$hash = $jc(_$hash, itemContent.hashCode);
-    _$hash = $jc(_$hash, clientEventInfo.hashCode);
-    _$hash = $jc(_$hash, feedbackInfo.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TimelineTimelineItem')
-          ..add('typename', typename)
-          ..add('entryType', entryType)
-          ..add('itemContent', itemContent)
-          ..add('clientEventInfo', clientEventInfo)
-          ..add('feedbackInfo', feedbackInfo))
-        .toString();
-  }
+  writeNotNull('clientEventInfo', instance.clientEventInfo);
+  writeNotNull('feedbackInfo', instance.feedbackInfo);
+  return val;
 }
 
-class TimelineTimelineItemBuilder
-    implements Builder<TimelineTimelineItem, TimelineTimelineItemBuilder> {
-  _$TimelineTimelineItem? _$v;
+const _$TypeNameEnumMap = {
+  TypeName.timelineTweet: 'TimelineTweet',
+  TypeName.timelineTimelineItem: 'TimelineTimelineItem',
+  TypeName.timelineTimelineCursor: 'TimelineTimelineCursor',
+  TypeName.tweetWithVisibilityResults: 'TweetWithVisibilityResults',
+  TypeName.tweet: 'Tweet',
+  TypeName.user: 'User',
+};
 
-  TypeName? _typename;
-  TypeName? get typename => _$this._typename;
-  set typename(TypeName? typename) => _$this._typename = typename;
-
-  ContentEntryType? _entryType;
-  ContentEntryType? get entryType => _$this._entryType;
-  set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
-
-  ItemContentBuilder? _itemContent;
-  ItemContentBuilder get itemContent =>
-      _$this._itemContent ??= new ItemContentBuilder();
-  set itemContent(ItemContentBuilder? itemContent) =>
-      _$this._itemContent = itemContent;
-
-  JsonObject? _clientEventInfo;
-  JsonObject? get clientEventInfo => _$this._clientEventInfo;
-  set clientEventInfo(JsonObject? clientEventInfo) =>
-      _$this._clientEventInfo = clientEventInfo;
-
-  JsonObject? _feedbackInfo;
-  JsonObject? get feedbackInfo => _$this._feedbackInfo;
-  set feedbackInfo(JsonObject? feedbackInfo) =>
-      _$this._feedbackInfo = feedbackInfo;
-
-  TimelineTimelineItemBuilder() {
-    TimelineTimelineItem._defaults(this);
-  }
-
-  TimelineTimelineItemBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _typename = $v.typename;
-      _entryType = $v.entryType;
-      _itemContent = $v.itemContent.toBuilder();
-      _clientEventInfo = $v.clientEventInfo;
-      _feedbackInfo = $v.feedbackInfo;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(TimelineTimelineItem other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TimelineTimelineItem;
-  }
-
-  @override
-  void update(void Function(TimelineTimelineItemBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TimelineTimelineItem build() => _build();
-
-  _$TimelineTimelineItem _build() {
-    _$TimelineTimelineItem _$result;
-    try {
-      _$result = _$v ??
-          new _$TimelineTimelineItem._(
-              typename: BuiltValueNullFieldError.checkNotNull(
-                  typename, r'TimelineTimelineItem', 'typename'),
-              entryType: BuiltValueNullFieldError.checkNotNull(
-                  entryType, r'TimelineTimelineItem', 'entryType'),
-              itemContent: itemContent.build(),
-              clientEventInfo: clientEventInfo,
-              feedbackInfo: feedbackInfo);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'itemContent';
-        itemContent.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'TimelineTimelineItem', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-// ignore_for_file: deprecated_member_use_from_same_package,type=lint
+const _$ContentEntryTypeEnumMap = {
+  ContentEntryType.timelineTimelineItem: 'TimelineTimelineItem',
+  ContentEntryType.timelineTimelineCursor: 'TimelineTimelineCursor',
+};

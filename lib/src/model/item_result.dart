@@ -4,104 +4,52 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/tweet_result.dart';
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'item_result.g.dart';
 
-/// ItemResult
-///
-/// Properties:
-/// * [result] 
-@BuiltValue()
-abstract class ItemResult implements Built<ItemResult, ItemResultBuilder> {
-  @BuiltValueField(wireName: r'result')
-  TweetResult get result;
 
-  ItemResult._();
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class ItemResult {
+  /// Returns a new [ItemResult] instance.
+  ItemResult({
 
-  factory ItemResult([void updates(ItemResultBuilder b)]) = _$ItemResult;
+    required  this.result,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ItemResultBuilder b) => b;
+  @JsonKey(
+    
+    name: r'result',
+    required: true,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ItemResult> get serializer => _$ItemResultSerializer();
-}
 
-class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
-  @override
-  final Iterable<Type> types = const [ItemResult, _$ItemResult];
+  final TweetResult result;
 
-  @override
-  final String wireName = r'ItemResult';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    ItemResult object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    yield r'result';
-    yield serializers.serialize(
-      object.result,
-      specifiedType: const FullType(TweetResult),
-    );
-  }
 
   @override
-  Object serialize(
-    Serializers serializers,
-    ItemResult object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required ItemResultBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'result':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(TweetResult),
-          ) as TweetResult;
-          result.result.replace(valueDes);
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+  bool operator ==(Object other) => identical(this, other) || other is ItemResult &&
+     other.result == result;
 
   @override
-  ItemResult deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ItemResultBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  int get hashCode =>
+    result.hashCode;
+
+  factory ItemResult.fromJson(Map<String, dynamic> json) => _$ItemResultFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ItemResultToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

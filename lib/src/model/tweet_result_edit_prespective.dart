@@ -3,124 +3,68 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/built_value.dart';
-import 'package:built_value/serializer.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 part 'tweet_result_edit_prespective.g.dart';
 
-/// TweetResultEditPrespective
-///
-/// Properties:
-/// * [favorited] 
-/// * [retweeted] 
-@BuiltValue()
-abstract class TweetResultEditPrespective implements Built<TweetResultEditPrespective, TweetResultEditPrespectiveBuilder> {
-  @BuiltValueField(wireName: r'favorited')
-  bool? get favorited;
 
-  @BuiltValueField(wireName: r'retweeted')
-  bool? get retweeted;
+@JsonSerializable(
+  checked: true,
+  createToJson: true,
+  disallowUnrecognizedKeys: false,
+  explicitToJson: true,
+)
+class TweetResultEditPrespective {
+  /// Returns a new [TweetResultEditPrespective] instance.
+  TweetResultEditPrespective({
 
-  TweetResultEditPrespective._();
+     this.favorited,
 
-  factory TweetResultEditPrespective([void updates(TweetResultEditPrespectiveBuilder b)]) = _$TweetResultEditPrespective;
+     this.retweeted,
+  });
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TweetResultEditPrespectiveBuilder b) => b;
+  @JsonKey(
+    
+    name: r'favorited',
+    required: false,
+    includeIfNull: false
+  )
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<TweetResultEditPrespective> get serializer => _$TweetResultEditPrespectiveSerializer();
-}
 
-class _$TweetResultEditPrespectiveSerializer implements PrimitiveSerializer<TweetResultEditPrespective> {
-  @override
-  final Iterable<Type> types = const [TweetResultEditPrespective, _$TweetResultEditPrespective];
+  final bool? favorited;
 
-  @override
-  final String wireName = r'TweetResultEditPrespective';
 
-  Iterable<Object?> _serializeProperties(
-    Serializers serializers,
-    TweetResultEditPrespective object, {
-    FullType specifiedType = FullType.unspecified,
-  }) sync* {
-    if (object.favorited != null) {
-      yield r'favorited';
-      yield serializers.serialize(
-        object.favorited,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.retweeted != null) {
-      yield r'retweeted';
-      yield serializers.serialize(
-        object.retweeted,
-        specifiedType: const FullType(bool),
-      );
-    }
-  }
+
+  @JsonKey(
+    
+    name: r'retweeted',
+    required: false,
+    includeIfNull: false
+  )
+
+
+  final bool? retweeted;
+
+
 
   @override
-  Object serialize(
-    Serializers serializers,
-    TweetResultEditPrespective object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  void _deserializeProperties(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-    required List<Object?> serializedList,
-    required TweetResultEditPrespectiveBuilder result,
-    required List<Object?> unhandled,
-  }) {
-    for (var i = 0; i < serializedList.length; i += 2) {
-      final key = serializedList[i] as String;
-      final value = serializedList[i + 1];
-      switch (key) {
-        case r'favorited':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.favorited = valueDes;
-          break;
-        case r'retweeted':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.retweeted = valueDes;
-          break;
-        default:
-          unhandled.add(key);
-          unhandled.add(value);
-          break;
-      }
-    }
-  }
+  bool operator ==(Object other) => identical(this, other) || other is TweetResultEditPrespective &&
+     other.favorited == favorited &&
+     other.retweeted == retweeted;
 
   @override
-  TweetResultEditPrespective deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = TweetResultEditPrespectiveBuilder();
-    final serializedList = (serialized as Iterable<Object?>).toList();
-    final unhandled = <Object?>[];
-    _deserializeProperties(
-      serializers,
-      serialized,
-      specifiedType: specifiedType,
-      serializedList: serializedList,
-      unhandled: unhandled,
-      result: result,
-    );
-    return result.build();
+  int get hashCode =>
+    favorited.hashCode +
+    retweeted.hashCode;
+
+  factory TweetResultEditPrespective.fromJson(Map<String, dynamic> json) => _$TweetResultEditPrespectiveFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TweetResultEditPrespectiveToJson(this);
+
+  @override
+  String toString() {
+    return toJson().toString();
   }
+
 }
 

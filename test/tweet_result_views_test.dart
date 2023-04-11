@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TweetResultViews
 void main() {
-  final instance = TweetResultViewsBuilder();
-  // TODO add properties to the builder and call build()
+  final TweetResultViews? instance = /* TweetResultViews(...) */ null;
+  // TODO add properties to the entity
 
   group(TweetResultViews, () {
     // String count

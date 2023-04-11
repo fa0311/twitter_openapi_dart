@@ -9,14 +9,14 @@ import 'package:twitter_openapi_dart/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**affiliatesHighlightedLabel** | [**JsonObject**](.md) |  | 
+**affiliatesHighlightedLabel** | **Object** |  | 
 **hasGraduatedAccess** | **bool** |  | 
 **hasNftAvatar** | **bool** |  | [optional] [default to false]
 **id** | **String** |  | 
 **isBlueVerified** | **bool** |  | [default to false]
 **legacy** | [**UserLegacy**](UserLegacy.md) |  | 
 **restId** | **String** |  | 
-**businessAccount** | [**JsonObject**](.md) |  | [optional] 
+**businessAccount** | **Object** |  | [optional] 
 **superFollowEligible** | **bool** |  | [default to false]
 **superFollowedBy** | **bool** |  | [default to false]
 **superFollowing** | **bool** |  | [default to false]

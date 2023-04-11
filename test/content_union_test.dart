@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for ContentUnion
 void main() {
-  final instance = ContentUnionBuilder();
-  // TODO add properties to the builder and call build()
+  final ContentUnion? instance = /* ContentUnion(...) */ null;
+  // TODO add properties to the entity
 
   group(ContentUnion, () {
     // TypeName typename
@@ -22,12 +22,12 @@ void main() {
       // TODO
     });
 
-    // JsonObject clientEventInfo
+    // Object clientEventInfo
     test('to test the property `clientEventInfo`', () async {
       // TODO
     });
 
-    // JsonObject feedbackInfo
+    // Object feedbackInfo
     test('to test the property `feedbackInfo`', () async {
       // TODO
     });
