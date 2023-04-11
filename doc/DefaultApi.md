@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **getFollowers**
-> HomeTimelineData getFollowers(variables, features, queryId)
+> getFollowers(variables, features, queryId)
 
 
 
@@ -31,8 +31,7 @@ final String features = features_example; // String |
 final String queryId = queryId_example; // String | 
 
 try {
-    final response = api.getFollowers(variables, features, queryId);
-    print(response);
+    api.getFollowers(variables, features, queryId);
 } catch on DioError (e) {
     print('Exception when calling DefaultApi->getFollowers: $e\n');
 }
@@ -44,11 +43,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'VptSi88PiaQhBevFbGVlGg']
+ **queryId** | **String**|  | [optional] [default to 'VptSi88PiaQhBevFbGVlGg']
 
 ### Return type
 
-[**HomeTimelineData**](HomeTimelineData.md)
+void (empty response body)
 
 ### Authorization
 
@@ -57,12 +56,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFollowing**
-> HomeTimelineData getFollowing(variables, features, queryId)
+> getFollowing(variables, features, queryId)
 
 
 
@@ -78,8 +77,7 @@ final String features = features_example; // String |
 final String queryId = queryId_example; // String | 
 
 try {
-    final response = api.getFollowing(variables, features, queryId);
-    print(response);
+    api.getFollowing(variables, features, queryId);
 } catch on DioError (e) {
     print('Exception when calling DefaultApi->getFollowing: $e\n');
 }
@@ -91,11 +89,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'FaBzCqZXuQCb4PhB0RHqHw']
+ **queryId** | **String**|  | [optional] [default to 'FaBzCqZXuQCb4PhB0RHqHw']
 
 ### Return type
 
-[**HomeTimelineData**](HomeTimelineData.md)
+void (empty response body)
 
 ### Authorization
 
@@ -104,7 +102,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

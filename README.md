@@ -52,8 +52,7 @@ final String features = features_example; // String |
 final String queryId = queryId_example; // String | 
 
 try {
-    final response = await api.getFollowers(variables, features, queryId);
-    print(response);
+    api.getFollowers(variables, features, queryId);
 } catch on DioError (e) {
     print("Exception when calling DefaultApi->getFollowers: $e\n");
 }

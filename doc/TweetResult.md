@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **editControl** | [**TweetResultEditControl**](TweetResultEditControl.md) |  | 
 **editPrespective** | [**TweetResultEditPrespective**](TweetResultEditPrespective.md) |  | 
 **isTranslatable** | **bool** |  | [default to false]
-**userLegacy** | [**UserLegacy**](UserLegacy.md) |  | [optional] 
+**legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
 **views** | [**TweetResultViews**](TweetResultViews.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

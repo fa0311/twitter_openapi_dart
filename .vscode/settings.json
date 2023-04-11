@@ -1,5 +1,9 @@
 {
+  "yaml.format.enable": true,
+  "yaml.completion": true,
+  "yaml.validate": true,
+  "yaml.hover": true,
   "yaml.schemas": {
-    "swaggerviewer:openapi": "file:///z%3A/Project/flutter/twitter_openapi_dart/twitter-openapi/openapi-3.0.yaml"
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": "openapi-3.0.yaml"
   }
 }

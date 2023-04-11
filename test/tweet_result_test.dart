@@ -42,8 +42,8 @@ void main() {
       // TODO
     });
 
-    // UserLegacy userLegacy
-    test('to test the property `userLegacy`', () async {
+    // TweetLegacy legacy
+    test('to test the property `legacy`', () async {
       // TODO
     });
 

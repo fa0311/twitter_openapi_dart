@@ -1,4 +1,4 @@
-inputSpec: twitter-openapi/openapi-3.0.yaml
+inputSpec: twitter-openapi/openapi/openapi-3.0.yaml
 outputDir: .
 additionalProperties:
   pubName: twitter_openapi_dart
@@ -6,3 +6,4 @@ additionalProperties:
   pubVersion: 0.0.1
   pubAuthor: yuki
   pubHomepage: https://github.com/vrchatapi/vrchatapi-dart
+  # serializationLibrary: json_serializable

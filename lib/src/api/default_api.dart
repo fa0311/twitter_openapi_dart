@@ -8,7 +8,6 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/home_timeline_data.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_response.dart';
 
 class DefaultApi {
@@ -33,12 +32,12 @@ class DefaultApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [HomeTimelineData] as data
+  /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<HomeTimelineData>> getFollowers({ 
+  Future<Response<void>> getFollowers({ 
     required String variables,
     required String features,
-    String queryId = 'VptSi88PiaQhBevFbGVlGg',
+    String? queryId = 'VptSi88PiaQhBevFbGVlGg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -62,7 +61,7 @@ class DefaultApi {
     final _queryParameters = <String, dynamic>{
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -74,34 +73,7 @@ class DefaultApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    HomeTimelineData _responseData;
-
-    try {
-      const _responseType = FullType(HomeTimelineData);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as HomeTimelineData;
-
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<HomeTimelineData>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
+    return _response;
   }
 
   /// getFollowing
@@ -118,12 +90,12 @@ class DefaultApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [HomeTimelineData] as data
+  /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<HomeTimelineData>> getFollowing({ 
+  Future<Response<void>> getFollowing({ 
     required String variables,
     required String features,
-    String queryId = 'FaBzCqZXuQCb4PhB0RHqHw',
+    String? queryId = 'FaBzCqZXuQCb4PhB0RHqHw',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -147,7 +119,7 @@ class DefaultApi {
     final _queryParameters = <String, dynamic>{
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -159,34 +131,7 @@ class DefaultApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    HomeTimelineData _responseData;
-
-    try {
-      const _responseType = FullType(HomeTimelineData);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as HomeTimelineData;
-
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<HomeTimelineData>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
+    return _response;
   }
 
   /// getHomeTimeline

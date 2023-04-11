@@ -6,7 +6,7 @@
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_result_edit_control.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_result_edit_prespective.dart';
-import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_legacy.dart';
 import 'package:twitter_openapi_dart/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_result_views.dart';
 import 'package:built_value/json_object.dart';
@@ -25,7 +25,7 @@ part 'tweet_result.g.dart';
 /// * [editControl] 
 /// * [editPrespective] 
 /// * [isTranslatable] 
-/// * [userLegacy] 
+/// * [legacy] 
 /// * [views] 
 @BuiltValue()
 abstract class TweetResult implements Built<TweetResult, TweetResultBuilder> {
@@ -51,8 +51,8 @@ abstract class TweetResult implements Built<TweetResult, TweetResultBuilder> {
   @BuiltValueField(wireName: r'is_translatable')
   bool get isTranslatable;
 
-  @BuiltValueField(wireName: r'UserLegacy')
-  UserLegacy? get userLegacy;
+  @BuiltValueField(wireName: r'legacy')
+  TweetLegacy get legacy;
 
   @BuiltValueField(wireName: r'views')
   TweetResultViews get views;
@@ -118,13 +118,11 @@ class _$TweetResultSerializer implements PrimitiveSerializer<TweetResult> {
       object.isTranslatable,
       specifiedType: const FullType(bool),
     );
-    if (object.userLegacy != null) {
-      yield r'UserLegacy';
-      yield serializers.serialize(
-        object.userLegacy,
-        specifiedType: const FullType(UserLegacy),
-      );
-    }
+    yield r'legacy';
+    yield serializers.serialize(
+      object.legacy,
+      specifiedType: const FullType(TweetLegacy),
+    );
     yield r'views';
     yield serializers.serialize(
       object.views,
@@ -202,12 +200,12 @@ class _$TweetResultSerializer implements PrimitiveSerializer<TweetResult> {
           ) as bool;
           result.isTranslatable = valueDes;
           break;
-        case r'UserLegacy':
+        case r'legacy':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(UserLegacy),
-          ) as UserLegacy;
-          result.userLegacy.replace(valueDes);
+            specifiedType: const FullType(TweetLegacy),
+          ) as TweetLegacy;
+          result.legacy.replace(valueDes);
           break;
         case r'views':
           final valueDes = serializers.deserialize(

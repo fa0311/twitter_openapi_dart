@@ -9,14 +9,14 @@ void main() {
   group(DefaultApi, () {
     // get user list of followers
     //
-    //Future<HomeTimelineData> getFollowers(String variables, String features, String queryId) async
+    //Future getFollowers(String variables, String features, { String queryId }) async
     test('test getFollowers', () async {
       // TODO
     });
 
     // get user list of following
     //
-    //Future<HomeTimelineData> getFollowing(String variables, String features, String queryId) async
+    //Future getFollowing(String variables, String features, { String queryId }) async
     test('test getFollowing', () async {
       // TODO
     });

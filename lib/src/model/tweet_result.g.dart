@@ -22,7 +22,7 @@ class _$TweetResult extends TweetResult {
   @override
   final bool isTranslatable;
   @override
-  final UserLegacy? userLegacy;
+  final TweetLegacy legacy;
   @override
   final TweetResultViews views;
 
@@ -37,7 +37,7 @@ class _$TweetResult extends TweetResult {
       required this.editControl,
       required this.editPrespective,
       required this.isTranslatable,
-      this.userLegacy,
+      required this.legacy,
       required this.views})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(typename, r'TweetResult', 'typename');
@@ -49,6 +49,7 @@ class _$TweetResult extends TweetResult {
         editPrespective, r'TweetResult', 'editPrespective');
     BuiltValueNullFieldError.checkNotNull(
         isTranslatable, r'TweetResult', 'isTranslatable');
+    BuiltValueNullFieldError.checkNotNull(legacy, r'TweetResult', 'legacy');
     BuiltValueNullFieldError.checkNotNull(views, r'TweetResult', 'views');
   }
 
@@ -70,7 +71,7 @@ class _$TweetResult extends TweetResult {
         editControl == other.editControl &&
         editPrespective == other.editPrespective &&
         isTranslatable == other.isTranslatable &&
-        userLegacy == other.userLegacy &&
+        legacy == other.legacy &&
         views == other.views;
   }
 
@@ -84,7 +85,7 @@ class _$TweetResult extends TweetResult {
     _$hash = $jc(_$hash, editControl.hashCode);
     _$hash = $jc(_$hash, editPrespective.hashCode);
     _$hash = $jc(_$hash, isTranslatable.hashCode);
-    _$hash = $jc(_$hash, userLegacy.hashCode);
+    _$hash = $jc(_$hash, legacy.hashCode);
     _$hash = $jc(_$hash, views.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -100,7 +101,7 @@ class _$TweetResult extends TweetResult {
           ..add('editControl', editControl)
           ..add('editPrespective', editPrespective)
           ..add('isTranslatable', isTranslatable)
-          ..add('userLegacy', userLegacy)
+          ..add('legacy', legacy)
           ..add('views', views))
         .toString();
   }
@@ -144,11 +145,9 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
   set isTranslatable(bool? isTranslatable) =>
       _$this._isTranslatable = isTranslatable;
 
-  UserLegacyBuilder? _userLegacy;
-  UserLegacyBuilder get userLegacy =>
-      _$this._userLegacy ??= new UserLegacyBuilder();
-  set userLegacy(UserLegacyBuilder? userLegacy) =>
-      _$this._userLegacy = userLegacy;
+  TweetLegacyBuilder? _legacy;
+  TweetLegacyBuilder get legacy => _$this._legacy ??= new TweetLegacyBuilder();
+  set legacy(TweetLegacyBuilder? legacy) => _$this._legacy = legacy;
 
   TweetResultViewsBuilder? _views;
   TweetResultViewsBuilder get views =>
@@ -169,7 +168,7 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
       _editControl = $v.editControl.toBuilder();
       _editPrespective = $v.editPrespective.toBuilder();
       _isTranslatable = $v.isTranslatable;
-      _userLegacy = $v.userLegacy?.toBuilder();
+      _legacy = $v.legacy.toBuilder();
       _views = $v.views.toBuilder();
       _$v = null;
     }
@@ -205,7 +204,7 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
               editPrespective: editPrespective.build(),
               isTranslatable: BuiltValueNullFieldError.checkNotNull(
                   isTranslatable, r'TweetResult', 'isTranslatable'),
-              userLegacy: _userLegacy?.build(),
+              legacy: legacy.build(),
               views: views.build());
     } catch (_) {
       late String _$failedField;
@@ -218,8 +217,8 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
         _$failedField = 'editPrespective';
         editPrespective.build();
 
-        _$failedField = 'userLegacy';
-        _userLegacy?.build();
+        _$failedField = 'legacy';
+        legacy.build();
         _$failedField = 'views';
         views.build();
       } catch (e) {
