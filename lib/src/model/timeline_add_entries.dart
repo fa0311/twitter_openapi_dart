@@ -3,70 +3,124 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'timeline_add_entries.g.dart';
 
+/// TimelineAddEntries
+///
+/// Properties:
+/// * [type] 
+/// * [entries] 
+@BuiltValue()
+abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
+  @BuiltValueField(wireName: r'type')
+  InstructionType get type;
+  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineTerminateTimeline,  TimelineShowAlert,  };
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class TimelineAddEntries {
-  /// Returns a new [TimelineAddEntries] instance.
-  TimelineAddEntries({
+  @BuiltValueField(wireName: r'entries')
+  BuiltList<TimelineAddEntry> get entries;
 
-    required  this.type,
+  TimelineAddEntries._();
 
-    required  this.entries,
-  });
+  factory TimelineAddEntries([void updates(TimelineAddEntriesBuilder b)]) = _$TimelineAddEntries;
 
-  @JsonKey(
-    
-    name: r'type',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TimelineAddEntriesBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TimelineAddEntries> get serializer => _$TimelineAddEntriesSerializer();
+}
 
-  final InstructionType type;
-
-
-
-  @JsonKey(
-    
-    name: r'entries',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final List<TimelineAddEntry> entries;
-
-
+class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddEntries> {
+  @override
+  final Iterable<Type> types = const [TimelineAddEntries, _$TimelineAddEntries];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TimelineAddEntries &&
-     other.type == type &&
-     other.entries == entries;
+  final String wireName = r'TimelineAddEntries';
 
-  @override
-  int get hashCode =>
-    type.hashCode +
-    entries.hashCode;
-
-  factory TimelineAddEntries.fromJson(Map<String, dynamic> json) => _$TimelineAddEntriesFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TimelineAddEntriesToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    TimelineAddEntries object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'type';
+    yield serializers.serialize(
+      object.type,
+      specifiedType: const FullType(InstructionType),
+    );
+    yield r'entries';
+    yield serializers.serialize(
+      object.entries,
+      specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    TimelineAddEntries object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required TimelineAddEntriesBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(InstructionType),
+          ) as InstructionType;
+          result.type = valueDes;
+          break;
+        case r'entries':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+          ) as BuiltList<TimelineAddEntry>;
+          result.entries.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  TimelineAddEntries deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = TimelineAddEntriesBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

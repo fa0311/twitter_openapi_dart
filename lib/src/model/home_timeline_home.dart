@@ -4,52 +4,104 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/home_timeline_urt.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'home_timeline_home.g.dart';
 
+/// HomeTimelineHome
+///
+/// Properties:
+/// * [homeTimelineUrt] 
+@BuiltValue()
+abstract class HomeTimelineHome implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
+  @BuiltValueField(wireName: r'home_timeline_urt')
+  HomeTimelineUrt get homeTimelineUrt;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class HomeTimelineHome {
-  /// Returns a new [HomeTimelineHome] instance.
-  HomeTimelineHome({
+  HomeTimelineHome._();
 
-    required  this.homeTimelineUrt,
-  });
+  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) = _$HomeTimelineHome;
 
-  @JsonKey(
-    
-    name: r'home_timeline_urt',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(HomeTimelineHomeBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<HomeTimelineHome> get serializer => _$HomeTimelineHomeSerializer();
+}
 
-  final HomeTimelineUrt homeTimelineUrt;
-
-
+class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHome> {
+  @override
+  final Iterable<Type> types = const [HomeTimelineHome, _$HomeTimelineHome];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HomeTimelineHome &&
-     other.homeTimelineUrt == homeTimelineUrt;
+  final String wireName = r'HomeTimelineHome';
 
-  @override
-  int get hashCode =>
-    homeTimelineUrt.hashCode;
-
-  factory HomeTimelineHome.fromJson(Map<String, dynamic> json) => _$HomeTimelineHomeFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HomeTimelineHomeToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    HomeTimelineHome object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'home_timeline_urt';
+    yield serializers.serialize(
+      object.homeTimelineUrt,
+      specifiedType: const FullType(HomeTimelineUrt),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    HomeTimelineHome object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required HomeTimelineHomeBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'home_timeline_urt':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(HomeTimelineUrt),
+          ) as HomeTimelineUrt;
+          result.homeTimelineUrt.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  HomeTimelineHome deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HomeTimelineHomeBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

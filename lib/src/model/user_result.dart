@@ -5,228 +5,291 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'user_result.g.dart';
 
-
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class UserResult {
-  /// Returns a new [UserResult] instance.
-  UserResult({
-
-    required  this.typename,
-
-    required  this.affiliatesHighlightedLabel,
-
-    required  this.hasGraduatedAccess,
-
-     this.hasNftAvatar = false,
-
-    required  this.id,
-
-     this.isBlueVerified = false,
-
-    required  this.legacy,
-
-    required  this.restId,
-
-     this.businessAccount,
-
-     this.superFollowEligible = false,
-
-     this.superFollowedBy = false,
-
-     this.superFollowing = false,
-  });
-
-  @JsonKey(
-    
-    name: r'__typename',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final TypeName typename;
-
-
-
-  @JsonKey(
-    
-    name: r'affiliates_highlighted_label',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final Object affiliatesHighlightedLabel;
-
-
-
-  @JsonKey(
-    
-    name: r'has_graduated_access',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final bool hasGraduatedAccess;
-
-
-
-  @JsonKey(
-    defaultValue: false,
-    name: r'has_nft_avatar',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final bool? hasNftAvatar;
-
-
-
-  @JsonKey(
-    
-    name: r'id',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final String id;
-
-
-
-  @JsonKey(
-    defaultValue: false,
-    name: r'is_blue_verified',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final bool isBlueVerified;
-
-
-
-  @JsonKey(
-    
-    name: r'legacy',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final UserLegacy legacy;
-
-
-
-  @JsonKey(
-    
-    name: r'rest_id',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final String restId;
-
-
-
-  @JsonKey(
-    
-    name: r'business_account',
-    required: false,
-    includeIfNull: false
-  )
-
-
-  final Object? businessAccount;
-
-
-
-  @JsonKey(
-    defaultValue: false,
-    name: r'super_follow_eligible',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final bool superFollowEligible;
-
-
-
-  @JsonKey(
-    defaultValue: false,
-    name: r'super_followed_by',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final bool superFollowedBy;
-
-
-
-  @JsonKey(
-    defaultValue: false,
-    name: r'super_following',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final bool superFollowing;
-
-
+/// UserResult
+///
+/// Properties:
+/// * [typename] 
+/// * [affiliatesHighlightedLabel] 
+/// * [hasGraduatedAccess] 
+/// * [hasNftAvatar] 
+/// * [id] 
+/// * [isBlueVerified] 
+/// * [legacy] 
+/// * [restId] 
+/// * [businessAccount] 
+/// * [superFollowEligible] 
+/// * [superFollowedBy] 
+/// * [superFollowing] 
+@BuiltValue()
+abstract class UserResult implements Built<UserResult, UserResultBuilder> {
+  @BuiltValueField(wireName: r'__typename')
+  TypeName get typename;
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
+
+  @BuiltValueField(wireName: r'affiliates_highlighted_label')
+  JsonObject get affiliatesHighlightedLabel;
+
+  @BuiltValueField(wireName: r'has_graduated_access')
+  bool get hasGraduatedAccess;
+
+  @BuiltValueField(wireName: r'has_nft_avatar')
+  bool? get hasNftAvatar;
+
+  @BuiltValueField(wireName: r'id')
+  String get id;
+
+  @BuiltValueField(wireName: r'is_blue_verified')
+  bool get isBlueVerified;
+
+  @BuiltValueField(wireName: r'legacy')
+  UserLegacy get legacy;
+
+  @BuiltValueField(wireName: r'rest_id')
+  String get restId;
+
+  @BuiltValueField(wireName: r'business_account')
+  JsonObject? get businessAccount;
+
+  @BuiltValueField(wireName: r'super_follow_eligible')
+  bool get superFollowEligible;
+
+  @BuiltValueField(wireName: r'super_followed_by')
+  bool get superFollowedBy;
+
+  @BuiltValueField(wireName: r'super_following')
+  bool get superFollowing;
+
+  UserResult._();
+
+  factory UserResult([void updates(UserResultBuilder b)]) = _$UserResult;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserResultBuilder b) => b
+      ..hasNftAvatar = false
+      ..isBlueVerified = false
+      ..superFollowEligible = false
+      ..superFollowedBy = false
+      ..superFollowing = false;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserResult> get serializer => _$UserResultSerializer();
+}
+
+class _$UserResultSerializer implements PrimitiveSerializer<UserResult> {
+  @override
+  final Iterable<Type> types = const [UserResult, _$UserResult];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserResult &&
-     other.typename == typename &&
-     other.affiliatesHighlightedLabel == affiliatesHighlightedLabel &&
-     other.hasGraduatedAccess == hasGraduatedAccess &&
-     other.hasNftAvatar == hasNftAvatar &&
-     other.id == id &&
-     other.isBlueVerified == isBlueVerified &&
-     other.legacy == legacy &&
-     other.restId == restId &&
-     other.businessAccount == businessAccount &&
-     other.superFollowEligible == superFollowEligible &&
-     other.superFollowedBy == superFollowedBy &&
-     other.superFollowing == superFollowing;
+  final String wireName = r'UserResult';
 
-  @override
-  int get hashCode =>
-    typename.hashCode +
-    affiliatesHighlightedLabel.hashCode +
-    hasGraduatedAccess.hashCode +
-    hasNftAvatar.hashCode +
-    id.hashCode +
-    isBlueVerified.hashCode +
-    legacy.hashCode +
-    restId.hashCode +
-    businessAccount.hashCode +
-    superFollowEligible.hashCode +
-    superFollowedBy.hashCode +
-    superFollowing.hashCode;
-
-  factory UserResult.fromJson(Map<String, dynamic> json) => _$UserResultFromJson(json);
-
-  Map<String, dynamic> toJson() => _$UserResultToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    UserResult object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'__typename';
+    yield serializers.serialize(
+      object.typename,
+      specifiedType: const FullType(TypeName),
+    );
+    yield r'affiliates_highlighted_label';
+    yield serializers.serialize(
+      object.affiliatesHighlightedLabel,
+      specifiedType: const FullType(JsonObject),
+    );
+    yield r'has_graduated_access';
+    yield serializers.serialize(
+      object.hasGraduatedAccess,
+      specifiedType: const FullType(bool),
+    );
+    if (object.hasNftAvatar != null) {
+      yield r'has_nft_avatar';
+      yield serializers.serialize(
+        object.hasNftAvatar,
+        specifiedType: const FullType(bool),
+      );
+    }
+    yield r'id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'is_blue_verified';
+    yield serializers.serialize(
+      object.isBlueVerified,
+      specifiedType: const FullType(bool),
+    );
+    yield r'legacy';
+    yield serializers.serialize(
+      object.legacy,
+      specifiedType: const FullType(UserLegacy),
+    );
+    yield r'rest_id';
+    yield serializers.serialize(
+      object.restId,
+      specifiedType: const FullType(String),
+    );
+    if (object.businessAccount != null) {
+      yield r'business_account';
+      yield serializers.serialize(
+        object.businessAccount,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
+    yield r'super_follow_eligible';
+    yield serializers.serialize(
+      object.superFollowEligible,
+      specifiedType: const FullType(bool),
+    );
+    yield r'super_followed_by';
+    yield serializers.serialize(
+      object.superFollowedBy,
+      specifiedType: const FullType(bool),
+    );
+    yield r'super_following';
+    yield serializers.serialize(
+      object.superFollowing,
+      specifiedType: const FullType(bool),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    UserResult object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required UserResultBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'__typename':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TypeName),
+          ) as TypeName;
+          result.typename = valueDes;
+          break;
+        case r'affiliates_highlighted_label':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.affiliatesHighlightedLabel = valueDes;
+          break;
+        case r'has_graduated_access':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.hasGraduatedAccess = valueDes;
+          break;
+        case r'has_nft_avatar':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.hasNftAvatar = valueDes;
+          break;
+        case r'id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.id = valueDes;
+          break;
+        case r'is_blue_verified':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isBlueVerified = valueDes;
+          break;
+        case r'legacy':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserLegacy),
+          ) as UserLegacy;
+          result.legacy.replace(valueDes);
+          break;
+        case r'rest_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.restId = valueDes;
+          break;
+        case r'business_account':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.businessAccount = valueDes;
+          break;
+        case r'super_follow_eligible':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.superFollowEligible = valueDes;
+          break;
+        case r'super_followed_by':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.superFollowedBy = valueDes;
+          break;
+        case r'super_following':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.superFollowing = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  UserResult deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserResultBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

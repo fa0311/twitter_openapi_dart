@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for HomeTimelineHome
 void main() {
-  final HomeTimelineHome? instance = /* HomeTimelineHome(...) */ null;
-  // TODO add properties to the entity
+  final instance = HomeTimelineHomeBuilder();
+  // TODO add properties to the builder and call build()
 
   group(HomeTimelineHome, () {
     // HomeTimelineUrt homeTimelineUrt

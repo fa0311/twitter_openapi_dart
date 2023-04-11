@@ -3,71 +3,112 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+import 'package:one_of/one_of.dart';
 
 part 'instruction_union.g.dart';
 
+/// InstructionUnion
+///
+/// Properties:
+/// * [type] 
+/// * [entries] 
+@BuiltValue()
+abstract class InstructionUnion implements Built<InstructionUnion, InstructionUnionBuilder> {
+  /// One Of [TimelineAddEntries]
+  OneOf get oneOf;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class InstructionUnion {
-  /// Returns a new [InstructionUnion] instance.
-  InstructionUnion({
+  static const String discriminatorFieldName = r'type';
 
-    required  this.type,
+  static const Map<String, Type> discriminatorMapping = {
+    r'TimelineAddEntries': TimelineAddEntries,
+  };
 
-    required  this.entries,
-  });
+  InstructionUnion._();
 
-  @JsonKey(
-    
-    name: r'type',
-    required: true,
-    includeIfNull: false
-  )
+  factory InstructionUnion([void updates(InstructionUnionBuilder b)]) = _$InstructionUnion;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(InstructionUnionBuilder b) => b;
 
-  final InstructionType type;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<InstructionUnion> get serializer => _$InstructionUnionSerializer();
+}
 
+extension InstructionUnionDiscriminatorExt on InstructionUnion {
+    String? get discriminatorValue {
+        if (this is TimelineAddEntries) {
+            return r'TimelineAddEntries';
+        }
+        return null;
+    }
+}
+extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
+    String? get discriminatorValue {
+        if (this is TimelineAddEntriesBuilder) {
+            return r'TimelineAddEntries';
+        }
+        return null;
+    }
+}
 
-
-  @JsonKey(
-    
-    name: r'entries',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final List<TimelineAddEntry> entries;
-
-
+class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUnion> {
+  @override
+  final Iterable<Type> types = const [InstructionUnion, _$InstructionUnion];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InstructionUnion &&
-     other.type == type &&
-     other.entries == entries;
+  final String wireName = r'InstructionUnion';
 
-  @override
-  int get hashCode =>
-    type.hashCode +
-    entries.hashCode;
-
-  factory InstructionUnion.fromJson(Map<String, dynamic> json) => _$InstructionUnionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$InstructionUnionToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    InstructionUnion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    InstructionUnion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final oneOf = object.oneOf;
+    return serializers.serialize(oneOf.value, specifiedType: FullType(oneOf.valueType))!;
+  }
+
+  @override
+  InstructionUnion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = InstructionUnionBuilder();
+    Object? oneOfDataSrc;
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final discIndex = serializedList.indexOf(InstructionUnion.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    oneOfDataSrc = serialized;
+    final oneOfTypes = [TimelineAddEntries, ];
+    Object oneOfResult;
+    Type oneOfType;
+    switch (discValue) {
+      case r'TimelineAddEntries':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineAddEntries),
+        ) as TimelineAddEntries;
+        oneOfType = TimelineAddEntries;
+        break;
+      default:
+        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+    }
+    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
+    return result.build();
+  }
 }
 

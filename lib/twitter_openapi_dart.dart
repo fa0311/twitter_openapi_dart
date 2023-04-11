@@ -6,7 +6,8 @@ export 'package:twitter_openapi_dart/src/api.dart';
 export 'package:twitter_openapi_dart/src/auth/api_key_auth.dart';
 export 'package:twitter_openapi_dart/src/auth/basic_auth.dart';
 export 'package:twitter_openapi_dart/src/auth/oauth.dart';
-
+export 'package:twitter_openapi_dart/src/serializers.dart';
+export 'package:twitter_openapi_dart/src/model/date.dart';
 
 export 'package:twitter_openapi_dart/src/api/default_api.dart';
 

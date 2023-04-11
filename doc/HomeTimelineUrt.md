@@ -8,9 +8,9 @@ import 'package:twitter_openapi_dart/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instructions** | [**List&lt;InstructionUnion&gt;**](InstructionUnion.md) |  | 
-**metadata** | **Object** |  | 
-**responseObjects** | **Object** |  | 
+**instructions** | [**BuiltList&lt;InstructionUnion&gt;**](InstructionUnion.md) |  | 
+**metadata** | [**JsonObject**](.md) |  | 
+**responseObjects** | [**JsonObject**](.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

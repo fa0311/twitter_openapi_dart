@@ -4,84 +4,138 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/instruction_union.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'home_timeline_urt.g.dart';
 
+/// HomeTimelineUrt
+///
+/// Properties:
+/// * [instructions] 
+/// * [metadata] 
+/// * [responseObjects] 
+@BuiltValue()
+abstract class HomeTimelineUrt implements Built<HomeTimelineUrt, HomeTimelineUrtBuilder> {
+  @BuiltValueField(wireName: r'instructions')
+  BuiltList<InstructionUnion> get instructions;
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class HomeTimelineUrt {
-  /// Returns a new [HomeTimelineUrt] instance.
-  HomeTimelineUrt({
+  @BuiltValueField(wireName: r'metadata')
+  JsonObject get metadata;
 
-    required  this.instructions,
+  @BuiltValueField(wireName: r'responseObjects')
+  JsonObject get responseObjects;
 
-    required  this.metadata,
+  HomeTimelineUrt._();
 
-    required  this.responseObjects,
-  });
+  factory HomeTimelineUrt([void updates(HomeTimelineUrtBuilder b)]) = _$HomeTimelineUrt;
 
-  @JsonKey(
-    
-    name: r'instructions',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(HomeTimelineUrtBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<HomeTimelineUrt> get serializer => _$HomeTimelineUrtSerializer();
+}
 
-  final List<InstructionUnion> instructions;
-
-
-
-  @JsonKey(
-    
-    name: r'metadata',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final Object metadata;
-
-
-
-  @JsonKey(
-    
-    name: r'responseObjects',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final Object responseObjects;
-
-
+class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt> {
+  @override
+  final Iterable<Type> types = const [HomeTimelineUrt, _$HomeTimelineUrt];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HomeTimelineUrt &&
-     other.instructions == instructions &&
-     other.metadata == metadata &&
-     other.responseObjects == responseObjects;
+  final String wireName = r'HomeTimelineUrt';
 
-  @override
-  int get hashCode =>
-    instructions.hashCode +
-    metadata.hashCode +
-    responseObjects.hashCode;
-
-  factory HomeTimelineUrt.fromJson(Map<String, dynamic> json) => _$HomeTimelineUrtFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HomeTimelineUrtToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    HomeTimelineUrt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'instructions';
+    yield serializers.serialize(
+      object.instructions,
+      specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
+    );
+    yield r'metadata';
+    yield serializers.serialize(
+      object.metadata,
+      specifiedType: const FullType(JsonObject),
+    );
+    yield r'responseObjects';
+    yield serializers.serialize(
+      object.responseObjects,
+      specifiedType: const FullType(JsonObject),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    HomeTimelineUrt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required HomeTimelineUrtBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'instructions':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
+          ) as BuiltList<InstructionUnion>;
+          result.instructions.replace(valueDes);
+          break;
+        case r'metadata':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.metadata = valueDes;
+          break;
+        case r'responseObjects':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.responseObjects = valueDes;
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  HomeTimelineUrt deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HomeTimelineUrtBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

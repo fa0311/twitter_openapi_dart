@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TimelineAddEntry
 void main() {
-  final TimelineAddEntry? instance = /* TimelineAddEntry(...) */ null;
-  // TODO add properties to the entity
+  final instance = TimelineAddEntryBuilder();
+  // TODO add properties to the builder and call build()
 
   group(TimelineAddEntry, () {
     // ContentUnion content

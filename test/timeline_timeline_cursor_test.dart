@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TimelineTimelineCursor
 void main() {
-  final TimelineTimelineCursor? instance = /* TimelineTimelineCursor(...) */ null;
-  // TODO add properties to the entity
+  final instance = TimelineTimelineCursorBuilder();
+  // TODO add properties to the builder and call build()
 
   group(TimelineTimelineCursor, () {
     // TypeName typename

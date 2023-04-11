@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for UserResult
 void main() {
-  final UserResult? instance = /* UserResult(...) */ null;
-  // TODO add properties to the entity
+  final instance = UserResultBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UserResult, () {
     // TypeName typename
@@ -12,7 +12,7 @@ void main() {
       // TODO
     });
 
-    // Object affiliatesHighlightedLabel
+    // JsonObject affiliatesHighlightedLabel
     test('to test the property `affiliatesHighlightedLabel`', () async {
       // TODO
     });
@@ -47,7 +47,7 @@ void main() {
       // TODO
     });
 
-    // Object businessAccount
+    // JsonObject businessAccount
     test('to test the property `businessAccount`', () async {
       // TODO
     });

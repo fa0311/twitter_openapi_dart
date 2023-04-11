@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for HomeTimelineResponse
 void main() {
-  final HomeTimelineResponse? instance = /* HomeTimelineResponse(...) */ null;
-  // TODO add properties to the entity
+  final instance = HomeTimelineResponseBuilder();
+  // TODO add properties to the builder and call build()
 
   group(HomeTimelineResponse, () {
     // HomeTimelineData data

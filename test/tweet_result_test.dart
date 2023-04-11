@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TweetResult
 void main() {
-  final TweetResult? instance = /* TweetResult(...) */ null;
-  // TODO add properties to the entity
+  final instance = TweetResultBuilder();
+  // TODO add properties to the builder and call build()
 
   group(TweetResult, () {
     // TypeName typename
@@ -22,7 +22,7 @@ void main() {
       // TODO
     });
 
-    // Object unmentionData
+    // JsonObject unmentionData
     test('to test the property `unmentionData`', () async {
       // TODO
     });

@@ -6,100 +6,154 @@
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/item_result.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'item_content.g.dart';
 
+/// ItemContent
+///
+/// Properties:
+/// * [typename] 
+/// * [itemType] 
+/// * [tweetDisplayType] 
+/// * [tweetResults] 
+@BuiltValue()
+abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
+  @BuiltValueField(wireName: r'__typename')
+  TypeName get typename;
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  Tweet,  User,  };
 
-@JsonSerializable(
-  checked: true,
-  createToJson: true,
-  disallowUnrecognizedKeys: false,
-  explicitToJson: true,
-)
-class ItemContent {
-  /// Returns a new [ItemContent] instance.
-  ItemContent({
+  @BuiltValueField(wireName: r'itemType')
+  ContentItemType get itemType;
+  // enum itemTypeEnum {  TimelineTweet,  };
 
-    required  this.typename,
+  @BuiltValueField(wireName: r'tweetDisplayType')
+  String get tweetDisplayType;
 
-    required  this.itemType,
+  @BuiltValueField(wireName: r'tweet_results')
+  ItemResult get tweetResults;
 
-    required  this.tweetDisplayType,
+  ItemContent._();
 
-    required  this.tweetResults,
-  });
+  factory ItemContent([void updates(ItemContentBuilder b)]) = _$ItemContent;
 
-  @JsonKey(
-    
-    name: r'__typename',
-    required: true,
-    includeIfNull: false
-  )
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ItemContentBuilder b) => b;
 
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ItemContent> get serializer => _$ItemContentSerializer();
+}
 
-  final TypeName typename;
-
-
-
-  @JsonKey(
-    
-    name: r'itemType',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final ContentItemType itemType;
-
-
-
-  @JsonKey(
-    
-    name: r'tweetDisplayType',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final String tweetDisplayType;
-
-
-
-  @JsonKey(
-    
-    name: r'tweet_results',
-    required: true,
-    includeIfNull: false
-  )
-
-
-  final ItemResult tweetResults;
-
-
+class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
+  @override
+  final Iterable<Type> types = const [ItemContent, _$ItemContent];
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ItemContent &&
-     other.typename == typename &&
-     other.itemType == itemType &&
-     other.tweetDisplayType == tweetDisplayType &&
-     other.tweetResults == tweetResults;
+  final String wireName = r'ItemContent';
 
-  @override
-  int get hashCode =>
-    typename.hashCode +
-    itemType.hashCode +
-    tweetDisplayType.hashCode +
-    tweetResults.hashCode;
-
-  factory ItemContent.fromJson(Map<String, dynamic> json) => _$ItemContentFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ItemContentToJson(this);
-
-  @override
-  String toString() {
-    return toJson().toString();
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    ItemContent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'__typename';
+    yield serializers.serialize(
+      object.typename,
+      specifiedType: const FullType(TypeName),
+    );
+    yield r'itemType';
+    yield serializers.serialize(
+      object.itemType,
+      specifiedType: const FullType(ContentItemType),
+    );
+    yield r'tweetDisplayType';
+    yield serializers.serialize(
+      object.tweetDisplayType,
+      specifiedType: const FullType(String),
+    );
+    yield r'tweet_results';
+    yield serializers.serialize(
+      object.tweetResults,
+      specifiedType: const FullType(ItemResult),
+    );
   }
 
+  @override
+  Object serialize(
+    Serializers serializers,
+    ItemContent object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required ItemContentBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'__typename':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TypeName),
+          ) as TypeName;
+          result.typename = valueDes;
+          break;
+        case r'itemType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ContentItemType),
+          ) as ContentItemType;
+          result.itemType = valueDes;
+          break;
+        case r'tweetDisplayType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.tweetDisplayType = valueDes;
+          break;
+        case r'tweet_results':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemResult),
+          ) as ItemResult;
+          result.tweetResults.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  ItemContent deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ItemContentBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
 }
 

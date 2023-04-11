@@ -4,18 +4,19 @@
 
 import 'dart:async';
 
-// ignore: unused_import
-import 'dart:convert';
-import 'package:twitter_openapi_dart/src/deserialize.dart';
+import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_response.dart';
 
 class DefaultApi {
 
   final Dio _dio;
 
-  const DefaultApi(this._dio);
+  final Serializers _serializers;
+
+  const DefaultApi(this._dio, this._serializers);
 
   /// getFollowers
   /// get user list of followers
@@ -58,9 +59,9 @@ class DefaultApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'variables': variables,
-      r'features': features,
-      if (queryId != null) r'queryId': queryId,
+      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -116,9 +117,9 @@ class DefaultApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'variables': variables,
-      r'features': features,
-      if (queryId != null) r'queryId': queryId,
+      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -174,9 +175,9 @@ class DefaultApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'variables': variables,
-      r'features': features,
-      r'queryId': queryId,
+      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -191,7 +192,12 @@ class DefaultApi {
     HomeTimelineResponse _responseData;
 
     try {
-_responseData = deserialize<HomeTimelineResponse, HomeTimelineResponse>(_response.data!, 'HomeTimelineResponse', growable: true);
+      const _responseType = FullType(HomeTimelineResponse);
+      _responseData = _serializers.deserialize(
+        _response.data!,
+        specifiedType: _responseType,
+      ) as HomeTimelineResponse;
+
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,

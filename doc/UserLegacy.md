@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **defaultProfile** | **bool** |  | 
 **defaultProfileImage** | **bool** |  | 
 **description** | **String** |  | 
-**entities** | **Object** |  | [optional] 
+**entities** | [**JsonObject**](.md) |  | [optional] 
 **fastFollowersCount** | **int** |  | 
 **favouritesCount** | **int** |  | 
 **followRequestSent** | **bool** |  | [default to false]
@@ -33,11 +33,11 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **normalFollowersCount** | **int** |  | 
 **notifications** | **bool** |  | [default to false]
-**pinnedTweetIdsStr** | **List&lt;String&gt;** |  | 
+**pinnedTweetIdsStr** | **BuiltList&lt;String&gt;** |  | 
 **possiblySensitive** | **bool** |  | 
-**profileBannerExtensions** | **Object** |  | [optional] 
+**profileBannerExtensions** | [**JsonObject**](.md) |  | [optional] 
 **profileBannerUrl** | **String** |  | [optional] 
-**profileImageExtensions** | **Object** |  | [optional] 
+**profileImageExtensions** | [**JsonObject**](.md) |  | [optional] 
 **profileImageUrlHttps** | **String** |  | 
 **profileInterstitialType** | **String** |  | 
 **protected** | **bool** |  | [default to false]

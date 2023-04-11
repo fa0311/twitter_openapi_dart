@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for TimelineTimelineItem
 void main() {
-  final TimelineTimelineItem? instance = /* TimelineTimelineItem(...) */ null;
-  // TODO add properties to the entity
+  final instance = TimelineTimelineItemBuilder();
+  // TODO add properties to the builder and call build()
 
   group(TimelineTimelineItem, () {
     // TypeName typename
@@ -22,12 +22,12 @@ void main() {
       // TODO
     });
 
-    // Object clientEventInfo
+    // JsonObject clientEventInfo
     test('to test the property `clientEventInfo`', () async {
       // TODO
     });
 
-    // Object feedbackInfo
+    // JsonObject feedbackInfo
     test('to test the property `feedbackInfo`', () async {
       // TODO
     });

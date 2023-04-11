@@ -3,8 +3,8 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 // tests for UserResultCore
 void main() {
-  final UserResultCore? instance = /* UserResultCore(...) */ null;
-  // TODO add properties to the entity
+  final instance = UserResultCoreBuilder();
+  // TODO add properties to the builder and call build()
 
   group(UserResultCore, () {
     // UserResults userResults
