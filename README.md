@@ -134,16 +134,16 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: x-twitter-client-language
 - **Location**: HTTP header
 
-## CookieAuthCt0
-
-- **Type**: API key
-- **API key parameter name**: ct0
-- **Location**: 
-
 ## CookieAuthToken
 
 - **Type**: API key
 - **API key parameter name**: auth_token
+- **Location**: 
+
+## CookieCt0
+
+- **Type**: API key
+- **API key parameter name**: ct0
 - **Location**: 
 
 ## CsrfToken

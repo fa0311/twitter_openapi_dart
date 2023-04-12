@@ -53,7 +53,39 @@ class LoginRequiredApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -138,7 +170,39 @@ class LoginRequiredApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,
@@ -223,7 +287,39 @@ class LoginRequiredApi {
         ...?headers,
       },
       extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
         ...?extra,
       },
       validateStatus: validateStatus,
