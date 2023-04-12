@@ -9,16 +9,16 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'home_timeline_urt.g.dart';
+part 'home_timeline_urt1.g.dart';
 
-/// HomeTimelineUrt
+/// HomeTimelineUrt1
 ///
 /// Properties:
 /// * [instructions] 
 /// * [metadata] 
 /// * [responseObjects] 
 @BuiltValue()
-abstract class HomeTimelineUrt implements Built<HomeTimelineUrt, HomeTimelineUrtBuilder> {
+abstract class HomeTimelineUrt1 implements Built<HomeTimelineUrt1, HomeTimelineUrt1Builder> {
   @BuiltValueField(wireName: r'instructions')
   BuiltList<InstructionUnion> get instructions;
 
@@ -26,29 +26,29 @@ abstract class HomeTimelineUrt implements Built<HomeTimelineUrt, HomeTimelineUrt
   JsonObject get metadata;
 
   @BuiltValueField(wireName: r'responseObjects')
-  JsonObject? get responseObjects;
+  JsonObject get responseObjects;
 
-  HomeTimelineUrt._();
+  HomeTimelineUrt1._();
 
-  factory HomeTimelineUrt([void updates(HomeTimelineUrtBuilder b)]) = _$HomeTimelineUrt;
+  factory HomeTimelineUrt1([void updates(HomeTimelineUrt1Builder b)]) = _$HomeTimelineUrt1;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HomeTimelineUrtBuilder b) => b;
+  static void _defaults(HomeTimelineUrt1Builder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineUrt> get serializer => _$HomeTimelineUrtSerializer();
+  static Serializer<HomeTimelineUrt1> get serializer => _$HomeTimelineUrt1Serializer();
 }
 
-class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt> {
+class _$HomeTimelineUrt1Serializer implements PrimitiveSerializer<HomeTimelineUrt1> {
   @override
-  final Iterable<Type> types = const [HomeTimelineUrt, _$HomeTimelineUrt];
+  final Iterable<Type> types = const [HomeTimelineUrt1, _$HomeTimelineUrt1];
 
   @override
-  final String wireName = r'HomeTimelineUrt';
+  final String wireName = r'HomeTimelineUrt1';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    HomeTimelineUrt object, {
+    HomeTimelineUrt1 object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'instructions';
@@ -61,19 +61,17 @@ class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt
       object.metadata,
       specifiedType: const FullType(JsonObject),
     );
-    if (object.responseObjects != null) {
-      yield r'responseObjects';
-      yield serializers.serialize(
-        object.responseObjects,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
+    yield r'responseObjects';
+    yield serializers.serialize(
+      object.responseObjects,
+      specifiedType: const FullType(JsonObject),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    HomeTimelineUrt object, {
+    HomeTimelineUrt1 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -84,7 +82,7 @@ class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required HomeTimelineUrtBuilder result,
+    required HomeTimelineUrt1Builder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -121,12 +119,12 @@ class _$HomeTimelineUrtSerializer implements PrimitiveSerializer<HomeTimelineUrt
   }
 
   @override
-  HomeTimelineUrt deserialize(
+  HomeTimelineUrt1 deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = HomeTimelineUrtBuilder();
+    final result = HomeTimelineUrt1Builder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

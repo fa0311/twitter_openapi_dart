@@ -1,45 +1,48 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_timeline_urt.dart';
+part of 'home_timeline_urt1.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$HomeTimelineUrt extends HomeTimelineUrt {
+class _$HomeTimelineUrt1 extends HomeTimelineUrt1 {
   @override
   final BuiltList<InstructionUnion> instructions;
   @override
   final JsonObject metadata;
   @override
-  final JsonObject? responseObjects;
+  final JsonObject responseObjects;
 
-  factory _$HomeTimelineUrt([void Function(HomeTimelineUrtBuilder)? updates]) =>
-      (new HomeTimelineUrtBuilder()..update(updates))._build();
+  factory _$HomeTimelineUrt1(
+          [void Function(HomeTimelineUrt1Builder)? updates]) =>
+      (new HomeTimelineUrt1Builder()..update(updates))._build();
 
-  _$HomeTimelineUrt._(
+  _$HomeTimelineUrt1._(
       {required this.instructions,
       required this.metadata,
-      this.responseObjects})
+      required this.responseObjects})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        instructions, r'HomeTimelineUrt', 'instructions');
+        instructions, r'HomeTimelineUrt1', 'instructions');
     BuiltValueNullFieldError.checkNotNull(
-        metadata, r'HomeTimelineUrt', 'metadata');
+        metadata, r'HomeTimelineUrt1', 'metadata');
+    BuiltValueNullFieldError.checkNotNull(
+        responseObjects, r'HomeTimelineUrt1', 'responseObjects');
   }
 
   @override
-  HomeTimelineUrt rebuild(void Function(HomeTimelineUrtBuilder) updates) =>
+  HomeTimelineUrt1 rebuild(void Function(HomeTimelineUrt1Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  HomeTimelineUrtBuilder toBuilder() =>
-      new HomeTimelineUrtBuilder()..replace(this);
+  HomeTimelineUrt1Builder toBuilder() =>
+      new HomeTimelineUrt1Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is HomeTimelineUrt &&
+    return other is HomeTimelineUrt1 &&
         instructions == other.instructions &&
         metadata == other.metadata &&
         responseObjects == other.responseObjects;
@@ -57,7 +60,7 @@ class _$HomeTimelineUrt extends HomeTimelineUrt {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'HomeTimelineUrt')
+    return (newBuiltValueToStringHelper(r'HomeTimelineUrt1')
           ..add('instructions', instructions)
           ..add('metadata', metadata)
           ..add('responseObjects', responseObjects))
@@ -65,9 +68,9 @@ class _$HomeTimelineUrt extends HomeTimelineUrt {
   }
 }
 
-class HomeTimelineUrtBuilder
-    implements Builder<HomeTimelineUrt, HomeTimelineUrtBuilder> {
-  _$HomeTimelineUrt? _$v;
+class HomeTimelineUrt1Builder
+    implements Builder<HomeTimelineUrt1, HomeTimelineUrt1Builder> {
+  _$HomeTimelineUrt1? _$v;
 
   ListBuilder<InstructionUnion>? _instructions;
   ListBuilder<InstructionUnion> get instructions =>
@@ -84,11 +87,11 @@ class HomeTimelineUrtBuilder
   set responseObjects(JsonObject? responseObjects) =>
       _$this._responseObjects = responseObjects;
 
-  HomeTimelineUrtBuilder() {
-    HomeTimelineUrt._defaults(this);
+  HomeTimelineUrt1Builder() {
+    HomeTimelineUrt1._defaults(this);
   }
 
-  HomeTimelineUrtBuilder get _$this {
+  HomeTimelineUrt1Builder get _$this {
     final $v = _$v;
     if ($v != null) {
       _instructions = $v.instructions.toBuilder();
@@ -100,28 +103,29 @@ class HomeTimelineUrtBuilder
   }
 
   @override
-  void replace(HomeTimelineUrt other) {
+  void replace(HomeTimelineUrt1 other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$HomeTimelineUrt;
+    _$v = other as _$HomeTimelineUrt1;
   }
 
   @override
-  void update(void Function(HomeTimelineUrtBuilder)? updates) {
+  void update(void Function(HomeTimelineUrt1Builder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  HomeTimelineUrt build() => _build();
+  HomeTimelineUrt1 build() => _build();
 
-  _$HomeTimelineUrt _build() {
-    _$HomeTimelineUrt _$result;
+  _$HomeTimelineUrt1 _build() {
+    _$HomeTimelineUrt1 _$result;
     try {
       _$result = _$v ??
-          new _$HomeTimelineUrt._(
+          new _$HomeTimelineUrt1._(
               instructions: instructions.build(),
               metadata: BuiltValueNullFieldError.checkNotNull(
-                  metadata, r'HomeTimelineUrt', 'metadata'),
-              responseObjects: responseObjects);
+                  metadata, r'HomeTimelineUrt1', 'metadata'),
+              responseObjects: BuiltValueNullFieldError.checkNotNull(
+                  responseObjects, r'HomeTimelineUrt1', 'responseObjects'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -129,7 +133,7 @@ class HomeTimelineUrtBuilder
         instructions.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'HomeTimelineUrt', _$failedField, e.toString());
+            r'HomeTimelineUrt1', _$failedField, e.toString());
       }
       rethrow;
     }

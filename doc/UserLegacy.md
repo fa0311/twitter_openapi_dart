@@ -18,20 +18,20 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **entities** | [**JsonObject**](.md) |  | [optional] 
 **fastFollowersCount** | **int** |  | [optional] 
-**favouritesCount** | **int** |  | 
+**favouritesCount** | **int** |  | [default to 0]
 **followRequestSent** | **bool** |  | [default to false]
 **followedBy** | **bool** |  | [default to false]
-**followersCount** | **int** |  | 
+**followersCount** | **int** |  | [default to 0]
 **following** | **bool** |  | [default to false]
-**friendsCount** | **int** |  | 
+**friendsCount** | **int** |  | [default to 0]
 **hasCustomTimelines** | **bool** |  | [default to false]
 **isTranslator** | **bool** |  | [default to false]
-**listedCount** | **int** |  | 
-**location** | **String** |  | 
-**mediaCount** | **int** |  | 
+**listedCount** | **int** |  | [default to 0]
+**location** | **String** |  | [optional] 
+**mediaCount** | **int** |  | [default to 0]
 **muting** | **bool** |  | [default to false]
-**name** | **String** |  | 
-**normalFollowersCount** | **int** |  | 
+**name** | **String** |  | [optional] 
+**normalFollowersCount** | **int** |  | [default to 0]
 **notifications** | **bool** |  | [default to false]
 **pinnedTweetIdsStr** | **BuiltList&lt;String&gt;** |  | 
 **possiblySensitive** | **bool** |  | [default to false]
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 **profileInterstitialType** | **String** |  | 
 **protected** | **bool** |  | [default to false]
 **screenName** | **String** |  | 
-**statusesCount** | **int** |  | 
+**statusesCount** | **int** |  | [default to 0]
 **translatorType** | **String** |  | 
 **url** | **String** |  | [optional] 
 **verified** | **bool** |  | 

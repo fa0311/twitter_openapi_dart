@@ -11,129 +11,13 @@ import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_response.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_response.dart';
 
-class DefaultApi {
+class LoginRequiredApi {
 
   final Dio _dio;
 
   final Serializers _serializers;
 
-  const DefaultApi(this._dio, this._serializers);
-
-  /// getFollowers
-  /// get user list of followers
-  ///
-  /// Parameters:
-  /// * [variables] 
-  /// * [features] 
-  /// * [queryId] 
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> getFollowers({ 
-    required String variables,
-    required String features,
-    String? queryId = 'VptSi88PiaQhBevFbGVlGg',
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _queryParameters = <String, dynamic>{
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-    };
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      queryParameters: _queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    return _response;
-  }
-
-  /// getFollowing
-  /// get user list of following
-  ///
-  /// Parameters:
-  /// * [variables] 
-  /// * [features] 
-  /// * [queryId] 
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> getFollowing({ 
-    required String variables,
-    required String features,
-    String? queryId = 'FaBzCqZXuQCb4PhB0RHqHw',
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _queryParameters = <String, dynamic>{
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-    };
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      queryParameters: _queryParameters,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    return _response;
-  }
+  const LoginRequiredApi(this._dio, this._serializers);
 
   /// getHomeLatestTimeline
   /// get tweet list of timeline

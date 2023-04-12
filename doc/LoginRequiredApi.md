@@ -1,4 +1,4 @@
-# twitter_openapi_dart.api.DefaultApi
+# twitter_openapi_dart.api.LoginRequiredApi
 
 ## Load the API package
 ```dart
@@ -9,104 +9,10 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFollowers**](DefaultApi.md#getfollowers) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
-[**getFollowing**](DefaultApi.md#getfollowing) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-[**getHomeLatestTimeline**](DefaultApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
-[**getHomeTimeline**](DefaultApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[**getListLatestTweetsTimeline**](DefaultApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
+[**getHomeLatestTimeline**](LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
+[**getHomeTimeline**](LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
+[**getListLatestTweetsTimeline**](LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
 
-
-# **getFollowers**
-> getFollowers(variables, features, queryId)
-
-
-
-get user list of followers
-
-### Example
-```dart
-import 'package:twitter_openapi_dart/api.dart';
-
-final api = TwitterOpenapiDart().getDefaultApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = queryId_example; // String | 
-
-try {
-    api.getFollowers(variables, features, queryId);
-} catch on DioError (e) {
-    print('Exception when calling DefaultApi->getFollowers: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **variables** | **String**|  | 
- **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to 'VptSi88PiaQhBevFbGVlGg']
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getFollowing**
-> getFollowing(variables, features, queryId)
-
-
-
-get user list of following
-
-### Example
-```dart
-import 'package:twitter_openapi_dart/api.dart';
-
-final api = TwitterOpenapiDart().getDefaultApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = queryId_example; // String | 
-
-try {
-    api.getFollowing(variables, features, queryId);
-} catch on DioError (e) {
-    print('Exception when calling DefaultApi->getFollowing: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **variables** | **String**|  | 
- **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to 'FaBzCqZXuQCb4PhB0RHqHw']
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHomeLatestTimeline**
 > TimelineResponse getHomeLatestTimeline(variables, features, queryId)
@@ -119,7 +25,7 @@ get tweet list of timeline
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api = TwitterOpenapiDart().getDefaultApi();
+final api = TwitterOpenapiDart().getLoginRequiredApi();
 final String variables = '{ "count":20, "includePromotedContent":true, "latestControlAvailable":true, "requestContext":"launch", "withDownvotePerspective":false }'; // String | 
 final String features = '{ "blue_business_profile_image_shape_enabled":true, "responsive_web_graphql_exclude_directive_enabled":true, "verified_phone_label_enabled":false, "responsive_web_graphql_timeline_navigation_enabled":true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled":false, "tweetypie_unmention_optimization_enabled":true, "vibe_api_enabled":true, "responsive_web_edit_tweet_api_enabled":true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled":true, "view_counts_everywhere_api_enabled":true, "longform_notetweets_consumption_enabled":true, "tweet_awards_web_tipping_enabled":false, "freedom_of_speech_not_reach_fetch_enabled":false, "standardized_nudges_misinfo":true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled":false, "interactive_text_enabled":true, "responsive_web_text_conversations_enabled":false, "longform_notetweets_rich_text_read_enabled":true, "responsive_web_enhance_cards_enabled":false }'; // String | 
 final String queryId = '37RUvMgTiEVYYfrRTVDxpw'; // String | 
@@ -128,7 +34,7 @@ try {
     final response = api.getHomeLatestTimeline(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->getHomeLatestTimeline: $e\n');
+    print('Exception when calling LoginRequiredApi->getHomeLatestTimeline: $e\n');
 }
 ```
 
@@ -166,7 +72,7 @@ get tweet list of timeline
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api = TwitterOpenapiDart().getDefaultApi();
+final api = TwitterOpenapiDart().getLoginRequiredApi();
 final String variables = '{ "count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true, "withDownvotePerspective": false, "withReactionsMetadata": false, "withReactionsPerspective": false }'; // String | 
 final String features = '{ "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_richtext_consumption_enabled": true, "responsive_web_enhance_cards_enabled": false }'; // String | 
 final String queryId = 'BntFPEOxs3GYdPaS6CjUcg'; // String | 
@@ -175,7 +81,7 @@ try {
     final response = api.getHomeTimeline(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->getHomeTimeline: $e\n');
+    print('Exception when calling LoginRequiredApi->getHomeTimeline: $e\n');
 }
 ```
 
@@ -213,7 +119,7 @@ get tweet list of timeline
 ```dart
 import 'package:twitter_openapi_dart/api.dart';
 
-final api = TwitterOpenapiDart().getDefaultApi();
+final api = TwitterOpenapiDart().getLoginRequiredApi();
 final String variables = ' { "listId":"000000000000", "count":20, "withDownvotePerspective":false }'; // String | 
 final String features = ' { "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false, }'; // String | 
 final String queryId = 'VEwO8c1TYdm5zjxCOIiwFw'; // String | 
@@ -222,7 +128,7 @@ try {
     final response = api.getListLatestTweetsTimeline(variables, features, queryId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->getListLatestTweetsTimeline: $e\n');
+    print('Exception when calling LoginRequiredApi->getListLatestTweetsTimeline: $e\n');
 }
 ```
 

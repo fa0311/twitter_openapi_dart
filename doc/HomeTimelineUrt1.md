@@ -1,4 +1,4 @@
-# twitter_openapi_dart.model.HomeTimelineUrt
+# twitter_openapi_dart.model.HomeTimelineUrt1
 
 ## Load the model package
 ```dart
@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **instructions** | [**BuiltList&lt;InstructionUnion&gt;**](InstructionUnion.md) |  | 
 **metadata** | [**JsonObject**](.md) |  | 
-**responseObjects** | [**JsonObject**](.md) |  | [optional] 
+**responseObjects** | [**JsonObject**](.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

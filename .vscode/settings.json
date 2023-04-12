@@ -7,5 +7,6 @@
     "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": "openapi-3.0.yaml"
   },
   "dart.analysisExcludedFolders": ["lib"],
-  "dart.lineLength": 160
+  "dart.lineLength": 160,
+  "markdownlint.ignore": ["doc/**", "README.md"]
 }

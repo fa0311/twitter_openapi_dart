@@ -9,7 +9,9 @@ import 'package:twitter_openapi_dart/src/auth/api_key_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/bearer_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/oauth.dart';
-import 'package:twitter_openapi_dart/src/api/default_api.dart';
+import 'package:twitter_openapi_dart/src/api/follow_api.dart';
+import 'package:twitter_openapi_dart/src/api/login_required_api.dart';
+import 'package:twitter_openapi_dart/src/api/timeline_api.dart';
 
 class TwitterOpenapiDart {
   static const String basePath = r'https://twitter.com/i/api/graphql';
@@ -65,9 +67,21 @@ class TwitterOpenapiDart {
     }
   }
 
-  /// Get DefaultApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get FollowApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  DefaultApi getDefaultApi() {
-    return DefaultApi(dio, serializers);
+  FollowApi getFollowApi() {
+    return FollowApi(dio, serializers);
+  }
+
+  /// Get LoginRequiredApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  LoginRequiredApi getLoginRequiredApi() {
+    return LoginRequiredApi(dio, serializers);
+  }
+
+  /// Get TimelineApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TimelineApi getTimelineApi() {
+    return TimelineApi(dio, serializers);
   }
 }
