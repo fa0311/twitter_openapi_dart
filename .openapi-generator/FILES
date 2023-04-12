@@ -1,5 +1,6 @@
 .gitignore
 README.md
+analysis_options.yaml
 doc/ContentEntryType.md
 doc/ContentItemType.md
 doc/ContentUnion.md
@@ -77,3 +78,4 @@ lib/src/model/user_result_core.dart
 lib/src/model/user_results.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart.dart
+pubspec.yaml
