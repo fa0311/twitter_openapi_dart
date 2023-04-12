@@ -9,9 +9,8 @@ if ($overwrites) {
     flutter pub get
 }
 else {
-    java -jar tools/openapi-generator-cli.jar generate -g dart-dio -c tools/openapi-generator-config.yaml --ignore-file-override
+    java -jar tools/openapi-generator-cli.jar generate -g dart-dio -c tools/openapi-generator-config.yaml
 }
-
 
 
 flutter pub run build_runner build --delete-conflicting-outputs

@@ -74,5 +74,6 @@ void main() async {
             "responsive_web_enhance_cards_enabled": false
           }),
         );
+    expect(response.statusCode, 200);
   });
 }
