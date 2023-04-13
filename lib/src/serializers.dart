@@ -34,16 +34,19 @@ import 'package:twitter_openapi_dart/src/model/timeline_response.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
+import 'package:twitter_openapi_dart/src/model/tweet.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_edit_control.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_legacy.dart';
-import 'package:twitter_openapi_dart/src/model/tweet_result.dart';
-import 'package:twitter_openapi_dart/src/model/tweet_result_edit_control.dart';
-import 'package:twitter_openapi_dart/src/model/tweet_result_edit_prespective.dart';
-import 'package:twitter_openapi_dart/src/model/tweet_result_views.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_union.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_views.dart';
+import 'package:twitter_openapi_dart/src/model/tweet_with_visibility_results.dart';
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
+import 'package:twitter_openapi_dart/src/model/user.dart';
 import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
-import 'package:twitter_openapi_dart/src/model/user_result.dart';
 import 'package:twitter_openapi_dart/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart/src/model/user_results.dart';
+import 'package:twitter_openapi_dart/src/model/user_union.dart';
 
 part 'serializers.g.dart';
 
@@ -68,16 +71,19 @@ part 'serializers.g.dart';
   TimelineTimelineCursor,
   TimelineTimelineItem,
   TimelineTimelineModule,
+  Tweet,
+  TweetEditControl,
+  TweetEditPrespective,
   TweetLegacy,
-  TweetResult,
-  TweetResultEditControl,
-  TweetResultEditPrespective,
-  TweetResultViews,
+  TweetUnion,
+  TweetViews,
+  TweetWithVisibilityResults,
   TypeName,
+  User,
   UserLegacy,
-  UserResult,
   UserResultCore,
   UserResults,
+  UserUnion,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

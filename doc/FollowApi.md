@@ -9,8 +9,8 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFollowers**](FollowApi.md#getfollowers) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
-[**getFollowing**](FollowApi.md#getfollowing) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[**getFollowers**](FollowApi.md#getfollowers) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[**getFollowing**](FollowApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
 
 
 # **getFollowers**

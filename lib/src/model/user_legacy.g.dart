@@ -16,17 +16,17 @@ class _$UserLegacy extends UserLegacy {
   @override
   final bool canMediaTag;
   @override
-  final String? createdAt;
+  final String createdAt;
   @override
   final bool defaultProfile;
   @override
   final bool defaultProfileImage;
   @override
-  final String? description;
+  final String description;
   @override
-  final JsonObject? entities;
+  final JsonObject entities;
   @override
-  final int? fastFollowersCount;
+  final int fastFollowersCount;
   @override
   final int favouritesCount;
   @override
@@ -46,13 +46,13 @@ class _$UserLegacy extends UserLegacy {
   @override
   final int listedCount;
   @override
-  final String? location;
+  final String location;
   @override
   final int mediaCount;
   @override
   final bool muting;
   @override
-  final String? name;
+  final String name;
   @override
   final int normalFollowersCount;
   @override
@@ -94,12 +94,12 @@ class _$UserLegacy extends UserLegacy {
       required this.blocking,
       required this.canDm,
       required this.canMediaTag,
-      this.createdAt,
+      required this.createdAt,
       required this.defaultProfile,
       required this.defaultProfileImage,
-      this.description,
-      this.entities,
-      this.fastFollowersCount,
+      required this.description,
+      required this.entities,
+      required this.fastFollowersCount,
       required this.favouritesCount,
       required this.followRequestSent,
       required this.followedBy,
@@ -109,10 +109,10 @@ class _$UserLegacy extends UserLegacy {
       required this.hasCustomTimelines,
       required this.isTranslator,
       required this.listedCount,
-      this.location,
+      required this.location,
       required this.mediaCount,
       required this.muting,
-      this.name,
+      required this.name,
       required this.normalFollowersCount,
       required this.notifications,
       required this.pinnedTweetIdsStr,
@@ -137,9 +137,16 @@ class _$UserLegacy extends UserLegacy {
     BuiltValueNullFieldError.checkNotNull(
         canMediaTag, r'UserLegacy', 'canMediaTag');
     BuiltValueNullFieldError.checkNotNull(
+        createdAt, r'UserLegacy', 'createdAt');
+    BuiltValueNullFieldError.checkNotNull(
         defaultProfile, r'UserLegacy', 'defaultProfile');
     BuiltValueNullFieldError.checkNotNull(
         defaultProfileImage, r'UserLegacy', 'defaultProfileImage');
+    BuiltValueNullFieldError.checkNotNull(
+        description, r'UserLegacy', 'description');
+    BuiltValueNullFieldError.checkNotNull(entities, r'UserLegacy', 'entities');
+    BuiltValueNullFieldError.checkNotNull(
+        fastFollowersCount, r'UserLegacy', 'fastFollowersCount');
     BuiltValueNullFieldError.checkNotNull(
         favouritesCount, r'UserLegacy', 'favouritesCount');
     BuiltValueNullFieldError.checkNotNull(
@@ -158,9 +165,11 @@ class _$UserLegacy extends UserLegacy {
         isTranslator, r'UserLegacy', 'isTranslator');
     BuiltValueNullFieldError.checkNotNull(
         listedCount, r'UserLegacy', 'listedCount');
+    BuiltValueNullFieldError.checkNotNull(location, r'UserLegacy', 'location');
     BuiltValueNullFieldError.checkNotNull(
         mediaCount, r'UserLegacy', 'mediaCount');
     BuiltValueNullFieldError.checkNotNull(muting, r'UserLegacy', 'muting');
+    BuiltValueNullFieldError.checkNotNull(name, r'UserLegacy', 'name');
     BuiltValueNullFieldError.checkNotNull(
         normalFollowersCount, r'UserLegacy', 'normalFollowersCount');
     BuiltValueNullFieldError.checkNotNull(
@@ -586,18 +595,19 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
                   canDm, r'UserLegacy', 'canDm'),
               canMediaTag: BuiltValueNullFieldError.checkNotNull(
                   canMediaTag, r'UserLegacy', 'canMediaTag'),
-              createdAt: createdAt,
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'UserLegacy', 'createdAt'),
               defaultProfile: BuiltValueNullFieldError.checkNotNull(
                   defaultProfile, r'UserLegacy', 'defaultProfile'),
               defaultProfileImage: BuiltValueNullFieldError.checkNotNull(
                   defaultProfileImage, r'UserLegacy', 'defaultProfileImage'),
-              description: description,
-              entities: entities,
-              fastFollowersCount: fastFollowersCount,
-              favouritesCount: BuiltValueNullFieldError.checkNotNull(
-                  favouritesCount, r'UserLegacy', 'favouritesCount'),
-              followRequestSent: BuiltValueNullFieldError.checkNotNull(
-                  followRequestSent, r'UserLegacy', 'followRequestSent'),
+              description: BuiltValueNullFieldError.checkNotNull(
+                  description, r'UserLegacy', 'description'),
+              entities:
+                  BuiltValueNullFieldError.checkNotNull(entities, r'UserLegacy', 'entities'),
+              fastFollowersCount: BuiltValueNullFieldError.checkNotNull(fastFollowersCount, r'UserLegacy', 'fastFollowersCount'),
+              favouritesCount: BuiltValueNullFieldError.checkNotNull(favouritesCount, r'UserLegacy', 'favouritesCount'),
+              followRequestSent: BuiltValueNullFieldError.checkNotNull(followRequestSent, r'UserLegacy', 'followRequestSent'),
               followedBy: BuiltValueNullFieldError.checkNotNull(followedBy, r'UserLegacy', 'followedBy'),
               followersCount: BuiltValueNullFieldError.checkNotNull(followersCount, r'UserLegacy', 'followersCount'),
               following: BuiltValueNullFieldError.checkNotNull(following, r'UserLegacy', 'following'),
@@ -605,10 +615,10 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
               hasCustomTimelines: BuiltValueNullFieldError.checkNotNull(hasCustomTimelines, r'UserLegacy', 'hasCustomTimelines'),
               isTranslator: BuiltValueNullFieldError.checkNotNull(isTranslator, r'UserLegacy', 'isTranslator'),
               listedCount: BuiltValueNullFieldError.checkNotNull(listedCount, r'UserLegacy', 'listedCount'),
-              location: location,
+              location: BuiltValueNullFieldError.checkNotNull(location, r'UserLegacy', 'location'),
               mediaCount: BuiltValueNullFieldError.checkNotNull(mediaCount, r'UserLegacy', 'mediaCount'),
               muting: BuiltValueNullFieldError.checkNotNull(muting, r'UserLegacy', 'muting'),
-              name: name,
+              name: BuiltValueNullFieldError.checkNotNull(name, r'UserLegacy', 'name'),
               normalFollowersCount: BuiltValueNullFieldError.checkNotNull(normalFollowersCount, r'UserLegacy', 'normalFollowersCount'),
               notifications: BuiltValueNullFieldError.checkNotNull(notifications, r'UserLegacy', 'notifications'),
               pinnedTweetIdsStr: pinnedTweetIdsStr.build(),

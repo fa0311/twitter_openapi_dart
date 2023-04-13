@@ -1,4 +1,4 @@
-# twitter_openapi_dart.model.TweetResult
+# twitter_openapi_dart.model.ItemResultResult
 
 ## Load the model package
 ```dart
@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**typename** | [**TypeName**](TypeName.md) |  | 
 **restId** | **String** |  | 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
 **unmentionData** | [**JsonObject**](.md) |  | [optional] 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **isTranslatable** | **bool** |  | [default to false]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
 **views** | [**TweetResultViews**](TweetResultViews.md) |  | 
+**tweet** | [**TweetResult**](TweetResult.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

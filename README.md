@@ -65,8 +65,8 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
-[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeLatestTimeline**](doc\LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeTimeline**](doc\LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getListLatestTweetsTimeline**](doc\LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
@@ -97,16 +97,19 @@ Class | Method | HTTP request | Description
  - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
  - [TimelineTimelineModule](doc\TimelineTimelineModule.md)
+ - [Tweet](doc\Tweet.md)
+ - [TweetEditControl](doc\TweetEditControl.md)
+ - [TweetEditPrespective](doc\TweetEditPrespective.md)
  - [TweetLegacy](doc\TweetLegacy.md)
- - [TweetResult](doc\TweetResult.md)
- - [TweetResultEditControl](doc\TweetResultEditControl.md)
- - [TweetResultEditPrespective](doc\TweetResultEditPrespective.md)
- - [TweetResultViews](doc\TweetResultViews.md)
+ - [TweetUnion](doc\TweetUnion.md)
+ - [TweetViews](doc\TweetViews.md)
+ - [TweetWithVisibilityResults](doc\TweetWithVisibilityResults.md)
  - [TypeName](doc\TypeName.md)
+ - [User](doc\User.md)
  - [UserLegacy](doc\UserLegacy.md)
- - [UserResult](doc\UserResult.md)
  - [UserResultCore](doc\UserResultCore.md)
  - [UserResults](doc\UserResults.md)
+ - [UserUnion](doc\UserUnion.md)
 
 
 ## Documentation For Authorization

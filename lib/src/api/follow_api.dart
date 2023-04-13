@@ -44,7 +44,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
+    final _path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -102,7 +102,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
+    final _path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{

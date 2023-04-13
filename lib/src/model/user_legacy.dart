@@ -67,7 +67,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   bool get canMediaTag;
 
   @BuiltValueField(wireName: r'created_at')
-  String? get createdAt;
+  String get createdAt;
 
   @BuiltValueField(wireName: r'default_profile')
   bool get defaultProfile;
@@ -76,13 +76,13 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   bool get defaultProfileImage;
 
   @BuiltValueField(wireName: r'description')
-  String? get description;
+  String get description;
 
   @BuiltValueField(wireName: r'entities')
-  JsonObject? get entities;
+  JsonObject get entities;
 
   @BuiltValueField(wireName: r'fast_followers_count')
-  int? get fastFollowersCount;
+  int get fastFollowersCount;
 
   @BuiltValueField(wireName: r'favourites_count')
   int get favouritesCount;
@@ -112,7 +112,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   int get listedCount;
 
   @BuiltValueField(wireName: r'location')
-  String? get location;
+  String get location;
 
   @BuiltValueField(wireName: r'media_count')
   int get mediaCount;
@@ -121,7 +121,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   bool get muting;
 
   @BuiltValueField(wireName: r'name')
-  String? get name;
+  String get name;
 
   @BuiltValueField(wireName: r'normal_followers_count')
   int get normalFollowersCount;
@@ -237,13 +237,11 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.canMediaTag,
       specifiedType: const FullType(bool),
     );
-    if (object.createdAt != null) {
-      yield r'created_at';
-      yield serializers.serialize(
-        object.createdAt,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'created_at';
+    yield serializers.serialize(
+      object.createdAt,
+      specifiedType: const FullType(String),
+    );
     yield r'default_profile';
     yield serializers.serialize(
       object.defaultProfile,
@@ -254,27 +252,21 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.defaultProfileImage,
       specifiedType: const FullType(bool),
     );
-    if (object.description != null) {
-      yield r'description';
-      yield serializers.serialize(
-        object.description,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.entities != null) {
-      yield r'entities';
-      yield serializers.serialize(
-        object.entities,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
-    if (object.fastFollowersCount != null) {
-      yield r'fast_followers_count';
-      yield serializers.serialize(
-        object.fastFollowersCount,
-        specifiedType: const FullType(int),
-      );
-    }
+    yield r'description';
+    yield serializers.serialize(
+      object.description,
+      specifiedType: const FullType(String),
+    );
+    yield r'entities';
+    yield serializers.serialize(
+      object.entities,
+      specifiedType: const FullType(JsonObject),
+    );
+    yield r'fast_followers_count';
+    yield serializers.serialize(
+      object.fastFollowersCount,
+      specifiedType: const FullType(int),
+    );
     yield r'favourites_count';
     yield serializers.serialize(
       object.favouritesCount,
@@ -320,13 +312,11 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.listedCount,
       specifiedType: const FullType(int),
     );
-    if (object.location != null) {
-      yield r'location';
-      yield serializers.serialize(
-        object.location,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'location';
+    yield serializers.serialize(
+      object.location,
+      specifiedType: const FullType(String),
+    );
     yield r'media_count';
     yield serializers.serialize(
       object.mediaCount,
@@ -337,13 +327,11 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.muting,
       specifiedType: const FullType(bool),
     );
-    if (object.name != null) {
-      yield r'name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
     yield r'normal_followers_count';
     yield serializers.serialize(
       object.normalFollowersCount,

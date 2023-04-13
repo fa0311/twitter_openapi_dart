@@ -8,7 +8,7 @@ part of 'item_result.dart';
 
 class _$ItemResult extends ItemResult {
   @override
-  final TweetResult result;
+  final TweetUnion result;
 
   factory _$ItemResult([void Function(ItemResultBuilder)? updates]) =>
       (new ItemResultBuilder()..update(updates))._build();
@@ -48,9 +48,9 @@ class _$ItemResult extends ItemResult {
 class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
   _$ItemResult? _$v;
 
-  TweetResultBuilder? _result;
-  TweetResultBuilder get result => _$this._result ??= new TweetResultBuilder();
-  set result(TweetResultBuilder? result) => _$this._result = result;
+  TweetUnionBuilder? _result;
+  TweetUnionBuilder get result => _$this._result ??= new TweetUnionBuilder();
+  set result(TweetUnionBuilder? result) => _$this._result = result;
 
   ItemResultBuilder() {
     ItemResult._defaults(this);

@@ -12,12 +12,12 @@ Name | Type | Description | Notes
 **blocking** | **bool** |  | [default to false]
 **canDm** | **bool** |  | [default to false]
 **canMediaTag** | **bool** |  | [default to false]
-**createdAt** | **String** |  | [optional] 
+**createdAt** | **String** |  | 
 **defaultProfile** | **bool** |  | [default to false]
 **defaultProfileImage** | **bool** |  | [default to false]
-**description** | **String** |  | [optional] 
-**entities** | [**JsonObject**](.md) |  | [optional] 
-**fastFollowersCount** | **int** |  | [optional] 
+**description** | **String** |  | 
+**entities** | [**JsonObject**](.md) |  | 
+**fastFollowersCount** | **int** |  | 
 **favouritesCount** | **int** |  | [default to 0]
 **followRequestSent** | **bool** |  | [default to false]
 **followedBy** | **bool** |  | [default to false]
@@ -27,10 +27,10 @@ Name | Type | Description | Notes
 **hasCustomTimelines** | **bool** |  | [default to false]
 **isTranslator** | **bool** |  | [default to false]
 **listedCount** | **int** |  | [default to 0]
-**location** | **String** |  | [optional] 
+**location** | **String** |  | 
 **mediaCount** | **int** |  | [default to 0]
 **muting** | **bool** |  | [default to false]
-**name** | **String** |  | [optional] 
+**name** | **String** |  | 
 **normalFollowersCount** | **int** |  | [default to 0]
 **notifications** | **bool** |  | [default to false]
 **pinnedTweetIdsStr** | **BuiltList&lt;String&gt;** |  | 

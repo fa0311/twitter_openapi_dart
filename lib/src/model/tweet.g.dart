@@ -1,12 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tweet_result.dart';
+part of 'tweet.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$TweetResult extends TweetResult {
+class _$Tweet extends Tweet {
+  @override
+  final TypeName? typename;
   @override
   final String restId;
   @override
@@ -14,21 +16,22 @@ class _$TweetResult extends TweetResult {
   @override
   final JsonObject? unmentionData;
   @override
-  final TweetResultEditControl editControl;
+  final TweetEditControl editControl;
   @override
-  final TweetResultEditPrespective editPrespective;
+  final TweetEditPrespective editPrespective;
   @override
   final bool isTranslatable;
   @override
   final TweetLegacy legacy;
   @override
-  final TweetResultViews views;
+  final TweetViews views;
 
-  factory _$TweetResult([void Function(TweetResultBuilder)? updates]) =>
-      (new TweetResultBuilder()..update(updates))._build();
+  factory _$Tweet([void Function(TweetBuilder)? updates]) =>
+      (new TweetBuilder()..update(updates))._build();
 
-  _$TweetResult._(
-      {required this.restId,
+  _$Tweet._(
+      {this.typename,
+      required this.restId,
       required this.core,
       this.unmentionData,
       required this.editControl,
@@ -37,29 +40,29 @@ class _$TweetResult extends TweetResult {
       required this.legacy,
       required this.views})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(restId, r'TweetResult', 'restId');
-    BuiltValueNullFieldError.checkNotNull(core, r'TweetResult', 'core');
+    BuiltValueNullFieldError.checkNotNull(restId, r'Tweet', 'restId');
+    BuiltValueNullFieldError.checkNotNull(core, r'Tweet', 'core');
+    BuiltValueNullFieldError.checkNotNull(editControl, r'Tweet', 'editControl');
     BuiltValueNullFieldError.checkNotNull(
-        editControl, r'TweetResult', 'editControl');
+        editPrespective, r'Tweet', 'editPrespective');
     BuiltValueNullFieldError.checkNotNull(
-        editPrespective, r'TweetResult', 'editPrespective');
-    BuiltValueNullFieldError.checkNotNull(
-        isTranslatable, r'TweetResult', 'isTranslatable');
-    BuiltValueNullFieldError.checkNotNull(legacy, r'TweetResult', 'legacy');
-    BuiltValueNullFieldError.checkNotNull(views, r'TweetResult', 'views');
+        isTranslatable, r'Tweet', 'isTranslatable');
+    BuiltValueNullFieldError.checkNotNull(legacy, r'Tweet', 'legacy');
+    BuiltValueNullFieldError.checkNotNull(views, r'Tweet', 'views');
   }
 
   @override
-  TweetResult rebuild(void Function(TweetResultBuilder) updates) =>
+  Tweet rebuild(void Function(TweetBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TweetResultBuilder toBuilder() => new TweetResultBuilder()..replace(this);
+  TweetBuilder toBuilder() => new TweetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TweetResult &&
+    return other is Tweet &&
+        typename == other.typename &&
         restId == other.restId &&
         core == other.core &&
         unmentionData == other.unmentionData &&
@@ -73,6 +76,7 @@ class _$TweetResult extends TweetResult {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, restId.hashCode);
     _$hash = $jc(_$hash, core.hashCode);
     _$hash = $jc(_$hash, unmentionData.hashCode);
@@ -87,7 +91,8 @@ class _$TweetResult extends TweetResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TweetResult')
+    return (newBuiltValueToStringHelper(r'Tweet')
+          ..add('typename', typename)
           ..add('restId', restId)
           ..add('core', core)
           ..add('unmentionData', unmentionData)
@@ -100,8 +105,12 @@ class _$TweetResult extends TweetResult {
   }
 }
 
-class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
-  _$TweetResult? _$v;
+class TweetBuilder implements Builder<Tweet, TweetBuilder> {
+  _$Tweet? _$v;
+
+  TypeName? _typename;
+  TypeName? get typename => _$this._typename;
+  set typename(TypeName? typename) => _$this._typename = typename;
 
   String? _restId;
   String? get restId => _$this._restId;
@@ -117,16 +126,16 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
   set unmentionData(JsonObject? unmentionData) =>
       _$this._unmentionData = unmentionData;
 
-  TweetResultEditControlBuilder? _editControl;
-  TweetResultEditControlBuilder get editControl =>
-      _$this._editControl ??= new TweetResultEditControlBuilder();
-  set editControl(TweetResultEditControlBuilder? editControl) =>
+  TweetEditControlBuilder? _editControl;
+  TweetEditControlBuilder get editControl =>
+      _$this._editControl ??= new TweetEditControlBuilder();
+  set editControl(TweetEditControlBuilder? editControl) =>
       _$this._editControl = editControl;
 
-  TweetResultEditPrespectiveBuilder? _editPrespective;
-  TweetResultEditPrespectiveBuilder get editPrespective =>
-      _$this._editPrespective ??= new TweetResultEditPrespectiveBuilder();
-  set editPrespective(TweetResultEditPrespectiveBuilder? editPrespective) =>
+  TweetEditPrespectiveBuilder? _editPrespective;
+  TweetEditPrespectiveBuilder get editPrespective =>
+      _$this._editPrespective ??= new TweetEditPrespectiveBuilder();
+  set editPrespective(TweetEditPrespectiveBuilder? editPrespective) =>
       _$this._editPrespective = editPrespective;
 
   bool? _isTranslatable;
@@ -138,18 +147,18 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
   TweetLegacyBuilder get legacy => _$this._legacy ??= new TweetLegacyBuilder();
   set legacy(TweetLegacyBuilder? legacy) => _$this._legacy = legacy;
 
-  TweetResultViewsBuilder? _views;
-  TweetResultViewsBuilder get views =>
-      _$this._views ??= new TweetResultViewsBuilder();
-  set views(TweetResultViewsBuilder? views) => _$this._views = views;
+  TweetViewsBuilder? _views;
+  TweetViewsBuilder get views => _$this._views ??= new TweetViewsBuilder();
+  set views(TweetViewsBuilder? views) => _$this._views = views;
 
-  TweetResultBuilder() {
-    TweetResult._defaults(this);
+  TweetBuilder() {
+    Tweet._defaults(this);
   }
 
-  TweetResultBuilder get _$this {
+  TweetBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _typename = $v.typename;
       _restId = $v.restId;
       _core = $v.core.toBuilder();
       _unmentionData = $v.unmentionData;
@@ -164,32 +173,33 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
   }
 
   @override
-  void replace(TweetResult other) {
+  void replace(Tweet other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TweetResult;
+    _$v = other as _$Tweet;
   }
 
   @override
-  void update(void Function(TweetResultBuilder)? updates) {
+  void update(void Function(TweetBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  TweetResult build() => _build();
+  Tweet build() => _build();
 
-  _$TweetResult _build() {
-    _$TweetResult _$result;
+  _$Tweet _build() {
+    _$Tweet _$result;
     try {
       _$result = _$v ??
-          new _$TweetResult._(
+          new _$Tweet._(
+              typename: typename,
               restId: BuiltValueNullFieldError.checkNotNull(
-                  restId, r'TweetResult', 'restId'),
+                  restId, r'Tweet', 'restId'),
               core: core.build(),
               unmentionData: unmentionData,
               editControl: editControl.build(),
               editPrespective: editPrespective.build(),
               isTranslatable: BuiltValueNullFieldError.checkNotNull(
-                  isTranslatable, r'TweetResult', 'isTranslatable'),
+                  isTranslatable, r'Tweet', 'isTranslatable'),
               legacy: legacy.build(),
               views: views.build());
     } catch (_) {
@@ -209,7 +219,7 @@ class TweetResultBuilder implements Builder<TweetResult, TweetResultBuilder> {
         views.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'TweetResult', _$failedField, e.toString());
+            r'Tweet', _$failedField, e.toString());
       }
       rethrow;
     }
