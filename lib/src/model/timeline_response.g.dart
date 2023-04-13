@@ -8,7 +8,7 @@ part of 'timeline_response.dart';
 
 class _$TimelineResponse extends TimelineResponse {
   @override
-  final HomeTimelineData data;
+  final HomeTimelineResponseData data;
 
   factory _$TimelineResponse(
           [void Function(TimelineResponseBuilder)? updates]) =>
@@ -51,10 +51,10 @@ class TimelineResponseBuilder
     implements Builder<TimelineResponse, TimelineResponseBuilder> {
   _$TimelineResponse? _$v;
 
-  HomeTimelineDataBuilder? _data;
-  HomeTimelineDataBuilder get data =>
-      _$this._data ??= new HomeTimelineDataBuilder();
-  set data(HomeTimelineDataBuilder? data) => _$this._data = data;
+  HomeTimelineResponseDataBuilder? _data;
+  HomeTimelineResponseDataBuilder get data =>
+      _$this._data ??= new HomeTimelineResponseDataBuilder();
+  set data(HomeTimelineResponseDataBuilder? data) => _$this._data = data;
 
   TimelineResponseBuilder() {
     TimelineResponse._defaults(this);

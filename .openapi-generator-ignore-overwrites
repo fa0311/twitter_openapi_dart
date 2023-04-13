@@ -6,3 +6,4 @@ twitter-openapi/**
 LICENSE.txt
 .openapi-generator-ignore
 .openapi-generator-ignore-overwrites
+analysis_options.yaml

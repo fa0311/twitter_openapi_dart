@@ -177,4 +177,23 @@ void main() async {
         );
     expect(response.statusCode, 200);
   });
+
+  test('getUserByScreenName', () async {
+    const name = "elonmusk";
+    final response = await client.getUserApi().getUserByScreenName(
+          variables: jsonEncode({
+            "screen_name": "elonmusk",
+            "withSafetyModeUserFields": true,
+          }),
+          features: jsonEncode({
+            "blue_business_profile_image_shape_enabled": true,
+            "responsive_web_graphql_exclude_directive_enabled": true,
+            "verified_phone_label_enabled": false,
+            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
+            "responsive_web_graphql_timeline_navigation_enabled": true,
+          }),
+        );
+    expect(response.statusCode, 200);
+    expect((response.data!.data.user.result.oneOf.value as User).legacy.screenName, name);
+  });
 }

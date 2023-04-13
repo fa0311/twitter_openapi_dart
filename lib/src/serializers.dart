@@ -17,8 +17,8 @@ import 'package:twitter_openapi_dart/src/model/date.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_union.dart';
-import 'package:twitter_openapi_dart/src/model/home_timeline_data.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_home.dart';
+import 'package:twitter_openapi_dart/src/model/home_timeline_response_data.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_urt.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_union.dart';
@@ -44,6 +44,8 @@ import 'package:twitter_openapi_dart/src/model/tweet_with_visibility_results.dar
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/user.dart';
 import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
+import 'package:twitter_openapi_dart/src/model/user_response.dart';
+import 'package:twitter_openapi_dart/src/model/user_response_data.dart';
 import 'package:twitter_openapi_dart/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart/src/model/user_results.dart';
 import 'package:twitter_openapi_dart/src/model/user_union.dart';
@@ -54,8 +56,8 @@ part 'serializers.g.dart';
   ContentEntryType,
   ContentItemType,
   ContentUnion,
-  HomeTimelineData,
   HomeTimelineHome,
+  HomeTimelineResponseData,
   HomeTimelineUrt,
   InstructionType,
   InstructionUnion,
@@ -81,6 +83,8 @@ part 'serializers.g.dart';
   TypeName,
   User,
   UserLegacy,
+  UserResponse,
+  UserResponseData,
   UserResultCore,
   UserResults,
   UserUnion,

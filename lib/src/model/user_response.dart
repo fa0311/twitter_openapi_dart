@@ -3,67 +3,55 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/user_response_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'tweet_result_views.g.dart';
+part 'user_response.g.dart';
 
-/// TweetResultViews
+/// UserResponse
 ///
 /// Properties:
-/// * [count] 
-/// * [state] 
+/// * [data] 
 @BuiltValue()
-abstract class TweetResultViews implements Built<TweetResultViews, TweetResultViewsBuilder> {
-  @BuiltValueField(wireName: r'count')
-  String? get count;
+abstract class UserResponse implements Built<UserResponse, UserResponseBuilder> {
+  @BuiltValueField(wireName: r'data')
+  UserResponseData get data;
 
-  @BuiltValueField(wireName: r'state')
-  String? get state;
+  UserResponse._();
 
-  TweetResultViews._();
-
-  factory TweetResultViews([void updates(TweetResultViewsBuilder b)]) = _$TweetResultViews;
+  factory UserResponse([void updates(UserResponseBuilder b)]) = _$UserResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TweetResultViewsBuilder b) => b;
+  static void _defaults(UserResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetResultViews> get serializer => _$TweetResultViewsSerializer();
+  static Serializer<UserResponse> get serializer => _$UserResponseSerializer();
 }
 
-class _$TweetResultViewsSerializer implements PrimitiveSerializer<TweetResultViews> {
+class _$UserResponseSerializer implements PrimitiveSerializer<UserResponse> {
   @override
-  final Iterable<Type> types = const [TweetResultViews, _$TweetResultViews];
+  final Iterable<Type> types = const [UserResponse, _$UserResponse];
 
   @override
-  final String wireName = r'TweetResultViews';
+  final String wireName = r'UserResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TweetResultViews object, {
+    UserResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.count != null) {
-      yield r'count';
-      yield serializers.serialize(
-        object.count,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.state != null) {
-      yield r'state';
-      yield serializers.serialize(
-        object.state,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'data';
+    yield serializers.serialize(
+      object.data,
+      specifiedType: const FullType(UserResponseData),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TweetResultViews object, {
+    UserResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -74,26 +62,19 @@ class _$TweetResultViewsSerializer implements PrimitiveSerializer<TweetResultVie
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TweetResultViewsBuilder result,
+    required UserResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'count':
+        case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.count = valueDes;
-          break;
-        case r'state':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.state = valueDes;
+            specifiedType: const FullType(UserResponseData),
+          ) as UserResponseData;
+          result.data.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -104,12 +85,12 @@ class _$TweetResultViewsSerializer implements PrimitiveSerializer<TweetResultVie
   }
 
   @override
-  TweetResultViews deserialize(
+  UserResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TweetResultViewsBuilder();
+    final result = UserResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

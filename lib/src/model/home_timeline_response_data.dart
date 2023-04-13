@@ -3,55 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/home_timeline_response_data.dart';
+import 'package:twitter_openapi_dart/src/model/home_timeline_home.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_response.g.dart';
+part 'home_timeline_response_data.g.dart';
 
-/// TimelineResponse
+/// HomeTimelineResponseData
 ///
 /// Properties:
-/// * [data] 
+/// * [home] 
 @BuiltValue()
-abstract class TimelineResponse implements Built<TimelineResponse, TimelineResponseBuilder> {
-  @BuiltValueField(wireName: r'data')
-  HomeTimelineResponseData get data;
+abstract class HomeTimelineResponseData implements Built<HomeTimelineResponseData, HomeTimelineResponseDataBuilder> {
+  @BuiltValueField(wireName: r'home')
+  HomeTimelineHome get home;
 
-  TimelineResponse._();
+  HomeTimelineResponseData._();
 
-  factory TimelineResponse([void updates(TimelineResponseBuilder b)]) = _$TimelineResponse;
+  factory HomeTimelineResponseData([void updates(HomeTimelineResponseDataBuilder b)]) = _$HomeTimelineResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineResponseBuilder b) => b;
+  static void _defaults(HomeTimelineResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineResponse> get serializer => _$TimelineResponseSerializer();
+  static Serializer<HomeTimelineResponseData> get serializer => _$HomeTimelineResponseDataSerializer();
 }
 
-class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineResponse> {
+class _$HomeTimelineResponseDataSerializer implements PrimitiveSerializer<HomeTimelineResponseData> {
   @override
-  final Iterable<Type> types = const [TimelineResponse, _$TimelineResponse];
+  final Iterable<Type> types = const [HomeTimelineResponseData, _$HomeTimelineResponseData];
 
   @override
-  final String wireName = r'TimelineResponse';
+  final String wireName = r'HomeTimelineResponseData';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineResponse object, {
+    HomeTimelineResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'data';
+    yield r'home';
     yield serializers.serialize(
-      object.data,
-      specifiedType: const FullType(HomeTimelineResponseData),
+      object.home,
+      specifiedType: const FullType(HomeTimelineHome),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TimelineResponse object, {
+    HomeTimelineResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +62,19 @@ class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineRespon
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineResponseBuilder result,
+    required HomeTimelineResponseDataBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'data':
+        case r'home':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(HomeTimelineResponseData),
-          ) as HomeTimelineResponseData;
-          result.data.replace(valueDes);
+            specifiedType: const FullType(HomeTimelineHome),
+          ) as HomeTimelineHome;
+          result.home.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -85,12 +85,12 @@ class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineRespon
   }
 
   @override
-  TimelineResponse deserialize(
+  HomeTimelineResponseData deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineResponseBuilder();
+    final result = HomeTimelineResponseDataBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

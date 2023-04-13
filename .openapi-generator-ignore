@@ -6,7 +6,7 @@ twitter-openapi/**
 LICENSE.txt
 .openapi-generator-ignore
 .openapi-generator-ignore-overwrites
+analysis_options.yaml
 
 .dart_tool/**
-analysis_options.yaml
 pubspec.yaml
