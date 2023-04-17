@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bookmarkCount** | **int** |  | 
 **bookmarked** | **bool** |  | 
-**createdAt** | **String** |  | [optional] 
+**createdAt** | **String** |  | 
 **conversationIdStr** | **String** |  | 
 **displayTextRange** | **BuiltList&lt;int&gt;** |  | 
 **entities** | [**JsonObject**](.md) |  | 

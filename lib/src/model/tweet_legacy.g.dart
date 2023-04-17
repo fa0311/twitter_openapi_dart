@@ -12,7 +12,7 @@ class _$TweetLegacy extends TweetLegacy {
   @override
   final bool bookmarked;
   @override
-  final String? createdAt;
+  final String createdAt;
   @override
   final String conversationIdStr;
   @override
@@ -52,7 +52,7 @@ class _$TweetLegacy extends TweetLegacy {
   _$TweetLegacy._(
       {required this.bookmarkCount,
       required this.bookmarked,
-      this.createdAt,
+      required this.createdAt,
       required this.conversationIdStr,
       required this.displayTextRange,
       required this.entities,
@@ -74,6 +74,8 @@ class _$TweetLegacy extends TweetLegacy {
         bookmarkCount, r'TweetLegacy', 'bookmarkCount');
     BuiltValueNullFieldError.checkNotNull(
         bookmarked, r'TweetLegacy', 'bookmarked');
+    BuiltValueNullFieldError.checkNotNull(
+        createdAt, r'TweetLegacy', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
         conversationIdStr, r'TweetLegacy', 'conversationIdStr');
     BuiltValueNullFieldError.checkNotNull(
@@ -325,7 +327,8 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
                   bookmarkCount, r'TweetLegacy', 'bookmarkCount'),
               bookmarked: BuiltValueNullFieldError.checkNotNull(
                   bookmarked, r'TweetLegacy', 'bookmarked'),
-              createdAt: createdAt,
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'TweetLegacy', 'createdAt'),
               conversationIdStr: BuiltValueNullFieldError.checkNotNull(
                   conversationIdStr, r'TweetLegacy', 'conversationIdStr'),
               displayTextRange: displayTextRange.build(),
@@ -337,8 +340,7 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
                   favorited, r'TweetLegacy', 'favorited'),
               fullText: BuiltValueNullFieldError.checkNotNull(
                   fullText, r'TweetLegacy', 'fullText'),
-              isQuoteStatus:
-                  BuiltValueNullFieldError.checkNotNull(isQuoteStatus, r'TweetLegacy', 'isQuoteStatus'),
+              isQuoteStatus: BuiltValueNullFieldError.checkNotNull(isQuoteStatus, r'TweetLegacy', 'isQuoteStatus'),
               lang: BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang'),
               possiblySensitive: possiblySensitive,
               possiblySensitiveEditable: possiblySensitiveEditable,
