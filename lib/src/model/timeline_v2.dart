@@ -3,55 +3,67 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'home_timeline_home.g.dart';
+part 'timeline_v2.g.dart';
 
-/// HomeTimelineHome
+/// TimelineV2
 ///
 /// Properties:
-/// * [homeTimelineUrt] 
+/// * [typename] 
+/// * [timeline] 
 @BuiltValue()
-abstract class HomeTimelineHome implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
-  @BuiltValueField(wireName: r'home_timeline_urt')
-  Timeline get homeTimelineUrt;
+abstract class TimelineV2 implements Built<TimelineV2, TimelineV2Builder> {
+  @BuiltValueField(wireName: r'__typename')
+  TypeName get typename;
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
-  HomeTimelineHome._();
+  @BuiltValueField(wireName: r'timeline')
+  BuiltList<Timeline> get timeline;
 
-  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) = _$HomeTimelineHome;
+  TimelineV2._();
+
+  factory TimelineV2([void updates(TimelineV2Builder b)]) = _$TimelineV2;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HomeTimelineHomeBuilder b) => b;
+  static void _defaults(TimelineV2Builder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineHome> get serializer => _$HomeTimelineHomeSerializer();
+  static Serializer<TimelineV2> get serializer => _$TimelineV2Serializer();
 }
 
-class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHome> {
+class _$TimelineV2Serializer implements PrimitiveSerializer<TimelineV2> {
   @override
-  final Iterable<Type> types = const [HomeTimelineHome, _$HomeTimelineHome];
+  final Iterable<Type> types = const [TimelineV2, _$TimelineV2];
 
   @override
-  final String wireName = r'HomeTimelineHome';
+  final String wireName = r'TimelineV2';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    HomeTimelineHome object, {
+    TimelineV2 object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'home_timeline_urt';
+    yield r'__typename';
     yield serializers.serialize(
-      object.homeTimelineUrt,
-      specifiedType: const FullType(Timeline),
+      object.typename,
+      specifiedType: const FullType(TypeName),
+    );
+    yield r'timeline';
+    yield serializers.serialize(
+      object.timeline,
+      specifiedType: const FullType(BuiltList, [FullType(Timeline)]),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    HomeTimelineHome object, {
+    TimelineV2 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +74,26 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required HomeTimelineHomeBuilder result,
+    required TimelineV2Builder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'home_timeline_urt':
+        case r'__typename':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Timeline),
-          ) as Timeline;
-          result.homeTimelineUrt.replace(valueDes);
+            specifiedType: const FullType(TypeName),
+          ) as TypeName;
+          result.typename = valueDes;
+          break;
+        case r'timeline':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(Timeline)]),
+          ) as BuiltList<Timeline>;
+          result.timeline.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -85,12 +104,12 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
   }
 
   @override
-  HomeTimelineHome deserialize(
+  TimelineV2 deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = HomeTimelineHomeBuilder();
+    final result = TimelineV2Builder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

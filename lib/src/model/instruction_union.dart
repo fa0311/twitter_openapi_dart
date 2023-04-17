@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_clear_cache.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
@@ -20,13 +21,14 @@ part 'instruction_union.g.dart';
 /// * [entries] 
 @BuiltValue()
 abstract class InstructionUnion implements Built<InstructionUnion, InstructionUnionBuilder> {
-  /// One Of [TimelineAddEntries]
+  /// One Of [TimelineAddEntries], [TimelineClearCache]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'type';
 
   static const Map<String, Type> discriminatorMapping = {
     r'TimelineAddEntries': TimelineAddEntries,
+    r'TimelineClearCache': TimelineClearCache,
   };
 
   InstructionUnion._();
@@ -45,6 +47,9 @@ extension InstructionUnionDiscriminatorExt on InstructionUnion {
         if (this is TimelineAddEntries) {
             return r'TimelineAddEntries';
         }
+        if (this is TimelineClearCache) {
+            return r'TimelineClearCache';
+        }
         return null;
     }
 }
@@ -52,6 +57,9 @@ extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
     String? get discriminatorValue {
         if (this is TimelineAddEntriesBuilder) {
             return r'TimelineAddEntries';
+        }
+        if (this is TimelineClearCacheBuilder) {
+            return r'TimelineClearCache';
         }
         return null;
     }
@@ -93,7 +101,7 @@ class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUni
     final discIndex = serializedList.indexOf(InstructionUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineAddEntries, ];
+    final oneOfTypes = [TimelineAddEntries, TimelineClearCache, ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -103,6 +111,13 @@ class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUni
           specifiedType: FullType(TimelineAddEntries),
         ) as TimelineAddEntries;
         oneOfType = TimelineAddEntries;
+        break;
+      case r'TimelineClearCache':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineClearCache),
+        ) as TimelineClearCache;
+        oneOfType = TimelineClearCache;
         break;
       default:
         throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");

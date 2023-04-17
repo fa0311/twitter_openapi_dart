@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/home_timeline_urt.dart';
+import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,7 @@ part 'list_tweets_timeline.g.dart';
 @BuiltValue()
 abstract class ListTweetsTimeline implements Built<ListTweetsTimeline, ListTweetsTimelineBuilder> {
   @BuiltValueField(wireName: r'timeline')
-  HomeTimelineUrt get timeline;
+  Timeline get timeline;
 
   ListTweetsTimeline._();
 
@@ -44,7 +44,7 @@ class _$ListTweetsTimelineSerializer implements PrimitiveSerializer<ListTweetsTi
     yield r'timeline';
     yield serializers.serialize(
       object.timeline,
-      specifiedType: const FullType(HomeTimelineUrt),
+      specifiedType: const FullType(Timeline),
     );
   }
 
@@ -72,8 +72,8 @@ class _$ListTweetsTimelineSerializer implements PrimitiveSerializer<ListTweetsTi
         case r'timeline':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(HomeTimelineUrt),
-          ) as HomeTimelineUrt;
+            specifiedType: const FullType(Timeline),
+          ) as Timeline;
           result.timeline.replace(valueDes);
           break;
         default:

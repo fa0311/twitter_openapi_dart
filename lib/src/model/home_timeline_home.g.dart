@@ -8,7 +8,7 @@ part of 'home_timeline_home.dart';
 
 class _$HomeTimelineHome extends HomeTimelineHome {
   @override
-  final HomeTimelineUrt homeTimelineUrt;
+  final Timeline homeTimelineUrt;
 
   factory _$HomeTimelineHome(
           [void Function(HomeTimelineHomeBuilder)? updates]) =>
@@ -54,10 +54,10 @@ class HomeTimelineHomeBuilder
     implements Builder<HomeTimelineHome, HomeTimelineHomeBuilder> {
   _$HomeTimelineHome? _$v;
 
-  HomeTimelineUrtBuilder? _homeTimelineUrt;
-  HomeTimelineUrtBuilder get homeTimelineUrt =>
-      _$this._homeTimelineUrt ??= new HomeTimelineUrtBuilder();
-  set homeTimelineUrt(HomeTimelineUrtBuilder? homeTimelineUrt) =>
+  TimelineBuilder? _homeTimelineUrt;
+  TimelineBuilder get homeTimelineUrt =>
+      _$this._homeTimelineUrt ??= new TimelineBuilder();
+  set homeTimelineUrt(TimelineBuilder? homeTimelineUrt) =>
       _$this._homeTimelineUrt = homeTimelineUrt;
 
   HomeTimelineHomeBuilder() {

@@ -3,55 +3,56 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/timeline.dart';
+import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'home_timeline_home.g.dart';
+part 'timeline_clear_cache.g.dart';
 
-/// HomeTimelineHome
+/// TimelineClearCache
 ///
 /// Properties:
-/// * [homeTimelineUrt] 
+/// * [type] 
 @BuiltValue()
-abstract class HomeTimelineHome implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
-  @BuiltValueField(wireName: r'home_timeline_urt')
-  Timeline get homeTimelineUrt;
+abstract class TimelineClearCache implements Built<TimelineClearCache, TimelineClearCacheBuilder> {
+  @BuiltValueField(wireName: r'type')
+  InstructionType get type;
+  // enum typeEnum {  TimelineAddEntries,  };
 
-  HomeTimelineHome._();
+  TimelineClearCache._();
 
-  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) = _$HomeTimelineHome;
+  factory TimelineClearCache([void updates(TimelineClearCacheBuilder b)]) = _$TimelineClearCache;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HomeTimelineHomeBuilder b) => b;
+  static void _defaults(TimelineClearCacheBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineHome> get serializer => _$HomeTimelineHomeSerializer();
+  static Serializer<TimelineClearCache> get serializer => _$TimelineClearCacheSerializer();
 }
 
-class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHome> {
+class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClearCache> {
   @override
-  final Iterable<Type> types = const [HomeTimelineHome, _$HomeTimelineHome];
+  final Iterable<Type> types = const [TimelineClearCache, _$TimelineClearCache];
 
   @override
-  final String wireName = r'HomeTimelineHome';
+  final String wireName = r'TimelineClearCache';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    HomeTimelineHome object, {
+    TimelineClearCache object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'home_timeline_urt';
+    yield r'type';
     yield serializers.serialize(
-      object.homeTimelineUrt,
-      specifiedType: const FullType(Timeline),
+      object.type,
+      specifiedType: const FullType(InstructionType),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    HomeTimelineHome object, {
+    TimelineClearCache object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +63,19 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required HomeTimelineHomeBuilder result,
+    required TimelineClearCacheBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'home_timeline_urt':
+        case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Timeline),
-          ) as Timeline;
-          result.homeTimelineUrt.replace(valueDes);
+            specifiedType: const FullType(InstructionType),
+          ) as InstructionType;
+          result.type = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -85,12 +86,12 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
   }
 
   @override
-  HomeTimelineHome deserialize(
+  TimelineClearCache deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = HomeTimelineHomeBuilder();
+    final result = TimelineClearCacheBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

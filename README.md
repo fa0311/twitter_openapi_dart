@@ -72,6 +72,7 @@ Class | Method | HTTP request | Description
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserByScreenName**](doc\GraphqlApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweets**](doc\GraphqlApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeLatestTimeline**](doc\LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeTimeline**](doc\LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getListLatestTweetsTimeline**](doc\LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
@@ -79,6 +80,7 @@ Class | Method | HTTP request | Description
 [*TimelineApi*](doc\TimelineApi.md) | [**getHomeTimeline**](doc\TimelineApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*TimelineApi*](doc\TimelineApi.md) | [**getListLatestTweetsTimeline**](doc\TimelineApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
 [*UserApi*](doc\UserApi.md) | [**getUserByScreenName**](doc\UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*UserApi*](doc\UserApi.md) | [**getUserTweets**](doc\UserApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
 
 
 ## Documentation For Models
@@ -88,7 +90,6 @@ Class | Method | HTTP request | Description
  - [ContentUnion](doc\ContentUnion.md)
  - [HomeTimelineHome](doc\HomeTimelineHome.md)
  - [HomeTimelineResponseData](doc\HomeTimelineResponseData.md)
- - [HomeTimelineUrt](doc\HomeTimelineUrt.md)
  - [InstructionType](doc\InstructionType.md)
  - [InstructionUnion](doc\InstructionUnion.md)
  - [ItemContent](doc\ItemContent.md)
@@ -97,12 +98,15 @@ Class | Method | HTTP request | Description
  - [ListTweetsTimelineData](doc\ListTweetsTimelineData.md)
  - [ListTweetsTimelineList](doc\ListTweetsTimelineList.md)
  - [ListTweetsTimelineResponse](doc\ListTweetsTimelineResponse.md)
+ - [Timeline](doc\Timeline.md)
  - [TimelineAddEntries](doc\TimelineAddEntries.md)
  - [TimelineAddEntry](doc\TimelineAddEntry.md)
+ - [TimelineClearCache](doc\TimelineClearCache.md)
  - [TimelineResponse](doc\TimelineResponse.md)
  - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
  - [TimelineTimelineModule](doc\TimelineTimelineModule.md)
+ - [TimelineV2](doc\TimelineV2.md)
  - [Tweet](doc\Tweet.md)
  - [TweetEditControl](doc\TweetEditControl.md)
  - [TweetEditPrespective](doc\TweetEditPrespective.md)
@@ -117,6 +121,10 @@ Class | Method | HTTP request | Description
  - [UserResponseData](doc\UserResponseData.md)
  - [UserResultCore](doc\UserResultCore.md)
  - [UserResults](doc\UserResults.md)
+ - [UserTweetsData](doc\UserTweetsData.md)
+ - [UserTweetsResponse](doc\UserTweetsResponse.md)
+ - [UserTweetsResult](doc\UserTweetsResult.md)
+ - [UserTweetsUser](doc\UserTweetsUser.md)
  - [UserUnion](doc\UserUnion.md)
 
 

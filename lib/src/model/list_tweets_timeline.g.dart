@@ -8,7 +8,7 @@ part of 'list_tweets_timeline.dart';
 
 class _$ListTweetsTimeline extends ListTweetsTimeline {
   @override
-  final HomeTimelineUrt timeline;
+  final Timeline timeline;
 
   factory _$ListTweetsTimeline(
           [void Function(ListTweetsTimelineBuilder)? updates]) =>
@@ -54,10 +54,9 @@ class ListTweetsTimelineBuilder
     implements Builder<ListTweetsTimeline, ListTweetsTimelineBuilder> {
   _$ListTweetsTimeline? _$v;
 
-  HomeTimelineUrtBuilder? _timeline;
-  HomeTimelineUrtBuilder get timeline =>
-      _$this._timeline ??= new HomeTimelineUrtBuilder();
-  set timeline(HomeTimelineUrtBuilder? timeline) => _$this._timeline = timeline;
+  TimelineBuilder? _timeline;
+  TimelineBuilder get timeline => _$this._timeline ??= new TimelineBuilder();
+  set timeline(TimelineBuilder? timeline) => _$this._timeline = timeline;
 
   ListTweetsTimelineBuilder() {
     ListTweetsTimeline._defaults(this);

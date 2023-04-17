@@ -3,55 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/timeline.dart';
+import 'package:twitter_openapi_dart/src/model/user_tweets_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'home_timeline_home.g.dart';
+part 'user_tweets_response.g.dart';
 
-/// HomeTimelineHome
+/// UserTweetsResponse
 ///
 /// Properties:
-/// * [homeTimelineUrt] 
+/// * [data] 
 @BuiltValue()
-abstract class HomeTimelineHome implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
-  @BuiltValueField(wireName: r'home_timeline_urt')
-  Timeline get homeTimelineUrt;
+abstract class UserTweetsResponse implements Built<UserTweetsResponse, UserTweetsResponseBuilder> {
+  @BuiltValueField(wireName: r'data')
+  UserTweetsData get data;
 
-  HomeTimelineHome._();
+  UserTweetsResponse._();
 
-  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) = _$HomeTimelineHome;
+  factory UserTweetsResponse([void updates(UserTweetsResponseBuilder b)]) = _$UserTweetsResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HomeTimelineHomeBuilder b) => b;
+  static void _defaults(UserTweetsResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineHome> get serializer => _$HomeTimelineHomeSerializer();
+  static Serializer<UserTweetsResponse> get serializer => _$UserTweetsResponseSerializer();
 }
 
-class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHome> {
+class _$UserTweetsResponseSerializer implements PrimitiveSerializer<UserTweetsResponse> {
   @override
-  final Iterable<Type> types = const [HomeTimelineHome, _$HomeTimelineHome];
+  final Iterable<Type> types = const [UserTweetsResponse, _$UserTweetsResponse];
 
   @override
-  final String wireName = r'HomeTimelineHome';
+  final String wireName = r'UserTweetsResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    HomeTimelineHome object, {
+    UserTweetsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'home_timeline_urt';
+    yield r'data';
     yield serializers.serialize(
-      object.homeTimelineUrt,
-      specifiedType: const FullType(Timeline),
+      object.data,
+      specifiedType: const FullType(UserTweetsData),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    HomeTimelineHome object, {
+    UserTweetsResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +62,19 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required HomeTimelineHomeBuilder result,
+    required UserTweetsResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'home_timeline_urt':
+        case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Timeline),
-          ) as Timeline;
-          result.homeTimelineUrt.replace(valueDes);
+            specifiedType: const FullType(UserTweetsData),
+          ) as UserTweetsData;
+          result.data.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -85,12 +85,12 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
   }
 
   @override
-  HomeTimelineHome deserialize(
+  UserTweetsResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = HomeTimelineHomeBuilder();
+    final result = UserTweetsResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
