@@ -17,7 +17,7 @@ part 'timeline_clear_cache.g.dart';
 abstract class TimelineClearCache implements Built<TimelineClearCache, TimelineClearCacheBuilder> {
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
-  // enum typeEnum {  TimelineAddEntries,  };
+  // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  };
 
   TimelineClearCache._();
 

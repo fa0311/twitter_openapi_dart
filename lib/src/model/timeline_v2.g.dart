@@ -8,15 +8,12 @@ part of 'timeline_v2.dart';
 
 class _$TimelineV2 extends TimelineV2 {
   @override
-  final TypeName typename;
-  @override
-  final BuiltList<Timeline> timeline;
+  final Timeline timeline;
 
   factory _$TimelineV2([void Function(TimelineV2Builder)? updates]) =>
       (new TimelineV2Builder()..update(updates))._build();
 
-  _$TimelineV2._({required this.typename, required this.timeline}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(typename, r'TimelineV2', 'typename');
+  _$TimelineV2._({required this.timeline}) : super._() {
     BuiltValueNullFieldError.checkNotNull(timeline, r'TimelineV2', 'timeline');
   }
 
@@ -30,15 +27,12 @@ class _$TimelineV2 extends TimelineV2 {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TimelineV2 &&
-        typename == other.typename &&
-        timeline == other.timeline;
+    return other is TimelineV2 && timeline == other.timeline;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, timeline.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -47,7 +41,6 @@ class _$TimelineV2 extends TimelineV2 {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelineV2')
-          ..add('typename', typename)
           ..add('timeline', timeline))
         .toString();
   }
@@ -56,14 +49,9 @@ class _$TimelineV2 extends TimelineV2 {
 class TimelineV2Builder implements Builder<TimelineV2, TimelineV2Builder> {
   _$TimelineV2? _$v;
 
-  TypeName? _typename;
-  TypeName? get typename => _$this._typename;
-  set typename(TypeName? typename) => _$this._typename = typename;
-
-  ListBuilder<Timeline>? _timeline;
-  ListBuilder<Timeline> get timeline =>
-      _$this._timeline ??= new ListBuilder<Timeline>();
-  set timeline(ListBuilder<Timeline>? timeline) => _$this._timeline = timeline;
+  TimelineBuilder? _timeline;
+  TimelineBuilder get timeline => _$this._timeline ??= new TimelineBuilder();
+  set timeline(TimelineBuilder? timeline) => _$this._timeline = timeline;
 
   TimelineV2Builder() {
     TimelineV2._defaults(this);
@@ -72,7 +60,6 @@ class TimelineV2Builder implements Builder<TimelineV2, TimelineV2Builder> {
   TimelineV2Builder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _typename = $v.typename;
       _timeline = $v.timeline.toBuilder();
       _$v = null;
     }
@@ -96,11 +83,7 @@ class TimelineV2Builder implements Builder<TimelineV2, TimelineV2Builder> {
   _$TimelineV2 _build() {
     _$TimelineV2 _$result;
     try {
-      _$result = _$v ??
-          new _$TimelineV2._(
-              typename: BuiltValueNullFieldError.checkNotNull(
-                  typename, r'TimelineV2', 'typename'),
-              timeline: timeline.build());
+      _$result = _$v ?? new _$TimelineV2._(timeline: timeline.build());
     } catch (_) {
       late String _$failedField;
       try {

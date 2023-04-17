@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
+import 'package:twitter_openapi_dart/src/model/item_content_social_context.dart';
 import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -18,6 +19,7 @@ part 'item_content.g.dart';
 /// * [itemType] 
 /// * [tweetDisplayType] 
 /// * [tweetResults] 
+/// * [socialContext] 
 @BuiltValue()
 abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
   @BuiltValueField(wireName: r'__typename')
@@ -33,6 +35,9 @@ abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
 
   @BuiltValueField(wireName: r'tweet_results')
   ItemResult get tweetResults;
+
+  @BuiltValueField(wireName: r'socialContext')
+  ItemContentSocialContext? get socialContext;
 
   ItemContent._();
 
@@ -77,6 +82,13 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
       object.tweetResults,
       specifiedType: const FullType(ItemResult),
     );
+    if (object.socialContext != null) {
+      yield r'socialContext';
+      yield serializers.serialize(
+        object.socialContext,
+        specifiedType: const FullType(ItemContentSocialContext),
+      );
+    }
   }
 
   @override
@@ -127,6 +139,13 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
             specifiedType: const FullType(ItemResult),
           ) as ItemResult;
           result.tweetResults.replace(valueDes);
+          break;
+        case r'socialContext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemContentSocialContext),
+          ) as ItemContentSocialContext;
+          result.socialContext.replace(valueDes);
           break;
         default:
           unhandled.add(key);

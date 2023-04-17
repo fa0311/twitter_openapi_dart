@@ -3,49 +3,48 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_add_entries.g.dart';
+part 'timeline_pin_entry.g.dart';
 
-/// TimelineAddEntries
+/// TimelinePinEntry
 ///
 /// Properties:
 /// * [type] 
-/// * [entries] 
+/// * [entry] 
 @BuiltValue()
-abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
+abstract class TimelinePinEntry implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  };
 
-  @BuiltValueField(wireName: r'entries')
-  BuiltList<TimelineAddEntry> get entries;
+  @BuiltValueField(wireName: r'entry')
+  TimelineAddEntry get entry;
 
-  TimelineAddEntries._();
+  TimelinePinEntry._();
 
-  factory TimelineAddEntries([void updates(TimelineAddEntriesBuilder b)]) = _$TimelineAddEntries;
+  factory TimelinePinEntry([void updates(TimelinePinEntryBuilder b)]) = _$TimelinePinEntry;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineAddEntriesBuilder b) => b;
+  static void _defaults(TimelinePinEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineAddEntries> get serializer => _$TimelineAddEntriesSerializer();
+  static Serializer<TimelinePinEntry> get serializer => _$TimelinePinEntrySerializer();
 }
 
-class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddEntries> {
+class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEntry> {
   @override
-  final Iterable<Type> types = const [TimelineAddEntries, _$TimelineAddEntries];
+  final Iterable<Type> types = const [TimelinePinEntry, _$TimelinePinEntry];
 
   @override
-  final String wireName = r'TimelineAddEntries';
+  final String wireName = r'TimelinePinEntry';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineAddEntries object, {
+    TimelinePinEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'type';
@@ -53,17 +52,17 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
       object.type,
       specifiedType: const FullType(InstructionType),
     );
-    yield r'entries';
+    yield r'entry';
     yield serializers.serialize(
-      object.entries,
-      specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+      object.entry,
+      specifiedType: const FullType(TimelineAddEntry),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TimelineAddEntries object, {
+    TimelinePinEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -74,7 +73,7 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineAddEntriesBuilder result,
+    required TimelinePinEntryBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -88,12 +87,12 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
           ) as InstructionType;
           result.type = valueDes;
           break;
-        case r'entries':
+        case r'entry':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
-          ) as BuiltList<TimelineAddEntry>;
-          result.entries.replace(valueDes);
+            specifiedType: const FullType(TimelineAddEntry),
+          ) as TimelineAddEntry;
+          result.entry.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -104,12 +103,12 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
   }
 
   @override
-  TimelineAddEntries deserialize(
+  TimelinePinEntry deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineAddEntriesBuilder();
+    final result = TimelinePinEntryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

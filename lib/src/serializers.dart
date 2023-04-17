@@ -22,6 +22,7 @@ import 'package:twitter_openapi_dart/src/model/home_timeline_response_data.dart'
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_union.dart';
 import 'package:twitter_openapi_dart/src/model/item_content.dart';
+import 'package:twitter_openapi_dart/src/model/item_content_social_context.dart';
 import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_data.dart';
@@ -31,6 +32,7 @@ import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_clear_cache.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_pin_entry.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_response.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
@@ -67,6 +69,7 @@ part 'serializers.g.dart';
   InstructionType,
   InstructionUnion,
   ItemContent,
+  ItemContentSocialContext,
   ItemResult,
   ListTweetsTimeline,
   ListTweetsTimelineData,
@@ -76,6 +79,7 @@ part 'serializers.g.dart';
   TimelineAddEntries,
   TimelineAddEntry,
   TimelineClearCache,
+  TimelinePinEntry,
   TimelineResponse,
   TimelineTimelineCursor,
   TimelineTimelineItem,

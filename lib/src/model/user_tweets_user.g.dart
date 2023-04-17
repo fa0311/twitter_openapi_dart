@@ -8,12 +8,14 @@ part of 'user_tweets_user.dart';
 
 class _$UserTweetsUser extends UserTweetsUser {
   @override
-  final UserTweetsResult? tweetsTimeline;
+  final UserTweetsResult result;
 
   factory _$UserTweetsUser([void Function(UserTweetsUserBuilder)? updates]) =>
       (new UserTweetsUserBuilder()..update(updates))._build();
 
-  _$UserTweetsUser._({this.tweetsTimeline}) : super._();
+  _$UserTweetsUser._({required this.result}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(result, r'UserTweetsUser', 'result');
+  }
 
   @override
   UserTweetsUser rebuild(void Function(UserTweetsUserBuilder) updates) =>
@@ -26,13 +28,13 @@ class _$UserTweetsUser extends UserTweetsUser {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserTweetsUser && tweetsTimeline == other.tweetsTimeline;
+    return other is UserTweetsUser && result == other.result;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, tweetsTimeline.hashCode);
+    _$hash = $jc(_$hash, result.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -40,7 +42,7 @@ class _$UserTweetsUser extends UserTweetsUser {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UserTweetsUser')
-          ..add('tweetsTimeline', tweetsTimeline))
+          ..add('result', result))
         .toString();
   }
 }
@@ -49,11 +51,10 @@ class UserTweetsUserBuilder
     implements Builder<UserTweetsUser, UserTweetsUserBuilder> {
   _$UserTweetsUser? _$v;
 
-  UserTweetsResultBuilder? _tweetsTimeline;
-  UserTweetsResultBuilder get tweetsTimeline =>
-      _$this._tweetsTimeline ??= new UserTweetsResultBuilder();
-  set tweetsTimeline(UserTweetsResultBuilder? tweetsTimeline) =>
-      _$this._tweetsTimeline = tweetsTimeline;
+  UserTweetsResultBuilder? _result;
+  UserTweetsResultBuilder get result =>
+      _$this._result ??= new UserTweetsResultBuilder();
+  set result(UserTweetsResultBuilder? result) => _$this._result = result;
 
   UserTweetsUserBuilder() {
     UserTweetsUser._defaults(this);
@@ -62,7 +63,7 @@ class UserTweetsUserBuilder
   UserTweetsUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _tweetsTimeline = $v.tweetsTimeline?.toBuilder();
+      _result = $v.result.toBuilder();
       _$v = null;
     }
     return this;
@@ -85,13 +86,12 @@ class UserTweetsUserBuilder
   _$UserTweetsUser _build() {
     _$UserTweetsUser _$result;
     try {
-      _$result = _$v ??
-          new _$UserTweetsUser._(tweetsTimeline: _tweetsTimeline?.build());
+      _$result = _$v ?? new _$UserTweetsUser._(result: result.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'tweetsTimeline';
-        _tweetsTimeline?.build();
+        _$failedField = 'result';
+        result.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UserTweetsUser', _$failedField, e.toString());

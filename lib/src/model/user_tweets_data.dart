@@ -12,11 +12,11 @@ part 'user_tweets_data.g.dart';
 /// UserTweetsData
 ///
 /// Properties:
-/// * [home] 
+/// * [user] 
 @BuiltValue()
 abstract class UserTweetsData implements Built<UserTweetsData, UserTweetsDataBuilder> {
-  @BuiltValueField(wireName: r'home')
-  UserTweetsUser? get home;
+  @BuiltValueField(wireName: r'user')
+  UserTweetsUser get user;
 
   UserTweetsData._();
 
@@ -41,13 +41,11 @@ class _$UserTweetsDataSerializer implements PrimitiveSerializer<UserTweetsData> 
     UserTweetsData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.home != null) {
-      yield r'home';
-      yield serializers.serialize(
-        object.home,
-        specifiedType: const FullType(UserTweetsUser),
-      );
-    }
+    yield r'user';
+    yield serializers.serialize(
+      object.user,
+      specifiedType: const FullType(UserTweetsUser),
+    );
   }
 
   @override
@@ -71,12 +69,12 @@ class _$UserTweetsDataSerializer implements PrimitiveSerializer<UserTweetsData> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'home':
+        case r'user':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(UserTweetsUser),
           ) as UserTweetsUser;
-          result.home.replace(valueDes);
+          result.user.replace(valueDes);
           break;
         default:
           unhandled.add(key);

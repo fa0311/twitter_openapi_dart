@@ -10,7 +10,7 @@ class _$Timeline extends Timeline {
   @override
   final BuiltList<InstructionUnion> instructions;
   @override
-  final JsonObject metadata;
+  final JsonObject? metadata;
   @override
   final JsonObject? responseObjects;
 
@@ -18,13 +18,10 @@ class _$Timeline extends Timeline {
       (new TimelineBuilder()..update(updates))._build();
 
   _$Timeline._(
-      {required this.instructions,
-      required this.metadata,
-      this.responseObjects})
+      {required this.instructions, this.metadata, this.responseObjects})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         instructions, r'Timeline', 'instructions');
-    BuiltValueNullFieldError.checkNotNull(metadata, r'Timeline', 'metadata');
   }
 
   @override
@@ -116,8 +113,7 @@ class TimelineBuilder implements Builder<Timeline, TimelineBuilder> {
       _$result = _$v ??
           new _$Timeline._(
               instructions: instructions.build(),
-              metadata: BuiltValueNullFieldError.checkNotNull(
-                  metadata, r'Timeline', 'metadata'),
+              metadata: metadata,
               responseObjects: responseObjects);
     } catch (_) {
       late String _$failedField;

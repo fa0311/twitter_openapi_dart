@@ -37,9 +37,9 @@ class HeaderAuth extends Interceptor {
 }
 
 class DebugResponseEditor extends Interceptor {
-  /*
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
+    /*
     final dynamic instruction = response.data["data"]["home"]["home_timeline_urt"]["instructions"][0];
     // instruction["entries"] = <dynamic>[instruction["entries"][0]];
     for (final i in instruction["entries"]) {
@@ -56,9 +56,9 @@ class DebugResponseEditor extends Interceptor {
         print(i);
       }
     }
+    */
     handler.next(response);
   }
-  */
 }
 
 void main() async {
@@ -72,6 +72,7 @@ void main() async {
     )),
     interceptors: [
       auth,
+      LogInterceptor(responseBody: true),
       DebugResponseEditor(),
     ],
   );
@@ -110,6 +111,7 @@ void main() async {
           }),
         );
     expect(response.statusCode, 200);
+    expect(response.data == null, false);
   });
 
   test('getHomeLatestTimeline', () async {
@@ -144,6 +146,7 @@ void main() async {
           }),
         );
     expect(response.statusCode, 200);
+    expect(response.data == null, false);
   });
 
   test('getListLatestTweetsTimeline', () async {
@@ -176,6 +179,7 @@ void main() async {
           }),
         );
     expect(response.statusCode, 200);
+    expect(response.data == null, false);
   });
 
   test('getUserByScreenName', () async {
@@ -194,6 +198,7 @@ void main() async {
           }),
         );
     expect(response.statusCode, 200);
+    expect(response.data == null, false);
     expect((response.data!.data.user.result.oneOf.value as User).legacy.screenName, name);
   });
 
@@ -230,5 +235,117 @@ void main() async {
           }),
         );
     expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('getUserTweetsAndReplies', () async {
+    final response = await client.getUserApi().getUserTweetsAndReplies(
+          variables: jsonEncode({
+            "userId": "44196397",
+            "count": 40,
+            "cursor": "HCaAgIDs793x3i0AAA==",
+            "includePromotedContent": true,
+            "withCommunity": true,
+            "withVoice": true,
+            "withV2Timeline": true
+          }),
+          features: jsonEncode({
+            "blue_business_profile_image_shape_enabled": true,
+            "responsive_web_graphql_exclude_directive_enabled": true,
+            "verified_phone_label_enabled": false,
+            "responsive_web_graphql_timeline_navigation_enabled": true,
+            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
+            "tweetypie_unmention_optimization_enabled": true,
+            "vibe_api_enabled": true,
+            "responsive_web_edit_tweet_api_enabled": true,
+            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+            "view_counts_everywhere_api_enabled": true,
+            "longform_notetweets_consumption_enabled": true,
+            "tweet_awards_web_tipping_enabled": false,
+            "freedom_of_speech_not_reach_fetch_enabled": false,
+            "standardized_nudges_misinfo": true,
+            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
+            "interactive_text_enabled": true,
+            "responsive_web_text_conversations_enabled": false,
+            "longform_notetweets_rich_text_read_enabled": true,
+            "responsive_web_enhance_cards_enabled": false
+          }),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('getUserMedia', () async {
+    final response = await client.getUserApi().getUserMedia(
+          variables: jsonEncode({
+            "userId": "44196397",
+            "count": 20,
+            "includePromotedContent": false,
+            "withClientEventToken": false,
+            "withBirdwatchNotes": false,
+            "withVoice": true,
+            "withV2Timeline": true
+          }),
+          features: jsonEncode({
+            "blue_business_profile_image_shape_enabled": true,
+            "responsive_web_graphql_exclude_directive_enabled": true,
+            "verified_phone_label_enabled": false,
+            "responsive_web_graphql_timeline_navigation_enabled": true,
+            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
+            "tweetypie_unmention_optimization_enabled": true,
+            "vibe_api_enabled": true,
+            "responsive_web_edit_tweet_api_enabled": true,
+            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+            "view_counts_everywhere_api_enabled": true,
+            "longform_notetweets_consumption_enabled": true,
+            "tweet_awards_web_tipping_enabled": false,
+            "freedom_of_speech_not_reach_fetch_enabled": false,
+            "standardized_nudges_misinfo": true,
+            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
+            "interactive_text_enabled": true,
+            "responsive_web_text_conversations_enabled": false,
+            "longform_notetweets_rich_text_read_enabled": true,
+            "responsive_web_enhance_cards_enabled": false
+          }),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('getLikes', () async {
+    final response = await client.getUserApi().getLikes(
+          variables: jsonEncode({
+            "userId": "44196397",
+            "count": 20,
+            "includePromotedContent": false,
+            "withClientEventToken": false,
+            "withBirdwatchNotes": false,
+            "withVoice": true,
+            "withV2Timeline": true
+          }),
+          features: jsonEncode({
+            "blue_business_profile_image_shape_enabled": true,
+            "responsive_web_graphql_exclude_directive_enabled": true,
+            "verified_phone_label_enabled": false,
+            "responsive_web_graphql_timeline_navigation_enabled": true,
+            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
+            "tweetypie_unmention_optimization_enabled": true,
+            "vibe_api_enabled": true,
+            "responsive_web_edit_tweet_api_enabled": true,
+            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
+            "view_counts_everywhere_api_enabled": true,
+            "longform_notetweets_consumption_enabled": true,
+            "tweet_awards_web_tipping_enabled": false,
+            "freedom_of_speech_not_reach_fetch_enabled": false,
+            "standardized_nudges_misinfo": true,
+            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
+            "interactive_text_enabled": true,
+            "responsive_web_text_conversations_enabled": false,
+            "longform_notetweets_rich_text_read_enabled": true,
+            "responsive_web_enhance_cards_enabled": false
+          }),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
   });
 }

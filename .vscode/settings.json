@@ -8,5 +8,6 @@
   },
   "dart.analysisExcludedFolders": ["lib"],
   "dart.lineLength": 160,
-  "markdownlint.ignore": ["doc/**", "README.md"]
+  "markdownlint.ignore": ["doc/**", "README.md"],
+  "openapi.sortOutlines": false
 }

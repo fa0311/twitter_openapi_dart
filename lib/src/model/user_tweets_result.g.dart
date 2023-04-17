@@ -8,13 +8,18 @@ part of 'user_tweets_result.dart';
 
 class _$UserTweetsResult extends UserTweetsResult {
   @override
+  final TypeName typename;
+  @override
   final TimelineV2 timelineV2;
 
   factory _$UserTweetsResult(
           [void Function(UserTweetsResultBuilder)? updates]) =>
       (new UserTweetsResultBuilder()..update(updates))._build();
 
-  _$UserTweetsResult._({required this.timelineV2}) : super._() {
+  _$UserTweetsResult._({required this.typename, required this.timelineV2})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        typename, r'UserTweetsResult', 'typename');
     BuiltValueNullFieldError.checkNotNull(
         timelineV2, r'UserTweetsResult', 'timelineV2');
   }
@@ -30,12 +35,15 @@ class _$UserTweetsResult extends UserTweetsResult {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserTweetsResult && timelineV2 == other.timelineV2;
+    return other is UserTweetsResult &&
+        typename == other.typename &&
+        timelineV2 == other.timelineV2;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, timelineV2.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -44,6 +52,7 @@ class _$UserTweetsResult extends UserTweetsResult {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UserTweetsResult')
+          ..add('typename', typename)
           ..add('timelineV2', timelineV2))
         .toString();
   }
@@ -52,6 +61,10 @@ class _$UserTweetsResult extends UserTweetsResult {
 class UserTweetsResultBuilder
     implements Builder<UserTweetsResult, UserTweetsResultBuilder> {
   _$UserTweetsResult? _$v;
+
+  TypeName? _typename;
+  TypeName? get typename => _$this._typename;
+  set typename(TypeName? typename) => _$this._typename = typename;
 
   TimelineV2Builder? _timelineV2;
   TimelineV2Builder get timelineV2 =>
@@ -66,6 +79,7 @@ class UserTweetsResultBuilder
   UserTweetsResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _typename = $v.typename;
       _timelineV2 = $v.timelineV2.toBuilder();
       _$v = null;
     }
@@ -89,8 +103,11 @@ class UserTweetsResultBuilder
   _$UserTweetsResult _build() {
     _$UserTweetsResult _$result;
     try {
-      _$result =
-          _$v ?? new _$UserTweetsResult._(timelineV2: timelineV2.build());
+      _$result = _$v ??
+          new _$UserTweetsResult._(
+              typename: BuiltValueNullFieldError.checkNotNull(
+                  typename, r'UserTweetsResult', 'typename'),
+              timelineV2: timelineV2.build());
     } catch (_) {
       late String _$failedField;
       try {

@@ -23,7 +23,7 @@ abstract class Timeline implements Built<Timeline, TimelineBuilder> {
   BuiltList<InstructionUnion> get instructions;
 
   @BuiltValueField(wireName: r'metadata')
-  JsonObject get metadata;
+  JsonObject? get metadata;
 
   @BuiltValueField(wireName: r'responseObjects')
   JsonObject? get responseObjects;
@@ -56,11 +56,13 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
       object.instructions,
       specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
     );
-    yield r'metadata';
-    yield serializers.serialize(
-      object.metadata,
-      specifiedType: const FullType(JsonObject),
-    );
+    if (object.metadata != null) {
+      yield r'metadata';
+      yield serializers.serialize(
+        object.metadata,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
     if (object.responseObjects != null) {
       yield r'responseObjects';
       yield serializers.serialize(

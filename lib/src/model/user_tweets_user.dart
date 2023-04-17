@@ -12,11 +12,11 @@ part 'user_tweets_user.g.dart';
 /// UserTweetsUser
 ///
 /// Properties:
-/// * [tweetsTimeline] 
+/// * [result] 
 @BuiltValue()
 abstract class UserTweetsUser implements Built<UserTweetsUser, UserTweetsUserBuilder> {
-  @BuiltValueField(wireName: r'tweets_timeline')
-  UserTweetsResult? get tweetsTimeline;
+  @BuiltValueField(wireName: r'result')
+  UserTweetsResult get result;
 
   UserTweetsUser._();
 
@@ -41,13 +41,11 @@ class _$UserTweetsUserSerializer implements PrimitiveSerializer<UserTweetsUser> 
     UserTweetsUser object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.tweetsTimeline != null) {
-      yield r'tweets_timeline';
-      yield serializers.serialize(
-        object.tweetsTimeline,
-        specifiedType: const FullType(UserTweetsResult),
-      );
-    }
+    yield r'result';
+    yield serializers.serialize(
+      object.result,
+      specifiedType: const FullType(UserTweetsResult),
+    );
   }
 
   @override
@@ -71,12 +69,12 @@ class _$UserTweetsUserSerializer implements PrimitiveSerializer<UserTweetsUser> 
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'tweets_timeline':
+        case r'result':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(UserTweetsResult),
           ) as UserTweetsResult;
-          result.tweetsTimeline.replace(valueDes);
+          result.result.replace(valueDes);
           break;
         default:
           unhandled.add(key);

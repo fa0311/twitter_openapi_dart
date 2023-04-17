@@ -8,11 +8,19 @@ part of 'instruction_type.dart';
 
 const InstructionType _$timelineAddEntries =
     const InstructionType._('timelineAddEntries');
+const InstructionType _$timelineClearCache =
+    const InstructionType._('timelineClearCache');
+const InstructionType _$timelinePinEntry =
+    const InstructionType._('timelinePinEntry');
 
 InstructionType _$valueOf(String name) {
   switch (name) {
     case 'timelineAddEntries':
       return _$timelineAddEntries;
+    case 'timelineClearCache':
+      return _$timelineClearCache;
+    case 'timelinePinEntry':
+      return _$timelinePinEntry;
     default:
       throw new ArgumentError(name);
   }
@@ -21,11 +29,15 @@ InstructionType _$valueOf(String name) {
 final BuiltSet<InstructionType> _$values =
     new BuiltSet<InstructionType>(const <InstructionType>[
   _$timelineAddEntries,
+  _$timelineClearCache,
+  _$timelinePinEntry,
 ]);
 
 class _$InstructionTypeMeta {
   const _$InstructionTypeMeta();
   InstructionType get timelineAddEntries => _$timelineAddEntries;
+  InstructionType get timelineClearCache => _$timelineClearCache;
+  InstructionType get timelinePinEntry => _$timelinePinEntry;
   InstructionType valueOf(String name) => _$valueOf(name);
   BuiltSet<InstructionType> get values => _$values;
 }
@@ -42,9 +54,13 @@ class _$InstructionTypeSerializer
     implements PrimitiveSerializer<InstructionType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineAddEntries': 'TimelineAddEntries',
+    'timelineClearCache': 'TimelineClearCache',
+    'timelinePinEntry': 'TimelinePinEntry',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineAddEntries': 'timelineAddEntries',
+    'TimelineClearCache': 'timelineClearCache',
+    'TimelinePinEntry': 'timelinePinEntry',
   };
 
   @override

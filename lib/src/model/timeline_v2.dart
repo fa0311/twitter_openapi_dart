@@ -3,8 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,16 +12,11 @@ part 'timeline_v2.g.dart';
 /// TimelineV2
 ///
 /// Properties:
-/// * [typename] 
 /// * [timeline] 
 @BuiltValue()
 abstract class TimelineV2 implements Built<TimelineV2, TimelineV2Builder> {
-  @BuiltValueField(wireName: r'__typename')
-  TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
-
   @BuiltValueField(wireName: r'timeline')
-  BuiltList<Timeline> get timeline;
+  Timeline get timeline;
 
   TimelineV2._();
 
@@ -48,15 +41,10 @@ class _$TimelineV2Serializer implements PrimitiveSerializer<TimelineV2> {
     TimelineV2 object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'__typename';
-    yield serializers.serialize(
-      object.typename,
-      specifiedType: const FullType(TypeName),
-    );
     yield r'timeline';
     yield serializers.serialize(
       object.timeline,
-      specifiedType: const FullType(BuiltList, [FullType(Timeline)]),
+      specifiedType: const FullType(Timeline),
     );
   }
 
@@ -81,18 +69,11 @@ class _$TimelineV2Serializer implements PrimitiveSerializer<TimelineV2> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'__typename':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(TypeName),
-          ) as TypeName;
-          result.typename = valueDes;
-          break;
         case r'timeline':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(Timeline)]),
-          ) as BuiltList<Timeline>;
+            specifiedType: const FullType(Timeline),
+          ) as Timeline;
           result.timeline.replace(valueDes);
           break;
         default:

@@ -15,6 +15,8 @@ class _$ItemContent extends ItemContent {
   final String tweetDisplayType;
   @override
   final ItemResult tweetResults;
+  @override
+  final ItemContentSocialContext? socialContext;
 
   factory _$ItemContent([void Function(ItemContentBuilder)? updates]) =>
       (new ItemContentBuilder()..update(updates))._build();
@@ -23,7 +25,8 @@ class _$ItemContent extends ItemContent {
       {required this.typename,
       required this.itemType,
       required this.tweetDisplayType,
-      required this.tweetResults})
+      required this.tweetResults,
+      this.socialContext})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(typename, r'ItemContent', 'typename');
     BuiltValueNullFieldError.checkNotNull(itemType, r'ItemContent', 'itemType');
@@ -47,7 +50,8 @@ class _$ItemContent extends ItemContent {
         typename == other.typename &&
         itemType == other.itemType &&
         tweetDisplayType == other.tweetDisplayType &&
-        tweetResults == other.tweetResults;
+        tweetResults == other.tweetResults &&
+        socialContext == other.socialContext;
   }
 
   @override
@@ -57,6 +61,7 @@ class _$ItemContent extends ItemContent {
     _$hash = $jc(_$hash, itemType.hashCode);
     _$hash = $jc(_$hash, tweetDisplayType.hashCode);
     _$hash = $jc(_$hash, tweetResults.hashCode);
+    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -67,7 +72,8 @@ class _$ItemContent extends ItemContent {
           ..add('typename', typename)
           ..add('itemType', itemType)
           ..add('tweetDisplayType', tweetDisplayType)
-          ..add('tweetResults', tweetResults))
+          ..add('tweetResults', tweetResults)
+          ..add('socialContext', socialContext))
         .toString();
   }
 }
@@ -94,6 +100,12 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   set tweetResults(ItemResultBuilder? tweetResults) =>
       _$this._tweetResults = tweetResults;
 
+  ItemContentSocialContextBuilder? _socialContext;
+  ItemContentSocialContextBuilder get socialContext =>
+      _$this._socialContext ??= new ItemContentSocialContextBuilder();
+  set socialContext(ItemContentSocialContextBuilder? socialContext) =>
+      _$this._socialContext = socialContext;
+
   ItemContentBuilder() {
     ItemContent._defaults(this);
   }
@@ -105,6 +117,7 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
       _itemType = $v.itemType;
       _tweetDisplayType = $v.tweetDisplayType;
       _tweetResults = $v.tweetResults.toBuilder();
+      _socialContext = $v.socialContext?.toBuilder();
       _$v = null;
     }
     return this;
@@ -135,12 +148,15 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
                   itemType, r'ItemContent', 'itemType'),
               tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
                   tweetDisplayType, r'ItemContent', 'tweetDisplayType'),
-              tweetResults: tweetResults.build());
+              tweetResults: tweetResults.build(),
+              socialContext: _socialContext?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'tweetResults';
         tweetResults.build();
+        _$failedField = 'socialContext';
+        _socialContext?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ItemContent', _$failedField, e.toString());

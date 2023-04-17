@@ -8,12 +8,14 @@ part of 'user_tweets_data.dart';
 
 class _$UserTweetsData extends UserTweetsData {
   @override
-  final UserTweetsUser? home;
+  final UserTweetsUser user;
 
   factory _$UserTweetsData([void Function(UserTweetsDataBuilder)? updates]) =>
       (new UserTweetsDataBuilder()..update(updates))._build();
 
-  _$UserTweetsData._({this.home}) : super._();
+  _$UserTweetsData._({required this.user}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(user, r'UserTweetsData', 'user');
+  }
 
   @override
   UserTweetsData rebuild(void Function(UserTweetsDataBuilder) updates) =>
@@ -26,20 +28,20 @@ class _$UserTweetsData extends UserTweetsData {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserTweetsData && home == other.home;
+    return other is UserTweetsData && user == other.user;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, home.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserTweetsData')..add('home', home))
+    return (newBuiltValueToStringHelper(r'UserTweetsData')..add('user', user))
         .toString();
   }
 }
@@ -48,10 +50,10 @@ class UserTweetsDataBuilder
     implements Builder<UserTweetsData, UserTweetsDataBuilder> {
   _$UserTweetsData? _$v;
 
-  UserTweetsUserBuilder? _home;
-  UserTweetsUserBuilder get home =>
-      _$this._home ??= new UserTweetsUserBuilder();
-  set home(UserTweetsUserBuilder? home) => _$this._home = home;
+  UserTweetsUserBuilder? _user;
+  UserTweetsUserBuilder get user =>
+      _$this._user ??= new UserTweetsUserBuilder();
+  set user(UserTweetsUserBuilder? user) => _$this._user = user;
 
   UserTweetsDataBuilder() {
     UserTweetsData._defaults(this);
@@ -60,7 +62,7 @@ class UserTweetsDataBuilder
   UserTweetsDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _home = $v.home?.toBuilder();
+      _user = $v.user.toBuilder();
       _$v = null;
     }
     return this;
@@ -83,12 +85,12 @@ class UserTweetsDataBuilder
   _$UserTweetsData _build() {
     _$UserTweetsData _$result;
     try {
-      _$result = _$v ?? new _$UserTweetsData._(home: _home?.build());
+      _$result = _$v ?? new _$UserTweetsData._(user: user.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'home';
-        _home?.build();
+        _$failedField = 'user';
+        user.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UserTweetsData', _$failedField, e.toString());

@@ -70,17 +70,23 @@ Class | Method | HTTP request | Description
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserByScreenName**](doc\GraphqlApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getUserMedia**](doc\GraphqlApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweets**](doc\GraphqlApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweetsAndReplies**](doc\GraphqlApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeLatestTimeline**](doc\LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeTimeline**](doc\LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getListLatestTweetsTimeline**](doc\LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
 [*TimelineApi*](doc\TimelineApi.md) | [**getHomeLatestTimeline**](doc\TimelineApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
 [*TimelineApi*](doc\TimelineApi.md) | [**getHomeTimeline**](doc\TimelineApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
 [*TimelineApi*](doc\TimelineApi.md) | [**getListLatestTweetsTimeline**](doc\TimelineApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
+[*UserApi*](doc\UserApi.md) | [**getLikes**](doc\UserApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
 [*UserApi*](doc\UserApi.md) | [**getUserByScreenName**](doc\UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*UserApi*](doc\UserApi.md) | [**getUserMedia**](doc\UserApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*UserApi*](doc\UserApi.md) | [**getUserTweets**](doc\UserApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
+[*UserApi*](doc\UserApi.md) | [**getUserTweetsAndReplies**](doc\UserApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
 
 
 ## Documentation For Models
@@ -93,6 +99,7 @@ Class | Method | HTTP request | Description
  - [InstructionType](doc\InstructionType.md)
  - [InstructionUnion](doc\InstructionUnion.md)
  - [ItemContent](doc\ItemContent.md)
+ - [ItemContentSocialContext](doc\ItemContentSocialContext.md)
  - [ItemResult](doc\ItemResult.md)
  - [ListTweetsTimeline](doc\ListTweetsTimeline.md)
  - [ListTweetsTimelineData](doc\ListTweetsTimelineData.md)
@@ -102,6 +109,7 @@ Class | Method | HTTP request | Description
  - [TimelineAddEntries](doc\TimelineAddEntries.md)
  - [TimelineAddEntry](doc\TimelineAddEntry.md)
  - [TimelineClearCache](doc\TimelineClearCache.md)
+ - [TimelinePinEntry](doc\TimelinePinEntry.md)
  - [TimelineResponse](doc\TimelineResponse.md)
  - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc\TimelineTimelineItem.md)

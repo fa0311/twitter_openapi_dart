@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
 **tweetDisplayType** | **String** |  | 
 **tweetResults** | [**ItemResult**](ItemResult.md) |  | 
+**socialContext** | [**ItemContentSocialContext**](ItemContentSocialContext.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
