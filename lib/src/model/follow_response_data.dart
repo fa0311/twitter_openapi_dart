@@ -3,55 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/bookmarks_data.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response_user.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'bookmarks_response.g.dart';
+part 'follow_response_data.g.dart';
 
-/// BookmarksResponse
+/// FollowResponseData
 ///
 /// Properties:
-/// * [data] 
+/// * [user] 
 @BuiltValue()
-abstract class BookmarksResponse implements Built<BookmarksResponse, BookmarksResponseBuilder> {
-  @BuiltValueField(wireName: r'data')
-  BookmarksData get data;
+abstract class FollowResponseData implements Built<FollowResponseData, FollowResponseDataBuilder> {
+  @BuiltValueField(wireName: r'user')
+  FollowResponseUser get user;
 
-  BookmarksResponse._();
+  FollowResponseData._();
 
-  factory BookmarksResponse([void updates(BookmarksResponseBuilder b)]) = _$BookmarksResponse;
+  factory FollowResponseData([void updates(FollowResponseDataBuilder b)]) = _$FollowResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BookmarksResponseBuilder b) => b;
+  static void _defaults(FollowResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksResponse> get serializer => _$BookmarksResponseSerializer();
+  static Serializer<FollowResponseData> get serializer => _$FollowResponseDataSerializer();
 }
 
-class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResponse> {
+class _$FollowResponseDataSerializer implements PrimitiveSerializer<FollowResponseData> {
   @override
-  final Iterable<Type> types = const [BookmarksResponse, _$BookmarksResponse];
+  final Iterable<Type> types = const [FollowResponseData, _$FollowResponseData];
 
   @override
-  final String wireName = r'BookmarksResponse';
+  final String wireName = r'FollowResponseData';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    BookmarksResponse object, {
+    FollowResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'data';
+    yield r'user';
     yield serializers.serialize(
-      object.data,
-      specifiedType: const FullType(BookmarksData),
+      object.user,
+      specifiedType: const FullType(FollowResponseUser),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    BookmarksResponse object, {
+    FollowResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,19 +62,19 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required BookmarksResponseBuilder result,
+    required FollowResponseDataBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'data':
+        case r'user':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BookmarksData),
-          ) as BookmarksData;
-          result.data.replace(valueDes);
+            specifiedType: const FullType(FollowResponseUser),
+          ) as FollowResponseUser;
+          result.user.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -85,12 +85,12 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
   }
 
   @override
-  BookmarksResponse deserialize(
+  FollowResponseData deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = BookmarksResponseBuilder();
+    final result = FollowResponseDataBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -12,11 +12,11 @@ part 'list_tweets_timeline_data.g.dart';
 /// ListTweetsTimelineData
 ///
 /// Properties:
-/// * [home] 
+/// * [list] 
 @BuiltValue()
 abstract class ListTweetsTimelineData implements Built<ListTweetsTimelineData, ListTweetsTimelineDataBuilder> {
-  @BuiltValueField(wireName: r'home')
-  ListTweetsTimelineList? get home;
+  @BuiltValueField(wireName: r'list')
+  ListTweetsTimelineList get list;
 
   ListTweetsTimelineData._();
 
@@ -41,13 +41,11 @@ class _$ListTweetsTimelineDataSerializer implements PrimitiveSerializer<ListTwee
     ListTweetsTimelineData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.home != null) {
-      yield r'home';
-      yield serializers.serialize(
-        object.home,
-        specifiedType: const FullType(ListTweetsTimelineList),
-      );
-    }
+    yield r'list';
+    yield serializers.serialize(
+      object.list,
+      specifiedType: const FullType(ListTweetsTimelineList),
+    );
   }
 
   @override
@@ -71,12 +69,12 @@ class _$ListTweetsTimelineDataSerializer implements PrimitiveSerializer<ListTwee
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'home':
+        case r'list':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(ListTweetsTimelineList),
           ) as ListTweetsTimelineList;
-          result.home.replace(valueDes);
+          result.list.replace(valueDes);
           break;
         default:
           unhandled.add(key);

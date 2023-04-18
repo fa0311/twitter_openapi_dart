@@ -68,11 +68,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*BookmarkApi*](doc\BookmarkApi.md) | [**getBookmarks**](doc\BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 [*BookmarkApi*](doc\BookmarkApi.md) | [**getTweetDetail**](doc\BookmarkApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
-[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
-[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getBookmarks**](doc\GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
@@ -97,12 +97,18 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [BookmarksData](doc\BookmarksData.md)
  - [BookmarksResponse](doc\BookmarksResponse.md)
  - [BookmarksResponseData](doc\BookmarksResponseData.md)
- - [BookmarksResponseData1](doc\BookmarksResponseData1.md)
+ - [BookmarksTimeline](doc\BookmarksTimeline.md)
  - [ContentEntryType](doc\ContentEntryType.md)
  - [ContentItemType](doc\ContentItemType.md)
  - [ContentUnion](doc\ContentUnion.md)
+ - [FollowData](doc\FollowData.md)
+ - [FollowResponse](doc\FollowResponse.md)
+ - [FollowResult](doc\FollowResult.md)
+ - [FollowTimeline](doc\FollowTimeline.md)
+ - [FollowUser](doc\FollowUser.md)
  - [HomeTimelineHome](doc\HomeTimelineHome.md)
  - [HomeTimelineResponseData](doc\HomeTimelineResponseData.md)
  - [InstructionType](doc\InstructionType.md)

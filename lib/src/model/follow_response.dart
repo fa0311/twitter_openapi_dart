@@ -3,55 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/bookmarks_data.dart';
+import 'package:twitter_openapi_dart/src/model/follow_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'bookmarks_response.g.dart';
+part 'follow_response.g.dart';
 
-/// BookmarksResponse
+/// FollowResponse
 ///
 /// Properties:
 /// * [data] 
 @BuiltValue()
-abstract class BookmarksResponse implements Built<BookmarksResponse, BookmarksResponseBuilder> {
+abstract class FollowResponse implements Built<FollowResponse, FollowResponseBuilder> {
   @BuiltValueField(wireName: r'data')
-  BookmarksData get data;
+  FollowData get data;
 
-  BookmarksResponse._();
+  FollowResponse._();
 
-  factory BookmarksResponse([void updates(BookmarksResponseBuilder b)]) = _$BookmarksResponse;
+  factory FollowResponse([void updates(FollowResponseBuilder b)]) = _$FollowResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BookmarksResponseBuilder b) => b;
+  static void _defaults(FollowResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksResponse> get serializer => _$BookmarksResponseSerializer();
+  static Serializer<FollowResponse> get serializer => _$FollowResponseSerializer();
 }
 
-class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResponse> {
+class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> {
   @override
-  final Iterable<Type> types = const [BookmarksResponse, _$BookmarksResponse];
+  final Iterable<Type> types = const [FollowResponse, _$FollowResponse];
 
   @override
-  final String wireName = r'BookmarksResponse';
+  final String wireName = r'FollowResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    BookmarksResponse object, {
+    FollowResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'data';
     yield serializers.serialize(
       object.data,
-      specifiedType: const FullType(BookmarksData),
+      specifiedType: const FullType(FollowData),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    BookmarksResponse object, {
+    FollowResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,7 +62,7 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required BookmarksResponseBuilder result,
+    required FollowResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -72,8 +72,8 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
         case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BookmarksData),
-          ) as BookmarksData;
+            specifiedType: const FullType(FollowData),
+          ) as FollowData;
           result.data.replace(valueDes);
           break;
         default:
@@ -85,12 +85,12 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
   }
 
   @override
-  BookmarksResponse deserialize(
+  FollowResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = BookmarksResponseBuilder();
+    final result = FollowResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

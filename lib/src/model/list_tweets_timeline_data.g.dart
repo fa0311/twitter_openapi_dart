@@ -8,13 +8,16 @@ part of 'list_tweets_timeline_data.dart';
 
 class _$ListTweetsTimelineData extends ListTweetsTimelineData {
   @override
-  final ListTweetsTimelineList? home;
+  final ListTweetsTimelineList list;
 
   factory _$ListTweetsTimelineData(
           [void Function(ListTweetsTimelineDataBuilder)? updates]) =>
       (new ListTweetsTimelineDataBuilder()..update(updates))._build();
 
-  _$ListTweetsTimelineData._({this.home}) : super._();
+  _$ListTweetsTimelineData._({required this.list}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        list, r'ListTweetsTimelineData', 'list');
+  }
 
   @override
   ListTweetsTimelineData rebuild(
@@ -28,13 +31,13 @@ class _$ListTweetsTimelineData extends ListTweetsTimelineData {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ListTweetsTimelineData && home == other.home;
+    return other is ListTweetsTimelineData && list == other.list;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, home.hashCode);
+    _$hash = $jc(_$hash, list.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -42,7 +45,7 @@ class _$ListTweetsTimelineData extends ListTweetsTimelineData {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ListTweetsTimelineData')
-          ..add('home', home))
+          ..add('list', list))
         .toString();
   }
 }
@@ -51,10 +54,10 @@ class ListTweetsTimelineDataBuilder
     implements Builder<ListTweetsTimelineData, ListTweetsTimelineDataBuilder> {
   _$ListTweetsTimelineData? _$v;
 
-  ListTweetsTimelineListBuilder? _home;
-  ListTweetsTimelineListBuilder get home =>
-      _$this._home ??= new ListTweetsTimelineListBuilder();
-  set home(ListTweetsTimelineListBuilder? home) => _$this._home = home;
+  ListTweetsTimelineListBuilder? _list;
+  ListTweetsTimelineListBuilder get list =>
+      _$this._list ??= new ListTweetsTimelineListBuilder();
+  set list(ListTweetsTimelineListBuilder? list) => _$this._list = list;
 
   ListTweetsTimelineDataBuilder() {
     ListTweetsTimelineData._defaults(this);
@@ -63,7 +66,7 @@ class ListTweetsTimelineDataBuilder
   ListTweetsTimelineDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _home = $v.home?.toBuilder();
+      _list = $v.list.toBuilder();
       _$v = null;
     }
     return this;
@@ -86,12 +89,12 @@ class ListTweetsTimelineDataBuilder
   _$ListTweetsTimelineData _build() {
     _$ListTweetsTimelineData _$result;
     try {
-      _$result = _$v ?? new _$ListTweetsTimelineData._(home: _home?.build());
+      _$result = _$v ?? new _$ListTweetsTimelineData._(list: list.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'home';
-        _home?.build();
+        _$failedField = 'list';
+        list.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ListTweetsTimelineData', _$failedField, e.toString());

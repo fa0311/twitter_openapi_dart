@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:test/test.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:dio/dio.dart';
@@ -36,6 +37,18 @@ class HeaderAuth extends Interceptor {
   }
 }
 
+bool contentTest(BuiltList<InstructionUnion> instructions) {
+  final item = instructions.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first;
+
+  final timelineItem =
+      item.entries.expand((e) => e.content.oneOf.isType(TimelineTimelineItem) ? [e.content.oneOf.value as TimelineTimelineItem] : <TimelineTimelineItem>[]);
+
+  final timelineModule = item.entries
+      .expand((e) => e.content.oneOf.isType(TimelineTimelineModule) ? [e.content.oneOf.value as TimelineTimelineModule] : <TimelineTimelineModule>[]);
+  print(timelineItem.length + timelineModule.length);
+  return (timelineItem.length + timelineModule.length) > 0;
+}
+
 void main() async {
   final auth = HeaderAuth();
   await auth.readCookies("test/cookies.json");
@@ -47,7 +60,7 @@ void main() async {
     )),
     interceptors: [
       auth,
-      LogInterceptor(responseBody: true),
+      // LogInterceptor(responseBody: true),
     ],
   );
 
@@ -60,6 +73,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions), true);
   });
 
   test('getHomeLatestTimeline', () async {
@@ -69,6 +83,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions), true);
   });
 
   test('getListLatestTweetsTimeline', () async {
@@ -78,6 +93,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.list.tweetsTimeline.timeline.instructions), true);
   });
 
   test('getUserByScreenName', () async {
@@ -98,6 +114,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
   });
 
   test('getUserTweetsAndReplies', () async {
@@ -107,6 +124,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
   });
 
   test('getUserMedia', () async {
@@ -116,6 +134,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
   });
 
   test('getLikes', () async {
@@ -125,6 +144,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
   });
 
   test('getBookmarks', () async {
@@ -134,6 +154,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.bookmarkTimelineV2.timeline.instructions), true);
   });
 
   test('getTweetDetail', () async {
@@ -143,6 +164,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.threadedConversationWithInjectionsV2.instructions), true);
   });
   test('getTweetDetail2', () async {
     final response = await client.getGraphqlApi().getTweetDetail(
@@ -151,5 +173,26 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+    expect(contentTest(response.data!.data.threadedConversationWithInjectionsV2.instructions), true);
+  });
+
+  test('getFollowers', () async {
+    final response = await client.getGraphqlApi().getFollowers(
+          variables: jsonEncode(config["Followers"]!["Variables"]),
+          features: jsonEncode(config["Followers"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
+  });
+
+  test('getFollowing', () async {
+    final response = await client.getGraphqlApi().getFollowing(
+          variables: jsonEncode(config["Following"]!["Variables"]),
+          features: jsonEncode(config["Following"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
   });
 }

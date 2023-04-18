@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/bookmarks_response_data1.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_response_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,7 @@ part 'tweet_detail_response.g.dart';
 @BuiltValue()
 abstract class TweetDetailResponse implements Built<TweetDetailResponse, TweetDetailResponseBuilder> {
   @BuiltValueField(wireName: r'data')
-  BookmarksResponseData1 get data;
+  BookmarksResponseData get data;
 
   TweetDetailResponse._();
 
@@ -44,7 +44,7 @@ class _$TweetDetailResponseSerializer implements PrimitiveSerializer<TweetDetail
     yield r'data';
     yield serializers.serialize(
       object.data,
-      specifiedType: const FullType(BookmarksResponseData1),
+      specifiedType: const FullType(BookmarksResponseData),
     );
   }
 
@@ -72,8 +72,8 @@ class _$TweetDetailResponseSerializer implements PrimitiveSerializer<TweetDetail
         case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BookmarksResponseData1),
-          ) as BookmarksResponseData1;
+            specifiedType: const FullType(BookmarksResponseData),
+          ) as BookmarksResponseData;
           result.data.replace(valueDes);
           break;
         default:

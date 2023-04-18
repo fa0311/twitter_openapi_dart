@@ -8,6 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart/src/api_util.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response.dart';
 
 class FollowApi {
 
@@ -31,12 +32,12 @@ class FollowApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> getFollowers({ 
+  Future<Response<FollowResponse>> getFollowers({ 
     required String variables,
     required String features,
-    String queryId = '{{Query}}',
+    String queryId = 'b22I8WSfQ8H4Ev8486xAlQ',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,7 +45,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/{{FollowingQuery}}/Following';
+    final _path = r'/b22I8WSfQ8H4Ev8486xAlQ/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -104,7 +105,34 @@ class FollowApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
+    FollowResponse _responseData;
+
+    try {
+      const _responseType = FullType(FollowResponse);
+      _responseData = _serializers.deserialize(
+        _response.data!,
+        specifiedType: _responseType,
+      ) as FollowResponse;
+
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<FollowResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
   }
 
   /// getFollowing
@@ -121,12 +149,12 @@ class FollowApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future]
+  /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> getFollowing({ 
+  Future<Response<FollowResponse>> getFollowing({ 
     required String variables,
     required String features,
-    String queryId = '{{Query}}',
+    String queryId = 'JpFFCTBPxYVlDqMUr9twzQ',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -134,7 +162,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/{{FollowersQuery}}/Followers';
+    final _path = r'/JpFFCTBPxYVlDqMUr9twzQ/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -194,7 +222,34 @@ class FollowApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    return _response;
+    FollowResponse _responseData;
+
+    try {
+      const _responseType = FullType(FollowResponse);
+      _responseData = _serializers.deserialize(
+        _response.data!,
+        specifiedType: _responseType,
+      ) as FollowResponse;
+
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<FollowResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
   }
 
 }
