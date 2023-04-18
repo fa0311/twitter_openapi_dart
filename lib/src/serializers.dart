@@ -14,18 +14,18 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:twitter_openapi_dart/src/date_serializer.dart';
 import 'package:twitter_openapi_dart/src/model/date.dart';
 
-import 'package:twitter_openapi_dart/src/model/bookmarks_data.dart';
 import 'package:twitter_openapi_dart/src/model/bookmarks_response.dart';
 import 'package:twitter_openapi_dart/src/model/bookmarks_response_data.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_response_data1.dart';
 import 'package:twitter_openapi_dart/src/model/bookmarks_timeline.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_union.dart';
-import 'package:twitter_openapi_dart/src/model/follow_data.dart';
 import 'package:twitter_openapi_dart/src/model/follow_response.dart';
-import 'package:twitter_openapi_dart/src/model/follow_result.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response_data.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response_result.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response_user.dart';
 import 'package:twitter_openapi_dart/src/model/follow_timeline.dart';
-import 'package:twitter_openapi_dart/src/model/follow_user.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_home.dart';
 import 'package:twitter_openapi_dart/src/model/home_timeline_response_data.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
@@ -81,18 +81,18 @@ import 'package:twitter_openapi_dart/src/model/user_union.dart';
 part 'serializers.g.dart';
 
 @SerializersFor([
-  BookmarksData,
   BookmarksResponse,
   BookmarksResponseData,
+  BookmarksResponseData1,
   BookmarksTimeline,
   ContentEntryType,
   ContentItemType,
   ContentUnion,
-  FollowData,
   FollowResponse,
-  FollowResult,
+  FollowResponseData,
+  FollowResponseResult,
+  FollowResponseUser,
   FollowTimeline,
-  FollowUser,
   HomeTimelineHome,
   HomeTimelineResponseData,
   InstructionType,

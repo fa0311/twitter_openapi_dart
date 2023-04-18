@@ -8,7 +8,7 @@ part of 'follow_response.dart';
 
 class _$FollowResponse extends FollowResponse {
   @override
-  final FollowData data;
+  final FollowResponseData data;
 
   factory _$FollowResponse([void Function(FollowResponseBuilder)? updates]) =>
       (new FollowResponseBuilder()..update(updates))._build();
@@ -50,9 +50,10 @@ class FollowResponseBuilder
     implements Builder<FollowResponse, FollowResponseBuilder> {
   _$FollowResponse? _$v;
 
-  FollowDataBuilder? _data;
-  FollowDataBuilder get data => _$this._data ??= new FollowDataBuilder();
-  set data(FollowDataBuilder? data) => _$this._data = data;
+  FollowResponseDataBuilder? _data;
+  FollowResponseDataBuilder get data =>
+      _$this._data ??= new FollowResponseDataBuilder();
+  set data(FollowResponseDataBuilder? data) => _$this._data = data;
 
   FollowResponseBuilder() {
     FollowResponse._defaults(this);

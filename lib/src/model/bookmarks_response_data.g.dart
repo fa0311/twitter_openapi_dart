@@ -8,17 +8,15 @@ part of 'bookmarks_response_data.dart';
 
 class _$BookmarksResponseData extends BookmarksResponseData {
   @override
-  final Timeline threadedConversationWithInjectionsV2;
+  final BookmarksTimeline bookmarkTimelineV2;
 
   factory _$BookmarksResponseData(
           [void Function(BookmarksResponseDataBuilder)? updates]) =>
       (new BookmarksResponseDataBuilder()..update(updates))._build();
 
-  _$BookmarksResponseData._(
-      {required this.threadedConversationWithInjectionsV2})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(threadedConversationWithInjectionsV2,
-        r'BookmarksResponseData', 'threadedConversationWithInjectionsV2');
+  _$BookmarksResponseData._({required this.bookmarkTimelineV2}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        bookmarkTimelineV2, r'BookmarksResponseData', 'bookmarkTimelineV2');
   }
 
   @override
@@ -34,14 +32,13 @@ class _$BookmarksResponseData extends BookmarksResponseData {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BookmarksResponseData &&
-        threadedConversationWithInjectionsV2 ==
-            other.threadedConversationWithInjectionsV2;
+        bookmarkTimelineV2 == other.bookmarkTimelineV2;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, threadedConversationWithInjectionsV2.hashCode);
+    _$hash = $jc(_$hash, bookmarkTimelineV2.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -49,8 +46,7 @@ class _$BookmarksResponseData extends BookmarksResponseData {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BookmarksResponseData')
-          ..add('threadedConversationWithInjectionsV2',
-              threadedConversationWithInjectionsV2))
+          ..add('bookmarkTimelineV2', bookmarkTimelineV2))
         .toString();
   }
 }
@@ -59,13 +55,11 @@ class BookmarksResponseDataBuilder
     implements Builder<BookmarksResponseData, BookmarksResponseDataBuilder> {
   _$BookmarksResponseData? _$v;
 
-  TimelineBuilder? _threadedConversationWithInjectionsV2;
-  TimelineBuilder get threadedConversationWithInjectionsV2 =>
-      _$this._threadedConversationWithInjectionsV2 ??= new TimelineBuilder();
-  set threadedConversationWithInjectionsV2(
-          TimelineBuilder? threadedConversationWithInjectionsV2) =>
-      _$this._threadedConversationWithInjectionsV2 =
-          threadedConversationWithInjectionsV2;
+  BookmarksTimelineBuilder? _bookmarkTimelineV2;
+  BookmarksTimelineBuilder get bookmarkTimelineV2 =>
+      _$this._bookmarkTimelineV2 ??= new BookmarksTimelineBuilder();
+  set bookmarkTimelineV2(BookmarksTimelineBuilder? bookmarkTimelineV2) =>
+      _$this._bookmarkTimelineV2 = bookmarkTimelineV2;
 
   BookmarksResponseDataBuilder() {
     BookmarksResponseData._defaults(this);
@@ -74,8 +68,7 @@ class BookmarksResponseDataBuilder
   BookmarksResponseDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _threadedConversationWithInjectionsV2 =
-          $v.threadedConversationWithInjectionsV2.toBuilder();
+      _bookmarkTimelineV2 = $v.bookmarkTimelineV2.toBuilder();
       _$v = null;
     }
     return this;
@@ -100,13 +93,12 @@ class BookmarksResponseDataBuilder
     try {
       _$result = _$v ??
           new _$BookmarksResponseData._(
-              threadedConversationWithInjectionsV2:
-                  threadedConversationWithInjectionsV2.build());
+              bookmarkTimelineV2: bookmarkTimelineV2.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'threadedConversationWithInjectionsV2';
-        threadedConversationWithInjectionsV2.build();
+        _$failedField = 'bookmarkTimelineV2';
+        bookmarkTimelineV2.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'BookmarksResponseData', _$failedField, e.toString());

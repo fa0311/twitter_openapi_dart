@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/follow_data.dart';
+import 'package:twitter_openapi_dart/src/model/follow_response_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,7 @@ part 'follow_response.g.dart';
 @BuiltValue()
 abstract class FollowResponse implements Built<FollowResponse, FollowResponseBuilder> {
   @BuiltValueField(wireName: r'data')
-  FollowData get data;
+  FollowResponseData get data;
 
   FollowResponse._();
 
@@ -44,7 +44,7 @@ class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> 
     yield r'data';
     yield serializers.serialize(
       object.data,
-      specifiedType: const FullType(FollowData),
+      specifiedType: const FullType(FollowResponseData),
     );
   }
 
@@ -72,8 +72,8 @@ class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> 
         case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(FollowData),
-          ) as FollowData;
+            specifiedType: const FullType(FollowResponseData),
+          ) as FollowResponseData;
           result.data.replace(valueDes);
           break;
         default:

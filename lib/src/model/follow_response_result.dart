@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/follow_response_timeline.dart';
+import 'package:twitter_openapi_dart/src/model/follow_timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,7 +22,7 @@ abstract class FollowResponseResult implements Built<FollowResponseResult, Follo
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'timeline')
-  FollowResponseTimeline get timeline;
+  FollowTimeline get timeline;
 
   FollowResponseResult._();
 
@@ -55,7 +55,7 @@ class _$FollowResponseResultSerializer implements PrimitiveSerializer<FollowResp
     yield r'timeline';
     yield serializers.serialize(
       object.timeline,
-      specifiedType: const FullType(FollowResponseTimeline),
+      specifiedType: const FullType(FollowTimeline),
     );
   }
 
@@ -90,8 +90,8 @@ class _$FollowResponseResultSerializer implements PrimitiveSerializer<FollowResp
         case r'timeline':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(FollowResponseTimeline),
-          ) as FollowResponseTimeline;
+            specifiedType: const FullType(FollowTimeline),
+          ) as FollowTimeline;
           result.timeline.replace(valueDes);
           break;
         default:

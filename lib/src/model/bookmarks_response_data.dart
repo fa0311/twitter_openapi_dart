@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/timeline.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,11 +12,11 @@ part 'bookmarks_response_data.g.dart';
 /// BookmarksResponseData
 ///
 /// Properties:
-/// * [threadedConversationWithInjectionsV2] 
+/// * [bookmarkTimelineV2] 
 @BuiltValue()
 abstract class BookmarksResponseData implements Built<BookmarksResponseData, BookmarksResponseDataBuilder> {
-  @BuiltValueField(wireName: r'threaded_conversation_with_injections_v2')
-  Timeline get threadedConversationWithInjectionsV2;
+  @BuiltValueField(wireName: r'bookmark_timeline_v2')
+  BookmarksTimeline get bookmarkTimelineV2;
 
   BookmarksResponseData._();
 
@@ -41,10 +41,10 @@ class _$BookmarksResponseDataSerializer implements PrimitiveSerializer<Bookmarks
     BookmarksResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'threaded_conversation_with_injections_v2';
+    yield r'bookmark_timeline_v2';
     yield serializers.serialize(
-      object.threadedConversationWithInjectionsV2,
-      specifiedType: const FullType(Timeline),
+      object.bookmarkTimelineV2,
+      specifiedType: const FullType(BookmarksTimeline),
     );
   }
 
@@ -69,12 +69,12 @@ class _$BookmarksResponseDataSerializer implements PrimitiveSerializer<Bookmarks
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'threaded_conversation_with_injections_v2':
+        case r'bookmark_timeline_v2':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Timeline),
-          ) as Timeline;
-          result.threadedConversationWithInjectionsV2.replace(valueDes);
+            specifiedType: const FullType(BookmarksTimeline),
+          ) as BookmarksTimeline;
+          result.bookmarkTimelineV2.replace(valueDes);
           break;
         default:
           unhandled.add(key);

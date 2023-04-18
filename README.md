@@ -99,18 +99,18 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [BookmarksData](doc\BookmarksData.md)
  - [BookmarksResponse](doc\BookmarksResponse.md)
  - [BookmarksResponseData](doc\BookmarksResponseData.md)
+ - [BookmarksResponseData1](doc\BookmarksResponseData1.md)
  - [BookmarksTimeline](doc\BookmarksTimeline.md)
  - [ContentEntryType](doc\ContentEntryType.md)
  - [ContentItemType](doc\ContentItemType.md)
  - [ContentUnion](doc\ContentUnion.md)
- - [FollowData](doc\FollowData.md)
  - [FollowResponse](doc\FollowResponse.md)
- - [FollowResult](doc\FollowResult.md)
+ - [FollowResponseData](doc\FollowResponseData.md)
+ - [FollowResponseResult](doc\FollowResponseResult.md)
+ - [FollowResponseUser](doc\FollowResponseUser.md)
  - [FollowTimeline](doc\FollowTimeline.md)
- - [FollowUser](doc\FollowUser.md)
  - [HomeTimelineHome](doc\HomeTimelineHome.md)
  - [HomeTimelineResponseData](doc\HomeTimelineResponseData.md)
  - [InstructionType](doc\InstructionType.md)

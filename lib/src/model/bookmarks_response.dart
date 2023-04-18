@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/bookmarks_data.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_response_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,7 @@ part 'bookmarks_response.g.dart';
 @BuiltValue()
 abstract class BookmarksResponse implements Built<BookmarksResponse, BookmarksResponseBuilder> {
   @BuiltValueField(wireName: r'data')
-  BookmarksData get data;
+  BookmarksResponseData get data;
 
   BookmarksResponse._();
 
@@ -44,7 +44,7 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
     yield r'data';
     yield serializers.serialize(
       object.data,
-      specifiedType: const FullType(BookmarksData),
+      specifiedType: const FullType(BookmarksResponseData),
     );
   }
 
@@ -72,8 +72,8 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
         case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BookmarksData),
-          ) as BookmarksData;
+            specifiedType: const FullType(BookmarksResponseData),
+          ) as BookmarksResponseData;
           result.data.replace(valueDes);
           break;
         default:

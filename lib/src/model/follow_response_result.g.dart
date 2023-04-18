@@ -10,7 +10,7 @@ class _$FollowResponseResult extends FollowResponseResult {
   @override
   final TypeName typename;
   @override
-  final FollowResponseTimeline timeline;
+  final FollowTimeline timeline;
 
   factory _$FollowResponseResult(
           [void Function(FollowResponseResultBuilder)? updates]) =>
@@ -67,11 +67,10 @@ class FollowResponseResultBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  FollowResponseTimelineBuilder? _timeline;
-  FollowResponseTimelineBuilder get timeline =>
-      _$this._timeline ??= new FollowResponseTimelineBuilder();
-  set timeline(FollowResponseTimelineBuilder? timeline) =>
-      _$this._timeline = timeline;
+  FollowTimelineBuilder? _timeline;
+  FollowTimelineBuilder get timeline =>
+      _$this._timeline ??= new FollowTimelineBuilder();
+  set timeline(FollowTimelineBuilder? timeline) => _$this._timeline = timeline;
 
   FollowResponseResultBuilder() {
     FollowResponseResult._defaults(this);

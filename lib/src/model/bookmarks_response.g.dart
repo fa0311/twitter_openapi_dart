@@ -8,7 +8,7 @@ part of 'bookmarks_response.dart';
 
 class _$BookmarksResponse extends BookmarksResponse {
   @override
-  final BookmarksData data;
+  final BookmarksResponseData data;
 
   factory _$BookmarksResponse(
           [void Function(BookmarksResponseBuilder)? updates]) =>
@@ -52,9 +52,10 @@ class BookmarksResponseBuilder
     implements Builder<BookmarksResponse, BookmarksResponseBuilder> {
   _$BookmarksResponse? _$v;
 
-  BookmarksDataBuilder? _data;
-  BookmarksDataBuilder get data => _$this._data ??= new BookmarksDataBuilder();
-  set data(BookmarksDataBuilder? data) => _$this._data = data;
+  BookmarksResponseDataBuilder? _data;
+  BookmarksResponseDataBuilder get data =>
+      _$this._data ??= new BookmarksResponseDataBuilder();
+  set data(BookmarksResponseDataBuilder? data) => _$this._data = data;
 
   BookmarksResponseBuilder() {
     BookmarksResponse._defaults(this);
