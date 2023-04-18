@@ -60,7 +60,7 @@ void main() async {
     )),
     interceptors: [
       auth,
-      // LogInterceptor(responseBody: true),
+      LogInterceptor(),
     ],
   );
 
@@ -105,6 +105,16 @@ void main() async {
     expect(response.statusCode, 200);
     expect(response.data == null, false);
     expect((response.data!.data.user.result.oneOf.value as User).legacy.screenName, name);
+  });
+
+  test('ProfileSpotlightsQuery', () async {
+    final response = await client.getGraphqlApi().getProfileSpotlightsQuery(
+          variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
+          features: jsonEncode(config["UserByScreenName"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(response.data!.data.userResultByScreenName.result.legacy.screenName, "elonmusk");
   });
 
   test('getUserTweets', () async {

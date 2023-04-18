@@ -38,6 +38,8 @@ import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_list.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_response.dart';
 import 'package:twitter_openapi_dart/src/model/module_entry.dart';
 import 'package:twitter_openapi_dart/src/model/module_item.dart';
+import 'package:twitter_openapi_dart/src/model/profile_response.dart';
+import 'package:twitter_openapi_dart/src/model/profile_response_data.dart';
 import 'package:twitter_openapi_dart/src/model/social_context.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
@@ -65,6 +67,9 @@ import 'package:twitter_openapi_dart/src/model/user.dart';
 import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
 import 'package:twitter_openapi_dart/src/model/user_response.dart';
 import 'package:twitter_openapi_dart/src/model/user_response_data.dart';
+import 'package:twitter_openapi_dart/src/model/user_result_by_screen_name.dart';
+import 'package:twitter_openapi_dart/src/model/user_result_by_screen_name_legacy.dart';
+import 'package:twitter_openapi_dart/src/model/user_result_by_screen_name_result.dart';
 import 'package:twitter_openapi_dart/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart/src/model/user_results.dart';
 import 'package:twitter_openapi_dart/src/model/user_tweets_data.dart';
@@ -100,6 +105,8 @@ part 'serializers.g.dart';
   ListTweetsTimelineResponse,
   ModuleEntry,
   ModuleItem,
+  ProfileResponse,
+  ProfileResponseData,
   SocialContext,
   Timeline,
   TimelineAddEntries,
@@ -127,6 +134,9 @@ part 'serializers.g.dart';
   UserLegacy,
   UserResponse,
   UserResponseData,
+  UserResultByScreenName,
+  UserResultByScreenNameLegacy,
+  UserResultByScreenNameResult,
   UserResultCore,
   UserResults,
   UserTweetsData,

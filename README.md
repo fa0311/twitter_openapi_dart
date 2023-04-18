@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getProfileSpotlightsQuery**](doc\GraphqlApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getTweetDetail**](doc\GraphqlApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserByScreenName**](doc\GraphqlApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserMedia**](doc\GraphqlApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
@@ -89,6 +90,7 @@ Class | Method | HTTP request | Description
 [*TimelineApi*](doc\TimelineApi.md) | [**getHomeTimeline**](doc\TimelineApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*TimelineApi*](doc\TimelineApi.md) | [**getListLatestTweetsTimeline**](doc\TimelineApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
 [*UserApi*](doc\UserApi.md) | [**getLikes**](doc\UserApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
+[*UserApi*](doc\UserApi.md) | [**getProfileSpotlightsQuery**](doc\UserApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
 [*UserApi*](doc\UserApi.md) | [**getUserByScreenName**](doc\UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 [*UserApi*](doc\UserApi.md) | [**getUserMedia**](doc\UserApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*UserApi*](doc\UserApi.md) | [**getUserTweets**](doc\UserApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
@@ -121,6 +123,8 @@ Class | Method | HTTP request | Description
  - [ListTweetsTimelineResponse](doc\ListTweetsTimelineResponse.md)
  - [ModuleEntry](doc\ModuleEntry.md)
  - [ModuleItem](doc\ModuleItem.md)
+ - [ProfileResponse](doc\ProfileResponse.md)
+ - [ProfileResponseData](doc\ProfileResponseData.md)
  - [SocialContext](doc\SocialContext.md)
  - [Timeline](doc\Timeline.md)
  - [TimelineAddEntries](doc\TimelineAddEntries.md)
@@ -148,6 +152,9 @@ Class | Method | HTTP request | Description
  - [UserLegacy](doc\UserLegacy.md)
  - [UserResponse](doc\UserResponse.md)
  - [UserResponseData](doc\UserResponseData.md)
+ - [UserResultByScreenName](doc\UserResultByScreenName.md)
+ - [UserResultByScreenNameLegacy](doc\UserResultByScreenNameLegacy.md)
+ - [UserResultByScreenNameResult](doc\UserResultByScreenNameResult.md)
  - [UserResultCore](doc\UserResultCore.md)
  - [UserResults](doc\UserResults.md)
  - [UserTweetsData](doc\UserTweetsData.md)

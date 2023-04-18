@@ -28,6 +28,8 @@ doc/ListTweetsTimelineResponse.md
 doc/LoginRequiredApi.md
 doc/ModuleEntry.md
 doc/ModuleItem.md
+doc/ProfileResponse.md
+doc/ProfileResponseData.md
 doc/SocialContext.md
 doc/Timeline.md
 doc/TimelineAddEntries.md
@@ -57,6 +59,9 @@ doc/UserApi.md
 doc/UserLegacy.md
 doc/UserResponse.md
 doc/UserResponseData.md
+doc/UserResultByScreenName.md
+doc/UserResultByScreenNameLegacy.md
+doc/UserResultByScreenNameResult.md
 doc/UserResultCore.md
 doc/UserResults.md
 doc/UserTweetsData.md
@@ -103,6 +108,8 @@ lib/src/model/list_tweets_timeline_list.dart
 lib/src/model/list_tweets_timeline_response.dart
 lib/src/model/module_entry.dart
 lib/src/model/module_item.dart
+lib/src/model/profile_response.dart
+lib/src/model/profile_response_data.dart
 lib/src/model/social_context.dart
 lib/src/model/timeline.dart
 lib/src/model/timeline_add_entries.dart
@@ -130,6 +137,9 @@ lib/src/model/user.dart
 lib/src/model/user_legacy.dart
 lib/src/model/user_response.dart
 lib/src/model/user_response_data.dart
+lib/src/model/user_result_by_screen_name.dart
+lib/src/model/user_result_by_screen_name_legacy.dart
+lib/src/model/user_result_by_screen_name_result.dart
 lib/src/model/user_result_core.dart
 lib/src/model/user_results.dart
 lib/src/model/user_tweets_data.dart
