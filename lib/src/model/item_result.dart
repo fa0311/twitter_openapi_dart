@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_union.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -12,9 +13,14 @@ part 'item_result.g.dart';
 /// ItemResult
 ///
 /// Properties:
+/// * [typename] 
 /// * [result] 
 @BuiltValue()
 abstract class ItemResult implements Built<ItemResult, ItemResultBuilder> {
+  @BuiltValueField(wireName: r'__typename')
+  TypeName? get typename;
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+
   @BuiltValueField(wireName: r'result')
   TweetUnion get result;
 
@@ -41,6 +47,13 @@ class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
     ItemResult object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.typename != null) {
+      yield r'__typename';
+      yield serializers.serialize(
+        object.typename,
+        specifiedType: const FullType(TypeName),
+      );
+    }
     yield r'result';
     yield serializers.serialize(
       object.result,
@@ -69,6 +82,13 @@ class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'__typename':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TypeName),
+          ) as TypeName;
+          result.typename = valueDes;
+          break;
         case r'result':
           final valueDes = serializers.deserialize(
             value,

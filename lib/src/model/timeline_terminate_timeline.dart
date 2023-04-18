@@ -3,54 +3,55 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_pin_entry.g.dart';
+part 'timeline_terminate_timeline.g.dart';
 
-/// TimelinePinEntry
+/// TimelineTerminateTimeline
 ///
 /// Properties:
-/// * [entry] 
+/// * [direction] 
 /// * [type] 
 @BuiltValue()
-abstract class TimelinePinEntry implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
-  @BuiltValueField(wireName: r'entry')
-  TimelineAddEntry get entry;
+abstract class TimelineTerminateTimeline implements Built<TimelineTerminateTimeline, TimelineTerminateTimelineBuilder> {
+  @BuiltValueField(wireName: r'direction')
+  TimelineTerminateTimelineDirectionEnum get direction;
+  // enum directionEnum {  Top,  Bottom,  };
 
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  TimelineTerminateTimeline,  };
 
-  TimelinePinEntry._();
+  TimelineTerminateTimeline._();
 
-  factory TimelinePinEntry([void updates(TimelinePinEntryBuilder b)]) = _$TimelinePinEntry;
+  factory TimelineTerminateTimeline([void updates(TimelineTerminateTimelineBuilder b)]) = _$TimelineTerminateTimeline;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelinePinEntryBuilder b) => b;
+  static void _defaults(TimelineTerminateTimelineBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelinePinEntry> get serializer => _$TimelinePinEntrySerializer();
+  static Serializer<TimelineTerminateTimeline> get serializer => _$TimelineTerminateTimelineSerializer();
 }
 
-class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEntry> {
+class _$TimelineTerminateTimelineSerializer implements PrimitiveSerializer<TimelineTerminateTimeline> {
   @override
-  final Iterable<Type> types = const [TimelinePinEntry, _$TimelinePinEntry];
+  final Iterable<Type> types = const [TimelineTerminateTimeline, _$TimelineTerminateTimeline];
 
   @override
-  final String wireName = r'TimelinePinEntry';
+  final String wireName = r'TimelineTerminateTimeline';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelinePinEntry object, {
+    TimelineTerminateTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'entry';
+    yield r'direction';
     yield serializers.serialize(
-      object.entry,
-      specifiedType: const FullType(TimelineAddEntry),
+      object.direction,
+      specifiedType: const FullType(TimelineTerminateTimelineDirectionEnum),
     );
     yield r'type';
     yield serializers.serialize(
@@ -62,7 +63,7 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
   @override
   Object serialize(
     Serializers serializers,
-    TimelinePinEntry object, {
+    TimelineTerminateTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -73,19 +74,19 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelinePinEntryBuilder result,
+    required TimelineTerminateTimelineBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'entry':
+        case r'direction':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TimelineAddEntry),
-          ) as TimelineAddEntry;
-          result.entry.replace(valueDes);
+            specifiedType: const FullType(TimelineTerminateTimelineDirectionEnum),
+          ) as TimelineTerminateTimelineDirectionEnum;
+          result.direction = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(
@@ -103,12 +104,12 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
   }
 
   @override
-  TimelinePinEntry deserialize(
+  TimelineTerminateTimeline deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelinePinEntryBuilder();
+    final result = TimelineTerminateTimelineBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -121,5 +122,20 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
     );
     return result.build();
   }
+}
+
+class TimelineTerminateTimelineDirectionEnum extends EnumClass {
+
+  @BuiltValueEnumConst(wireName: r'Top')
+  static const TimelineTerminateTimelineDirectionEnum top = _$timelineTerminateTimelineDirectionEnum_top;
+  @BuiltValueEnumConst(wireName: r'Bottom')
+  static const TimelineTerminateTimelineDirectionEnum bottom = _$timelineTerminateTimelineDirectionEnum_bottom;
+
+  static Serializer<TimelineTerminateTimelineDirectionEnum> get serializer => _$timelineTerminateTimelineDirectionEnumSerializer;
+
+  const TimelineTerminateTimelineDirectionEnum._(String name): super(name);
+
+  static BuiltSet<TimelineTerminateTimelineDirectionEnum> get values => _$timelineTerminateTimelineDirectionEnumValues;
+  static TimelineTerminateTimelineDirectionEnum valueOf(String name) => _$timelineTerminateTimelineDirectionEnumValueOf(name);
 }
 

@@ -17,6 +17,7 @@ part 'timeline_timeline_cursor.g.dart';
 /// * [typename] 
 /// * [cursorType] 
 /// * [entryType] 
+/// * [itemType] 
 /// * [value] 
 @BuiltValue()
 abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
@@ -29,8 +30,12 @@ abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, T
   // enum cursorTypeEnum {  Top,  Bottom,  };
 
   @BuiltValueField(wireName: r'entryType')
-  ContentEntryType get entryType;
+  ContentEntryType? get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
+
+  @BuiltValueField(wireName: r'itemType')
+  ContentEntryType? get itemType;
+  // enum itemTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
   @BuiltValueField(wireName: r'value')
   String get value;
@@ -68,11 +73,20 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
       object.cursorType,
       specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
     );
-    yield r'entryType';
-    yield serializers.serialize(
-      object.entryType,
-      specifiedType: const FullType(ContentEntryType),
-    );
+    if (object.entryType != null) {
+      yield r'entryType';
+      yield serializers.serialize(
+        object.entryType,
+        specifiedType: const FullType(ContentEntryType),
+      );
+    }
+    if (object.itemType != null) {
+      yield r'itemType';
+      yield serializers.serialize(
+        object.itemType,
+        specifiedType: const FullType(ContentEntryType),
+      );
+    }
     yield r'value';
     yield serializers.serialize(
       object.value,
@@ -121,6 +135,13 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
             specifiedType: const FullType(ContentEntryType),
           ) as ContentEntryType;
           result.entryType = valueDes;
+          break;
+        case r'itemType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ContentEntryType),
+          ) as ContentEntryType;
+          result.itemType = valueDes;
           break;
         case r'value':
           final valueDes = serializers.deserialize(

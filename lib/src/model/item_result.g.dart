@@ -8,12 +8,14 @@ part of 'item_result.dart';
 
 class _$ItemResult extends ItemResult {
   @override
+  final TypeName? typename;
+  @override
   final TweetUnion result;
 
   factory _$ItemResult([void Function(ItemResultBuilder)? updates]) =>
       (new ItemResultBuilder()..update(updates))._build();
 
-  _$ItemResult._({required this.result}) : super._() {
+  _$ItemResult._({this.typename, required this.result}) : super._() {
     BuiltValueNullFieldError.checkNotNull(result, r'ItemResult', 'result');
   }
 
@@ -27,12 +29,15 @@ class _$ItemResult extends ItemResult {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ItemResult && result == other.result;
+    return other is ItemResult &&
+        typename == other.typename &&
+        result == other.result;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, result.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -40,13 +45,19 @@ class _$ItemResult extends ItemResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ItemResult')..add('result', result))
+    return (newBuiltValueToStringHelper(r'ItemResult')
+          ..add('typename', typename)
+          ..add('result', result))
         .toString();
   }
 }
 
 class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
   _$ItemResult? _$v;
+
+  TypeName? _typename;
+  TypeName? get typename => _$this._typename;
+  set typename(TypeName? typename) => _$this._typename = typename;
 
   TweetUnionBuilder? _result;
   TweetUnionBuilder get result => _$this._result ??= new TweetUnionBuilder();
@@ -59,6 +70,7 @@ class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
   ItemResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _typename = $v.typename;
       _result = $v.result.toBuilder();
       _$v = null;
     }
@@ -82,7 +94,8 @@ class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
   _$ItemResult _build() {
     _$ItemResult _$result;
     try {
-      _$result = _$v ?? new _$ItemResult._(result: result.build());
+      _$result =
+          _$v ?? new _$ItemResult._(typename: typename, result: result.build());
     } catch (_) {
       late String _$failedField;
       try {

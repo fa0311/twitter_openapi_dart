@@ -12,6 +12,8 @@ const InstructionType _$timelineClearCache =
     const InstructionType._('timelineClearCache');
 const InstructionType _$timelinePinEntry =
     const InstructionType._('timelinePinEntry');
+const InstructionType _$timelineTerminateTimeline =
+    const InstructionType._('timelineTerminateTimeline');
 
 InstructionType _$valueOf(String name) {
   switch (name) {
@@ -21,6 +23,8 @@ InstructionType _$valueOf(String name) {
       return _$timelineClearCache;
     case 'timelinePinEntry':
       return _$timelinePinEntry;
+    case 'timelineTerminateTimeline':
+      return _$timelineTerminateTimeline;
     default:
       throw new ArgumentError(name);
   }
@@ -31,6 +35,7 @@ final BuiltSet<InstructionType> _$values =
   _$timelineAddEntries,
   _$timelineClearCache,
   _$timelinePinEntry,
+  _$timelineTerminateTimeline,
 ]);
 
 class _$InstructionTypeMeta {
@@ -38,6 +43,7 @@ class _$InstructionTypeMeta {
   InstructionType get timelineAddEntries => _$timelineAddEntries;
   InstructionType get timelineClearCache => _$timelineClearCache;
   InstructionType get timelinePinEntry => _$timelinePinEntry;
+  InstructionType get timelineTerminateTimeline => _$timelineTerminateTimeline;
   InstructionType valueOf(String name) => _$valueOf(name);
   BuiltSet<InstructionType> get values => _$values;
 }
@@ -56,11 +62,13 @@ class _$InstructionTypeSerializer
     'timelineAddEntries': 'TimelineAddEntries',
     'timelineClearCache': 'TimelineClearCache',
     'timelinePinEntry': 'TimelinePinEntry',
+    'timelineTerminateTimeline': 'TimelineTerminateTimeline',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineAddEntries': 'timelineAddEntries',
     'TimelineClearCache': 'timelineClearCache',
     'TimelinePinEntry': 'timelinePinEntry',
+    'TimelineTerminateTimeline': 'timelineTerminateTimeline',
   };
 
   @override

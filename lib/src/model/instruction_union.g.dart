@@ -6,6 +6,64 @@ part of 'instruction_union.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_top =
+    const InstructionUnionDirectionEnum._('top');
+const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_bottom =
+    const InstructionUnionDirectionEnum._('bottom');
+
+InstructionUnionDirectionEnum _$instructionUnionDirectionEnumValueOf(
+    String name) {
+  switch (name) {
+    case 'top':
+      return _$instructionUnionDirectionEnum_top;
+    case 'bottom':
+      return _$instructionUnionDirectionEnum_bottom;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<InstructionUnionDirectionEnum>
+    _$instructionUnionDirectionEnumValues = new BuiltSet<
+        InstructionUnionDirectionEnum>(const <InstructionUnionDirectionEnum>[
+  _$instructionUnionDirectionEnum_top,
+  _$instructionUnionDirectionEnum_bottom,
+]);
+
+Serializer<InstructionUnionDirectionEnum>
+    _$instructionUnionDirectionEnumSerializer =
+    new _$InstructionUnionDirectionEnumSerializer();
+
+class _$InstructionUnionDirectionEnumSerializer
+    implements PrimitiveSerializer<InstructionUnionDirectionEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'top': 'Top',
+    'bottom': 'Bottom',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'Top': 'top',
+    'Bottom': 'bottom',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[InstructionUnionDirectionEnum];
+  @override
+  final String wireName = 'InstructionUnionDirectionEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, InstructionUnionDirectionEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  InstructionUnionDirectionEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      InstructionUnionDirectionEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$InstructionUnion extends InstructionUnion {
   @override
   final OneOf oneOf;

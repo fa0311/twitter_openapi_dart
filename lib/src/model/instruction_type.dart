@@ -17,6 +17,8 @@ class InstructionType extends EnumClass {
   static const InstructionType timelineClearCache = _$timelineClearCache;
   @BuiltValueEnumConst(wireName: r'TimelinePinEntry')
   static const InstructionType timelinePinEntry = _$timelinePinEntry;
+  @BuiltValueEnumConst(wireName: r'TimelineTerminateTimeline')
+  static const InstructionType timelineTerminateTimeline = _$timelineTerminateTimeline;
 
   static Serializer<InstructionType> get serializer => _$instructionTypeSerializer;
 

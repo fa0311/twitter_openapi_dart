@@ -16,7 +16,7 @@ class _$TimelineTimelineItem extends TimelineTimelineItem {
   @override
   final JsonObject? feedbackInfo;
   @override
-  final ItemContent itemContent;
+  final ItemContentUnion itemContent;
 
   factory _$TimelineTimelineItem(
           [void Function(TimelineTimelineItemBuilder)? updates]) =>
@@ -103,10 +103,10 @@ class TimelineTimelineItemBuilder
   set feedbackInfo(JsonObject? feedbackInfo) =>
       _$this._feedbackInfo = feedbackInfo;
 
-  ItemContentBuilder? _itemContent;
-  ItemContentBuilder get itemContent =>
-      _$this._itemContent ??= new ItemContentBuilder();
-  set itemContent(ItemContentBuilder? itemContent) =>
+  ItemContentUnionBuilder? _itemContent;
+  ItemContentUnionBuilder get itemContent =>
+      _$this._itemContent ??= new ItemContentUnionBuilder();
+  set itemContent(ItemContentUnionBuilder? itemContent) =>
       _$this._itemContent = itemContent;
 
   TimelineTimelineItemBuilder() {

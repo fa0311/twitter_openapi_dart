@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **clientEventInfo** | [**JsonObject**](.md) |  | [optional] 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedbackInfo** | [**JsonObject**](.md) |  | [optional] 
-**itemContent** | [**ItemContent**](ItemContent.md) |  | 
+**itemContent** | [**ItemContentUnion**](ItemContentUnion.md) |  | 
 **cursorType** | **String** |  | 
+**itemType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -5,7 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
-import 'package:twitter_openapi_dart/src/model/item_content.dart';
+import 'package:twitter_openapi_dart/src/model/item_content_union.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -37,7 +37,7 @@ abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, Timel
   JsonObject? get feedbackInfo;
 
   @BuiltValueField(wireName: r'itemContent')
-  ItemContent get itemContent;
+  ItemContentUnion get itemContent;
 
   TimelineTimelineItem._();
 
@@ -89,7 +89,7 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
     yield r'itemContent';
     yield serializers.serialize(
       object.itemContent,
-      specifiedType: const FullType(ItemContent),
+      specifiedType: const FullType(ItemContentUnion),
     );
   }
 
@@ -145,8 +145,8 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
         case r'itemContent':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemContent),
-          ) as ItemContent;
+            specifiedType: const FullType(ItemContentUnion),
+          ) as ItemContentUnion;
           result.itemContent.replace(valueDes);
           break;
         default:

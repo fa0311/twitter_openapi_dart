@@ -3,56 +3,55 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_response_data1.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_clear_cache.g.dart';
+part 'tweet_detail_response.g.dart';
 
-/// TimelineClearCache
+/// TweetDetailResponse
 ///
 /// Properties:
-/// * [type] 
+/// * [data] 
 @BuiltValue()
-abstract class TimelineClearCache implements Built<TimelineClearCache, TimelineClearCacheBuilder> {
-  @BuiltValueField(wireName: r'type')
-  InstructionType get type;
-  // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  TimelineTerminateTimeline,  };
+abstract class TweetDetailResponse implements Built<TweetDetailResponse, TweetDetailResponseBuilder> {
+  @BuiltValueField(wireName: r'data')
+  BookmarksResponseData1 get data;
 
-  TimelineClearCache._();
+  TweetDetailResponse._();
 
-  factory TimelineClearCache([void updates(TimelineClearCacheBuilder b)]) = _$TimelineClearCache;
+  factory TweetDetailResponse([void updates(TweetDetailResponseBuilder b)]) = _$TweetDetailResponse;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineClearCacheBuilder b) => b;
+  static void _defaults(TweetDetailResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineClearCache> get serializer => _$TimelineClearCacheSerializer();
+  static Serializer<TweetDetailResponse> get serializer => _$TweetDetailResponseSerializer();
 }
 
-class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClearCache> {
+class _$TweetDetailResponseSerializer implements PrimitiveSerializer<TweetDetailResponse> {
   @override
-  final Iterable<Type> types = const [TimelineClearCache, _$TimelineClearCache];
+  final Iterable<Type> types = const [TweetDetailResponse, _$TweetDetailResponse];
 
   @override
-  final String wireName = r'TimelineClearCache';
+  final String wireName = r'TweetDetailResponse';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineClearCache object, {
+    TweetDetailResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'type';
+    yield r'data';
     yield serializers.serialize(
-      object.type,
-      specifiedType: const FullType(InstructionType),
+      object.data,
+      specifiedType: const FullType(BookmarksResponseData1),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TimelineClearCache object, {
+    TweetDetailResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,19 +62,19 @@ class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClea
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineClearCacheBuilder result,
+    required TweetDetailResponseBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'type':
+        case r'data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(InstructionType),
-          ) as InstructionType;
-          result.type = valueDes;
+            specifiedType: const FullType(BookmarksResponseData1),
+          ) as BookmarksResponseData1;
+          result.data.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -86,12 +85,12 @@ class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClea
   }
 
   @override
-  TimelineClearCache deserialize(
+  TweetDetailResponse deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineClearCacheBuilder();
+    final result = TweetDetailResponseBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

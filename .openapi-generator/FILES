@@ -3,6 +3,7 @@ README.md
 doc/BookmarkApi.md
 doc/BookmarksResponse.md
 doc/BookmarksResponseData.md
+doc/BookmarksResponseData1.md
 doc/ContentEntryType.md
 doc/ContentItemType.md
 doc/ContentUnion.md
@@ -12,8 +13,7 @@ doc/HomeTimelineHome.md
 doc/HomeTimelineResponseData.md
 doc/InstructionType.md
 doc/InstructionUnion.md
-doc/ItemContent.md
-doc/ItemContentSocialContext.md
+doc/ItemContentUnion.md
 doc/ItemResult.md
 doc/ListTweetsTimeline.md
 doc/ListTweetsTimelineData.md
@@ -27,11 +27,15 @@ doc/TimelineApi.md
 doc/TimelineClearCache.md
 doc/TimelinePinEntry.md
 doc/TimelineResponse.md
+doc/TimelineTerminateTimeline.md
 doc/TimelineTimelineCursor.md
 doc/TimelineTimelineItem.md
 doc/TimelineTimelineModule.md
+doc/TimelineTweet.md
+doc/TimelineTweetSocialContext.md
 doc/TimelineV2.md
 doc/Tweet.md
+doc/TweetDetailResponse.md
 doc/TweetEditControl.md
 doc/TweetEditPrespective.md
 doc/TweetLegacy.md
@@ -67,6 +71,7 @@ lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/bookmarks_response.dart
 lib/src/model/bookmarks_response_data.dart
+lib/src/model/bookmarks_response_data1.dart
 lib/src/model/content_entry_type.dart
 lib/src/model/content_item_type.dart
 lib/src/model/content_union.dart
@@ -75,8 +80,7 @@ lib/src/model/home_timeline_home.dart
 lib/src/model/home_timeline_response_data.dart
 lib/src/model/instruction_type.dart
 lib/src/model/instruction_union.dart
-lib/src/model/item_content.dart
-lib/src/model/item_content_social_context.dart
+lib/src/model/item_content_union.dart
 lib/src/model/item_result.dart
 lib/src/model/list_tweets_timeline.dart
 lib/src/model/list_tweets_timeline_data.dart
@@ -88,11 +92,15 @@ lib/src/model/timeline_add_entry.dart
 lib/src/model/timeline_clear_cache.dart
 lib/src/model/timeline_pin_entry.dart
 lib/src/model/timeline_response.dart
+lib/src/model/timeline_terminate_timeline.dart
 lib/src/model/timeline_timeline_cursor.dart
 lib/src/model/timeline_timeline_item.dart
 lib/src/model/timeline_timeline_module.dart
+lib/src/model/timeline_tweet.dart
+lib/src/model/timeline_tweet_social_context.dart
 lib/src/model/timeline_v2.dart
 lib/src/model/tweet.dart
+lib/src/model/tweet_detail_response.dart
 lib/src/model/tweet_edit_control.dart
 lib/src/model/tweet_edit_prespective.dart
 lib/src/model/tweet_legacy.dart

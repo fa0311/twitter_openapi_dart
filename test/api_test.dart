@@ -36,31 +36,6 @@ class HeaderAuth extends Interceptor {
   }
 }
 
-class DebugResponseEditor extends Interceptor {
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) async {
-    /*
-    final dynamic instruction = response.data["data"]["home"]["home_timeline_urt"]["instructions"][0];
-    // instruction["entries"] = <dynamic>[instruction["entries"][0]];
-    for (final i in instruction["entries"]) {
-      try {
-        if (i["content"]["entryType"] == "TimelineTimelineItem") {
-          final dynamic result = i["content"]["itemContent"]["tweet_results"]["result"];
-          final dynamic tweet = result["__typename"] == "Tweet" ? result : result["tweet"];
-
-          if (tweet["core"]["user_results"]["result"]["legacy"]["screen_name"] == null) {
-            print(tweet);
-          }
-        }
-      } catch (e) {
-        print(i);
-      }
-    }
-    */
-    handler.next(response);
-  }
-}
-
 void main() async {
   final auth = HeaderAuth();
   await auth.readCookies("test/cookies.json");
@@ -73,7 +48,6 @@ void main() async {
     interceptors: [
       auth,
       LogInterceptor(responseBody: true),
-      DebugResponseEditor(),
     ],
   );
 
@@ -157,6 +131,23 @@ void main() async {
     final response = await client.getGraphqlApi().getBookmarks(
           variables: jsonEncode(config["Bookmarks"]!["Variables"]),
           features: jsonEncode(config["Bookmarks"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('getTweetDetail', () async {
+    final response = await client.getGraphqlApi().getTweetDetail(
+          variables: jsonEncode(config["TweetDetail"]!["Variables"]),
+          features: jsonEncode(config["TweetDetail"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+  test('getTweetDetail2', () async {
+    final response = await client.getGraphqlApi().getTweetDetail(
+          variables: jsonEncode(config["TweetDetail"]!["Variables"]..addAll({"focalTweetId": "1349265937392930816"})),
+          features: jsonEncode(config["TweetDetail"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);

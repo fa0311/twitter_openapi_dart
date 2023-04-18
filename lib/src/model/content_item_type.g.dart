@@ -8,11 +8,15 @@ part of 'content_item_type.dart';
 
 const ContentItemType _$timelineTweet =
     const ContentItemType._('timelineTweet');
+const ContentItemType _$timelineTimelineCursor =
+    const ContentItemType._('timelineTimelineCursor');
 
 ContentItemType _$valueOf(String name) {
   switch (name) {
     case 'timelineTweet':
       return _$timelineTweet;
+    case 'timelineTimelineCursor':
+      return _$timelineTimelineCursor;
     default:
       throw new ArgumentError(name);
   }
@@ -21,11 +25,13 @@ ContentItemType _$valueOf(String name) {
 final BuiltSet<ContentItemType> _$values =
     new BuiltSet<ContentItemType>(const <ContentItemType>[
   _$timelineTweet,
+  _$timelineTimelineCursor,
 ]);
 
 class _$ContentItemTypeMeta {
   const _$ContentItemTypeMeta();
   ContentItemType get timelineTweet => _$timelineTweet;
+  ContentItemType get timelineTimelineCursor => _$timelineTimelineCursor;
   ContentItemType valueOf(String name) => _$valueOf(name);
   BuiltSet<ContentItemType> get values => _$values;
 }
@@ -42,9 +48,11 @@ class _$ContentItemTypeSerializer
     implements PrimitiveSerializer<ContentItemType> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineTweet': 'TimelineTweet',
+    'timelineTimelineCursor': 'TimelineTimelineCursor',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
+    'TimelineTimelineCursor': 'timelineTimelineCursor',
   };
 
   @override

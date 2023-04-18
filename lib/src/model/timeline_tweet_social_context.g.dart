@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'item_content_social_context.dart';
+part of 'timeline_tweet_social_context.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$ItemContentSocialContext extends ItemContentSocialContext {
+class _$TimelineTweetSocialContext extends TimelineTweetSocialContext {
   @override
   final String? contextType;
   @override
@@ -14,26 +14,26 @@ class _$ItemContentSocialContext extends ItemContentSocialContext {
   @override
   final String? type;
 
-  factory _$ItemContentSocialContext(
-          [void Function(ItemContentSocialContextBuilder)? updates]) =>
-      (new ItemContentSocialContextBuilder()..update(updates))._build();
+  factory _$TimelineTweetSocialContext(
+          [void Function(TimelineTweetSocialContextBuilder)? updates]) =>
+      (new TimelineTweetSocialContextBuilder()..update(updates))._build();
 
-  _$ItemContentSocialContext._({this.contextType, this.text, this.type})
+  _$TimelineTweetSocialContext._({this.contextType, this.text, this.type})
       : super._();
 
   @override
-  ItemContentSocialContext rebuild(
-          void Function(ItemContentSocialContextBuilder) updates) =>
+  TimelineTweetSocialContext rebuild(
+          void Function(TimelineTweetSocialContextBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ItemContentSocialContextBuilder toBuilder() =>
-      new ItemContentSocialContextBuilder()..replace(this);
+  TimelineTweetSocialContextBuilder toBuilder() =>
+      new TimelineTweetSocialContextBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ItemContentSocialContext &&
+    return other is TimelineTweetSocialContext &&
         contextType == other.contextType &&
         text == other.text &&
         type == other.type;
@@ -51,7 +51,7 @@ class _$ItemContentSocialContext extends ItemContentSocialContext {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ItemContentSocialContext')
+    return (newBuiltValueToStringHelper(r'TimelineTweetSocialContext')
           ..add('contextType', contextType)
           ..add('text', text)
           ..add('type', type))
@@ -59,10 +59,10 @@ class _$ItemContentSocialContext extends ItemContentSocialContext {
   }
 }
 
-class ItemContentSocialContextBuilder
+class TimelineTweetSocialContextBuilder
     implements
-        Builder<ItemContentSocialContext, ItemContentSocialContextBuilder> {
-  _$ItemContentSocialContext? _$v;
+        Builder<TimelineTweetSocialContext, TimelineTweetSocialContextBuilder> {
+  _$TimelineTweetSocialContext? _$v;
 
   String? _contextType;
   String? get contextType => _$this._contextType;
@@ -76,11 +76,11 @@ class ItemContentSocialContextBuilder
   String? get type => _$this._type;
   set type(String? type) => _$this._type = type;
 
-  ItemContentSocialContextBuilder() {
-    ItemContentSocialContext._defaults(this);
+  TimelineTweetSocialContextBuilder() {
+    TimelineTweetSocialContext._defaults(this);
   }
 
-  ItemContentSocialContextBuilder get _$this {
+  TimelineTweetSocialContextBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _contextType = $v.contextType;
@@ -92,22 +92,22 @@ class ItemContentSocialContextBuilder
   }
 
   @override
-  void replace(ItemContentSocialContext other) {
+  void replace(TimelineTweetSocialContext other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ItemContentSocialContext;
+    _$v = other as _$TimelineTweetSocialContext;
   }
 
   @override
-  void update(void Function(ItemContentSocialContextBuilder)? updates) {
+  void update(void Function(TimelineTweetSocialContextBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ItemContentSocialContext build() => _build();
+  TimelineTweetSocialContext build() => _build();
 
-  _$ItemContentSocialContext _build() {
+  _$TimelineTweetSocialContext _build() {
     final _$result = _$v ??
-        new _$ItemContentSocialContext._(
+        new _$TimelineTweetSocialContext._(
             contextType: contextType, text: text, type: type);
     replace(_$result);
     return _$result;

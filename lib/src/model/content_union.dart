@@ -5,8 +5,8 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
-import 'package:twitter_openapi_dart/src/model/item_content.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart/src/model/item_content_union.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
@@ -26,6 +26,7 @@ part 'content_union.g.dart';
 /// * [feedbackInfo] 
 /// * [itemContent] 
 /// * [cursorType] 
+/// * [itemType] 
 /// * [value] 
 @BuiltValue()
 abstract class ContentUnion implements Built<ContentUnion, ContentUnionBuilder> {

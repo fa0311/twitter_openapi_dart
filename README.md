@@ -67,6 +67,7 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*BookmarkApi*](doc\BookmarkApi.md) | [**getBookmarks**](doc\BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*BookmarkApi*](doc\BookmarkApi.md) | [**getTweetDetail**](doc\BookmarkApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
 [*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
 [*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getBookmarks**](doc\GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
@@ -76,6 +77,7 @@ Class | Method | HTTP request | Description
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getTweetDetail**](doc\GraphqlApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserByScreenName**](doc\GraphqlApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserMedia**](doc\GraphqlApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweets**](doc\GraphqlApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
@@ -97,6 +99,7 @@ Class | Method | HTTP request | Description
 
  - [BookmarksResponse](doc\BookmarksResponse.md)
  - [BookmarksResponseData](doc\BookmarksResponseData.md)
+ - [BookmarksResponseData1](doc\BookmarksResponseData1.md)
  - [ContentEntryType](doc\ContentEntryType.md)
  - [ContentItemType](doc\ContentItemType.md)
  - [ContentUnion](doc\ContentUnion.md)
@@ -104,8 +107,7 @@ Class | Method | HTTP request | Description
  - [HomeTimelineResponseData](doc\HomeTimelineResponseData.md)
  - [InstructionType](doc\InstructionType.md)
  - [InstructionUnion](doc\InstructionUnion.md)
- - [ItemContent](doc\ItemContent.md)
- - [ItemContentSocialContext](doc\ItemContentSocialContext.md)
+ - [ItemContentUnion](doc\ItemContentUnion.md)
  - [ItemResult](doc\ItemResult.md)
  - [ListTweetsTimeline](doc\ListTweetsTimeline.md)
  - [ListTweetsTimelineData](doc\ListTweetsTimelineData.md)
@@ -117,11 +119,15 @@ Class | Method | HTTP request | Description
  - [TimelineClearCache](doc\TimelineClearCache.md)
  - [TimelinePinEntry](doc\TimelinePinEntry.md)
  - [TimelineResponse](doc\TimelineResponse.md)
+ - [TimelineTerminateTimeline](doc\TimelineTerminateTimeline.md)
  - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
  - [TimelineTimelineModule](doc\TimelineTimelineModule.md)
+ - [TimelineTweet](doc\TimelineTweet.md)
+ - [TimelineTweetSocialContext](doc\TimelineTweetSocialContext.md)
  - [TimelineV2](doc\TimelineV2.md)
  - [Tweet](doc\Tweet.md)
+ - [TweetDetailResponse](doc\TweetDetailResponse.md)
  - [TweetEditControl](doc\TweetEditControl.md)
  - [TweetEditPrespective](doc\TweetEditPrespective.md)
  - [TweetLegacy](doc\TweetLegacy.md)

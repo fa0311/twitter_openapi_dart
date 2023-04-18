@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart/src/model/timeline_clear_cache.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_pin_entry.dart';
 import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_terminate_timeline.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -21,9 +22,10 @@ part 'instruction_union.g.dart';
 /// * [entries] 
 /// * [type] 
 /// * [entry] 
+/// * [direction] 
 @BuiltValue()
 abstract class InstructionUnion implements Built<InstructionUnion, InstructionUnionBuilder> {
-  /// One Of [TimelineAddEntries], [TimelineClearCache], [TimelinePinEntry]
+  /// One Of [TimelineAddEntries], [TimelineClearCache], [TimelinePinEntry], [TimelineTerminateTimeline]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'type';
@@ -32,6 +34,7 @@ abstract class InstructionUnion implements Built<InstructionUnion, InstructionUn
     r'TimelineAddEntries': TimelineAddEntries,
     r'TimelineClearCache': TimelineClearCache,
     r'TimelinePinEntry': TimelinePinEntry,
+    r'TimelineTerminateTimeline': TimelineTerminateTimeline,
   };
 
   InstructionUnion._();
@@ -56,6 +59,9 @@ extension InstructionUnionDiscriminatorExt on InstructionUnion {
         if (this is TimelinePinEntry) {
             return r'TimelinePinEntry';
         }
+        if (this is TimelineTerminateTimeline) {
+            return r'TimelineTerminateTimeline';
+        }
         return null;
     }
 }
@@ -69,6 +75,9 @@ extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
         }
         if (this is TimelinePinEntryBuilder) {
             return r'TimelinePinEntry';
+        }
+        if (this is TimelineTerminateTimelineBuilder) {
+            return r'TimelineTerminateTimeline';
         }
         return null;
     }
@@ -110,7 +119,7 @@ class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUni
     final discIndex = serializedList.indexOf(InstructionUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineAddEntries, TimelineClearCache, TimelinePinEntry, ];
+    final oneOfTypes = [TimelineAddEntries, TimelineClearCache, TimelinePinEntry, TimelineTerminateTimeline, ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -135,11 +144,33 @@ class _$InstructionUnionSerializer implements PrimitiveSerializer<InstructionUni
         ) as TimelinePinEntry;
         oneOfType = TimelinePinEntry;
         break;
+      case r'TimelineTerminateTimeline':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineTerminateTimeline),
+        ) as TimelineTerminateTimeline;
+        oneOfType = TimelineTerminateTimeline;
+        break;
       default:
         throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
     }
     result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
     return result.build();
   }
+}
+
+class InstructionUnionDirectionEnum extends EnumClass {
+
+  @BuiltValueEnumConst(wireName: r'Top')
+  static const InstructionUnionDirectionEnum top = _$instructionUnionDirectionEnum_top;
+  @BuiltValueEnumConst(wireName: r'Bottom')
+  static const InstructionUnionDirectionEnum bottom = _$instructionUnionDirectionEnum_bottom;
+
+  static Serializer<InstructionUnionDirectionEnum> get serializer => _$instructionUnionDirectionEnumSerializer;
+
+  const InstructionUnionDirectionEnum._(String name): super(name);
+
+  static BuiltSet<InstructionUnionDirectionEnum> get values => _$instructionUnionDirectionEnumValues;
+  static InstructionUnionDirectionEnum valueOf(String name) => _$instructionUnionDirectionEnumValueOf(name);
 }
 

@@ -74,7 +74,9 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   @override
   final TimelineTimelineCursorCursorTypeEnum cursorType;
   @override
-  final ContentEntryType entryType;
+  final ContentEntryType? entryType;
+  @override
+  final ContentEntryType? itemType;
   @override
   final String value;
 
@@ -85,15 +87,14 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   _$TimelineTimelineCursor._(
       {required this.typename,
       required this.cursorType,
-      required this.entryType,
+      this.entryType,
+      this.itemType,
       required this.value})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'TimelineTimelineCursor', 'typename');
     BuiltValueNullFieldError.checkNotNull(
         cursorType, r'TimelineTimelineCursor', 'cursorType');
-    BuiltValueNullFieldError.checkNotNull(
-        entryType, r'TimelineTimelineCursor', 'entryType');
     BuiltValueNullFieldError.checkNotNull(
         value, r'TimelineTimelineCursor', 'value');
   }
@@ -114,6 +115,7 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
         typename == other.typename &&
         cursorType == other.cursorType &&
         entryType == other.entryType &&
+        itemType == other.itemType &&
         value == other.value;
   }
 
@@ -123,6 +125,7 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, cursorType.hashCode);
     _$hash = $jc(_$hash, entryType.hashCode);
+    _$hash = $jc(_$hash, itemType.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -134,6 +137,7 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
           ..add('typename', typename)
           ..add('cursorType', cursorType)
           ..add('entryType', entryType)
+          ..add('itemType', itemType)
           ..add('value', value))
         .toString();
   }
@@ -156,6 +160,10 @@ class TimelineTimelineCursorBuilder
   ContentEntryType? get entryType => _$this._entryType;
   set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
 
+  ContentEntryType? _itemType;
+  ContentEntryType? get itemType => _$this._itemType;
+  set itemType(ContentEntryType? itemType) => _$this._itemType = itemType;
+
   String? _value;
   String? get value => _$this._value;
   set value(String? value) => _$this._value = value;
@@ -170,6 +178,7 @@ class TimelineTimelineCursorBuilder
       _typename = $v.typename;
       _cursorType = $v.cursorType;
       _entryType = $v.entryType;
+      _itemType = $v.itemType;
       _value = $v.value;
       _$v = null;
     }
@@ -197,8 +206,8 @@ class TimelineTimelineCursorBuilder
                 typename, r'TimelineTimelineCursor', 'typename'),
             cursorType: BuiltValueNullFieldError.checkNotNull(
                 cursorType, r'TimelineTimelineCursor', 'cursorType'),
-            entryType: BuiltValueNullFieldError.checkNotNull(
-                entryType, r'TimelineTimelineCursor', 'entryType'),
+            entryType: entryType,
+            itemType: itemType,
             value: BuiltValueNullFieldError.checkNotNull(
                 value, r'TimelineTimelineCursor', 'value'));
     replace(_$result);

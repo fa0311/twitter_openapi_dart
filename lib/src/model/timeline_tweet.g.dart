@@ -1,52 +1,54 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'item_content.dart';
+part of 'timeline_tweet.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$ItemContent extends ItemContent {
+class _$TimelineTweet extends TimelineTweet {
   @override
   final TypeName typename;
   @override
   final ContentItemType itemType;
   @override
-  final ItemContentSocialContext? socialContext;
+  final TimelineTweetSocialContext? socialContext;
   @override
   final String tweetDisplayType;
   @override
   final ItemResult tweetResults;
 
-  factory _$ItemContent([void Function(ItemContentBuilder)? updates]) =>
-      (new ItemContentBuilder()..update(updates))._build();
+  factory _$TimelineTweet([void Function(TimelineTweetBuilder)? updates]) =>
+      (new TimelineTweetBuilder()..update(updates))._build();
 
-  _$ItemContent._(
+  _$TimelineTweet._(
       {required this.typename,
       required this.itemType,
       this.socialContext,
       required this.tweetDisplayType,
       required this.tweetResults})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(typename, r'ItemContent', 'typename');
-    BuiltValueNullFieldError.checkNotNull(itemType, r'ItemContent', 'itemType');
     BuiltValueNullFieldError.checkNotNull(
-        tweetDisplayType, r'ItemContent', 'tweetDisplayType');
+        typename, r'TimelineTweet', 'typename');
     BuiltValueNullFieldError.checkNotNull(
-        tweetResults, r'ItemContent', 'tweetResults');
+        itemType, r'TimelineTweet', 'itemType');
+    BuiltValueNullFieldError.checkNotNull(
+        tweetDisplayType, r'TimelineTweet', 'tweetDisplayType');
+    BuiltValueNullFieldError.checkNotNull(
+        tweetResults, r'TimelineTweet', 'tweetResults');
   }
 
   @override
-  ItemContent rebuild(void Function(ItemContentBuilder) updates) =>
+  TimelineTweet rebuild(void Function(TimelineTweetBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ItemContentBuilder toBuilder() => new ItemContentBuilder()..replace(this);
+  TimelineTweetBuilder toBuilder() => new TimelineTweetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ItemContent &&
+    return other is TimelineTweet &&
         typename == other.typename &&
         itemType == other.itemType &&
         socialContext == other.socialContext &&
@@ -68,7 +70,7 @@ class _$ItemContent extends ItemContent {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ItemContent')
+    return (newBuiltValueToStringHelper(r'TimelineTweet')
           ..add('typename', typename)
           ..add('itemType', itemType)
           ..add('socialContext', socialContext)
@@ -78,8 +80,9 @@ class _$ItemContent extends ItemContent {
   }
 }
 
-class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
-  _$ItemContent? _$v;
+class TimelineTweetBuilder
+    implements Builder<TimelineTweet, TimelineTweetBuilder> {
+  _$TimelineTweet? _$v;
 
   TypeName? _typename;
   TypeName? get typename => _$this._typename;
@@ -89,10 +92,10 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
-  ItemContentSocialContextBuilder? _socialContext;
-  ItemContentSocialContextBuilder get socialContext =>
-      _$this._socialContext ??= new ItemContentSocialContextBuilder();
-  set socialContext(ItemContentSocialContextBuilder? socialContext) =>
+  TimelineTweetSocialContextBuilder? _socialContext;
+  TimelineTweetSocialContextBuilder get socialContext =>
+      _$this._socialContext ??= new TimelineTweetSocialContextBuilder();
+  set socialContext(TimelineTweetSocialContextBuilder? socialContext) =>
       _$this._socialContext = socialContext;
 
   String? _tweetDisplayType;
@@ -106,11 +109,11 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   set tweetResults(ItemResultBuilder? tweetResults) =>
       _$this._tweetResults = tweetResults;
 
-  ItemContentBuilder() {
-    ItemContent._defaults(this);
+  TimelineTweetBuilder() {
+    TimelineTweet._defaults(this);
   }
 
-  ItemContentBuilder get _$this {
+  TimelineTweetBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
@@ -124,31 +127,31 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
   }
 
   @override
-  void replace(ItemContent other) {
+  void replace(TimelineTweet other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ItemContent;
+    _$v = other as _$TimelineTweet;
   }
 
   @override
-  void update(void Function(ItemContentBuilder)? updates) {
+  void update(void Function(TimelineTweetBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ItemContent build() => _build();
+  TimelineTweet build() => _build();
 
-  _$ItemContent _build() {
-    _$ItemContent _$result;
+  _$TimelineTweet _build() {
+    _$TimelineTweet _$result;
     try {
       _$result = _$v ??
-          new _$ItemContent._(
+          new _$TimelineTweet._(
               typename: BuiltValueNullFieldError.checkNotNull(
-                  typename, r'ItemContent', 'typename'),
+                  typename, r'TimelineTweet', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
-                  itemType, r'ItemContent', 'itemType'),
+                  itemType, r'TimelineTweet', 'itemType'),
               socialContext: _socialContext?.build(),
               tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
-                  tweetDisplayType, r'ItemContent', 'tweetDisplayType'),
+                  tweetDisplayType, r'TimelineTweet', 'tweetDisplayType'),
               tweetResults: tweetResults.build());
     } catch (_) {
       late String _$failedField;
@@ -160,7 +163,7 @@ class ItemContentBuilder implements Builder<ItemContent, ItemContentBuilder> {
         tweetResults.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'ItemContent', _$failedField, e.toString());
+            r'TimelineTweet', _$failedField, e.toString());
       }
       rethrow;
     }
