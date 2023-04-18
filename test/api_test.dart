@@ -76,39 +76,13 @@ void main() async {
       DebugResponseEditor(),
     ],
   );
+
+  final file = new File("twitter-openapi/src/config/placeholder.json");
+  final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
   test('getHomeTimeline', () async {
     final response = await client.getTimelineApi().getHomeTimeline(
-          variables: jsonEncode({
-            "count": 20,
-            "includePromotedContent": true,
-            "latestControlAvailable": true,
-            "requestContext": "launch",
-            "withCommunity": true,
-            "withDownvotePerspective": false,
-            "withReactionsMetadata": false,
-            "withReactionsPerspective": false,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_richtext_consumption_enabled": true,
-            "responsive_web_enhance_cards_enabled": false,
-          }),
+          variables: jsonEncode(config["HomeTimeline"]!["Variables"]),
+          features: jsonEncode(config["HomeTimeline"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -116,34 +90,8 @@ void main() async {
 
   test('getHomeLatestTimeline', () async {
     final response = await client.getTimelineApi().getHomeLatestTimeline(
-          variables: jsonEncode({
-            "count": 20,
-            "includePromotedContent": true,
-            "latestControlAvailable": true,
-            "requestContext": "launch",
-            "withDownvotePerspective": false,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false
-          }),
+          variables: jsonEncode(config["HomeLatestTimeline"]!["Variables"]),
+          features: jsonEncode(config["HomeLatestTimeline"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -151,32 +99,8 @@ void main() async {
 
   test('getListLatestTweetsTimeline', () async {
     final response = await client.getTimelineApi().getListLatestTweetsTimeline(
-          variables: jsonEncode({
-            "listId": "1539453138322673664",
-            "count": 20,
-            "withDownvotePerspective": false,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false,
-          }),
+          variables: jsonEncode(config["ListLatestTweetsTimeline"]!["Variables"]),
+          features: jsonEncode(config["ListLatestTweetsTimeline"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -185,17 +109,8 @@ void main() async {
   test('getUserByScreenName', () async {
     const name = "elonmusk";
     final response = await client.getUserApi().getUserByScreenName(
-          variables: jsonEncode({
-            "screen_name": name,
-            "withSafetyModeUserFields": true,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-          }),
+          variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
+          features: jsonEncode(config["UserByScreenName"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -204,35 +119,8 @@ void main() async {
 
   test('getUserTweets', () async {
     final response = await client.getUserApi().getUserTweets(
-          variables: jsonEncode({
-            "userId": "44196397",
-            "count": 40,
-            "includePromotedContent": true,
-            "withQuickPromoteEligibilityTweetFields": true,
-            "withVoice": true,
-            "withV2Timeline": true,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false,
-          }),
+          variables: jsonEncode(config["UserTweets"]!["Variables"]),
+          features: jsonEncode(config["UserTweets"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -240,35 +128,8 @@ void main() async {
 
   test('getUserTweetsAndReplies', () async {
     final response = await client.getUserApi().getUserTweetsAndReplies(
-          variables: jsonEncode({
-            "userId": "44196397",
-            "count": 40,
-            "includePromotedContent": true,
-            "withCommunity": true,
-            "withVoice": true,
-            "withV2Timeline": true,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false,
-          }),
+          variables: jsonEncode(config["UserTweetsAndReplies"]!["Variables"]),
+          features: jsonEncode(config["UserTweetsAndReplies"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -276,36 +137,8 @@ void main() async {
 
   test('getUserMedia', () async {
     final response = await client.getUserApi().getUserMedia(
-          variables: jsonEncode({
-            "userId": "44196397",
-            "count": 20,
-            "includePromotedContent": false,
-            "withClientEventToken": false,
-            "withBirdwatchNotes": false,
-            "withVoice": true,
-            "withV2Timeline": true,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false
-          }),
+          variables: jsonEncode(config["UserMedia"]!["Variables"]),
+          features: jsonEncode(config["UserMedia"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -313,36 +146,8 @@ void main() async {
 
   test('getLikes', () async {
     final response = await client.getUserApi().getLikes(
-          variables: jsonEncode({
-            "userId": "44196397",
-            "count": 20,
-            "includePromotedContent": false,
-            "withClientEventToken": false,
-            "withBirdwatchNotes": false,
-            "withVoice": true,
-            "withV2Timeline": true,
-          }),
-          features: jsonEncode({
-            "blue_business_profile_image_shape_enabled": true,
-            "responsive_web_graphql_exclude_directive_enabled": true,
-            "verified_phone_label_enabled": false,
-            "responsive_web_graphql_timeline_navigation_enabled": true,
-            "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false,
-            "tweetypie_unmention_optimization_enabled": true,
-            "vibe_api_enabled": true,
-            "responsive_web_edit_tweet_api_enabled": true,
-            "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true,
-            "view_counts_everywhere_api_enabled": true,
-            "longform_notetweets_consumption_enabled": true,
-            "tweet_awards_web_tipping_enabled": false,
-            "freedom_of_speech_not_reach_fetch_enabled": false,
-            "standardized_nudges_misinfo": true,
-            "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false,
-            "interactive_text_enabled": true,
-            "responsive_web_text_conversations_enabled": false,
-            "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false
-          }),
+          variables: jsonEncode(config["Likes"]!["Variables"]),
+          features: jsonEncode(config["Likes"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
