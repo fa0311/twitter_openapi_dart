@@ -9,8 +9,8 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFollowers**](GraphqlApi.md#getfollowers) | **GET** /{{Following}}/Following | 
-[**getFollowing**](GraphqlApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
+[**getFollowers**](GraphqlApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
+[**getFollowing**](GraphqlApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
 [**getHomeLatestTimeline**](GraphqlApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [**getHomeTimeline**](GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [**getLikes**](GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
@@ -57,9 +57,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getGraphqlApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = {{Following}}}; // String | 
+final String variables = {{Variables}}; // String | 
+final String features = {{Features}}; // String | 
+final String queryId = {{Query}}; // String | 
 
 try {
     api.getFollowers(variables, features, queryId);
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to '{{Following}}']
+ **queryId** | **String**|  | [default to '{{Query}}']
 
 ### Return type
 
@@ -127,9 +127,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getGraphqlApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = {{Followers}}; // String | 
+final String variables = {{Variables}}; // String | 
+final String features = {{Features}}; // String | 
+final String queryId = {{Query}}; // String | 
 
 try {
     api.getFollowing(variables, features, queryId);
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to '{{Followers}}']
+ **queryId** | **String**|  | [default to '{{Query}}']
 
 ### Return type
 
@@ -198,7 +198,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getGraphqlApi();
 final String variables = {"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}; // String | 
-final String features = {{HomeLatestTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = zhX91JE87mWvfprhYE97xA; // String | 
 
 try {
@@ -269,7 +269,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getGraphqlApi();
 final String variables = {"count": 40, "includePromotedContent": true, "latestControlAvailable": true, "withCommunity": true}; // String | 
-final String features = {{HomeTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = HCosKfLNW1AcOo3la3mMgg; // String | 
 
 try {
@@ -411,7 +411,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getGraphqlApi();
 final String variables = {"listId": "53044119", "count": 20}; // String | 
-final String features = {{ListLatestTweetsTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = 2TemLyqrMpTeAmysdbnVqw; // String | 
 
 try {
@@ -483,7 +483,7 @@ import 'package:twitter_openapi_dart/api.dart';
 final api = TwitterOpenapiDart().getGraphqlApi();
 final String variables = {"screen_name": "elonmusk", "withSafetyModeUserFields": true}; // String | 
 final String features = {"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}; // String | 
-final String queryId = 'VptSi88PiaQhBevFbGVlGg'; // String | 
+final String queryId = sLVLhk0bGj3MVFEKTdax1w; // String | 
 
 try {
     final response = api.getUserByScreenName(variables, features, queryId);
@@ -499,7 +499,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'VptSi88PiaQhBevFbGVlGg']
+ **queryId** | **String**|  | [default to 'sLVLhk0bGj3MVFEKTdax1w']
 
 ### Return type
 

@@ -47,9 +47,9 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 
 final api = TwitterOpenapiDart().getFollowApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = {{Following}}}; // String | 
+final String variables = {{Variables}}; // String | 
+final String features = {{Features}}; // String | 
+final String queryId = {{Query}}; // String | 
 
 try {
     api.getFollowers(variables, features, queryId);
@@ -65,10 +65,10 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{Following}}/Following | 
-[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /{{Following}}/Following | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 

@@ -3,6 +3,9 @@
 
 param([switch] $overwrites)
 
+
+Start-Process -FilePath "python" -ArgumentList "tools/build.py" -WorkingDirectory "twitter-openapi" -Wait -NoNewWindow
+
 if ($overwrites) {
     tools/win/clean.ps1
     java -jar tools/openapi-generator-cli.jar generate -g dart-dio -c tools/openapi-generator-config.yaml --ignore-file-override=.openapi-generator-ignore-overwrites

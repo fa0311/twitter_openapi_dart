@@ -40,7 +40,7 @@ class GraphqlApi {
   Future<Response<void>> getFollowers({ 
     required String variables,
     required String features,
-    String? queryId = '{{Following}}',
+    String queryId = '{{Query}}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -48,7 +48,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/{{Following}}/Following';
+    final _path = r'/{{FollowingQuery}}/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -96,7 +96,7 @@ class GraphqlApi {
     final _queryParameters = <String, dynamic>{
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -130,7 +130,7 @@ class GraphqlApi {
   Future<Response<void>> getFollowing({ 
     required String variables,
     required String features,
-    String? queryId = '{{Followers}}',
+    String queryId = '{{Query}}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -138,7 +138,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/{{Followers}}/Followers';
+    final _path = r'/{{FollowersQuery}}/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -186,7 +186,7 @@ class GraphqlApi {
     final _queryParameters = <String, dynamic>{
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -688,7 +688,7 @@ class GraphqlApi {
   Future<Response<UserResponse>> getUserByScreenName({ 
     required String variables,
     required String features,
-    String queryId = 'VptSi88PiaQhBevFbGVlGg',
+    String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

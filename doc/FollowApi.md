@@ -9,8 +9,8 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFollowers**](FollowApi.md#getfollowers) | **GET** /{{Following}}/Following | 
-[**getFollowing**](FollowApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
+[**getFollowers**](FollowApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
+[**getFollowing**](FollowApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
 
 
 # **getFollowers**
@@ -49,9 +49,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getFollowApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = {{Following}}}; // String | 
+final String variables = {{Variables}}; // String | 
+final String features = {{Features}}; // String | 
+final String queryId = {{Query}}; // String | 
 
 try {
     api.getFollowers(variables, features, queryId);
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to '{{Following}}']
+ **queryId** | **String**|  | [default to '{{Query}}']
 
 ### Return type
 
@@ -119,9 +119,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getFollowApi();
-final String variables = variables_example; // String | 
-final String features = features_example; // String | 
-final String queryId = {{Followers}}; // String | 
+final String variables = {{Variables}}; // String | 
+final String features = {{Features}}; // String | 
+final String queryId = {{Query}}; // String | 
 
 try {
     api.getFollowing(variables, features, queryId);
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to '{{Followers}}']
+ **queryId** | **String**|  | [default to '{{Query}}']
 
 ### Return type
 

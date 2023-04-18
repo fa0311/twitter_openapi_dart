@@ -155,7 +155,7 @@ class UserApi {
   Future<Response<UserResponse>> getUserByScreenName({ 
     required String variables,
     required String features,
-    String queryId = 'VptSi88PiaQhBevFbGVlGg',
+    String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

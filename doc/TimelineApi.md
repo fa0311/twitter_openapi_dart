@@ -51,7 +51,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getTimelineApi();
 final String variables = {"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}; // String | 
-final String features = {{HomeLatestTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = zhX91JE87mWvfprhYE97xA; // String | 
 
 try {
@@ -122,7 +122,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getTimelineApi();
 final String variables = {"count": 40, "includePromotedContent": true, "latestControlAvailable": true, "withCommunity": true}; // String | 
-final String features = {{HomeTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = HCosKfLNW1AcOo3la3mMgg; // String | 
 
 try {
@@ -193,7 +193,7 @@ import 'package:twitter_openapi_dart/api.dart';
 
 final api = TwitterOpenapiDart().getTimelineApi();
 final String variables = {"listId": "53044119", "count": 20}; // String | 
-final String features = {{ListLatestTweetsTimelineFeatures}}; // String | 
+final String features = {{Features}}; // String | 
 final String queryId = 2TemLyqrMpTeAmysdbnVqw; // String | 
 
 try {

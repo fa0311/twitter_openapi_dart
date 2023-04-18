@@ -125,7 +125,7 @@ import 'package:twitter_openapi_dart/api.dart';
 final api = TwitterOpenapiDart().getUserApi();
 final String variables = {"screen_name": "elonmusk", "withSafetyModeUserFields": true}; // String | 
 final String features = {"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}; // String | 
-final String queryId = 'VptSi88PiaQhBevFbGVlGg'; // String | 
+final String queryId = sLVLhk0bGj3MVFEKTdax1w; // String | 
 
 try {
     final response = api.getUserByScreenName(variables, features, queryId);
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'VptSi88PiaQhBevFbGVlGg']
+ **queryId** | **String**|  | [default to 'sLVLhk0bGj3MVFEKTdax1w']
 
 ### Return type
 
