@@ -80,7 +80,7 @@ void main() async {
   final file = new File("twitter-openapi/src/config/placeholder.json");
   final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
   test('getHomeTimeline', () async {
-    final response = await client.getTimelineApi().getHomeTimeline(
+    final response = await client.getGraphqlApi().getHomeTimeline(
           variables: jsonEncode(config["HomeTimeline"]!["Variables"]),
           features: jsonEncode(config["HomeTimeline"]!["Features"]),
         );
@@ -89,7 +89,7 @@ void main() async {
   });
 
   test('getHomeLatestTimeline', () async {
-    final response = await client.getTimelineApi().getHomeLatestTimeline(
+    final response = await client.getGraphqlApi().getHomeLatestTimeline(
           variables: jsonEncode(config["HomeLatestTimeline"]!["Variables"]),
           features: jsonEncode(config["HomeLatestTimeline"]!["Features"]),
         );
@@ -98,7 +98,7 @@ void main() async {
   });
 
   test('getListLatestTweetsTimeline', () async {
-    final response = await client.getTimelineApi().getListLatestTweetsTimeline(
+    final response = await client.getGraphqlApi().getListLatestTweetsTimeline(
           variables: jsonEncode(config["ListLatestTweetsTimeline"]!["Variables"]),
           features: jsonEncode(config["ListLatestTweetsTimeline"]!["Features"]),
         );
@@ -108,7 +108,7 @@ void main() async {
 
   test('getUserByScreenName', () async {
     const name = "elonmusk";
-    final response = await client.getUserApi().getUserByScreenName(
+    final response = await client.getGraphqlApi().getUserByScreenName(
           variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
           features: jsonEncode(config["UserByScreenName"]!["Features"]),
         );
@@ -118,7 +118,7 @@ void main() async {
   });
 
   test('getUserTweets', () async {
-    final response = await client.getUserApi().getUserTweets(
+    final response = await client.getGraphqlApi().getUserTweets(
           variables: jsonEncode(config["UserTweets"]!["Variables"]),
           features: jsonEncode(config["UserTweets"]!["Features"]),
         );
@@ -127,7 +127,7 @@ void main() async {
   });
 
   test('getUserTweetsAndReplies', () async {
-    final response = await client.getUserApi().getUserTweetsAndReplies(
+    final response = await client.getGraphqlApi().getUserTweetsAndReplies(
           variables: jsonEncode(config["UserTweetsAndReplies"]!["Variables"]),
           features: jsonEncode(config["UserTweetsAndReplies"]!["Features"]),
         );
@@ -136,7 +136,7 @@ void main() async {
   });
 
   test('getUserMedia', () async {
-    final response = await client.getUserApi().getUserMedia(
+    final response = await client.getGraphqlApi().getUserMedia(
           variables: jsonEncode(config["UserMedia"]!["Variables"]),
           features: jsonEncode(config["UserMedia"]!["Features"]),
         );
@@ -145,9 +145,18 @@ void main() async {
   });
 
   test('getLikes', () async {
-    final response = await client.getUserApi().getLikes(
+    final response = await client.getGraphqlApi().getLikes(
           variables: jsonEncode(config["Likes"]!["Variables"]),
           features: jsonEncode(config["Likes"]!["Features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('getBookmarks', () async {
+    final response = await client.getGraphqlApi().getBookmarks(
+          variables: jsonEncode(config["Bookmarks"]!["Variables"]),
+          features: jsonEncode(config["Bookmarks"]!["Features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);

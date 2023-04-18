@@ -3,7 +3,7 @@
 
 param([switch] $overwrites)
 
-
+./twitter-openapi/.venv/Scripts/Activate.ps1
 Start-Process -FilePath "python" -ArgumentList "tools/build.py" -WorkingDirectory "twitter-openapi" -Wait -NoNewWindow
 
 if ($overwrites) {

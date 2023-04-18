@@ -14,6 +14,8 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:twitter_openapi_dart/src/date_serializer.dart';
 import 'package:twitter_openapi_dart/src/model/date.dart';
 
+import 'package:twitter_openapi_dart/src/model/bookmarks_response.dart';
+import 'package:twitter_openapi_dart/src/model/bookmarks_response_data.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/content_union.dart';
@@ -61,6 +63,8 @@ import 'package:twitter_openapi_dart/src/model/user_union.dart';
 part 'serializers.g.dart';
 
 @SerializersFor([
+  BookmarksResponse,
+  BookmarksResponseData,
   ContentEntryType,
   ContentItemType,
   ContentUnion,

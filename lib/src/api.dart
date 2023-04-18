@@ -9,6 +9,7 @@ import 'package:twitter_openapi_dart/src/auth/api_key_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/bearer_auth.dart';
 import 'package:twitter_openapi_dart/src/auth/oauth.dart';
+import 'package:twitter_openapi_dart/src/api/bookmark_api.dart';
 import 'package:twitter_openapi_dart/src/api/follow_api.dart';
 import 'package:twitter_openapi_dart/src/api/graphql_api.dart';
 import 'package:twitter_openapi_dart/src/api/login_required_api.dart';
@@ -67,6 +68,12 @@ class TwitterOpenapiDart {
     if (this.dio.interceptors.any((i) => i is ApiKeyAuthInterceptor)) {
       (this.dio.interceptors.firstWhere((element) => element is ApiKeyAuthInterceptor) as ApiKeyAuthInterceptor).apiKeys[name] = apiKey;
     }
+  }
+
+  /// Get BookmarkApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  BookmarkApi getBookmarkApi() {
+    return BookmarkApi(dio, serializers);
   }
 
   /// Get FollowApi instance, base route and serializer can be overridden by a given but be careful,

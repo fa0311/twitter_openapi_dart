@@ -46,15 +46,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 
-final api = TwitterOpenapiDart().getFollowApi();
-final String variables = {{Variables}}; // String | 
-final String features = {{Features}}; // String | 
-final String queryId = {{Query}}; // String | 
+final api = TwitterOpenapiDart().getBookmarkApi();
+final String variables = {"count": 20, "includePromotedContent": true}; // String | 
+final String features = {"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}; // String | 
+final String queryId = tmd4ifV8RHltzn8ymGg1aw; // String | 
 
 try {
-    api.getFollowers(variables, features, queryId);
+    final response = await api.getBookmarks(variables, features, queryId);
+    print(response);
 } catch on DioError (e) {
-    print("Exception when calling FollowApi->getFollowers: $e\n");
+    print("Exception when calling BookmarkApi->getBookmarks: $e\n");
 }
 
 ```
@@ -65,8 +66,10 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+[*BookmarkApi*](doc\BookmarkApi.md) | [**getBookmarks**](doc\BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 [*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
 [*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getBookmarks**](doc\GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /{{FollowingQuery}}/Following | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /{{FollowersQuery}}/Followers | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
@@ -92,6 +95,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [BookmarksResponse](doc\BookmarksResponse.md)
+ - [BookmarksResponseData](doc\BookmarksResponseData.md)
  - [ContentEntryType](doc\ContentEntryType.md)
  - [ContentItemType](doc\ContentItemType.md)
  - [ContentUnion](doc\ContentUnion.md)

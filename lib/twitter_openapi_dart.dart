@@ -9,12 +9,15 @@ export 'package:twitter_openapi_dart/src/auth/oauth.dart';
 export 'package:twitter_openapi_dart/src/serializers.dart';
 export 'package:twitter_openapi_dart/src/model/date.dart';
 
+export 'package:twitter_openapi_dart/src/api/bookmark_api.dart';
 export 'package:twitter_openapi_dart/src/api/follow_api.dart';
 export 'package:twitter_openapi_dart/src/api/graphql_api.dart';
 export 'package:twitter_openapi_dart/src/api/login_required_api.dart';
 export 'package:twitter_openapi_dart/src/api/timeline_api.dart';
 export 'package:twitter_openapi_dart/src/api/user_api.dart';
 
+export 'package:twitter_openapi_dart/src/model/bookmarks_response.dart';
+export 'package:twitter_openapi_dart/src/model/bookmarks_response_data.dart';
 export 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 export 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 export 'package:twitter_openapi_dart/src/model/content_union.dart';

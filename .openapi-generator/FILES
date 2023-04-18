@@ -1,5 +1,8 @@
 .gitignore
 README.md
+doc/BookmarkApi.md
+doc/BookmarksResponse.md
+doc/BookmarksResponseData.md
 doc/ContentEntryType.md
 doc/ContentItemType.md
 doc/ContentUnion.md
@@ -49,6 +52,7 @@ doc/UserTweetsResult.md
 doc/UserTweetsUser.md
 doc/UserUnion.md
 lib/src/api.dart
+lib/src/api/bookmark_api.dart
 lib/src/api/follow_api.dart
 lib/src/api/graphql_api.dart
 lib/src/api/login_required_api.dart
@@ -61,6 +65,8 @@ lib/src/auth/basic_auth.dart
 lib/src/auth/bearer_auth.dart
 lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
+lib/src/model/bookmarks_response.dart
+lib/src/model/bookmarks_response_data.dart
 lib/src/model/content_entry_type.dart
 lib/src/model/content_item_type.dart
 lib/src/model/content_union.dart

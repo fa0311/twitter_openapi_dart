@@ -7,6 +7,8 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(BookmarksResponse.serializer)
+      ..add(BookmarksResponseData.serializer)
       ..add(ContentEntryType.serializer)
       ..add(ContentItemType.serializer)
       ..add(ContentUnion.serializer)
