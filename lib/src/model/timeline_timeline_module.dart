@@ -5,6 +5,9 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart/src/model/module_item.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,16 +17,36 @@ part 'timeline_timeline_module.g.dart';
 ///
 /// Properties:
 /// * [typename] 
+/// * [clientEventInfo] 
+/// * [displayType] 
 /// * [entryType] 
+/// * [footer] 
+/// * [header] 
+/// * [items] 
 @BuiltValue()
 abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+
+  @BuiltValueField(wireName: r'clientEventInfo')
+  JsonObject get clientEventInfo;
+
+  @BuiltValueField(wireName: r'displayType')
+  String get displayType;
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
+
+  @BuiltValueField(wireName: r'footer')
+  JsonObject? get footer;
+
+  @BuiltValueField(wireName: r'header')
+  JsonObject? get header;
+
+  @BuiltValueField(wireName: r'items')
+  BuiltList<ModuleItem> get items;
 
   TimelineTimelineModule._();
 
@@ -53,10 +76,39 @@ class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<Timeline
       object.typename,
       specifiedType: const FullType(TypeName),
     );
+    yield r'clientEventInfo';
+    yield serializers.serialize(
+      object.clientEventInfo,
+      specifiedType: const FullType(JsonObject),
+    );
+    yield r'displayType';
+    yield serializers.serialize(
+      object.displayType,
+      specifiedType: const FullType(String),
+    );
     yield r'entryType';
     yield serializers.serialize(
       object.entryType,
       specifiedType: const FullType(ContentEntryType),
+    );
+    if (object.footer != null) {
+      yield r'footer';
+      yield serializers.serialize(
+        object.footer,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
+    if (object.header != null) {
+      yield r'header';
+      yield serializers.serialize(
+        object.header,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
+    yield r'items';
+    yield serializers.serialize(
+      object.items,
+      specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
     );
   }
 
@@ -88,12 +140,47 @@ class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<Timeline
           ) as TypeName;
           result.typename = valueDes;
           break;
+        case r'clientEventInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.clientEventInfo = valueDes;
+          break;
+        case r'displayType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.displayType = valueDes;
+          break;
         case r'entryType':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(ContentEntryType),
           ) as ContentEntryType;
           result.entryType = valueDes;
+          break;
+        case r'footer':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.footer = valueDes;
+          break;
+        case r'header':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.header = valueDes;
+          break;
+        case r'items':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
+          ) as BuiltList<ModuleItem>;
+          result.items.replace(valueDes);
           break;
         default:
           unhandled.add(key);

@@ -3,11 +3,14 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
+import 'package:twitter_openapi_dart/src/model/user_results.dart';
 import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_tweet_social_context.dart';
+import 'package:twitter_openapi_dart/src/model/social_context.dart';
 import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_tweet.dart';
 import 'package:built_value/built_value.dart';
@@ -19,17 +22,19 @@ part 'item_content_union.g.dart';
 /// ItemContentUnion
 ///
 /// Properties:
+/// * [socialContext] 
 /// * [typename] 
 /// * [itemType] 
-/// * [socialContext] 
 /// * [tweetDisplayType] 
 /// * [tweetResults] 
 /// * [cursorType] 
 /// * [entryType] 
 /// * [value] 
+/// * [userDisplayType] 
+/// * [userResults] 
 @BuiltValue()
 abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUnionBuilder> {
-  /// One Of [TimelineTimelineCursor], [TimelineTweet]
+  /// One Of [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'itemType';
@@ -37,6 +42,7 @@ abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUn
   static const Map<String, Type> discriminatorMapping = {
     r'TimelineTimelineCursor': TimelineTimelineCursor,
     r'TimelineTweet': TimelineTweet,
+    r'TimelineUser': TimelineUser,
   };
 
   ItemContentUnion._();
@@ -58,6 +64,9 @@ extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
         if (this is TimelineTweet) {
             return r'TimelineTweet';
         }
+        if (this is TimelineUser) {
+            return r'TimelineUser';
+        }
         return null;
     }
 }
@@ -68,6 +77,9 @@ extension ItemContentUnionBuilderDiscriminatorExt on ItemContentUnionBuilder {
         }
         if (this is TimelineTweetBuilder) {
             return r'TimelineTweet';
+        }
+        if (this is TimelineUserBuilder) {
+            return r'TimelineUser';
         }
         return null;
     }
@@ -109,7 +121,7 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
     final discIndex = serializedList.indexOf(ItemContentUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineTimelineCursor, TimelineTweet, ];
+    final oneOfTypes = [TimelineTimelineCursor, TimelineTweet, TimelineUser, ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -127,6 +139,13 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
         ) as TimelineTweet;
         oneOfType = TimelineTweet;
         break;
+      case r'TimelineUser':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineUser),
+        ) as TimelineUser;
+        oneOfType = TimelineUser;
+        break;
       default:
         throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
     }
@@ -141,6 +160,10 @@ class ItemContentUnionCursorTypeEnum extends EnumClass {
   static const ItemContentUnionCursorTypeEnum top = _$itemContentUnionCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
   static const ItemContentUnionCursorTypeEnum bottom = _$itemContentUnionCursorTypeEnum_bottom;
+  @BuiltValueEnumConst(wireName: r'ShowMore')
+  static const ItemContentUnionCursorTypeEnum showMore = _$itemContentUnionCursorTypeEnum_showMore;
+  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
+  static const ItemContentUnionCursorTypeEnum showMoreThreads = _$itemContentUnionCursorTypeEnum_showMoreThreads;
 
   static Serializer<ItemContentUnionCursorTypeEnum> get serializer => _$itemContentUnionCursorTypeEnumSerializer;
 

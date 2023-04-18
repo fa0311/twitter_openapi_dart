@@ -6,16 +6,16 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_tweet_social_context.g.dart';
+part 'social_context.g.dart';
 
-/// TimelineTweetSocialContext
+/// SocialContext
 ///
 /// Properties:
 /// * [contextType] 
 /// * [text] 
 /// * [type] 
 @BuiltValue()
-abstract class TimelineTweetSocialContext implements Built<TimelineTweetSocialContext, TimelineTweetSocialContextBuilder> {
+abstract class SocialContext implements Built<SocialContext, SocialContextBuilder> {
   @BuiltValueField(wireName: r'contextType')
   String? get contextType;
 
@@ -25,27 +25,27 @@ abstract class TimelineTweetSocialContext implements Built<TimelineTweetSocialCo
   @BuiltValueField(wireName: r'type')
   String? get type;
 
-  TimelineTweetSocialContext._();
+  SocialContext._();
 
-  factory TimelineTweetSocialContext([void updates(TimelineTweetSocialContextBuilder b)]) = _$TimelineTweetSocialContext;
+  factory SocialContext([void updates(SocialContextBuilder b)]) = _$SocialContext;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineTweetSocialContextBuilder b) => b;
+  static void _defaults(SocialContextBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTweetSocialContext> get serializer => _$TimelineTweetSocialContextSerializer();
+  static Serializer<SocialContext> get serializer => _$SocialContextSerializer();
 }
 
-class _$TimelineTweetSocialContextSerializer implements PrimitiveSerializer<TimelineTweetSocialContext> {
+class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
   @override
-  final Iterable<Type> types = const [TimelineTweetSocialContext, _$TimelineTweetSocialContext];
+  final Iterable<Type> types = const [SocialContext, _$SocialContext];
 
   @override
-  final String wireName = r'TimelineTweetSocialContext';
+  final String wireName = r'SocialContext';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineTweetSocialContext object, {
+    SocialContext object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.contextType != null) {
@@ -74,7 +74,7 @@ class _$TimelineTweetSocialContextSerializer implements PrimitiveSerializer<Time
   @override
   Object serialize(
     Serializers serializers,
-    TimelineTweetSocialContext object, {
+    SocialContext object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -85,7 +85,7 @@ class _$TimelineTweetSocialContextSerializer implements PrimitiveSerializer<Time
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineTweetSocialContextBuilder result,
+    required SocialContextBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -122,12 +122,12 @@ class _$TimelineTweetSocialContextSerializer implements PrimitiveSerializer<Time
   }
 
   @override
-  TimelineTweetSocialContext deserialize(
+  SocialContext deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineTweetSocialContextBuilder();
+    final result = SocialContextBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

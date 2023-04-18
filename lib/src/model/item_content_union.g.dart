@@ -10,6 +10,11 @@ const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_top =
     const ItemContentUnionCursorTypeEnum._('top');
 const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_bottom =
     const ItemContentUnionCursorTypeEnum._('bottom');
+const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_showMore =
+    const ItemContentUnionCursorTypeEnum._('showMore');
+const ItemContentUnionCursorTypeEnum
+    _$itemContentUnionCursorTypeEnum_showMoreThreads =
+    const ItemContentUnionCursorTypeEnum._('showMoreThreads');
 
 ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnumValueOf(
     String name) {
@@ -18,6 +23,10 @@ ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnumValueOf(
       return _$itemContentUnionCursorTypeEnum_top;
     case 'bottom':
       return _$itemContentUnionCursorTypeEnum_bottom;
+    case 'showMore':
+      return _$itemContentUnionCursorTypeEnum_showMore;
+    case 'showMoreThreads':
+      return _$itemContentUnionCursorTypeEnum_showMoreThreads;
     default:
       throw new ArgumentError(name);
   }
@@ -28,6 +37,8 @@ final BuiltSet<ItemContentUnionCursorTypeEnum>
         ItemContentUnionCursorTypeEnum>(const <ItemContentUnionCursorTypeEnum>[
   _$itemContentUnionCursorTypeEnum_top,
   _$itemContentUnionCursorTypeEnum_bottom,
+  _$itemContentUnionCursorTypeEnum_showMore,
+  _$itemContentUnionCursorTypeEnum_showMoreThreads,
 ]);
 
 Serializer<ItemContentUnionCursorTypeEnum>
@@ -39,10 +50,14 @@ class _$ItemContentUnionCursorTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'top': 'Top',
     'bottom': 'Bottom',
+    'showMore': 'ShowMore',
+    'showMoreThreads': 'ShowMoreThreads',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
+    'ShowMore': 'showMore',
+    'ShowMoreThreads': 'showMoreThreads',
   };
 
   @override

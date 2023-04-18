@@ -1,4 +1,4 @@
-# twitter_openapi_dart.model.TimelineTweet
+# twitter_openapi_dart.model.TimelineUser
 
 ## Load the model package
 ```dart
@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **socialContext** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
-**tweetDisplayType** | **String** |  | 
-**tweetResults** | [**ItemResult**](ItemResult.md) |  | 
+**userDisplayType** | **String** |  | 
+**userResults** | [**UserResults**](UserResults.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,6 +20,9 @@ doc/ListTweetsTimelineData.md
 doc/ListTweetsTimelineList.md
 doc/ListTweetsTimelineResponse.md
 doc/LoginRequiredApi.md
+doc/ModuleEntry.md
+doc/ModuleItem.md
+doc/SocialContext.md
 doc/Timeline.md
 doc/TimelineAddEntries.md
 doc/TimelineAddEntry.md
@@ -32,7 +35,7 @@ doc/TimelineTimelineCursor.md
 doc/TimelineTimelineItem.md
 doc/TimelineTimelineModule.md
 doc/TimelineTweet.md
-doc/TimelineTweetSocialContext.md
+doc/TimelineUser.md
 doc/TimelineV2.md
 doc/Tweet.md
 doc/TweetDetailResponse.md
@@ -86,6 +89,9 @@ lib/src/model/list_tweets_timeline.dart
 lib/src/model/list_tweets_timeline_data.dart
 lib/src/model/list_tweets_timeline_list.dart
 lib/src/model/list_tweets_timeline_response.dart
+lib/src/model/module_entry.dart
+lib/src/model/module_item.dart
+lib/src/model/social_context.dart
 lib/src/model/timeline.dart
 lib/src/model/timeline_add_entries.dart
 lib/src/model/timeline_add_entry.dart
@@ -97,7 +103,7 @@ lib/src/model/timeline_timeline_cursor.dart
 lib/src/model/timeline_timeline_item.dart
 lib/src/model/timeline_timeline_module.dart
 lib/src/model/timeline_tweet.dart
-lib/src/model/timeline_tweet_social_context.dart
+lib/src/model/timeline_user.dart
 lib/src/model/timeline_v2.dart
 lib/src/model/tweet.dart
 lib/src/model/tweet_detail_response.dart

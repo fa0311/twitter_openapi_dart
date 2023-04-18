@@ -1,4 +1,4 @@
-# twitter_openapi_dart.model.TimelineTweetSocialContext
+# twitter_openapi_dart.model.SocialContext
 
 ## Load the model package
 ```dart

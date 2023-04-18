@@ -4,24 +4,24 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart/src/model/type_name.dart';
+import 'package:twitter_openapi_dart/src/model/user_results.dart';
 import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart/src/model/social_context.dart';
-import 'package:twitter_openapi_dart/src/model/item_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_tweet.g.dart';
+part 'timeline_user.g.dart';
 
-/// TimelineTweet
+/// TimelineUser
 ///
 /// Properties:
 /// * [socialContext] 
 /// * [typename] 
 /// * [itemType] 
-/// * [tweetDisplayType] 
-/// * [tweetResults] 
+/// * [userDisplayType] 
+/// * [userResults] 
 @BuiltValue()
-abstract class TimelineTweet implements Built<TimelineTweet, TimelineTweetBuilder> {
+abstract class TimelineUser implements Built<TimelineUser, TimelineUserBuilder> {
   @BuiltValueField(wireName: r'SocialContext')
   SocialContext? get socialContext;
 
@@ -33,33 +33,33 @@ abstract class TimelineTweet implements Built<TimelineTweet, TimelineTweetBuilde
   ContentItemType get itemType;
   // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  };
 
-  @BuiltValueField(wireName: r'tweetDisplayType')
-  String get tweetDisplayType;
+  @BuiltValueField(wireName: r'userDisplayType')
+  String get userDisplayType;
 
-  @BuiltValueField(wireName: r'tweet_results')
-  ItemResult get tweetResults;
+  @BuiltValueField(wireName: r'user_results')
+  UserResults get userResults;
 
-  TimelineTweet._();
+  TimelineUser._();
 
-  factory TimelineTweet([void updates(TimelineTweetBuilder b)]) = _$TimelineTweet;
+  factory TimelineUser([void updates(TimelineUserBuilder b)]) = _$TimelineUser;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineTweetBuilder b) => b;
+  static void _defaults(TimelineUserBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTweet> get serializer => _$TimelineTweetSerializer();
+  static Serializer<TimelineUser> get serializer => _$TimelineUserSerializer();
 }
 
-class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
+class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
   @override
-  final Iterable<Type> types = const [TimelineTweet, _$TimelineTweet];
+  final Iterable<Type> types = const [TimelineUser, _$TimelineUser];
 
   @override
-  final String wireName = r'TimelineTweet';
+  final String wireName = r'TimelineUser';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelineTweet object, {
+    TimelineUser object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     if (object.socialContext != null) {
@@ -79,22 +79,22 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
       object.itemType,
       specifiedType: const FullType(ContentItemType),
     );
-    yield r'tweetDisplayType';
+    yield r'userDisplayType';
     yield serializers.serialize(
-      object.tweetDisplayType,
+      object.userDisplayType,
       specifiedType: const FullType(String),
     );
-    yield r'tweet_results';
+    yield r'user_results';
     yield serializers.serialize(
-      object.tweetResults,
-      specifiedType: const FullType(ItemResult),
+      object.userResults,
+      specifiedType: const FullType(UserResults),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    TimelineTweet object, {
+    TimelineUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -105,7 +105,7 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelineTweetBuilder result,
+    required TimelineUserBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -133,19 +133,19 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
           ) as ContentItemType;
           result.itemType = valueDes;
           break;
-        case r'tweetDisplayType':
+        case r'userDisplayType':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.tweetDisplayType = valueDes;
+          result.userDisplayType = valueDes;
           break;
-        case r'tweet_results':
+        case r'user_results':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(ItemResult),
-          ) as ItemResult;
-          result.tweetResults.replace(valueDes);
+            specifiedType: const FullType(UserResults),
+          ) as UserResults;
+          result.userResults.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -156,12 +156,12 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
   }
 
   @override
-  TimelineTweet deserialize(
+  TimelineUser deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelineTweetBuilder();
+    final result = TimelineUserBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

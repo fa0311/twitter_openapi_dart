@@ -30,6 +30,9 @@ import 'package:twitter_openapi_dart/src/model/list_tweets_timeline.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_data.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_list.dart';
 import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_response.dart';
+import 'package:twitter_openapi_dart/src/model/module_entry.dart';
+import 'package:twitter_openapi_dart/src/model/module_item.dart';
+import 'package:twitter_openapi_dart/src/model/social_context.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
@@ -41,7 +44,7 @@ import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_tweet.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_tweet_social_context.dart';
+import 'package:twitter_openapi_dart/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_v2.dart';
 import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart/src/model/tweet_detail_response.dart';
@@ -83,6 +86,9 @@ part 'serializers.g.dart';
   ListTweetsTimelineData,
   ListTweetsTimelineList,
   ListTweetsTimelineResponse,
+  ModuleEntry,
+  ModuleItem,
+  SocialContext,
   Timeline,
   TimelineAddEntries,
   TimelineAddEntry,
@@ -94,7 +100,7 @@ part 'serializers.g.dart';
   TimelineTimelineItem,
   TimelineTimelineModule,
   TimelineTweet,
-  TimelineTweetSocialContext,
+  TimelineUser,
   TimelineV2,
   Tweet,
   TweetDetailResponse,

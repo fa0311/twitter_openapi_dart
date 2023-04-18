@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'timeline_tweet.dart';
+part of 'timeline_user.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$TimelineTweet extends TimelineTweet {
+class _$TimelineUser extends TimelineUser {
   @override
   final SocialContext? socialContext;
   @override
@@ -14,46 +14,46 @@ class _$TimelineTweet extends TimelineTweet {
   @override
   final ContentItemType itemType;
   @override
-  final String tweetDisplayType;
+  final String userDisplayType;
   @override
-  final ItemResult tweetResults;
+  final UserResults userResults;
 
-  factory _$TimelineTweet([void Function(TimelineTweetBuilder)? updates]) =>
-      (new TimelineTweetBuilder()..update(updates))._build();
+  factory _$TimelineUser([void Function(TimelineUserBuilder)? updates]) =>
+      (new TimelineUserBuilder()..update(updates))._build();
 
-  _$TimelineTweet._(
+  _$TimelineUser._(
       {this.socialContext,
       required this.typename,
       required this.itemType,
-      required this.tweetDisplayType,
-      required this.tweetResults})
+      required this.userDisplayType,
+      required this.userResults})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        typename, r'TimelineTweet', 'typename');
+        typename, r'TimelineUser', 'typename');
     BuiltValueNullFieldError.checkNotNull(
-        itemType, r'TimelineTweet', 'itemType');
+        itemType, r'TimelineUser', 'itemType');
     BuiltValueNullFieldError.checkNotNull(
-        tweetDisplayType, r'TimelineTweet', 'tweetDisplayType');
+        userDisplayType, r'TimelineUser', 'userDisplayType');
     BuiltValueNullFieldError.checkNotNull(
-        tweetResults, r'TimelineTweet', 'tweetResults');
+        userResults, r'TimelineUser', 'userResults');
   }
 
   @override
-  TimelineTweet rebuild(void Function(TimelineTweetBuilder) updates) =>
+  TimelineUser rebuild(void Function(TimelineUserBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TimelineTweetBuilder toBuilder() => new TimelineTweetBuilder()..replace(this);
+  TimelineUserBuilder toBuilder() => new TimelineUserBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TimelineTweet &&
+    return other is TimelineUser &&
         socialContext == other.socialContext &&
         typename == other.typename &&
         itemType == other.itemType &&
-        tweetDisplayType == other.tweetDisplayType &&
-        tweetResults == other.tweetResults;
+        userDisplayType == other.userDisplayType &&
+        userResults == other.userResults;
   }
 
   @override
@@ -62,27 +62,27 @@ class _$TimelineTweet extends TimelineTweet {
     _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
-    _$hash = $jc(_$hash, tweetDisplayType.hashCode);
-    _$hash = $jc(_$hash, tweetResults.hashCode);
+    _$hash = $jc(_$hash, userDisplayType.hashCode);
+    _$hash = $jc(_$hash, userResults.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TimelineTweet')
+    return (newBuiltValueToStringHelper(r'TimelineUser')
           ..add('socialContext', socialContext)
           ..add('typename', typename)
           ..add('itemType', itemType)
-          ..add('tweetDisplayType', tweetDisplayType)
-          ..add('tweetResults', tweetResults))
+          ..add('userDisplayType', userDisplayType)
+          ..add('userResults', userResults))
         .toString();
   }
 }
 
-class TimelineTweetBuilder
-    implements Builder<TimelineTweet, TimelineTweetBuilder> {
-  _$TimelineTweet? _$v;
+class TimelineUserBuilder
+    implements Builder<TimelineUser, TimelineUserBuilder> {
+  _$TimelineUser? _$v;
 
   SocialContextBuilder? _socialContext;
   SocialContextBuilder get socialContext =>
@@ -98,72 +98,72 @@ class TimelineTweetBuilder
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
-  String? _tweetDisplayType;
-  String? get tweetDisplayType => _$this._tweetDisplayType;
-  set tweetDisplayType(String? tweetDisplayType) =>
-      _$this._tweetDisplayType = tweetDisplayType;
+  String? _userDisplayType;
+  String? get userDisplayType => _$this._userDisplayType;
+  set userDisplayType(String? userDisplayType) =>
+      _$this._userDisplayType = userDisplayType;
 
-  ItemResultBuilder? _tweetResults;
-  ItemResultBuilder get tweetResults =>
-      _$this._tweetResults ??= new ItemResultBuilder();
-  set tweetResults(ItemResultBuilder? tweetResults) =>
-      _$this._tweetResults = tweetResults;
+  UserResultsBuilder? _userResults;
+  UserResultsBuilder get userResults =>
+      _$this._userResults ??= new UserResultsBuilder();
+  set userResults(UserResultsBuilder? userResults) =>
+      _$this._userResults = userResults;
 
-  TimelineTweetBuilder() {
-    TimelineTweet._defaults(this);
+  TimelineUserBuilder() {
+    TimelineUser._defaults(this);
   }
 
-  TimelineTweetBuilder get _$this {
+  TimelineUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
       _itemType = $v.itemType;
-      _tweetDisplayType = $v.tweetDisplayType;
-      _tweetResults = $v.tweetResults.toBuilder();
+      _userDisplayType = $v.userDisplayType;
+      _userResults = $v.userResults.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(TimelineTweet other) {
+  void replace(TimelineUser other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TimelineTweet;
+    _$v = other as _$TimelineUser;
   }
 
   @override
-  void update(void Function(TimelineTweetBuilder)? updates) {
+  void update(void Function(TimelineUserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  TimelineTweet build() => _build();
+  TimelineUser build() => _build();
 
-  _$TimelineTweet _build() {
-    _$TimelineTweet _$result;
+  _$TimelineUser _build() {
+    _$TimelineUser _$result;
     try {
       _$result = _$v ??
-          new _$TimelineTweet._(
+          new _$TimelineUser._(
               socialContext: _socialContext?.build(),
               typename: BuiltValueNullFieldError.checkNotNull(
-                  typename, r'TimelineTweet', 'typename'),
+                  typename, r'TimelineUser', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
-                  itemType, r'TimelineTweet', 'itemType'),
-              tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
-                  tweetDisplayType, r'TimelineTweet', 'tweetDisplayType'),
-              tweetResults: tweetResults.build());
+                  itemType, r'TimelineUser', 'itemType'),
+              userDisplayType: BuiltValueNullFieldError.checkNotNull(
+                  userDisplayType, r'TimelineUser', 'userDisplayType'),
+              userResults: userResults.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'socialContext';
         _socialContext?.build();
 
-        _$failedField = 'tweetResults';
-        tweetResults.build();
+        _$failedField = 'userResults';
+        userResults.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'TimelineTweet', _$failedField, e.toString());
+            r'TimelineUser', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -11,6 +11,7 @@ import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_module.dart';
 import 'package:twitter_openapi_dart/src/model/timeline_timeline_item.dart';
 import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart/src/model/module_item.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
@@ -25,6 +26,10 @@ part 'content_union.g.dart';
 /// * [entryType] 
 /// * [feedbackInfo] 
 /// * [itemContent] 
+/// * [displayType] 
+/// * [footer] 
+/// * [header] 
+/// * [items] 
 /// * [cursorType] 
 /// * [itemType] 
 /// * [value] 
@@ -156,6 +161,10 @@ class ContentUnionCursorTypeEnum extends EnumClass {
   static const ContentUnionCursorTypeEnum top = _$contentUnionCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
   static const ContentUnionCursorTypeEnum bottom = _$contentUnionCursorTypeEnum_bottom;
+  @BuiltValueEnumConst(wireName: r'ShowMore')
+  static const ContentUnionCursorTypeEnum showMore = _$contentUnionCursorTypeEnum_showMore;
+  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
+  static const ContentUnionCursorTypeEnum showMoreThreads = _$contentUnionCursorTypeEnum_showMoreThreads;
 
   static Serializer<ContentUnionCursorTypeEnum> get serializer => _$contentUnionCursorTypeEnumSerializer;
 

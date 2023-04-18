@@ -9,6 +9,7 @@ part of 'type_name.dart';
 const TypeName _$timelineTweet = const TypeName._('timelineTweet');
 const TypeName _$timelineTimelineItem =
     const TypeName._('timelineTimelineItem');
+const TypeName _$timelineUser = const TypeName._('timelineUser');
 const TypeName _$timelineTimelineCursor =
     const TypeName._('timelineTimelineCursor');
 const TypeName _$tweetWithVisibilityResults =
@@ -24,6 +25,8 @@ TypeName _$valueOf(String name) {
       return _$timelineTweet;
     case 'timelineTimelineItem':
       return _$timelineTimelineItem;
+    case 'timelineUser':
+      return _$timelineUser;
     case 'timelineTimelineCursor':
       return _$timelineTimelineCursor;
     case 'tweetWithVisibilityResults':
@@ -42,6 +45,7 @@ TypeName _$valueOf(String name) {
 final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$timelineTweet,
   _$timelineTimelineItem,
+  _$timelineUser,
   _$timelineTimelineCursor,
   _$tweetWithVisibilityResults,
   _$timelineTimelineModule,
@@ -53,6 +57,7 @@ class _$TypeNameMeta {
   const _$TypeNameMeta();
   TypeName get timelineTweet => _$timelineTweet;
   TypeName get timelineTimelineItem => _$timelineTimelineItem;
+  TypeName get timelineUser => _$timelineUser;
   TypeName get timelineTimelineCursor => _$timelineTimelineCursor;
   TypeName get tweetWithVisibilityResults => _$tweetWithVisibilityResults;
   TypeName get timelineTimelineModule => _$timelineTimelineModule;
@@ -73,6 +78,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineTweet': 'TimelineTweet',
     'timelineTimelineItem': 'TimelineTimelineItem',
+    'timelineUser': 'TimelineUser',
     'timelineTimelineCursor': 'TimelineTimelineCursor',
     'tweetWithVisibilityResults': 'TweetWithVisibilityResults',
     'timelineTimelineModule': 'TimelineTimelineModule',
@@ -82,6 +88,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
     'TimelineTimelineItem': 'timelineTimelineItem',
+    'TimelineUser': 'timelineUser',
     'TimelineTimelineCursor': 'timelineTimelineCursor',
     'TweetWithVisibilityResults': 'tweetWithVisibilityResults',
     'TimelineTimelineModule': 'timelineTimelineModule',

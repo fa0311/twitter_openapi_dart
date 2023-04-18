@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'timeline_tweet_social_context.dart';
+part of 'social_context.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$TimelineTweetSocialContext extends TimelineTweetSocialContext {
+class _$SocialContext extends SocialContext {
   @override
   final String? contextType;
   @override
@@ -14,26 +14,22 @@ class _$TimelineTweetSocialContext extends TimelineTweetSocialContext {
   @override
   final String? type;
 
-  factory _$TimelineTweetSocialContext(
-          [void Function(TimelineTweetSocialContextBuilder)? updates]) =>
-      (new TimelineTweetSocialContextBuilder()..update(updates))._build();
+  factory _$SocialContext([void Function(SocialContextBuilder)? updates]) =>
+      (new SocialContextBuilder()..update(updates))._build();
 
-  _$TimelineTweetSocialContext._({this.contextType, this.text, this.type})
-      : super._();
+  _$SocialContext._({this.contextType, this.text, this.type}) : super._();
 
   @override
-  TimelineTweetSocialContext rebuild(
-          void Function(TimelineTweetSocialContextBuilder) updates) =>
+  SocialContext rebuild(void Function(SocialContextBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TimelineTweetSocialContextBuilder toBuilder() =>
-      new TimelineTweetSocialContextBuilder()..replace(this);
+  SocialContextBuilder toBuilder() => new SocialContextBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TimelineTweetSocialContext &&
+    return other is SocialContext &&
         contextType == other.contextType &&
         text == other.text &&
         type == other.type;
@@ -51,7 +47,7 @@ class _$TimelineTweetSocialContext extends TimelineTweetSocialContext {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TimelineTweetSocialContext')
+    return (newBuiltValueToStringHelper(r'SocialContext')
           ..add('contextType', contextType)
           ..add('text', text)
           ..add('type', type))
@@ -59,10 +55,9 @@ class _$TimelineTweetSocialContext extends TimelineTweetSocialContext {
   }
 }
 
-class TimelineTweetSocialContextBuilder
-    implements
-        Builder<TimelineTweetSocialContext, TimelineTweetSocialContextBuilder> {
-  _$TimelineTweetSocialContext? _$v;
+class SocialContextBuilder
+    implements Builder<SocialContext, SocialContextBuilder> {
+  _$SocialContext? _$v;
 
   String? _contextType;
   String? get contextType => _$this._contextType;
@@ -76,11 +71,11 @@ class TimelineTweetSocialContextBuilder
   String? get type => _$this._type;
   set type(String? type) => _$this._type = type;
 
-  TimelineTweetSocialContextBuilder() {
-    TimelineTweetSocialContext._defaults(this);
+  SocialContextBuilder() {
+    SocialContext._defaults(this);
   }
 
-  TimelineTweetSocialContextBuilder get _$this {
+  SocialContextBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _contextType = $v.contextType;
@@ -92,23 +87,22 @@ class TimelineTweetSocialContextBuilder
   }
 
   @override
-  void replace(TimelineTweetSocialContext other) {
+  void replace(SocialContext other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TimelineTweetSocialContext;
+    _$v = other as _$SocialContext;
   }
 
   @override
-  void update(void Function(TimelineTweetSocialContextBuilder)? updates) {
+  void update(void Function(SocialContextBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  TimelineTweetSocialContext build() => _build();
+  SocialContext build() => _build();
 
-  _$TimelineTweetSocialContext _build() {
+  _$SocialContext _build() {
     final _$result = _$v ??
-        new _$TimelineTweetSocialContext._(
-            contextType: contextType, text: text, type: type);
+        new _$SocialContext._(contextType: contextType, text: text, type: type);
     replace(_$result);
     return _$result;
   }

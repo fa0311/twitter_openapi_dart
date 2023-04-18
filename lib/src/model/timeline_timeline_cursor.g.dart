@@ -12,6 +12,12 @@ const TimelineTimelineCursorCursorTypeEnum
 const TimelineTimelineCursorCursorTypeEnum
     _$timelineTimelineCursorCursorTypeEnum_bottom =
     const TimelineTimelineCursorCursorTypeEnum._('bottom');
+const TimelineTimelineCursorCursorTypeEnum
+    _$timelineTimelineCursorCursorTypeEnum_showMore =
+    const TimelineTimelineCursorCursorTypeEnum._('showMore');
+const TimelineTimelineCursorCursorTypeEnum
+    _$timelineTimelineCursorCursorTypeEnum_showMoreThreads =
+    const TimelineTimelineCursorCursorTypeEnum._('showMoreThreads');
 
 TimelineTimelineCursorCursorTypeEnum
     _$timelineTimelineCursorCursorTypeEnumValueOf(String name) {
@@ -20,6 +26,10 @@ TimelineTimelineCursorCursorTypeEnum
       return _$timelineTimelineCursorCursorTypeEnum_top;
     case 'bottom':
       return _$timelineTimelineCursorCursorTypeEnum_bottom;
+    case 'showMore':
+      return _$timelineTimelineCursorCursorTypeEnum_showMore;
+    case 'showMoreThreads':
+      return _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
     default:
       throw new ArgumentError(name);
   }
@@ -30,6 +40,8 @@ final BuiltSet<TimelineTimelineCursorCursorTypeEnum>
         TimelineTimelineCursorCursorTypeEnum>(const <TimelineTimelineCursorCursorTypeEnum>[
   _$timelineTimelineCursorCursorTypeEnum_top,
   _$timelineTimelineCursorCursorTypeEnum_bottom,
+  _$timelineTimelineCursorCursorTypeEnum_showMore,
+  _$timelineTimelineCursorCursorTypeEnum_showMoreThreads,
 ]);
 
 Serializer<TimelineTimelineCursorCursorTypeEnum>
@@ -41,10 +53,14 @@ class _$TimelineTimelineCursorCursorTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'top': 'Top',
     'bottom': 'Bottom',
+    'showMore': 'ShowMore',
+    'showMoreThreads': 'ShowMoreThreads',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
+    'ShowMore': 'showMore',
+    'ShowMoreThreads': 'showMoreThreads',
   };
 
   @override

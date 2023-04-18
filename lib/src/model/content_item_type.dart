@@ -15,6 +15,8 @@ class ContentItemType extends EnumClass {
   static const ContentItemType timelineTweet = _$timelineTweet;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineCursor')
   static const ContentItemType timelineTimelineCursor = _$timelineTimelineCursor;
+  @BuiltValueEnumConst(wireName: r'TimelineUser')
+  static const ContentItemType timelineUser = _$timelineUser;
 
   static Serializer<ContentItemType> get serializer => _$contentItemTypeSerializer;
 

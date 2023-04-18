@@ -23,6 +23,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ListTweetsTimelineData.serializer)
       ..add(ListTweetsTimelineList.serializer)
       ..add(ListTweetsTimelineResponse.serializer)
+      ..add(ModuleEntry.serializer)
+      ..add(ModuleItem.serializer)
+      ..add(SocialContext.serializer)
       ..add(Timeline.serializer)
       ..add(TimelineAddEntries.serializer)
       ..add(TimelineAddEntry.serializer)
@@ -36,7 +39,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TimelineTimelineItem.serializer)
       ..add(TimelineTimelineModule.serializer)
       ..add(TimelineTweet.serializer)
-      ..add(TimelineTweetSocialContext.serializer)
+      ..add(TimelineUser.serializer)
       ..add(TimelineV2.serializer)
       ..add(Tweet.serializer)
       ..add(TweetDetailResponse.serializer)
@@ -61,6 +64,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(InstructionUnion)]),
           () => new ListBuilder<InstructionUnion>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(ModuleItem)]),
+          () => new ListBuilder<ModuleItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

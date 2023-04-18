@@ -23,11 +23,11 @@ part 'timeline_timeline_cursor.g.dart';
 abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'cursorType')
   TimelineTimelineCursorCursorTypeEnum get cursorType;
-  // enum cursorTypeEnum {  Top,  Bottom,  };
+  // enum cursorTypeEnum {  Top,  Bottom,  ShowMore,  ShowMoreThreads,  };
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType? get entryType;
@@ -185,6 +185,10 @@ class TimelineTimelineCursorCursorTypeEnum extends EnumClass {
   static const TimelineTimelineCursorCursorTypeEnum top = _$timelineTimelineCursorCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
   static const TimelineTimelineCursorCursorTypeEnum bottom = _$timelineTimelineCursorCursorTypeEnum_bottom;
+  @BuiltValueEnumConst(wireName: r'ShowMore')
+  static const TimelineTimelineCursorCursorTypeEnum showMore = _$timelineTimelineCursorCursorTypeEnum_showMore;
+  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
+  static const TimelineTimelineCursorCursorTypeEnum showMoreThreads = _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
 
   static Serializer<TimelineTimelineCursorCursorTypeEnum> get serializer => _$timelineTimelineCursorCursorTypeEnumSerializer;
 

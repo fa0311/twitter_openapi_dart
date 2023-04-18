@@ -10,6 +10,7 @@ const ContentItemType _$timelineTweet =
     const ContentItemType._('timelineTweet');
 const ContentItemType _$timelineTimelineCursor =
     const ContentItemType._('timelineTimelineCursor');
+const ContentItemType _$timelineUser = const ContentItemType._('timelineUser');
 
 ContentItemType _$valueOf(String name) {
   switch (name) {
@@ -17,6 +18,8 @@ ContentItemType _$valueOf(String name) {
       return _$timelineTweet;
     case 'timelineTimelineCursor':
       return _$timelineTimelineCursor;
+    case 'timelineUser':
+      return _$timelineUser;
     default:
       throw new ArgumentError(name);
   }
@@ -26,12 +29,14 @@ final BuiltSet<ContentItemType> _$values =
     new BuiltSet<ContentItemType>(const <ContentItemType>[
   _$timelineTweet,
   _$timelineTimelineCursor,
+  _$timelineUser,
 ]);
 
 class _$ContentItemTypeMeta {
   const _$ContentItemTypeMeta();
   ContentItemType get timelineTweet => _$timelineTweet;
   ContentItemType get timelineTimelineCursor => _$timelineTimelineCursor;
+  ContentItemType get timelineUser => _$timelineUser;
   ContentItemType valueOf(String name) => _$valueOf(name);
   BuiltSet<ContentItemType> get values => _$values;
 }
@@ -49,10 +54,12 @@ class _$ContentItemTypeSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineTweet': 'TimelineTweet',
     'timelineTimelineCursor': 'TimelineTimelineCursor',
+    'timelineUser': 'TimelineUser',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
     'TimelineTimelineCursor': 'timelineTimelineCursor',
+    'TimelineUser': 'timelineUser',
   };
 
   @override

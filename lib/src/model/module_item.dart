@@ -3,66 +3,64 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_v2.dart';
+import 'package:twitter_openapi_dart/src/model/module_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'user_tweets_result.g.dart';
+part 'module_item.g.dart';
 
-/// UserTweetsResult
+/// ModuleItem
 ///
 /// Properties:
-/// * [typename] 
-/// * [timelineV2] 
+/// * [entryId] 
+/// * [item] 
 @BuiltValue()
-abstract class UserTweetsResult implements Built<UserTweetsResult, UserTweetsResultBuilder> {
-  @BuiltValueField(wireName: r'__typename')
-  TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+abstract class ModuleItem implements Built<ModuleItem, ModuleItemBuilder> {
+  @BuiltValueField(wireName: r'entryId')
+  String get entryId;
 
-  @BuiltValueField(wireName: r'timeline_v2')
-  TimelineV2 get timelineV2;
+  @BuiltValueField(wireName: r'item')
+  ModuleEntry get item;
 
-  UserTweetsResult._();
+  ModuleItem._();
 
-  factory UserTweetsResult([void updates(UserTweetsResultBuilder b)]) = _$UserTweetsResult;
+  factory ModuleItem([void updates(ModuleItemBuilder b)]) = _$ModuleItem;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserTweetsResultBuilder b) => b;
+  static void _defaults(ModuleItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserTweetsResult> get serializer => _$UserTweetsResultSerializer();
+  static Serializer<ModuleItem> get serializer => _$ModuleItemSerializer();
 }
 
-class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResult> {
+class _$ModuleItemSerializer implements PrimitiveSerializer<ModuleItem> {
   @override
-  final Iterable<Type> types = const [UserTweetsResult, _$UserTweetsResult];
+  final Iterable<Type> types = const [ModuleItem, _$ModuleItem];
 
   @override
-  final String wireName = r'UserTweetsResult';
+  final String wireName = r'ModuleItem';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    UserTweetsResult object, {
+    ModuleItem object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'__typename';
+    yield r'entryId';
     yield serializers.serialize(
-      object.typename,
-      specifiedType: const FullType(TypeName),
+      object.entryId,
+      specifiedType: const FullType(String),
     );
-    yield r'timeline_v2';
+    yield r'item';
     yield serializers.serialize(
-      object.timelineV2,
-      specifiedType: const FullType(TimelineV2),
+      object.item,
+      specifiedType: const FullType(ModuleEntry),
     );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    UserTweetsResult object, {
+    ModuleItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -73,26 +71,26 @@ class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResu
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required UserTweetsResultBuilder result,
+    required ModuleItemBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'__typename':
+        case r'entryId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TypeName),
-          ) as TypeName;
-          result.typename = valueDes;
+            specifiedType: const FullType(String),
+          ) as String;
+          result.entryId = valueDes;
           break;
-        case r'timeline_v2':
+        case r'item':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TimelineV2),
-          ) as TimelineV2;
-          result.timelineV2.replace(valueDes);
+            specifiedType: const FullType(ModuleEntry),
+          ) as ModuleEntry;
+          result.item.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -103,12 +101,12 @@ class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResu
   }
 
   @override
-  UserTweetsResult deserialize(
+  ModuleItem deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = UserTweetsResultBuilder();
+    final result = ModuleItemBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

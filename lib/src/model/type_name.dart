@@ -15,6 +15,8 @@ class TypeName extends EnumClass {
   static const TypeName timelineTweet = _$timelineTweet;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineItem')
   static const TypeName timelineTimelineItem = _$timelineTimelineItem;
+  @BuiltValueEnumConst(wireName: r'TimelineUser')
+  static const TypeName timelineUser = _$timelineUser;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineCursor')
   static const TypeName timelineTimelineCursor = _$timelineTimelineCursor;
   @BuiltValueEnumConst(wireName: r'TweetWithVisibilityResults')

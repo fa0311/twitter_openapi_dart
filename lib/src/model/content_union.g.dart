@@ -10,6 +10,10 @@ const ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnum_top =
     const ContentUnionCursorTypeEnum._('top');
 const ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnum_bottom =
     const ContentUnionCursorTypeEnum._('bottom');
+const ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnum_showMore =
+    const ContentUnionCursorTypeEnum._('showMore');
+const ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnum_showMoreThreads =
+    const ContentUnionCursorTypeEnum._('showMoreThreads');
 
 ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnumValueOf(String name) {
   switch (name) {
@@ -17,6 +21,10 @@ ContentUnionCursorTypeEnum _$contentUnionCursorTypeEnumValueOf(String name) {
       return _$contentUnionCursorTypeEnum_top;
     case 'bottom':
       return _$contentUnionCursorTypeEnum_bottom;
+    case 'showMore':
+      return _$contentUnionCursorTypeEnum_showMore;
+    case 'showMoreThreads':
+      return _$contentUnionCursorTypeEnum_showMoreThreads;
     default:
       throw new ArgumentError(name);
   }
@@ -26,6 +34,8 @@ final BuiltSet<ContentUnionCursorTypeEnum> _$contentUnionCursorTypeEnumValues =
     new BuiltSet<ContentUnionCursorTypeEnum>(const <ContentUnionCursorTypeEnum>[
   _$contentUnionCursorTypeEnum_top,
   _$contentUnionCursorTypeEnum_bottom,
+  _$contentUnionCursorTypeEnum_showMore,
+  _$contentUnionCursorTypeEnum_showMoreThreads,
 ]);
 
 Serializer<ContentUnionCursorTypeEnum> _$contentUnionCursorTypeEnumSerializer =
@@ -36,10 +46,14 @@ class _$ContentUnionCursorTypeEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'top': 'Top',
     'bottom': 'Bottom',
+    'showMore': 'ShowMore',
+    'showMoreThreads': 'ShowMoreThreads',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
+    'ShowMore': 'showMore',
+    'ShowMoreThreads': 'showMoreThreads',
   };
 
   @override
