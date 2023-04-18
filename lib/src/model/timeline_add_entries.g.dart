@@ -8,19 +8,19 @@ part of 'timeline_add_entries.dart';
 
 class _$TimelineAddEntries extends TimelineAddEntries {
   @override
-  final InstructionType type;
-  @override
   final BuiltList<TimelineAddEntry> entries;
+  @override
+  final InstructionType type;
 
   factory _$TimelineAddEntries(
           [void Function(TimelineAddEntriesBuilder)? updates]) =>
       (new TimelineAddEntriesBuilder()..update(updates))._build();
 
-  _$TimelineAddEntries._({required this.type, required this.entries})
+  _$TimelineAddEntries._({required this.entries, required this.type})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'TimelineAddEntries', 'type');
     BuiltValueNullFieldError.checkNotNull(
         entries, r'TimelineAddEntries', 'entries');
+    BuiltValueNullFieldError.checkNotNull(type, r'TimelineAddEntries', 'type');
   }
 
   @override
@@ -36,15 +36,15 @@ class _$TimelineAddEntries extends TimelineAddEntries {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TimelineAddEntries &&
-        type == other.type &&
-        entries == other.entries;
+        entries == other.entries &&
+        type == other.type;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, entries.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -52,8 +52,8 @@ class _$TimelineAddEntries extends TimelineAddEntries {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelineAddEntries')
-          ..add('type', type)
-          ..add('entries', entries))
+          ..add('entries', entries)
+          ..add('type', type))
         .toString();
   }
 }
@@ -62,15 +62,15 @@ class TimelineAddEntriesBuilder
     implements Builder<TimelineAddEntries, TimelineAddEntriesBuilder> {
   _$TimelineAddEntries? _$v;
 
-  InstructionType? _type;
-  InstructionType? get type => _$this._type;
-  set type(InstructionType? type) => _$this._type = type;
-
   ListBuilder<TimelineAddEntry>? _entries;
   ListBuilder<TimelineAddEntry> get entries =>
       _$this._entries ??= new ListBuilder<TimelineAddEntry>();
   set entries(ListBuilder<TimelineAddEntry>? entries) =>
       _$this._entries = entries;
+
+  InstructionType? _type;
+  InstructionType? get type => _$this._type;
+  set type(InstructionType? type) => _$this._type = type;
 
   TimelineAddEntriesBuilder() {
     TimelineAddEntries._defaults(this);
@@ -79,8 +79,8 @@ class TimelineAddEntriesBuilder
   TimelineAddEntriesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _type = $v.type;
       _entries = $v.entries.toBuilder();
+      _type = $v.type;
       _$v = null;
     }
     return this;
@@ -105,9 +105,9 @@ class TimelineAddEntriesBuilder
     try {
       _$result = _$v ??
           new _$TimelineAddEntries._(
+              entries: entries.build(),
               type: BuiltValueNullFieldError.checkNotNull(
-                  type, r'TimelineAddEntries', 'type'),
-              entries: entries.build());
+                  type, r'TimelineAddEntries', 'type'));
     } catch (_) {
       late String _$failedField;
       try {

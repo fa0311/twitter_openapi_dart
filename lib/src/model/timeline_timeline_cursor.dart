@@ -15,8 +15,8 @@ part 'timeline_timeline_cursor.g.dart';
 ///
 /// Properties:
 /// * [typename] 
-/// * [entryType] 
 /// * [cursorType] 
+/// * [entryType] 
 /// * [value] 
 @BuiltValue()
 abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
@@ -24,13 +24,13 @@ abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, T
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
-  @BuiltValueField(wireName: r'entryType')
-  ContentEntryType get entryType;
-  // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
-
   @BuiltValueField(wireName: r'cursorType')
   TimelineTimelineCursorCursorTypeEnum get cursorType;
   // enum cursorTypeEnum {  Top,  Bottom,  };
+
+  @BuiltValueField(wireName: r'entryType')
+  ContentEntryType get entryType;
+  // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
   @BuiltValueField(wireName: r'value')
   String get value;
@@ -63,15 +63,15 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
       object.typename,
       specifiedType: const FullType(TypeName),
     );
-    yield r'entryType';
-    yield serializers.serialize(
-      object.entryType,
-      specifiedType: const FullType(ContentEntryType),
-    );
     yield r'cursorType';
     yield serializers.serialize(
       object.cursorType,
       specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
+    );
+    yield r'entryType';
+    yield serializers.serialize(
+      object.entryType,
+      specifiedType: const FullType(ContentEntryType),
     );
     yield r'value';
     yield serializers.serialize(
@@ -108,19 +108,19 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
           ) as TypeName;
           result.typename = valueDes;
           break;
-        case r'entryType':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ContentEntryType),
-          ) as ContentEntryType;
-          result.entryType = valueDes;
-          break;
         case r'cursorType':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
           ) as TimelineTimelineCursorCursorTypeEnum;
           result.cursorType = valueDes;
+          break;
+        case r'entryType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ContentEntryType),
+          ) as ContentEntryType;
+          result.entryType = valueDes;
           break;
         case r'value':
           final valueDes = serializers.deserialize(

@@ -18,8 +18,8 @@ part 'instruction_union.g.dart';
 /// InstructionUnion
 ///
 /// Properties:
-/// * [type] 
 /// * [entries] 
+/// * [type] 
 /// * [entry] 
 @BuiltValue()
 abstract class InstructionUnion implements Built<InstructionUnion, InstructionUnionBuilder> {

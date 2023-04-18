@@ -14,16 +14,16 @@ part 'timeline_add_entries.g.dart';
 /// TimelineAddEntries
 ///
 /// Properties:
-/// * [type] 
 /// * [entries] 
+/// * [type] 
 @BuiltValue()
 abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
+  @BuiltValueField(wireName: r'entries')
+  BuiltList<TimelineAddEntry> get entries;
+
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  };
-
-  @BuiltValueField(wireName: r'entries')
-  BuiltList<TimelineAddEntry> get entries;
 
   TimelineAddEntries._();
 
@@ -48,15 +48,15 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
     TimelineAddEntries object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'type';
-    yield serializers.serialize(
-      object.type,
-      specifiedType: const FullType(InstructionType),
-    );
     yield r'entries';
     yield serializers.serialize(
       object.entries,
       specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+    );
+    yield r'type';
+    yield serializers.serialize(
+      object.type,
+      specifiedType: const FullType(InstructionType),
     );
   }
 
@@ -81,19 +81,19 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(InstructionType),
-          ) as InstructionType;
-          result.type = valueDes;
-          break;
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
           ) as BuiltList<TimelineAddEntry>;
           result.entries.replace(valueDes);
+          break;
+        case r'type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(InstructionType),
+          ) as InstructionType;
+          result.type = valueDes;
           break;
         default:
           unhandled.add(key);

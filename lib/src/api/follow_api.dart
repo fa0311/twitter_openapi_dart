@@ -36,7 +36,7 @@ class FollowApi {
   Future<Response<void>> getFollowers({ 
     required String variables,
     required String features,
-    String? queryId = 'VptSi88PiaQhBevFbGVlGg',
+    String? queryId = '{{Following}}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -44,7 +44,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/FaBzCqZXuQCb4PhB0RHqHw/Following';
+    final _path = r'/{{Following}}/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -126,7 +126,7 @@ class FollowApi {
   Future<Response<void>> getFollowing({ 
     required String variables,
     required String features,
-    String? queryId = 'FaBzCqZXuQCb4PhB0RHqHw',
+    String? queryId = '{{Followers}}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -134,7 +134,7 @@ class FollowApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
+    final _path = r'/{{Followers}}/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{

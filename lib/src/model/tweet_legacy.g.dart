@@ -12,9 +12,9 @@ class _$TweetLegacy extends TweetLegacy {
   @override
   final bool bookmarked;
   @override
-  final String createdAt;
-  @override
   final String conversationIdStr;
+  @override
+  final String createdAt;
   @override
   final BuiltList<int> displayTextRange;
   @override
@@ -25,6 +25,8 @@ class _$TweetLegacy extends TweetLegacy {
   final bool favorited;
   @override
   final String fullText;
+  @override
+  final String idStr;
   @override
   final bool isQuoteStatus;
   @override
@@ -43,8 +45,6 @@ class _$TweetLegacy extends TweetLegacy {
   final bool retweeted;
   @override
   final String userIdStr;
-  @override
-  final String idStr;
 
   factory _$TweetLegacy([void Function(TweetLegacyBuilder)? updates]) =>
       (new TweetLegacyBuilder()..update(updates))._build();
@@ -52,13 +52,14 @@ class _$TweetLegacy extends TweetLegacy {
   _$TweetLegacy._(
       {required this.bookmarkCount,
       required this.bookmarked,
-      required this.createdAt,
       required this.conversationIdStr,
+      required this.createdAt,
       required this.displayTextRange,
       required this.entities,
       required this.favoriteCount,
       required this.favorited,
       required this.fullText,
+      required this.idStr,
       required this.isQuoteStatus,
       required this.lang,
       this.possiblySensitive,
@@ -67,17 +68,16 @@ class _$TweetLegacy extends TweetLegacy {
       required this.replyCount,
       required this.retweetCount,
       required this.retweeted,
-      required this.userIdStr,
-      required this.idStr})
+      required this.userIdStr})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         bookmarkCount, r'TweetLegacy', 'bookmarkCount');
     BuiltValueNullFieldError.checkNotNull(
         bookmarked, r'TweetLegacy', 'bookmarked');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'TweetLegacy', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(
         conversationIdStr, r'TweetLegacy', 'conversationIdStr');
+    BuiltValueNullFieldError.checkNotNull(
+        createdAt, r'TweetLegacy', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
         displayTextRange, r'TweetLegacy', 'displayTextRange');
     BuiltValueNullFieldError.checkNotNull(entities, r'TweetLegacy', 'entities');
@@ -86,6 +86,7 @@ class _$TweetLegacy extends TweetLegacy {
     BuiltValueNullFieldError.checkNotNull(
         favorited, r'TweetLegacy', 'favorited');
     BuiltValueNullFieldError.checkNotNull(fullText, r'TweetLegacy', 'fullText');
+    BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr');
     BuiltValueNullFieldError.checkNotNull(
         isQuoteStatus, r'TweetLegacy', 'isQuoteStatus');
     BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang');
@@ -99,7 +100,6 @@ class _$TweetLegacy extends TweetLegacy {
         retweeted, r'TweetLegacy', 'retweeted');
     BuiltValueNullFieldError.checkNotNull(
         userIdStr, r'TweetLegacy', 'userIdStr');
-    BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr');
   }
 
   @override
@@ -115,13 +115,14 @@ class _$TweetLegacy extends TweetLegacy {
     return other is TweetLegacy &&
         bookmarkCount == other.bookmarkCount &&
         bookmarked == other.bookmarked &&
-        createdAt == other.createdAt &&
         conversationIdStr == other.conversationIdStr &&
+        createdAt == other.createdAt &&
         displayTextRange == other.displayTextRange &&
         entities == other.entities &&
         favoriteCount == other.favoriteCount &&
         favorited == other.favorited &&
         fullText == other.fullText &&
+        idStr == other.idStr &&
         isQuoteStatus == other.isQuoteStatus &&
         lang == other.lang &&
         possiblySensitive == other.possiblySensitive &&
@@ -130,8 +131,7 @@ class _$TweetLegacy extends TweetLegacy {
         replyCount == other.replyCount &&
         retweetCount == other.retweetCount &&
         retweeted == other.retweeted &&
-        userIdStr == other.userIdStr &&
-        idStr == other.idStr;
+        userIdStr == other.userIdStr;
   }
 
   @override
@@ -139,13 +139,14 @@ class _$TweetLegacy extends TweetLegacy {
     var _$hash = 0;
     _$hash = $jc(_$hash, bookmarkCount.hashCode);
     _$hash = $jc(_$hash, bookmarked.hashCode);
-    _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jc(_$hash, conversationIdStr.hashCode);
+    _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jc(_$hash, displayTextRange.hashCode);
     _$hash = $jc(_$hash, entities.hashCode);
     _$hash = $jc(_$hash, favoriteCount.hashCode);
     _$hash = $jc(_$hash, favorited.hashCode);
     _$hash = $jc(_$hash, fullText.hashCode);
+    _$hash = $jc(_$hash, idStr.hashCode);
     _$hash = $jc(_$hash, isQuoteStatus.hashCode);
     _$hash = $jc(_$hash, lang.hashCode);
     _$hash = $jc(_$hash, possiblySensitive.hashCode);
@@ -155,7 +156,6 @@ class _$TweetLegacy extends TweetLegacy {
     _$hash = $jc(_$hash, retweetCount.hashCode);
     _$hash = $jc(_$hash, retweeted.hashCode);
     _$hash = $jc(_$hash, userIdStr.hashCode);
-    _$hash = $jc(_$hash, idStr.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -165,13 +165,14 @@ class _$TweetLegacy extends TweetLegacy {
     return (newBuiltValueToStringHelper(r'TweetLegacy')
           ..add('bookmarkCount', bookmarkCount)
           ..add('bookmarked', bookmarked)
-          ..add('createdAt', createdAt)
           ..add('conversationIdStr', conversationIdStr)
+          ..add('createdAt', createdAt)
           ..add('displayTextRange', displayTextRange)
           ..add('entities', entities)
           ..add('favoriteCount', favoriteCount)
           ..add('favorited', favorited)
           ..add('fullText', fullText)
+          ..add('idStr', idStr)
           ..add('isQuoteStatus', isQuoteStatus)
           ..add('lang', lang)
           ..add('possiblySensitive', possiblySensitive)
@@ -180,8 +181,7 @@ class _$TweetLegacy extends TweetLegacy {
           ..add('replyCount', replyCount)
           ..add('retweetCount', retweetCount)
           ..add('retweeted', retweeted)
-          ..add('userIdStr', userIdStr)
-          ..add('idStr', idStr))
+          ..add('userIdStr', userIdStr))
         .toString();
   }
 }
@@ -198,14 +198,14 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   bool? get bookmarked => _$this._bookmarked;
   set bookmarked(bool? bookmarked) => _$this._bookmarked = bookmarked;
 
-  String? _createdAt;
-  String? get createdAt => _$this._createdAt;
-  set createdAt(String? createdAt) => _$this._createdAt = createdAt;
-
   String? _conversationIdStr;
   String? get conversationIdStr => _$this._conversationIdStr;
   set conversationIdStr(String? conversationIdStr) =>
       _$this._conversationIdStr = conversationIdStr;
+
+  String? _createdAt;
+  String? get createdAt => _$this._createdAt;
+  set createdAt(String? createdAt) => _$this._createdAt = createdAt;
 
   ListBuilder<int>? _displayTextRange;
   ListBuilder<int> get displayTextRange =>
@@ -229,6 +229,10 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   String? _fullText;
   String? get fullText => _$this._fullText;
   set fullText(String? fullText) => _$this._fullText = fullText;
+
+  String? _idStr;
+  String? get idStr => _$this._idStr;
+  set idStr(String? idStr) => _$this._idStr = idStr;
 
   bool? _isQuoteStatus;
   bool? get isQuoteStatus => _$this._isQuoteStatus;
@@ -269,10 +273,6 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   String? get userIdStr => _$this._userIdStr;
   set userIdStr(String? userIdStr) => _$this._userIdStr = userIdStr;
 
-  String? _idStr;
-  String? get idStr => _$this._idStr;
-  set idStr(String? idStr) => _$this._idStr = idStr;
-
   TweetLegacyBuilder() {
     TweetLegacy._defaults(this);
   }
@@ -282,13 +282,14 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
     if ($v != null) {
       _bookmarkCount = $v.bookmarkCount;
       _bookmarked = $v.bookmarked;
-      _createdAt = $v.createdAt;
       _conversationIdStr = $v.conversationIdStr;
+      _createdAt = $v.createdAt;
       _displayTextRange = $v.displayTextRange.toBuilder();
       _entities = $v.entities;
       _favoriteCount = $v.favoriteCount;
       _favorited = $v.favorited;
       _fullText = $v.fullText;
+      _idStr = $v.idStr;
       _isQuoteStatus = $v.isQuoteStatus;
       _lang = $v.lang;
       _possiblySensitive = $v.possiblySensitive;
@@ -298,7 +299,6 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
       _retweetCount = $v.retweetCount;
       _retweeted = $v.retweeted;
       _userIdStr = $v.userIdStr;
-      _idStr = $v.idStr;
       _$v = null;
     }
     return this;
@@ -327,10 +327,10 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
                   bookmarkCount, r'TweetLegacy', 'bookmarkCount'),
               bookmarked: BuiltValueNullFieldError.checkNotNull(
                   bookmarked, r'TweetLegacy', 'bookmarked'),
-              createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, r'TweetLegacy', 'createdAt'),
               conversationIdStr: BuiltValueNullFieldError.checkNotNull(
                   conversationIdStr, r'TweetLegacy', 'conversationIdStr'),
+              createdAt: BuiltValueNullFieldError.checkNotNull(
+                  createdAt, r'TweetLegacy', 'createdAt'),
               displayTextRange: displayTextRange.build(),
               entities: BuiltValueNullFieldError.checkNotNull(
                   entities, r'TweetLegacy', 'entities'),
@@ -340,6 +340,7 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
                   favorited, r'TweetLegacy', 'favorited'),
               fullText: BuiltValueNullFieldError.checkNotNull(
                   fullText, r'TweetLegacy', 'fullText'),
+              idStr: BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr'),
               isQuoteStatus: BuiltValueNullFieldError.checkNotNull(isQuoteStatus, r'TweetLegacy', 'isQuoteStatus'),
               lang: BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang'),
               possiblySensitive: possiblySensitive,
@@ -348,8 +349,7 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
               replyCount: BuiltValueNullFieldError.checkNotNull(replyCount, r'TweetLegacy', 'replyCount'),
               retweetCount: BuiltValueNullFieldError.checkNotNull(retweetCount, r'TweetLegacy', 'retweetCount'),
               retweeted: BuiltValueNullFieldError.checkNotNull(retweeted, r'TweetLegacy', 'retweeted'),
-              userIdStr: BuiltValueNullFieldError.checkNotNull(userIdStr, r'TweetLegacy', 'userIdStr'),
-              idStr: BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr'));
+              userIdStr: BuiltValueNullFieldError.checkNotNull(userIdStr, r'TweetLegacy', 'userIdStr'));
     } catch (_) {
       late String _$failedField;
       try {

@@ -15,13 +15,14 @@ part 'tweet_legacy.g.dart';
 /// Properties:
 /// * [bookmarkCount] 
 /// * [bookmarked] 
-/// * [createdAt] 
 /// * [conversationIdStr] 
+/// * [createdAt] 
 /// * [displayTextRange] 
 /// * [entities] 
 /// * [favoriteCount] 
 /// * [favorited] 
 /// * [fullText] 
+/// * [idStr] 
 /// * [isQuoteStatus] 
 /// * [lang] 
 /// * [possiblySensitive] 
@@ -31,7 +32,6 @@ part 'tweet_legacy.g.dart';
 /// * [retweetCount] 
 /// * [retweeted] 
 /// * [userIdStr] 
-/// * [idStr] 
 @BuiltValue()
 abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   @BuiltValueField(wireName: r'bookmark_count')
@@ -40,11 +40,11 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   @BuiltValueField(wireName: r'bookmarked')
   bool get bookmarked;
 
-  @BuiltValueField(wireName: r'created_at')
-  String get createdAt;
-
   @BuiltValueField(wireName: r'conversation_id_str')
   String get conversationIdStr;
+
+  @BuiltValueField(wireName: r'created_at')
+  String get createdAt;
 
   @BuiltValueField(wireName: r'display_text_range')
   BuiltList<int> get displayTextRange;
@@ -60,6 +60,9 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'full_text')
   String get fullText;
+
+  @BuiltValueField(wireName: r'id_str')
+  String get idStr;
 
   @BuiltValueField(wireName: r'is_quote_status')
   bool get isQuoteStatus;
@@ -87,9 +90,6 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'user_id_str')
   String get userIdStr;
-
-  @BuiltValueField(wireName: r'id_str')
-  String get idStr;
 
   TweetLegacy._();
 
@@ -126,14 +126,14 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.bookmarked,
       specifiedType: const FullType(bool),
     );
-    yield r'created_at';
-    yield serializers.serialize(
-      object.createdAt,
-      specifiedType: const FullType(String),
-    );
     yield r'conversation_id_str';
     yield serializers.serialize(
       object.conversationIdStr,
+      specifiedType: const FullType(String),
+    );
+    yield r'created_at';
+    yield serializers.serialize(
+      object.createdAt,
       specifiedType: const FullType(String),
     );
     yield r'display_text_range';
@@ -159,6 +159,11 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
     yield r'full_text';
     yield serializers.serialize(
       object.fullText,
+      specifiedType: const FullType(String),
+    );
+    yield r'id_str';
+    yield serializers.serialize(
+      object.idStr,
       specifiedType: const FullType(String),
     );
     yield r'is_quote_status';
@@ -210,11 +215,6 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.userIdStr,
       specifiedType: const FullType(String),
     );
-    yield r'id_str';
-    yield serializers.serialize(
-      object.idStr,
-      specifiedType: const FullType(String),
-    );
   }
 
   @override
@@ -252,19 +252,19 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
           ) as bool;
           result.bookmarked = valueDes;
           break;
-        case r'created_at':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.createdAt = valueDes;
-          break;
         case r'conversation_id_str':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.conversationIdStr = valueDes;
+          break;
+        case r'created_at':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.createdAt = valueDes;
           break;
         case r'display_text_range':
           final valueDes = serializers.deserialize(
@@ -300,6 +300,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(String),
           ) as String;
           result.fullText = valueDes;
+          break;
+        case r'id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.idStr = valueDes;
           break;
         case r'is_quote_status':
           final valueDes = serializers.deserialize(
@@ -363,13 +370,6 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(String),
           ) as String;
           result.userIdStr = valueDes;
-          break;
-        case r'id_str':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.idStr = valueDes;
           break;
         default:
           unhandled.add(key);

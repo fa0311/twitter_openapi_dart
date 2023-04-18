@@ -9,10 +9,10 @@ import 'package:twitter_openapi_dart/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**itemContent** | [**ItemContent**](ItemContent.md) |  | 
 **clientEventInfo** | [**JsonObject**](.md) |  | [optional] 
+**entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **feedbackInfo** | [**JsonObject**](.md) |  | [optional] 
+**itemContent** | [**ItemContent**](ItemContent.md) |  | 
 **cursorType** | **String** |  | 
 **value** | **String** |  | 
 

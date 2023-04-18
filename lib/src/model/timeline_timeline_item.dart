@@ -16,28 +16,28 @@ part 'timeline_timeline_item.g.dart';
 ///
 /// Properties:
 /// * [typename] 
-/// * [entryType] 
-/// * [itemContent] 
 /// * [clientEventInfo] 
+/// * [entryType] 
 /// * [feedbackInfo] 
+/// * [itemContent] 
 @BuiltValue()
 abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
+  @BuiltValueField(wireName: r'clientEventInfo')
+  JsonObject? get clientEventInfo;
+
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
-  @BuiltValueField(wireName: r'itemContent')
-  ItemContent get itemContent;
-
-  @BuiltValueField(wireName: r'clientEventInfo')
-  JsonObject? get clientEventInfo;
-
   @BuiltValueField(wireName: r'feedbackInfo')
   JsonObject? get feedbackInfo;
+
+  @BuiltValueField(wireName: r'itemContent')
+  ItemContent get itemContent;
 
   TimelineTimelineItem._();
 
@@ -67,16 +67,6 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
       object.typename,
       specifiedType: const FullType(TypeName),
     );
-    yield r'entryType';
-    yield serializers.serialize(
-      object.entryType,
-      specifiedType: const FullType(ContentEntryType),
-    );
-    yield r'itemContent';
-    yield serializers.serialize(
-      object.itemContent,
-      specifiedType: const FullType(ItemContent),
-    );
     if (object.clientEventInfo != null) {
       yield r'clientEventInfo';
       yield serializers.serialize(
@@ -84,6 +74,11 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
         specifiedType: const FullType(JsonObject),
       );
     }
+    yield r'entryType';
+    yield serializers.serialize(
+      object.entryType,
+      specifiedType: const FullType(ContentEntryType),
+    );
     if (object.feedbackInfo != null) {
       yield r'feedbackInfo';
       yield serializers.serialize(
@@ -91,6 +86,11 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
         specifiedType: const FullType(JsonObject),
       );
     }
+    yield r'itemContent';
+    yield serializers.serialize(
+      object.itemContent,
+      specifiedType: const FullType(ItemContent),
+    );
   }
 
   @override
@@ -121,20 +121,6 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
           ) as TypeName;
           result.typename = valueDes;
           break;
-        case r'entryType':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ContentEntryType),
-          ) as ContentEntryType;
-          result.entryType = valueDes;
-          break;
-        case r'itemContent':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ItemContent),
-          ) as ItemContent;
-          result.itemContent.replace(valueDes);
-          break;
         case r'clientEventInfo':
           final valueDes = serializers.deserialize(
             value,
@@ -142,12 +128,26 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
           ) as JsonObject;
           result.clientEventInfo = valueDes;
           break;
+        case r'entryType':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ContentEntryType),
+          ) as ContentEntryType;
+          result.entryType = valueDes;
+          break;
         case r'feedbackInfo':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(JsonObject),
           ) as JsonObject;
           result.feedbackInfo = valueDes;
+          break;
+        case r'itemContent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemContent),
+          ) as ItemContent;
+          result.itemContent.replace(valueDes);
           break;
         default:
           unhandled.add(key);

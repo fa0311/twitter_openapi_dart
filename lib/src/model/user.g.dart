@@ -12,6 +12,8 @@ class _$User extends User {
   @override
   final JsonObject affiliatesHighlightedLabel;
   @override
+  final JsonObject? businessAccount;
+  @override
   final bool hasGraduatedAccess;
   @override
   final bool? hasNftAvatar;
@@ -23,8 +25,6 @@ class _$User extends User {
   final UserLegacy legacy;
   @override
   final String restId;
-  @override
-  final JsonObject? businessAccount;
   @override
   final bool superFollowEligible;
   @override
@@ -38,13 +38,13 @@ class _$User extends User {
   _$User._(
       {required this.typename,
       required this.affiliatesHighlightedLabel,
+      this.businessAccount,
       required this.hasGraduatedAccess,
       this.hasNftAvatar,
       required this.id,
       required this.isBlueVerified,
       required this.legacy,
       required this.restId,
-      this.businessAccount,
       required this.superFollowEligible,
       required this.superFollowedBy,
       required this.superFollowing})
@@ -80,13 +80,13 @@ class _$User extends User {
     return other is User &&
         typename == other.typename &&
         affiliatesHighlightedLabel == other.affiliatesHighlightedLabel &&
+        businessAccount == other.businessAccount &&
         hasGraduatedAccess == other.hasGraduatedAccess &&
         hasNftAvatar == other.hasNftAvatar &&
         id == other.id &&
         isBlueVerified == other.isBlueVerified &&
         legacy == other.legacy &&
         restId == other.restId &&
-        businessAccount == other.businessAccount &&
         superFollowEligible == other.superFollowEligible &&
         superFollowedBy == other.superFollowedBy &&
         superFollowing == other.superFollowing;
@@ -97,13 +97,13 @@ class _$User extends User {
     var _$hash = 0;
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, affiliatesHighlightedLabel.hashCode);
+    _$hash = $jc(_$hash, businessAccount.hashCode);
     _$hash = $jc(_$hash, hasGraduatedAccess.hashCode);
     _$hash = $jc(_$hash, hasNftAvatar.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, isBlueVerified.hashCode);
     _$hash = $jc(_$hash, legacy.hashCode);
     _$hash = $jc(_$hash, restId.hashCode);
-    _$hash = $jc(_$hash, businessAccount.hashCode);
     _$hash = $jc(_$hash, superFollowEligible.hashCode);
     _$hash = $jc(_$hash, superFollowedBy.hashCode);
     _$hash = $jc(_$hash, superFollowing.hashCode);
@@ -116,13 +116,13 @@ class _$User extends User {
     return (newBuiltValueToStringHelper(r'User')
           ..add('typename', typename)
           ..add('affiliatesHighlightedLabel', affiliatesHighlightedLabel)
+          ..add('businessAccount', businessAccount)
           ..add('hasGraduatedAccess', hasGraduatedAccess)
           ..add('hasNftAvatar', hasNftAvatar)
           ..add('id', id)
           ..add('isBlueVerified', isBlueVerified)
           ..add('legacy', legacy)
           ..add('restId', restId)
-          ..add('businessAccount', businessAccount)
           ..add('superFollowEligible', superFollowEligible)
           ..add('superFollowedBy', superFollowedBy)
           ..add('superFollowing', superFollowing))
@@ -142,6 +142,11 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _$this._affiliatesHighlightedLabel;
   set affiliatesHighlightedLabel(JsonObject? affiliatesHighlightedLabel) =>
       _$this._affiliatesHighlightedLabel = affiliatesHighlightedLabel;
+
+  JsonObject? _businessAccount;
+  JsonObject? get businessAccount => _$this._businessAccount;
+  set businessAccount(JsonObject? businessAccount) =>
+      _$this._businessAccount = businessAccount;
 
   bool? _hasGraduatedAccess;
   bool? get hasGraduatedAccess => _$this._hasGraduatedAccess;
@@ -169,11 +174,6 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? get restId => _$this._restId;
   set restId(String? restId) => _$this._restId = restId;
 
-  JsonObject? _businessAccount;
-  JsonObject? get businessAccount => _$this._businessAccount;
-  set businessAccount(JsonObject? businessAccount) =>
-      _$this._businessAccount = businessAccount;
-
   bool? _superFollowEligible;
   bool? get superFollowEligible => _$this._superFollowEligible;
   set superFollowEligible(bool? superFollowEligible) =>
@@ -198,13 +198,13 @@ class UserBuilder implements Builder<User, UserBuilder> {
     if ($v != null) {
       _typename = $v.typename;
       _affiliatesHighlightedLabel = $v.affiliatesHighlightedLabel;
+      _businessAccount = $v.businessAccount;
       _hasGraduatedAccess = $v.hasGraduatedAccess;
       _hasNftAvatar = $v.hasNftAvatar;
       _id = $v.id;
       _isBlueVerified = $v.isBlueVerified;
       _legacy = $v.legacy.toBuilder();
       _restId = $v.restId;
-      _businessAccount = $v.businessAccount;
       _superFollowEligible = $v.superFollowEligible;
       _superFollowedBy = $v.superFollowedBy;
       _superFollowing = $v.superFollowing;
@@ -236,6 +236,7 @@ class UserBuilder implements Builder<User, UserBuilder> {
                   typename, r'User', 'typename'),
               affiliatesHighlightedLabel: BuiltValueNullFieldError.checkNotNull(
                   affiliatesHighlightedLabel, r'User', 'affiliatesHighlightedLabel'),
+              businessAccount: businessAccount,
               hasGraduatedAccess: BuiltValueNullFieldError.checkNotNull(
                   hasGraduatedAccess, r'User', 'hasGraduatedAccess'),
               hasNftAvatar: hasNftAvatar,
@@ -245,7 +246,6 @@ class UserBuilder implements Builder<User, UserBuilder> {
               legacy: legacy.build(),
               restId: BuiltValueNullFieldError.checkNotNull(
                   restId, r'User', 'restId'),
-              businessAccount: businessAccount,
               superFollowEligible: BuiltValueNullFieldError.checkNotNull(
                   superFollowEligible, r'User', 'superFollowEligible'),
               superFollowedBy: BuiltValueNullFieldError.checkNotNull(

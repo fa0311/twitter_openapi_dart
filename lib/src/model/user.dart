@@ -16,13 +16,13 @@ part 'user.g.dart';
 /// Properties:
 /// * [typename] 
 /// * [affiliatesHighlightedLabel] 
+/// * [businessAccount] 
 /// * [hasGraduatedAccess] 
 /// * [hasNftAvatar] 
 /// * [id] 
 /// * [isBlueVerified] 
 /// * [legacy] 
 /// * [restId] 
-/// * [businessAccount] 
 /// * [superFollowEligible] 
 /// * [superFollowedBy] 
 /// * [superFollowing] 
@@ -34,6 +34,9 @@ abstract class User implements Built<User, UserBuilder> {
 
   @BuiltValueField(wireName: r'affiliates_highlighted_label')
   JsonObject get affiliatesHighlightedLabel;
+
+  @BuiltValueField(wireName: r'business_account')
+  JsonObject? get businessAccount;
 
   @BuiltValueField(wireName: r'has_graduated_access')
   bool get hasGraduatedAccess;
@@ -52,9 +55,6 @@ abstract class User implements Built<User, UserBuilder> {
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
-
-  @BuiltValueField(wireName: r'business_account')
-  JsonObject? get businessAccount;
 
   @BuiltValueField(wireName: r'super_follow_eligible')
   bool get superFollowEligible;
@@ -103,6 +103,13 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
       object.affiliatesHighlightedLabel,
       specifiedType: const FullType(JsonObject),
     );
+    if (object.businessAccount != null) {
+      yield r'business_account';
+      yield serializers.serialize(
+        object.businessAccount,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
     yield r'has_graduated_access';
     yield serializers.serialize(
       object.hasGraduatedAccess,
@@ -135,13 +142,6 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
       object.restId,
       specifiedType: const FullType(String),
     );
-    if (object.businessAccount != null) {
-      yield r'business_account';
-      yield serializers.serialize(
-        object.businessAccount,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
     yield r'super_follow_eligible';
     yield serializers.serialize(
       object.superFollowEligible,
@@ -194,6 +194,13 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
           ) as JsonObject;
           result.affiliatesHighlightedLabel = valueDes;
           break;
+        case r'business_account':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.businessAccount = valueDes;
+          break;
         case r'has_graduated_access':
           final valueDes = serializers.deserialize(
             value,
@@ -235,13 +242,6 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
             specifiedType: const FullType(String),
           ) as String;
           result.restId = valueDes;
-          break;
-        case r'business_account':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.businessAccount = valueDes;
           break;
         case r'super_follow_eligible':
           final valueDes = serializers.deserialize(

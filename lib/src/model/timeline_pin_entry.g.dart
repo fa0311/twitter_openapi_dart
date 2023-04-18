@@ -8,17 +8,17 @@ part of 'timeline_pin_entry.dart';
 
 class _$TimelinePinEntry extends TimelinePinEntry {
   @override
-  final InstructionType type;
-  @override
   final TimelineAddEntry entry;
+  @override
+  final InstructionType type;
 
   factory _$TimelinePinEntry(
           [void Function(TimelinePinEntryBuilder)? updates]) =>
       (new TimelinePinEntryBuilder()..update(updates))._build();
 
-  _$TimelinePinEntry._({required this.type, required this.entry}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'TimelinePinEntry', 'type');
+  _$TimelinePinEntry._({required this.entry, required this.type}) : super._() {
     BuiltValueNullFieldError.checkNotNull(entry, r'TimelinePinEntry', 'entry');
+    BuiltValueNullFieldError.checkNotNull(type, r'TimelinePinEntry', 'type');
   }
 
   @override
@@ -33,15 +33,15 @@ class _$TimelinePinEntry extends TimelinePinEntry {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TimelinePinEntry &&
-        type == other.type &&
-        entry == other.entry;
+        entry == other.entry &&
+        type == other.type;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, entry.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -49,8 +49,8 @@ class _$TimelinePinEntry extends TimelinePinEntry {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelinePinEntry')
-          ..add('type', type)
-          ..add('entry', entry))
+          ..add('entry', entry)
+          ..add('type', type))
         .toString();
   }
 }
@@ -59,14 +59,14 @@ class TimelinePinEntryBuilder
     implements Builder<TimelinePinEntry, TimelinePinEntryBuilder> {
   _$TimelinePinEntry? _$v;
 
-  InstructionType? _type;
-  InstructionType? get type => _$this._type;
-  set type(InstructionType? type) => _$this._type = type;
-
   TimelineAddEntryBuilder? _entry;
   TimelineAddEntryBuilder get entry =>
       _$this._entry ??= new TimelineAddEntryBuilder();
   set entry(TimelineAddEntryBuilder? entry) => _$this._entry = entry;
+
+  InstructionType? _type;
+  InstructionType? get type => _$this._type;
+  set type(InstructionType? type) => _$this._type = type;
 
   TimelinePinEntryBuilder() {
     TimelinePinEntry._defaults(this);
@@ -75,8 +75,8 @@ class TimelinePinEntryBuilder
   TimelinePinEntryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _type = $v.type;
       _entry = $v.entry.toBuilder();
+      _type = $v.type;
       _$v = null;
     }
     return this;
@@ -101,9 +101,9 @@ class TimelinePinEntryBuilder
     try {
       _$result = _$v ??
           new _$TimelinePinEntry._(
+              entry: entry.build(),
               type: BuiltValueNullFieldError.checkNotNull(
-                  type, r'TimelinePinEntry', 'type'),
-              entry: entry.build());
+                  type, r'TimelinePinEntry', 'type'));
     } catch (_) {
       late String _$failedField;
       try {

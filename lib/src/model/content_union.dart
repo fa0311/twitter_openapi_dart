@@ -21,10 +21,10 @@ part 'content_union.g.dart';
 ///
 /// Properties:
 /// * [typename] 
-/// * [entryType] 
-/// * [itemContent] 
 /// * [clientEventInfo] 
+/// * [entryType] 
 /// * [feedbackInfo] 
+/// * [itemContent] 
 /// * [cursorType] 
 /// * [value] 
 @BuiltValue()

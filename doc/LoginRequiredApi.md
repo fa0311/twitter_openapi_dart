@@ -9,9 +9,9 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getHomeLatestTimeline**](LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
-[**getHomeTimeline**](LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[**getListLatestTweetsTimeline**](LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
+[**getHomeLatestTimeline**](LoginRequiredApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[**getHomeTimeline**](LoginRequiredApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[**getListLatestTweetsTimeline**](LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
 
 
 # **getHomeLatestTimeline**
@@ -50,9 +50,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getLoginRequiredApi();
-final String variables = '{ "count":20, "includePromotedContent":true, "latestControlAvailable":true, "requestContext":"launch", "withDownvotePerspective":false }'; // String | 
-final String features = '{ "blue_business_profile_image_shape_enabled":true, "responsive_web_graphql_exclude_directive_enabled":true, "verified_phone_label_enabled":false, "responsive_web_graphql_timeline_navigation_enabled":true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled":false, "tweetypie_unmention_optimization_enabled":true, "vibe_api_enabled":true, "responsive_web_edit_tweet_api_enabled":true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled":true, "view_counts_everywhere_api_enabled":true, "longform_notetweets_consumption_enabled":true, "tweet_awards_web_tipping_enabled":false, "freedom_of_speech_not_reach_fetch_enabled":false, "standardized_nudges_misinfo":true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled":false, "interactive_text_enabled":true, "responsive_web_text_conversations_enabled":false, "longform_notetweets_rich_text_read_enabled":true, "responsive_web_enhance_cards_enabled":false }'; // String | 
-final String queryId = '37RUvMgTiEVYYfrRTVDxpw'; // String | 
+final String variables = {"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}; // String | 
+final String features = {{HomeLatestTimelineFeatures}}; // String | 
+final String queryId = zhX91JE87mWvfprhYE97xA; // String | 
 
 try {
     final response = api.getHomeLatestTimeline(variables, features, queryId);
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to '37RUvMgTiEVYYfrRTVDxpw']
+ **queryId** | **String**|  | [default to 'zhX91JE87mWvfprhYE97xA']
 
 ### Return type
 
@@ -121,9 +121,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getLoginRequiredApi();
-final String variables = '{ "count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true, "withDownvotePerspective": false, "withReactionsMetadata": false, "withReactionsPerspective": false }'; // String | 
-final String features = '{ "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_richtext_consumption_enabled": true, "responsive_web_enhance_cards_enabled": false }'; // String | 
-final String queryId = 'BntFPEOxs3GYdPaS6CjUcg'; // String | 
+final String variables = {"count": 40, "includePromotedContent": true, "latestControlAvailable": true, "withCommunity": true}; // String | 
+final String features = {{HomeTimelineFeatures}}; // String | 
+final String queryId = HCosKfLNW1AcOo3la3mMgg; // String | 
 
 try {
     final response = api.getHomeTimeline(variables, features, queryId);
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'BntFPEOxs3GYdPaS6CjUcg']
+ **queryId** | **String**|  | [default to 'HCosKfLNW1AcOo3la3mMgg']
 
 ### Return type
 
@@ -192,9 +192,9 @@ import 'package:twitter_openapi_dart/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDart().getLoginRequiredApi();
-final String variables = ' { "listId":"000000000000", "count":20, "withDownvotePerspective":false }'; // String | 
-final String features = ' { "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false, }'; // String | 
-final String queryId = 'VEwO8c1TYdm5zjxCOIiwFw'; // String | 
+final String variables = {"listId": "53044119", "count": 20}; // String | 
+final String features = {{ListLatestTweetsTimelineFeatures}}; // String | 
+final String queryId = 2TemLyqrMpTeAmysdbnVqw; // String | 
 
 try {
     final response = api.getListLatestTweetsTimeline(variables, features, queryId);
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'VEwO8c1TYdm5zjxCOIiwFw']
+ **queryId** | **String**|  | [default to '2TemLyqrMpTeAmysdbnVqw']
 
 ### Return type
 

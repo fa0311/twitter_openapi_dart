@@ -38,7 +38,7 @@ class TimelineApi {
   Future<Response<TimelineResponse>> getHomeLatestTimeline({ 
     required String variables,
     required String features,
-    String queryId = '37RUvMgTiEVYYfrRTVDxpw',
+    String queryId = 'zhX91JE87mWvfprhYE97xA',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -46,7 +46,7 @@ class TimelineApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline';
+    final _path = r'/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -155,7 +155,7 @@ class TimelineApi {
   Future<Response<TimelineResponse>> getHomeTimeline({ 
     required String variables,
     required String features,
-    String queryId = 'BntFPEOxs3GYdPaS6CjUcg',
+    String queryId = 'HCosKfLNW1AcOo3la3mMgg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -163,7 +163,7 @@ class TimelineApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/BntFPEOxs3GYdPaS6CjUcg/HomeTimeline';
+    final _path = r'/HCosKfLNW1AcOo3la3mMgg/HomeTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -272,7 +272,7 @@ class TimelineApi {
   Future<Response<ListTweetsTimelineResponse>> getListLatestTweetsTimeline({ 
     required String variables,
     required String features,
-    String queryId = 'VEwO8c1TYdm5zjxCOIiwFw',
+    String queryId = '2TemLyqrMpTeAmysdbnVqw',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -280,7 +280,7 @@ class TimelineApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline';
+    final _path = r'/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{

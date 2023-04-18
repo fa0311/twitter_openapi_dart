@@ -49,7 +49,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 final api = TwitterOpenapiDart().getFollowApi();
 final String variables = variables_example; // String | 
 final String features = features_example; // String | 
-final String queryId = queryId_example; // String | 
+final String queryId = {{Following}}}; // String | 
 
 try {
     api.getFollowers(variables, features, queryId);
@@ -65,23 +65,24 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowers**](doc\FollowApi.md#getfollowers) | **GET** /{{Following}}/Following | 
+[*FollowApi*](doc\FollowApi.md) | [**getFollowing**](doc\FollowApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowers**](doc\GraphqlApi.md#getfollowers) | **GET** /{{Following}}/Following | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getFollowing**](doc\GraphqlApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeLatestTimeline**](doc\GraphqlApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getHomeTimeline**](doc\GraphqlApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getLikes**](doc\GraphqlApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
+[*GraphqlApi*](doc\GraphqlApi.md) | [**getListLatestTweetsTimeline**](doc\GraphqlApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserByScreenName**](doc\GraphqlApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserMedia**](doc\GraphqlApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweets**](doc\GraphqlApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
 [*GraphqlApi*](doc\GraphqlApi.md) | [**getUserTweetsAndReplies**](doc\GraphqlApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
-[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeLatestTimeline**](doc\LoginRequiredApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
-[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeTimeline**](doc\LoginRequiredApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getListLatestTweetsTimeline**](doc\LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
-[*TimelineApi*](doc\TimelineApi.md) | [**getHomeLatestTimeline**](doc\TimelineApi.md#gethomelatesttimeline) | **GET** /37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline | 
-[*TimelineApi*](doc\TimelineApi.md) | [**getHomeTimeline**](doc\TimelineApi.md#gethometimeline) | **GET** /BntFPEOxs3GYdPaS6CjUcg/HomeTimeline | 
-[*TimelineApi*](doc\TimelineApi.md) | [**getListLatestTweetsTimeline**](doc\TimelineApi.md#getlistlatesttweetstimeline) | **GET** /VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline | 
+[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeLatestTimeline**](doc\LoginRequiredApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getHomeTimeline**](doc\LoginRequiredApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[*LoginRequiredApi*](doc\LoginRequiredApi.md) | [**getListLatestTweetsTimeline**](doc\LoginRequiredApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*TimelineApi*](doc\TimelineApi.md) | [**getHomeLatestTimeline**](doc\TimelineApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*TimelineApi*](doc\TimelineApi.md) | [**getHomeTimeline**](doc\TimelineApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[*TimelineApi*](doc\TimelineApi.md) | [**getListLatestTweetsTimeline**](doc\TimelineApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
 [*UserApi*](doc\UserApi.md) | [**getLikes**](doc\UserApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
 [*UserApi*](doc\UserApi.md) | [**getUserByScreenName**](doc\UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 [*UserApi*](doc\UserApi.md) | [**getUserMedia**](doc\UserApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 

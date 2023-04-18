@@ -21,6 +21,96 @@ class GraphqlApi {
 
   const GraphqlApi(this._dio, this._serializers);
 
+  /// getFollowers
+  /// get user list of followers
+  ///
+  /// Parameters:
+  /// * [variables] 
+  /// * [features] 
+  /// * [queryId] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<void>> getFollowers({ 
+    required String variables,
+    required String features,
+    String? queryId = '{{Following}}',
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/{{Following}}/Following';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _queryParameters = <String, dynamic>{
+      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      if (queryId != null) r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
+    };
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
   /// getFollowing
   /// get user list of following
   ///
@@ -40,7 +130,7 @@ class GraphqlApi {
   Future<Response<void>> getFollowing({ 
     required String variables,
     required String features,
-    String? queryId = 'FaBzCqZXuQCb4PhB0RHqHw',
+    String? queryId = '{{Followers}}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -48,7 +138,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VptSi88PiaQhBevFbGVlGg/Followers';
+    final _path = r'/{{Followers}}/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -130,7 +220,7 @@ class GraphqlApi {
   Future<Response<TimelineResponse>> getHomeLatestTimeline({ 
     required String variables,
     required String features,
-    String queryId = '37RUvMgTiEVYYfrRTVDxpw',
+    String queryId = 'zhX91JE87mWvfprhYE97xA',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -138,7 +228,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/37RUvMgTiEVYYfrRTVDxpw/HomeLatestTimeline';
+    final _path = r'/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -247,7 +337,7 @@ class GraphqlApi {
   Future<Response<TimelineResponse>> getHomeTimeline({ 
     required String variables,
     required String features,
-    String queryId = 'BntFPEOxs3GYdPaS6CjUcg',
+    String queryId = 'HCosKfLNW1AcOo3la3mMgg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -255,7 +345,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/BntFPEOxs3GYdPaS6CjUcg/HomeTimeline';
+    final _path = r'/HCosKfLNW1AcOo3la3mMgg/HomeTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -364,7 +454,7 @@ class GraphqlApi {
   Future<Response<UserTweetsResponse>> getLikes({ 
     required String variables,
     required String features,
-    String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
+    String queryId = '5fmEkRT-1AdHqEsbVgehMg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -481,7 +571,7 @@ class GraphqlApi {
   Future<Response<ListTweetsTimelineResponse>> getListLatestTweetsTimeline({ 
     required String variables,
     required String features,
-    String queryId = 'VEwO8c1TYdm5zjxCOIiwFw',
+    String queryId = '2TemLyqrMpTeAmysdbnVqw',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -489,7 +579,7 @@ class GraphqlApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VEwO8c1TYdm5zjxCOIiwFw/ListLatestTweetsTimeline';
+    final _path = r'/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -949,7 +1039,7 @@ class GraphqlApi {
   Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({ 
     required String variables,
     required String features,
-    String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
+    String queryId = 'RIWc55YCNyUJ-U3HHGYkdg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

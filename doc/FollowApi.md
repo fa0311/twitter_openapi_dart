@@ -9,8 +9,8 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getFollowers**](FollowApi.md#getfollowers) | **GET** /FaBzCqZXuQCb4PhB0RHqHw/Following | 
-[**getFollowing**](FollowApi.md#getfollowing) | **GET** /VptSi88PiaQhBevFbGVlGg/Followers | 
+[**getFollowers**](FollowApi.md#getfollowers) | **GET** /{{Following}}/Following | 
+[**getFollowing**](FollowApi.md#getfollowing) | **GET** /{{Followers}}/Followers | 
 
 
 # **getFollowers**
@@ -51,7 +51,7 @@ import 'package:twitter_openapi_dart/api.dart';
 final api = TwitterOpenapiDart().getFollowApi();
 final String variables = variables_example; // String | 
 final String features = features_example; // String | 
-final String queryId = queryId_example; // String | 
+final String queryId = {{Following}}}; // String | 
 
 try {
     api.getFollowers(variables, features, queryId);
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to 'VptSi88PiaQhBevFbGVlGg']
+ **queryId** | **String**|  | [optional] [default to '{{Following}}']
 
 ### Return type
 
@@ -121,7 +121,7 @@ import 'package:twitter_openapi_dart/api.dart';
 final api = TwitterOpenapiDart().getFollowApi();
 final String variables = variables_example; // String | 
 final String features = features_example; // String | 
-final String queryId = queryId_example; // String | 
+final String queryId = {{Followers}}; // String | 
 
 try {
     api.getFollowing(variables, features, queryId);
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [optional] [default to 'FaBzCqZXuQCb4PhB0RHqHw']
+ **queryId** | **String**|  | [optional] [default to '{{Followers}}']
 
 ### Return type
 

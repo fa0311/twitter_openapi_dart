@@ -14,8 +14,8 @@ part 'tweet_edit_control.g.dart';
 /// Properties:
 /// * [editTweetIds] 
 /// * [editableUntilMsecs] 
-/// * [isEditEligible] 
 /// * [editsRemaining] 
+/// * [isEditEligible] 
 @BuiltValue()
 abstract class TweetEditControl implements Built<TweetEditControl, TweetEditControlBuilder> {
   @BuiltValueField(wireName: r'edit_tweet_ids')
@@ -24,11 +24,11 @@ abstract class TweetEditControl implements Built<TweetEditControl, TweetEditCont
   @BuiltValueField(wireName: r'editable_until_msecs')
   String? get editableUntilMsecs;
 
-  @BuiltValueField(wireName: r'is_edit_eligible')
-  bool? get isEditEligible;
-
   @BuiltValueField(wireName: r'edits_remaining')
   String? get editsRemaining;
+
+  @BuiltValueField(wireName: r'is_edit_eligible')
+  bool? get isEditEligible;
 
   TweetEditControl._();
 
@@ -67,18 +67,18 @@ class _$TweetEditControlSerializer implements PrimitiveSerializer<TweetEditContr
         specifiedType: const FullType(String),
       );
     }
-    if (object.isEditEligible != null) {
-      yield r'is_edit_eligible';
-      yield serializers.serialize(
-        object.isEditEligible,
-        specifiedType: const FullType(bool),
-      );
-    }
     if (object.editsRemaining != null) {
       yield r'edits_remaining';
       yield serializers.serialize(
         object.editsRemaining,
         specifiedType: const FullType(String),
+      );
+    }
+    if (object.isEditEligible != null) {
+      yield r'is_edit_eligible';
+      yield serializers.serialize(
+        object.isEditEligible,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -118,19 +118,19 @@ class _$TweetEditControlSerializer implements PrimitiveSerializer<TweetEditContr
           ) as String;
           result.editableUntilMsecs = valueDes;
           break;
-        case r'is_edit_eligible':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.isEditEligible = valueDes;
-          break;
         case r'edits_remaining':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
           result.editsRemaining = valueDes;
+          break;
+        case r'is_edit_eligible':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isEditEligible = valueDes;
           break;
         default:
           unhandled.add(key);

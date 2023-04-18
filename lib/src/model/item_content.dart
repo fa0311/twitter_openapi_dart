@@ -17,9 +17,9 @@ part 'item_content.g.dart';
 /// Properties:
 /// * [typename] 
 /// * [itemType] 
+/// * [socialContext] 
 /// * [tweetDisplayType] 
 /// * [tweetResults] 
-/// * [socialContext] 
 @BuiltValue()
 abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
   @BuiltValueField(wireName: r'__typename')
@@ -30,14 +30,14 @@ abstract class ItemContent implements Built<ItemContent, ItemContentBuilder> {
   ContentItemType get itemType;
   // enum itemTypeEnum {  TimelineTweet,  };
 
+  @BuiltValueField(wireName: r'socialContext')
+  ItemContentSocialContext? get socialContext;
+
   @BuiltValueField(wireName: r'tweetDisplayType')
   String get tweetDisplayType;
 
   @BuiltValueField(wireName: r'tweet_results')
   ItemResult get tweetResults;
-
-  @BuiltValueField(wireName: r'socialContext')
-  ItemContentSocialContext? get socialContext;
 
   ItemContent._();
 
@@ -72,6 +72,13 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
       object.itemType,
       specifiedType: const FullType(ContentItemType),
     );
+    if (object.socialContext != null) {
+      yield r'socialContext';
+      yield serializers.serialize(
+        object.socialContext,
+        specifiedType: const FullType(ItemContentSocialContext),
+      );
+    }
     yield r'tweetDisplayType';
     yield serializers.serialize(
       object.tweetDisplayType,
@@ -82,13 +89,6 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
       object.tweetResults,
       specifiedType: const FullType(ItemResult),
     );
-    if (object.socialContext != null) {
-      yield r'socialContext';
-      yield serializers.serialize(
-        object.socialContext,
-        specifiedType: const FullType(ItemContentSocialContext),
-      );
-    }
   }
 
   @override
@@ -126,6 +126,13 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
           ) as ContentItemType;
           result.itemType = valueDes;
           break;
+        case r'socialContext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemContentSocialContext),
+          ) as ItemContentSocialContext;
+          result.socialContext.replace(valueDes);
+          break;
         case r'tweetDisplayType':
           final valueDes = serializers.deserialize(
             value,
@@ -139,13 +146,6 @@ class _$ItemContentSerializer implements PrimitiveSerializer<ItemContent> {
             specifiedType: const FullType(ItemResult),
           ) as ItemResult;
           result.tweetResults.replace(valueDes);
-          break;
-        case r'socialContext':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(ItemContentSocialContext),
-          ) as ItemContentSocialContext;
-          result.socialContext.replace(valueDes);
           break;
         default:
           unhandled.add(key);

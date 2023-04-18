@@ -9,13 +9,13 @@ import 'package:twitter_openapi_dart/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**restId** | **String** |  | 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
-**unmentionData** | [**JsonObject**](.md) |  | [optional] 
 **editControl** | [**TweetEditControl**](TweetEditControl.md) |  | 
 **editPrespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | 
 **isTranslatable** | **bool** |  | [default to false]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
+**restId** | **String** |  | 
+**unmentionData** | [**JsonObject**](.md) |  | [optional] 
 **views** | [**TweetViews**](TweetViews.md) |  | 
 **tweet** | [**Tweet**](Tweet.md) |  | 
 

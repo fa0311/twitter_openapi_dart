@@ -210,7 +210,7 @@ void main() async {
             "includePromotedContent": true,
             "withQuickPromoteEligibilityTweetFields": true,
             "withVoice": true,
-            "withV2Timeline": true
+            "withV2Timeline": true,
           }),
           features: jsonEncode({
             "blue_business_profile_image_shape_enabled": true,
@@ -231,7 +231,7 @@ void main() async {
             "interactive_text_enabled": true,
             "responsive_web_text_conversations_enabled": false,
             "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false
+            "responsive_web_enhance_cards_enabled": false,
           }),
         );
     expect(response.statusCode, 200);
@@ -243,11 +243,10 @@ void main() async {
           variables: jsonEncode({
             "userId": "44196397",
             "count": 40,
-            "cursor": "HCaAgIDs793x3i0AAA==",
             "includePromotedContent": true,
             "withCommunity": true,
             "withVoice": true,
-            "withV2Timeline": true
+            "withV2Timeline": true,
           }),
           features: jsonEncode({
             "blue_business_profile_image_shape_enabled": true,
@@ -268,7 +267,7 @@ void main() async {
             "interactive_text_enabled": true,
             "responsive_web_text_conversations_enabled": false,
             "longform_notetweets_rich_text_read_enabled": true,
-            "responsive_web_enhance_cards_enabled": false
+            "responsive_web_enhance_cards_enabled": false,
           }),
         );
     expect(response.statusCode, 200);
@@ -284,7 +283,7 @@ void main() async {
             "withClientEventToken": false,
             "withBirdwatchNotes": false,
             "withVoice": true,
-            "withV2Timeline": true
+            "withV2Timeline": true,
           }),
           features: jsonEncode({
             "blue_business_profile_image_shape_enabled": true,
@@ -321,7 +320,7 @@ void main() async {
             "withClientEventToken": false,
             "withBirdwatchNotes": false,
             "withVoice": true,
-            "withV2Timeline": true
+            "withV2Timeline": true,
           }),
           features: jsonEncode({
             "blue_business_profile_image_shape_enabled": true,

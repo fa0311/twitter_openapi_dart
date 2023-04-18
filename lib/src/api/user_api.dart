@@ -38,7 +38,7 @@ class UserApi {
   Future<Response<UserTweetsResponse>> getLikes({ 
     required String variables,
     required String features,
-    String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
+    String queryId = '5fmEkRT-1AdHqEsbVgehMg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -506,7 +506,7 @@ class UserApi {
   Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({ 
     required String variables,
     required String features,
-    String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
+    String queryId = 'RIWc55YCNyUJ-U3HHGYkdg',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

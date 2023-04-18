@@ -13,16 +13,16 @@ part 'timeline_pin_entry.g.dart';
 /// TimelinePinEntry
 ///
 /// Properties:
-/// * [type] 
 /// * [entry] 
+/// * [type] 
 @BuiltValue()
 abstract class TimelinePinEntry implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
+  @BuiltValueField(wireName: r'entry')
+  TimelineAddEntry get entry;
+
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  };
-
-  @BuiltValueField(wireName: r'entry')
-  TimelineAddEntry get entry;
 
   TimelinePinEntry._();
 
@@ -47,15 +47,15 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
     TimelinePinEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'type';
-    yield serializers.serialize(
-      object.type,
-      specifiedType: const FullType(InstructionType),
-    );
     yield r'entry';
     yield serializers.serialize(
       object.entry,
       specifiedType: const FullType(TimelineAddEntry),
+    );
+    yield r'type';
+    yield serializers.serialize(
+      object.type,
+      specifiedType: const FullType(InstructionType),
     );
   }
 
@@ -80,19 +80,19 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(InstructionType),
-          ) as InstructionType;
-          result.type = valueDes;
-          break;
         case r'entry':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(TimelineAddEntry),
           ) as TimelineAddEntry;
           result.entry.replace(valueDes);
+          break;
+        case r'type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(InstructionType),
+          ) as InstructionType;
+          result.type = valueDes;
           break;
         default:
           unhandled.add(key);

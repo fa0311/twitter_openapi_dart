@@ -19,13 +19,13 @@ part 'tweet.g.dart';
 ///
 /// Properties:
 /// * [typename] 
-/// * [restId] 
 /// * [core] 
-/// * [unmentionData] 
 /// * [editControl] 
 /// * [editPrespective] 
 /// * [isTranslatable] 
 /// * [legacy] 
+/// * [restId] 
+/// * [unmentionData] 
 /// * [views] 
 @BuiltValue()
 abstract class Tweet implements Built<Tweet, TweetBuilder> {
@@ -33,14 +33,8 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
   TypeName? get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
 
-  @BuiltValueField(wireName: r'rest_id')
-  String get restId;
-
   @BuiltValueField(wireName: r'core')
   UserResultCore get core;
-
-  @BuiltValueField(wireName: r'unmention_data')
-  JsonObject? get unmentionData;
 
   @BuiltValueField(wireName: r'edit_control')
   TweetEditControl get editControl;
@@ -53,6 +47,12 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
 
   @BuiltValueField(wireName: r'legacy')
   TweetLegacy get legacy;
+
+  @BuiltValueField(wireName: r'rest_id')
+  String get restId;
+
+  @BuiltValueField(wireName: r'unmention_data')
+  JsonObject? get unmentionData;
 
   @BuiltValueField(wireName: r'views')
   TweetViews get views;
@@ -88,23 +88,11 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
         specifiedType: const FullType(TypeName),
       );
     }
-    yield r'rest_id';
-    yield serializers.serialize(
-      object.restId,
-      specifiedType: const FullType(String),
-    );
     yield r'core';
     yield serializers.serialize(
       object.core,
       specifiedType: const FullType(UserResultCore),
     );
-    if (object.unmentionData != null) {
-      yield r'unmention_data';
-      yield serializers.serialize(
-        object.unmentionData,
-        specifiedType: const FullType(JsonObject),
-      );
-    }
     yield r'edit_control';
     yield serializers.serialize(
       object.editControl,
@@ -125,6 +113,18 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
       object.legacy,
       specifiedType: const FullType(TweetLegacy),
     );
+    yield r'rest_id';
+    yield serializers.serialize(
+      object.restId,
+      specifiedType: const FullType(String),
+    );
+    if (object.unmentionData != null) {
+      yield r'unmention_data';
+      yield serializers.serialize(
+        object.unmentionData,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
     yield r'views';
     yield serializers.serialize(
       object.views,
@@ -160,26 +160,12 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
           ) as TypeName;
           result.typename = valueDes;
           break;
-        case r'rest_id':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.restId = valueDes;
-          break;
         case r'core':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(UserResultCore),
           ) as UserResultCore;
           result.core.replace(valueDes);
-          break;
-        case r'unmention_data':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.unmentionData = valueDes;
           break;
         case r'edit_control':
           final valueDes = serializers.deserialize(
@@ -208,6 +194,20 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
             specifiedType: const FullType(TweetLegacy),
           ) as TweetLegacy;
           result.legacy.replace(valueDes);
+          break;
+        case r'rest_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.restId = valueDes;
+          break;
+        case r'unmention_data':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.unmentionData = valueDes;
           break;
         case r'views':
           final valueDes = serializers.deserialize(

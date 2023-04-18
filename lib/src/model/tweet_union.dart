@@ -22,13 +22,13 @@ part 'tweet_union.g.dart';
 ///
 /// Properties:
 /// * [typename] 
-/// * [restId] 
 /// * [core] 
-/// * [unmentionData] 
 /// * [editControl] 
 /// * [editPrespective] 
 /// * [isTranslatable] 
 /// * [legacy] 
+/// * [restId] 
+/// * [unmentionData] 
 /// * [views] 
 /// * [tweet] 
 @BuiltValue()
