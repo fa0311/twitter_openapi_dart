@@ -25,6 +25,11 @@ class FollowApi {
   /// * [variables] 
   /// * [features] 
   /// * [queryId] 
+  /// * [authorization] 
+  /// * [xTwitterActiveUser] 
+  /// * [xTwitterAuthType] 
+  /// * [xTwitterClientLanguage] 
+  /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -38,6 +43,11 @@ class FollowApi {
     required String variables,
     required String features,
     String queryId = 'b22I8WSfQ8H4Ev8486xAlQ',
+    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    String xTwitterActiveUser = 'yes',
+    String xTwitterAuthType = 'OAuth2Session',
+    String xTwitterClientLanguage = 'en',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -49,26 +59,16 @@ class FollowApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'authorization': authorization,
+        r'x-twitter-active-user': xTwitterActiveUser,
+        r'x-twitter-auth-type': xTwitterAuthType,
+        r'x-twitter-client-language': xTwitterClientLanguage,
+        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
-            'where': 'header',
-          },{
-            'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
-            'where': 'header',
-          },{
-            'type': 'apiKey',
-            'name': 'ClientLanguage',
-            'keyName': 'x-twitter-client-language',
-            'where': 'header',
-          },{
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
@@ -142,6 +142,11 @@ class FollowApi {
   /// * [variables] 
   /// * [features] 
   /// * [queryId] 
+  /// * [authorization] 
+  /// * [xTwitterActiveUser] 
+  /// * [xTwitterAuthType] 
+  /// * [xTwitterClientLanguage] 
+  /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -155,6 +160,11 @@ class FollowApi {
     required String variables,
     required String features,
     String queryId = 'JpFFCTBPxYVlDqMUr9twzQ',
+    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    String xTwitterActiveUser = 'yes',
+    String xTwitterAuthType = 'OAuth2Session',
+    String xTwitterClientLanguage = 'en',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -166,26 +176,16 @@ class FollowApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'authorization': authorization,
+        r'x-twitter-active-user': xTwitterActiveUser,
+        r'x-twitter-auth-type': xTwitterAuthType,
+        r'x-twitter-client-language': xTwitterClientLanguage,
+        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
-            'where': 'header',
-          },{
-            'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
-            'where': 'header',
-          },{
-            'type': 'apiKey',
-            'name': 'ClientLanguage',
-            'keyName': 'x-twitter-client-language',
-            'where': 'header',
-          },{
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',

@@ -10,11 +10,6 @@ class HeaderAuth extends Interceptor {
   static String ct0 = "ct0";
   static String authToken = "auth_token";
 
-  /* cSpell:disable */
-  static String bearer = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA";
-  static String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36";
-  /* cSpell:enable */
-
   Map<String, String> cookies = {};
 
   Future<void> readCookies(String path) async {
@@ -25,12 +20,7 @@ class HeaderAuth extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     options.headers.addAll(<String, String>{
-      "authorization": "Bearer ${HeaderAuth.bearer}",
-      "User-Agent": HeaderAuth.userAgent,
       "x-csrf-token": cookies.entries.firstWhere((e) => e.key == HeaderAuth.ct0).value,
-      "x-twitter-active-user": "yes",
-      "x-twitter-auth-type": "OAuth2Session",
-      "x-twitter-client-language": "ja",
       "cookie": cookies.entries.fold("", (a, b) => "${a}${b.key}=${b.value};"),
     });
     return handler.next(options);
