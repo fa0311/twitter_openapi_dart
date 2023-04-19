@@ -1,8 +1,8 @@
-# twitter_openapi_dart.model.TimelineTerminateTimeline
+# twitter_openapi_dart_generated.model.TimelineTerminateTimeline
 
 ## Load the model package
 ```dart
-import 'package:twitter_openapi_dart/api.dart';
+import 'package:twitter_openapi_dart_generated/api.dart';
 ```
 
 ## Properties

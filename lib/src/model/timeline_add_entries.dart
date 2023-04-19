@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/instruction_type.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart/src/model/instruction_type.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_add_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

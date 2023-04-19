@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:twitter_openapi_dart/src/auth/auth.dart';
+import 'package:twitter_openapi_dart_generated/src/auth/auth.dart';
 
 class BasicAuthInfo {
   final String username;

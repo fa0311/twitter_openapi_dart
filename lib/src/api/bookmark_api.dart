@@ -7,9 +7,9 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/bookmarks_response.dart';
-import 'package:twitter_openapi_dart/src/model/tweet_detail_response.dart';
+import 'package:twitter_openapi_dart_generated/src/api_util.dart';
+import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
 
 class BookmarkApi {
 

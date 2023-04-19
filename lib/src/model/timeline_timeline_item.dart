@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
-import 'package:twitter_openapi_dart/src/model/item_content_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';

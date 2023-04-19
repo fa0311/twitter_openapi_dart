@@ -4,25 +4,25 @@
 
 import 'package:dio/dio.dart';
 import 'package:built_value/serializer.dart';
-import 'package:twitter_openapi_dart/src/serializers.dart';
-import 'package:twitter_openapi_dart/src/auth/api_key_auth.dart';
-import 'package:twitter_openapi_dart/src/auth/basic_auth.dart';
-import 'package:twitter_openapi_dart/src/auth/bearer_auth.dart';
-import 'package:twitter_openapi_dart/src/auth/oauth.dart';
-import 'package:twitter_openapi_dart/src/api/bookmark_api.dart';
-import 'package:twitter_openapi_dart/src/api/follow_api.dart';
-import 'package:twitter_openapi_dart/src/api/graphql_api.dart';
-import 'package:twitter_openapi_dart/src/api/login_required_api.dart';
-import 'package:twitter_openapi_dart/src/api/timeline_api.dart';
-import 'package:twitter_openapi_dart/src/api/user_api.dart';
+import 'package:twitter_openapi_dart_generated/src/serializers.dart';
+import 'package:twitter_openapi_dart_generated/src/auth/api_key_auth.dart';
+import 'package:twitter_openapi_dart_generated/src/auth/basic_auth.dart';
+import 'package:twitter_openapi_dart_generated/src/auth/bearer_auth.dart';
+import 'package:twitter_openapi_dart_generated/src/auth/oauth.dart';
+import 'package:twitter_openapi_dart_generated/src/api/bookmark_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/follow_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/graphql_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/login_required_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/timeline_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
 
-class TwitterOpenapiDart {
+class TwitterOpenapiDartGenerated {
   static const String basePath = r'https://twitter.com/i/api/graphql';
 
   final Dio dio;
   final Serializers serializers;
 
-  TwitterOpenapiDart({
+  TwitterOpenapiDartGenerated({
     Dio? dio,
     Serializers? serializers,
     String? basePathOverride,

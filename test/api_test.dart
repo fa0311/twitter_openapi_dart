@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:test/test.dart';
-import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
+import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
 
 import 'dart:io';
@@ -42,9 +42,9 @@ bool contentTest(BuiltList<InstructionUnion> instructions) {
 void main() async {
   final auth = HeaderAuth();
   await auth.readCookies("test/cookies.json");
-  final client = TwitterOpenapiDart(
+  final client = TwitterOpenapiDartGenerated(
     dio: Dio(BaseOptions(
-      baseUrl: TwitterOpenapiDart.basePath,
+      baseUrl: TwitterOpenapiDartGenerated.basePath,
       connectTimeout: 10000,
       receiveTimeout: 6000,
     )),

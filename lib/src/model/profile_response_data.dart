@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/user_result_by_screen_name.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_result_by_screen_name.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

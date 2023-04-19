@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/user.dart';
-import 'package:twitter_openapi_dart/src/model/user_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';

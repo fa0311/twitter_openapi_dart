@@ -1,8 +1,8 @@
-# twitter_openapi_dart.model.TweetLegacy
+# twitter_openapi_dart_generated.model.TweetLegacy
 
 ## Load the model package
 ```dart
-import 'package:twitter_openapi_dart/api.dart';
+import 'package:twitter_openapi_dart_generated/api.dart';
 ```
 
 ## Properties

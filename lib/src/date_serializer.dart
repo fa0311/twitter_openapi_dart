@@ -4,7 +4,7 @@
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
-import 'package:twitter_openapi_dart/src/model/date.dart';
+import 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
 class DateSerializer implements PrimitiveSerializer<Date> {
 

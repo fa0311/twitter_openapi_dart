@@ -1,7 +1,7 @@
 inputSpec: twitter-openapi/dist/openapi-3.0.yaml
 outputDir: .
 additionalProperties:
-  pubName: twitter_openapi_dart
+  pubName: twitter_openapi_dart_generated
   pubDescription: Twitter OpenAPI Dart
   pubVersion: 0.0.1
   pubAuthor: yuki

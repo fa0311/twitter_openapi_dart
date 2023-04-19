@@ -7,9 +7,9 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/list_tweets_timeline_response.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/api_util.dart';
+import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
 
 class LoginRequiredApi {
 

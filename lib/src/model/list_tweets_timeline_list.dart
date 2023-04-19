@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/list_tweets_timeline.dart';
+import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

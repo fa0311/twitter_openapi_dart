@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_v2.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
+import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

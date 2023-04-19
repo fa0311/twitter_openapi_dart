@@ -3,16 +3,16 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart/src/model/timeline_user.dart';
-import 'package:twitter_openapi_dart/src/model/type_name.dart';
-import 'package:twitter_openapi_dart/src/model/user_results.dart';
-import 'package:twitter_openapi_dart/src/model/content_entry_type.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
+import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart/src/model/content_item_type.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_timeline_cursor.dart';
-import 'package:twitter_openapi_dart/src/model/social_context.dart';
-import 'package:twitter_openapi_dart/src/model/item_result.dart';
-import 'package:twitter_openapi_dart/src/model/timeline_tweet.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
+import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
+import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
+import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
