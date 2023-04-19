@@ -2,7 +2,6 @@
 test/**
 tools/**
 twitter-openapi/**
-.gitmodules
 LICENSE.txt
 .openapi-generator-ignore
 .openapi-generator-ignore-overwrites

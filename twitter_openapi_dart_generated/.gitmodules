@@ -1,4 +1,0 @@
-[submodule "twitter-openapi"]
-	path = twitter-openapi
-	url = https://github.com/fa0311/twitter-openapi.git
-	branch = main
