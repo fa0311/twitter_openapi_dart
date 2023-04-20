@@ -15,8 +15,6 @@ class _$TimelineUser extends TimelineUser {
   final ContentItemType itemType;
   @override
   final String userDisplayType;
-  @override
-  final UserResults userResults;
 
   factory _$TimelineUser([void Function(TimelineUserBuilder)? updates]) =>
       (new TimelineUserBuilder()..update(updates))._build();
@@ -25,8 +23,7 @@ class _$TimelineUser extends TimelineUser {
       {this.socialContext,
       required this.typename,
       required this.itemType,
-      required this.userDisplayType,
-      required this.userResults})
+      required this.userDisplayType})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'TimelineUser', 'typename');
@@ -34,8 +31,6 @@ class _$TimelineUser extends TimelineUser {
         itemType, r'TimelineUser', 'itemType');
     BuiltValueNullFieldError.checkNotNull(
         userDisplayType, r'TimelineUser', 'userDisplayType');
-    BuiltValueNullFieldError.checkNotNull(
-        userResults, r'TimelineUser', 'userResults');
   }
 
   @override
@@ -52,8 +47,7 @@ class _$TimelineUser extends TimelineUser {
         socialContext == other.socialContext &&
         typename == other.typename &&
         itemType == other.itemType &&
-        userDisplayType == other.userDisplayType &&
-        userResults == other.userResults;
+        userDisplayType == other.userDisplayType;
   }
 
   @override
@@ -63,7 +57,6 @@ class _$TimelineUser extends TimelineUser {
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
     _$hash = $jc(_$hash, userDisplayType.hashCode);
-    _$hash = $jc(_$hash, userResults.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -74,8 +67,7 @@ class _$TimelineUser extends TimelineUser {
           ..add('socialContext', socialContext)
           ..add('typename', typename)
           ..add('itemType', itemType)
-          ..add('userDisplayType', userDisplayType)
-          ..add('userResults', userResults))
+          ..add('userDisplayType', userDisplayType))
         .toString();
   }
 }
@@ -103,12 +95,6 @@ class TimelineUserBuilder
   set userDisplayType(String? userDisplayType) =>
       _$this._userDisplayType = userDisplayType;
 
-  UserResultsBuilder? _userResults;
-  UserResultsBuilder get userResults =>
-      _$this._userResults ??= new UserResultsBuilder();
-  set userResults(UserResultsBuilder? userResults) =>
-      _$this._userResults = userResults;
-
   TimelineUserBuilder() {
     TimelineUser._defaults(this);
   }
@@ -120,7 +106,6 @@ class TimelineUserBuilder
       _typename = $v.typename;
       _itemType = $v.itemType;
       _userDisplayType = $v.userDisplayType;
-      _userResults = $v.userResults.toBuilder();
       _$v = null;
     }
     return this;
@@ -151,16 +136,12 @@ class TimelineUserBuilder
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineUser', 'itemType'),
               userDisplayType: BuiltValueNullFieldError.checkNotNull(
-                  userDisplayType, r'TimelineUser', 'userDisplayType'),
-              userResults: userResults.build());
+                  userDisplayType, r'TimelineUser', 'userDisplayType'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'socialContext';
         _socialContext?.build();
-
-        _$failedField = 'userResults';
-        userResults.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TimelineUser', _$failedField, e.toString());

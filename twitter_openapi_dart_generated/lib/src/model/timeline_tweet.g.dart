@@ -14,6 +14,8 @@ class _$TimelineTweet extends TimelineTweet {
   @override
   final ContentItemType itemType;
   @override
+  final JsonObject? promotedMetadata;
+  @override
   final String tweetDisplayType;
   @override
   final ItemResult tweetResults;
@@ -25,6 +27,7 @@ class _$TimelineTweet extends TimelineTweet {
       {this.socialContext,
       required this.typename,
       required this.itemType,
+      this.promotedMetadata,
       required this.tweetDisplayType,
       required this.tweetResults})
       : super._() {
@@ -52,6 +55,7 @@ class _$TimelineTweet extends TimelineTweet {
         socialContext == other.socialContext &&
         typename == other.typename &&
         itemType == other.itemType &&
+        promotedMetadata == other.promotedMetadata &&
         tweetDisplayType == other.tweetDisplayType &&
         tweetResults == other.tweetResults;
   }
@@ -62,6 +66,7 @@ class _$TimelineTweet extends TimelineTweet {
     _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
+    _$hash = $jc(_$hash, promotedMetadata.hashCode);
     _$hash = $jc(_$hash, tweetDisplayType.hashCode);
     _$hash = $jc(_$hash, tweetResults.hashCode);
     _$hash = $jf(_$hash);
@@ -74,6 +79,7 @@ class _$TimelineTweet extends TimelineTweet {
           ..add('socialContext', socialContext)
           ..add('typename', typename)
           ..add('itemType', itemType)
+          ..add('promotedMetadata', promotedMetadata)
           ..add('tweetDisplayType', tweetDisplayType)
           ..add('tweetResults', tweetResults))
         .toString();
@@ -98,6 +104,11 @@ class TimelineTweetBuilder
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
+  JsonObject? _promotedMetadata;
+  JsonObject? get promotedMetadata => _$this._promotedMetadata;
+  set promotedMetadata(JsonObject? promotedMetadata) =>
+      _$this._promotedMetadata = promotedMetadata;
+
   String? _tweetDisplayType;
   String? get tweetDisplayType => _$this._tweetDisplayType;
   set tweetDisplayType(String? tweetDisplayType) =>
@@ -119,6 +130,7 @@ class TimelineTweetBuilder
       _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
       _itemType = $v.itemType;
+      _promotedMetadata = $v.promotedMetadata;
       _tweetDisplayType = $v.tweetDisplayType;
       _tweetResults = $v.tweetResults.toBuilder();
       _$v = null;
@@ -150,6 +162,7 @@ class TimelineTweetBuilder
                   typename, r'TimelineTweet', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineTweet', 'itemType'),
+              promotedMetadata: promotedMetadata,
               tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
                   tweetDisplayType, r'TimelineTweet', 'tweetDisplayType'),
               tweetResults: tweetResults.build());

@@ -6,12 +6,12 @@
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
+import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -25,13 +25,13 @@ part 'item_content_union.g.dart';
 /// * [socialContext] 
 /// * [typename] 
 /// * [itemType] 
+/// * [promotedMetadata] 
 /// * [tweetDisplayType] 
 /// * [tweetResults] 
 /// * [cursorType] 
 /// * [entryType] 
 /// * [value] 
 /// * [userDisplayType] 
-/// * [userResults] 
 @BuiltValue()
 abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUnionBuilder> {
   /// One Of [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]

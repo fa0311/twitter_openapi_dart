@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **socialContext** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
+**promotedMetadata** | [**JsonObject**](.md) |  | [optional] 
 **tweetDisplayType** | **String** |  | 
 **tweetResults** | [**ItemResult**](ItemResult.md) |  | 
 
