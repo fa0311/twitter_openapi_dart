@@ -18,3 +18,5 @@ else {
 
 dart pub run build_runner build --delete-conflicting-outputs
 Copy-Item -Path twitter-openapi/LICENSE.txt -Destination LICENSE.txt -Force
+
+Start-Process -FilePath "python" -ArgumentList "tools/win/replace.py" -Wait -NoNewWindow

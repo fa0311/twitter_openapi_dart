@@ -71,87 +71,87 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*BookmarkApi*](doc\BookmarkApi.md) | [**getBookmarks**](doc\BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getFollowers**](doc\DefaultApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getFollowing**](doc\DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getHomeLatestTimeline**](doc\DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getHomeTimeline**](doc\DefaultApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getLikes**](doc\DefaultApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getListLatestTweetsTimeline**](doc\DefaultApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getProfileSpotlightsQuery**](doc\DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getTweetDetail**](doc\DefaultApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getUserByScreenName**](doc\DefaultApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getUserMedia**](doc\DefaultApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getUserTweets**](doc\DefaultApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
-[*DefaultApi*](doc\DefaultApi.md) | [**getUserTweetsAndReplies**](doc\DefaultApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
-[*GraphqlApi*](doc\GraphqlApi.md) | [**getBookmarks**](doc\GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*BookmarkApi*](doc/BookmarkApi.md) | [**getBookmarks**](doc/BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getFollowers**](doc/DefaultApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getFollowing**](doc/DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getHomeLatestTimeline**](doc/DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getHomeTimeline**](doc/DefaultApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getLikes**](doc/DefaultApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getListLatestTweetsTimeline**](doc/DefaultApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getTweetDetail**](doc/DefaultApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getUserByScreenName**](doc/DefaultApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getUserMedia**](doc/DefaultApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getUserTweets**](doc/DefaultApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getUserTweetsAndReplies**](doc/DefaultApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
+[*GraphqlApi*](doc/GraphqlApi.md) | [**getBookmarks**](doc/GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 
 
 ## Documentation For Models
 
- - [BookmarksResponse](doc\BookmarksResponse.md)
- - [BookmarksResponseData](doc\BookmarksResponseData.md)
- - [BookmarksResponseData1](doc\BookmarksResponseData1.md)
- - [BookmarksTimeline](doc\BookmarksTimeline.md)
- - [ContentEntryType](doc\ContentEntryType.md)
- - [ContentItemType](doc\ContentItemType.md)
- - [ContentUnion](doc\ContentUnion.md)
- - [FollowResponse](doc\FollowResponse.md)
- - [FollowResponseData](doc\FollowResponseData.md)
- - [FollowResponseResult](doc\FollowResponseResult.md)
- - [FollowResponseUser](doc\FollowResponseUser.md)
- - [FollowTimeline](doc\FollowTimeline.md)
- - [HomeTimelineHome](doc\HomeTimelineHome.md)
- - [HomeTimelineResponseData](doc\HomeTimelineResponseData.md)
- - [InstructionType](doc\InstructionType.md)
- - [InstructionUnion](doc\InstructionUnion.md)
- - [ItemContentUnion](doc\ItemContentUnion.md)
- - [ItemResult](doc\ItemResult.md)
- - [ListTweetsTimeline](doc\ListTweetsTimeline.md)
- - [ListTweetsTimelineData](doc\ListTweetsTimelineData.md)
- - [ListTweetsTimelineList](doc\ListTweetsTimelineList.md)
- - [ListTweetsTimelineResponse](doc\ListTweetsTimelineResponse.md)
- - [ModuleEntry](doc\ModuleEntry.md)
- - [ModuleItem](doc\ModuleItem.md)
- - [ProfileResponse](doc\ProfileResponse.md)
- - [ProfileResponseData](doc\ProfileResponseData.md)
- - [SocialContext](doc\SocialContext.md)
- - [Timeline](doc\Timeline.md)
- - [TimelineAddEntries](doc\TimelineAddEntries.md)
- - [TimelineAddEntry](doc\TimelineAddEntry.md)
- - [TimelineClearCache](doc\TimelineClearCache.md)
- - [TimelinePinEntry](doc\TimelinePinEntry.md)
- - [TimelineResponse](doc\TimelineResponse.md)
- - [TimelineTerminateTimeline](doc\TimelineTerminateTimeline.md)
- - [TimelineTimelineCursor](doc\TimelineTimelineCursor.md)
- - [TimelineTimelineItem](doc\TimelineTimelineItem.md)
- - [TimelineTimelineModule](doc\TimelineTimelineModule.md)
- - [TimelineTweet](doc\TimelineTweet.md)
- - [TimelineUser](doc\TimelineUser.md)
- - [TimelineV2](doc\TimelineV2.md)
- - [Tweet](doc\Tweet.md)
- - [TweetDetailResponse](doc\TweetDetailResponse.md)
- - [TweetEditControl](doc\TweetEditControl.md)
- - [TweetEditPrespective](doc\TweetEditPrespective.md)
- - [TweetLegacy](doc\TweetLegacy.md)
- - [TweetUnion](doc\TweetUnion.md)
- - [TweetViews](doc\TweetViews.md)
- - [TweetWithVisibilityResults](doc\TweetWithVisibilityResults.md)
- - [TypeName](doc\TypeName.md)
- - [User](doc\User.md)
- - [UserLegacy](doc\UserLegacy.md)
- - [UserResponse](doc\UserResponse.md)
- - [UserResponseData](doc\UserResponseData.md)
- - [UserResultByScreenName](doc\UserResultByScreenName.md)
- - [UserResultByScreenNameLegacy](doc\UserResultByScreenNameLegacy.md)
- - [UserResultByScreenNameResult](doc\UserResultByScreenNameResult.md)
- - [UserResultCore](doc\UserResultCore.md)
- - [UserResults](doc\UserResults.md)
- - [UserTweetsData](doc\UserTweetsData.md)
- - [UserTweetsResponse](doc\UserTweetsResponse.md)
- - [UserTweetsResult](doc\UserTweetsResult.md)
- - [UserTweetsUser](doc\UserTweetsUser.md)
- - [UserUnion](doc\UserUnion.md)
+ - [BookmarksResponse](doc/BookmarksResponse.md)
+ - [BookmarksResponseData](doc/BookmarksResponseData.md)
+ - [BookmarksResponseData1](doc/BookmarksResponseData1.md)
+ - [BookmarksTimeline](doc/BookmarksTimeline.md)
+ - [ContentEntryType](doc/ContentEntryType.md)
+ - [ContentItemType](doc/ContentItemType.md)
+ - [ContentUnion](doc/ContentUnion.md)
+ - [FollowResponse](doc/FollowResponse.md)
+ - [FollowResponseData](doc/FollowResponseData.md)
+ - [FollowResponseResult](doc/FollowResponseResult.md)
+ - [FollowResponseUser](doc/FollowResponseUser.md)
+ - [FollowTimeline](doc/FollowTimeline.md)
+ - [HomeTimelineHome](doc/HomeTimelineHome.md)
+ - [HomeTimelineResponseData](doc/HomeTimelineResponseData.md)
+ - [InstructionType](doc/InstructionType.md)
+ - [InstructionUnion](doc/InstructionUnion.md)
+ - [ItemContentUnion](doc/ItemContentUnion.md)
+ - [ItemResult](doc/ItemResult.md)
+ - [ListTweetsTimeline](doc/ListTweetsTimeline.md)
+ - [ListTweetsTimelineData](doc/ListTweetsTimelineData.md)
+ - [ListTweetsTimelineList](doc/ListTweetsTimelineList.md)
+ - [ListTweetsTimelineResponse](doc/ListTweetsTimelineResponse.md)
+ - [ModuleEntry](doc/ModuleEntry.md)
+ - [ModuleItem](doc/ModuleItem.md)
+ - [ProfileResponse](doc/ProfileResponse.md)
+ - [ProfileResponseData](doc/ProfileResponseData.md)
+ - [SocialContext](doc/SocialContext.md)
+ - [Timeline](doc/Timeline.md)
+ - [TimelineAddEntries](doc/TimelineAddEntries.md)
+ - [TimelineAddEntry](doc/TimelineAddEntry.md)
+ - [TimelineClearCache](doc/TimelineClearCache.md)
+ - [TimelinePinEntry](doc/TimelinePinEntry.md)
+ - [TimelineResponse](doc/TimelineResponse.md)
+ - [TimelineTerminateTimeline](doc/TimelineTerminateTimeline.md)
+ - [TimelineTimelineCursor](doc/TimelineTimelineCursor.md)
+ - [TimelineTimelineItem](doc/TimelineTimelineItem.md)
+ - [TimelineTimelineModule](doc/TimelineTimelineModule.md)
+ - [TimelineTweet](doc/TimelineTweet.md)
+ - [TimelineUser](doc/TimelineUser.md)
+ - [TimelineV2](doc/TimelineV2.md)
+ - [Tweet](doc/Tweet.md)
+ - [TweetDetailResponse](doc/TweetDetailResponse.md)
+ - [TweetEditControl](doc/TweetEditControl.md)
+ - [TweetEditPrespective](doc/TweetEditPrespective.md)
+ - [TweetLegacy](doc/TweetLegacy.md)
+ - [TweetUnion](doc/TweetUnion.md)
+ - [TweetViews](doc/TweetViews.md)
+ - [TweetWithVisibilityResults](doc/TweetWithVisibilityResults.md)
+ - [TypeName](doc/TypeName.md)
+ - [User](doc/User.md)
+ - [UserLegacy](doc/UserLegacy.md)
+ - [UserResponse](doc/UserResponse.md)
+ - [UserResponseData](doc/UserResponseData.md)
+ - [UserResultByScreenName](doc/UserResultByScreenName.md)
+ - [UserResultByScreenNameLegacy](doc/UserResultByScreenNameLegacy.md)
+ - [UserResultByScreenNameResult](doc/UserResultByScreenNameResult.md)
+ - [UserResultCore](doc/UserResultCore.md)
+ - [UserResults](doc/UserResults.md)
+ - [UserTweetsData](doc/UserTweetsData.md)
+ - [UserTweetsResponse](doc/UserTweetsResponse.md)
+ - [UserTweetsResult](doc/UserTweetsResult.md)
+ - [UserTweetsUser](doc/UserTweetsUser.md)
+ - [UserUnion](doc/UserUnion.md)
 
 
 ## Documentation For Authorization
