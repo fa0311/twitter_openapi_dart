@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:twitter_openapi_dart/src/api/default_api.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -12,32 +14,25 @@ class TwitterOpenapiDart {
 
   static Uri base = Uri.https("twitter.com", "/");
   static Uri all = Uri.https(".twitter.com", "/");
+  static Future<Map<String, dynamic>> defaultFlag =
+      File("twitter-openapi/src/config/placeholder.json").readAsString().then((value) => (json.decode(value) as Map).cast<String, dynamic>());
 
   Dio get dio => api.dio;
-
-  TwitterOpenapiDart.fromApiKey({
-    required String ct0,
-    required String authToken,
-  }) : api = TwitterOpenapiDartGenerated() {
-    api.setApiKey("ct0", ct0);
-    api.setApiKey("auth_token", authToken);
-  }
 
   TwitterOpenapiDart.fromCookies({
     required String ct0,
     required String authToken,
   }) : api = TwitterOpenapiDartGenerated() {
-    api.setApiKey("ct0", ct0);
-    api.setApiKey("auth_token", authToken);
+    final cookie = CookieJar();
+    cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
+    dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
   }
 
   TwitterOpenapiDart.fromCookiesPath(
     String cookiePath,
   ) : api = TwitterOpenapiDartGenerated() {
-    dio.interceptors.addAll([
-      CookieManager(PersistCookieJar(storage: FileStorage(cookiePath))),
-      HeaderAuth(),
-    ]);
+    final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
+    dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
   }
 
   TwitterOpenapiDart.fromCookieJar(
@@ -45,6 +40,11 @@ class TwitterOpenapiDart {
   ) : api = TwitterOpenapiDartGenerated() {
     dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
   }
+
+  DefaultApiUtils getDefaultApi() {
+    return DefaultApiUtils(api.getDefaultApi(), defaultFlag);
+  }
+
   /*
   TwitterOpenapiDartUtils.fromInappwebview() : api = TwitterOpenapiDart() {
     dio.interceptors.addAll([FlutterInappwebviewDio(), HeaderAuth()]);
