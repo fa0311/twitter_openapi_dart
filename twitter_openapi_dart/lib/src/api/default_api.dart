@@ -53,7 +53,6 @@ class DefaultApiUtils {
       for (final tweet in tweetList) {
         yield buildTweetResponse(tweet);
       }
-      print("==========");
       cursor = entriesCursor(entry).bottom?.value;
     } while (cursor != null);
   }
