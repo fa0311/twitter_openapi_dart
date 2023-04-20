@@ -87,22 +87,43 @@ Future<void> main() async {
     });
   });
 
-  test('getUserTweets', () async {
-    final result = await client.getDefaultApi().getUserTweets(userId: "900282258736545792");
-    for (final tweet in result) {
-      printTweet(tweet);
-    }
-    expect(0, 0);
-  });
+  group('user', () {
+    test('getUserTweets', () async {
+      final result = await client.getDefaultApi().getUserTweets(userId: "900282258736545792");
+      for (final tweet in result) {
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
 
-  test('getUserTweetsStream', () async {
-    final result = client.getDefaultApi().getUserTweetsStream(userId: "900282258736545792");
-    var count = 0;
-    await for (final tweet in result) {
-      if (tweet.data.promotedMetadata != null) continue;
-      printTweet(tweet);
-      if (count++ == TestCount) return;
-    }
-    expect(count, TestCount);
+    test('getUserTweetsStream', () async {
+      final result = client.getDefaultApi().getUserTweetsStream(userId: "900282258736545792");
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.data.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == TestCount) return;
+      }
+      expect(count, TestCount);
+    });
+
+    test('getUserTweetsAndReplies', () async {
+      final result = await client.getDefaultApi().getUserTweetsAndReplies(userId: "900282258736545792");
+      for (final tweet in result) {
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getUserTweetsAndRepliesStream', () async {
+      final result = client.getDefaultApi().getUserTweetsAndRepliesStream(userId: "900282258736545792");
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.data.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == TestCount) return;
+      }
+      expect(count, TestCount);
+    });
   });
 }

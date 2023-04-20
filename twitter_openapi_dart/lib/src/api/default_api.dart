@@ -9,6 +9,8 @@ class DefaultApiUtils {
 
   const DefaultApiUtils(this.api, this.flag);
 
+  // ====== timeline ==========
+
   Future<List<TweetResponse>> getHomeTimeline({
     String? cursor,
     int? count,
@@ -142,6 +144,8 @@ class DefaultApiUtils {
     } while (cursor != null);
   }
 
+  // ====== user ==========
+
   Future<List<TweetResponse>> getUserTweets({
     required String userId,
     String? cursor,
@@ -179,6 +183,54 @@ class DefaultApiUtils {
       final response = await api.getUserTweets(
         variables: jsonEncode((await flag)["UserTweets"]!["Variables"]..addAll(param)),
         features: jsonEncode((await flag)["UserTweets"]!["Features"]),
+      );
+      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+
+      for (final tweet in tweetList..removeLast()) {
+        yield buildTweetResponse(tweet);
+      }
+      cursor = entriesCursor(entry).bottom?.value;
+    } while (cursor != null);
+  }
+
+  Future<List<TweetResponse>> getUserTweetsAndReplies({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await api.getUserTweetsAndReplies(
+      variables: jsonEncode((await flag)["UserTweetsAndReplies"]!["Variables"]..addAll(param)),
+      features: jsonEncode((await flag)["UserTweetsAndReplies"]!["Features"]),
+    );
+    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+  }
+
+  Stream<TweetResponse> getUserTweetsAndRepliesStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await api.getUserTweetsAndReplies(
+        variables: jsonEncode((await flag)["UserTweetsAndReplies"]!["Variables"]..addAll(param)),
+        features: jsonEncode((await flag)["UserTweetsAndReplies"]!["Features"]),
       );
       final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
       final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
