@@ -46,7 +46,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 
-final api = TwitterOpenapiDartGenerated().getBookmarkApi();
+final api = TwitterOpenapiDartGenerated().getDefaultApi();
 final String variables = {"count": 20, "includePromotedContent": true}; // String | 
 final String features = {"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}; // String | 
 final String queryId = tmd4ifV8RHltzn8ymGg1aw; // String | 
@@ -60,7 +60,7 @@ try {
     final response = await api.getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling BookmarkApi->getBookmarks: $e\n");
+    print("Exception when calling DefaultApi->getBookmarks: $e\n");
 }
 
 ```
@@ -71,7 +71,7 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*BookmarkApi*](doc/BookmarkApi.md) | [**getBookmarks**](doc/BookmarkApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getBookmarks**](doc/DefaultApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getFollowers**](doc/DefaultApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getFollowing**](doc/DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getHomeLatestTimeline**](doc/DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
@@ -84,14 +84,12 @@ Class | Method | HTTP request | Description
 [*DefaultApi*](doc/DefaultApi.md) | [**getUserMedia**](doc/DefaultApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getUserTweets**](doc/DefaultApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getUserTweetsAndReplies**](doc/DefaultApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
-[*GraphqlApi*](doc/GraphqlApi.md) | [**getBookmarks**](doc/GraphqlApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 
 
 ## Documentation For Models
 
  - [BookmarksResponse](doc/BookmarksResponse.md)
  - [BookmarksResponseData](doc/BookmarksResponseData.md)
- - [BookmarksResponseData1](doc/BookmarksResponseData1.md)
  - [BookmarksTimeline](doc/BookmarksTimeline.md)
  - [ContentEntryType](doc/ContentEntryType.md)
  - [ContentItemType](doc/ContentItemType.md)
@@ -131,6 +129,7 @@ Class | Method | HTTP request | Description
  - [TimelineV2](doc/TimelineV2.md)
  - [Tweet](doc/Tweet.md)
  - [TweetDetailResponse](doc/TweetDetailResponse.md)
+ - [TweetDetailResponseData](doc/TweetDetailResponseData.md)
  - [TweetEditControl](doc/TweetEditControl.md)
  - [TweetEditPrespective](doc/TweetEditPrespective.md)
  - [TweetLegacy](doc/TweetLegacy.md)

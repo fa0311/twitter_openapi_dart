@@ -1,9 +1,7 @@
 .gitignore
 README.md
-doc/BookmarkApi.md
 doc/BookmarksResponse.md
 doc/BookmarksResponseData.md
-doc/BookmarksResponseData1.md
 doc/BookmarksTimeline.md
 doc/ContentEntryType.md
 doc/ContentItemType.md
@@ -14,7 +12,6 @@ doc/FollowResponseData.md
 doc/FollowResponseResult.md
 doc/FollowResponseUser.md
 doc/FollowTimeline.md
-doc/GraphqlApi.md
 doc/HomeTimelineHome.md
 doc/HomeTimelineResponseData.md
 doc/InstructionType.md
@@ -45,6 +42,7 @@ doc/TimelineUser.md
 doc/TimelineV2.md
 doc/Tweet.md
 doc/TweetDetailResponse.md
+doc/TweetDetailResponseData.md
 doc/TweetEditControl.md
 doc/TweetEditPrespective.md
 doc/TweetLegacy.md
@@ -67,9 +65,7 @@ doc/UserTweetsResult.md
 doc/UserTweetsUser.md
 doc/UserUnion.md
 lib/src/api.dart
-lib/src/api/bookmark_api.dart
 lib/src/api/default_api.dart
-lib/src/api/graphql_api.dart
 lib/src/api_util.dart
 lib/src/auth/api_key_auth.dart
 lib/src/auth/auth.dart
@@ -79,7 +75,6 @@ lib/src/auth/oauth.dart
 lib/src/date_serializer.dart
 lib/src/model/bookmarks_response.dart
 lib/src/model/bookmarks_response_data.dart
-lib/src/model/bookmarks_response_data1.dart
 lib/src/model/bookmarks_timeline.dart
 lib/src/model/content_entry_type.dart
 lib/src/model/content_item_type.dart
@@ -120,6 +115,7 @@ lib/src/model/timeline_user.dart
 lib/src/model/timeline_v2.dart
 lib/src/model/tweet.dart
 lib/src/model/tweet_detail_response.dart
+lib/src/model/tweet_detail_response_data.dart
 lib/src/model/tweet_edit_control.dart
 lib/src/model/tweet_edit_prespective.dart
 lib/src/model/tweet_legacy.dart

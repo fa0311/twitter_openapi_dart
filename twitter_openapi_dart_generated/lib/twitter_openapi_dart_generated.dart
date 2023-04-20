@@ -9,13 +9,10 @@ export 'package:twitter_openapi_dart_generated/src/auth/oauth.dart';
 export 'package:twitter_openapi_dart_generated/src/serializers.dart';
 export 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
-export 'package:twitter_openapi_dart_generated/src/api/bookmark_api.dart';
 export 'package:twitter_openapi_dart_generated/src/api/default_api.dart';
-export 'package:twitter_openapi_dart_generated/src/api/graphql_api.dart';
 
 export 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/bookmarks_response_data.dart';
-export 'package:twitter_openapi_dart_generated/src/model/bookmarks_response_data1.dart';
 export 'package:twitter_openapi_dart_generated/src/model/bookmarks_timeline.dart';
 export 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 export 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
@@ -55,6 +52,7 @@ export 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
+export 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_data.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';

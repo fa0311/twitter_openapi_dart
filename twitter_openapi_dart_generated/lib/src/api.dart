@@ -9,9 +9,7 @@ import 'package:twitter_openapi_dart_generated/src/auth/api_key_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/bearer_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/oauth.dart';
-import 'package:twitter_openapi_dart_generated/src/api/bookmark_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/default_api.dart';
-import 'package:twitter_openapi_dart_generated/src/api/graphql_api.dart';
 
 class TwitterOpenapiDartGenerated {
   static const String basePath = r'https://twitter.com/i/api/graphql';
@@ -67,21 +65,9 @@ class TwitterOpenapiDartGenerated {
     }
   }
 
-  /// Get BookmarkApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  BookmarkApi getBookmarkApi() {
-    return BookmarkApi(dio, serializers);
-  }
-
   /// Get DefaultApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   DefaultApi getDefaultApi() {
     return DefaultApi(dio, serializers);
-  }
-
-  /// Get GraphqlApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  GraphqlApi getGraphqlApi() {
-    return GraphqlApi(dio, serializers);
   }
 }

@@ -1,4 +1,4 @@
-# twitter_openapi_dart_generated.model.BookmarksResponseData1
+# twitter_openapi_dart_generated.model.TweetDetailResponseData
 
 ## Load the model package
 ```dart

@@ -16,7 +16,6 @@ import 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
 import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response_data.dart';
-import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response_data1.dart';
 import 'package:twitter_openapi_dart_generated/src/model/bookmarks_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
@@ -56,6 +55,7 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
@@ -83,7 +83,6 @@ part 'serializers.g.dart';
 @SerializersFor([
   BookmarksResponse,
   BookmarksResponseData,
-  BookmarksResponseData1,
   BookmarksTimeline,
   ContentEntryType,
   ContentItemType,
@@ -123,6 +122,7 @@ part 'serializers.g.dart';
   TimelineV2,
   Tweet,
   TweetDetailResponse,
+  TweetDetailResponseData,
   TweetEditControl,
   TweetEditPrespective,
   TweetLegacy,

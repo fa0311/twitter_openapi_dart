@@ -1,39 +1,39 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bookmarks_response_data1.dart';
+part of 'tweet_detail_response_data.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$BookmarksResponseData1 extends BookmarksResponseData1 {
+class _$TweetDetailResponseData extends TweetDetailResponseData {
   @override
   final Timeline threadedConversationWithInjectionsV2;
 
-  factory _$BookmarksResponseData1(
-          [void Function(BookmarksResponseData1Builder)? updates]) =>
-      (new BookmarksResponseData1Builder()..update(updates))._build();
+  factory _$TweetDetailResponseData(
+          [void Function(TweetDetailResponseDataBuilder)? updates]) =>
+      (new TweetDetailResponseDataBuilder()..update(updates))._build();
 
-  _$BookmarksResponseData1._(
+  _$TweetDetailResponseData._(
       {required this.threadedConversationWithInjectionsV2})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(threadedConversationWithInjectionsV2,
-        r'BookmarksResponseData1', 'threadedConversationWithInjectionsV2');
+        r'TweetDetailResponseData', 'threadedConversationWithInjectionsV2');
   }
 
   @override
-  BookmarksResponseData1 rebuild(
-          void Function(BookmarksResponseData1Builder) updates) =>
+  TweetDetailResponseData rebuild(
+          void Function(TweetDetailResponseDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BookmarksResponseData1Builder toBuilder() =>
-      new BookmarksResponseData1Builder()..replace(this);
+  TweetDetailResponseDataBuilder toBuilder() =>
+      new TweetDetailResponseDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BookmarksResponseData1 &&
+    return other is TweetDetailResponseData &&
         threadedConversationWithInjectionsV2 ==
             other.threadedConversationWithInjectionsV2;
   }
@@ -48,16 +48,17 @@ class _$BookmarksResponseData1 extends BookmarksResponseData1 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'BookmarksResponseData1')
+    return (newBuiltValueToStringHelper(r'TweetDetailResponseData')
           ..add('threadedConversationWithInjectionsV2',
               threadedConversationWithInjectionsV2))
         .toString();
   }
 }
 
-class BookmarksResponseData1Builder
-    implements Builder<BookmarksResponseData1, BookmarksResponseData1Builder> {
-  _$BookmarksResponseData1? _$v;
+class TweetDetailResponseDataBuilder
+    implements
+        Builder<TweetDetailResponseData, TweetDetailResponseDataBuilder> {
+  _$TweetDetailResponseData? _$v;
 
   TimelineBuilder? _threadedConversationWithInjectionsV2;
   TimelineBuilder get threadedConversationWithInjectionsV2 =>
@@ -67,11 +68,11 @@ class BookmarksResponseData1Builder
       _$this._threadedConversationWithInjectionsV2 =
           threadedConversationWithInjectionsV2;
 
-  BookmarksResponseData1Builder() {
-    BookmarksResponseData1._defaults(this);
+  TweetDetailResponseDataBuilder() {
+    TweetDetailResponseData._defaults(this);
   }
 
-  BookmarksResponseData1Builder get _$this {
+  TweetDetailResponseDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _threadedConversationWithInjectionsV2 =
@@ -82,24 +83,24 @@ class BookmarksResponseData1Builder
   }
 
   @override
-  void replace(BookmarksResponseData1 other) {
+  void replace(TweetDetailResponseData other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BookmarksResponseData1;
+    _$v = other as _$TweetDetailResponseData;
   }
 
   @override
-  void update(void Function(BookmarksResponseData1Builder)? updates) {
+  void update(void Function(TweetDetailResponseDataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  BookmarksResponseData1 build() => _build();
+  TweetDetailResponseData build() => _build();
 
-  _$BookmarksResponseData1 _build() {
-    _$BookmarksResponseData1 _$result;
+  _$TweetDetailResponseData _build() {
+    _$TweetDetailResponseData _$result;
     try {
       _$result = _$v ??
-          new _$BookmarksResponseData1._(
+          new _$TweetDetailResponseData._(
               threadedConversationWithInjectionsV2:
                   threadedConversationWithInjectionsV2.build());
     } catch (_) {
@@ -109,7 +110,7 @@ class BookmarksResponseData1Builder
         threadedConversationWithInjectionsV2.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'BookmarksResponseData1', _$failedField, e.toString());
+            r'TweetDetailResponseData', _$failedField, e.toString());
       }
       rethrow;
     }

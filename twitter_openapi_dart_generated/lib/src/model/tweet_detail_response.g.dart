@@ -8,7 +8,7 @@ part of 'tweet_detail_response.dart';
 
 class _$TweetDetailResponse extends TweetDetailResponse {
   @override
-  final BookmarksResponseData1 data;
+  final TweetDetailResponseData data;
 
   factory _$TweetDetailResponse(
           [void Function(TweetDetailResponseBuilder)? updates]) =>
@@ -53,10 +53,10 @@ class TweetDetailResponseBuilder
     implements Builder<TweetDetailResponse, TweetDetailResponseBuilder> {
   _$TweetDetailResponse? _$v;
 
-  BookmarksResponseData1Builder? _data;
-  BookmarksResponseData1Builder get data =>
-      _$this._data ??= new BookmarksResponseData1Builder();
-  set data(BookmarksResponseData1Builder? data) => _$this._data = data;
+  TweetDetailResponseDataBuilder? _data;
+  TweetDetailResponseDataBuilder get data =>
+      _$this._data ??= new TweetDetailResponseDataBuilder();
+  set data(TweetDetailResponseDataBuilder? data) => _$this._data = data;
 
   TweetDetailResponseBuilder() {
     TweetDetailResponse._defaults(this);

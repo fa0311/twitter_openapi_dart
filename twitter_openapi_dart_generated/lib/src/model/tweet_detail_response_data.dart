@@ -7,38 +7,38 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'bookmarks_response_data1.g.dart';
+part 'tweet_detail_response_data.g.dart';
 
-/// BookmarksResponseData1
+/// TweetDetailResponseData
 ///
 /// Properties:
 /// * [threadedConversationWithInjectionsV2] 
 @BuiltValue()
-abstract class BookmarksResponseData1 implements Built<BookmarksResponseData1, BookmarksResponseData1Builder> {
+abstract class TweetDetailResponseData implements Built<TweetDetailResponseData, TweetDetailResponseDataBuilder> {
   @BuiltValueField(wireName: r'threaded_conversation_with_injections_v2')
   Timeline get threadedConversationWithInjectionsV2;
 
-  BookmarksResponseData1._();
+  TweetDetailResponseData._();
 
-  factory BookmarksResponseData1([void updates(BookmarksResponseData1Builder b)]) = _$BookmarksResponseData1;
+  factory TweetDetailResponseData([void updates(TweetDetailResponseDataBuilder b)]) = _$TweetDetailResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BookmarksResponseData1Builder b) => b;
+  static void _defaults(TweetDetailResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksResponseData1> get serializer => _$BookmarksResponseData1Serializer();
+  static Serializer<TweetDetailResponseData> get serializer => _$TweetDetailResponseDataSerializer();
 }
 
-class _$BookmarksResponseData1Serializer implements PrimitiveSerializer<BookmarksResponseData1> {
+class _$TweetDetailResponseDataSerializer implements PrimitiveSerializer<TweetDetailResponseData> {
   @override
-  final Iterable<Type> types = const [BookmarksResponseData1, _$BookmarksResponseData1];
+  final Iterable<Type> types = const [TweetDetailResponseData, _$TweetDetailResponseData];
 
   @override
-  final String wireName = r'BookmarksResponseData1';
+  final String wireName = r'TweetDetailResponseData';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    BookmarksResponseData1 object, {
+    TweetDetailResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
     yield r'threaded_conversation_with_injections_v2';
@@ -51,7 +51,7 @@ class _$BookmarksResponseData1Serializer implements PrimitiveSerializer<Bookmark
   @override
   Object serialize(
     Serializers serializers,
-    BookmarksResponseData1 object, {
+    TweetDetailResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -62,7 +62,7 @@ class _$BookmarksResponseData1Serializer implements PrimitiveSerializer<Bookmark
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required BookmarksResponseData1Builder result,
+    required TweetDetailResponseDataBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
@@ -85,12 +85,12 @@ class _$BookmarksResponseData1Serializer implements PrimitiveSerializer<Bookmark
   }
 
   @override
-  BookmarksResponseData1 deserialize(
+  TweetDetailResponseData deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = BookmarksResponseData1Builder();
+    final result = TweetDetailResponseDataBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
