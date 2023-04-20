@@ -9,9 +9,17 @@ class DefaultApiUtils {
 
   const DefaultApiUtils(this.api, this.defaultFlag);
 
-  Future<List<TweetResponse>> getHomeTimeline({String? cursor, Map<String, String>? extraParam}) async {
+  Future<List<TweetResponse>> getHomeTimeline({
+    String? cursor,
+    int? count,
+    Map<String, String>? extraParam,
+  }) async {
     final flag = await defaultFlag;
-    final param = {cursor != null ? "cursor" : "": cursor, ...?extraParam};
+    final param = {
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
 
     final response = await api.getHomeTimeline(
       variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
@@ -24,12 +32,17 @@ class DefaultApiUtils {
 
   Stream<TweetResponse> getHomeTimelineStream({
     String? cursor,
+    int? count,
     Map<String, String>? extraParam,
   }) async* {
     final flag = await defaultFlag;
 
     do {
-      final param = {cursor != null ? "cursor" : "": cursor, ...?extraParam};
+      final param = {
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
       final response = await api.getHomeTimeline(
         variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
         features: jsonEncode(flag["HomeTimeline"]!["Features"]),
@@ -38,6 +51,59 @@ class DefaultApiUtils {
       final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
 
       for (final tweet in tweetList) {
+        yield buildTweetResponse(tweet);
+      }
+      print("==========");
+      cursor = entriesCursor(entry).bottom?.value;
+    } while (cursor != null);
+  }
+
+  Future<List<TweetResponse>> getUserTweets({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, String>? extraParam,
+  }) async {
+    final flag = await defaultFlag;
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+
+    final response = await api.getUserTweets(
+      variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
+      features: jsonEncode(flag["HomeTimeline"]!["Features"]),
+    );
+    final entry = instructionConverter(response.data!.data.user.result.timelineV2.timeline.instructions);
+    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+  }
+
+  Stream<TweetResponse> getUserTweetsStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, String>? extraParam,
+  }) async* {
+    final flag = await defaultFlag;
+
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await api.getUserTweets(
+        variables: jsonEncode(flag["UserTweets"]!["Variables"]..addAll(param)),
+        features: jsonEncode(flag["UserTweets"]!["Features"]),
+      );
+      final entry = instructionConverter(response.data!.data.user.result.timelineV2.timeline.instructions);
+      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+
+      for (final tweet in tweetList..removeLast()) {
         yield buildTweetResponse(tweet);
       }
       cursor = entriesCursor(entry).bottom?.value;

@@ -14,7 +14,9 @@ List<T> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
       if (item != null) return <T>[item];
       return <T>[];
     } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
-      return <T>[getTweetsFromModules((e.content.oneOf.value as TimelineTimelineModule).items, type)];
+      final item = getTweetsFromModules((e.content.oneOf.value as TimelineTimelineModule).items, type);
+      if (item != null) return <T>[item];
+      return <T>[];
     } else {
       return <T>[];
     }
