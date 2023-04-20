@@ -1,7 +1,7 @@
-name: twitter_openapi_dart_utils
+name: twitter_openapi_dart
 description: A sample command-line application.
 version: 1.0.0
-repository: https://github.com/fa0311/twitter_openapi_dart_utils
+repository: https://github.com/fa0311/twitter_openapi_dart
 
 publish_to: "none"
 
@@ -16,10 +16,13 @@ dependencies:
 
   dio: ^4.0.6
   dio_cookie_manager: ^2.0.0
-  twitter_openapi_dart:
-    git:
-      url: https://github.com/fa0311/twitter_openapi_dart.git
-      tag: v0.0.1
+  twitter_openapi_dart_generated:
+    path: ../twitter_openapi_dart_generated
+    # git:
+    #   url: https://github.com/fa0311/twitter_openapi_dart.git
+    #   tag: v0.0.1
+    #   path: twitter_openapi_dart_generated
+
   # flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
 
