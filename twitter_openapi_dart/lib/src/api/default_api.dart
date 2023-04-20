@@ -241,4 +241,100 @@ class DefaultApiUtils {
       cursor = entriesCursor(entry).bottom?.value;
     } while (cursor != null);
   }
+
+  Future<List<TweetResponse>> getUserMedia({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await api.getUserMedia(
+      variables: jsonEncode((await flag)["UserMedia"]!["Variables"]..addAll(param)),
+      features: jsonEncode((await flag)["UserMedia"]!["Features"]),
+    );
+    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+  }
+
+  Stream<TweetResponse> getUserMediaStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await api.getUserMedia(
+        variables: jsonEncode((await flag)["UserMedia"]!["Variables"]..addAll(param)),
+        features: jsonEncode((await flag)["UserMedia"]!["Features"]),
+      );
+      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+
+      for (final tweet in tweetList..removeLast()) {
+        yield buildTweetResponse(tweet);
+      }
+      cursor = entriesCursor(entry).bottom?.value;
+    } while (cursor != null);
+  }
+
+  Future<List<TweetResponse>> getLikes({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await api.getLikes(
+      variables: jsonEncode((await flag)["Likes"]!["Variables"]..addAll(param)),
+      features: jsonEncode((await flag)["Likes"]!["Features"]),
+    );
+    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+  }
+
+  Stream<TweetResponse> getLikesStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await api.getLikes(
+        variables: jsonEncode((await flag)["Likes"]!["Variables"]..addAll(param)),
+        features: jsonEncode((await flag)["Likes"]!["Features"]),
+      );
+      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
+      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+
+      for (final tweet in tweetList..removeLast()) {
+        yield buildTweetResponse(tweet);
+      }
+      cursor = entriesCursor(entry).bottom?.value;
+    } while (cursor != null);
+  }
 }

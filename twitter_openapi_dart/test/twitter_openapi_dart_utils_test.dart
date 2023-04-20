@@ -6,7 +6,7 @@ import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:test/test.dart';
 
-const int TestCount = 100;
+const int testCount = 100;
 
 void printTweet(TweetResponse tweet) {
   print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
@@ -41,9 +41,9 @@ Future<void> main() async {
       await for (final tweet in result) {
         if (tweet.data.promotedMetadata != null) continue;
         printTweet(tweet);
-        if (count++ == TestCount) return;
+        if (count++ == testCount) return;
       }
-      expect(count, TestCount);
+      expect(count, testCount);
     });
 
     test('getHomeLatestTimeline', () async {
@@ -61,9 +61,9 @@ Future<void> main() async {
       await for (final tweet in result) {
         if (tweet.data.promotedMetadata != null) continue;
         printTweet(tweet);
-        if (count++ == TestCount) return;
+        if (count++ == testCount) return;
       }
-      expect(count, TestCount);
+      expect(count, testCount);
     });
 
     test('getListLatestTweetsTimeline', () async {
@@ -81,9 +81,9 @@ Future<void> main() async {
       await for (final tweet in result) {
         if (tweet.data.promotedMetadata != null) continue;
         printTweet(tweet);
-        if (count++ == TestCount) return;
+        if (count++ == testCount) return;
       }
-      expect(count, TestCount);
+      expect(count, testCount);
     });
   });
 
@@ -102,9 +102,9 @@ Future<void> main() async {
       await for (final tweet in result) {
         if (tweet.data.promotedMetadata != null) continue;
         printTweet(tweet);
-        if (count++ == TestCount) return;
+        if (count++ == testCount) return;
       }
-      expect(count, TestCount);
+      expect(count, testCount);
     });
 
     test('getUserTweetsAndReplies', () async {
@@ -121,9 +121,47 @@ Future<void> main() async {
       await for (final tweet in result) {
         if (tweet.data.promotedMetadata != null) continue;
         printTweet(tweet);
-        if (count++ == TestCount) return;
+        if (count++ == testCount) return;
       }
-      expect(count, TestCount);
+      expect(count, testCount);
+    });
+
+    test('getUserMedia', () async {
+      final result = await client.getDefaultApi().getUserMedia(userId: "900282258736545792");
+      for (final tweet in result) {
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getUserMediaStream', () async {
+      final result = client.getDefaultApi().getUserMediaStream(userId: "900282258736545792");
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.data.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == testCount) return;
+      }
+      expect(count, testCount);
+    });
+
+    test('getLikes', () async {
+      final result = await client.getDefaultApi().getLikes(userId: "900282258736545792");
+      for (final tweet in result) {
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getLikesStream', () async {
+      final result = client.getDefaultApi().getLikesStream(userId: "900282258736545792");
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.data.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == testCount) return;
+      }
+      expect(count, testCount);
     });
   });
 }
