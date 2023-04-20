@@ -10,11 +10,8 @@ import 'package:twitter_openapi_dart_generated/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/bearer_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/oauth.dart';
 import 'package:twitter_openapi_dart_generated/src/api/bookmark_api.dart';
-import 'package:twitter_openapi_dart_generated/src/api/follow_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/default_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/graphql_api.dart';
-import 'package:twitter_openapi_dart_generated/src/api/login_required_api.dart';
-import 'package:twitter_openapi_dart_generated/src/api/timeline_api.dart';
-import 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
 
 class TwitterOpenapiDartGenerated {
   static const String basePath = r'https://twitter.com/i/api/graphql';
@@ -76,33 +73,15 @@ class TwitterOpenapiDartGenerated {
     return BookmarkApi(dio, serializers);
   }
 
-  /// Get FollowApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get DefaultApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  FollowApi getFollowApi() {
-    return FollowApi(dio, serializers);
+  DefaultApi getDefaultApi() {
+    return DefaultApi(dio, serializers);
   }
 
   /// Get GraphqlApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   GraphqlApi getGraphqlApi() {
     return GraphqlApi(dio, serializers);
-  }
-
-  /// Get LoginRequiredApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  LoginRequiredApi getLoginRequiredApi() {
-    return LoginRequiredApi(dio, serializers);
-  }
-
-  /// Get TimelineApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  TimelineApi getTimelineApi() {
-    return TimelineApi(dio, serializers);
-  }
-
-  /// Get UserApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  UserApi getUserApi() {
-    return UserApi(dio, serializers);
   }
 }
