@@ -14,7 +14,7 @@ class TwitterOpenapiDart {
 
   static Uri base = Uri.https("twitter.com", "/");
   static Uri all = Uri.https(".twitter.com", "/");
-  static Future<Map<String, dynamic>> defaultFlag =
+  static Future<Map<String, dynamic>> flag =
       File("twitter-openapi/src/config/placeholder.json").readAsString().then((value) => (json.decode(value) as Map).cast<String, dynamic>());
 
   Dio get dio => api.dio;
@@ -42,7 +42,7 @@ class TwitterOpenapiDart {
   }
 
   DefaultApiUtils getDefaultApi() {
-    return DefaultApiUtils(api.getDefaultApi(), defaultFlag);
+    return DefaultApiUtils(api.getDefaultApi(), flag);
   }
 
   /*
