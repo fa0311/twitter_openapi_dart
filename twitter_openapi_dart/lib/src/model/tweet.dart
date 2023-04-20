@@ -7,6 +7,7 @@ abstract class TweetResponse implements Built<TweetResponse, TweetResponseBuilde
   TimelineTweet get data;
   Tweet get tweet;
   User get user;
+  List<TweetResponse> get reply;
 
   TweetResponse._();
 

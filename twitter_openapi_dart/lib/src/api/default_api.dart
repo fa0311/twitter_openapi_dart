@@ -25,7 +25,7 @@ class DefaultApiUtils {
       variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
       features: jsonEncode(flag["HomeTimeline"]!["Features"]),
     );
-    final entry = instructionConverter(response.data!.data.home.homeTimelineUrt.instructions);
+    final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
     final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
     return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
   }
@@ -47,7 +47,7 @@ class DefaultApiUtils {
         variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
         features: jsonEncode(flag["HomeTimeline"]!["Features"]),
       );
-      final entry = instructionConverter(response.data!.data.home.homeTimelineUrt.instructions);
+      final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
       final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
 
       for (final tweet in tweetList) {
@@ -75,7 +75,7 @@ class DefaultApiUtils {
       variables: jsonEncode(flag["HomeTimeline"]!["Variables"]..addAll(param)),
       features: jsonEncode(flag["HomeTimeline"]!["Features"]),
     );
-    final entry = instructionConverter(response.data!.data.user.result.timelineV2.timeline.instructions);
+    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
     final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
     return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
   }
@@ -99,7 +99,7 @@ class DefaultApiUtils {
         variables: jsonEncode(flag["UserTweets"]!["Variables"]..addAll(param)),
         features: jsonEncode(flag["UserTweets"]!["Features"]),
       );
-      final entry = instructionConverter(response.data!.data.user.result.timelineV2.timeline.instructions);
+      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
       final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
 
       for (final tweet in tweetList..removeLast()) {

@@ -13,16 +13,22 @@ class _$TweetResponse extends TweetResponse {
   final Tweet tweet;
   @override
   final User user;
+  @override
+  final List<TweetResponse> reply;
 
   factory _$TweetResponse([void Function(TweetResponseBuilder)? updates]) =>
       (new TweetResponseBuilder()..update(updates))._build();
 
   _$TweetResponse._(
-      {required this.data, required this.tweet, required this.user})
+      {required this.data,
+      required this.tweet,
+      required this.user,
+      required this.reply})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'TweetResponse', 'data');
     BuiltValueNullFieldError.checkNotNull(tweet, r'TweetResponse', 'tweet');
     BuiltValueNullFieldError.checkNotNull(user, r'TweetResponse', 'user');
+    BuiltValueNullFieldError.checkNotNull(reply, r'TweetResponse', 'reply');
   }
 
   @override
@@ -38,7 +44,8 @@ class _$TweetResponse extends TweetResponse {
     return other is TweetResponse &&
         data == other.data &&
         tweet == other.tweet &&
-        user == other.user;
+        user == other.user &&
+        reply == other.reply;
   }
 
   @override
@@ -47,6 +54,7 @@ class _$TweetResponse extends TweetResponse {
     _$hash = $jc(_$hash, data.hashCode);
     _$hash = $jc(_$hash, tweet.hashCode);
     _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jc(_$hash, reply.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -56,7 +64,8 @@ class _$TweetResponse extends TweetResponse {
     return (newBuiltValueToStringHelper(r'TweetResponse')
           ..add('data', data)
           ..add('tweet', tweet)
-          ..add('user', user))
+          ..add('user', user)
+          ..add('reply', reply))
         .toString();
   }
 }
@@ -77,6 +86,10 @@ class TweetResponseBuilder
   UserBuilder get user => _$this._user ??= new UserBuilder();
   set user(UserBuilder? user) => _$this._user = user;
 
+  List<TweetResponse>? _reply;
+  List<TweetResponse>? get reply => _$this._reply;
+  set reply(List<TweetResponse>? reply) => _$this._reply = reply;
+
   TweetResponseBuilder();
 
   TweetResponseBuilder get _$this {
@@ -85,6 +98,7 @@ class TweetResponseBuilder
       _data = $v.data.toBuilder();
       _tweet = $v.tweet.toBuilder();
       _user = $v.user.toBuilder();
+      _reply = $v.reply;
       _$v = null;
     }
     return this;
@@ -109,7 +123,11 @@ class TweetResponseBuilder
     try {
       _$result = _$v ??
           new _$TweetResponse._(
-              data: data.build(), tweet: tweet.build(), user: user.build());
+              data: data.build(),
+              tweet: tweet.build(),
+              user: user.build(),
+              reply: BuiltValueNullFieldError.checkNotNull(
+                  reply, r'TweetResponse', 'reply'));
     } catch (_) {
       late String _$failedField;
       try {

@@ -3,24 +3,26 @@ import 'package:collection/collection.dart';
 import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
-BuiltList<TimelineAddEntry> instructionConverter(BuiltList<InstructionUnion> item) {
+BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {
   return item.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first.entries;
 }
 
-List<T> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
-  return item.expand((e) {
-    if (e.content.oneOf.isType(TimelineTimelineItem)) {
-      final item = getTweetsFromItem((e.content.oneOf.value as TimelineTimelineItem).itemContent, type);
-      if (item != null) return <T>[item];
-      return <T>[];
-    } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
-      final item = getTweetsFromModules((e.content.oneOf.value as TimelineTimelineModule).items, type);
-      if (item != null) return <T>[item];
-      return <T>[];
-    } else {
-      return <T>[];
-    }
-  }).toList();
+List<List<T>> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
+  return item
+      .map((e) {
+        if (e.content.oneOf.isType(TimelineTimelineItem)) {
+          final item = (e.content.oneOf.value as TimelineTimelineItem).itemContent;
+          return item.oneOf.isType(type) ? [item.oneOf.value as T] : null;
+        } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
+          final item = (e.content.oneOf.value as TimelineTimelineModule).items;
+          final itemList = item.where((e) => e.item.itemContent.oneOf.isType(type)).map((e) => e.item.itemContent.oneOf.value as T);
+          return itemList.isNotEmpty ? itemList.toList() : null;
+        } else {
+          return null;
+        }
+      })
+      .whereNotNull()
+      .toList();
 }
 
 Cursor entriesCursor(BuiltList<TimelineAddEntry> item) {
@@ -34,20 +36,13 @@ Cursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-T? getTweetsFromItem<T>(ItemContentUnion item, Type type) {
-  return item.oneOf.isType(type) ? item.oneOf.value as T : null;
-}
-
-T? getTweetsFromModules<T>(BuiltList<ModuleItem> modules, Type type) {
-  return modules.map((e) => e.item.itemContent).firstWhereOrNull((e) => e.oneOf.isType(type))?.oneOf.value as T;
-}
-
-TweetResponse buildTweetResponse(TimelineTweet tweet) {
+TweetResponse buildTweetResponse(List<TimelineTweet> tweet) {
   return TweetResponse(
     (e) => e
-      ..data = tweet.toBuilder()
-      ..tweet = tweetResultsConverter(tweet.tweetResults).toBuilder()
-      ..user = tweetUserConverter(tweet.tweetResults).toBuilder(),
+      ..data = tweet.first.toBuilder()
+      ..tweet = tweetResultsConverter(tweet.first.tweetResults).toBuilder()
+      ..user = tweetUserConverter(tweet.first.tweetResults).toBuilder()
+      ..reply = (tweet..removeAt(0)).map((e) => buildTweetResponse([e])).toList(),
   );
 }
 
