@@ -88,7 +88,7 @@ void main() async {
 
   test('getUserByScreenName', () async {
     const name = "elonmusk";
-    final response = await client.getTweetApi().getUserByScreenName(
+    final response = await client.getUserApi().getUserByScreenName(
           variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
           features: jsonEncode(config["UserByScreenName"]!["Features"]),
         );
