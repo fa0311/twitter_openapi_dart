@@ -1,7 +1,28 @@
 import 'dart:convert';
+import 'package:built_collection/built_collection.dart';
+import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+
+typedef ApiFunction<T> = Future<Response<T>> Function({
+  String authorization,
+  CancelToken? cancelToken,
+  Map<String, dynamic>? extra,
+  required String features,
+  Map<String, dynamic>? headers,
+  void Function(int, int)? onReceiveProgress,
+  void Function(int, int)? onSendProgress,
+  String queryId,
+  String userAgent,
+  bool Function(int?)? validateStatus,
+  required String variables,
+  String xTwitterActiveUser,
+  String xTwitterAuthType,
+  String xTwitterClientLanguage,
+});
+
+typedef ConvertTnstructionsFunction<T> = BuiltList<InstructionUnion> Function(T);
 
 class DefaultApiUtils {
   final DefaultApi api;
@@ -9,9 +30,31 @@ class DefaultApiUtils {
 
   const DefaultApiUtils(this.api, this.flag);
 
+  Future<TweetResponse> requestTweet<T>({
+    required ApiFunction<T> apiFn,
+    required ConvertTnstructionsFunction<T> convertFn,
+    required String key,
+    required Map<String, dynamic> param,
+  }) async {
+    final a = (await flag)[key];
+    assert((await flag)[key] != null);
+    final response = await apiFn(
+      variables: jsonEncode((await flag)[key]!["Variables"]..addAll(param)),
+      features: jsonEncode((await flag)[key]!["Features"]),
+    );
+    final entry = instructionToEntry(convertFn(response.data as T));
+    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
+    final data = tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return TweetResponse(
+      (e) => e
+        ..data = data
+        ..cursor = entriesCursor(entry).toBuilder(),
+    );
+  }
+
   // ====== timeline ==========
 
-  Future<List<TweetResponse>> getHomeTimeline({
+  Future<TweetResponse> getHomeTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -21,16 +64,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getHomeTimeline(
-      variables: jsonEncode((await flag)["HomeTimeline"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["HomeTimeline"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getHomeTimeline,
+      convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
+      key: 'HomeTimeline',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getHomeTimelineStream({
+  Stream<SimpleTimelineTweetList> getHomeTimelineStream({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -41,20 +84,20 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getHomeTimeline(
-        variables: jsonEncode((await flag)["HomeTimeline"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["HomeTimeline"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getHomeTimeline,
+        convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
+        key: 'HomeTimeline',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-      for (final tweet in tweetList) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
-  Future<List<TweetResponse>> getHomeLatestTimeline({
+  Future<TweetResponse> getHomeLatestTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -64,16 +107,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getHomeLatestTimeline(
-      variables: jsonEncode((await flag)["HomeLatestTimeline"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["HomeLatestTimeline"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getHomeLatestTimeline,
+      convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
+      key: 'HomeLatestTimeline',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getHomeLatestTimelineStream({
+  Stream<SimpleTimelineTweetList> getHomeLatestTimelineStream({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -84,20 +127,20 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getHomeLatestTimeline(
-        variables: jsonEncode((await flag)["HomeLatestTimeline"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["HomeLatestTimeline"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getHomeLatestTimeline,
+        convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
+        key: 'HomeLatestTimeline',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.home.homeTimelineUrt.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-      for (final tweet in tweetList) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
-  Future<List<TweetResponse>> getListLatestTweetsTimeline({
+  Future<TweetResponse> getListLatestTweetsTimeline({
     required String listId,
     String? cursor,
     int? count,
@@ -109,16 +152,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getListLatestTweetsTimeline(
-      variables: jsonEncode((await flag)["ListLatestTweetsTimeline"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["ListLatestTweetsTimeline"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getListLatestTweetsTimeline,
+      convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
+      key: 'ListLatestTweetsTimeline',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.list.tweetsTimeline.timeline.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getListLatestTweetsTimelineStream({
+  Stream<SimpleTimelineTweetList> getListLatestTweetsTimelineStream({
     required String listId,
     String? cursor,
     int? count,
@@ -131,22 +174,22 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getListLatestTweetsTimeline(
-        variables: jsonEncode((await flag)["ListLatestTweetsTimeline"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["ListLatestTweetsTimeline"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getListLatestTweetsTimeline,
+        convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
+        key: 'ListLatestTweetsTimeline',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.list.tweetsTimeline.timeline.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-      for (final tweet in tweetList) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
   // ====== user ==========
 
-  Future<List<TweetResponse>> getUserTweets({
+  Future<TweetResponse> getUserTweets({
     required String userId,
     String? cursor,
     int? count,
@@ -158,16 +201,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getUserTweets(
-      variables: jsonEncode((await flag)["UserTweets"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["UserTweets"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getUserTweets,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+      key: 'UserTweets',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getUserTweetsStream({
+  Stream<SimpleTimelineTweetList> getUserTweetsStream({
     required String userId,
     String? cursor,
     int? count,
@@ -180,21 +223,20 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getUserTweets(
-        variables: jsonEncode((await flag)["UserTweets"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["UserTweets"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getUserTweets,
+        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+        key: 'UserTweets',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-
-      for (final tweet in tweetList..removeLast()) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
-  Future<List<TweetResponse>> getUserTweetsAndReplies({
+  Future<TweetResponse> getUserTweetsAndReplies({
     required String userId,
     String? cursor,
     int? count,
@@ -206,16 +248,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getUserTweetsAndReplies(
-      variables: jsonEncode((await flag)["UserTweetsAndReplies"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["UserTweetsAndReplies"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getUserTweetsAndReplies,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+      key: 'UserTweetsAndReplies',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getUserTweetsAndRepliesStream({
+  Stream<SimpleTimelineTweetList> getUserTweetsAndRepliesStream({
     required String userId,
     String? cursor,
     int? count,
@@ -228,21 +270,20 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getUserTweetsAndReplies(
-        variables: jsonEncode((await flag)["UserTweetsAndReplies"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["UserTweetsAndReplies"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getUserTweetsAndReplies,
+        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+        key: 'UserTweetsAndReplies',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-
-      for (final tweet in tweetList..removeLast()) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
-  Future<List<TweetResponse>> getUserMedia({
+  Future<TweetResponse> getUserMedia({
     required String userId,
     String? cursor,
     int? count,
@@ -254,16 +295,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getUserMedia(
-      variables: jsonEncode((await flag)["UserMedia"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["UserMedia"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getUserMedia,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+      key: 'UserMedia',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getUserMediaStream({
+  Stream<SimpleTimelineTweetList> getUserMediaStream({
     required String userId,
     String? cursor,
     int? count,
@@ -276,21 +317,20 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getUserMedia(
-        variables: jsonEncode((await flag)["UserMedia"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["UserMedia"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getUserMedia,
+        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+        key: 'UserMedia',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-
-      for (final tweet in tweetList..removeLast()) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 
-  Future<List<TweetResponse>> getLikes({
+  Future<TweetResponse> getLikes({
     required String userId,
     String? cursor,
     int? count,
@@ -302,16 +342,16 @@ class DefaultApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await api.getLikes(
-      variables: jsonEncode((await flag)["Likes"]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)["Likes"]!["Features"]),
+    final response = await requestTweet(
+      apiFn: api.getLikes,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+      key: 'Likes',
+      param: param,
     );
-    final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    return tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
+    return response;
   }
 
-  Stream<TweetResponse> getLikesStream({
+  Stream<SimpleTimelineTweetList> getLikesStream({
     required String userId,
     String? cursor,
     int? count,
@@ -324,17 +364,16 @@ class DefaultApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await api.getLikes(
-        variables: jsonEncode((await flag)["Likes"]!["Variables"]..addAll(param)),
-        features: jsonEncode((await flag)["Likes"]!["Features"]),
+      final response = await requestTweet(
+        apiFn: api.getLikes,
+        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
+        key: 'Likes',
+        param: param,
       );
-      final entry = instructionToEntry(response.data!.data.user.result.timelineV2.timeline.instructions);
-      final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-
-      for (final tweet in tweetList..removeLast()) {
-        yield buildTweetResponse(tweet);
+      for (final tweet in response.data) {
+        yield tweet;
       }
-      cursor = entriesCursor(entry).bottom?.value;
+      cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
 }

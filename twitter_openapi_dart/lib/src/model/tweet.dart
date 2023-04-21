@@ -3,22 +3,31 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 part 'tweet.g.dart';
 
-abstract class TweetResponse implements Built<TweetResponse, TweetResponseBuilder> {
-  TimelineTweet get data;
+abstract class SimpleTimelineTweetList implements Built<SimpleTimelineTweetList, SimpleTimelineTweetListBuilder> {
+  TimelineTweet get raw;
   Tweet get tweet;
   User get user;
-  List<TweetResponse> get reply;
+  List<SimpleTimelineTweetList> get reply;
+
+  SimpleTimelineTweetList._();
+
+  factory SimpleTimelineTweetList([void Function(SimpleTimelineTweetListBuilder) updates]) = _$SimpleTimelineTweetList;
+}
+
+abstract class TweetResponse implements Built<TweetResponse, TweetResponseBuilder> {
+  TimelineCursor get cursor;
+  List<SimpleTimelineTweetList> get data;
 
   TweetResponse._();
 
   factory TweetResponse([void Function(TweetResponseBuilder) updates]) = _$TweetResponse;
 }
 
-abstract class Cursor implements Built<Cursor, CursorBuilder> {
+abstract class TimelineCursor implements Built<TimelineCursor, TimelineCursorBuilder> {
   TimelineTimelineCursor? get bottom;
   TimelineTimelineCursor? get top;
 
-  Cursor._();
+  TimelineCursor._();
 
-  factory Cursor([void Function(CursorBuilder) updates]) = _$Cursor;
+  factory TimelineCursor([void Function(TimelineCursorBuilder) updates]) = _$TimelineCursor;
 }

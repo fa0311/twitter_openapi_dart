@@ -25,7 +25,7 @@ List<List<T>> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
       .toList();
 }
 
-Cursor entriesCursor(BuiltList<TimelineAddEntry> item) {
+TimelineCursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   final cursorList = item.expand((e) {
     if (e.content.oneOf.isType(TimelineTimelineCursor)) {
       return [(e.content.oneOf.value as TimelineTimelineCursor)];
@@ -36,10 +36,10 @@ Cursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-TweetResponse buildTweetResponse(List<TimelineTweet> tweet) {
-  return TweetResponse(
+SimpleTimelineTweetList buildTweetResponse(List<TimelineTweet> tweet) {
+  return SimpleTimelineTweetList(
     (e) => e
-      ..data = tweet.first.toBuilder()
+      ..raw = tweet.first.toBuilder()
       ..tweet = tweetResultsConverter(tweet.first.tweetResults).toBuilder()
       ..user = tweetUserConverter(tweet.first.tweetResults).toBuilder()
       ..reply = (tweet..removeAt(0)).map((e) => buildTweetResponse([e])).toList(),
@@ -63,8 +63,8 @@ User tweetUserConverter(ItemResult tweetResults) {
   throw Exception();
 }
 
-Cursor buildCursor(Iterable<TimelineTimelineCursor> cursorList) {
-  return Cursor(
+TimelineCursor buildCursor(Iterable<TimelineTimelineCursor> cursorList) {
+  return TimelineCursor(
     (e) => e
       ..top = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.top)?.toBuilder()
       ..bottom = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.bottom)?.toBuilder(),
