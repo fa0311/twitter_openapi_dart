@@ -28,7 +28,7 @@ Future<void> main() async {
   });
   group('timeline', () {
     test('getHomeTimeline', () async {
-      final result = await client.getDefaultApi().getHomeTimeline();
+      final result = await client.getTweetApi().getHomeTimeline();
       for (final tweet in result.data) {
         printTweet(tweet);
       }
@@ -36,7 +36,7 @@ Future<void> main() async {
     });
 
     test('getHomeTimelineStream', () async {
-      final result = client.getDefaultApi().getHomeTimelineStream();
+      final result = client.getTweetApi().getHomeTimelineStream();
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -47,7 +47,7 @@ Future<void> main() async {
     });
 
     test('getHomeLatestTimeline', () async {
-      final result = await client.getDefaultApi().getHomeLatestTimeline();
+      final result = await client.getTweetApi().getHomeLatestTimeline();
       for (final tweet in result.data) {
         if (tweet.raw.promotedMetadata != null) continue;
         printTweet(tweet);
@@ -56,7 +56,7 @@ Future<void> main() async {
     });
 
     test('getHomeLatestTimelineStream', () async {
-      final result = client.getDefaultApi().getHomeLatestTimelineStream();
+      final result = client.getTweetApi().getHomeLatestTimelineStream();
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -67,7 +67,7 @@ Future<void> main() async {
     });
 
     test('getListLatestTweetsTimeline', () async {
-      final result = await client.getDefaultApi().getListLatestTweetsTimeline(listId: '5TestCount44119');
+      final result = await client.getTweetApi().getListLatestTweetsTimeline(listId: '5TestCount44119');
       for (final tweet in result.data) {
         if (tweet.raw.promotedMetadata != null) continue;
         printTweet(tweet);
@@ -76,7 +76,7 @@ Future<void> main() async {
     });
 
     test('getListLatestTweetsTimelineStream', () async {
-      final result = client.getDefaultApi().getListLatestTweetsTimelineStream(listId: "5TestCount44119");
+      final result = client.getTweetApi().getListLatestTweetsTimelineStream(listId: "5TestCount44119");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -89,7 +89,7 @@ Future<void> main() async {
 
   group('user', () {
     test('getUserTweets', () async {
-      final result = await client.getDefaultApi().getUserTweets(userId: "900282258736545792");
+      final result = await client.getTweetApi().getUserTweets(userId: "900282258736545792");
       for (final tweet in result.data) {
         printTweet(tweet);
       }
@@ -97,7 +97,7 @@ Future<void> main() async {
     });
 
     test('getUserTweetsStream', () async {
-      final result = client.getDefaultApi().getUserTweetsStream(userId: "900282258736545792");
+      final result = client.getTweetApi().getUserTweetsStream(userId: "900282258736545792");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -108,7 +108,7 @@ Future<void> main() async {
     });
 
     test('getUserTweetsAndReplies', () async {
-      final result = await client.getDefaultApi().getUserTweetsAndReplies(userId: "900282258736545792");
+      final result = await client.getTweetApi().getUserTweetsAndReplies(userId: "900282258736545792");
       for (final tweet in result.data) {
         printTweet(tweet);
       }
@@ -116,7 +116,7 @@ Future<void> main() async {
     });
 
     test('getUserTweetsAndRepliesStream', () async {
-      final result = client.getDefaultApi().getUserTweetsAndRepliesStream(userId: "900282258736545792");
+      final result = client.getTweetApi().getUserTweetsAndRepliesStream(userId: "900282258736545792");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -127,7 +127,7 @@ Future<void> main() async {
     });
 
     test('getUserMedia', () async {
-      final result = await client.getDefaultApi().getUserMedia(userId: "900282258736545792");
+      final result = await client.getTweetApi().getUserMedia(userId: "900282258736545792");
       for (final tweet in result.data) {
         printTweet(tweet);
       }
@@ -135,7 +135,7 @@ Future<void> main() async {
     });
 
     test('getUserMediaStream', () async {
-      final result = client.getDefaultApi().getUserMediaStream(userId: "900282258736545792");
+      final result = client.getTweetApi().getUserMediaStream(userId: "900282258736545792");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
@@ -146,7 +146,7 @@ Future<void> main() async {
     });
 
     test('getLikes', () async {
-      final result = await client.getDefaultApi().getLikes(userId: "900282258736545792");
+      final result = await client.getTweetApi().getLikes(userId: "900282258736545792");
       for (final tweet in result.data) {
         printTweet(tweet);
       }
@@ -154,7 +154,7 @@ Future<void> main() async {
     });
 
     test('getLikesStream', () async {
-      final result = client.getDefaultApi().getLikesStream(userId: "900282258736545792");
+      final result = client.getTweetApi().getLikesStream(userId: "900282258736545792");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;

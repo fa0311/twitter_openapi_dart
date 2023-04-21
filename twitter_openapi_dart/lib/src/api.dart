@@ -3,6 +3,9 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
+import 'package:twitter_openapi_dart/src/api/tweet_api.dart';
+import 'package:twitter_openapi_dart/src/api/user_api.dart';
+import 'package:twitter_openapi_dart/src/api/user_list_api.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -43,6 +46,18 @@ class TwitterOpenapiDart {
 
   DefaultApiUtils getDefaultApi() {
     return DefaultApiUtils(api.getDefaultApi(), flag);
+  }
+
+  TweetApiUtils getTweetApi() {
+    return TweetApiUtils(api.getTweetApi(), flag);
+  }
+
+  UserApiUtils getUserApi() {
+    return UserApiUtils(api.getUserApi(), flag);
+  }
+
+  UserListApiUtils getUserListApi() {
+    return UserListApiUtils(api.getUserListApi(), flag);
   }
 
   /*

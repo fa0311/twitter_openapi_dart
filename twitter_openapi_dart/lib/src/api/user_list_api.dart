@@ -4,11 +4,11 @@ import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
-class DefaultApiUtils {
-  final DefaultApi api;
+class UserListApiUtils {
+  final UserListApi api;
   final Future<Map<String, dynamic>> flag;
 
-  const DefaultApiUtils(this.api, this.flag);
+  const UserListApiUtils(this.api, this.flag);
 
   Future<TweetResponse> requestTweet<T>({
     required ApiFunction<T> apiFn,
