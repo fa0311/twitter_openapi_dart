@@ -72,7 +72,7 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*DefaultApi*](doc/DefaultApi.md) | [**getBookmarks**](doc/DefaultApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getFollowers**](doc/DefaultApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getFollowers**](doc/DefaultApi.md#getfollowers) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getFollowing**](doc/DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getHomeLatestTimeline**](doc/DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getHomeTimeline**](doc/DefaultApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 

@@ -10,7 +10,7 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getBookmarks**](DefaultApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[**getFollowers**](DefaultApi.md#getfollowers) | **GET** /b22I8WSfQ8H4Ev8486xAlQ/Following | 
+[**getFollowers**](DefaultApi.md#getfollowers) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
 [**getFollowing**](DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 [**getHomeLatestTimeline**](DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [**getHomeTimeline**](DefaultApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
@@ -119,7 +119,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 final api = TwitterOpenapiDartGenerated().getDefaultApi();
 final String variables = {"userId": "44196397", "count": 20, "includePromotedContent": false}; // String | 
 final String features = {"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}; // String | 
-final String queryId = b22I8WSfQ8H4Ev8486xAlQ; // String | 
+final String queryId = IWP6Zt14sARO29lJT35bBw; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterAuthType = xTwitterAuthType_example; // String | 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to 'b22I8WSfQ8H4Ev8486xAlQ']
+ **queryId** | **String**|  | [default to 'IWP6Zt14sARO29lJT35bBw']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']

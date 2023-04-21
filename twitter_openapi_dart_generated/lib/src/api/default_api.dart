@@ -166,7 +166,7 @@ class DefaultApi {
   Future<Response<FollowResponse>> getFollowers({ 
     required String variables,
     required String features,
-    String queryId = 'b22I8WSfQ8H4Ev8486xAlQ',
+    String queryId = 'IWP6Zt14sARO29lJT35bBw',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterAuthType = 'OAuth2Session',
@@ -179,7 +179,7 @@ class DefaultApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/b22I8WSfQ8H4Ev8486xAlQ/Following';
+    final _path = r'/IWP6Zt14sARO29lJT35bBw/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
