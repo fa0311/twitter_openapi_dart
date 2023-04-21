@@ -67,7 +67,7 @@ Future<void> main() async {
     });
 
     test('getListLatestTweetsTimeline', () async {
-      final result = await client.getTweetApi().getListLatestTweetsTimeline(listId: '5TestCount44119');
+      final result = await client.getTweetApi().getListLatestTweetsTimeline(listId: '1141162794290520064');
       for (final tweet in result.data) {
         if (tweet.raw.promotedMetadata != null) continue;
         printTweet(tweet);
@@ -76,7 +76,7 @@ Future<void> main() async {
     });
 
     test('getListLatestTweetsTimelineStream', () async {
-      final result = client.getTweetApi().getListLatestTweetsTimelineStream(listId: "5TestCount44119");
+      final result = client.getTweetApi().getListLatestTweetsTimelineStream(listId: "1141162794290520064");
       var count = 0;
       await for (final tweet in result) {
         if (tweet.raw.promotedMetadata != null) continue;
