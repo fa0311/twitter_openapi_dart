@@ -8,7 +8,7 @@ import 'package:test/test.dart';
 
 const int testCount = 100;
 
-void printTweet(SimpleTimelineTweetList tweet) {
+void printTweet(SimpleTimelineTweet tweet) {
   print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
   for (final tweet in tweet.reply) {
     print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));

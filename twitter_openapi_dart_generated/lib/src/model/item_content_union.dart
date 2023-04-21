@@ -6,6 +6,7 @@
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
@@ -32,6 +33,7 @@ part 'item_content_union.g.dart';
 /// * [entryType] 
 /// * [value] 
 /// * [userDisplayType] 
+/// * [userResults] 
 @BuiltValue()
 abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUnionBuilder> {
   /// One Of [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]

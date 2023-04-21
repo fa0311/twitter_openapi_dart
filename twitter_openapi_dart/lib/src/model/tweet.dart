@@ -3,24 +3,42 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 part 'tweet.g.dart';
 
-abstract class SimpleTimelineTweetList implements Built<SimpleTimelineTweetList, SimpleTimelineTweetListBuilder> {
+abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
   TimelineTweet get raw;
   Tweet get tweet;
   User get user;
-  List<SimpleTimelineTweetList> get reply;
+  List<SimpleTimelineTweet> get reply;
 
-  SimpleTimelineTweetList._();
+  SimpleTimelineTweet._();
 
-  factory SimpleTimelineTweetList([void Function(SimpleTimelineTweetListBuilder) updates]) = _$SimpleTimelineTweetList;
+  factory SimpleTimelineTweet([void Function(SimpleTimelineTweetBuilder) updates]) = _$SimpleTimelineTweet;
 }
 
-abstract class TweetResponse implements Built<TweetResponse, TweetResponseBuilder> {
+abstract class TweetApiUtilsResponse implements Built<TweetApiUtilsResponse, TweetApiUtilsResponseBuilder> {
   TimelineCursor get cursor;
-  List<SimpleTimelineTweetList> get data;
+  List<SimpleTimelineTweet> get data;
 
-  TweetResponse._();
+  TweetApiUtilsResponse._();
 
-  factory TweetResponse([void Function(TweetResponseBuilder) updates]) = _$TweetResponse;
+  factory TweetApiUtilsResponse([void Function(TweetApiUtilsResponseBuilder) updates]) = _$TweetApiUtilsResponse;
+}
+
+abstract class SimpleTimelineUser implements Built<SimpleTimelineUser, SimpleTimelineUserBuilder> {
+  TimelineUser get raw;
+  User get user;
+
+  SimpleTimelineUser._();
+
+  factory SimpleTimelineUser([void Function(SimpleTimelineUserBuilder) updates]) = _$SimpleTimelineUser;
+}
+
+abstract class UserListApiUtilsResponse implements Built<UserListApiUtilsResponse, UserListApiUtilsResponseBuilder> {
+  TimelineCursor get cursor;
+  List<SimpleTimelineUser> get data;
+
+  UserListApiUtilsResponse._();
+
+  factory UserListApiUtilsResponse([void Function(UserListApiUtilsResponseBuilder) updates]) = _$UserListApiUtilsResponse;
 }
 
 abstract class TimelineCursor implements Built<TimelineCursor, TimelineCursorBuilder> {

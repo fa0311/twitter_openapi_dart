@@ -10,7 +10,7 @@ class TweetApiUtils {
 
   const TweetApiUtils(this.api, this.flag);
 
-  Future<TweetResponse> requestTweet<T>({
+  Future<TweetApiUtilsResponse> requestTweet<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
@@ -23,8 +23,8 @@ class TweetApiUtils {
     );
     final entry = instructionToEntry(convertFn(response.data as T));
     final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    final data = tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
-    return TweetResponse(
+    final data = tweetList.map((tweet) => buildTweetApiUtils(tweet)).toList();
+    return TweetApiUtilsResponse(
       (e) => e
         ..data = data
         ..cursor = entriesCursor(entry).toBuilder(),
@@ -33,7 +33,7 @@ class TweetApiUtils {
 
   // ====== timeline ==========
 
-  Future<TweetResponse> getHomeTimeline({
+  Future<TweetApiUtilsResponse> getHomeTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -52,7 +52,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getHomeTimelineStream({
+  Stream<SimpleTimelineTweet> getHomeTimelineStream({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -77,7 +77,7 @@ class TweetApiUtils {
     } while (cursor != null);
   }
 
-  Future<TweetResponse> getHomeLatestTimeline({
+  Future<TweetApiUtilsResponse> getHomeLatestTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -96,7 +96,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getHomeLatestTimelineStream({
+  Stream<SimpleTimelineTweet> getHomeLatestTimelineStream({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -121,7 +121,7 @@ class TweetApiUtils {
     } while (cursor != null);
   }
 
-  Future<TweetResponse> getListLatestTweetsTimeline({
+  Future<TweetApiUtilsResponse> getListLatestTweetsTimeline({
     required String listId,
     String? cursor,
     int? count,
@@ -142,7 +142,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getListLatestTweetsTimelineStream({
+  Stream<SimpleTimelineTweet> getListLatestTweetsTimelineStream({
     required String listId,
     String? cursor,
     int? count,
@@ -171,7 +171,7 @@ class TweetApiUtils {
 
   // ====== user ==========
 
-  Future<TweetResponse> getUserTweets({
+  Future<TweetApiUtilsResponse> getUserTweets({
     required String userId,
     String? cursor,
     int? count,
@@ -192,7 +192,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getUserTweetsStream({
+  Stream<SimpleTimelineTweet> getUserTweetsStream({
     required String userId,
     String? cursor,
     int? count,
@@ -219,7 +219,7 @@ class TweetApiUtils {
     } while (cursor != null);
   }
 
-  Future<TweetResponse> getUserTweetsAndReplies({
+  Future<TweetApiUtilsResponse> getUserTweetsAndReplies({
     required String userId,
     String? cursor,
     int? count,
@@ -240,7 +240,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getUserTweetsAndRepliesStream({
+  Stream<SimpleTimelineTweet> getUserTweetsAndRepliesStream({
     required String userId,
     String? cursor,
     int? count,
@@ -267,7 +267,7 @@ class TweetApiUtils {
     } while (cursor != null);
   }
 
-  Future<TweetResponse> getUserMedia({
+  Future<TweetApiUtilsResponse> getUserMedia({
     required String userId,
     String? cursor,
     int? count,
@@ -288,7 +288,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getUserMediaStream({
+  Stream<SimpleTimelineTweet> getUserMediaStream({
     required String userId,
     String? cursor,
     int? count,
@@ -315,7 +315,7 @@ class TweetApiUtils {
     } while (cursor != null);
   }
 
-  Future<TweetResponse> getLikes({
+  Future<TweetApiUtilsResponse> getLikes({
     required String userId,
     String? cursor,
     int? count,
@@ -336,7 +336,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getLikesStream({
+  Stream<SimpleTimelineTweet> getLikesStream({
     required String userId,
     String? cursor,
     int? count,
@@ -365,7 +365,7 @@ class TweetApiUtils {
 
   // ====== bookmark ========
 
-  Future<TweetResponse> getBookmarks({
+  Future<TweetApiUtilsResponse> getBookmarks({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -384,7 +384,7 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineTweetList> getBookmarksStream({
+  Stream<SimpleTimelineTweet> getBookmarksStream({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,

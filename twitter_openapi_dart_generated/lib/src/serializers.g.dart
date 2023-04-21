@@ -71,7 +71,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(UserTweetsResponse.serializer)
       ..add(UserTweetsResult.serializer)
       ..add(UserTweetsUser.serializer)
-      ..add(UserUnion.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(InstructionUnion)]),
           () => new ListBuilder<InstructionUnion>())

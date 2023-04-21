@@ -10,7 +10,7 @@ class UserListApiUtils {
 
   const UserListApiUtils(this.api, this.flag);
 
-  Future<TweetResponse> requestTweet<T>({
+  Future<UserListApiUtilsResponse> requestTweet<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
@@ -22,9 +22,9 @@ class UserListApiUtils {
       features: jsonEncode((await flag)[key]!["Features"]),
     );
     final entry = instructionToEntry(convertFn(response.data as T));
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    final data = tweetList.map((tweet) => buildTweetResponse(tweet)).toList();
-    return TweetResponse(
+    final userList = entriesConverter<TimelineUser>(entry, TimelineUser).expand((e) => e);
+    final data = userList.map((user) => buildUserResponse(user)).toList();
+    return UserListApiUtilsResponse(
       (e) => e
         ..data = data
         ..cursor = entriesCursor(entry).toBuilder(),

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **String** |  | 
 **userDisplayType** | **String** |  | 
+**userResults** | [**UserResults**](UserResults.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

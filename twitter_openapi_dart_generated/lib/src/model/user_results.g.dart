@@ -8,7 +8,7 @@ part of 'user_results.dart';
 
 class _$UserResults extends UserResults {
   @override
-  final UserUnion result;
+  final User result;
 
   factory _$UserResults([void Function(UserResultsBuilder)? updates]) =>
       (new UserResultsBuilder()..update(updates))._build();
@@ -48,9 +48,9 @@ class _$UserResults extends UserResults {
 class UserResultsBuilder implements Builder<UserResults, UserResultsBuilder> {
   _$UserResults? _$v;
 
-  UserUnionBuilder? _result;
-  UserUnionBuilder get result => _$this._result ??= new UserUnionBuilder();
-  set result(UserUnionBuilder? result) => _$this._result = result;
+  UserBuilder? _result;
+  UserBuilder get result => _$this._result ??= new UserBuilder();
+  set result(UserBuilder? result) => _$this._result = result;
 
   UserResultsBuilder() {
     UserResults._defaults(this);

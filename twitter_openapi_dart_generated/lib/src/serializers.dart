@@ -76,7 +76,6 @@ import 'package:twitter_openapi_dart_generated/src/model/user_tweets_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_user.dart';
-import 'package:twitter_openapi_dart_generated/src/model/user_union.dart';
 
 part 'serializers.g.dart';
 
@@ -143,7 +142,6 @@ part 'serializers.g.dart';
   UserTweetsResponse,
   UserTweetsResult,
   UserTweetsUser,
-  UserUnion,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

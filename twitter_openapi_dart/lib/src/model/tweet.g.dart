@@ -6,7 +6,7 @@ part of 'tweet.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$SimpleTimelineTweetList extends SimpleTimelineTweetList {
+class _$SimpleTimelineTweet extends SimpleTimelineTweet {
   @override
   final TimelineTweet raw;
   @override
@@ -14,41 +14,39 @@ class _$SimpleTimelineTweetList extends SimpleTimelineTweetList {
   @override
   final User user;
   @override
-  final List<SimpleTimelineTweetList> reply;
+  final List<SimpleTimelineTweet> reply;
 
-  factory _$SimpleTimelineTweetList(
-          [void Function(SimpleTimelineTweetListBuilder)? updates]) =>
-      (new SimpleTimelineTweetListBuilder()..update(updates))._build();
+  factory _$SimpleTimelineTweet(
+          [void Function(SimpleTimelineTweetBuilder)? updates]) =>
+      (new SimpleTimelineTweetBuilder()..update(updates))._build();
 
-  _$SimpleTimelineTweetList._(
+  _$SimpleTimelineTweet._(
       {required this.raw,
       required this.tweet,
       required this.user,
       required this.reply})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(raw, r'SimpleTimelineTweet', 'raw');
     BuiltValueNullFieldError.checkNotNull(
-        raw, r'SimpleTimelineTweetList', 'raw');
+        tweet, r'SimpleTimelineTweet', 'tweet');
+    BuiltValueNullFieldError.checkNotNull(user, r'SimpleTimelineTweet', 'user');
     BuiltValueNullFieldError.checkNotNull(
-        tweet, r'SimpleTimelineTweetList', 'tweet');
-    BuiltValueNullFieldError.checkNotNull(
-        user, r'SimpleTimelineTweetList', 'user');
-    BuiltValueNullFieldError.checkNotNull(
-        reply, r'SimpleTimelineTweetList', 'reply');
+        reply, r'SimpleTimelineTweet', 'reply');
   }
 
   @override
-  SimpleTimelineTweetList rebuild(
-          void Function(SimpleTimelineTweetListBuilder) updates) =>
+  SimpleTimelineTweet rebuild(
+          void Function(SimpleTimelineTweetBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SimpleTimelineTweetListBuilder toBuilder() =>
-      new SimpleTimelineTweetListBuilder()..replace(this);
+  SimpleTimelineTweetBuilder toBuilder() =>
+      new SimpleTimelineTweetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SimpleTimelineTweetList &&
+    return other is SimpleTimelineTweet &&
         raw == other.raw &&
         tweet == other.tweet &&
         user == other.user &&
@@ -68,7 +66,7 @@ class _$SimpleTimelineTweetList extends SimpleTimelineTweetList {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SimpleTimelineTweetList')
+    return (newBuiltValueToStringHelper(r'SimpleTimelineTweet')
           ..add('raw', raw)
           ..add('tweet', tweet)
           ..add('user', user)
@@ -77,10 +75,9 @@ class _$SimpleTimelineTweetList extends SimpleTimelineTweetList {
   }
 }
 
-class SimpleTimelineTweetListBuilder
-    implements
-        Builder<SimpleTimelineTweetList, SimpleTimelineTweetListBuilder> {
-  _$SimpleTimelineTweetList? _$v;
+class SimpleTimelineTweetBuilder
+    implements Builder<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
+  _$SimpleTimelineTweet? _$v;
 
   TimelineTweetBuilder? _raw;
   TimelineTweetBuilder get raw => _$this._raw ??= new TimelineTweetBuilder();
@@ -94,13 +91,13 @@ class SimpleTimelineTweetListBuilder
   UserBuilder get user => _$this._user ??= new UserBuilder();
   set user(UserBuilder? user) => _$this._user = user;
 
-  List<SimpleTimelineTweetList>? _reply;
-  List<SimpleTimelineTweetList>? get reply => _$this._reply;
-  set reply(List<SimpleTimelineTweetList>? reply) => _$this._reply = reply;
+  List<SimpleTimelineTweet>? _reply;
+  List<SimpleTimelineTweet>? get reply => _$this._reply;
+  set reply(List<SimpleTimelineTweet>? reply) => _$this._reply = reply;
 
-  SimpleTimelineTweetListBuilder();
+  SimpleTimelineTweetBuilder();
 
-  SimpleTimelineTweetListBuilder get _$this {
+  SimpleTimelineTweetBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _raw = $v.raw.toBuilder();
@@ -113,29 +110,29 @@ class SimpleTimelineTweetListBuilder
   }
 
   @override
-  void replace(SimpleTimelineTweetList other) {
+  void replace(SimpleTimelineTweet other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SimpleTimelineTweetList;
+    _$v = other as _$SimpleTimelineTweet;
   }
 
   @override
-  void update(void Function(SimpleTimelineTweetListBuilder)? updates) {
+  void update(void Function(SimpleTimelineTweetBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SimpleTimelineTweetList build() => _build();
+  SimpleTimelineTweet build() => _build();
 
-  _$SimpleTimelineTweetList _build() {
-    _$SimpleTimelineTweetList _$result;
+  _$SimpleTimelineTweet _build() {
+    _$SimpleTimelineTweet _$result;
     try {
       _$result = _$v ??
-          new _$SimpleTimelineTweetList._(
+          new _$SimpleTimelineTweet._(
               raw: raw.build(),
               tweet: tweet.build(),
               user: user.build(),
               reply: BuiltValueNullFieldError.checkNotNull(
-                  reply, r'SimpleTimelineTweetList', 'reply'));
+                  reply, r'SimpleTimelineTweet', 'reply'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -147,7 +144,7 @@ class SimpleTimelineTweetListBuilder
         user.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'SimpleTimelineTweetList', _$failedField, e.toString());
+            r'SimpleTimelineTweet', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -156,31 +153,37 @@ class SimpleTimelineTweetListBuilder
   }
 }
 
-class _$TweetResponse extends TweetResponse {
+class _$TweetApiUtilsResponse extends TweetApiUtilsResponse {
   @override
   final TimelineCursor cursor;
   @override
-  final List<SimpleTimelineTweetList> data;
+  final List<SimpleTimelineTweet> data;
 
-  factory _$TweetResponse([void Function(TweetResponseBuilder)? updates]) =>
-      (new TweetResponseBuilder()..update(updates))._build();
+  factory _$TweetApiUtilsResponse(
+          [void Function(TweetApiUtilsResponseBuilder)? updates]) =>
+      (new TweetApiUtilsResponseBuilder()..update(updates))._build();
 
-  _$TweetResponse._({required this.cursor, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(cursor, r'TweetResponse', 'cursor');
-    BuiltValueNullFieldError.checkNotNull(data, r'TweetResponse', 'data');
+  _$TweetApiUtilsResponse._({required this.cursor, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        cursor, r'TweetApiUtilsResponse', 'cursor');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'TweetApiUtilsResponse', 'data');
   }
 
   @override
-  TweetResponse rebuild(void Function(TweetResponseBuilder) updates) =>
+  TweetApiUtilsResponse rebuild(
+          void Function(TweetApiUtilsResponseBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TweetResponseBuilder toBuilder() => new TweetResponseBuilder()..replace(this);
+  TweetApiUtilsResponseBuilder toBuilder() =>
+      new TweetApiUtilsResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is TweetResponse &&
+    return other is TweetApiUtilsResponse &&
         cursor == other.cursor &&
         data == other.data;
   }
@@ -196,29 +199,29 @@ class _$TweetResponse extends TweetResponse {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TweetResponse')
+    return (newBuiltValueToStringHelper(r'TweetApiUtilsResponse')
           ..add('cursor', cursor)
           ..add('data', data))
         .toString();
   }
 }
 
-class TweetResponseBuilder
-    implements Builder<TweetResponse, TweetResponseBuilder> {
-  _$TweetResponse? _$v;
+class TweetApiUtilsResponseBuilder
+    implements Builder<TweetApiUtilsResponse, TweetApiUtilsResponseBuilder> {
+  _$TweetApiUtilsResponse? _$v;
 
   TimelineCursorBuilder? _cursor;
   TimelineCursorBuilder get cursor =>
       _$this._cursor ??= new TimelineCursorBuilder();
   set cursor(TimelineCursorBuilder? cursor) => _$this._cursor = cursor;
 
-  List<SimpleTimelineTweetList>? _data;
-  List<SimpleTimelineTweetList>? get data => _$this._data;
-  set data(List<SimpleTimelineTweetList>? data) => _$this._data = data;
+  List<SimpleTimelineTweet>? _data;
+  List<SimpleTimelineTweet>? get data => _$this._data;
+  set data(List<SimpleTimelineTweet>? data) => _$this._data = data;
 
-  TweetResponseBuilder();
+  TweetApiUtilsResponseBuilder();
 
-  TweetResponseBuilder get _$this {
+  TweetApiUtilsResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _cursor = $v.cursor.toBuilder();
@@ -229,27 +232,27 @@ class TweetResponseBuilder
   }
 
   @override
-  void replace(TweetResponse other) {
+  void replace(TweetApiUtilsResponse other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TweetResponse;
+    _$v = other as _$TweetApiUtilsResponse;
   }
 
   @override
-  void update(void Function(TweetResponseBuilder)? updates) {
+  void update(void Function(TweetApiUtilsResponseBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  TweetResponse build() => _build();
+  TweetApiUtilsResponse build() => _build();
 
-  _$TweetResponse _build() {
-    _$TweetResponse _$result;
+  _$TweetApiUtilsResponse _build() {
+    _$TweetApiUtilsResponse _$result;
     try {
       _$result = _$v ??
-          new _$TweetResponse._(
+          new _$TweetApiUtilsResponse._(
               cursor: cursor.build(),
               data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'TweetResponse', 'data'));
+                  data, r'TweetApiUtilsResponse', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -257,7 +260,235 @@ class TweetResponseBuilder
         cursor.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'TweetResponse', _$failedField, e.toString());
+            r'TweetApiUtilsResponse', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$SimpleTimelineUser extends SimpleTimelineUser {
+  @override
+  final TimelineUser raw;
+  @override
+  final User user;
+
+  factory _$SimpleTimelineUser(
+          [void Function(SimpleTimelineUserBuilder)? updates]) =>
+      (new SimpleTimelineUserBuilder()..update(updates))._build();
+
+  _$SimpleTimelineUser._({required this.raw, required this.user}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(raw, r'SimpleTimelineUser', 'raw');
+    BuiltValueNullFieldError.checkNotNull(user, r'SimpleTimelineUser', 'user');
+  }
+
+  @override
+  SimpleTimelineUser rebuild(
+          void Function(SimpleTimelineUserBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SimpleTimelineUserBuilder toBuilder() =>
+      new SimpleTimelineUserBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SimpleTimelineUser &&
+        raw == other.raw &&
+        user == other.user;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, raw.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SimpleTimelineUser')
+          ..add('raw', raw)
+          ..add('user', user))
+        .toString();
+  }
+}
+
+class SimpleTimelineUserBuilder
+    implements Builder<SimpleTimelineUser, SimpleTimelineUserBuilder> {
+  _$SimpleTimelineUser? _$v;
+
+  TimelineUserBuilder? _raw;
+  TimelineUserBuilder get raw => _$this._raw ??= new TimelineUserBuilder();
+  set raw(TimelineUserBuilder? raw) => _$this._raw = raw;
+
+  UserBuilder? _user;
+  UserBuilder get user => _$this._user ??= new UserBuilder();
+  set user(UserBuilder? user) => _$this._user = user;
+
+  SimpleTimelineUserBuilder();
+
+  SimpleTimelineUserBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _raw = $v.raw.toBuilder();
+      _user = $v.user.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(SimpleTimelineUser other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SimpleTimelineUser;
+  }
+
+  @override
+  void update(void Function(SimpleTimelineUserBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SimpleTimelineUser build() => _build();
+
+  _$SimpleTimelineUser _build() {
+    _$SimpleTimelineUser _$result;
+    try {
+      _$result = _$v ??
+          new _$SimpleTimelineUser._(raw: raw.build(), user: user.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'raw';
+        raw.build();
+        _$failedField = 'user';
+        user.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'SimpleTimelineUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$UserListApiUtilsResponse extends UserListApiUtilsResponse {
+  @override
+  final TimelineCursor cursor;
+  @override
+  final List<SimpleTimelineUser> data;
+
+  factory _$UserListApiUtilsResponse(
+          [void Function(UserListApiUtilsResponseBuilder)? updates]) =>
+      (new UserListApiUtilsResponseBuilder()..update(updates))._build();
+
+  _$UserListApiUtilsResponse._({required this.cursor, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        cursor, r'UserListApiUtilsResponse', 'cursor');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UserListApiUtilsResponse', 'data');
+  }
+
+  @override
+  UserListApiUtilsResponse rebuild(
+          void Function(UserListApiUtilsResponseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserListApiUtilsResponseBuilder toBuilder() =>
+      new UserListApiUtilsResponseBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserListApiUtilsResponse &&
+        cursor == other.cursor &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, cursor.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserListApiUtilsResponse')
+          ..add('cursor', cursor)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UserListApiUtilsResponseBuilder
+    implements
+        Builder<UserListApiUtilsResponse, UserListApiUtilsResponseBuilder> {
+  _$UserListApiUtilsResponse? _$v;
+
+  TimelineCursorBuilder? _cursor;
+  TimelineCursorBuilder get cursor =>
+      _$this._cursor ??= new TimelineCursorBuilder();
+  set cursor(TimelineCursorBuilder? cursor) => _$this._cursor = cursor;
+
+  List<SimpleTimelineUser>? _data;
+  List<SimpleTimelineUser>? get data => _$this._data;
+  set data(List<SimpleTimelineUser>? data) => _$this._data = data;
+
+  UserListApiUtilsResponseBuilder();
+
+  UserListApiUtilsResponseBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _cursor = $v.cursor.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UserListApiUtilsResponse other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserListApiUtilsResponse;
+  }
+
+  @override
+  void update(void Function(UserListApiUtilsResponseBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserListApiUtilsResponse build() => _build();
+
+  _$UserListApiUtilsResponse _build() {
+    _$UserListApiUtilsResponse _$result;
+    try {
+      _$result = _$v ??
+          new _$UserListApiUtilsResponse._(
+              cursor: cursor.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UserListApiUtilsResponse', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'cursor';
+        cursor.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UserListApiUtilsResponse', _$failedField, e.toString());
       }
       rethrow;
     }

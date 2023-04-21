@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:built_value/built_value.dart';
@@ -18,6 +19,7 @@ part 'timeline_user.g.dart';
 /// * [typename] 
 /// * [itemType] 
 /// * [userDisplayType] 
+/// * [userResults] 
 @BuiltValue()
 abstract class TimelineUser implements Built<TimelineUser, TimelineUserBuilder> {
   @BuiltValueField(wireName: r'SocialContext')
@@ -33,6 +35,9 @@ abstract class TimelineUser implements Built<TimelineUser, TimelineUserBuilder> 
 
   @BuiltValueField(wireName: r'userDisplayType')
   String get userDisplayType;
+
+  @BuiltValueField(wireName: r'user_results')
+  UserResults get userResults;
 
   TimelineUser._();
 
@@ -78,6 +83,11 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     yield serializers.serialize(
       object.userDisplayType,
       specifiedType: const FullType(String),
+    );
+    yield r'user_results';
+    yield serializers.serialize(
+      object.userResults,
+      specifiedType: const FullType(UserResults),
     );
   }
 
@@ -129,6 +139,13 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
             specifiedType: const FullType(String),
           ) as String;
           result.userDisplayType = valueDes;
+          break;
+        case r'user_results':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserResults),
+          ) as UserResults;
+          result.userResults.replace(valueDes);
           break;
         default:
           unhandled.add(key);

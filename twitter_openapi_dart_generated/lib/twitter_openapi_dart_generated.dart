@@ -76,4 +76,3 @@ export 'package:twitter_openapi_dart_generated/src/model/user_tweets_data.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_tweets_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_tweets_result.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_tweets_user.dart';
-export 'package:twitter_openapi_dart_generated/src/model/user_union.dart';

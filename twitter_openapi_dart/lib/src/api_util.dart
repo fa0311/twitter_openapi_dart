@@ -36,13 +36,21 @@ TimelineCursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-SimpleTimelineTweetList buildTweetResponse(List<TimelineTweet> tweet) {
-  return SimpleTimelineTweetList(
+SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> tweet) {
+  return SimpleTimelineTweet(
     (e) => e
       ..raw = tweet.first.toBuilder()
       ..tweet = tweetResultsConverter(tweet.first.tweetResults).toBuilder()
-      ..user = tweetUserConverter(tweet.first.tweetResults).toBuilder()
-      ..reply = (tweet..removeAt(0)).map((e) => buildTweetResponse([e])).toList(),
+      ..user = tweetResultsConverter(tweet.first.tweetResults).core.userResults.result.toBuilder()
+      ..reply = (tweet..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList(),
+  );
+}
+
+SimpleTimelineUser buildUserResponse(TimelineUser user) {
+  return SimpleTimelineUser(
+    (e) => e
+      ..raw = user.toBuilder()
+      ..user = user.userResults.result.toBuilder(),
   );
 }
 
@@ -51,14 +59,6 @@ Tweet tweetResultsConverter(ItemResult tweetResults) {
     return tweetResults.result.oneOf.value as Tweet;
   } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
     return (tweetResults.result.oneOf.value as TweetWithVisibilityResults).tweet;
-  }
-  throw Exception();
-}
-
-User tweetUserConverter(ItemResult tweetResults) {
-  UserUnion userUnion = tweetResultsConverter(tweetResults).core.userResults.result;
-  if (userUnion.oneOf.isType(User)) {
-    return userUnion.oneOf.value as User;
   }
   throw Exception();
 }

@@ -94,7 +94,7 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect((response.data!.data.user.result.oneOf.value as User).legacy.screenName, name);
+    expect(response.data!.data.user.result.legacy.screenName, name);
   });
 
   test('ProfileSpotlightsQuery', () async {

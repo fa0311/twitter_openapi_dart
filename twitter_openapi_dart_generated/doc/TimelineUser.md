@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
 **userDisplayType** | **String** |  | 
+**userResults** | [**UserResults**](UserResults.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

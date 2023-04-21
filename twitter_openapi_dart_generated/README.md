@@ -150,7 +150,6 @@ Class | Method | HTTP request | Description
  - [UserTweetsResponse](doc/UserTweetsResponse.md)
  - [UserTweetsResult](doc/UserTweetsResult.md)
  - [UserTweetsUser](doc/UserTweetsUser.md)
- - [UserUnion](doc/UserUnion.md)
 
 
 ## Documentation For Authorization

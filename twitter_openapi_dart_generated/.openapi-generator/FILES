@@ -66,7 +66,6 @@ doc/UserTweetsData.md
 doc/UserTweetsResponse.md
 doc/UserTweetsResult.md
 doc/UserTweetsUser.md
-doc/UserUnion.md
 lib/src/api.dart
 lib/src/api/default_api.dart
 lib/src/api/tweet_api.dart
@@ -142,6 +141,6 @@ lib/src/model/user_tweets_data.dart
 lib/src/model/user_tweets_response.dart
 lib/src/model/user_tweets_result.dart
 lib/src/model/user_tweets_user.dart
-lib/src/model/user_union.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
+pubspec.yaml
