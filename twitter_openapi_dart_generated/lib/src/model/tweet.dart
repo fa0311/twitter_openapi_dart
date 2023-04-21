@@ -51,7 +51,7 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
   TweetLegacy get legacy;
 
   @BuiltValueField(wireName: r'quoted_status_result')
-  ItemResult get quotedStatusResult;
+  ItemResult? get quotedStatusResult;
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
@@ -118,11 +118,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
       object.legacy,
       specifiedType: const FullType(TweetLegacy),
     );
-    yield r'quoted_status_result';
-    yield serializers.serialize(
-      object.quotedStatusResult,
-      specifiedType: const FullType(ItemResult),
-    );
+    if (object.quotedStatusResult != null) {
+      yield r'quoted_status_result';
+      yield serializers.serialize(
+        object.quotedStatusResult,
+        specifiedType: const FullType(ItemResult),
+      );
+    }
     yield r'rest_id';
     yield serializers.serialize(
       object.restId,

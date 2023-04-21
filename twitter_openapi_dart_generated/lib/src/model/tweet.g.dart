@@ -20,7 +20,7 @@ class _$Tweet extends Tweet {
   @override
   final TweetLegacy legacy;
   @override
-  final ItemResult quotedStatusResult;
+  final ItemResult? quotedStatusResult;
   @override
   final String restId;
   @override
@@ -38,7 +38,7 @@ class _$Tweet extends Tweet {
       required this.editPrespective,
       required this.isTranslatable,
       required this.legacy,
-      required this.quotedStatusResult,
+      this.quotedStatusResult,
       required this.restId,
       this.unmentionData,
       required this.views})
@@ -50,8 +50,6 @@ class _$Tweet extends Tweet {
     BuiltValueNullFieldError.checkNotNull(
         isTranslatable, r'Tweet', 'isTranslatable');
     BuiltValueNullFieldError.checkNotNull(legacy, r'Tweet', 'legacy');
-    BuiltValueNullFieldError.checkNotNull(
-        quotedStatusResult, r'Tweet', 'quotedStatusResult');
     BuiltValueNullFieldError.checkNotNull(restId, r'Tweet', 'restId');
     BuiltValueNullFieldError.checkNotNull(views, r'Tweet', 'views');
   }
@@ -178,7 +176,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
       _editPrespective = $v.editPrespective.toBuilder();
       _isTranslatable = $v.isTranslatable;
       _legacy = $v.legacy.toBuilder();
-      _quotedStatusResult = $v.quotedStatusResult.toBuilder();
+      _quotedStatusResult = $v.quotedStatusResult?.toBuilder();
       _restId = $v.restId;
       _unmentionData = $v.unmentionData;
       _views = $v.views.toBuilder();
@@ -213,7 +211,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
               isTranslatable: BuiltValueNullFieldError.checkNotNull(
                   isTranslatable, r'Tweet', 'isTranslatable'),
               legacy: legacy.build(),
-              quotedStatusResult: quotedStatusResult.build(),
+              quotedStatusResult: _quotedStatusResult?.build(),
               restId: BuiltValueNullFieldError.checkNotNull(
                   restId, r'Tweet', 'restId'),
               unmentionData: unmentionData,
@@ -231,7 +229,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
         _$failedField = 'legacy';
         legacy.build();
         _$failedField = 'quotedStatusResult';
-        quotedStatusResult.build();
+        _quotedStatusResult?.build();
 
         _$failedField = 'views';
         views.build();
