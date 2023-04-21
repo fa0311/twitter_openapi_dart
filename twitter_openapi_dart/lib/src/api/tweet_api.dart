@@ -69,6 +69,7 @@ class TweetApiUtils {
         key: 'HomeTimeline',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -112,6 +113,7 @@ class TweetApiUtils {
         key: 'HomeLatestTimeline',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -159,6 +161,7 @@ class TweetApiUtils {
         key: 'ListLatestTweetsTimeline',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -208,6 +211,7 @@ class TweetApiUtils {
         key: 'UserTweets',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -255,6 +259,7 @@ class TweetApiUtils {
         key: 'UserTweetsAndReplies',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -302,6 +307,7 @@ class TweetApiUtils {
         key: 'UserMedia',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -349,6 +355,7 @@ class TweetApiUtils {
         key: 'Likes',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }
@@ -394,6 +401,7 @@ class TweetApiUtils {
         key: 'Bookmarks',
         param: param,
       );
+      if (response.data.isEmpty) return;
       for (final tweet in response.data) {
         yield tweet;
       }

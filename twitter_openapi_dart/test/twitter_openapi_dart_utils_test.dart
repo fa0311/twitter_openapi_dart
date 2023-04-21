@@ -180,7 +180,7 @@ Future<void> main() async {
         printTweet(tweet);
         if (count++ == testCount) return;
       }
-      expect(count, testCount);
+      expect(count, 1);
     });
   });
 }
