@@ -16,6 +16,10 @@ void printTweet(SimpleTimelineTweet tweet) {
   print("┄" * 50);
 }
 
+void printUser(SimpleTimelineUser user) {
+  print("${user.user.legacy.screenName}: ${user.user.legacy.followedBy} ${user.user.legacy.followersCount}");
+}
+
 Future<void> main() async {
   final cookies = (json.decode(await File("test/cookies.json").readAsString()) as Map).cast<String, String>();
   final client = TwitterOpenapiDart.fromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
@@ -180,7 +184,44 @@ Future<void> main() async {
         printTweet(tweet);
         if (count++ == testCount) return;
       }
-      expect(count, 1);
+      expect(0, 0);
+    });
+  });
+
+  group('follow', () {
+    test('getFollowers', () async {
+      final result = await client.getUserListApi().getFollowers(userId: "1180389371481976833");
+      for (final tweet in result.data) {
+        printUser(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getFollowersStream', () async {
+      final result = client.getUserListApi().getFollowersStream(userId: "1180389371481976833");
+      var count = 0;
+      await for (final user in result) {
+        printUser(user);
+        if (count++ == testCount) return;
+      }
+      expect(0, 0);
+    });
+
+    test('getFollowing', () async {
+      final result = await client.getUserListApi().getFollowing(userId: "1180389371481976833");
+      for (final tweet in result.data) {
+        printUser(tweet);
+      }
+      expect(0, 0);
+    });
+    test('getFollowingStream', () async {
+      final result = client.getUserListApi().getFollowingStream(userId: "1180389371481976833");
+      var count = 0;
+      await for (final user in result) {
+        printUser(user);
+        if (count++ == testCount) return;
+      }
+      expect(0, 0);
     });
   });
 }

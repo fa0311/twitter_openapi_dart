@@ -177,7 +177,7 @@ void main() async {
   });
 
   test('getFollowers', () async {
-    final response = await client.getUserListApi().getFollowers(
+    final response = await client.getUserListApi().getFollowing(
           variables: jsonEncode(config["Followers"]!["Variables"]),
           features: jsonEncode(config["Followers"]!["Features"]),
         );

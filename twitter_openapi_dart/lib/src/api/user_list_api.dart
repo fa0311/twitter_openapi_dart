@@ -30,4 +30,100 @@ class UserListApiUtils {
         ..cursor = entriesCursor(entry).toBuilder(),
     );
   }
+
+  Future<UserListApiUtilsResponse> getFollowers({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await requestTweet(
+      apiFn: api.getFollowers,
+      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+      key: 'Followers',
+      param: param,
+    );
+    return response;
+  }
+
+  Stream<SimpleTimelineUser> getFollowersStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await requestTweet(
+        apiFn: api.getFollowers,
+        convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+        key: 'Followers',
+        param: param,
+      );
+      if (response.data.isEmpty) return;
+      for (final tweet in response.data) {
+        yield tweet;
+      }
+      cursor = response.cursor.bottom?.value;
+    } while (cursor != null);
+  }
+
+  Future<UserListApiUtilsResponse> getFollowing({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await requestTweet(
+      apiFn: api.getFollowing,
+      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+      key: 'Following',
+      param: param,
+    );
+    return response;
+  }
+
+  Stream<SimpleTimelineUser> getFollowingStream({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "userId": userId,
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await requestTweet(
+        apiFn: api.getFollowing,
+        convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+        key: 'Following',
+        param: param,
+      );
+      if (response.data.isEmpty) return;
+      for (final tweet in response.data) {
+        yield tweet;
+      }
+      cursor = response.cursor.bottom?.value;
+    } while (cursor != null);
+  }
 }

@@ -18,7 +18,7 @@ class UserListApi {
 
   const UserListApi(this._dio, this._serializers);
 
-  /// getFollowers
+  /// followers
   /// get user list of followers
   ///
   /// Parameters:
@@ -39,10 +39,10 @@ class UserListApi {
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FollowResponse>> getFollowers({ 
+  Future<Response<FollowResponse>> followers({ 
     required String variables,
     required String features,
-    String queryId = 'IWP6Zt14sARO29lJT35bBw',
+    String queryId = 'djdTXDIk2qhd4OStqlUFeQ',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterAuthType = 'OAuth2Session',
@@ -55,7 +55,7 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/IWP6Zt14sARO29lJT35bBw/Following';
+    final _path = r'/djdTXDIk2qhd4OStqlUFeQ/Followers';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -159,7 +159,7 @@ class UserListApi {
   Future<Response<FollowResponse>> getFollowing({ 
     required String variables,
     required String features,
-    String queryId = 'JpFFCTBPxYVlDqMUr9twzQ',
+    String queryId = 'IWP6Zt14sARO29lJT35bBw',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterAuthType = 'OAuth2Session',
@@ -172,7 +172,7 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/JpFFCTBPxYVlDqMUr9twzQ/Followers';
+    final _path = r'/IWP6Zt14sARO29lJT35bBw/Following';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
