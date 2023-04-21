@@ -145,3 +145,4 @@ lib/src/model/user_tweets_user.dart
 lib/src/model/user_union.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
+pubspec.yaml

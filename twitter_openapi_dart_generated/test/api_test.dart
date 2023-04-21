@@ -57,7 +57,7 @@ void main() async {
   final file = new File("twitter-openapi/src/config/placeholder.json");
   final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
   test('getHomeTimeline', () async {
-    final response = await client.getDefaultApi().getHomeTimeline(
+    final response = await client.getTweetApi().getHomeTimeline(
           variables: jsonEncode(config["HomeTimeline"]!["Variables"]),
           features: jsonEncode(config["HomeTimeline"]!["Features"]),
         );
@@ -67,7 +67,7 @@ void main() async {
   });
 
   test('getHomeLatestTimeline', () async {
-    final response = await client.getDefaultApi().getHomeLatestTimeline(
+    final response = await client.getTweetApi().getHomeLatestTimeline(
           variables: jsonEncode(config["HomeLatestTimeline"]!["Variables"]),
           features: jsonEncode(config["HomeLatestTimeline"]!["Features"]),
         );
@@ -77,7 +77,7 @@ void main() async {
   });
 
   test('getListLatestTweetsTimeline', () async {
-    final response = await client.getDefaultApi().getListLatestTweetsTimeline(
+    final response = await client.getTweetApi().getListLatestTweetsTimeline(
           variables: jsonEncode(config["ListLatestTweetsTimeline"]!["Variables"]),
           features: jsonEncode(config["ListLatestTweetsTimeline"]!["Features"]),
         );
@@ -88,7 +88,7 @@ void main() async {
 
   test('getUserByScreenName', () async {
     const name = "elonmusk";
-    final response = await client.getDefaultApi().getUserByScreenName(
+    final response = await client.getTweetApi().getUserByScreenName(
           variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
           features: jsonEncode(config["UserByScreenName"]!["Features"]),
         );
@@ -108,7 +108,7 @@ void main() async {
   });
 
   test('getUserTweets', () async {
-    final response = await client.getDefaultApi().getUserTweets(
+    final response = await client.getTweetApi().getUserTweets(
           variables: jsonEncode(config["UserTweets"]!["Variables"]),
           features: jsonEncode(config["UserTweets"]!["Features"]),
         );
@@ -118,7 +118,7 @@ void main() async {
   });
 
   test('getUserTweetsAndReplies', () async {
-    final response = await client.getDefaultApi().getUserTweetsAndReplies(
+    final response = await client.getTweetApi().getUserTweetsAndReplies(
           variables: jsonEncode(config["UserTweetsAndReplies"]!["Variables"]),
           features: jsonEncode(config["UserTweetsAndReplies"]!["Features"]),
         );
@@ -128,7 +128,7 @@ void main() async {
   });
 
   test('getUserMedia', () async {
-    final response = await client.getDefaultApi().getUserMedia(
+    final response = await client.getTweetApi().getUserMedia(
           variables: jsonEncode(config["UserMedia"]!["Variables"]),
           features: jsonEncode(config["UserMedia"]!["Features"]),
         );
@@ -138,7 +138,7 @@ void main() async {
   });
 
   test('getLikes', () async {
-    final response = await client.getDefaultApi().getLikes(
+    final response = await client.getTweetApi().getLikes(
           variables: jsonEncode(config["Likes"]!["Variables"]),
           features: jsonEncode(config["Likes"]!["Features"]),
         );
@@ -148,7 +148,7 @@ void main() async {
   });
 
   test('getBookmarks', () async {
-    final response = await client.getDefaultApi().getBookmarks(
+    final response = await client.getTweetApi().getBookmarks(
           variables: jsonEncode(config["Bookmarks"]!["Variables"]),
           features: jsonEncode(config["Bookmarks"]!["Features"]),
         );
@@ -158,7 +158,7 @@ void main() async {
   });
 
   test('getTweetDetail', () async {
-    final response = await client.getDefaultApi().getTweetDetail(
+    final response = await client.getTweetApi().getTweetDetail(
           variables: jsonEncode(config["TweetDetail"]!["Variables"]),
           features: jsonEncode(config["TweetDetail"]!["Features"]),
         );
@@ -167,7 +167,7 @@ void main() async {
     expect(contentTest(response.data!.data.threadedConversationWithInjectionsV2.instructions), true);
   });
   test('getTweetDetail2', () async {
-    final response = await client.getDefaultApi().getTweetDetail(
+    final response = await client.getTweetApi().getTweetDetail(
           variables: jsonEncode(config["TweetDetail"]!["Variables"]..addAll({"focalTweetId": "1349265937392930816"})),
           features: jsonEncode(config["TweetDetail"]!["Features"]),
         );
@@ -177,7 +177,7 @@ void main() async {
   });
 
   test('getFollowers', () async {
-    final response = await client.getDefaultApi().getFollowers(
+    final response = await client.getUserListApi().getFollowers(
           variables: jsonEncode(config["Followers"]!["Variables"]),
           features: jsonEncode(config["Followers"]!["Features"]),
         );
@@ -187,7 +187,7 @@ void main() async {
   });
 
   test('getFollowing', () async {
-    final response = await client.getDefaultApi().getFollowing(
+    final response = await client.getUserListApi().getFollowing(
           variables: jsonEncode(config["Following"]!["Variables"]),
           features: jsonEncode(config["Following"]!["Features"]),
         );
