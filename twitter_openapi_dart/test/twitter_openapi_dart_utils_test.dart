@@ -35,6 +35,28 @@ Future<void> main() async {
     print(date.toLocal().toIso8601String());
     expect(0, 0);
   });
+
+  group('timeline', () {
+    test('getTweetDetail', () async {
+      final result = await client.getTweetApi().getTweetDetail(focalTweetId: "1349129669258448897");
+      for (final tweet in result.data) {
+        if (tweet.raw.promotedMetadata != null) continue;
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getTweetDetailStream', () async {
+      final result = client.getTweetApi().getTweetDetailStream(focalTweetId: "1349129669258448897");
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.raw.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == testCount) return;
+      }
+      expect(count, testCount);
+    });
+  });
   group('timeline', () {
     test('getHomeTimeline', () async {
       final result = await client.getTweetApi().getHomeTimeline();

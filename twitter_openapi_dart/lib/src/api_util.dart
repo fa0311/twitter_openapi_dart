@@ -36,6 +36,19 @@ TimelineCursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
+TimelineCursor entriesCursorItem(BuiltList<TimelineAddEntry> item) {
+  final cursorList = item.expand((e) {
+    if (e.content.oneOf.isType(TimelineTimelineItem)) {
+      final item = (e.content.oneOf.value as TimelineTimelineItem);
+      if (item.itemContent.oneOf.isType(TimelineTimelineCursor)) {
+        return [(item.itemContent.oneOf.value as TimelineTimelineCursor)];
+      }
+    }
+    return <TimelineTimelineCursor>[];
+  });
+  return buildCursor(cursorList);
+}
+
 SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> tweet) {
   return SimpleTimelineTweet(
     (e) => e

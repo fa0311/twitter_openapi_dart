@@ -27,8 +27,58 @@ class TweetApiUtils {
     return TweetApiUtilsResponse(
       (e) => e
         ..data = data
-        ..cursor = entriesCursor(entry).toBuilder(),
+        ..cursor = entriesCursorItem(entry).toBuilder(),
     );
+  }
+
+  // ====== TweetDetail ==========
+
+  Future<TweetApiUtilsResponse> getTweetDetail({
+    required String focalTweetId,
+    String? cursor,
+    String? controllerData,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "focalTweetId": focalTweetId,
+      if (cursor != null) "cursor": cursor,
+      if (controllerData != null) "controller_data": controllerData,
+      ...?extraParam,
+    };
+    final response = await requestTweet(
+      apiFn: api.getTweetDetail,
+      convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
+      key: 'TweetDetail',
+      param: param,
+    );
+    return response;
+  }
+
+  Stream<SimpleTimelineTweet> getTweetDetailStream({
+    required String focalTweetId,
+    String? cursor,
+    String? controllerData,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        "focalTweetId": focalTweetId,
+        if (cursor != null) "cursor": cursor,
+        if (controllerData != null) "controller_data": controllerData,
+        ...?extraParam,
+      };
+      final response = await requestTweet(
+        apiFn: api.getTweetDetail,
+        convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
+        key: 'TweetDetail',
+        param: param,
+      );
+      if (response.data.isEmpty) return;
+      for (final tweet in response.data) {
+        yield tweet;
+      }
+      cursor = response.cursor.bottom?.value;
+    } while (cursor != null);
   }
 
   // ====== timeline ==========
