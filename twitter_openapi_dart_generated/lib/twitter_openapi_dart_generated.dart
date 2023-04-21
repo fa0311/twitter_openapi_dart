@@ -10,6 +10,9 @@ export 'package:twitter_openapi_dart_generated/src/serializers.dart';
 export 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
 export 'package:twitter_openapi_dart_generated/src/api/default_api.dart';
+export 'package:twitter_openapi_dart_generated/src/api/tweet_api.dart';
+export 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
+export 'package:twitter_openapi_dart_generated/src/api/user_list_api.dart';
 
 export 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/bookmarks_response_data.dart';

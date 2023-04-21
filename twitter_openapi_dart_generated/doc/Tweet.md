@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **editPrespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | 
 **isTranslatable** | **bool** |  | [default to false]
 **legacy** | [**TweetLegacy**](TweetLegacy.md) |  | 
+**quotedStatusResult** | [**ItemResult**](ItemResult.md) |  | 
 **restId** | **String** |  | 
 **unmentionData** | [**JsonObject**](.md) |  | [optional] 
 **views** | [**TweetViews**](TweetViews.md) |  | 

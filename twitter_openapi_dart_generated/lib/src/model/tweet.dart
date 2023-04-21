@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
+import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
 import 'package:built_value/built_value.dart';
@@ -24,6 +25,7 @@ part 'tweet.g.dart';
 /// * [editPrespective] 
 /// * [isTranslatable] 
 /// * [legacy] 
+/// * [quotedStatusResult] 
 /// * [restId] 
 /// * [unmentionData] 
 /// * [views] 
@@ -47,6 +49,9 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
 
   @BuiltValueField(wireName: r'legacy')
   TweetLegacy get legacy;
+
+  @BuiltValueField(wireName: r'quoted_status_result')
+  ItemResult get quotedStatusResult;
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
@@ -112,6 +117,11 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
     yield serializers.serialize(
       object.legacy,
       specifiedType: const FullType(TweetLegacy),
+    );
+    yield r'quoted_status_result';
+    yield serializers.serialize(
+      object.quotedStatusResult,
+      specifiedType: const FullType(ItemResult),
     );
     yield r'rest_id';
     yield serializers.serialize(
@@ -194,6 +204,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
             specifiedType: const FullType(TweetLegacy),
           ) as TweetLegacy;
           result.legacy.replace(valueDes);
+          break;
+        case r'quoted_status_result':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemResult),
+          ) as ItemResult;
+          result.quotedStatusResult.replace(valueDes);
           break;
         case r'rest_id':
           final valueDes = serializers.deserialize(

@@ -47,9 +47,9 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 
 final api = TwitterOpenapiDartGenerated().getDefaultApi();
-final String variables = {"count": 20, "includePromotedContent": true}; // String | 
-final String features = {"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}; // String | 
-final String queryId = tmd4ifV8RHltzn8ymGg1aw; // String | 
+final String variables = {"screen_name": "elonmusk"}; // String | 
+final String features = {}; // String | 
+final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterAuthType = xTwitterAuthType_example; // String | 
@@ -57,10 +57,10 @@ final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = await api.getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = await api.getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling DefaultApi->getBookmarks: $e\n");
+    print("Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n");
 }
 
 ```
@@ -71,19 +71,19 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*DefaultApi*](doc/DefaultApi.md) | [**getBookmarks**](doc/DefaultApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getFollowers**](doc/DefaultApi.md#getfollowers) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getFollowing**](doc/DefaultApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getHomeLatestTimeline**](doc/DefaultApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getHomeTimeline**](doc/DefaultApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getLikes**](doc/DefaultApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getListLatestTweetsTimeline**](doc/DefaultApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
 [*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getTweetDetail**](doc/DefaultApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getUserByScreenName**](doc/DefaultApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getUserMedia**](doc/DefaultApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getUserTweets**](doc/DefaultApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
-[*DefaultApi*](doc/DefaultApi.md) | [**getUserTweetsAndReplies**](doc/DefaultApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
+[*TweetApi*](doc/TweetApi.md) | [**getBookmarks**](doc/TweetApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*TweetApi*](doc/TweetApi.md) | [**getHomeLatestTimeline**](doc/TweetApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getHomeTimeline**](doc/TweetApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getLikes**](doc/TweetApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
+[*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
+[*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /JpFFCTBPxYVlDqMUr9twzQ/Followers | 
 
 
 ## Documentation For Models

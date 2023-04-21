@@ -20,6 +20,8 @@ class _$Tweet extends Tweet {
   @override
   final TweetLegacy legacy;
   @override
+  final ItemResult quotedStatusResult;
+  @override
   final String restId;
   @override
   final JsonObject? unmentionData;
@@ -36,6 +38,7 @@ class _$Tweet extends Tweet {
       required this.editPrespective,
       required this.isTranslatable,
       required this.legacy,
+      required this.quotedStatusResult,
       required this.restId,
       this.unmentionData,
       required this.views})
@@ -47,6 +50,8 @@ class _$Tweet extends Tweet {
     BuiltValueNullFieldError.checkNotNull(
         isTranslatable, r'Tweet', 'isTranslatable');
     BuiltValueNullFieldError.checkNotNull(legacy, r'Tweet', 'legacy');
+    BuiltValueNullFieldError.checkNotNull(
+        quotedStatusResult, r'Tweet', 'quotedStatusResult');
     BuiltValueNullFieldError.checkNotNull(restId, r'Tweet', 'restId');
     BuiltValueNullFieldError.checkNotNull(views, r'Tweet', 'views');
   }
@@ -68,6 +73,7 @@ class _$Tweet extends Tweet {
         editPrespective == other.editPrespective &&
         isTranslatable == other.isTranslatable &&
         legacy == other.legacy &&
+        quotedStatusResult == other.quotedStatusResult &&
         restId == other.restId &&
         unmentionData == other.unmentionData &&
         views == other.views;
@@ -82,6 +88,7 @@ class _$Tweet extends Tweet {
     _$hash = $jc(_$hash, editPrespective.hashCode);
     _$hash = $jc(_$hash, isTranslatable.hashCode);
     _$hash = $jc(_$hash, legacy.hashCode);
+    _$hash = $jc(_$hash, quotedStatusResult.hashCode);
     _$hash = $jc(_$hash, restId.hashCode);
     _$hash = $jc(_$hash, unmentionData.hashCode);
     _$hash = $jc(_$hash, views.hashCode);
@@ -98,6 +105,7 @@ class _$Tweet extends Tweet {
           ..add('editPrespective', editPrespective)
           ..add('isTranslatable', isTranslatable)
           ..add('legacy', legacy)
+          ..add('quotedStatusResult', quotedStatusResult)
           ..add('restId', restId)
           ..add('unmentionData', unmentionData)
           ..add('views', views))
@@ -138,6 +146,12 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
   TweetLegacyBuilder get legacy => _$this._legacy ??= new TweetLegacyBuilder();
   set legacy(TweetLegacyBuilder? legacy) => _$this._legacy = legacy;
 
+  ItemResultBuilder? _quotedStatusResult;
+  ItemResultBuilder get quotedStatusResult =>
+      _$this._quotedStatusResult ??= new ItemResultBuilder();
+  set quotedStatusResult(ItemResultBuilder? quotedStatusResult) =>
+      _$this._quotedStatusResult = quotedStatusResult;
+
   String? _restId;
   String? get restId => _$this._restId;
   set restId(String? restId) => _$this._restId = restId;
@@ -164,6 +178,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
       _editPrespective = $v.editPrespective.toBuilder();
       _isTranslatable = $v.isTranslatable;
       _legacy = $v.legacy.toBuilder();
+      _quotedStatusResult = $v.quotedStatusResult.toBuilder();
       _restId = $v.restId;
       _unmentionData = $v.unmentionData;
       _views = $v.views.toBuilder();
@@ -198,6 +213,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
               isTranslatable: BuiltValueNullFieldError.checkNotNull(
                   isTranslatable, r'Tweet', 'isTranslatable'),
               legacy: legacy.build(),
+              quotedStatusResult: quotedStatusResult.build(),
               restId: BuiltValueNullFieldError.checkNotNull(
                   restId, r'Tweet', 'restId'),
               unmentionData: unmentionData,
@@ -214,6 +230,8 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
 
         _$failedField = 'legacy';
         legacy.build();
+        _$failedField = 'quotedStatusResult';
+        quotedStatusResult.build();
 
         _$failedField = 'views';
         views.build();

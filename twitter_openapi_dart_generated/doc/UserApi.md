@@ -1,4 +1,4 @@
-# twitter_openapi_dart_generated.api.DefaultApi
+# twitter_openapi_dart_generated.api.UserApi
 
 ## Load the API package
 ```dart
@@ -9,11 +9,11 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getProfileSpotlightsQuery**](DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
+[**getUserByScreenName**](UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
 
 
-# **getProfileSpotlightsQuery**
-> ProfileResponse getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+# **getUserByScreenName**
+> UserResponse getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
 
 
 
@@ -35,10 +35,10 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
-final api = TwitterOpenapiDartGenerated().getDefaultApi();
-final String variables = {"screen_name": "elonmusk"}; // String | 
-final String features = {}; // String | 
-final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
+final api = TwitterOpenapiDartGenerated().getUserApi();
+final String variables = {"screen_name": "elonmusk", "withSafetyModeUserFields": true}; // String | 
+final String features = {"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}; // String | 
+final String queryId = sLVLhk0bGj3MVFEKTdax1w; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterAuthType = xTwitterAuthType_example; // String | 
@@ -46,10 +46,10 @@ final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n');
+    print('Exception when calling UserApi->getUserByScreenName: $e\n');
 }
 ```
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **variables** | **String**|  | 
  **features** | **String**|  | 
- **queryId** | **String**|  | [default to '9zwVLJ48lmVUk8u_Gh9DmA']
+ **queryId** | **String**|  | [default to 'sLVLhk0bGj3MVFEKTdax1w']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ProfileResponse**](ProfileResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 

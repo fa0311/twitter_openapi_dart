@@ -8,17 +8,17 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 
-class DefaultApi {
+class UserApi {
 
   final Dio _dio;
 
   final Serializers _serializers;
 
-  const DefaultApi(this._dio, this._serializers);
+  const UserApi(this._dio, this._serializers);
 
-  /// getProfileSpotlightsQuery
+  /// getUserByScreenName
   /// get user by screen name
   ///
   /// Parameters:
@@ -37,12 +37,12 @@ class DefaultApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
+  /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<ProfileResponse>> getProfileSpotlightsQuery({ 
+  Future<Response<UserResponse>> getUserByScreenName({ 
     required String variables,
     required String features,
-    String queryId = '9zwVLJ48lmVUk8u_Gh9DmA',
+    String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterAuthType = 'OAuth2Session',
@@ -55,7 +55,7 @@ class DefaultApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery';
+    final _path = r'/sLVLhk0bGj3MVFEKTdax1w/UserByScreenName';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -105,14 +105,14 @@ class DefaultApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ProfileResponse _responseData;
+    UserResponse _responseData;
 
     try {
-      const _responseType = FullType(ProfileResponse);
+      const _responseType = FullType(UserResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as ProfileResponse;
+      ) as UserResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -123,7 +123,7 @@ class DefaultApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<ProfileResponse>(
+    return Response<UserResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

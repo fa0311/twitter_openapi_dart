@@ -36,7 +36,6 @@ class DefaultApiUtils {
     required String key,
     required Map<String, dynamic> param,
   }) async {
-    final a = (await flag)[key];
     assert((await flag)[key] != null);
     final response = await apiFn(
       variables: jsonEncode((await flag)[key]!["Variables"]..addAll(param)),
