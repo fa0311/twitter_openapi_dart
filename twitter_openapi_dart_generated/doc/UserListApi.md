@@ -9,12 +9,12 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**followers**](UserListApi.md#followers) | **GET** /djdTXDIk2qhd4OStqlUFeQ/Followers | 
+[**getFollowers**](UserListApi.md#getfollowers) | **GET** /djdTXDIk2qhd4OStqlUFeQ/Followers | 
 [**getFollowing**](UserListApi.md#getfollowing) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
 
 
-# **followers**
-> FollowResponse followers(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+# **getFollowers**
+> FollowResponse getFollowers(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
 
 
 
@@ -47,10 +47,10 @@ final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.followers(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getFollowers(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling UserListApi->followers: $e\n');
+    print('Exception when calling UserListApi->getFollowers: $e\n');
 }
 ```
 

@@ -82,7 +82,7 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
 [*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
-[*UserListApi*](doc/UserListApi.md) | [**followers**](doc/UserListApi.md#followers) | **GET** /djdTXDIk2qhd4OStqlUFeQ/Followers | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /djdTXDIk2qhd4OStqlUFeQ/Followers | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
 
 

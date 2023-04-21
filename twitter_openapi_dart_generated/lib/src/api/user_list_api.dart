@@ -18,7 +18,7 @@ class UserListApi {
 
   const UserListApi(this._dio, this._serializers);
 
-  /// followers
+  /// getFollowers
   /// get user list of followers
   ///
   /// Parameters:
@@ -39,7 +39,7 @@ class UserListApi {
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FollowResponse>> followers({ 
+  Future<Response<FollowResponse>> getFollowers({ 
     required String variables,
     required String features,
     String queryId = 'djdTXDIk2qhd4OStqlUFeQ',
