@@ -17,7 +17,12 @@ void printTweet(SimpleTimelineTweet tweet) {
 }
 
 void printUser(SimpleTimelineUser user) {
-  print("${user.user.legacy.screenName}: ${user.user.legacy.followedBy} ${user.user.legacy.followersCount}");
+  final legacy = user.user.legacy;
+  print(legacy.screenName);
+  print("listedCount: ${legacy.listedCount}");
+  print("followedBy: ${legacy.followedBy} following: ${legacy.following}");
+  print("friendsCount: ${legacy.friendsCount} followersCount: ${legacy.followersCount}");
+  print("┄" * 50);
 }
 
 Future<void> main() async {
