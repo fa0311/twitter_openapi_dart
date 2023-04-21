@@ -355,4 +355,49 @@ class TweetApiUtils {
       cursor = response.cursor.bottom?.value;
     } while (cursor != null);
   }
+
+  // ====== bookmark ========
+
+  Future<TweetResponse> getBookmarks({
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await requestTweet(
+      apiFn: api.getBookmarks,
+      convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
+      key: 'Bookmarks',
+      param: param,
+    );
+    return response;
+  }
+
+  Stream<SimpleTimelineTweetList> getBookmarksStream({
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async* {
+    do {
+      final param = {
+        if (count != null) "count": count,
+        if (cursor != null) "cursor": cursor,
+        ...?extraParam,
+      };
+      final response = await requestTweet(
+        apiFn: api.getBookmarks,
+        convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
+        key: 'Bookmarks',
+        param: param,
+      );
+      for (final tweet in response.data) {
+        yield tweet;
+      }
+      cursor = response.cursor.bottom?.value;
+    } while (cursor != null);
+  }
 }

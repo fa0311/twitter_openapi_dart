@@ -163,5 +163,24 @@ Future<void> main() async {
       }
       expect(count, testCount);
     });
+
+    test('getBookmarks', () async {
+      final result = await client.getTweetApi().getBookmarks();
+      for (final tweet in result.data) {
+        printTweet(tweet);
+      }
+      expect(0, 0);
+    });
+
+    test('getBookmarksStream', () async {
+      final result = client.getTweetApi().getBookmarksStream();
+      var count = 0;
+      await for (final tweet in result) {
+        if (tweet.raw.promotedMetadata != null) continue;
+        printTweet(tweet);
+        if (count++ == testCount) return;
+      }
+      expect(count, testCount);
+    });
   });
 }
