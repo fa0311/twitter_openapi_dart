@@ -44,7 +44,7 @@ class TwitterOpenapiDart {
     dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
   }
 
-  TwitterOpenapiDart.fromInterceptors(Interceptors interceptors) : api = TwitterOpenapiDartGenerated() {
+  TwitterOpenapiDart.fromInterceptors(List<Interceptor> interceptors) : api = TwitterOpenapiDartGenerated() {
     dio.interceptors.addAll([...interceptors, HeaderAuth()]);
   }
 
