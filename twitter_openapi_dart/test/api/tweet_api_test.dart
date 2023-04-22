@@ -7,7 +7,7 @@ main() async {
   test('getTweetDetail', () async {
     final result = await client.getTweetApi().getTweetDetail(focalTweetId: "1349129669258448897");
     for (final tweet in result.data) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
     }
     expect(0, 0);
@@ -17,7 +17,7 @@ main() async {
     final result = client.getTweetApi().getTweetDetailStream(focalTweetId: "1349129669258448897");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -35,7 +35,7 @@ main() async {
     final result = client.getTweetApi().getHomeTimelineStream();
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -45,7 +45,7 @@ main() async {
   test('getHomeLatestTimeline', () async {
     final result = await client.getTweetApi().getHomeLatestTimeline();
     for (final tweet in result.data) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
     }
     expect(0, 0);
@@ -55,7 +55,7 @@ main() async {
     final result = client.getTweetApi().getHomeLatestTimelineStream();
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -65,7 +65,7 @@ main() async {
   test('getListLatestTweetsTimeline', () async {
     final result = await client.getTweetApi().getListLatestTweetsTimeline(listId: '1141162794290520064');
     for (final tweet in result.data) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
     }
     expect(0, 0);
@@ -75,7 +75,7 @@ main() async {
     final result = client.getTweetApi().getListLatestTweetsTimelineStream(listId: "1141162794290520064");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -94,7 +94,7 @@ main() async {
     final result = client.getTweetApi().getUserTweetsStream(userId: "900282258736545792");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -113,7 +113,7 @@ main() async {
     final result = client.getTweetApi().getUserTweetsAndRepliesStream(userId: "900282258736545792");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -132,7 +132,7 @@ main() async {
     final result = client.getTweetApi().getUserMediaStream(userId: "900282258736545792");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -151,7 +151,7 @@ main() async {
     final result = client.getTweetApi().getLikesStream(userId: "900282258736545792");
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }
@@ -170,7 +170,7 @@ main() async {
     final result = client.getTweetApi().getBookmarksStream();
     var count = 0;
     await for (final tweet in result) {
-      if (tweet.raw.promotedMetadata != null) continue;
+      if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
       if (count++ == testCount) return;
     }

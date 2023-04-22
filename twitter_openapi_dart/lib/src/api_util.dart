@@ -51,15 +51,27 @@ TimelineCursor entriesCursorItem(BuiltList<TimelineAddEntry> item) {
 
 SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> raw) {
   final tweet = tweetResultsConverter(raw.first.tweetResults);
-  final quoted = tweet.quotedStatusResult == null ? null : tweetResultsConverterOrNull(tweet.quotedStatusResult!);
+  final quoted = tweet.quotedStatusResult;
 
   return SimpleTimelineTweet(
     (e) => e
-      ..raw = raw.first.toBuilder()
+      ..raw = raw.first.tweetResults.toBuilder()
+      ..promotedMetadata = raw.first.promotedMetadata
       ..tweet = tweet.toBuilder()
       ..user = tweet.core.userResults.result.toBuilder()
       ..reply = (raw..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList()
-      ..quoted = quoted?.toBuilder(),
+      ..quoted = quoted == null ? null : buildTweetApiUtilsFromItemResult(quoted).toBuilder(),
+  );
+}
+
+SimpleTimelineTweet buildTweetApiUtilsFromItemResult(ItemResult raw) {
+  final tweet = tweetResultsConverter(raw);
+  return SimpleTimelineTweet(
+    (e) => e
+      ..raw = raw.toBuilder()
+      ..tweet = tweet.toBuilder()
+      ..user = tweet.core.userResults.result.toBuilder()
+      ..reply = [],
   );
 }
 

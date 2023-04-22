@@ -8,7 +8,7 @@ part of 'model.dart';
 
 class _$SimpleTimelineTweet extends SimpleTimelineTweet {
   @override
-  final TimelineTweet raw;
+  final ItemResult raw;
   @override
   final Tweet tweet;
   @override
@@ -16,7 +16,9 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
   @override
   final List<SimpleTimelineTweet> reply;
   @override
-  final Tweet? quoted;
+  final SimpleTimelineTweet? quoted;
+  @override
+  final JsonObject? promotedMetadata;
 
   factory _$SimpleTimelineTweet(
           [void Function(SimpleTimelineTweetBuilder)? updates]) =>
@@ -27,7 +29,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
       required this.tweet,
       required this.user,
       required this.reply,
-      this.quoted})
+      this.quoted,
+      this.promotedMetadata})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(raw, r'SimpleTimelineTweet', 'raw');
     BuiltValueNullFieldError.checkNotNull(
@@ -54,7 +57,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
         tweet == other.tweet &&
         user == other.user &&
         reply == other.reply &&
-        quoted == other.quoted;
+        quoted == other.quoted &&
+        promotedMetadata == other.promotedMetadata;
   }
 
   @override
@@ -65,6 +69,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
     _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jc(_$hash, reply.hashCode);
     _$hash = $jc(_$hash, quoted.hashCode);
+    _$hash = $jc(_$hash, promotedMetadata.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -76,7 +81,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
           ..add('tweet', tweet)
           ..add('user', user)
           ..add('reply', reply)
-          ..add('quoted', quoted))
+          ..add('quoted', quoted)
+          ..add('promotedMetadata', promotedMetadata))
         .toString();
   }
 }
@@ -85,9 +91,9 @@ class SimpleTimelineTweetBuilder
     implements Builder<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
   _$SimpleTimelineTweet? _$v;
 
-  TimelineTweetBuilder? _raw;
-  TimelineTweetBuilder get raw => _$this._raw ??= new TimelineTweetBuilder();
-  set raw(TimelineTweetBuilder? raw) => _$this._raw = raw;
+  ItemResultBuilder? _raw;
+  ItemResultBuilder get raw => _$this._raw ??= new ItemResultBuilder();
+  set raw(ItemResultBuilder? raw) => _$this._raw = raw;
 
   TweetBuilder? _tweet;
   TweetBuilder get tweet => _$this._tweet ??= new TweetBuilder();
@@ -101,9 +107,15 @@ class SimpleTimelineTweetBuilder
   List<SimpleTimelineTweet>? get reply => _$this._reply;
   set reply(List<SimpleTimelineTweet>? reply) => _$this._reply = reply;
 
-  TweetBuilder? _quoted;
-  TweetBuilder get quoted => _$this._quoted ??= new TweetBuilder();
-  set quoted(TweetBuilder? quoted) => _$this._quoted = quoted;
+  SimpleTimelineTweetBuilder? _quoted;
+  SimpleTimelineTweetBuilder get quoted =>
+      _$this._quoted ??= new SimpleTimelineTweetBuilder();
+  set quoted(SimpleTimelineTweetBuilder? quoted) => _$this._quoted = quoted;
+
+  JsonObject? _promotedMetadata;
+  JsonObject? get promotedMetadata => _$this._promotedMetadata;
+  set promotedMetadata(JsonObject? promotedMetadata) =>
+      _$this._promotedMetadata = promotedMetadata;
 
   SimpleTimelineTweetBuilder();
 
@@ -115,6 +127,7 @@ class SimpleTimelineTweetBuilder
       _user = $v.user.toBuilder();
       _reply = $v.reply;
       _quoted = $v.quoted?.toBuilder();
+      _promotedMetadata = $v.promotedMetadata;
       _$v = null;
     }
     return this;
@@ -144,7 +157,8 @@ class SimpleTimelineTweetBuilder
               user: user.build(),
               reply: BuiltValueNullFieldError.checkNotNull(
                   reply, r'SimpleTimelineTweet', 'reply'),
-              quoted: _quoted?.build());
+              quoted: _quoted?.build(),
+              promotedMetadata: promotedMetadata);
     } catch (_) {
       late String _$failedField;
       try {

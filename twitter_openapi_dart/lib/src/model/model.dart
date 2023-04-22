@@ -1,14 +1,16 @@
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 part 'model.g.dart';
 
 abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
-  TimelineTweet get raw;
+  ItemResult get raw;
   Tweet get tweet;
   User get user;
   List<SimpleTimelineTweet> get reply;
-  Tweet? get quoted;
+  SimpleTimelineTweet? get quoted;
+  JsonObject? get promotedMetadata;
 
   SimpleTimelineTweet._();
 
