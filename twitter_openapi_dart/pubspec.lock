@@ -540,9 +540,11 @@ packages:
   twitter_openapi_dart_generated:
     dependency: "direct main"
     description:
-      path: "../twitter_openapi_dart_generated"
-      relative: true
-    source: path
+      path: twitter_openapi_dart_generated
+      ref: "v0.0.1"
+      resolved-ref: "2501deabff9ff9c8a75e1dca0a79c45621bf7c3f"
+      url: "https://github.com/fa0311/twitter_openapi_dart.git"
+    source: git
     version: "0.0.1"
   typed_data:
     dependency: transitive

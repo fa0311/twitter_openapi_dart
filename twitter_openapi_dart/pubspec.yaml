@@ -1,6 +1,6 @@
 name: twitter_openapi_dart
 description: A sample command-line application.
-version: 1.0.0
+version: 0.0.1
 repository: https://github.com/fa0311/twitter_openapi_dart
 
 publish_to: "none"
@@ -22,7 +22,7 @@ dependencies:
     git:
       url: https://github.com/fa0311/twitter_openapi_dart.git
       path: twitter_openapi_dart_generated
-      tag: "v0.0.1"
+      ref: "v0.0.1"
 
   # flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
