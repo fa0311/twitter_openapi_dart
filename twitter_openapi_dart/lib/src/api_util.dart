@@ -49,13 +49,17 @@ TimelineCursor entriesCursorItem(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> tweet) {
+SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> raw) {
+  final tweet = tweetResultsConverter(raw.first.tweetResults);
+  final quoted = tweet.quotedStatusResult == null ? null : tweetResultsConverterOrNull(tweet.quotedStatusResult!);
+
   return SimpleTimelineTweet(
     (e) => e
-      ..raw = tweet.first.toBuilder()
-      ..tweet = tweetResultsConverter(tweet.first.tweetResults).toBuilder()
-      ..user = tweetResultsConverter(tweet.first.tweetResults).core.userResults.result.toBuilder()
-      ..reply = (tweet..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList(),
+      ..raw = raw.first.toBuilder()
+      ..tweet = tweet.toBuilder()
+      ..user = tweet.core.userResults.result.toBuilder()
+      ..reply = (raw..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList()
+      ..quoted = quoted?.toBuilder(),
   );
 }
 
@@ -76,6 +80,17 @@ Tweet tweetResultsConverter(ItemResult tweetResults) {
     return tweetResults.result.oneOf.value as Tweet;
   } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
     return (tweetResults.result.oneOf.value as TweetWithVisibilityResults).tweet;
+  }
+  throw Exception();
+}
+
+Tweet? tweetResultsConverterOrNull(ItemResult tweetResults) {
+  if (tweetResults.result.oneOf.isType(Tweet)) {
+    return tweetResults.result.oneOf.value as Tweet;
+  } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
+    return (tweetResults.result.oneOf.value as TweetWithVisibilityResults).tweet;
+  } else if (tweetResults.result.oneOf.isType(TweetTombstone)) {
+    return null;
   }
   throw Exception();
 }

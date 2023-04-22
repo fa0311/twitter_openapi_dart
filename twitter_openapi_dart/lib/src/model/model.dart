@@ -8,6 +8,7 @@ abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleT
   Tweet get tweet;
   User get user;
   List<SimpleTimelineTweet> get reply;
+  Tweet? get quoted;
 
   SimpleTimelineTweet._();
 

@@ -15,6 +15,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
   final User user;
   @override
   final List<SimpleTimelineTweet> reply;
+  @override
+  final Tweet? quoted;
 
   factory _$SimpleTimelineTweet(
           [void Function(SimpleTimelineTweetBuilder)? updates]) =>
@@ -24,7 +26,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
       {required this.raw,
       required this.tweet,
       required this.user,
-      required this.reply})
+      required this.reply,
+      this.quoted})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(raw, r'SimpleTimelineTweet', 'raw');
     BuiltValueNullFieldError.checkNotNull(
@@ -50,7 +53,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
         raw == other.raw &&
         tweet == other.tweet &&
         user == other.user &&
-        reply == other.reply;
+        reply == other.reply &&
+        quoted == other.quoted;
   }
 
   @override
@@ -60,6 +64,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
     _$hash = $jc(_$hash, tweet.hashCode);
     _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jc(_$hash, reply.hashCode);
+    _$hash = $jc(_$hash, quoted.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -70,7 +75,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
           ..add('raw', raw)
           ..add('tweet', tweet)
           ..add('user', user)
-          ..add('reply', reply))
+          ..add('reply', reply)
+          ..add('quoted', quoted))
         .toString();
   }
 }
@@ -95,6 +101,10 @@ class SimpleTimelineTweetBuilder
   List<SimpleTimelineTweet>? get reply => _$this._reply;
   set reply(List<SimpleTimelineTweet>? reply) => _$this._reply = reply;
 
+  TweetBuilder? _quoted;
+  TweetBuilder get quoted => _$this._quoted ??= new TweetBuilder();
+  set quoted(TweetBuilder? quoted) => _$this._quoted = quoted;
+
   SimpleTimelineTweetBuilder();
 
   SimpleTimelineTweetBuilder get _$this {
@@ -104,6 +114,7 @@ class SimpleTimelineTweetBuilder
       _tweet = $v.tweet.toBuilder();
       _user = $v.user.toBuilder();
       _reply = $v.reply;
+      _quoted = $v.quoted?.toBuilder();
       _$v = null;
     }
     return this;
@@ -132,7 +143,8 @@ class SimpleTimelineTweetBuilder
               tweet: tweet.build(),
               user: user.build(),
               reply: BuiltValueNullFieldError.checkNotNull(
-                  reply, r'SimpleTimelineTweet', 'reply'));
+                  reply, r'SimpleTimelineTweet', 'reply'),
+              quoted: _quoted?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -142,6 +154,9 @@ class SimpleTimelineTweetBuilder
         tweet.build();
         _$failedField = 'user';
         user.build();
+
+        _$failedField = 'quoted';
+        _quoted?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'SimpleTimelineTweet', _$failedField, e.toString());
