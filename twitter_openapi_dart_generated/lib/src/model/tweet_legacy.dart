@@ -3,9 +3,10 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,6 +21,7 @@ part 'tweet_legacy.g.dart';
 /// * [createdAt] 
 /// * [displayTextRange] 
 /// * [entities] 
+/// * [extendedEntities] 
 /// * [favoriteCount] 
 /// * [favorited] 
 /// * [fullText] 
@@ -52,7 +54,10 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   BuiltList<int> get displayTextRange;
 
   @BuiltValueField(wireName: r'entities')
-  JsonObject get entities;
+  Entities get entities;
+
+  @BuiltValueField(wireName: r'extended_entities')
+  ExtendedEntities? get extendedEntities;
 
   @BuiltValueField(wireName: r'favorite_count')
   int get favoriteCount;
@@ -149,8 +154,15 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
     yield r'entities';
     yield serializers.serialize(
       object.entities,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(Entities),
     );
+    if (object.extendedEntities != null) {
+      yield r'extended_entities';
+      yield serializers.serialize(
+        object.extendedEntities,
+        specifiedType: const FullType(ExtendedEntities),
+      );
+    }
     yield r'favorite_count';
     yield serializers.serialize(
       object.favoriteCount,
@@ -288,9 +300,16 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
         case r'entities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.entities = valueDes;
+            specifiedType: const FullType(Entities),
+          ) as Entities;
+          result.entities.replace(valueDes);
+          break;
+        case r'extended_entities':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ExtendedEntities),
+          ) as ExtendedEntities;
+          result.extendedEntities.replace(valueDes);
           break;
         case r'favorite_count':
           final valueDes = serializers.deserialize(

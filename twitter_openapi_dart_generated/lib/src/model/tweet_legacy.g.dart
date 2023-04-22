@@ -18,7 +18,9 @@ class _$TweetLegacy extends TweetLegacy {
   @override
   final BuiltList<int> displayTextRange;
   @override
-  final JsonObject entities;
+  final Entities entities;
+  @override
+  final ExtendedEntities? extendedEntities;
   @override
   final int favoriteCount;
   @override
@@ -58,6 +60,7 @@ class _$TweetLegacy extends TweetLegacy {
       required this.createdAt,
       required this.displayTextRange,
       required this.entities,
+      this.extendedEntities,
       required this.favoriteCount,
       required this.favorited,
       required this.fullText,
@@ -122,6 +125,7 @@ class _$TweetLegacy extends TweetLegacy {
         createdAt == other.createdAt &&
         displayTextRange == other.displayTextRange &&
         entities == other.entities &&
+        extendedEntities == other.extendedEntities &&
         favoriteCount == other.favoriteCount &&
         favorited == other.favorited &&
         fullText == other.fullText &&
@@ -147,6 +151,7 @@ class _$TweetLegacy extends TweetLegacy {
     _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jc(_$hash, displayTextRange.hashCode);
     _$hash = $jc(_$hash, entities.hashCode);
+    _$hash = $jc(_$hash, extendedEntities.hashCode);
     _$hash = $jc(_$hash, favoriteCount.hashCode);
     _$hash = $jc(_$hash, favorited.hashCode);
     _$hash = $jc(_$hash, fullText.hashCode);
@@ -174,6 +179,7 @@ class _$TweetLegacy extends TweetLegacy {
           ..add('createdAt', createdAt)
           ..add('displayTextRange', displayTextRange)
           ..add('entities', entities)
+          ..add('extendedEntities', extendedEntities)
           ..add('favoriteCount', favoriteCount)
           ..add('favorited', favorited)
           ..add('fullText', fullText)
@@ -219,9 +225,15 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   set displayTextRange(ListBuilder<int>? displayTextRange) =>
       _$this._displayTextRange = displayTextRange;
 
-  JsonObject? _entities;
-  JsonObject? get entities => _$this._entities;
-  set entities(JsonObject? entities) => _$this._entities = entities;
+  EntitiesBuilder? _entities;
+  EntitiesBuilder get entities => _$this._entities ??= new EntitiesBuilder();
+  set entities(EntitiesBuilder? entities) => _$this._entities = entities;
+
+  ExtendedEntitiesBuilder? _extendedEntities;
+  ExtendedEntitiesBuilder get extendedEntities =>
+      _$this._extendedEntities ??= new ExtendedEntitiesBuilder();
+  set extendedEntities(ExtendedEntitiesBuilder? extendedEntities) =>
+      _$this._extendedEntities = extendedEntities;
 
   int? _favoriteCount;
   int? get favoriteCount => _$this._favoriteCount;
@@ -297,7 +309,8 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
       _conversationIdStr = $v.conversationIdStr;
       _createdAt = $v.createdAt;
       _displayTextRange = $v.displayTextRange.toBuilder();
-      _entities = $v.entities;
+      _entities = $v.entities.toBuilder();
+      _extendedEntities = $v.extendedEntities?.toBuilder();
       _favoriteCount = $v.favoriteCount;
       _favorited = $v.favorited;
       _fullText = $v.fullText;
@@ -345,15 +358,16 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
               createdAt: BuiltValueNullFieldError.checkNotNull(
                   createdAt, r'TweetLegacy', 'createdAt'),
               displayTextRange: displayTextRange.build(),
-              entities: BuiltValueNullFieldError.checkNotNull(
-                  entities, r'TweetLegacy', 'entities'),
+              entities: entities.build(),
+              extendedEntities: _extendedEntities?.build(),
               favoriteCount: BuiltValueNullFieldError.checkNotNull(
                   favoriteCount, r'TweetLegacy', 'favoriteCount'),
               favorited: BuiltValueNullFieldError.checkNotNull(
                   favorited, r'TweetLegacy', 'favorited'),
               fullText: BuiltValueNullFieldError.checkNotNull(
                   fullText, r'TweetLegacy', 'fullText'),
-              idStr: BuiltValueNullFieldError.checkNotNull(idStr, r'TweetLegacy', 'idStr'),
+              idStr: BuiltValueNullFieldError.checkNotNull(
+                  idStr, r'TweetLegacy', 'idStr'),
               isQuoteStatus: BuiltValueNullFieldError.checkNotNull(isQuoteStatus, r'TweetLegacy', 'isQuoteStatus'),
               lang: BuiltValueNullFieldError.checkNotNull(lang, r'TweetLegacy', 'lang'),
               possiblySensitive: possiblySensitive,
@@ -369,6 +383,10 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
       try {
         _$failedField = 'displayTextRange';
         displayTextRange.build();
+        _$failedField = 'entities';
+        entities.build();
+        _$failedField = 'extendedEntities';
+        _extendedEntities?.build();
 
         _$failedField = 'retweetedStatusResult';
         _retweetedStatusResult?.build();

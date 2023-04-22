@@ -7,6 +7,8 @@ doc/ContentEntryType.md
 doc/ContentItemType.md
 doc/ContentUnion.md
 doc/DefaultApi.md
+doc/Entities.md
+doc/ExtendedEntities.md
 doc/FollowResponse.md
 doc/FollowResponseData.md
 doc/FollowResponseResult.md
@@ -22,6 +24,8 @@ doc/ListTweetsTimeline.md
 doc/ListTweetsTimelineData.md
 doc/ListTweetsTimelineList.md
 doc/ListTweetsTimelineResponse.md
+doc/Media.md
+doc/MediaOriginalInfo.md
 doc/ModuleEntry.md
 doc/ModuleItem.md
 doc/ProfileResponse.md
@@ -86,6 +90,8 @@ lib/src/model/content_entry_type.dart
 lib/src/model/content_item_type.dart
 lib/src/model/content_union.dart
 lib/src/model/date.dart
+lib/src/model/entities.dart
+lib/src/model/extended_entities.dart
 lib/src/model/follow_response.dart
 lib/src/model/follow_response_data.dart
 lib/src/model/follow_response_result.dart
@@ -101,6 +107,8 @@ lib/src/model/list_tweets_timeline.dart
 lib/src/model/list_tweets_timeline_data.dart
 lib/src/model/list_tweets_timeline_list.dart
 lib/src/model/list_tweets_timeline_response.dart
+lib/src/model/media.dart
+lib/src/model/media_original_info.dart
 lib/src/model/module_entry.dart
 lib/src/model/module_item.dart
 lib/src/model/profile_response.dart

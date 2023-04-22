@@ -13,6 +13,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ContentEntryType.serializer)
       ..add(ContentItemType.serializer)
       ..add(ContentUnion.serializer)
+      ..add(Entities.serializer)
+      ..add(ExtendedEntities.serializer)
       ..add(FollowResponse.serializer)
       ..add(FollowResponseData.serializer)
       ..add(FollowResponseResult.serializer)
@@ -28,6 +30,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ListTweetsTimelineData.serializer)
       ..add(ListTweetsTimelineList.serializer)
       ..add(ListTweetsTimelineResponse.serializer)
+      ..add(Media.serializer)
+      ..add(MediaOriginalInfo.serializer)
       ..add(ModuleEntry.serializer)
       ..add(ModuleItem.serializer)
       ..add(ProfileResponse.serializer)
@@ -76,6 +80,27 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(InstructionUnion)]),
           () => new ListBuilder<InstructionUnion>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Media)]),
+          () => new ListBuilder<Media>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Media)]),
+          () => new ListBuilder<Media>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ModuleItem)]),
           () => new ListBuilder<ModuleItem>())
       ..addBuilderFactory(
@@ -87,6 +112,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TimelineAddEntry)]),
           () => new ListBuilder<TimelineAddEntry>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>()))

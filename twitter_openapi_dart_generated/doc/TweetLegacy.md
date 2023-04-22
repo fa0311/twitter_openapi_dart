@@ -13,7 +13,8 @@ Name | Type | Description | Notes
 **conversationIdStr** | **String** |  | 
 **createdAt** | **String** |  | 
 **displayTextRange** | **BuiltList&lt;int&gt;** |  | 
-**entities** | [**JsonObject**](.md) |  | 
+**entities** | [**Entities**](Entities.md) |  | 
+**extendedEntities** | [**ExtendedEntities**](ExtendedEntities.md) |  | [optional] 
 **favoriteCount** | **int** |  | 
 **favorited** | **bool** |  | 
 **fullText** | **String** |  | 

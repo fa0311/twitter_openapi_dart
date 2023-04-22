@@ -20,6 +20,8 @@ import 'package:twitter_openapi_dart_generated/src/model/bookmarks_timeline.dart
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
+import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_result.dart';
@@ -35,6 +37,8 @@ import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline.da
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_list.dart';
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/media.dart';
+import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
@@ -87,6 +91,8 @@ part 'serializers.g.dart';
   ContentEntryType,
   ContentItemType,
   ContentUnion,
+  Entities,
+  ExtendedEntities,
   FollowResponse,
   FollowResponseData,
   FollowResponseResult,
@@ -102,6 +108,8 @@ part 'serializers.g.dart';
   ListTweetsTimelineData,
   ListTweetsTimelineList,
   ListTweetsTimelineResponse,
+  Media,
+  MediaOriginalInfo,
   ModuleEntry,
   ModuleItem,
   ProfileResponse,

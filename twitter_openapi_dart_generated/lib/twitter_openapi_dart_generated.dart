@@ -20,6 +20,8 @@ export 'package:twitter_openapi_dart_generated/src/model/bookmarks_timeline.dart
 export 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 export 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 export 'package:twitter_openapi_dart_generated/src/model/content_union.dart';
+export 'package:twitter_openapi_dart_generated/src/model/entities.dart';
+export 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
 export 'package:twitter_openapi_dart_generated/src/model/follow_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/follow_response_data.dart';
 export 'package:twitter_openapi_dart_generated/src/model/follow_response_result.dart';
@@ -35,6 +37,8 @@ export 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline.da
 export 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_data.dart';
 export 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_list.dart';
 export 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_response.dart';
+export 'package:twitter_openapi_dart_generated/src/model/media.dart';
+export 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 export 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
 export 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
 export 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
