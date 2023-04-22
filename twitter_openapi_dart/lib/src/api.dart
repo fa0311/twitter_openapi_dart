@@ -17,8 +17,11 @@ class TwitterOpenapiDart {
 
   static Uri base = Uri.https("twitter.com", "/");
   static Uri all = Uri.https(".twitter.com", "/");
-  static Future<Map<String, dynamic>> flag =
-      File("twitter-openapi/src/config/placeholder.json").readAsString().then((value) => (json.decode(value) as Map).cast<String, dynamic>());
+  static String hash = "5b65f7658cef13d9d55a2694fc96f98e81d2ba18";
+
+  static Future<Map<String, dynamic>> flag = Dio()
+      .request("https://raw.githubusercontent.com/fa0311/twitter-openapi/${hash}/src/config/placeholder.json", options: Options(method: "GET"))
+      .then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
 
   Dio get dio => api.dio;
 
