@@ -10,7 +10,7 @@ class UserApiUtils {
 
   const UserApiUtils(this.api, this.flag);
 
-  Future<TweetApiUtilsResponse> requestTweet<T>({
+  Future<TweetApiUtilsResponse> request<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,

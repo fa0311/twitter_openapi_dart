@@ -10,7 +10,7 @@ class TweetApiUtils {
 
   const TweetApiUtils(this.api, this.flag);
 
-  Future<TweetApiUtilsResponse> requestTweet<T>({
+  Future<TweetApiUtilsResponse> request<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
@@ -27,7 +27,7 @@ class TweetApiUtils {
     return TweetApiUtilsResponse(
       (e) => e
         ..data = data
-        ..cursor = entriesCursorItem(entry).toBuilder(),
+        ..cursor = entriesCursor(entry).toBuilder(),
     );
   }
 
@@ -45,7 +45,7 @@ class TweetApiUtils {
       if (controllerData != null) "controller_data": controllerData,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getTweetDetail,
       convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
       key: 'TweetDetail',
@@ -67,7 +67,7 @@ class TweetApiUtils {
         if (controllerData != null) "controller_data": controllerData,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getTweetDetail,
         convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
         key: 'TweetDetail',
@@ -93,7 +93,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getHomeTimeline,
       convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeTimeline',
@@ -113,7 +113,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getHomeTimeline,
         convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
         key: 'HomeTimeline',
@@ -137,7 +137,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getHomeLatestTimeline,
       convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeLatestTimeline',
@@ -157,7 +157,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getHomeLatestTimeline,
         convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
         key: 'HomeLatestTimeline',
@@ -183,7 +183,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getListLatestTweetsTimeline,
       convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
       key: 'ListLatestTweetsTimeline',
@@ -205,7 +205,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getListLatestTweetsTimeline,
         convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
         key: 'ListLatestTweetsTimeline',
@@ -233,7 +233,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getUserTweets,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweets',
@@ -255,7 +255,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getUserTweets,
         convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
         key: 'UserTweets',
@@ -281,7 +281,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getUserTweetsAndReplies,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweetsAndReplies',
@@ -303,7 +303,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getUserTweetsAndReplies,
         convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
         key: 'UserTweetsAndReplies',
@@ -329,7 +329,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getUserMedia,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserMedia',
@@ -351,7 +351,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getUserMedia,
         convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
         key: 'UserMedia',
@@ -377,7 +377,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getLikes,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'Likes',
@@ -399,7 +399,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getLikes,
         convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
         key: 'Likes',
@@ -425,7 +425,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getBookmarks,
       convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
       key: 'Bookmarks',
@@ -445,7 +445,7 @@ class TweetApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getBookmarks,
         convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
         key: 'Bookmarks',

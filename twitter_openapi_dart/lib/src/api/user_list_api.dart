@@ -10,7 +10,7 @@ class UserListApiUtils {
 
   const UserListApiUtils(this.api, this.flag);
 
-  Future<UserListApiUtilsResponse> requestTweet<T>({
+  Future<UserListApiUtilsResponse> request<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
@@ -43,7 +43,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getFollowers,
       convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Followers',
@@ -65,7 +65,7 @@ class UserListApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getFollowers,
         convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
         key: 'Followers',
@@ -91,7 +91,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await requestTweet(
+    final response = await request(
       apiFn: api.getFollowing,
       convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Following',
@@ -113,7 +113,7 @@ class UserListApiUtils {
         if (cursor != null) "cursor": cursor,
         ...?extraParam,
       };
-      final response = await requestTweet(
+      final response = await request(
         apiFn: api.getFollowing,
         convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
         key: 'Following',
