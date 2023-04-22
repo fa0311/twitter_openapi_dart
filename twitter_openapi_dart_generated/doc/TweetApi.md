@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **getBookmarks**
-> BookmarksResponse getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> BookmarksResponse getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -49,12 +49,11 @@ final String features = {"graphql_timeline_v2_bookmark_timeline": true, "blue_bu
 final String queryId = tmd4ifV8RHltzn8ymGg1aw; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getBookmarks(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getBookmarks: $e\n');
@@ -70,7 +69,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'tmd4ifV8RHltzn8ymGg1aw']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -90,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHomeLatestTimeline**
-> TimelineResponse getHomeLatestTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> TimelineResponse getHomeLatestTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -118,12 +116,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = zhX91JE87mWvfprhYE97xA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getHomeLatestTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getHomeLatestTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getHomeLatestTimeline: $e\n');
@@ -139,7 +136,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'zhX91JE87mWvfprhYE97xA']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -159,7 +155,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHomeTimeline**
-> TimelineResponse getHomeTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> TimelineResponse getHomeTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -187,12 +183,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = HCosKfLNW1AcOo3la3mMgg; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getHomeTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getHomeTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getHomeTimeline: $e\n');
@@ -208,7 +203,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'HCosKfLNW1AcOo3la3mMgg']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -228,7 +222,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLikes**
-> UserTweetsResponse getLikes(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> UserTweetsResponse getLikes(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -256,12 +250,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = 5fmEkRT-1AdHqEsbVgehMg; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getLikes(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getLikes(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getLikes: $e\n');
@@ -277,7 +270,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to '5fmEkRT-1AdHqEsbVgehMg']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -297,7 +289,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getListLatestTweetsTimeline**
-> ListTweetsTimelineResponse getListLatestTweetsTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> ListTweetsTimelineResponse getListLatestTweetsTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -325,12 +317,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = 2TemLyqrMpTeAmysdbnVqw; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getListLatestTweetsTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getListLatestTweetsTimeline(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getListLatestTweetsTimeline: $e\n');
@@ -346,7 +337,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to '2TemLyqrMpTeAmysdbnVqw']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -366,7 +356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTweetDetail**
-> TweetDetailResponse getTweetDetail(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> TweetDetailResponse getTweetDetail(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -394,12 +384,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = wNNG8DBB8EaXw1lq4vFWGA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getTweetDetail(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getTweetDetail(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getTweetDetail: $e\n');
@@ -415,7 +404,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'wNNG8DBB8EaXw1lq4vFWGA']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -435,7 +423,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserMedia**
-> UserTweetsResponse getUserMedia(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> UserTweetsResponse getUserMedia(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -463,12 +451,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = YqiE3JL1KNgf9nSljYdxaA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getUserMedia(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getUserMedia(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getUserMedia: $e\n');
@@ -484,7 +471,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'YqiE3JL1KNgf9nSljYdxaA']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -504,7 +490,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserTweets**
-> UserTweetsResponse getUserTweets(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> UserTweetsResponse getUserTweets(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -532,12 +518,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = HuTx74BxAnezK1gWvYY7zg; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getUserTweets(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getUserTweets(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getUserTweets: $e\n');
@@ -553,7 +538,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'HuTx74BxAnezK1gWvYY7zg']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 
@@ -573,7 +557,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserTweetsAndReplies**
-> UserTweetsResponse getUserTweetsAndReplies(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> UserTweetsResponse getUserTweetsAndReplies(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -601,12 +585,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = RIWc55YCNyUJ-U3HHGYkdg; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getUserTweetsAndReplies(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getUserTweetsAndReplies(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling TweetApi->getUserTweetsAndReplies: $e\n');
@@ -622,7 +605,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'RIWc55YCNyUJ-U3HHGYkdg']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 

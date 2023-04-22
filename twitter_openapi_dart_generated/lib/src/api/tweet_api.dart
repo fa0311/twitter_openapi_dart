@@ -31,7 +31,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -49,7 +48,6 @@ class TweetApi {
     String queryId = 'tmd4ifV8RHltzn8ymGg1aw',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -65,7 +63,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -148,7 +145,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -166,7 +162,6 @@ class TweetApi {
     String queryId = 'zhX91JE87mWvfprhYE97xA',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -182,7 +177,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -265,7 +259,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -283,7 +276,6 @@ class TweetApi {
     String queryId = 'HCosKfLNW1AcOo3la3mMgg',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -299,7 +291,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -382,7 +373,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -400,7 +390,6 @@ class TweetApi {
     String queryId = '5fmEkRT-1AdHqEsbVgehMg',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -416,7 +405,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -499,7 +487,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -517,7 +504,6 @@ class TweetApi {
     String queryId = '2TemLyqrMpTeAmysdbnVqw',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -533,7 +519,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -616,7 +601,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -634,7 +618,6 @@ class TweetApi {
     String queryId = 'wNNG8DBB8EaXw1lq4vFWGA',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -650,7 +633,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -733,7 +715,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -751,7 +732,6 @@ class TweetApi {
     String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -767,7 +747,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -850,7 +829,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -868,7 +846,6 @@ class TweetApi {
     String queryId = 'HuTx74BxAnezK1gWvYY7zg',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -884,7 +861,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
@@ -967,7 +943,6 @@ class TweetApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -985,7 +960,6 @@ class TweetApi {
     String queryId = 'RIWc55YCNyUJ-U3HHGYkdg',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -1001,7 +975,6 @@ class TweetApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,

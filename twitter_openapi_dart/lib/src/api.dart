@@ -16,7 +16,6 @@ class TwitterOpenapiDart {
   TwitterOpenapiDartGenerated api;
 
   static Uri base = Uri.https("twitter.com", "/");
-  static Uri all = Uri.https(".twitter.com", "/");
   static String hash = "5b65f7658cef13d9d55a2694fc96f98e81d2ba18";
 
   static Future<Map<String, dynamic>> flag = Dio()
@@ -78,6 +77,6 @@ Future<CookieJar> getGuestCookies() async {
   const String charset = '0123456789abcdef';
   final Random random = Random.secure();
   final csrfToken = List.generate(32, (_) => charset[random.nextInt(charset.length)]).join();
-  await cookie.saveFromResponse(TwitterOpenapiDart.all, [Cookie("ct0", csrfToken)]);
+  await cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", csrfToken)]);
   return cookie;
 }

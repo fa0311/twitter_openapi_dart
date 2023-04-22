@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getUserByScreenName**
-> UserResponse getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent)
+> UserResponse getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent)
 
 
 
@@ -41,12 +41,11 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 final String queryId = sLVLhk0bGj3MVFEKTdax1w; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = api.getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = api.getUserByScreenName(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling UserApi->getUserByScreenName: $e\n');
@@ -62,7 +61,6 @@ Name | Type | Description  | Notes
  **queryId** | **String**|  | [default to 'sLVLhk0bGj3MVFEKTdax1w']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterAuthType** | **String**|  | [default to 'OAuth2Session']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
 

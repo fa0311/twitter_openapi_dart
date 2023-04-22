@@ -52,12 +52,11 @@ final String features = {}; // String |
 final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterAuthType = xTwitterAuthType_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = await api.getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterAuthType, xTwitterClientLanguage, userAgent);
+    final response = await api.getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print("Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n");
@@ -171,6 +170,12 @@ Class | Method | HTTP request | Description
 
 - **Type**: API key
 - **API key parameter name**: x-csrf-token
+- **Location**: HTTP header
+
+## authType
+
+- **Type**: API key
+- **API key parameter name**: x-twitter-auth-type
 - **Location**: HTTP header
 
 

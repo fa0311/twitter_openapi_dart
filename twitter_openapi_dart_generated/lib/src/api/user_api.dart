@@ -27,7 +27,6 @@ class UserApi {
   /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
-  /// * [xTwitterAuthType] 
   /// * [xTwitterClientLanguage] 
   /// * [userAgent] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -45,7 +44,6 @@ class UserApi {
     String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
-    String xTwitterAuthType = 'OAuth2Session',
     String xTwitterClientLanguage = 'en',
     String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     CancelToken? cancelToken,
@@ -61,7 +59,6 @@ class UserApi {
       headers: <String, dynamic>{
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-auth-type': xTwitterAuthType,
         r'x-twitter-client-language': xTwitterClientLanguage,
         r'user-agent': userAgent,
         ...?headers,
