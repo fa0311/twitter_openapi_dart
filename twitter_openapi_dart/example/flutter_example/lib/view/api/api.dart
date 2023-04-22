@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/component/button.dart';
-import 'package:flutter_example/widget/tweet.dart';
+import 'package:flutter_example/component/tile.dart';
+import 'package:flutter_example/view/api/tweet_list.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class ApiSelectPage extends StatefulWidget {
@@ -15,30 +15,114 @@ class ApiSelectPage extends StatefulWidget {
 class _ApiSelectPageState extends State<ApiSelectPage> {
   List<SimpleTimelineTweet> tweetList = [];
 
-  Future getUserTweets() async {
-    final response = await widget.client.getTweetApi().getUserTweets(userId: "44196397");
-    setState(() => tweetList = response.data);
+  Future getUserTweets() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getUserTweets(userId: "44196397", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getUserTweetsAndReplies() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getUserTweetsAndReplies(userId: "44196397", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getUserMedia() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getUserMedia(userId: "44196397", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getLikes() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getLikes(userId: "44196397", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getHomeTimeline() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getHomeTimeline(cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getHomeLatestTimeline() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getHomeLatestTimeline(cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getListLatestTweetsTimeline() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getListLatestTweetsTimeline(listId: "61319129", cursor: cursor),
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FutureButton(
-            onPressed: getUserTweets,
-            child: const Text("getUserTweets"),
-          ),
-          SizedBox(
-            height: 500,
-            child: SingleChildScrollView(
-              child: Column(
-                children: tweetList.map((e) => TwitterWidget(tweet: e)).toList(),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              FutureTile(
+                title: const Text("getUserTweets"),
+                onTap: getUserTweets,
               ),
-            ),
+              FutureTile(
+                title: const Text("getUserTweetsAndReplies"),
+                onTap: getUserTweetsAndReplies,
+              ),
+              FutureTile(
+                title: const Text("getUserMedia"),
+                onTap: getUserMedia,
+              ),
+              FutureTile(
+                title: const Text("getLikes"),
+                onTap: getLikes,
+              ),
+              FutureTile(
+                title: const Text("getHomeTimeline"),
+                onTap: getHomeTimeline,
+              ),
+              FutureTile(
+                title: const Text("getHomeLatestTimeline"),
+                onTap: getHomeLatestTimeline,
+              ),
+              FutureTile(
+                title: const Text("getListLatestTweetsTimeline"),
+                onTap: getListLatestTweetsTimeline,
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

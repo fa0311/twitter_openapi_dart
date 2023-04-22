@@ -4,50 +4,63 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class TwitterWidget extends StatelessWidget {
-  const TwitterWidget({super.key, required this.tweet});
+  const TwitterWidget({
+    super.key,
+    required this.tweet,
+    this.card = false,
+  });
 
   final SimpleTimelineTweet tweet;
+  final bool card;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: InkWell(
-        child: Padding(
-          padding: const EdgeInsets.all(5),
-          child: Row(
+    final view = tweet.quoted == null ? (tweet.retweeted ?? tweet) : tweet;
+
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (tweet.retweeted != null)
+            Padding(
+              padding: const EdgeInsets.only(left: 50),
+              child: Text(
+                "RT by ${tweet.user.legacy.screenName}",
+                textAlign: TextAlign.left,
+                style: const TextStyle(fontSize: 12, color: Color.fromARGB(255, 71, 71, 71)),
+              ),
+            ),
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              InkWell(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-                  child: CachedNetworkImage(
-                    imageUrl: tweet.user.legacy.profileImageUrlHttps,
-                    progressIndicatorBuilder: (context, url, progress) => CircleAvatar(backgroundColor: Colors.black.withAlpha(0)),
-                    errorWidget: (context, url, error) => const Icon(Icons.error),
-                    fit: BoxFit.fill,
-                    imageBuilder: (context, imageProvider) {
-                      return CircleAvatar(backgroundImage: imageProvider);
-                    },
-                  ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                child: CachedNetworkImage(
+                  imageUrl: view.user.legacy.profileImageUrlHttps,
+                  progressIndicatorBuilder: (context, url, progress) => CircleAvatar(backgroundColor: Colors.black.withAlpha(0)),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  fit: BoxFit.fill,
+                  imageBuilder: (context, imageProvider) {
+                    return CircleAvatar(backgroundImage: imageProvider);
+                  },
                 ),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    InkWell(
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 2),
-                          child: Text(
-                            tweet.user.legacy.name,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        child: Text(
+                          view.user.legacy.name,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
-                    Text(tweet.tweet.legacy.fullText),
+                    Text(view.tweet.legacy.fullText),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +69,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.comment, size: 16),
-                              Text(tweet.tweet.legacy.replyCount.toString()),
+                              Text(view.tweet.legacy.replyCount.toString()),
                             ],
                           ),
                         ),
@@ -64,7 +77,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.recycling, size: 16),
-                              Text(tweet.tweet.legacy.retweetCount.toString()),
+                              Text(view.tweet.legacy.retweetCount.toString()),
                             ],
                           ),
                         ),
@@ -72,7 +85,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.favorite, size: 16),
-                              Text(tweet.tweet.legacy.favoriteCount.toString()),
+                              Text(view.tweet.legacy.favoriteCount.toString()),
                             ],
                           ),
                         ),
@@ -83,7 +96,9 @@ class TwitterWidget extends StatelessWidget {
               ),
             ],
           ),
-        ),
+          if (tweet.quoted != null) TwitterWidget(tweet: tweet.quoted!),
+          ...tweet.reply.map((e) => TwitterWidget(tweet: e)),
+        ],
       ),
     );
   }
