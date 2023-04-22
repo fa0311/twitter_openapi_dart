@@ -15,6 +15,7 @@ class TweetApiUtils {
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
     required Map<String, dynamic> param,
+    bool cursorItem = false,
   }) async {
     assert((await flag)[key] != null);
     final response = await apiFn(
@@ -27,7 +28,7 @@ class TweetApiUtils {
     return TweetApiUtilsResponse(
       (e) => e
         ..data = data
-        ..cursor = entriesCursor(entry).toBuilder(),
+        ..cursor = (cursorItem ? entriesCursorItem(entry) : entriesCursor(entry)).toBuilder(),
     );
   }
 
@@ -50,6 +51,7 @@ class TweetApiUtils {
       convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
       key: 'TweetDetail',
       param: param,
+      cursorItem: true,
     );
     return response;
   }
@@ -72,6 +74,7 @@ class TweetApiUtils {
         convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
         key: 'TweetDetail',
         param: param,
+        cursorItem: true,
       );
       if (response.data.isEmpty) return;
       for (final tweet in response.data) {

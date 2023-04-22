@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
@@ -10,9 +8,9 @@ class UserApiUtils {
 
   const UserApiUtils(this.api, this.flag);
 
-  Future<TweetApiUtilsResponse> request<T>({
+  Future<User> request<T>({
     required ApiFunction<T> apiFn,
-    required ConvertTnstructionsFunction<T> convertFn,
+    required UserResults Function(T) convertFn,
     required String key,
     required Map<String, dynamic> param,
   }) async {
@@ -21,13 +19,24 @@ class UserApiUtils {
       variables: jsonEncode((await flag)[key]!["Variables"]..addAll(param)),
       features: jsonEncode((await flag)[key]!["Features"]),
     );
-    final entry = instructionToEntry(convertFn(response.data as T));
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    final data = tweetList.map((tweet) => buildTweetApiUtils(tweet)).toList();
-    return TweetApiUtilsResponse(
-      (e) => e
-        ..data = data
-        ..cursor = entriesCursor(entry).toBuilder(),
+    final user = convertFn(response.data as T).result;
+    return user;
+  }
+
+  Future<User> getUserByScreenName({
+    required String screenName,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "screen_name": screenName,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getUserByScreenName,
+      convertFn: (e) => e.data.user,
+      key: 'UserByScreenName',
+      param: param,
     );
+    return response;
   }
 }
