@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
  - [TweetEditControl](doc/TweetEditControl.md)
  - [TweetEditPrespective](doc/TweetEditPrespective.md)
  - [TweetLegacy](doc/TweetLegacy.md)
+ - [TweetTombstone](doc/TweetTombstone.md)
  - [TweetUnion](doc/TweetUnion.md)
  - [TweetViews](doc/TweetViews.md)
  - [TweetWithVisibilityResults](doc/TweetWithVisibilityResults.md)

@@ -17,10 +17,12 @@ dependencies:
   dio: ^4.0.6
   dio_cookie_manager: ^2.0.0
   twitter_openapi_dart_generated:
-    git:
-      url: https://github.com/fa0311/twitter_openapi_dart.git
-      path: twitter_openapi_dart_generated
-      ref: "ddbe1d7adf2889e999fbb9b3c99e01bfdb254310"
+    path: ../twitter_openapi_dart_generated
+
+    # git:
+    #   url: https://github.com/fa0311/twitter_openapi_dart.git
+    #   path: twitter_openapi_dart_generated
+    #   ref: "266e32a8c49faada1ff0949e0af5137507c44b38"
 
   collection: ^1.17.0
   built_value: ">=8.4.0 <9.0.0"

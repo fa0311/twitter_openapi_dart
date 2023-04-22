@@ -23,7 +23,7 @@ part 'user_result_by_screen_name_result.g.dart';
 abstract class UserResultByScreenNameResult implements Built<UserResultByScreenNameResult, UserResultByScreenNameResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'id')
   String get id;

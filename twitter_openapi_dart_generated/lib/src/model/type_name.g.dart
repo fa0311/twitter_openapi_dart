@@ -16,6 +16,7 @@ const TypeName _$tweetWithVisibilityResults =
     const TypeName._('tweetWithVisibilityResults');
 const TypeName _$timelineTimelineModule =
     const TypeName._('timelineTimelineModule');
+const TypeName _$tweetTombstone = const TypeName._('tweetTombstone');
 const TypeName _$tweet = const TypeName._('tweet');
 const TypeName _$user = const TypeName._('user');
 
@@ -33,6 +34,8 @@ TypeName _$valueOf(String name) {
       return _$tweetWithVisibilityResults;
     case 'timelineTimelineModule':
       return _$timelineTimelineModule;
+    case 'tweetTombstone':
+      return _$tweetTombstone;
     case 'tweet':
       return _$tweet;
     case 'user':
@@ -49,6 +52,7 @@ final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$timelineTimelineCursor,
   _$tweetWithVisibilityResults,
   _$timelineTimelineModule,
+  _$tweetTombstone,
   _$tweet,
   _$user,
 ]);
@@ -61,6 +65,7 @@ class _$TypeNameMeta {
   TypeName get timelineTimelineCursor => _$timelineTimelineCursor;
   TypeName get tweetWithVisibilityResults => _$tweetWithVisibilityResults;
   TypeName get timelineTimelineModule => _$timelineTimelineModule;
+  TypeName get tweetTombstone => _$tweetTombstone;
   TypeName get tweet => _$tweet;
   TypeName get user => _$user;
   TypeName valueOf(String name) => _$valueOf(name);
@@ -82,6 +87,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'timelineTimelineCursor': 'TimelineTimelineCursor',
     'tweetWithVisibilityResults': 'TweetWithVisibilityResults',
     'timelineTimelineModule': 'TimelineTimelineModule',
+    'tweetTombstone': 'TweetTombstone',
     'tweet': 'Tweet',
     'user': 'User',
   };
@@ -92,6 +98,7 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'TimelineTimelineCursor': 'timelineTimelineCursor',
     'TweetWithVisibilityResults': 'tweetWithVisibilityResults',
     'TimelineTimelineModule': 'timelineTimelineModule',
+    'TweetTombstone': 'tweetTombstone',
     'Tweet': 'tweet',
     'User': 'user',
   };

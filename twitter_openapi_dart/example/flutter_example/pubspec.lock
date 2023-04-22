@@ -467,20 +467,16 @@ packages:
   twitter_openapi_dart:
     dependency: "direct main"
     description:
-      path: twitter_openapi_dart
-      ref: fad1cae7dcff1e85ba94e16c9166f1bf9b0c36b0
-      resolved-ref: fad1cae7dcff1e85ba94e16c9166f1bf9b0c36b0
-      url: "https://github.com/fa0311/twitter_openapi_dart.git"
-    source: git
+      path: "../.."
+      relative: true
+    source: path
     version: "0.0.1"
   twitter_openapi_dart_generated:
     dependency: transitive
     description:
-      path: twitter_openapi_dart_generated
-      ref: ddbe1d7adf2889e999fbb9b3c99e01bfdb254310
-      resolved-ref: ddbe1d7adf2889e999fbb9b3c99e01bfdb254310
-      url: "https://github.com/fa0311/twitter_openapi_dart.git"
-    source: git
+      path: "../../../twitter_openapi_dart_generated"
+      relative: true
+    source: path
     version: "0.0.1"
   typed_data:
     dependency: transitive

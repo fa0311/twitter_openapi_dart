@@ -27,7 +27,7 @@ part 'timeline_timeline_module.g.dart';
 abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'clientEventInfo')
   JsonObject get clientEventInfo;

@@ -12,10 +12,12 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   twitter_openapi_dart:
-    git:
-      url: https://github.com/fa0311/twitter_openapi_dart.git
-      path: twitter_openapi_dart
-      ref: "fad1cae7dcff1e85ba94e16c9166f1bf9b0c36b0"
+    path: ./../../
+
+    # git:
+    #   url: https://github.com/fa0311/twitter_openapi_dart.git
+    #   path: twitter_openapi_dart
+    #   ref: "266e32a8c49faada1ff0949e0af5137507c44b38"
   flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
   dio: ^4.0.6

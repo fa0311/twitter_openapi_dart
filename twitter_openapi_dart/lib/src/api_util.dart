@@ -67,6 +67,10 @@ SimpleTimelineUser buildUserResponse(TimelineUser user) {
   );
 }
 
+List<List<TimelineTweet>> fillterTweetTombstone(List<List<TimelineTweet>> tweetList) {
+  return tweetList.map((e) => e.where((e) => !e.tweetResults.result.oneOf.isType(TweetTombstone)).toList()).where((e) => e.isNotEmpty).toList();
+}
+
 Tweet tweetResultsConverter(ItemResult tweetResults) {
   if (tweetResults.result.oneOf.isType(Tweet)) {
     return tweetResults.result.oneOf.value as Tweet;

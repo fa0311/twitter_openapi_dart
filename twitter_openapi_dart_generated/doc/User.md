@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **typename** | [**TypeName**](TypeName.md) |  | 
 **affiliatesHighlightedLabel** | [**JsonObject**](.md) |  | 
 **businessAccount** | [**JsonObject**](.md) |  | [optional] 
-**hasGraduatedAccess** | **bool** |  | 
+**hasGraduatedAccess** | **bool** |  | [optional] 
 **hasNftAvatar** | **bool** |  | [optional] [default to false]
 **id** | **String** |  | 
 **isBlueVerified** | **bool** |  | [default to false]

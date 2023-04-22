@@ -19,7 +19,7 @@ class TwitterOpenapiDart {
   static String hash = "5b65f7658cef13d9d55a2694fc96f98e81d2ba18";
 
   static Future<Map<String, dynamic>> flag = Dio()
-      .request("https://raw.githubusercontent.com/fa0311/twitter-openapi/${hash}/src/config/placeholder.json", options: Options(method: "GET"))
+      .request("https://raw.githubusercontent.com/fa0311/twitter-openapi/$hash/src/config/placeholder.json", options: Options(method: "GET"))
       .then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
 
   Dio get dio => api.dio;

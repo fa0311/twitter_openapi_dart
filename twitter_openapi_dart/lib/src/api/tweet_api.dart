@@ -24,7 +24,7 @@ class TweetApiUtils {
     );
     final entry = instructionToEntry(convertFn(response.data as T));
     final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    final data = tweetList.map((tweet) => buildTweetApiUtils(tweet)).toList();
+    final data = fillterTweetTombstone(tweetList).map((tweet) => buildTweetApiUtils(tweet)).toList();
     return TweetApiUtilsResponse(
       (e) => e
         ..data = data

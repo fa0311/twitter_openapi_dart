@@ -7,6 +7,7 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.
 import 'package:twitter_openapi_dart_generated/src/model/tweet_with_visibility_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
@@ -35,13 +36,14 @@ part 'tweet_union.g.dart';
 /// * [tweet] 
 @BuiltValue()
 abstract class TweetUnion implements Built<TweetUnion, TweetUnionBuilder> {
-  /// One Of [Tweet], [TweetWithVisibilityResults]
+  /// One Of [Tweet], [TweetTombstone], [TweetWithVisibilityResults]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'__typename';
 
   static const Map<String, Type> discriminatorMapping = {
     r'Tweet': Tweet,
+    r'TweetTombstone': TweetTombstone,
     r'TweetWithVisibilityResults': TweetWithVisibilityResults,
   };
 
@@ -61,6 +63,9 @@ extension TweetUnionDiscriminatorExt on TweetUnion {
         if (this is Tweet) {
             return r'Tweet';
         }
+        if (this is TweetTombstone) {
+            return r'TweetTombstone';
+        }
         if (this is TweetWithVisibilityResults) {
             return r'TweetWithVisibilityResults';
         }
@@ -71,6 +76,9 @@ extension TweetUnionBuilderDiscriminatorExt on TweetUnionBuilder {
     String? get discriminatorValue {
         if (this is TweetBuilder) {
             return r'Tweet';
+        }
+        if (this is TweetTombstoneBuilder) {
+            return r'TweetTombstone';
         }
         if (this is TweetWithVisibilityResultsBuilder) {
             return r'TweetWithVisibilityResults';
@@ -115,7 +123,7 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
     final discIndex = serializedList.indexOf(TweetUnion.discriminatorFieldName) + 1;
     final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [Tweet, TweetWithVisibilityResults, ];
+    final oneOfTypes = [Tweet, TweetTombstone, TweetWithVisibilityResults, ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -125,6 +133,13 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
           specifiedType: FullType(Tweet),
         ) as Tweet;
         oneOfType = Tweet;
+        break;
+      case r'TweetTombstone':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TweetTombstone),
+        ) as TweetTombstone;
+        oneOfType = TweetTombstone;
         break;
       case r'TweetWithVisibilityResults':
         oneOfResult = serializers.deserialize(

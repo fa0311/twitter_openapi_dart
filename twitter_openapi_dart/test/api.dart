@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:twitter_openapi_dart/src/model/model.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 const int testCount = 100;

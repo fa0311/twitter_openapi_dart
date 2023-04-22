@@ -30,7 +30,7 @@ part 'user.g.dart';
 abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'affiliates_highlighted_label')
   JsonObject get affiliatesHighlightedLabel;
@@ -39,7 +39,7 @@ abstract class User implements Built<User, UserBuilder> {
   JsonObject? get businessAccount;
 
   @BuiltValueField(wireName: r'has_graduated_access')
-  bool get hasGraduatedAccess;
+  bool? get hasGraduatedAccess;
 
   @BuiltValueField(wireName: r'has_nft_avatar')
   bool? get hasNftAvatar;
@@ -110,11 +110,13 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(JsonObject),
       );
     }
-    yield r'has_graduated_access';
-    yield serializers.serialize(
-      object.hasGraduatedAccess,
-      specifiedType: const FullType(bool),
-    );
+    if (object.hasGraduatedAccess != null) {
+      yield r'has_graduated_access';
+      yield serializers.serialize(
+        object.hasGraduatedAccess,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.hasNftAvatar != null) {
       yield r'has_nft_avatar';
       yield serializers.serialize(

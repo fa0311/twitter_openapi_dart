@@ -14,7 +14,7 @@ class _$User extends User {
   @override
   final JsonObject? businessAccount;
   @override
-  final bool hasGraduatedAccess;
+  final bool? hasGraduatedAccess;
   @override
   final bool? hasNftAvatar;
   @override
@@ -39,7 +39,7 @@ class _$User extends User {
       {required this.typename,
       required this.affiliatesHighlightedLabel,
       this.businessAccount,
-      required this.hasGraduatedAccess,
+      this.hasGraduatedAccess,
       this.hasNftAvatar,
       required this.id,
       required this.isBlueVerified,
@@ -52,8 +52,6 @@ class _$User extends User {
     BuiltValueNullFieldError.checkNotNull(typename, r'User', 'typename');
     BuiltValueNullFieldError.checkNotNull(
         affiliatesHighlightedLabel, r'User', 'affiliatesHighlightedLabel');
-    BuiltValueNullFieldError.checkNotNull(
-        hasGraduatedAccess, r'User', 'hasGraduatedAccess');
     BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
     BuiltValueNullFieldError.checkNotNull(
         isBlueVerified, r'User', 'isBlueVerified');
@@ -235,10 +233,11 @@ class UserBuilder implements Builder<User, UserBuilder> {
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'User', 'typename'),
               affiliatesHighlightedLabel: BuiltValueNullFieldError.checkNotNull(
-                  affiliatesHighlightedLabel, r'User', 'affiliatesHighlightedLabel'),
+                  affiliatesHighlightedLabel,
+                  r'User',
+                  'affiliatesHighlightedLabel'),
               businessAccount: businessAccount,
-              hasGraduatedAccess: BuiltValueNullFieldError.checkNotNull(
-                  hasGraduatedAccess, r'User', 'hasGraduatedAccess'),
+              hasGraduatedAccess: hasGraduatedAccess,
               hasNftAvatar: hasNftAvatar,
               id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
               isBlueVerified: BuiltValueNullFieldError.checkNotNull(
