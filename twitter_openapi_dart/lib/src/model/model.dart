@@ -10,6 +10,7 @@ abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleT
   User get user;
   List<SimpleTimelineTweet> get reply;
   SimpleTimelineTweet? get quoted;
+  SimpleTimelineTweet? get retweeted;
   JsonObject? get promotedMetadata;
 
   SimpleTimelineTweet._();

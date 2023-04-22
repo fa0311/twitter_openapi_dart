@@ -60,12 +60,14 @@ SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> raw) {
       ..tweet = tweet.toBuilder()
       ..user = tweet.core.userResults.result.toBuilder()
       ..reply = (raw..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList()
-      ..quoted = quoted == null ? null : buildTweetApiUtilsFromItemResult(quoted).toBuilder(),
+      ..quoted = quoted == null ? null : buildTweetApiUtilsFromItemResult(quoted)?.toBuilder()
+      ..retweeted = tweet.legacy.retweetedStatusResult == null ? null : buildTweetApiUtilsFromItemResult(tweet.legacy.retweetedStatusResult!)?.toBuilder(),
   );
 }
 
-SimpleTimelineTweet buildTweetApiUtilsFromItemResult(ItemResult raw) {
-  final tweet = tweetResultsConverter(raw);
+SimpleTimelineTweet? buildTweetApiUtilsFromItemResult(ItemResult raw) {
+  final tweet = tweetResultsConverterOrNull(raw);
+  if (tweet == null) return null;
   return SimpleTimelineTweet(
     (e) => e
       ..raw = raw.toBuilder()

@@ -18,6 +18,8 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
   @override
   final SimpleTimelineTweet? quoted;
   @override
+  final SimpleTimelineTweet? retweeted;
+  @override
   final JsonObject? promotedMetadata;
 
   factory _$SimpleTimelineTweet(
@@ -30,6 +32,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
       required this.user,
       required this.reply,
       this.quoted,
+      this.retweeted,
       this.promotedMetadata})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(raw, r'SimpleTimelineTweet', 'raw');
@@ -58,6 +61,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
         user == other.user &&
         reply == other.reply &&
         quoted == other.quoted &&
+        retweeted == other.retweeted &&
         promotedMetadata == other.promotedMetadata;
   }
 
@@ -69,6 +73,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
     _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jc(_$hash, reply.hashCode);
     _$hash = $jc(_$hash, quoted.hashCode);
+    _$hash = $jc(_$hash, retweeted.hashCode);
     _$hash = $jc(_$hash, promotedMetadata.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -82,6 +87,7 @@ class _$SimpleTimelineTweet extends SimpleTimelineTweet {
           ..add('user', user)
           ..add('reply', reply)
           ..add('quoted', quoted)
+          ..add('retweeted', retweeted)
           ..add('promotedMetadata', promotedMetadata))
         .toString();
   }
@@ -112,6 +118,12 @@ class SimpleTimelineTweetBuilder
       _$this._quoted ??= new SimpleTimelineTweetBuilder();
   set quoted(SimpleTimelineTweetBuilder? quoted) => _$this._quoted = quoted;
 
+  SimpleTimelineTweetBuilder? _retweeted;
+  SimpleTimelineTweetBuilder get retweeted =>
+      _$this._retweeted ??= new SimpleTimelineTweetBuilder();
+  set retweeted(SimpleTimelineTweetBuilder? retweeted) =>
+      _$this._retweeted = retweeted;
+
   JsonObject? _promotedMetadata;
   JsonObject? get promotedMetadata => _$this._promotedMetadata;
   set promotedMetadata(JsonObject? promotedMetadata) =>
@@ -127,6 +139,7 @@ class SimpleTimelineTweetBuilder
       _user = $v.user.toBuilder();
       _reply = $v.reply;
       _quoted = $v.quoted?.toBuilder();
+      _retweeted = $v.retweeted?.toBuilder();
       _promotedMetadata = $v.promotedMetadata;
       _$v = null;
     }
@@ -158,6 +171,7 @@ class SimpleTimelineTweetBuilder
               reply: BuiltValueNullFieldError.checkNotNull(
                   reply, r'SimpleTimelineTweet', 'reply'),
               quoted: _quoted?.build(),
+              retweeted: _retweeted?.build(),
               promotedMetadata: promotedMetadata);
     } catch (_) {
       late String _$failedField;
@@ -171,6 +185,8 @@ class SimpleTimelineTweetBuilder
 
         _$failedField = 'quoted';
         _quoted?.build();
+        _$failedField = 'retweeted';
+        _retweeted?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'SimpleTimelineTweet', _$failedField, e.toString());
