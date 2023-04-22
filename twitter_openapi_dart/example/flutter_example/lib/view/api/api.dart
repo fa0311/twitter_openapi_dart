@@ -85,6 +85,16 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
     );
   }
 
+  Future getBookmarks() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getBookmarks(cursor: cursor),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,6 +129,10 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getListLatestTweetsTimeline"),
                 onTap: getListLatestTweetsTimeline,
+              ),
+              FutureTile(
+                title: const Text("getBookmarks"),
+                onTap: getBookmarks,
               ),
             ],
           ),
