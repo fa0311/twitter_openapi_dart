@@ -541,8 +541,8 @@ packages:
     dependency: "direct main"
     description:
       path: twitter_openapi_dart_generated
-      ref: "v0.0.1"
-      resolved-ref: "2501deabff9ff9c8a75e1dca0a79c45621bf7c3f"
+      ref: ddbe1d7adf2889e999fbb9b3c99e01bfdb254310
+      resolved-ref: ddbe1d7adf2889e999fbb9b3c99e01bfdb254310
       url: "https://github.com/fa0311/twitter_openapi_dart.git"
     source: git
     version: "0.0.1"
