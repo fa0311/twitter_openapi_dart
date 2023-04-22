@@ -44,6 +44,12 @@ class TwitterOpenapiDart {
     dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
   }
 
+  TwitterOpenapiDart.fromInterceptors(Interceptors interceptors) : api = TwitterOpenapiDartGenerated() {
+    dio.interceptors.addAll([...interceptors, HeaderAuth()]);
+  }
+
+  TwitterOpenapiDart.fromAPI(this.api);
+
   DefaultApiUtils getDefaultApi() {
     return DefaultApiUtils(api.getDefaultApi(), flag);
   }
@@ -59,14 +65,6 @@ class TwitterOpenapiDart {
   UserListApiUtils getUserListApi() {
     return UserListApiUtils(api.getUserListApi(), flag);
   }
-
-  /*
-  TwitterOpenapiDartUtils.fromInappwebview() : api = TwitterOpenapiDart() {
-    dio.interceptors.addAll([FlutterInappwebviewDio(), HeaderAuth()]);
-  }
-  */
-
-  TwitterOpenapiDart.fromAPI(this.api);
 }
 
 Future<CookieJar> getGuestCookies() async {

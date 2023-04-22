@@ -16,15 +16,12 @@ dependencies:
 
   dio: ^4.0.6
   dio_cookie_manager: ^2.0.0
-  # twitter_openapi_dart_generated:
-  #   path: ../twitter_openapi_dart_generated
   twitter_openapi_dart_generated:
     git:
       url: https://github.com/fa0311/twitter_openapi_dart.git
       path: twitter_openapi_dart_generated
       ref: "v0.0.1"
 
-  # flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
   built_value: ">=8.4.0 <9.0.0"
   built_collection: ">=5.1.1 <6.0.0"
