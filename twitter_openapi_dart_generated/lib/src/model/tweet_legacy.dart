@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -31,6 +32,7 @@ part 'tweet_legacy.g.dart';
 /// * [replyCount] 
 /// * [retweetCount] 
 /// * [retweeted] 
+/// * [retweetedStatusResult] 
 /// * [userIdStr] 
 @BuiltValue()
 abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
@@ -87,6 +89,9 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'retweeted')
   bool get retweeted;
+
+  @BuiltValueField(wireName: r'retweeted_status_result')
+  ItemResult? get retweetedStatusResult;
 
   @BuiltValueField(wireName: r'user_id_str')
   String get userIdStr;
@@ -210,6 +215,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.retweeted,
       specifiedType: const FullType(bool),
     );
+    if (object.retweetedStatusResult != null) {
+      yield r'retweeted_status_result';
+      yield serializers.serialize(
+        object.retweetedStatusResult,
+        specifiedType: const FullType(ItemResult),
+      );
+    }
     yield r'user_id_str';
     yield serializers.serialize(
       object.userIdStr,
@@ -363,6 +375,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.retweeted = valueDes;
+          break;
+        case r'retweeted_status_result':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ItemResult),
+          ) as ItemResult;
+          result.retweetedStatusResult.replace(valueDes);
           break;
         case r'user_id_str':
           final valueDes = serializers.deserialize(
