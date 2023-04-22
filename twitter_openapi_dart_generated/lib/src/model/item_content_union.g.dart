@@ -15,6 +15,8 @@ const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_showMore =
 const ItemContentUnionCursorTypeEnum
     _$itemContentUnionCursorTypeEnum_showMoreThreads =
     const ItemContentUnionCursorTypeEnum._('showMoreThreads');
+const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_gap =
+    const ItemContentUnionCursorTypeEnum._('gap');
 
 ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnumValueOf(
     String name) {
@@ -27,6 +29,8 @@ ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnumValueOf(
       return _$itemContentUnionCursorTypeEnum_showMore;
     case 'showMoreThreads':
       return _$itemContentUnionCursorTypeEnum_showMoreThreads;
+    case 'gap':
+      return _$itemContentUnionCursorTypeEnum_gap;
     default:
       throw new ArgumentError(name);
   }
@@ -39,6 +43,7 @@ final BuiltSet<ItemContentUnionCursorTypeEnum>
   _$itemContentUnionCursorTypeEnum_bottom,
   _$itemContentUnionCursorTypeEnum_showMore,
   _$itemContentUnionCursorTypeEnum_showMoreThreads,
+  _$itemContentUnionCursorTypeEnum_gap,
 ]);
 
 Serializer<ItemContentUnionCursorTypeEnum>
@@ -52,12 +57,14 @@ class _$ItemContentUnionCursorTypeEnumSerializer
     'bottom': 'Bottom',
     'showMore': 'ShowMore',
     'showMoreThreads': 'ShowMoreThreads',
+    'gap': 'Gap',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
     'ShowMore': 'showMore',
     'ShowMoreThreads': 'showMoreThreads',
+    'Gap': 'gap',
   };
 
   @override

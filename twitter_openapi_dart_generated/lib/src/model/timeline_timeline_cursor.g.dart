@@ -18,6 +18,9 @@ const TimelineTimelineCursorCursorTypeEnum
 const TimelineTimelineCursorCursorTypeEnum
     _$timelineTimelineCursorCursorTypeEnum_showMoreThreads =
     const TimelineTimelineCursorCursorTypeEnum._('showMoreThreads');
+const TimelineTimelineCursorCursorTypeEnum
+    _$timelineTimelineCursorCursorTypeEnum_gap =
+    const TimelineTimelineCursorCursorTypeEnum._('gap');
 
 TimelineTimelineCursorCursorTypeEnum
     _$timelineTimelineCursorCursorTypeEnumValueOf(String name) {
@@ -30,6 +33,8 @@ TimelineTimelineCursorCursorTypeEnum
       return _$timelineTimelineCursorCursorTypeEnum_showMore;
     case 'showMoreThreads':
       return _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
+    case 'gap':
+      return _$timelineTimelineCursorCursorTypeEnum_gap;
     default:
       throw new ArgumentError(name);
   }
@@ -42,6 +47,7 @@ final BuiltSet<TimelineTimelineCursorCursorTypeEnum>
   _$timelineTimelineCursorCursorTypeEnum_bottom,
   _$timelineTimelineCursorCursorTypeEnum_showMore,
   _$timelineTimelineCursorCursorTypeEnum_showMoreThreads,
+  _$timelineTimelineCursorCursorTypeEnum_gap,
 ]);
 
 Serializer<TimelineTimelineCursorCursorTypeEnum>
@@ -55,12 +61,14 @@ class _$TimelineTimelineCursorCursorTypeEnumSerializer
     'bottom': 'Bottom',
     'showMore': 'ShowMore',
     'showMoreThreads': 'ShowMoreThreads',
+    'gap': 'Gap',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
     'ShowMore': 'showMore',
     'ShowMoreThreads': 'showMoreThreads',
+    'Gap': 'gap',
   };
 
   @override

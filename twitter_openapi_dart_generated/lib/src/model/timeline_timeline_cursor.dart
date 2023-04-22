@@ -27,7 +27,7 @@ abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, T
 
   @BuiltValueField(wireName: r'cursorType')
   TimelineTimelineCursorCursorTypeEnum get cursorType;
-  // enum cursorTypeEnum {  Top,  Bottom,  ShowMore,  ShowMoreThreads,  };
+  // enum cursorTypeEnum {  Top,  Bottom,  ShowMore,  ShowMoreThreads,  Gap,  };
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType? get entryType;
@@ -189,6 +189,8 @@ class TimelineTimelineCursorCursorTypeEnum extends EnumClass {
   static const TimelineTimelineCursorCursorTypeEnum showMore = _$timelineTimelineCursorCursorTypeEnum_showMore;
   @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
   static const TimelineTimelineCursorCursorTypeEnum showMoreThreads = _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
+  @BuiltValueEnumConst(wireName: r'Gap')
+  static const TimelineTimelineCursorCursorTypeEnum gap = _$timelineTimelineCursorCursorTypeEnum_gap;
 
   static Serializer<TimelineTimelineCursorCursorTypeEnum> get serializer => _$timelineTimelineCursorCursorTypeEnumSerializer;
 

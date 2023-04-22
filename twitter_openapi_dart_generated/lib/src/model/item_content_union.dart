@@ -166,6 +166,8 @@ class ItemContentUnionCursorTypeEnum extends EnumClass {
   static const ItemContentUnionCursorTypeEnum showMore = _$itemContentUnionCursorTypeEnum_showMore;
   @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
   static const ItemContentUnionCursorTypeEnum showMoreThreads = _$itemContentUnionCursorTypeEnum_showMoreThreads;
+  @BuiltValueEnumConst(wireName: r'Gap')
+  static const ItemContentUnionCursorTypeEnum gap = _$itemContentUnionCursorTypeEnum_gap;
 
   static Serializer<ItemContentUnionCursorTypeEnum> get serializer => _$itemContentUnionCursorTypeEnumSerializer;
 
