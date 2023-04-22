@@ -62,12 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
             FutureButton(
               onPressed: login,
               type: ButtonType.elevatedButton,
-              child: const Text("Log in with browser"),
+              child: const Text("Login with browser"),
             ),
             FutureButton(
               onPressed: guestMode,
               type: ButtonType.elevatedButton,
-              child: const Text("Login in Guest Mode"),
+              child: const Text("Login Guest Mode"),
             ),
             FutureButton(
               onPressed: deleteBrowserCache,
