@@ -1,7 +1,7 @@
 import 'package:built_value/built_value.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
-part 'tweet.g.dart';
+part 'model.g.dart';
 
 abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
   TimelineTweet get raw;

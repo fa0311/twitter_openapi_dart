@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/tweet.dart';
+import 'package:twitter_openapi_dart/src/model/model.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 

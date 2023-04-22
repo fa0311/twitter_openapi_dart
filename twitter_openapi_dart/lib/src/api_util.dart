@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
-import 'package:twitter_openapi_dart/src/model/tweet.dart';
+import 'package:twitter_openapi_dart/src/model/model.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {

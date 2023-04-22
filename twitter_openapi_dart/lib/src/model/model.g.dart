@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tweet.dart';
+part of 'model.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
