@@ -32,7 +32,7 @@ cd twitter_openapi_dart_generated
 ```shell
 python -V # Python 3.10.8
 flutter --version # Flutter 3.7.12
-openapi-generator-cli version # 6.3.0
+openapi-generator-cli version # 6.5.0
 ```
 
 ```shell
