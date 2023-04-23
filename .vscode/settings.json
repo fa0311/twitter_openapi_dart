@@ -1,0 +1,8 @@
+{
+  "dart.analysisExcludedFolders": ["twitter_openapi_dart_generated/lib"],
+  "markdownlint.ignore": ["twitter_openapi_dart_generated/**/*.md"],
+  "markdownlint.config": {
+    "MD033": false,
+    "MD024": false
+  }
+}
