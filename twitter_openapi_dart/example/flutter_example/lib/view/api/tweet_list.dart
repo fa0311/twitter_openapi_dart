@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/component/button.dart';
-import 'package:flutter_example/component/scroll.dart';
-import 'package:flutter_example/widget/tweet.dart';
+import 'package:twitter_openapi_dart_flutter_example/component/button.dart';
+import 'package:twitter_openapi_dart_flutter_example/component/scroll.dart';
+import 'package:twitter_openapi_dart_flutter_example/widget/tweet.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class TweetListWidget extends StatefulWidget {

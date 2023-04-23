@@ -1,4 +1,4 @@
-package com.example.flutter_example
+package com.example.twitter_openapi_dart_flutter_example
 
 import io.flutter.embedding.android.FlutterActivity
 
