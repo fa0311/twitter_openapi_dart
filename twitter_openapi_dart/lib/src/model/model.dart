@@ -4,52 +4,52 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 part 'model.g.dart';
 
-abstract class SimpleTimelineTweet implements Built<SimpleTimelineTweet, SimpleTimelineTweetBuilder> {
-  ItemResult get raw;
-  Tweet get tweet;
-  User get user;
-  List<SimpleTimelineTweet> get reply;
-  SimpleTimelineTweet? get quoted;
-  SimpleTimelineTweet? get retweeted;
-  JsonObject? get promotedMetadata;
+abstract class TweetListApiUtilsResponse implements Built<TweetListApiUtilsResponse, TweetListApiUtilsResponseBuilder> {
+  CursorApiUtilsResponse get cursor;
+  List<TweetApiUtilsResponse> get data;
 
-  SimpleTimelineTweet._();
+  TweetListApiUtilsResponse._();
 
-  factory SimpleTimelineTweet([void Function(SimpleTimelineTweetBuilder) updates]) = _$SimpleTimelineTweet;
+  factory TweetListApiUtilsResponse([void Function(TweetListApiUtilsResponseBuilder) updates]) = _$TweetListApiUtilsResponse;
 }
 
 abstract class TweetApiUtilsResponse implements Built<TweetApiUtilsResponse, TweetApiUtilsResponseBuilder> {
-  TimelineCursor get cursor;
-  List<SimpleTimelineTweet> get data;
+  ItemResult get raw;
+  Tweet get tweet;
+  User get user;
+  List<TweetApiUtilsResponse> get reply;
+  TweetApiUtilsResponse? get quoted;
+  TweetApiUtilsResponse? get retweeted;
+  JsonObject? get promotedMetadata;
 
   TweetApiUtilsResponse._();
 
   factory TweetApiUtilsResponse([void Function(TweetApiUtilsResponseBuilder) updates]) = _$TweetApiUtilsResponse;
 }
 
-abstract class SimpleTimelineUser implements Built<SimpleTimelineUser, SimpleTimelineUserBuilder> {
-  TimelineUser get raw;
-  User get user;
-
-  SimpleTimelineUser._();
-
-  factory SimpleTimelineUser([void Function(SimpleTimelineUserBuilder) updates]) = _$SimpleTimelineUser;
-}
-
 abstract class UserListApiUtilsResponse implements Built<UserListApiUtilsResponse, UserListApiUtilsResponseBuilder> {
-  TimelineCursor get cursor;
-  List<SimpleTimelineUser> get data;
+  CursorApiUtilsResponse get cursor;
+  List<UserApiUtilsResponse> get data;
 
   UserListApiUtilsResponse._();
 
   factory UserListApiUtilsResponse([void Function(UserListApiUtilsResponseBuilder) updates]) = _$UserListApiUtilsResponse;
 }
 
-abstract class TimelineCursor implements Built<TimelineCursor, TimelineCursorBuilder> {
+abstract class UserApiUtilsResponse implements Built<UserApiUtilsResponse, UserApiUtilsResponseBuilder> {
+  TimelineUser get raw;
+  User get user;
+
+  UserApiUtilsResponse._();
+
+  factory UserApiUtilsResponse([void Function(UserApiUtilsResponseBuilder) updates]) = _$UserApiUtilsResponse;
+}
+
+abstract class CursorApiUtilsResponse implements Built<CursorApiUtilsResponse, CursorApiUtilsResponseBuilder> {
   TimelineTimelineCursor? get bottom;
   TimelineTimelineCursor? get top;
 
-  TimelineCursor._();
+  CursorApiUtilsResponse._();
 
-  factory TimelineCursor([void Function(TimelineCursorBuilder) updates]) = _$TimelineCursor;
+  factory CursorApiUtilsResponse([void Function(CursorApiUtilsResponseBuilder) updates]) = _$CursorApiUtilsResponse;
 }

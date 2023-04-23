@@ -52,7 +52,7 @@ class UserListApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineUser> getFollowersStream({
+  Stream<UserApiUtilsResponse> getFollowersStream({
     required String userId,
     String? cursor,
     int? count,
@@ -100,7 +100,7 @@ class UserListApiUtils {
     return response;
   }
 
-  Stream<SimpleTimelineUser> getFollowingStream({
+  Stream<UserApiUtilsResponse> getFollowingStream({
     required String userId,
     String? cursor,
     int? count,

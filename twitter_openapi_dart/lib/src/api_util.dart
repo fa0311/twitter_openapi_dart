@@ -25,7 +25,7 @@ List<List<T>> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
       .toList();
 }
 
-TimelineCursor entriesCursor(BuiltList<TimelineAddEntry> item) {
+CursorApiUtilsResponse entriesCursor(BuiltList<TimelineAddEntry> item) {
   final cursorList = item.expand((e) {
     if (e.content.oneOf.isType(TimelineTimelineCursor)) {
       return [(e.content.oneOf.value as TimelineTimelineCursor)];
@@ -36,7 +36,7 @@ TimelineCursor entriesCursor(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-TimelineCursor entriesCursorItem(BuiltList<TimelineAddEntry> item) {
+CursorApiUtilsResponse entriesCursorItem(BuiltList<TimelineAddEntry> item) {
   final cursorList = item.expand((e) {
     if (e.content.oneOf.isType(TimelineTimelineItem)) {
       final item = (e.content.oneOf.value as TimelineTimelineItem);
@@ -49,11 +49,11 @@ TimelineCursor entriesCursorItem(BuiltList<TimelineAddEntry> item) {
   return buildCursor(cursorList);
 }
 
-SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> raw) {
+TweetApiUtilsResponse buildTweetApiUtils(List<TimelineTweet> raw) {
   final tweet = tweetResultsConverter(raw.first.tweetResults);
   final quoted = tweet.quotedStatusResult;
 
-  return SimpleTimelineTweet(
+  return TweetApiUtilsResponse(
     (e) => e
       ..raw = raw.first.tweetResults.toBuilder()
       ..promotedMetadata = raw.first.promotedMetadata
@@ -65,10 +65,10 @@ SimpleTimelineTweet buildTweetApiUtils(List<TimelineTweet> raw) {
   );
 }
 
-SimpleTimelineTweet? buildTweetApiUtilsFromItemResult(ItemResult raw) {
+TweetApiUtilsResponse? buildTweetApiUtilsFromItemResult(ItemResult raw) {
   final tweet = tweetResultsConverterOrNull(raw);
   if (tweet == null) return null;
-  return SimpleTimelineTweet(
+  return TweetApiUtilsResponse(
     (e) => e
       ..raw = raw.toBuilder()
       ..tweet = tweet.toBuilder()
@@ -77,8 +77,8 @@ SimpleTimelineTweet? buildTweetApiUtilsFromItemResult(ItemResult raw) {
   );
 }
 
-SimpleTimelineUser buildUserResponse(TimelineUser user) {
-  return SimpleTimelineUser(
+UserApiUtilsResponse buildUserResponse(TimelineUser user) {
+  return UserApiUtilsResponse(
     (e) => e
       ..raw = user.toBuilder()
       ..user = user.userResults.result.toBuilder(),
@@ -109,8 +109,8 @@ Tweet? tweetResultsConverterOrNull(ItemResult tweetResults) {
   throw Exception();
 }
 
-TimelineCursor buildCursor(Iterable<TimelineTimelineCursor> cursorList) {
-  return TimelineCursor(
+CursorApiUtilsResponse buildCursor(Iterable<TimelineTimelineCursor> cursorList) {
+  return CursorApiUtilsResponse(
     (e) => e
       ..top = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.top)?.toBuilder()
       ..bottom = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.bottom)?.toBuilder(),
