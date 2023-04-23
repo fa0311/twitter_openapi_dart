@@ -44,20 +44,32 @@ class _UserListWidgetState extends State<UserListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('User List')),
       body: SafeArea(
         child: ScrollWidget(
           child: Column(
             children: [
               if (cursorTop != null)
-                FutureButton(
-                  onPressed: () => sendRequest(flag: true),
-                  child: const Text("More"),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: FutureButton(
+                    onPressed: () => sendRequest(flag: true),
+                    child: const Text("More"),
+                  ),
                 ),
-              ...userList.map((e) => Card(child: UserWidget(user: e))).toList(),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: Column(
+                  children: userList.map((e) => Card(child: UserWidget(user: e))).toList(),
+                ),
+              ),
               if (cursorBottom != null)
-                FutureButton(
-                  onPressed: () => sendRequest(flag: false),
-                  child: const Text("More"),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: FutureButton(
+                    onPressed: () => sendRequest(flag: false),
+                    child: const Text("More"),
+                  ),
                 ),
             ],
           ),

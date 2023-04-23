@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_example/component/button.dart';
 import 'package:flutter_example/view/api/api.dart';
@@ -9,13 +12,22 @@ void main() {
   runApp(const MyApp());
 }
 
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'twitter_openapi_dart_flutter_example',
+      scrollBehavior: MyCustomScrollBehavior(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -41,7 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Future guestMode() async {
     final client = TwitterOpenapiDart.fromCookieJar(await getGuestCookies());
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (context) => ApiSelectPage(client: client)),
+      MaterialPageRoute(
+        builder: (context) => ApiSelectPage(
+          client: client,
+          limitedMode: true,
+        ),
+      ),
     );
   }
 
@@ -55,25 +72,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Login')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FutureButton(
-              onPressed: login,
-              type: ButtonType.elevatedButton,
-              child: const Text("Login with browser"),
-            ),
+            if (Platform.isAndroid)
+              FutureButton(
+                onPressed: login,
+                type: ButtonType.elevatedButton,
+                child: const Text("Login with browser"),
+              ),
             FutureButton(
               onPressed: guestMode,
               type: ButtonType.elevatedButton,
               child: const Text("Login Guest Mode"),
             ),
-            FutureButton(
-              onPressed: deleteBrowserCache,
-              type: ButtonType.textButton,
-              child: const Text("Delete browser cache"),
-            ),
+            if (Platform.isAndroid)
+              FutureButton(
+                onPressed: deleteBrowserCache,
+                type: ButtonType.textButton,
+                child: const Text("Delete browser cache"),
+              ),
           ],
         ),
       ),

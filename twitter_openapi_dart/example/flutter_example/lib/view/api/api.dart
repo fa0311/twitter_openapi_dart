@@ -5,9 +5,14 @@ import 'package:flutter_example/view/api/user_list.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class ApiSelectPage extends StatefulWidget {
-  const ApiSelectPage({super.key, required this.client});
+  const ApiSelectPage({
+    super.key,
+    required this.client,
+    required this.limitedMode,
+  });
 
   final TwitterOpenapiDart client;
+  final bool limitedMode;
 
   @override
   State<ApiSelectPage> createState() => _ApiSelectPageState();
@@ -129,6 +134,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('API Select')),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -148,14 +154,17 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getLikes"),
                 onTap: getLikes,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getHomeTimeline"),
                 onTap: getHomeTimeline,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getHomeLatestTimeline"),
                 onTap: getHomeLatestTimeline,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getListLatestTweetsTimeline"),
@@ -164,6 +173,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getBookmarks"),
                 onTap: getBookmarks,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getTweetDetail"),
@@ -172,10 +182,12 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getFollowers"),
                 onTap: getFollowers,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getFollowing"),
                 onTap: getFollowing,
+                enabled: !widget.limitedMode,
               ),
             ],
           ),

@@ -23,6 +23,7 @@ class _TwitterLoginState extends State<TwitterLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Web Login')),
       body: Center(
         child: InAppWebView(
           initialUrlRequest: URLRequest(url: url.resolve("login")),
@@ -45,7 +46,12 @@ class _TwitterLoginState extends State<TwitterLogin> {
               Navigator.of(context)
                 ..pop()
                 ..push(
-                  MaterialPageRoute(builder: (context) => ApiSelectPage(client: client)),
+                  MaterialPageRoute(
+                    builder: (context) => ApiSelectPage(
+                      client: client,
+                      limitedMode: true,
+                    ),
+                  ),
                 );
             }
           },

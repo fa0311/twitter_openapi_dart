@@ -44,20 +44,32 @@ class _TweetListWidgetState extends State<TweetListWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Tweet List')),
       body: SafeArea(
         child: ScrollWidget(
           child: Column(
             children: [
               if (cursorTop != null)
-                FutureButton(
-                  onPressed: () => sendRequest(flag: true),
-                  child: const Text("More"),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: FutureButton(
+                    onPressed: () => sendRequest(flag: true),
+                    child: const Text("More"),
+                  ),
                 ),
-              ...tweetList.where((e) => e.promotedMetadata == null).map((e) => Card(child: TwitterWidget(tweet: e))).toList(),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 500),
+                child: Column(
+                  children: tweetList.where((e) => e.promotedMetadata == null).map((e) => Card(child: TwitterWidget(tweet: e))).toList(),
+                ),
+              ),
               if (cursorBottom != null)
-                FutureButton(
-                  onPressed: () => sendRequest(flag: false),
-                  child: const Text("More"),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: FutureButton(
+                    onPressed: () => sendRequest(flag: false),
+                    child: const Text("More"),
+                  ),
                 ),
             ],
           ),
