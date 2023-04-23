@@ -40,7 +40,7 @@ openapi-generator-cli generate -g dart-dio -c tools/openapi-generator-config.yam
 dart pub run build_runner build --delete-conflicting-outputs
 ```
 
-### Usage
+### Setup
 
 It cannot be installed from pub.dev.  
 Plan to release it in v1.0.0 with pub.dev.  
@@ -53,5 +53,7 @@ dependencies:
         path: twitter_openapi_dart_generated
         ref: <commit hash here>
 ```
+
+### Usage
 
 [twitter_openapi_dart_generated/README.md](./twitter_openapi_dart_generated/README.md)

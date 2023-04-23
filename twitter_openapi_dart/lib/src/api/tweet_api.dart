@@ -56,34 +56,6 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<TweetApiUtilsResponse> getTweetDetailStream({
-    required String focalTweetId,
-    String? cursor,
-    String? controllerData,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "focalTweetId": focalTweetId,
-        if (cursor != null) "cursor": cursor,
-        if (controllerData != null) "controller_data": controllerData,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getTweetDetail,
-        convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
-        key: 'TweetDetail',
-        param: param,
-        cursorItem: true,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
-  }
-
   // ====== timeline ==========
 
   Future<TweetListApiUtilsResponse> getHomeTimeline({
@@ -105,31 +77,6 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<TweetApiUtilsResponse> getHomeTimelineStream({
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getHomeTimeline,
-        convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
-        key: 'HomeTimeline',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
-  }
-
   Future<TweetListApiUtilsResponse> getHomeLatestTimeline({
     String? cursor,
     int? count,
@@ -147,31 +94,6 @@ class TweetApiUtils {
       param: param,
     );
     return response;
-  }
-
-  Stream<TweetApiUtilsResponse> getHomeLatestTimelineStream({
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getHomeLatestTimeline,
-        convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
-        key: 'HomeLatestTimeline',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
   }
 
   Future<TweetListApiUtilsResponse> getListLatestTweetsTimeline({
@@ -193,33 +115,6 @@ class TweetApiUtils {
       param: param,
     );
     return response;
-  }
-
-  Stream<TweetApiUtilsResponse> getListLatestTweetsTimelineStream({
-    required String listId,
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "listId": listId,
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getListLatestTweetsTimeline,
-        convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
-        key: 'ListLatestTweetsTimeline',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
   }
 
   // ====== user ==========
@@ -245,33 +140,6 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<TweetApiUtilsResponse> getUserTweetsStream({
-    required String userId,
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "userId": userId,
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getUserTweets,
-        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
-        key: 'UserTweets',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
-  }
-
   Future<TweetListApiUtilsResponse> getUserTweetsAndReplies({
     required String userId,
     String? cursor,
@@ -291,33 +159,6 @@ class TweetApiUtils {
       param: param,
     );
     return response;
-  }
-
-  Stream<TweetApiUtilsResponse> getUserTweetsAndRepliesStream({
-    required String userId,
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "userId": userId,
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getUserTweetsAndReplies,
-        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
-        key: 'UserTweetsAndReplies',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
   }
 
   Future<TweetListApiUtilsResponse> getUserMedia({
@@ -341,33 +182,6 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<TweetApiUtilsResponse> getUserMediaStream({
-    required String userId,
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "userId": userId,
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getUserMedia,
-        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
-        key: 'UserMedia',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
-  }
-
   Future<TweetListApiUtilsResponse> getLikes({
     required String userId,
     String? cursor,
@@ -389,33 +203,6 @@ class TweetApiUtils {
     return response;
   }
 
-  Stream<TweetApiUtilsResponse> getLikesStream({
-    required String userId,
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        "userId": userId,
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getLikes,
-        convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
-        key: 'Likes',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
-  }
-
   // ====== bookmark ========
 
   Future<TweetListApiUtilsResponse> getBookmarks({
@@ -435,30 +222,5 @@ class TweetApiUtils {
       param: param,
     );
     return response;
-  }
-
-  Stream<TweetApiUtilsResponse> getBookmarksStream({
-    String? cursor,
-    int? count,
-    Map<String, dynamic>? extraParam,
-  }) async* {
-    do {
-      final param = {
-        if (count != null) "count": count,
-        if (cursor != null) "cursor": cursor,
-        ...?extraParam,
-      };
-      final response = await request(
-        apiFn: api.getBookmarks,
-        convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
-        key: 'Bookmarks',
-        param: param,
-      );
-      if (response.data.isEmpty) return;
-      for (final tweet in response.data) {
-        yield tweet;
-      }
-      cursor = response.cursor.bottom?.value;
-    } while (cursor != null);
   }
 }

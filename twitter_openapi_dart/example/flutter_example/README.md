@@ -16,7 +16,7 @@ The implementation is as follows.
 Some APIs cannot be used because they run without login.  
 The implementation is as follows.  
 
-```Dart
+```dart
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 final client = TwitterOpenapiDart.fromCookieJar(await getGuestCookies());
 ```
