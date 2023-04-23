@@ -26,29 +26,40 @@ dependencies:
         ref: <commit hash here>
 ```
 
-### Usage
+## Usage
 
 ```dart
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 ```
 
-#### Login
+### Login
 
-##### Flutter (Recommendation)
+#### Flutter (Recommendation)
 
 Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).
 
 - [web.dart](./example/flutter_example/lib/view/login/web.dart)
 - [inappwebview.dart](./example/flutter_example/lib/view/auth/inappwebview.dart)
 
-##### Other
+#### Other
 
 ```dart
 final client = TwitterOpenapiDart.fromCookies(authToken: "<auth token here>", ct0: "<csrf token here>");
 ```
 
-##### Do not login
+#### Do not login
 
 ```dart
 final client = TwitterOpenapiDart.fromCookieJar(await getGuestCookies());
+```
+
+### API
+
+[test](./test/api) may be able to help you.
+
+```dart
+// https://twitter.com/elonmusk/status/1349129669258448897
+final result = await client.getTweetApi().getTweetDetail(focalTweetId: "1349129669258448897");
+if (result.cursor.bottom?.value == null) return;
+final bottom = await client.getTweetApi().getTweetDetail(focalTweetId: "1349129669258448897", cursor: result.cursor.bottom?.value);
 ```
