@@ -110,7 +110,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
     return Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => UserListWidget(
-          builder: (String? cursor) => widget.client.getUserListApi().getFollowers(userId: "900282258736545792", cursor: cursor),
+          builder: (String? cursor) => widget.client.getUserListApi().getFollowers(userId: "44196397", cursor: cursor),
         ),
       ),
     );
@@ -120,7 +120,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
     return Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => UserListWidget(
-          builder: (String? cursor) => widget.client.getUserListApi().getFollowing(userId: "900282258736545792", cursor: cursor),
+          builder: (String? cursor) => widget.client.getUserListApi().getFollowing(userId: "44196397", cursor: cursor),
         ),
       ),
     );
