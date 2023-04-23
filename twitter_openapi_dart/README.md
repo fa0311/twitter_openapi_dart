@@ -11,7 +11,9 @@ Human-friendly Twitter OpenAPI
 ## Usage
 
 It cannot be installed from pub.dev.
+
 Plan to release it in v1.0.0 with pub.dev.
+
 Recommend adding the latest commit hash after #ref as many destructive changes are made.
 
 ```yaml
