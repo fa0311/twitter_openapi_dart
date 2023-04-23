@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:twitter_openapi_dart_flutter_example/component/button.dart';
-import 'package:twitter_openapi_dart_flutter_example/view/api/api.dart';
-import 'package:twitter_openapi_dart_flutter_example/view/login/web.dart';
+import 'package:flutter_example/component/button.dart';
+import 'package:flutter_example/view/api/api.dart';
+import 'package:flutter_example/view/login/web.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'twitter_openapi_dart_twitter_openapi_dart_flutter_example',
+      title: 'flutter_example',
       scrollBehavior: MyCustomScrollBehavior(),
       theme: ThemeData(
         primarySwatch: Colors.blue,

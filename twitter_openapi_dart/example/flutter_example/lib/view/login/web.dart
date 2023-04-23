@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_openapi_dart_flutter_example/auth/inappwebview.dart';
-import 'package:twitter_openapi_dart_flutter_example/view/api/api.dart';
+import 'package:flutter_example/auth/inappwebview.dart';
+import 'package:flutter_example/view/api/api.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 

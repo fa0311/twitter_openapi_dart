@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_openapi_dart_flutter_example/component/tile.dart';
-import 'package:twitter_openapi_dart_flutter_example/view/api/tweet_list.dart';
-import 'package:twitter_openapi_dart_flutter_example/view/api/user_list.dart';
+import 'package:flutter_example/component/tile.dart';
+import 'package:flutter_example/view/api/tweet_list.dart';
+import 'package:flutter_example/view/api/user_list.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class ApiSelectPage extends StatefulWidget {

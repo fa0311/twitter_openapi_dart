@@ -13,8 +13,8 @@ class FlutterInappwebviewDio extends Interceptor {
         options.headers[HttpHeaders.cookieHeader] = getCookies(cookie);
       }
       handler.next(options);
-    } catch (e, stackTrace) {
-      handler.reject(DioError(requestOptions: options, error: e)..stackTrace = stackTrace, true);
+    } catch (e) {
+      handler.reject(DioError(requestOptions: options, error: e), true);
     }
   }
 
@@ -43,8 +43,8 @@ class FlutterInappwebviewDio extends Interceptor {
       }
 
       handler.next(response);
-    } catch (e, stackTrace) {
-      handler.reject(DioError(requestOptions: response.requestOptions, error: e)..stackTrace = stackTrace, true);
+    } catch (e) {
+      handler.reject(DioError(requestOptions: response.requestOptions, error: e), true);
     }
   }
 

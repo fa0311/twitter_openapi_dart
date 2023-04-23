@@ -1,4 +1,4 @@
-# twitter_openapi_dart_flutter_example
+# flutter_example
 
 ## Login
 
@@ -9,7 +9,7 @@ Webview implementation using [flutter_inappwebview](https://github.com/pichillil
 The implementation is as follows.  
 
 - [web.dart](./lib/view/login/web.dart)
-- [inappwebview.dart](./lib/view/auth/inappwebview.dart)
+- [inappwebview.dart](./lib/auth/inappwebview.dart)
 
 ### Login Guest Mode
 
