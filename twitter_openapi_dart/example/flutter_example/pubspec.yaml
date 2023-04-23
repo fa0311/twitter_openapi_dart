@@ -20,7 +20,7 @@ dependencies:
     #   ref: "266e32a8c49faada1ff0949e0af5137507c44b38"
   flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
-  dio: ^4.0.6
+  dio: "^5.0.0"
   cached_network_image: ^3.2.3
 
 dev_dependencies:
