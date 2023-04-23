@@ -2,7 +2,3 @@
 	path = twitter_openapi_dart_generated/twitter-openapi
 	url = https://github.com/fa0311/twitter-openapi
 	branch = main
-[submodule "twitter_openapi_dart/twitter-openapi"]
-	path = twitter_openapi_dart/twitter-openapi
-	url = https://github.com/fa0311/twitter-openapi
-	branch = main
