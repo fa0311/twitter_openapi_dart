@@ -4,7 +4,7 @@
 
 ### Login with Browser (Recommend/Android Only)
 
-All APIs can be executed.  
+APIs can be executed.  
 Webview implementation using [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).  
 The implementation is as follows.  
 
