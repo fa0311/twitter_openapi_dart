@@ -9,13 +9,11 @@ environment:
   sdk: ">=2.19.6 <3.0.0"
 
 dependencies:
-  # path: ^1.8.0
-
   intl: ^0.18.1
-  cookie_jar: ^3.0.1
+  cookie_jar: ^4.0.1
 
-  dio: ^4.0.6
-  dio_cookie_manager: ^2.0.0
+  dio: "^5.0.0"
+  dio_cookie_manager: ^3.0.0
   twitter_openapi_dart_generated:
     path: ../twitter_openapi_dart_generated
 
