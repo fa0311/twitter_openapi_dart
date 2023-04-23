@@ -67,13 +67,13 @@ class DefaultApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -115,9 +115,10 @@ class DefaultApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ProfileResponse>(

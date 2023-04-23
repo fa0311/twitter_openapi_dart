@@ -71,13 +71,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -119,9 +119,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BookmarksResponse>(
@@ -185,13 +186,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -233,9 +234,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TimelineResponse>(
@@ -299,13 +301,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -347,9 +349,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TimelineResponse>(
@@ -413,13 +416,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -461,9 +464,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserTweetsResponse>(
@@ -527,13 +531,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -575,9 +579,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ListTweetsTimelineResponse>(
@@ -641,13 +646,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -689,9 +694,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TweetDetailResponse>(
@@ -755,13 +761,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -803,9 +809,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserTweetsResponse>(
@@ -869,13 +876,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -917,9 +924,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserTweetsResponse>(
@@ -983,13 +991,13 @@ class TweetApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
             'where': '',
           },{
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
             'where': '',
           },{
             'type': 'apiKey',
@@ -1031,9 +1039,10 @@ class TweetApi {
       throw DioError(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.other,
+        type: DioErrorType.unknown,
         error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserTweetsResponse>(
