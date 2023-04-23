@@ -15,11 +15,6 @@ class _TwitterLoginState extends State<TwitterLogin> {
   InAppWebViewController? webViewController;
   static Uri url = Uri.https("twitter.com", "/");
 
-  InAppBrowserClassOptions options = InAppBrowserClassOptions(
-    crossPlatform: InAppBrowserOptions(hideUrlBar: false),
-    inAppWebViewGroupOptions: InAppWebViewGroupOptions(crossPlatform: InAppWebViewOptions(javaScriptEnabled: true)),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +22,6 @@ class _TwitterLoginState extends State<TwitterLogin> {
       body: Center(
         child: InAppWebView(
           initialUrlRequest: URLRequest(url: url.resolve("login")),
-          initialOptions: InAppWebViewGroupOptions(
-            crossPlatform: InAppWebViewOptions(
-              useShouldOverrideUrlLoading: true,
-            ),
-          ),
           onWebViewCreated: (controller) {
             webViewController = controller;
           },
@@ -49,7 +39,7 @@ class _TwitterLoginState extends State<TwitterLogin> {
                   MaterialPageRoute(
                     builder: (context) => ApiSelectPage(
                       client: client,
-                      limitedMode: true,
+                      limitedMode: false,
                     ),
                   ),
                 );
