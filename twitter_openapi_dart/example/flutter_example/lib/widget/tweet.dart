@@ -10,7 +10,7 @@ class TwitterWidget extends StatelessWidget {
     this.card = false,
   });
 
-  final SimpleTimelineTweet tweet;
+  final TweetApiUtilsResponse tweet;
   final bool card;
 
   @override
@@ -28,7 +28,7 @@ class TwitterWidget extends StatelessWidget {
               child: Text(
                 "RT by ${tweet.user.legacy.screenName}",
                 textAlign: TextAlign.left,
-                style: const TextStyle(fontSize: 12, color: Color.fromARGB(255, 71, 71, 71)),
+                style: TextStyle(fontSize: 12, color: Colors.black.withAlpha(150)),
               ),
             ),
           Row(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/component/tile.dart';
 import 'package:flutter_example/view/api/tweet_list.dart';
+import 'package:flutter_example/view/api/user_list.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class ApiSelectPage extends StatefulWidget {
@@ -13,7 +14,7 @@ class ApiSelectPage extends StatefulWidget {
 }
 
 class _ApiSelectPageState extends State<ApiSelectPage> {
-  List<SimpleTimelineTweet> tweetList = [];
+  List<TweetApiUtilsResponse> tweetList = [];
 
   Future getUserTweets() {
     return Navigator.of(context).push(
@@ -95,6 +96,36 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
     );
   }
 
+  Future getTweetDetail() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetListWidget(
+          builder: (String? cursor) => widget.client.getTweetApi().getTweetDetail(focalTweetId: "1349129669258448897", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getFollowers() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => UserListWidget(
+          builder: (String? cursor) => widget.client.getUserListApi().getFollowers(userId: "900282258736545792", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
+  Future getFollowing() {
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => UserListWidget(
+          builder: (String? cursor) => widget.client.getUserListApi().getFollowing(userId: "900282258736545792", cursor: cursor),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,6 +164,18 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getBookmarks"),
                 onTap: getBookmarks,
+              ),
+              FutureTile(
+                title: const Text("getTweetDetail"),
+                onTap: getTweetDetail,
+              ),
+              FutureTile(
+                title: const Text("getFollowers"),
+                onTap: getFollowers,
+              ),
+              FutureTile(
+                title: const Text("getFollowing"),
+                onTap: getFollowing,
               ),
             ],
           ),

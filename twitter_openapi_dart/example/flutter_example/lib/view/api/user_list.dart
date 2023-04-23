@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/component/button.dart';
 import 'package:flutter_example/component/scroll.dart';
-import 'package:flutter_example/widget/tweet.dart';
+import 'package:flutter_example/widget/user.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
-class TweetListWidget extends StatefulWidget {
-  const TweetListWidget({super.key, required this.builder});
+class UserListWidget extends StatefulWidget {
+  const UserListWidget({super.key, required this.builder});
 
-  final Future<TweetListApiUtilsResponse> Function(String?) builder;
+  final Future<UserListApiUtilsResponse> Function(String?) builder;
 
   @override
-  State<TweetListWidget> createState() => _TweetListWidgetState();
+  State<UserListWidget> createState() => _UserListWidgetState();
 }
 
-class _TweetListWidgetState extends State<TweetListWidget> {
-  List<TweetApiUtilsResponse> tweetList = [];
+class _UserListWidgetState extends State<UserListWidget> {
+  List<UserApiUtilsResponse> userList = [];
   String? cursorTop;
   String? cursorBottom;
 
@@ -29,15 +29,15 @@ class _TweetListWidgetState extends State<TweetListWidget> {
       final response = await widget.builder(cursorTop);
       cursorTop = response.cursor.top?.value;
       cursorBottom = response.cursor.bottom?.value;
-      setState(() => tweetList.addAll(response.data));
+      setState(() => userList.addAll(response.data));
     } else if (flag) {
       final response = await widget.builder(cursorTop);
       cursorTop = response.cursor.top?.value;
-      setState(() => tweetList.insertAll(0, response.data));
+      setState(() => userList.insertAll(0, response.data));
     } else {
       final response = await widget.builder(cursorBottom);
       cursorBottom = response.cursor.bottom?.value;
-      setState(() => tweetList.addAll(response.data));
+      setState(() => userList.addAll(response.data));
     }
   }
 
@@ -53,7 +53,7 @@ class _TweetListWidgetState extends State<TweetListWidget> {
                   onPressed: () => sendRequest(flag: true),
                   child: const Text("More"),
                 ),
-              ...tweetList.where((e) => e.promotedMetadata == null).map((e) => Card(child: TwitterWidget(tweet: e))).toList(),
+              ...userList.map((e) => Card(child: UserWidget(user: e))).toList(),
               if (cursorBottom != null)
                 FutureButton(
                   onPressed: () => sendRequest(flag: false),
