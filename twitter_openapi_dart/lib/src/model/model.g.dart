@@ -279,6 +279,7 @@ class TweetApiUtilsResponseBuilder
   TweetApiUtilsResponse build() => _build();
 
   _$TweetApiUtilsResponse _build() {
+    TweetApiUtilsResponse.init(this);
     _$TweetApiUtilsResponse _$result;
     try {
       _$result = _$v ??

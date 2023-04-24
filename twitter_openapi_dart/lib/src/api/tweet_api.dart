@@ -15,7 +15,6 @@ class TweetApiUtils {
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
     required Map<String, dynamic> param,
-    bool cursorItem = false,
   }) async {
     assert((await flag)[key] != null);
     final response = await apiFn(
@@ -23,12 +22,11 @@ class TweetApiUtils {
       features: jsonEncode((await flag)[key]!["Features"]),
     );
     final entry = instructionToEntry(convertFn(response.data as T));
-    final tweetList = entriesConverter<TimelineTweet>(entry, TimelineTweet);
-    final data = fillterTweetTombstone(tweetList).map((tweet) => buildTweetApiUtils(tweet)).toList();
+    final data = tweetEntriesConverter(entry);
     return TweetListApiUtilsResponse(
       (e) => e
         ..data = data
-        ..cursor = (cursorItem ? entriesCursorItem(entry) : entriesCursor(entry)).toBuilder(),
+        ..cursor = entriesCursor(entry).toBuilder(),
     );
   }
 
@@ -46,13 +44,8 @@ class TweetApiUtils {
       if (controllerData != null) "controller_data": controllerData,
       ...?extraParam,
     };
-    final response = await request(
-      apiFn: api.getTweetDetail,
-      convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
-      key: 'TweetDetail',
-      param: param,
-      cursorItem: true,
-    );
+    final response =
+        await request(apiFn: api.getTweetDetail, convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions, key: 'TweetDetail', param: param);
     return response;
   }
 

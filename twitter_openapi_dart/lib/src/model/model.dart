@@ -22,6 +22,9 @@ abstract class TweetApiUtilsResponse implements Built<TweetApiUtilsResponse, Twe
   TweetApiUtilsResponse? get retweeted;
   JsonObject? get promotedMetadata;
 
+  @BuiltValueHook(finalizeBuilder: true)
+  static void init(TweetApiUtilsResponseBuilder b) => b..reply = b.reply ?? [];
+
   TweetApiUtilsResponse._();
 
   factory TweetApiUtilsResponse([void Function(TweetApiUtilsResponseBuilder) updates]) = _$TweetApiUtilsResponse;

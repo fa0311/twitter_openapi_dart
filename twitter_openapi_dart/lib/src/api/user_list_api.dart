@@ -22,7 +22,7 @@ class UserListApiUtils {
       features: jsonEncode((await flag)[key]!["Features"]),
     );
     final entry = instructionToEntry(convertFn(response.data as T));
-    final userList = entriesConverter<TimelineUser>(entry, TimelineUser).expand((e) => e);
+    final userList = userEntriesConverter(entry);
     final data = userList.map((user) => buildUserResponse(user)).toList();
     return UserListApiUtilsResponse(
       (e) => e

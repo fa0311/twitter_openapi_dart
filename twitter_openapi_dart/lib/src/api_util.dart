@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:collection/collection.dart';
 import 'package:twitter_openapi_dart/src/model/model.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
@@ -7,98 +8,46 @@ BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item)
   return item.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first.entries;
 }
 
-List<List<T>> entriesConverter<T>(BuiltList<TimelineAddEntry> item, Type type) {
+List<TweetApiUtilsResponse> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
   return item
       .map((e) {
         if (e.content.oneOf.isType(TimelineTimelineItem)) {
           final item = (e.content.oneOf.value as TimelineTimelineItem).itemContent;
-          return item.oneOf.isType(type) ? [item.oneOf.value as T] : null;
+          final timeline = item.oneOf.isType(TimelineTweet) ? item.oneOf.value as TimelineTweet : null;
+          if (timeline == null) return null;
+          return buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata);
         } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
           final item = (e.content.oneOf.value as TimelineTimelineModule).items;
-          final itemList = item.where((e) => e.item.itemContent.oneOf.isType(type)).map((e) => e.item.itemContent.oneOf.value as T);
-          return itemList.isNotEmpty ? itemList.toList() : null;
-        } else {
-          return null;
+          final timelineList =
+              item.where((e) => e.item.itemContent.oneOf.isType(TimelineTweet)).map((e) => e.item.itemContent.oneOf.value as TimelineTweet).toList();
+          if (timelineList.isEmpty) return null;
+          final timeline = timelineList.first;
+          return buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata, reply: timelineList..removeAt(0));
         }
       })
       .whereNotNull()
       .toList();
 }
 
-CursorApiUtilsResponse entriesCursor(BuiltList<TimelineAddEntry> item) {
-  final cursorList = item.expand((e) {
-    if (e.content.oneOf.isType(TimelineTimelineCursor)) {
-      return [(e.content.oneOf.value as TimelineTimelineCursor)];
-    } else {
-      return <TimelineTimelineCursor>[];
-    }
-  });
-  return buildCursor(cursorList);
-}
-
-CursorApiUtilsResponse entriesCursorItem(BuiltList<TimelineAddEntry> item) {
-  final cursorList = item.expand((e) {
-    if (e.content.oneOf.isType(TimelineTimelineItem)) {
-      final item = (e.content.oneOf.value as TimelineTimelineItem);
-      if (item.itemContent.oneOf.isType(TimelineTimelineCursor)) {
-        return [(item.itemContent.oneOf.value as TimelineTimelineCursor)];
-      }
-    }
-    return <TimelineTimelineCursor>[];
-  });
-  return buildCursor(cursorList);
-}
-
-TweetApiUtilsResponse buildTweetApiUtils(List<TimelineTweet> raw) {
-  final tweet = tweetResultsConverter(raw.first.tweetResults);
-  final quoted = tweet.quotedStatusResult;
-
-  return TweetApiUtilsResponse(
-    (e) => e
-      ..raw = raw.first.tweetResults.toBuilder()
-      ..promotedMetadata = raw.first.promotedMetadata
-      ..tweet = tweet.toBuilder()
-      ..user = tweet.core.userResults.result.toBuilder()
-      ..reply = (raw..removeAt(0)).map((e) => buildTweetApiUtils([e])).toList()
-      ..quoted = quoted == null ? null : buildTweetApiUtilsFromItemResult(quoted)?.toBuilder()
-      ..retweeted = tweet.legacy.retweetedStatusResult == null ? null : buildTweetApiUtilsFromItemResult(tweet.legacy.retweetedStatusResult!)?.toBuilder(),
-  );
-}
-
-TweetApiUtilsResponse? buildTweetApiUtilsFromItemResult(ItemResult raw) {
-  final tweet = tweetResultsConverterOrNull(raw);
+TweetApiUtilsResponse? buildTweetApiUtils(ItemResult result, {JsonObject? promotedMetadata, List<TimelineTweet>? reply}) {
+  final tweet = tweetResultsConverter(result);
   if (tweet == null) return null;
+  final quoted = tweet.quotedStatusResult;
+  final retweeted = tweet.legacy.retweetedStatusResult;
+
   return TweetApiUtilsResponse(
     (e) => e
-      ..raw = raw.toBuilder()
+      ..raw = result.toBuilder()
+      ..promotedMetadata = promotedMetadata
       ..tweet = tweet.toBuilder()
       ..user = tweet.core.userResults.result.toBuilder()
-      ..reply = [],
+      ..reply = reply?.map((e) => buildTweetApiUtils(e.tweetResults, promotedMetadata: e.promotedMetadata)).whereNotNull().toList()
+      ..quoted = quoted == null ? null : buildTweetApiUtils(quoted)?.toBuilder()
+      ..retweeted = retweeted == null ? null : buildTweetApiUtils(retweeted)?.toBuilder(),
   );
 }
 
-UserApiUtilsResponse buildUserResponse(TimelineUser user) {
-  return UserApiUtilsResponse(
-    (e) => e
-      ..raw = user.toBuilder()
-      ..user = user.userResults.result.toBuilder(),
-  );
-}
-
-List<List<TimelineTweet>> fillterTweetTombstone(List<List<TimelineTweet>> tweetList) {
-  return tweetList.map((e) => e.where((e) => !e.tweetResults.result.oneOf.isType(TweetTombstone)).toList()).where((e) => e.isNotEmpty).toList();
-}
-
-Tweet tweetResultsConverter(ItemResult tweetResults) {
-  if (tweetResults.result.oneOf.isType(Tweet)) {
-    return tweetResults.result.oneOf.value as Tweet;
-  } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
-    return (tweetResults.result.oneOf.value as TweetWithVisibilityResults).tweet;
-  }
-  throw Exception();
-}
-
-Tweet? tweetResultsConverterOrNull(ItemResult tweetResults) {
+Tweet? tweetResultsConverter(ItemResult tweetResults) {
   if (tweetResults.result.oneOf.isType(Tweet)) {
     return tweetResults.result.oneOf.value as Tweet;
   } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
@@ -109,7 +58,44 @@ Tweet? tweetResultsConverterOrNull(ItemResult tweetResults) {
   throw Exception();
 }
 
-CursorApiUtilsResponse buildCursor(Iterable<TimelineTimelineCursor> cursorList) {
+List<TimelineUser> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
+  return item
+      .map((e) {
+        if (e.content.oneOf.isType(TimelineTimelineItem)) {
+          final item = (e.content.oneOf.value as TimelineTimelineItem).itemContent;
+          return item.oneOf.isType(TimelineUser) ? item.oneOf.value as TimelineUser : null;
+        }
+      })
+      .whereNotNull()
+      .toList();
+}
+
+UserApiUtilsResponse buildUserResponse(TimelineUser user) {
+  return UserApiUtilsResponse(
+    (e) => e
+      ..raw = user.toBuilder()
+      ..user = user.userResults.result.toBuilder(),
+  );
+}
+
+CursorApiUtilsResponse entriesCursor(BuiltList<TimelineAddEntry> item) {
+  final cursorList = item
+      .map((e) {
+        if (e.content.oneOf.isType(TimelineTimelineCursor)) {
+          return e.content.oneOf.value as TimelineTimelineCursor;
+        } else if (e.content.oneOf.isType(TimelineTimelineItem)) {
+          final item = (e.content.oneOf.value as TimelineTimelineItem);
+          if (item.itemContent.oneOf.isType(TimelineTimelineCursor)) {
+            return item.itemContent.oneOf.value as TimelineTimelineCursor;
+          }
+        }
+      })
+      .whereNotNull()
+      .toList();
+  return buildCursor(cursorList);
+}
+
+CursorApiUtilsResponse buildCursor(List<TimelineTimelineCursor> cursorList) {
   return CursorApiUtilsResponse(
     (e) => e
       ..top = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.top)?.toBuilder()
