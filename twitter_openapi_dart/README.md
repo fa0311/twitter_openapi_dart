@@ -20,6 +20,7 @@ Recommend adding the latest commit hash after #ref as many destructive changes a
 
 ```yaml
 dependencies:
+  twitter_openapi_dart:
     git:
         url: https://github.com/fa0311/twitter_openapi_dart.git
         path: twitter_openapi_dart
