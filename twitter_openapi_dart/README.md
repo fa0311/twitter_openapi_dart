@@ -40,7 +40,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).
 
 - [web.dart](./example/flutter_example/lib/view/login/web.dart)
-- [inappwebview.dart](./example/flutter_example/lib/view/auth/inappwebview.dart)
+- [inappwebview.dart](./example/flutter_example/lib/auth/inappwebview.dart)
 
 #### Other
 
