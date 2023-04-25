@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
+import 'package:twitter_openapi_dart/src/api/initial_state_api.dart';
 import 'package:twitter_openapi_dart/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_list_api.dart';
@@ -16,11 +17,12 @@ class TwitterOpenapiDart {
   TwitterOpenapiDartGenerated api;
 
   static Uri base = Uri.https("twitter.com", "/");
+  static Uri home = base.resolve("home");
   static String hash = "5b65f7658cef13d9d55a2694fc96f98e81d2ba18";
+  static Uri placeholderUrl = Uri.https("raw.githubusercontent.com", "/fa0311/twitter-openapi/$hash/src/config/placeholder.json");
 
-  static Future<Map<String, dynamic>> flag = Dio()
-      .request("https://raw.githubusercontent.com/fa0311/twitter-openapi/$hash/src/config/placeholder.json", options: Options(method: "GET"))
-      .then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
+  static Future<Map<String, dynamic>> flag =
+      Dio().requestUri(placeholderUrl, options: Options(method: "GET")).then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
 
   Dio get dio => api.dio;
 
@@ -66,6 +68,40 @@ class TwitterOpenapiDart {
 
   UserListApiUtils getUserListApi() {
     return UserListApiUtils(api.getUserListApi(), flag);
+  }
+}
+
+class TwitterInitialStateDart {
+  final Dio dio;
+
+  TwitterInitialStateDart.fromCookies({
+    required String ct0,
+    required String authToken,
+  }) : dio = Dio() {
+    final cookie = CookieJar();
+    cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
+    dio.interceptors.addAll([CookieManager(cookie)]);
+  }
+
+  TwitterInitialStateDart.fromCookiesPath(
+    String cookiePath,
+  ) : dio = Dio() {
+    final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
+    dio.interceptors.addAll([CookieManager(cookie)]);
+  }
+
+  TwitterInitialStateDart.fromCookieJar(
+    CookieJar cookie,
+  ) : dio = Dio() {
+    dio.interceptors.addAll([CookieManager(cookie)]);
+  }
+
+  TwitterInitialStateDart.fromInterceptors(List<Interceptor> interceptors) : dio = Dio() {
+    dio.interceptors.addAll([...interceptors]);
+  }
+
+  InitialStateApi getInitialStateApi() {
+    return InitialStateApi(dio);
   }
 }
 

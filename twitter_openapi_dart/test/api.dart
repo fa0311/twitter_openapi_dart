@@ -28,3 +28,9 @@ Future<TwitterOpenapiDart> getClient() async {
   final client = TwitterOpenapiDart.fromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
   return client;
 }
+
+Future<TwitterInitialStateDart> gettInitialStateClient() async {
+  final cookies = (json.decode(await File("test/cookies.json").readAsString()) as Map).cast<String, String>();
+  final client = TwitterInitialStateDart.fromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
+  return client;
+}

@@ -56,3 +56,21 @@ abstract class CursorApiUtilsResponse implements Built<CursorApiUtilsResponse, C
 
   factory CursorApiUtilsResponse([void Function(CursorApiUtilsResponseBuilder) updates]) = _$CursorApiUtilsResponse;
 }
+
+abstract class InitialStateApiResponse implements Built<InitialStateApiResponse, InitialStateApiResponseBuilder> {
+  InitialStateApiRaw get raw;
+  UserLegacy get session;
+
+  InitialStateApiResponse._();
+
+  factory InitialStateApiResponse([void Function(InitialStateApiResponseBuilder) updates]) = _$InitialStateApiResponse;
+}
+
+abstract class InitialStateApiRaw implements Built<InitialStateApiRaw, InitialStateApiRawBuilder> {
+  JsonObject get initialState;
+  JsonObject get metaData;
+
+  InitialStateApiRaw._();
+
+  factory InitialStateApiRaw([void Function(InitialStateApiRawBuilder) updates]) = _$InitialStateApiRaw;
+}

@@ -658,4 +658,225 @@ class CursorApiUtilsResponseBuilder
   }
 }
 
+class _$InitialStateApiResponse extends InitialStateApiResponse {
+  @override
+  final InitialStateApiRaw raw;
+  @override
+  final UserLegacy session;
+
+  factory _$InitialStateApiResponse(
+          [void Function(InitialStateApiResponseBuilder)? updates]) =>
+      (new InitialStateApiResponseBuilder()..update(updates))._build();
+
+  _$InitialStateApiResponse._({required this.raw, required this.session})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        raw, r'InitialStateApiResponse', 'raw');
+    BuiltValueNullFieldError.checkNotNull(
+        session, r'InitialStateApiResponse', 'session');
+  }
+
+  @override
+  InitialStateApiResponse rebuild(
+          void Function(InitialStateApiResponseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  InitialStateApiResponseBuilder toBuilder() =>
+      new InitialStateApiResponseBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is InitialStateApiResponse &&
+        raw == other.raw &&
+        session == other.session;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, raw.hashCode);
+    _$hash = $jc(_$hash, session.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'InitialStateApiResponse')
+          ..add('raw', raw)
+          ..add('session', session))
+        .toString();
+  }
+}
+
+class InitialStateApiResponseBuilder
+    implements
+        Builder<InitialStateApiResponse, InitialStateApiResponseBuilder> {
+  _$InitialStateApiResponse? _$v;
+
+  InitialStateApiRawBuilder? _raw;
+  InitialStateApiRawBuilder get raw =>
+      _$this._raw ??= new InitialStateApiRawBuilder();
+  set raw(InitialStateApiRawBuilder? raw) => _$this._raw = raw;
+
+  UserLegacyBuilder? _session;
+  UserLegacyBuilder get session => _$this._session ??= new UserLegacyBuilder();
+  set session(UserLegacyBuilder? session) => _$this._session = session;
+
+  InitialStateApiResponseBuilder();
+
+  InitialStateApiResponseBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _raw = $v.raw.toBuilder();
+      _session = $v.session.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(InitialStateApiResponse other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$InitialStateApiResponse;
+  }
+
+  @override
+  void update(void Function(InitialStateApiResponseBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  InitialStateApiResponse build() => _build();
+
+  _$InitialStateApiResponse _build() {
+    _$InitialStateApiResponse _$result;
+    try {
+      _$result = _$v ??
+          new _$InitialStateApiResponse._(
+              raw: raw.build(), session: session.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'raw';
+        raw.build();
+        _$failedField = 'session';
+        session.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'InitialStateApiResponse', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$InitialStateApiRaw extends InitialStateApiRaw {
+  @override
+  final JsonObject initialState;
+  @override
+  final JsonObject metaData;
+
+  factory _$InitialStateApiRaw(
+          [void Function(InitialStateApiRawBuilder)? updates]) =>
+      (new InitialStateApiRawBuilder()..update(updates))._build();
+
+  _$InitialStateApiRaw._({required this.initialState, required this.metaData})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        initialState, r'InitialStateApiRaw', 'initialState');
+    BuiltValueNullFieldError.checkNotNull(
+        metaData, r'InitialStateApiRaw', 'metaData');
+  }
+
+  @override
+  InitialStateApiRaw rebuild(
+          void Function(InitialStateApiRawBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  InitialStateApiRawBuilder toBuilder() =>
+      new InitialStateApiRawBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is InitialStateApiRaw &&
+        initialState == other.initialState &&
+        metaData == other.metaData;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, initialState.hashCode);
+    _$hash = $jc(_$hash, metaData.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'InitialStateApiRaw')
+          ..add('initialState', initialState)
+          ..add('metaData', metaData))
+        .toString();
+  }
+}
+
+class InitialStateApiRawBuilder
+    implements Builder<InitialStateApiRaw, InitialStateApiRawBuilder> {
+  _$InitialStateApiRaw? _$v;
+
+  JsonObject? _initialState;
+  JsonObject? get initialState => _$this._initialState;
+  set initialState(JsonObject? initialState) =>
+      _$this._initialState = initialState;
+
+  JsonObject? _metaData;
+  JsonObject? get metaData => _$this._metaData;
+  set metaData(JsonObject? metaData) => _$this._metaData = metaData;
+
+  InitialStateApiRawBuilder();
+
+  InitialStateApiRawBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _initialState = $v.initialState;
+      _metaData = $v.metaData;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(InitialStateApiRaw other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$InitialStateApiRaw;
+  }
+
+  @override
+  void update(void Function(InitialStateApiRawBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  InitialStateApiRaw build() => _build();
+
+  _$InitialStateApiRaw _build() {
+    final _$result = _$v ??
+        new _$InitialStateApiRaw._(
+            initialState: BuiltValueNullFieldError.checkNotNull(
+                initialState, r'InitialStateApiRaw', 'initialState'),
+            metaData: BuiltValueNullFieldError.checkNotNull(
+                metaData, r'InitialStateApiRaw', 'metaData'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint
