@@ -45,8 +45,6 @@ void main() async {
   final client = TwitterOpenapiDartGenerated(
     dio: Dio(BaseOptions(
       baseUrl: TwitterOpenapiDartGenerated.basePath,
-      connectTimeout: 10000,
-      receiveTimeout: 6000,
     )),
     interceptors: [
       auth,
