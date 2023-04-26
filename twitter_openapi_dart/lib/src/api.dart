@@ -52,7 +52,7 @@ class TwitterOpenapiDart {
     dio.interceptors.addAll([...interceptors, HeaderAuth()]);
   }
 
-  TwitterOpenapiDart.fromAPI(this.api);
+  TwitterOpenapiDart.fromApi(this.api);
 
   DefaultApiUtils getDefaultApi() {
     return DefaultApiUtils(api.getDefaultApi(), flag);
@@ -68,6 +68,15 @@ class TwitterOpenapiDart {
 
   UserListApiUtils getUserListApi() {
     return UserListApiUtils(api.getUserListApi(), flag);
+  }
+
+  TwitterInitialStateDart getTwitterInitialStateDart() {
+    final api = Dio()
+      ..interceptors.addAll(dio.interceptors.where((e) => e.runtimeType != HeaderAuth))
+      ..options = dio.options
+      ..httpClientAdapter = dio.httpClientAdapter
+      ..transformer = dio.transformer;
+    return TwitterInitialStateDart.fromDio(api);
   }
 }
 
@@ -99,6 +108,7 @@ class TwitterInitialStateDart {
   TwitterInitialStateDart.fromInterceptors(List<Interceptor> interceptors) : dio = Dio() {
     dio.interceptors.addAll([...interceptors]);
   }
+  TwitterInitialStateDart.fromDio(this.dio);
 
   InitialStateApi getInitialStateApi() {
     return InitialStateApi(dio);
