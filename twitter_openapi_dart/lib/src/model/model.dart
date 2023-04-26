@@ -59,7 +59,7 @@ abstract class CursorApiUtilsResponse implements Built<CursorApiUtilsResponse, C
 
 abstract class InitialStateApiResponse implements Built<InitialStateApiResponse, InitialStateApiResponseBuilder> {
   InitialStateApiRaw get raw;
-  UserLegacy get session;
+  UserLegacy? get session;
 
   InitialStateApiResponse._();
 

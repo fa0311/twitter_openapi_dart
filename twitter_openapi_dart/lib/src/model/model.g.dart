@@ -662,18 +662,15 @@ class _$InitialStateApiResponse extends InitialStateApiResponse {
   @override
   final InitialStateApiRaw raw;
   @override
-  final UserLegacy session;
+  final UserLegacy? session;
 
   factory _$InitialStateApiResponse(
           [void Function(InitialStateApiResponseBuilder)? updates]) =>
       (new InitialStateApiResponseBuilder()..update(updates))._build();
 
-  _$InitialStateApiResponse._({required this.raw, required this.session})
-      : super._() {
+  _$InitialStateApiResponse._({required this.raw, this.session}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
         raw, r'InitialStateApiResponse', 'raw');
-    BuiltValueNullFieldError.checkNotNull(
-        session, r'InitialStateApiResponse', 'session');
   }
 
   @override
@@ -731,7 +728,7 @@ class InitialStateApiResponseBuilder
     final $v = _$v;
     if ($v != null) {
       _raw = $v.raw.toBuilder();
-      _session = $v.session.toBuilder();
+      _session = $v.session?.toBuilder();
       _$v = null;
     }
     return this;
@@ -756,14 +753,14 @@ class InitialStateApiResponseBuilder
     try {
       _$result = _$v ??
           new _$InitialStateApiResponse._(
-              raw: raw.build(), session: session.build());
+              raw: raw.build(), session: _session?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'raw';
         raw.build();
         _$failedField = 'session';
-        session.build();
+        _session?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'InitialStateApiResponse', _$failedField, e.toString());

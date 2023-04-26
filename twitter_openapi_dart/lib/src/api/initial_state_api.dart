@@ -22,13 +22,19 @@ class InitialStateApi {
         ..metaData = JsonObject(json.decode(source.group(2)!)),
     );
     final initialState = raw.initialState.value as Map;
-    final entities = (initialState["entities"]["users"]["entities"] as Map).values.first;
-    final session = standardSerializers.deserialize(entities, specifiedType: FullType(UserLegacy)) as UserLegacy;
+    final session = () {
+      try {
+        final entities = (initialState["entities"]["users"]["entities"] as Map).values.first;
+        return standardSerializers.deserialize(entities, specifiedType: FullType(UserLegacy)) as UserLegacy;
+      } catch (e) {
+        return null;
+      }
+    }();
 
     return InitialStateApiResponse(
       (e) => e
         ..raw = raw.toBuilder()
-        ..session = session.toBuilder(),
+        ..session = session?.toBuilder(),
     );
   }
 
