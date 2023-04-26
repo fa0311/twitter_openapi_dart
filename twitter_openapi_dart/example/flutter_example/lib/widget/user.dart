@@ -6,7 +6,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 class UserWidget extends StatelessWidget {
   const UserWidget({super.key, required this.user});
 
-  final UserApiUtilsResponse user;
+  final UserApiUtils user;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,7 @@ class UserWidget extends StatelessWidget {
 class UserProfileWidget extends StatelessWidget {
   const UserProfileWidget({super.key, required this.state});
 
-  final InitialStateApiResponse state;
+  final InitialStateApiUtilsResponse state;
 
   @override
   Widget build(BuildContext context) {

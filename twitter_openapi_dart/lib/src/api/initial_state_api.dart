@@ -10,13 +10,13 @@ class InitialStateApi {
 
   const InitialStateApi(this.dio);
 
-  Future<InitialStateApiResponse> request({required Uri url}) async {
+  Future<InitialStateApiUtilsResponse> request({required Uri url}) async {
     final response = await dio.requestUri(url, options: Options(method: "GET"));
     const String nonce = r"([a-zA-Z0-9]{48})";
     const String any = r'([\s\S]*?)';
     final js = RegExp('<script type="text/javascript" charset="utf-8" nonce="$nonce">$any</script>').firstMatch(response.data)!.group(2)!;
     final source = RegExp('^window\\.__INITIAL_STATE__=$any;window\\.__META_DATA__=$any;\$').firstMatch(js)!;
-    final raw = InitialStateApiRaw(
+    final raw = InitialStateApiUtilsRaw(
       (e) => e
         ..initialState = JsonObject(json.decode(source.group(1)!))
         ..metaData = JsonObject(json.decode(source.group(2)!)),
@@ -31,14 +31,14 @@ class InitialStateApi {
       }
     }();
 
-    return InitialStateApiResponse(
+    return InitialStateApiUtilsResponse(
       (e) => e
         ..raw = raw.toBuilder()
         ..session = session?.toBuilder(),
     );
   }
 
-  Future<InitialStateApiResponse> getHome() async {
+  Future<InitialStateApiUtilsResponse> getHome() async {
     return await request(url: TwitterOpenapiDart.home);
   }
 }

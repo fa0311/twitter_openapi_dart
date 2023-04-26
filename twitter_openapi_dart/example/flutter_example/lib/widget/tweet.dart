@@ -10,7 +10,7 @@ class TwitterWidget extends StatelessWidget {
     this.card = false,
   });
 
-  final TweetApiUtilsResponse tweet;
+  final TweetApiUtils tweet;
   final bool card;
 
   @override

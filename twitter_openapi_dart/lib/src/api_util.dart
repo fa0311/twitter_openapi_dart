@@ -1,14 +1,17 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:collection/collection.dart';
-import 'package:twitter_openapi_dart/src/model/model.dart';
+import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+import 'package:dio/dio.dart';
+
+import 'model/header.dart';
 
 BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {
   return item.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first.entries;
 }
 
-List<TweetApiUtilsResponse> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
+List<TweetApiUtils> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
   return item
       .map((e) {
         if (e.content.oneOf.isType(TimelineTimelineItem)) {
@@ -29,13 +32,13 @@ List<TweetApiUtilsResponse> tweetEntriesConverter(BuiltList<TimelineAddEntry> it
       .toList();
 }
 
-TweetApiUtilsResponse? buildTweetApiUtils(ItemResult result, {JsonObject? promotedMetadata, List<TimelineTweet>? reply}) {
+TweetApiUtils? buildTweetApiUtils(ItemResult result, {JsonObject? promotedMetadata, List<TimelineTweet>? reply}) {
   final tweet = tweetResultsConverter(result);
   if (tweet == null) return null;
   final quoted = tweet.quotedStatusResult;
   final retweeted = tweet.legacy.retweetedStatusResult;
 
-  return TweetApiUtilsResponse(
+  return TweetApiUtils(
     (e) => e
       ..raw = result.toBuilder()
       ..promotedMetadata = promotedMetadata
@@ -70,8 +73,8 @@ List<TimelineUser> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
       .toList();
 }
 
-UserApiUtilsResponse buildUserResponse(TimelineUser user) {
-  return UserApiUtilsResponse(
+UserApiUtils buildUserResponse(TimelineUser user) {
+  return UserApiUtils(
     (e) => e
       ..raw = user.toBuilder()
       ..user = user.userResults.result.toBuilder(),
@@ -100,5 +103,23 @@ CursorApiUtilsResponse buildCursor(List<TimelineTimelineCursor> cursorList) {
     (e) => e
       ..top = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.top)?.toBuilder()
       ..bottom = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.bottom)?.toBuilder(),
+  );
+}
+
+ApiUtilsHeader buildHeader(Headers headers) {
+  return ApiUtilsHeader(
+    (e) => e
+      ..raw = headers
+      ..connectionHash = headers.value("x-connection-hash")
+      ..contentTypeOptions = headers.value("x-content-type-options")
+      ..frameOptions = headers.value("x-frame-options")
+      ..rateLimitLimit = int.tryParse(headers.value("x-rate-limit-limit") ?? "") ?? 0
+      ..rateLimitRemaining = int.tryParse(headers.value("x-rate-limit-remaining") ?? "") ?? 0
+      ..rateLimitReset = int.tryParse(headers.value("x-rate-limit-reset") ?? "") ?? 0
+      ..responseTime = int.tryParse(headers.value("x-response-time") ?? "") ?? 0
+      ..tfePreserveBody = headers.value("x-tfe-preserve-body") == "true"
+      ..transactionId = headers.value("x-transaction-id")
+      ..twitterResponseTags = headers.value("x-twitter-response-tags")
+      ..xssProtection = int.tryParse(headers.value("x-xss-protection") ?? "") ?? 0,
   );
 }

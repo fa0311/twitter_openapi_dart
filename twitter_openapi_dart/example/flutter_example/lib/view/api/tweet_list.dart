@@ -14,7 +14,7 @@ class TweetListWidget extends StatefulWidget {
 }
 
 class _TweetListWidgetState extends State<TweetListWidget> {
-  List<TweetApiUtilsResponse> tweetList = [];
+  List<TweetApiUtils> tweetList = [];
   String? cursorTop;
   String? cursorBottom;
 

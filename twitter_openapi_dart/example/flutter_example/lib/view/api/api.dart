@@ -20,7 +20,7 @@ class ApiSelectPage extends StatefulWidget {
 }
 
 class _ApiSelectPageState extends State<ApiSelectPage> {
-  List<TweetApiUtilsResponse> tweetList = [];
+  List<TweetApiUtils> tweetList = [];
 
   Future getInitialStateApi() async {
     final initialState = widget.client.getTwitterInitialStateDart();

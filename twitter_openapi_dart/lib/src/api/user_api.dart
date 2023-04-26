@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:twitter_openapi_dart/src/api_util.dart';
+import 'package:twitter_openapi_dart/src/model/user.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
@@ -8,7 +10,7 @@ class UserApiUtils {
 
   const UserApiUtils(this.api, this.flag);
 
-  Future<User> request<T>({
+  Future<UserApiUtilsResponse> request<T>({
     required ApiFunction<T> apiFn,
     required UserResults Function(T) convertFn,
     required String key,
@@ -20,10 +22,18 @@ class UserApiUtils {
       features: jsonEncode((await flag)[key]!["Features"]),
     );
     final user = convertFn(response.data as T).result;
-    return user;
+    final raw = UserApiUtilsRaw(
+      (e) => e..response = response,
+    );
+    return UserApiUtilsResponse(
+      (e) => e
+        ..raw = raw.toBuilder()
+        ..header = buildHeader(response.headers).toBuilder()
+        ..data = user.toBuilder(),
+    );
   }
 
-  Future<User> getUserByScreenName({
+  Future<UserApiUtilsResponse> getUserByScreenName({
     required String screenName,
     Map<String, dynamic>? extraParam,
   }) async {

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:twitter_openapi_dart/src/api_util.dart';
-import 'package:twitter_openapi_dart/src/model/model.dart';
+import 'package:twitter_openapi_dart/src/model/timeline.dart';
+import 'package:twitter_openapi_dart/src/model/tweet.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
@@ -21,12 +22,22 @@ class TweetApiUtils {
       variables: jsonEncode((await flag)[key]!["Variables"]..addAll(param)),
       features: jsonEncode((await flag)[key]!["Features"]),
     );
-    final entry = instructionToEntry(convertFn(response.data as T));
+    final instruction = convertFn(response.data as T);
+    final entry = instructionToEntry(instruction);
     final data = tweetEntriesConverter(entry);
+
+    final raw = ApiUtilsRaw(
+      (e) => e
+        ..response = response
+        ..instruction = instruction.toBuilder()
+        ..entry = entry.toBuilder(),
+    );
     return TweetListApiUtilsResponse(
       (e) => e
-        ..data = data
-        ..cursor = entriesCursor(entry).toBuilder(),
+        ..raw = raw.toBuilder()
+        ..header = buildHeader(response.headers).toBuilder()
+        ..cursor = entriesCursor(entry).toBuilder()
+        ..data = data,
     );
   }
 

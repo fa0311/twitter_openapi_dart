@@ -14,7 +14,7 @@ class UserListWidget extends StatefulWidget {
 }
 
 class _UserListWidgetState extends State<UserListWidget> {
-  List<UserApiUtilsResponse> userList = [];
+  List<UserApiUtils> userList = [];
   String? cursorTop;
   String? cursorBottom;
 

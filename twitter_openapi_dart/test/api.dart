@@ -6,7 +6,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 const int testCount = 100;
 
-void printTweet(TweetApiUtilsResponse tweet) {
+void printTweet(TweetApiUtils tweet) {
   print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
   for (final tweet in tweet.reply) {
     print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
@@ -14,7 +14,7 @@ void printTweet(TweetApiUtilsResponse tweet) {
   print("┄" * 50);
 }
 
-void printUser(UserApiUtilsResponse user) {
+void printUser(UserApiUtils user) {
   final legacy = user.user.legacy;
   print(legacy.screenName);
   print("listedCount: ${legacy.listedCount}");
