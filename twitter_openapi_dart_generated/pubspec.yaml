@@ -1,7 +1,7 @@
 name: twitter_openapi_dart_generated
 version: 0.0.1
 description: Twitter OpenAPI Dart
-homepage: https://github.com/vrchatapi/vrchatapi-dart
+homepage: homepage
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
