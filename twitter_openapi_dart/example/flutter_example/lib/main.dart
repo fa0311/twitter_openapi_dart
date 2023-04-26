@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            if (Platform.isAndroid)
+            if (Platform.isAndroid || Platform.isIOS)
               FutureButton(
                 onPressed: login,
                 type: ButtonType.elevatedButton,
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               type: ButtonType.elevatedButton,
               child: const Text("Login Guest Mode"),
             ),
-            if (Platform.isAndroid)
+            if (Platform.isAndroid || Platform.isIOS)
               FutureButton(
                 onPressed: deleteBrowserCache,
                 type: ButtonType.textButton,

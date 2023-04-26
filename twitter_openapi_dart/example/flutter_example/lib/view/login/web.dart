@@ -12,7 +12,6 @@ class TwitterLogin extends StatefulWidget {
 }
 
 class _TwitterLoginState extends State<TwitterLogin> {
-  InAppWebViewController? webViewController;
   static Uri url = Uri.https("twitter.com", "/");
 
   @override
@@ -22,9 +21,6 @@ class _TwitterLoginState extends State<TwitterLogin> {
       body: Center(
         child: InAppWebView(
           initialUrlRequest: URLRequest(url: url.resolve("login")),
-          onWebViewCreated: (controller) {
-            webViewController = controller;
-          },
           onTitleChanged: (controller, title) async {
             final url = await controller.getUrl();
             if (url == null) return;

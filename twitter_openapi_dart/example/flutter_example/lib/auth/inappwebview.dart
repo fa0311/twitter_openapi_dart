@@ -2,8 +2,6 @@ import 'dart:io';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:dio/dio.dart';
 
-import 'package:collection/collection.dart';
-
 class FlutterInappwebviewDio extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
@@ -18,6 +16,7 @@ class FlutterInappwebviewDio extends Interceptor {
     }
   }
 
+  /*
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) async {
     try {
@@ -47,7 +46,7 @@ class FlutterInappwebviewDio extends Interceptor {
       handler.reject(DioError(requestOptions: response.requestOptions, error: e), true);
     }
   }
-
+  */
   static String getCookies(List<Cookie> cookies) {
     return cookies.map((cookie) => '${cookie.name}=${cookie.value}').join('; ');
   }

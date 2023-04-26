@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_example/component/tile.dart';
 import 'package:flutter_example/view/api/tweet_list.dart';
 import 'package:flutter_example/view/api/user_list.dart';
+import 'package:flutter_example/widget/user.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 class ApiSelectPage extends StatefulWidget {
@@ -20,6 +21,19 @@ class ApiSelectPage extends StatefulWidget {
 
 class _ApiSelectPageState extends State<ApiSelectPage> {
   List<TweetApiUtilsResponse> tweetList = [];
+
+  Future getInitialStateApi() async {
+    final initialState = widget.client.getTwitterInitialStateDart();
+    final home = await initialState.getInitialStateApi().getHome();
+
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => UserProfileWidget(
+          state: home,
+        ),
+      ),
+    );
+  }
 
   Future getUserTweets() {
     return Navigator.of(context).push(
@@ -132,6 +146,11 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('API Select')),
@@ -139,6 +158,11 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              FutureTile(
+                title: const Text("getInitialStateApi"),
+                onTap: getInitialStateApi,
+                enabled: !widget.limitedMode,
+              ),
               FutureTile(
                 title: const Text("getUserTweets"),
                 onTap: getUserTweets,
