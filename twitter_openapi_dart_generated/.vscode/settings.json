@@ -6,7 +6,6 @@
   "yaml.schemas": {
     "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": "twitter-openapi/**/*.yaml"
   },
-  "dart.analysisExcludedFolders": ["lib"],
   "dart.lineLength": 160,
   "markdownlint.ignore": ["doc/**", "README.md"],
   "openapi.sortOutlines": false

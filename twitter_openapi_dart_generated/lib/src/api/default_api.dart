@@ -22,9 +22,9 @@ class DefaultApi {
   /// get user by screen name
   ///
   /// Parameters:
+  /// * [queryId] 
   /// * [variables] 
   /// * [features] 
-  /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
@@ -39,9 +39,9 @@ class DefaultApi {
   /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<ProfileResponse>> getProfileSpotlightsQuery({ 
-    required String variables,
-    required String features,
     String queryId = '9zwVLJ48lmVUk8u_Gh9DmA',
+    String variables = '{"screen_name": "elonmusk"}',
+    String features = '{}',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
@@ -88,9 +88,9 @@ class DefaultApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(

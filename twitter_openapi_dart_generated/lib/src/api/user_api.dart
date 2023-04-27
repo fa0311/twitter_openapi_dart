@@ -22,9 +22,9 @@ class UserApi {
   /// get user by screen name
   ///
   /// Parameters:
+  /// * [queryId] 
   /// * [variables] 
   /// * [features] 
-  /// * [queryId] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
@@ -39,9 +39,9 @@ class UserApi {
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserResponse>> getUserByScreenName({ 
-    required String variables,
-    required String features,
     String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
+    String variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
@@ -88,9 +88,9 @@ class UserApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(

@@ -10,6 +10,7 @@ import 'package:twitter_openapi_dart_generated/src/auth/basic_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/bearer_auth.dart';
 import 'package:twitter_openapi_dart_generated/src/auth/oauth.dart';
 import 'package:twitter_openapi_dart_generated/src/api/default_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/post_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_list_api.dart';
@@ -72,6 +73,12 @@ class TwitterOpenapiDartGenerated {
   /// by doing that all interceptors will not be executed
   DefaultApi getDefaultApi() {
     return DefaultApi(dio, serializers);
+  }
+
+  /// Get PostApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  PostApi getPostApi() {
+    return PostApi(dio, serializers);
   }
 
   /// Get TweetApi instance, base route and serializer can be overridden by a given but be careful,

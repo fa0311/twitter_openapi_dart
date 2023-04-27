@@ -47,16 +47,16 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 
 final api = TwitterOpenapiDartGenerated().getDefaultApi();
+final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
 final String variables = {"screen_name": "elonmusk"}; // String | 
 final String features = {}; // String | 
-final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String userAgent = userAgent_example; // String | 
 
 try {
-    final response = await api.getProfileSpotlightsQuery(variables, features, queryId, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
+    final response = await api.getProfileSpotlightsQuery(queryId, variables, features, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
     print(response);
 } catch on DioError (e) {
     print("Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n");
@@ -71,6 +71,12 @@ All URIs are relative to *https://twitter.com/i/api/graphql*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
+[*PostApi*](doc/PostApi.md) | [**postCreateRetweet**](doc/PostApi.md#postcreateretweet) | **POST** /ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
+[*PostApi*](doc/PostApi.md) | [**postCreateTweet**](doc/PostApi.md#postcreatetweet) | **POST** /1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
+[*PostApi*](doc/PostApi.md) | [**postDeleteRetweet**](doc/PostApi.md#postdeleteretweet) | **POST** /iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
+[*PostApi*](doc/PostApi.md) | [**postDeleteTweet**](doc/PostApi.md#postdeletetweet) | **POST** /VaenaVgh5q5ih7kvyVjgtg/DeleteTweet | 
+[*PostApi*](doc/PostApi.md) | [**postFavoriteTweet**](doc/PostApi.md#postfavoritetweet) | **POST** /lI07N6Otwv1PhnEgXILM7A/FavoriteTweet | 
+[*PostApi*](doc/PostApi.md) | [**postUnfavoriteTweet**](doc/PostApi.md#postunfavoritetweet) | **POST** /ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet | 
 [*TweetApi*](doc/TweetApi.md) | [**getBookmarks**](doc/TweetApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
 [*TweetApi*](doc/TweetApi.md) | [**getHomeLatestTimeline**](doc/TweetApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getHomeTimeline**](doc/TweetApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
@@ -93,8 +99,23 @@ Class | Method | HTTP request | Description
  - [ContentEntryType](doc/ContentEntryType.md)
  - [ContentItemType](doc/ContentItemType.md)
  - [ContentUnion](doc/ContentUnion.md)
+ - [CreateRetweet](doc/CreateRetweet.md)
+ - [CreateRetweetResponse](doc/CreateRetweetResponse.md)
+ - [CreateRetweetResponseData](doc/CreateRetweetResponseData.md)
+ - [CreateRetweetResponseResult](doc/CreateRetweetResponseResult.md)
+ - [CreateTweet](doc/CreateTweet.md)
+ - [CreateTweetResponse](doc/CreateTweetResponse.md)
+ - [CreateTweetResponseData](doc/CreateTweetResponseData.md)
+ - [CreateTweetResponseResult](doc/CreateTweetResponseResult.md)
+ - [DeleteRetweetResponse](doc/DeleteRetweetResponse.md)
+ - [DeleteRetweetResponseData](doc/DeleteRetweetResponseData.md)
+ - [DeleteTweetResponse](doc/DeleteTweetResponse.md)
+ - [DeleteTweetResponseData](doc/DeleteTweetResponseData.md)
+ - [DeleteTweetResponseResult](doc/DeleteTweetResponseResult.md)
  - [Entities](doc/Entities.md)
  - [ExtendedEntities](doc/ExtendedEntities.md)
+ - [FavoriteTweet](doc/FavoriteTweet.md)
+ - [FavoriteTweetResponseData](doc/FavoriteTweetResponseData.md)
  - [FollowResponse](doc/FollowResponse.md)
  - [FollowResponseData](doc/FollowResponseData.md)
  - [FollowResponseResult](doc/FollowResponseResult.md)
@@ -114,8 +135,16 @@ Class | Method | HTTP request | Description
  - [MediaOriginalInfo](doc/MediaOriginalInfo.md)
  - [ModuleEntry](doc/ModuleEntry.md)
  - [ModuleItem](doc/ModuleItem.md)
+ - [PostCreateRetweetRequest](doc/PostCreateRetweetRequest.md)
+ - [PostCreateTweetRequest](doc/PostCreateTweetRequest.md)
+ - [PostDeleteRetweetRequest](doc/PostDeleteRetweetRequest.md)
+ - [PostDeleteTweetRequest](doc/PostDeleteTweetRequest.md)
+ - [PostFavoriteTweetRequest](doc/PostFavoriteTweetRequest.md)
+ - [PostUnfavoriteTweetRequest](doc/PostUnfavoriteTweetRequest.md)
  - [ProfileResponse](doc/ProfileResponse.md)
  - [ProfileResponseData](doc/ProfileResponseData.md)
+ - [Retweet](doc/Retweet.md)
+ - [RetweetLegacyInner](doc/RetweetLegacyInner.md)
  - [SocialContext](doc/SocialContext.md)
  - [Timeline](doc/Timeline.md)
  - [TimelineAddEntries](doc/TimelineAddEntries.md)
@@ -141,6 +170,8 @@ Class | Method | HTTP request | Description
  - [TweetViews](doc/TweetViews.md)
  - [TweetWithVisibilityResults](doc/TweetWithVisibilityResults.md)
  - [TypeName](doc/TypeName.md)
+ - [UnfavoriteTweet](doc/UnfavoriteTweet.md)
+ - [UnfavoriteTweetResponseData](doc/UnfavoriteTweetResponseData.md)
  - [User](doc/User.md)
  - [UserLegacy](doc/UserLegacy.md)
  - [UserResponse](doc/UserResponse.md)

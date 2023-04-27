@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:test/test.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
@@ -192,5 +193,18 @@ void main() async {
     expect(response.statusCode, 200);
     expect(response.data == null, false);
     expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
+  });
+
+  test('createTweet', () async {
+    print(config["CreateTweet"]);
+    final response = await client.getPostApi().postCreateTweet(
+            postCreateTweetRequest: PostCreateTweetRequest(
+          (e) => e
+            ..variables = JsonObject(jsonEncode(config["Following"]!["Variables"]))
+            ..features = JsonObject(jsonEncode(config["Following"]!["Features"])),
+        ));
+    print(response);
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
   });
 }
