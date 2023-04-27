@@ -200,8 +200,8 @@ void main() async {
     final response = await client.getPostApi().postCreateTweet(
             postCreateTweetRequest: PostCreateTweetRequest(
           (e) => e
-            ..variables = JsonObject(jsonEncode(config["Following"]!["Variables"]))
-            ..features = JsonObject(jsonEncode(config["Following"]!["Features"])),
+            ..variables = JsonObject(jsonEncode(config["CreateTweet"]!["Variables"]))
+            ..features = JsonObject(jsonEncode(config["CreateTweet"]!["Features"])),
         ));
     print(response);
     expect(response.statusCode, 200);
