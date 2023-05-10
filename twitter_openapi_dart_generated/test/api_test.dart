@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
 import 'package:test/test.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
@@ -195,14 +194,67 @@ void main() async {
     expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
   });
 
-  test('createTweet', () async {
-    print(config["CreateTweet"]);
+  test('tweet', () async {
+    final time = DateTime.now().toIso8601String();
     final response = await client.getPostApi().postCreateTweet(
-            postCreateTweetRequest: PostCreateTweetRequest(
-          (e) => e
-            ..variables = JsonObject(jsonEncode(config["CreateTweet"]!["Variables"]))
-            ..features = JsonObject(jsonEncode(config["CreateTweet"]!["Features"])),
-        ));
+          postCreateTweetRequest: PostCreateTweetRequest(
+            (e) => e
+              ..variables = PostCreateTweetRequestVariables((e) => e..tweetText = "Test[${time}]").toBuilder()
+              ..features = PostCreateTweetRequestFeatures((e) => e).toBuilder(),
+          ),
+        );
+    final tweetId = response.data!.data.createTweet.tweetResults.result.restId;
+    print(response);
+    print(response.data!.data.createTweet.tweetResults.result.restId);
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    final response2 = await client.getPostApi().postDeleteTweet(
+          postDeleteTweetRequest: PostDeleteTweetRequest(
+            (e) => e..variables = PostDeleteTweetRequestVariables((e) => e..tweetId = tweetId).toBuilder(),
+          ),
+        );
+    print(response2);
+    expect(response2.statusCode, 200);
+    expect(response2.data == null, false);
+  });
+
+  test('createRetweet', () async {
+    final response = await client.getPostApi().postCreateRetweet(
+          postCreateRetweetRequest: PostCreateRetweetRequest(
+            (e) => e..variables = PostDeleteTweetRequestVariables().toBuilder(),
+          ),
+        );
+    print(response);
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+  test('deleteRetweet', () async {
+    final response = await client.getPostApi().postDeleteRetweet(
+          postDeleteRetweetRequest: PostDeleteRetweetRequest(
+            (e) => e..variables = PostDeleteRetweetRequestVariables().toBuilder(),
+          ),
+        );
+    print(response);
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('favoriteTweet', () async {
+    final response = await client.getPostApi().postFavoriteTweet(
+          postFavoriteTweetRequest: PostFavoriteTweetRequest(
+            (e) => e..variables = PostDeleteTweetRequestVariables().toBuilder(),
+          ),
+        );
+    print(response);
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+  test('favoriteTweet', () async {
+    final response = await client.getPostApi().postUnfavoriteTweet(
+          postUnfavoriteTweetRequest: PostUnfavoriteTweetRequest(
+            (e) => e..variables = PostDeleteTweetRequestVariables().toBuilder(),
+          ),
+        );
     print(response);
     expect(response.statusCode, 200);
     expect(response.data == null, false);
