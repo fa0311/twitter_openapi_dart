@@ -56,8 +56,8 @@ void main() async {
   final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
   test('getHomeTimeline', () async {
     final response = await client.getTweetApi().getHomeTimeline(
-          variables: jsonEncode(config["HomeTimeline"]!["Variables"]),
-          features: jsonEncode(config["HomeTimeline"]!["Features"]),
+          variables: jsonEncode(config["HomeTimeline"]!["variables"]),
+          features: jsonEncode(config["HomeTimeline"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -66,8 +66,8 @@ void main() async {
 
   test('getHomeLatestTimeline', () async {
     final response = await client.getTweetApi().getHomeLatestTimeline(
-          variables: jsonEncode(config["HomeLatestTimeline"]!["Variables"]),
-          features: jsonEncode(config["HomeLatestTimeline"]!["Features"]),
+          variables: jsonEncode(config["HomeLatestTimeline"]!["variables"]),
+          features: jsonEncode(config["HomeLatestTimeline"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -76,8 +76,8 @@ void main() async {
 
   test('getListLatestTweetsTimeline', () async {
     final response = await client.getTweetApi().getListLatestTweetsTimeline(
-          variables: jsonEncode(config["ListLatestTweetsTimeline"]!["Variables"]),
-          features: jsonEncode(config["ListLatestTweetsTimeline"]!["Features"]),
+          variables: jsonEncode(config["ListLatestTweetsTimeline"]!["variables"]),
+          features: jsonEncode(config["ListLatestTweetsTimeline"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -87,8 +87,8 @@ void main() async {
   test('getUserByScreenName', () async {
     const name = "elonmusk";
     final response = await client.getUserApi().getUserByScreenName(
-          variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
-          features: jsonEncode(config["UserByScreenName"]!["Features"]),
+          variables: jsonEncode(config["UserByScreenName"]!["variables"]),
+          features: jsonEncode(config["UserByScreenName"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -97,8 +97,8 @@ void main() async {
 
   test('ProfileSpotlightsQuery', () async {
     final response = await client.getDefaultApi().getProfileSpotlightsQuery(
-          variables: jsonEncode(config["UserByScreenName"]!["Variables"]),
-          features: jsonEncode(config["UserByScreenName"]!["Features"]),
+          variables: jsonEncode(config["UserByScreenName"]!["variables"]),
+          features: jsonEncode(config["UserByScreenName"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -107,8 +107,8 @@ void main() async {
 
   test('getUserTweets', () async {
     final response = await client.getTweetApi().getUserTweets(
-          variables: jsonEncode(config["UserTweets"]!["Variables"]),
-          features: jsonEncode(config["UserTweets"]!["Features"]),
+          variables: jsonEncode(config["UserTweets"]!["variables"]),
+          features: jsonEncode(config["UserTweets"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -117,8 +117,8 @@ void main() async {
 
   test('getUserTweetsAndReplies', () async {
     final response = await client.getTweetApi().getUserTweetsAndReplies(
-          variables: jsonEncode(config["UserTweetsAndReplies"]!["Variables"]),
-          features: jsonEncode(config["UserTweetsAndReplies"]!["Features"]),
+          variables: jsonEncode(config["UserTweetsAndReplies"]!["variables"]),
+          features: jsonEncode(config["UserTweetsAndReplies"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -127,8 +127,8 @@ void main() async {
 
   test('getUserMedia', () async {
     final response = await client.getTweetApi().getUserMedia(
-          variables: jsonEncode(config["UserMedia"]!["Variables"]),
-          features: jsonEncode(config["UserMedia"]!["Features"]),
+          variables: jsonEncode(config["UserMedia"]!["variables"]),
+          features: jsonEncode(config["UserMedia"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -137,8 +137,8 @@ void main() async {
 
   test('getLikes', () async {
     final response = await client.getTweetApi().getLikes(
-          variables: jsonEncode(config["Likes"]!["Variables"]),
-          features: jsonEncode(config["Likes"]!["Features"]),
+          variables: jsonEncode(config["Likes"]!["variables"]),
+          features: jsonEncode(config["Likes"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -147,8 +147,8 @@ void main() async {
 
   test('getBookmarks', () async {
     final response = await client.getTweetApi().getBookmarks(
-          variables: jsonEncode(config["Bookmarks"]!["Variables"]),
-          features: jsonEncode(config["Bookmarks"]!["Features"]),
+          variables: jsonEncode(config["Bookmarks"]!["variables"]),
+          features: jsonEncode(config["Bookmarks"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -157,8 +157,8 @@ void main() async {
 
   test('getTweetDetail', () async {
     final response = await client.getTweetApi().getTweetDetail(
-          variables: jsonEncode(config["TweetDetail"]!["Variables"]),
-          features: jsonEncode(config["TweetDetail"]!["Features"]),
+          variables: jsonEncode(config["TweetDetail"]!["variables"]),
+          features: jsonEncode(config["TweetDetail"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -166,8 +166,8 @@ void main() async {
   });
   test('getTweetDetail2', () async {
     final response = await client.getTweetApi().getTweetDetail(
-          variables: jsonEncode(config["TweetDetail"]!["Variables"]..addAll({"focalTweetId": "1349265937392930816"})),
-          features: jsonEncode(config["TweetDetail"]!["Features"]),
+          variables: jsonEncode(config["TweetDetail"]!["variables"]..addAll({"focalTweetId": "1349265937392930816"})),
+          features: jsonEncode(config["TweetDetail"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -176,8 +176,8 @@ void main() async {
 
   test('getFollowers', () async {
     final response = await client.getUserListApi().getFollowing(
-          variables: jsonEncode(config["Followers"]!["Variables"]),
-          features: jsonEncode(config["Followers"]!["Features"]),
+          variables: jsonEncode(config["Followers"]!["variables"]),
+          features: jsonEncode(config["Followers"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -186,8 +186,8 @@ void main() async {
 
   test('getFollowing', () async {
     final response = await client.getUserListApi().getFollowing(
-          variables: jsonEncode(config["Following"]!["Variables"]),
-          features: jsonEncode(config["Following"]!["Features"]),
+          variables: jsonEncode(config["Following"]!["variables"]),
+          features: jsonEncode(config["Following"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
@@ -258,5 +258,10 @@ void main() async {
     print(response);
     expect(response.statusCode, 200);
     expect(response.data == null, false);
+  });
+  test('createFriendships', () async {
+    final response = await client.getV11PostApi().postCreateFriendships();
+    print(response);
+    expect(response.statusCode, 200);
   });
 }

@@ -60,7 +60,6 @@ export 'package:twitter_openapi_dart_generated/src/model/media.dart';
 export 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 export 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
 export 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
-export 'package:twitter_openapi_dart_generated/src/model/post_create_friendships_request.dart';
 export 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
 export 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
 export 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';

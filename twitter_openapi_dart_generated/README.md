@@ -140,7 +140,6 @@ Class | Method | HTTP request | Description
  - [MediaOriginalInfo](doc/MediaOriginalInfo.md)
  - [ModuleEntry](doc/ModuleEntry.md)
  - [ModuleItem](doc/ModuleItem.md)
- - [PostCreateFriendshipsRequest](doc/PostCreateFriendshipsRequest.md)
  - [PostCreateRetweetRequest](doc/PostCreateRetweetRequest.md)
  - [PostCreateTweetRequest](doc/PostCreateTweetRequest.md)
  - [PostCreateTweetRequestFeatures](doc/PostCreateTweetRequestFeatures.md)

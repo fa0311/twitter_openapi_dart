@@ -44,7 +44,6 @@ doc/MediaOriginalInfo.md
 doc/ModuleEntry.md
 doc/ModuleItem.md
 doc/PostApi.md
-doc/PostCreateFriendshipsRequest.md
 doc/PostCreateRetweetRequest.md
 doc/PostCreateTweetRequest.md
 doc/PostCreateTweetRequestFeatures.md
@@ -165,7 +164,6 @@ lib/src/model/media.dart
 lib/src/model/media_original_info.dart
 lib/src/model/module_entry.dart
 lib/src/model/module_item.dart
-lib/src/model/post_create_friendships_request.dart
 lib/src/model/post_create_retweet_request.dart
 lib/src/model/post_create_tweet_request.dart
 lib/src/model/post_create_tweet_request_features.dart

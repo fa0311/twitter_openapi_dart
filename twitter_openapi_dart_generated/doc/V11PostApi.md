@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **postCreateFriendships**
-> postCreateFriendships(postCreateFriendshipsRequest)
+> postCreateFriendships()
 
 
 
@@ -37,20 +37,16 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getV11PostApi();
-final PostCreateFriendshipsRequest postCreateFriendshipsRequest = ; // PostCreateFriendshipsRequest | body
 
 try {
-    api.postCreateFriendships(postCreateFriendshipsRequest);
+    api.postCreateFriendships();
 } catch on DioError (e) {
     print('Exception when calling V11PostApi->postCreateFriendships: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **postCreateFriendshipsRequest** | [**PostCreateFriendshipsRequest**](PostCreateFriendshipsRequest.md)| body | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -62,13 +58,13 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDestroyFriendships**
-> postDestroyFriendships(postCreateFriendshipsRequest)
+> postDestroyFriendships()
 
 
 
@@ -91,20 +87,16 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getV11PostApi();
-final PostCreateFriendshipsRequest postCreateFriendshipsRequest = ; // PostCreateFriendshipsRequest | body
 
 try {
-    api.postDestroyFriendships(postCreateFriendshipsRequest);
+    api.postDestroyFriendships();
 } catch on DioError (e) {
     print('Exception when calling V11PostApi->postDestroyFriendships: $e\n');
 }
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **postCreateFriendshipsRequest** | [**PostCreateFriendshipsRequest**](PostCreateFriendshipsRequest.md)| body | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -116,7 +108,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -56,7 +56,6 @@ import 'package:twitter_openapi_dart_generated/src/model/media.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_create_friendships_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';
@@ -158,7 +157,6 @@ part 'serializers.g.dart';
   MediaOriginalInfo,
   ModuleEntry,
   ModuleItem,
-  PostCreateFriendshipsRequest,
   PostCreateRetweetRequest,
   PostCreateTweetRequest,
   PostCreateTweetRequestFeatures,
