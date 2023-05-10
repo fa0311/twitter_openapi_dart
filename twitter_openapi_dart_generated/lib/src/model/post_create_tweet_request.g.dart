@@ -8,26 +8,18 @@ part of 'post_create_tweet_request.dart';
 
 class _$PostCreateTweetRequest extends PostCreateTweetRequest {
   @override
-  final JsonObject features;
+  final PostCreateTweetRequestFeatures? features;
   @override
-  final String queryId;
+  final String? queryId;
   @override
-  final JsonObject variables;
+  final PostCreateTweetRequestVariables? variables;
 
   factory _$PostCreateTweetRequest(
           [void Function(PostCreateTweetRequestBuilder)? updates]) =>
       (new PostCreateTweetRequestBuilder()..update(updates))._build();
 
-  _$PostCreateTweetRequest._(
-      {required this.features, required this.queryId, required this.variables})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        features, r'PostCreateTweetRequest', 'features');
-    BuiltValueNullFieldError.checkNotNull(
-        queryId, r'PostCreateTweetRequest', 'queryId');
-    BuiltValueNullFieldError.checkNotNull(
-        variables, r'PostCreateTweetRequest', 'variables');
-  }
+  _$PostCreateTweetRequest._({this.features, this.queryId, this.variables})
+      : super._();
 
   @override
   PostCreateTweetRequest rebuild(
@@ -71,17 +63,21 @@ class PostCreateTweetRequestBuilder
     implements Builder<PostCreateTweetRequest, PostCreateTweetRequestBuilder> {
   _$PostCreateTweetRequest? _$v;
 
-  JsonObject? _features;
-  JsonObject? get features => _$this._features;
-  set features(JsonObject? features) => _$this._features = features;
+  PostCreateTweetRequestFeaturesBuilder? _features;
+  PostCreateTweetRequestFeaturesBuilder get features =>
+      _$this._features ??= new PostCreateTweetRequestFeaturesBuilder();
+  set features(PostCreateTweetRequestFeaturesBuilder? features) =>
+      _$this._features = features;
 
   String? _queryId;
   String? get queryId => _$this._queryId;
   set queryId(String? queryId) => _$this._queryId = queryId;
 
-  JsonObject? _variables;
-  JsonObject? get variables => _$this._variables;
-  set variables(JsonObject? variables) => _$this._variables = variables;
+  PostCreateTweetRequestVariablesBuilder? _variables;
+  PostCreateTweetRequestVariablesBuilder get variables =>
+      _$this._variables ??= new PostCreateTweetRequestVariablesBuilder();
+  set variables(PostCreateTweetRequestVariablesBuilder? variables) =>
+      _$this._variables = variables;
 
   PostCreateTweetRequestBuilder() {
     PostCreateTweetRequest._defaults(this);
@@ -90,9 +86,9 @@ class PostCreateTweetRequestBuilder
   PostCreateTweetRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _features = $v.features;
+      _features = $v.features?.toBuilder();
       _queryId = $v.queryId;
-      _variables = $v.variables;
+      _variables = $v.variables?.toBuilder();
       _$v = null;
     }
     return this;
@@ -113,14 +109,27 @@ class PostCreateTweetRequestBuilder
   PostCreateTweetRequest build() => _build();
 
   _$PostCreateTweetRequest _build() {
-    final _$result = _$v ??
-        new _$PostCreateTweetRequest._(
-            features: BuiltValueNullFieldError.checkNotNull(
-                features, r'PostCreateTweetRequest', 'features'),
-            queryId: BuiltValueNullFieldError.checkNotNull(
-                queryId, r'PostCreateTweetRequest', 'queryId'),
-            variables: BuiltValueNullFieldError.checkNotNull(
-                variables, r'PostCreateTweetRequest', 'variables'));
+    _$PostCreateTweetRequest _$result;
+    try {
+      _$result = _$v ??
+          new _$PostCreateTweetRequest._(
+              features: _features?.build(),
+              queryId: queryId,
+              variables: _variables?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'features';
+        _features?.build();
+
+        _$failedField = 'variables';
+        _variables?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'PostCreateTweetRequest', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

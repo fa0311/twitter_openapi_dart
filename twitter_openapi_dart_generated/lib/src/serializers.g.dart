@@ -49,16 +49,22 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(MediaOriginalInfo.serializer)
       ..add(ModuleEntry.serializer)
       ..add(ModuleItem.serializer)
+      ..add(PostCreateFriendshipsRequest.serializer)
       ..add(PostCreateRetweetRequest.serializer)
       ..add(PostCreateTweetRequest.serializer)
+      ..add(PostCreateTweetRequestFeatures.serializer)
+      ..add(PostCreateTweetRequestVariables.serializer)
+      ..add(PostCreateTweetRequestVariablesMedia.serializer)
       ..add(PostDeleteRetweetRequest.serializer)
+      ..add(PostDeleteRetweetRequestVariables.serializer)
       ..add(PostDeleteTweetRequest.serializer)
+      ..add(PostDeleteTweetRequestVariables.serializer)
       ..add(PostFavoriteTweetRequest.serializer)
       ..add(PostUnfavoriteTweetRequest.serializer)
       ..add(ProfileResponse.serializer)
       ..add(ProfileResponseData.serializer)
       ..add(Retweet.serializer)
-      ..add(RetweetLegacyInner.serializer)
+      ..add(RetweetLegacy.serializer)
       ..add(SocialContext.serializer)
       ..add(Timeline.serializer)
       ..add(TimelineAddEntries.serializer)
@@ -111,6 +117,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(JsonObject)]),
           () => new ListBuilder<JsonObject>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Media)]),
           () => new ListBuilder<Media>())
       ..addBuilderFactory(
@@ -128,12 +140,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ModuleItem)]),
           () => new ListBuilder<ModuleItem>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(Retweet)]),
-          () => new ListBuilder<Retweet>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RetweetLegacyInner)]),
-          () => new ListBuilder<RetweetLegacyInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

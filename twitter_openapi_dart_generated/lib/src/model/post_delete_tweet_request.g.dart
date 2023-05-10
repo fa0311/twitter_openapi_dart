@@ -8,26 +8,15 @@ part of 'post_delete_tweet_request.dart';
 
 class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   @override
-  final JsonObject features;
+  final String? queryId;
   @override
-  final String queryId;
-  @override
-  final JsonObject variables;
+  final PostDeleteTweetRequestVariables? variables;
 
   factory _$PostDeleteTweetRequest(
           [void Function(PostDeleteTweetRequestBuilder)? updates]) =>
       (new PostDeleteTweetRequestBuilder()..update(updates))._build();
 
-  _$PostDeleteTweetRequest._(
-      {required this.features, required this.queryId, required this.variables})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        features, r'PostDeleteTweetRequest', 'features');
-    BuiltValueNullFieldError.checkNotNull(
-        queryId, r'PostDeleteTweetRequest', 'queryId');
-    BuiltValueNullFieldError.checkNotNull(
-        variables, r'PostDeleteTweetRequest', 'variables');
-  }
+  _$PostDeleteTweetRequest._({this.queryId, this.variables}) : super._();
 
   @override
   PostDeleteTweetRequest rebuild(
@@ -42,7 +31,6 @@ class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PostDeleteTweetRequest &&
-        features == other.features &&
         queryId == other.queryId &&
         variables == other.variables;
   }
@@ -50,7 +38,6 @@ class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, features.hashCode);
     _$hash = $jc(_$hash, queryId.hashCode);
     _$hash = $jc(_$hash, variables.hashCode);
     _$hash = $jf(_$hash);
@@ -60,7 +47,6 @@ class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PostDeleteTweetRequest')
-          ..add('features', features)
           ..add('queryId', queryId)
           ..add('variables', variables))
         .toString();
@@ -71,17 +57,15 @@ class PostDeleteTweetRequestBuilder
     implements Builder<PostDeleteTweetRequest, PostDeleteTweetRequestBuilder> {
   _$PostDeleteTweetRequest? _$v;
 
-  JsonObject? _features;
-  JsonObject? get features => _$this._features;
-  set features(JsonObject? features) => _$this._features = features;
-
   String? _queryId;
   String? get queryId => _$this._queryId;
   set queryId(String? queryId) => _$this._queryId = queryId;
 
-  JsonObject? _variables;
-  JsonObject? get variables => _$this._variables;
-  set variables(JsonObject? variables) => _$this._variables = variables;
+  PostDeleteTweetRequestVariablesBuilder? _variables;
+  PostDeleteTweetRequestVariablesBuilder get variables =>
+      _$this._variables ??= new PostDeleteTweetRequestVariablesBuilder();
+  set variables(PostDeleteTweetRequestVariablesBuilder? variables) =>
+      _$this._variables = variables;
 
   PostDeleteTweetRequestBuilder() {
     PostDeleteTweetRequest._defaults(this);
@@ -90,9 +74,8 @@ class PostDeleteTweetRequestBuilder
   PostDeleteTweetRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _features = $v.features;
       _queryId = $v.queryId;
-      _variables = $v.variables;
+      _variables = $v.variables?.toBuilder();
       _$v = null;
     }
     return this;
@@ -113,14 +96,22 @@ class PostDeleteTweetRequestBuilder
   PostDeleteTweetRequest build() => _build();
 
   _$PostDeleteTweetRequest _build() {
-    final _$result = _$v ??
-        new _$PostDeleteTweetRequest._(
-            features: BuiltValueNullFieldError.checkNotNull(
-                features, r'PostDeleteTweetRequest', 'features'),
-            queryId: BuiltValueNullFieldError.checkNotNull(
-                queryId, r'PostDeleteTweetRequest', 'queryId'),
-            variables: BuiltValueNullFieldError.checkNotNull(
-                variables, r'PostDeleteTweetRequest', 'variables'));
+    _$PostDeleteTweetRequest _$result;
+    try {
+      _$result = _$v ??
+          new _$PostDeleteTweetRequest._(
+              queryId: queryId, variables: _variables?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'variables';
+        _variables?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'PostDeleteTweetRequest', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

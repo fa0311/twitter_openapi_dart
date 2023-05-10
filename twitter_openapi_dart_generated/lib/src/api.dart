@@ -14,9 +14,12 @@ import 'package:twitter_openapi_dart_generated/src/api/post_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_list_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/v11_get_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/v11_post_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/v20_get_api.dart';
 
 class TwitterOpenapiDartGenerated {
-  static const String basePath = r'https://twitter.com/i/api/graphql';
+  static const String basePath = r'https://twitter.com/i/api';
 
   final Dio dio;
   final Serializers serializers;
@@ -97,5 +100,23 @@ class TwitterOpenapiDartGenerated {
   /// by doing that all interceptors will not be executed
   UserListApi getUserListApi() {
     return UserListApi(dio, serializers);
+  }
+
+  /// Get V11GetApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  V11GetApi getV11GetApi() {
+    return V11GetApi(dio, serializers);
+  }
+
+  /// Get V11PostApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  V11PostApi getV11PostApi() {
+    return V11PostApi(dio, serializers);
+  }
+
+  /// Get V20GetApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  V20GetApi getV20GetApi() {
+    return V20GetApi(dio, serializers);
   }
 }

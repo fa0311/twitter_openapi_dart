@@ -8,7 +8,7 @@ part of 'create_retweet.dart';
 
 class _$CreateRetweet extends CreateRetweet {
   @override
-  final BuiltList<Retweet> result;
+  final Retweet result;
 
   factory _$CreateRetweet([void Function(CreateRetweetBuilder)? updates]) =>
       (new CreateRetweetBuilder()..update(updates))._build();
@@ -50,10 +50,9 @@ class CreateRetweetBuilder
     implements Builder<CreateRetweet, CreateRetweetBuilder> {
   _$CreateRetweet? _$v;
 
-  ListBuilder<Retweet>? _result;
-  ListBuilder<Retweet> get result =>
-      _$this._result ??= new ListBuilder<Retweet>();
-  set result(ListBuilder<Retweet>? result) => _$this._result = result;
+  RetweetBuilder? _result;
+  RetweetBuilder get result => _$this._result ??= new RetweetBuilder();
+  set result(RetweetBuilder? result) => _$this._result = result;
 
   CreateRetweetBuilder() {
     CreateRetweet._defaults(this);

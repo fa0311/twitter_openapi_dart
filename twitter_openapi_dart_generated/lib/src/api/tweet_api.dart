@@ -26,13 +26,13 @@ class TweetApi {
   /// get bookmarks
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -43,13 +43,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [BookmarksResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BookmarksResponse>> getBookmarks({ 
-    String queryId = 'tmd4ifV8RHltzn8ymGg1aw',
-    String variables = '{"count": 20, "includePromotedContent": true}',
-    String features = '{"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"tmd4ifV8RHltzn8ymGg1aw"',
+    String variables = '{"count": 20, "includePromotedContent": true}',
+    String features = '{"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -57,14 +57,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/tmd4ifV8RHltzn8ymGg1aw/Bookmarks';
+    final _path = r'/graphql/tmd4ifV8RHltzn8ymGg1aw/Bookmarks';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -141,13 +141,13 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -158,13 +158,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TimelineResponse>> getHomeLatestTimeline({ 
-    String queryId = 'zhX91JE87mWvfprhYE97xA',
-    String variables = '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"zhX91JE87mWvfprhYE97xA"',
+    String variables = '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -172,14 +172,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline';
+    final _path = r'/graphql/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -256,13 +256,13 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -273,13 +273,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TimelineResponse>> getHomeTimeline({ 
-    String queryId = 'HCosKfLNW1AcOo3la3mMgg',
-    String variables = '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"HCosKfLNW1AcOo3la3mMgg"',
+    String variables = '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -287,14 +287,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/HCosKfLNW1AcOo3la3mMgg/HomeTimeline';
+    final _path = r'/graphql/HCosKfLNW1AcOo3la3mMgg/HomeTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -371,13 +371,13 @@ class TweetApi {
   /// get user likes tweets
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -388,13 +388,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getLikes({ 
-    String queryId = '5fmEkRT-1AdHqEsbVgehMg',
-    String variables = '{"userId": "44196397", "count": 20, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"5fmEkRT-1AdHqEsbVgehMg"',
+    String variables = '{"userId": "44196397", "count": 20, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -402,14 +402,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/5fmEkRT-1AdHqEsbVgehMg/Likes';
+    final _path = r'/graphql/5fmEkRT-1AdHqEsbVgehMg/Likes';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -486,13 +486,13 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -503,13 +503,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [ListTweetsTimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<ListTweetsTimelineResponse>> getListLatestTweetsTimeline({ 
-    String queryId = '2TemLyqrMpTeAmysdbnVqw',
-    String variables = '{"listId": "53044119", "count": 20}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"2TemLyqrMpTeAmysdbnVqw"',
+    String variables = '{"listId": "53044119", "count": 20}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -517,14 +517,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline';
+    final _path = r'/graphql/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -601,13 +601,13 @@ class TweetApi {
   /// get TweetDetail
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -618,13 +618,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TweetDetailResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TweetDetailResponse>> getTweetDetail({ 
-    String queryId = 'wNNG8DBB8EaXw1lq4vFWGA',
-    String variables = '{"focalTweetId": "1349129669258448897", "with_rux_injections": false, "includePromotedContent": true, "withCommunity": true, "withQuickPromoteEligibilityTweetFields": true, "withBirdwatchNotes": true, "withVoice": true, "withV2Timeline": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"wNNG8DBB8EaXw1lq4vFWGA"',
+    String variables = '{"focalTweetId": "1349129669258448897", "with_rux_injections": false, "includePromotedContent": true, "withCommunity": true, "withQuickPromoteEligibilityTweetFields": true, "withBirdwatchNotes": true, "withVoice": true, "withV2Timeline": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -632,14 +632,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/wNNG8DBB8EaXw1lq4vFWGA/TweetDetail';
+    final _path = r'/graphql/wNNG8DBB8EaXw1lq4vFWGA/TweetDetail';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -716,13 +716,13 @@ class TweetApi {
   /// get user media tweets
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -733,13 +733,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserMedia({ 
-    String queryId = 'YqiE3JL1KNgf9nSljYdxaA',
-    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"YqiE3JL1KNgf9nSljYdxaA"',
+    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -747,14 +747,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/YqiE3JL1KNgf9nSljYdxaA/UserMedia';
+    final _path = r'/graphql/YqiE3JL1KNgf9nSljYdxaA/UserMedia';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -831,13 +831,13 @@ class TweetApi {
   /// get user tweets
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -848,13 +848,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserTweets({ 
-    String queryId = 'HuTx74BxAnezK1gWvYY7zg',
-    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withQuickPromoteEligibilityTweetFields": true, "withVoice": true, "withV2Timeline": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"HuTx74BxAnezK1gWvYY7zg"',
+    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withQuickPromoteEligibilityTweetFields": true, "withVoice": true, "withV2Timeline": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -862,14 +862,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/HuTx74BxAnezK1gWvYY7zg/UserTweets';
+    final _path = r'/graphql/HuTx74BxAnezK1gWvYY7zg/UserTweets';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -946,13 +946,13 @@ class TweetApi {
   /// get user replies tweets
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -963,13 +963,13 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({ 
-    String queryId = 'RIWc55YCNyUJ-U3HHGYkdg',
-    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withCommunity": true, "withVoice": true, "withV2Timeline": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"RIWc55YCNyUJ-U3HHGYkdg"',
+    String variables = '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withCommunity": true, "withVoice": true, "withV2Timeline": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -977,14 +977,14 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies';
+    final _path = r'/graphql/RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{

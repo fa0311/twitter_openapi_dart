@@ -22,13 +22,13 @@ class DefaultApi {
   /// get user by screen name
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -39,13 +39,13 @@ class DefaultApi {
   /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<ProfileResponse>> getProfileSpotlightsQuery({ 
-    String queryId = '9zwVLJ48lmVUk8u_Gh9DmA',
-    String variables = '{"screen_name": "elonmusk"}',
-    String features = '{}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"9zwVLJ48lmVUk8u_Gh9DmA"',
+    String variables = '{"screen_name": "elonmusk"}',
+    String features = '{}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -53,14 +53,14 @@ class DefaultApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery';
+    final _path = r'/graphql/9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{

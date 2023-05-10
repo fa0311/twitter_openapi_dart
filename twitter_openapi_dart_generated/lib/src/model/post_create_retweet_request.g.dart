@@ -8,26 +8,15 @@ part of 'post_create_retweet_request.dart';
 
 class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   @override
-  final JsonObject features;
+  final String? queryId;
   @override
-  final String queryId;
-  @override
-  final JsonObject variables;
+  final PostDeleteTweetRequestVariables? variables;
 
   factory _$PostCreateRetweetRequest(
           [void Function(PostCreateRetweetRequestBuilder)? updates]) =>
       (new PostCreateRetweetRequestBuilder()..update(updates))._build();
 
-  _$PostCreateRetweetRequest._(
-      {required this.features, required this.queryId, required this.variables})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        features, r'PostCreateRetweetRequest', 'features');
-    BuiltValueNullFieldError.checkNotNull(
-        queryId, r'PostCreateRetweetRequest', 'queryId');
-    BuiltValueNullFieldError.checkNotNull(
-        variables, r'PostCreateRetweetRequest', 'variables');
-  }
+  _$PostCreateRetweetRequest._({this.queryId, this.variables}) : super._();
 
   @override
   PostCreateRetweetRequest rebuild(
@@ -42,7 +31,6 @@ class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PostCreateRetweetRequest &&
-        features == other.features &&
         queryId == other.queryId &&
         variables == other.variables;
   }
@@ -50,7 +38,6 @@ class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, features.hashCode);
     _$hash = $jc(_$hash, queryId.hashCode);
     _$hash = $jc(_$hash, variables.hashCode);
     _$hash = $jf(_$hash);
@@ -60,7 +47,6 @@ class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PostCreateRetweetRequest')
-          ..add('features', features)
           ..add('queryId', queryId)
           ..add('variables', variables))
         .toString();
@@ -72,17 +58,15 @@ class PostCreateRetweetRequestBuilder
         Builder<PostCreateRetweetRequest, PostCreateRetweetRequestBuilder> {
   _$PostCreateRetweetRequest? _$v;
 
-  JsonObject? _features;
-  JsonObject? get features => _$this._features;
-  set features(JsonObject? features) => _$this._features = features;
-
   String? _queryId;
   String? get queryId => _$this._queryId;
   set queryId(String? queryId) => _$this._queryId = queryId;
 
-  JsonObject? _variables;
-  JsonObject? get variables => _$this._variables;
-  set variables(JsonObject? variables) => _$this._variables = variables;
+  PostDeleteTweetRequestVariablesBuilder? _variables;
+  PostDeleteTweetRequestVariablesBuilder get variables =>
+      _$this._variables ??= new PostDeleteTweetRequestVariablesBuilder();
+  set variables(PostDeleteTweetRequestVariablesBuilder? variables) =>
+      _$this._variables = variables;
 
   PostCreateRetweetRequestBuilder() {
     PostCreateRetweetRequest._defaults(this);
@@ -91,9 +75,8 @@ class PostCreateRetweetRequestBuilder
   PostCreateRetweetRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _features = $v.features;
       _queryId = $v.queryId;
-      _variables = $v.variables;
+      _variables = $v.variables?.toBuilder();
       _$v = null;
     }
     return this;
@@ -114,14 +97,22 @@ class PostCreateRetweetRequestBuilder
   PostCreateRetweetRequest build() => _build();
 
   _$PostCreateRetweetRequest _build() {
-    final _$result = _$v ??
-        new _$PostCreateRetweetRequest._(
-            features: BuiltValueNullFieldError.checkNotNull(
-                features, r'PostCreateRetweetRequest', 'features'),
-            queryId: BuiltValueNullFieldError.checkNotNull(
-                queryId, r'PostCreateRetweetRequest', 'queryId'),
-            variables: BuiltValueNullFieldError.checkNotNull(
-                variables, r'PostCreateRetweetRequest', 'variables'));
+    _$PostCreateRetweetRequest _$result;
+    try {
+      _$result = _$v ??
+          new _$PostCreateRetweetRequest._(
+              queryId: queryId, variables: _variables?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'variables';
+        _variables?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'PostCreateRetweetRequest', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -1,0 +1,221 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+import 'dart:async';
+
+import 'package:built_value/serializer.dart';
+import 'package:dio/dio.dart';
+
+import 'package:twitter_openapi_dart_generated/src/api_util.dart';
+
+class V11GetApi {
+
+  final Dio _dio;
+
+  final Serializers _serializers;
+
+  const V11GetApi(this._dio, this._serializers);
+
+  /// getFriendsFollowingList
+  /// get friends following list
+  ///
+  /// Parameters:
+  /// * [includeProfileInterstitialType] 
+  /// * [includeBlocking] 
+  /// * [includeBlockedBy] 
+  /// * [includeFollowedBy] 
+  /// * [includeWantRetweets] 
+  /// * [includeMuteEdge] 
+  /// * [includeCanDm] 
+  /// * [includeCanMediaTag] 
+  /// * [includeExtHasNftAvatar] 
+  /// * [includeExtIsBlueVerified] 
+  /// * [includeExtVerifiedType] 
+  /// * [includeExtProfileImageShape] 
+  /// * [skipStatus] 
+  /// * [cursor] 
+  /// * [userId] 
+  /// * [count] 
+  /// * [withTotalCount] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<void>> getFriendsFollowingList({ 
+    String includeProfileInterstitialType = '1',
+    String includeBlocking = '1',
+    String includeBlockedBy = '1',
+    String includeFollowedBy = '1',
+    String includeWantRetweets = '1',
+    String includeMuteEdge = '1',
+    String includeCanDm = '1',
+    String includeCanMediaTag = '1',
+    String includeExtHasNftAvatar = '1',
+    String includeExtIsBlueVerified = '1',
+    String includeExtVerifiedType = '1',
+    String includeExtProfileImageShape = '1',
+    String skipStatus = '1',
+    String cursor = '-1',
+    String userId = '17152334',
+    String count = '3',
+    String withTotalCount = 'true',
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/1.1/friends/following/list.json';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _queryParameters = <String, dynamic>{
+      r'include_profile_interstitial_type': encodeQueryParameter(_serializers, includeProfileInterstitialType, const FullType(String)),
+      r'include_blocking': encodeQueryParameter(_serializers, includeBlocking, const FullType(String)),
+      r'include_blocked_by': encodeQueryParameter(_serializers, includeBlockedBy, const FullType(String)),
+      r'include_followed_by': encodeQueryParameter(_serializers, includeFollowedBy, const FullType(String)),
+      r'include_want_retweets': encodeQueryParameter(_serializers, includeWantRetweets, const FullType(String)),
+      r'include_mute_edge': encodeQueryParameter(_serializers, includeMuteEdge, const FullType(String)),
+      r'include_can_dm': encodeQueryParameter(_serializers, includeCanDm, const FullType(String)),
+      r'include_can_media_tag': encodeQueryParameter(_serializers, includeCanMediaTag, const FullType(String)),
+      r'include_ext_has_nft_avatar': encodeQueryParameter(_serializers, includeExtHasNftAvatar, const FullType(String)),
+      r'include_ext_is_blue_verified': encodeQueryParameter(_serializers, includeExtIsBlueVerified, const FullType(String)),
+      r'include_ext_verified_type': encodeQueryParameter(_serializers, includeExtVerifiedType, const FullType(String)),
+      r'include_ext_profile_image_shape': encodeQueryParameter(_serializers, includeExtProfileImageShape, const FullType(String)),
+      r'skip_status': encodeQueryParameter(_serializers, skipStatus, const FullType(String)),
+      r'cursor': encodeQueryParameter(_serializers, cursor, const FullType(String)),
+      r'user_id': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      r'count': encodeQueryParameter(_serializers, count, const FullType(String)),
+      r'with_total_count': encodeQueryParameter(_serializers, withTotalCount, const FullType(String)),
+    };
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// getSearchTypeahead
+  /// get search typeahead
+  ///
+  /// Parameters:
+  /// * [includeExtIsBlueVerified] 
+  /// * [includeExtVerifiedType] 
+  /// * [includeExtProfileImageShape] 
+  /// * [q] 
+  /// * [src] 
+  /// * [resultType] 
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<void>> getSearchTypeahead({ 
+    String includeExtIsBlueVerified = '1',
+    String includeExtVerifiedType = '1',
+    String includeExtProfileImageShape = '1',
+    String q = '"aaa"',
+    String src = '"search_box"',
+    String resultType = '"events,users,topics"',
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/1.1/search/typeahead.json';
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },{
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _queryParameters = <String, dynamic>{
+      r'include_ext_is_blue_verified': encodeQueryParameter(_serializers, includeExtIsBlueVerified, const FullType(String)),
+      r'include_ext_verified_type': encodeQueryParameter(_serializers, includeExtVerifiedType, const FullType(String)),
+      r'include_ext_profile_image_shape': encodeQueryParameter(_serializers, includeExtProfileImageShape, const FullType(String)),
+      r'q': encodeQueryParameter(_serializers, q, const FullType(String)),
+      r'src': encodeQueryParameter(_serializers, src, const FullType(String)),
+      r'result_type': encodeQueryParameter(_serializers, resultType, const FullType(String)),
+    };
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+}

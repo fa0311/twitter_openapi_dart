@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -17,7 +16,7 @@ part 'create_retweet.g.dart';
 @BuiltValue()
 abstract class CreateRetweet implements Built<CreateRetweet, CreateRetweetBuilder> {
   @BuiltValueField(wireName: r'result')
-  BuiltList<Retweet> get result;
+  Retweet get result;
 
   CreateRetweet._();
 
@@ -45,7 +44,7 @@ class _$CreateRetweetSerializer implements PrimitiveSerializer<CreateRetweet> {
     yield r'result';
     yield serializers.serialize(
       object.result,
-      specifiedType: const FullType(BuiltList, [FullType(Retweet)]),
+      specifiedType: const FullType(Retweet),
     );
   }
 
@@ -73,8 +72,8 @@ class _$CreateRetweetSerializer implements PrimitiveSerializer<CreateRetweet> {
         case r'result':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(Retweet)]),
-          ) as BuiltList<Retweet>;
+            specifiedType: const FullType(Retweet),
+          ) as Retweet;
           result.result.replace(valueDes);
           break;
         default:

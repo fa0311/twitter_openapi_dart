@@ -32,11 +32,11 @@ class PostApi {
   /// create Retweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postCreateRetweetRequest] 
+  /// * [postCreateRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -47,10 +47,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<CreateRetweetResponse>> postCreateRetweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostCreateRetweetRequest postCreateRetweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -59,14 +59,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet';
+    final _path = r'/graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -156,11 +156,11 @@ class PostApi {
   /// create Tweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postCreateTweetRequest] 
+  /// * [postCreateTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -171,10 +171,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<CreateTweetResponse>> postCreateTweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostCreateTweetRequest postCreateTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -183,14 +183,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet';
+    final _path = r'/graphql/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -280,11 +280,11 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postDeleteRetweetRequest] 
+  /// * [postDeleteRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -295,10 +295,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<DeleteRetweetResponse>> postDeleteRetweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -307,14 +307,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet';
+    final _path = r'/graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -404,11 +404,11 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postDeleteTweetRequest] 
+  /// * [postDeleteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -419,10 +419,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<DeleteTweetResponse>> postDeleteTweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostDeleteTweetRequest postDeleteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -431,14 +431,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet';
+    final _path = r'/graphql/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -528,11 +528,11 @@ class PostApi {
   /// favorite Tweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postFavoriteTweetRequest] 
+  /// * [postFavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -543,10 +543,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -555,14 +555,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet';
+    final _path = r'/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -652,11 +652,11 @@ class PostApi {
   /// unfavorite Tweet
   ///
   /// Parameters:
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
-  /// * [postUnfavoriteTweetRequest] 
+  /// * [postUnfavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -667,10 +667,10 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -679,14 +679,14 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet';
+    final _path = r'/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet';
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{

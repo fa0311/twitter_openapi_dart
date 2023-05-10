@@ -56,16 +56,22 @@ import 'package:twitter_openapi_dart_generated/src/model/media.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_friendships_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_media.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet.dart';
-import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy_inner.dart';
+import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.dart';
@@ -152,16 +158,22 @@ part 'serializers.g.dart';
   MediaOriginalInfo,
   ModuleEntry,
   ModuleItem,
+  PostCreateFriendshipsRequest,
   PostCreateRetweetRequest,
   PostCreateTweetRequest,
+  PostCreateTweetRequestFeatures,
+  PostCreateTweetRequestVariables,
+  PostCreateTweetRequestVariablesMedia,
   PostDeleteRetweetRequest,
+  PostDeleteRetweetRequestVariables,
   PostDeleteTweetRequest,
+  PostDeleteTweetRequestVariables,
   PostFavoriteTweetRequest,
   PostUnfavoriteTweetRequest,
   ProfileResponse,
   ProfileResponseData,
   Retweet,
-  RetweetLegacyInner,
+  RetweetLegacy,
   SocialContext,
   Timeline,
   TimelineAddEntries,

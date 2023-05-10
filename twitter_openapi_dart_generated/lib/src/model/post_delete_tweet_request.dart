@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request_variables.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,19 +12,15 @@ part 'post_delete_tweet_request.g.dart';
 /// PostDeleteTweetRequest
 ///
 /// Properties:
-/// * [features] 
 /// * [queryId] 
 /// * [variables] 
 @BuiltValue()
 abstract class PostDeleteTweetRequest implements Built<PostDeleteTweetRequest, PostDeleteTweetRequestBuilder> {
-  @BuiltValueField(wireName: r'features')
-  JsonObject get features;
-
   @BuiltValueField(wireName: r'queryId')
-  String get queryId;
+  String? get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  JsonObject get variables;
+  PostDeleteTweetRequestVariables? get variables;
 
   PostDeleteTweetRequest._();
 
@@ -50,21 +46,20 @@ class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDele
     PostDeleteTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'features';
-    yield serializers.serialize(
-      object.features,
-      specifiedType: const FullType(JsonObject),
-    );
-    yield r'queryId';
-    yield serializers.serialize(
-      object.queryId,
-      specifiedType: const FullType(String),
-    );
-    yield r'variables';
-    yield serializers.serialize(
-      object.variables,
-      specifiedType: const FullType(JsonObject),
-    );
+    if (object.queryId != null) {
+      yield r'queryId';
+      yield serializers.serialize(
+        object.queryId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.variables != null) {
+      yield r'variables';
+      yield serializers.serialize(
+        object.variables,
+        specifiedType: const FullType(PostDeleteTweetRequestVariables),
+      );
+    }
   }
 
   @override
@@ -88,13 +83,6 @@ class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDele
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'features':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.features = valueDes;
-          break;
         case r'queryId':
           final valueDes = serializers.deserialize(
             value,
@@ -105,9 +93,9 @@ class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDele
         case r'variables':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.variables = valueDes;
+            specifiedType: const FullType(PostDeleteTweetRequestVariables),
+          ) as PostDeleteTweetRequestVariables;
+          result.variables.replace(valueDes);
           break;
         default:
           unhandled.add(key);

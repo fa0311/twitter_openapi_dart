@@ -22,13 +22,13 @@ class UserApi {
   /// get user by screen name
   ///
   /// Parameters:
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent] 
   /// * [authorization] 
   /// * [xTwitterActiveUser] 
   /// * [xTwitterClientLanguage] 
-  /// * [userAgent] 
+  /// * [queryId] 
+  /// * [variables] 
+  /// * [features] 
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -39,13 +39,13 @@ class UserApi {
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserResponse>> getUserByScreenName({ 
-    String queryId = 'sLVLhk0bGj3MVFEKTdax1w',
-    String variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}',
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
     String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String queryId = '"sLVLhk0bGj3MVFEKTdax1w"',
+    String variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
+    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -53,14 +53,14 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/sLVLhk0bGj3MVFEKTdax1w/UserByScreenName';
+    final _path = r'/graphql/sLVLhk0bGj3MVFEKTdax1w/UserByScreenName';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
         r'authorization': authorization,
         r'x-twitter-active-user': xTwitterActiveUser,
         r'x-twitter-client-language': xTwitterClientLanguage,
-        r'user-agent': userAgent,
         ...?headers,
       },
       extra: <String, dynamic>{

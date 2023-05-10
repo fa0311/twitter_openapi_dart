@@ -3,8 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy_inner.dart';
+import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +17,7 @@ part 'retweet.g.dart';
 @BuiltValue()
 abstract class Retweet implements Built<Retweet, RetweetBuilder> {
   @BuiltValueField(wireName: r'legacy')
-  BuiltList<RetweetLegacyInner> get legacy;
+  RetweetLegacy get legacy;
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
@@ -49,7 +48,7 @@ class _$RetweetSerializer implements PrimitiveSerializer<Retweet> {
     yield r'legacy';
     yield serializers.serialize(
       object.legacy,
-      specifiedType: const FullType(BuiltList, [FullType(RetweetLegacyInner)]),
+      specifiedType: const FullType(RetweetLegacy),
     );
     yield r'rest_id';
     yield serializers.serialize(
@@ -82,8 +81,8 @@ class _$RetweetSerializer implements PrimitiveSerializer<Retweet> {
         case r'legacy':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(RetweetLegacyInner)]),
-          ) as BuiltList<RetweetLegacyInner>;
+            specifiedType: const FullType(RetweetLegacy),
+          ) as RetweetLegacy;
           result.legacy.replace(valueDes);
           break;
         case r'rest_id':

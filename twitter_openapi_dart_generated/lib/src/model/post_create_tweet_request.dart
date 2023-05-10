@@ -3,7 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,13 +19,13 @@ part 'post_create_tweet_request.g.dart';
 @BuiltValue()
 abstract class PostCreateTweetRequest implements Built<PostCreateTweetRequest, PostCreateTweetRequestBuilder> {
   @BuiltValueField(wireName: r'features')
-  JsonObject get features;
+  PostCreateTweetRequestFeatures? get features;
 
   @BuiltValueField(wireName: r'queryId')
-  String get queryId;
+  String? get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  JsonObject get variables;
+  PostCreateTweetRequestVariables? get variables;
 
   PostCreateTweetRequest._();
 
@@ -50,21 +51,27 @@ class _$PostCreateTweetRequestSerializer implements PrimitiveSerializer<PostCrea
     PostCreateTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'features';
-    yield serializers.serialize(
-      object.features,
-      specifiedType: const FullType(JsonObject),
-    );
-    yield r'queryId';
-    yield serializers.serialize(
-      object.queryId,
-      specifiedType: const FullType(String),
-    );
-    yield r'variables';
-    yield serializers.serialize(
-      object.variables,
-      specifiedType: const FullType(JsonObject),
-    );
+    if (object.features != null) {
+      yield r'features';
+      yield serializers.serialize(
+        object.features,
+        specifiedType: const FullType(PostCreateTweetRequestFeatures),
+      );
+    }
+    if (object.queryId != null) {
+      yield r'queryId';
+      yield serializers.serialize(
+        object.queryId,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.variables != null) {
+      yield r'variables';
+      yield serializers.serialize(
+        object.variables,
+        specifiedType: const FullType(PostCreateTweetRequestVariables),
+      );
+    }
   }
 
   @override
@@ -91,9 +98,9 @@ class _$PostCreateTweetRequestSerializer implements PrimitiveSerializer<PostCrea
         case r'features':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.features = valueDes;
+            specifiedType: const FullType(PostCreateTweetRequestFeatures),
+          ) as PostCreateTweetRequestFeatures;
+          result.features.replace(valueDes);
           break;
         case r'queryId':
           final valueDes = serializers.deserialize(
@@ -105,9 +112,9 @@ class _$PostCreateTweetRequestSerializer implements PrimitiveSerializer<PostCrea
         case r'variables':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.variables = valueDes;
+            specifiedType: const FullType(PostCreateTweetRequestVariables),
+          ) as PostCreateTweetRequestVariables;
+          result.variables.replace(valueDes);
           break;
         default:
           unhandled.add(key);

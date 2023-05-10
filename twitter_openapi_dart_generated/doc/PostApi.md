@@ -5,20 +5,20 @@
 import 'package:twitter_openapi_dart_generated/api.dart';
 ```
 
-All URIs are relative to *https://twitter.com/i/api/graphql*
+All URIs are relative to *https://twitter.com/i/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postCreateRetweet**](PostApi.md#postcreateretweet) | **POST** /ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
-[**postCreateTweet**](PostApi.md#postcreatetweet) | **POST** /1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
-[**postDeleteRetweet**](PostApi.md#postdeleteretweet) | **POST** /iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
-[**postDeleteTweet**](PostApi.md#postdeletetweet) | **POST** /VaenaVgh5q5ih7kvyVjgtg/DeleteTweet | 
-[**postFavoriteTweet**](PostApi.md#postfavoritetweet) | **POST** /lI07N6Otwv1PhnEgXILM7A/FavoriteTweet | 
-[**postUnfavoriteTweet**](PostApi.md#postunfavoritetweet) | **POST** /ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet | 
+[**postCreateRetweet**](PostApi.md#postcreateretweet) | **POST** /graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
+[**postCreateTweet**](PostApi.md#postcreatetweet) | **POST** /graphql/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
+[**postDeleteRetweet**](PostApi.md#postdeleteretweet) | **POST** /graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
+[**postDeleteTweet**](PostApi.md#postdeletetweet) | **POST** /graphql/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet | 
+[**postFavoriteTweet**](PostApi.md#postfavoritetweet) | **POST** /graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet | 
+[**postUnfavoriteTweet**](PostApi.md#postunfavoritetweet) | **POST** /graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet | 
 
 
 # **postCreateRetweet**
-> CreateRetweetResponse postCreateRetweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postCreateRetweetRequest)
+> CreateRetweetResponse postCreateRetweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postCreateRetweetRequest)
 
 
 
@@ -41,14 +41,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostCreateRetweetRequest postCreateRetweetRequest = ; // PostCreateRetweetRequest | 
+final PostCreateRetweetRequest postCreateRetweetRequest = ; // PostCreateRetweetRequest | body
 
 try {
-    final response = api.postCreateRetweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postCreateRetweetRequest);
+    final response = api.postCreateRetweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postCreateRetweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postCreateRetweet: $e\n');
@@ -59,11 +59,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postCreateRetweetRequest** | [**PostCreateRetweetRequest**](PostCreateRetweetRequest.md)|  | 
+ **postCreateRetweetRequest** | [**PostCreateRetweetRequest**](PostCreateRetweetRequest.md)| body | 
 
 ### Return type
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postCreateTweet**
-> CreateTweetResponse postCreateTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postCreateTweetRequest)
+> CreateTweetResponse postCreateTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postCreateTweetRequest)
 
 
 
@@ -104,14 +104,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostCreateTweetRequest postCreateTweetRequest = ; // PostCreateTweetRequest | 
+final PostCreateTweetRequest postCreateTweetRequest = ; // PostCreateTweetRequest | body
 
 try {
-    final response = api.postCreateTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postCreateTweetRequest);
+    final response = api.postCreateTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postCreateTweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postCreateTweet: $e\n');
@@ -122,11 +122,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postCreateTweetRequest** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)|  | 
+ **postCreateTweetRequest** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDeleteRetweet**
-> DeleteRetweetResponse postDeleteRetweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postDeleteRetweetRequest)
+> DeleteRetweetResponse postDeleteRetweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postDeleteRetweetRequest)
 
 
 
@@ -167,14 +167,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostDeleteRetweetRequest postDeleteRetweetRequest = ; // PostDeleteRetweetRequest | 
+final PostDeleteRetweetRequest postDeleteRetweetRequest = ; // PostDeleteRetweetRequest | body
 
 try {
-    final response = api.postDeleteRetweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postDeleteRetweetRequest);
+    final response = api.postDeleteRetweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postDeleteRetweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postDeleteRetweet: $e\n');
@@ -185,11 +185,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postDeleteRetweetRequest** | [**PostDeleteRetweetRequest**](PostDeleteRetweetRequest.md)|  | 
+ **postDeleteRetweetRequest** | [**PostDeleteRetweetRequest**](PostDeleteRetweetRequest.md)| body | 
 
 ### Return type
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDeleteTweet**
-> DeleteTweetResponse postDeleteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postDeleteTweetRequest)
+> DeleteTweetResponse postDeleteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postDeleteTweetRequest)
 
 
 
@@ -230,14 +230,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostDeleteTweetRequest postDeleteTweetRequest = ; // PostDeleteTweetRequest | 
+final PostDeleteTweetRequest postDeleteTweetRequest = ; // PostDeleteTweetRequest | body
 
 try {
-    final response = api.postDeleteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postDeleteTweetRequest);
+    final response = api.postDeleteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postDeleteTweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postDeleteTweet: $e\n');
@@ -248,11 +248,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postDeleteTweetRequest** | [**PostDeleteTweetRequest**](PostDeleteTweetRequest.md)|  | 
+ **postDeleteTweetRequest** | [**PostDeleteTweetRequest**](PostDeleteTweetRequest.md)| body | 
 
 ### Return type
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postFavoriteTweet**
-> FavoriteTweetResponseData postFavoriteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postFavoriteTweetRequest)
+> FavoriteTweetResponseData postFavoriteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postFavoriteTweetRequest)
 
 
 
@@ -293,14 +293,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostFavoriteTweetRequest postFavoriteTweetRequest = ; // PostFavoriteTweetRequest | 
+final PostFavoriteTweetRequest postFavoriteTweetRequest = ; // PostFavoriteTweetRequest | body
 
 try {
-    final response = api.postFavoriteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postFavoriteTweetRequest);
+    final response = api.postFavoriteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postFavoriteTweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postFavoriteTweet: $e\n');
@@ -311,11 +311,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postFavoriteTweetRequest** | [**PostFavoriteTweetRequest**](PostFavoriteTweetRequest.md)|  | 
+ **postFavoriteTweetRequest** | [**PostFavoriteTweetRequest**](PostFavoriteTweetRequest.md)| body | 
 
 ### Return type
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postUnfavoriteTweet**
-> UnfavoriteTweetResponseData postUnfavoriteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postUnfavoriteTweetRequest)
+> UnfavoriteTweetResponseData postUnfavoriteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postUnfavoriteTweetRequest)
 
 
 
@@ -356,14 +356,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
-final PostUnfavoriteTweetRequest postUnfavoriteTweetRequest = ; // PostUnfavoriteTweetRequest | 
+final PostUnfavoriteTweetRequest postUnfavoriteTweetRequest = ; // PostUnfavoriteTweetRequest | body
 
 try {
-    final response = api.postUnfavoriteTweet(authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent, postUnfavoriteTweetRequest);
+    final response = api.postUnfavoriteTweet(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, postUnfavoriteTweetRequest);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling PostApi->postUnfavoriteTweet: $e\n');
@@ -374,11 +374,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **postUnfavoriteTweetRequest** | [**PostUnfavoriteTweetRequest**](PostUnfavoriteTweetRequest.md)|  | 
+ **postUnfavoriteTweetRequest** | [**PostUnfavoriteTweetRequest**](PostUnfavoriteTweetRequest.md)| body | 
 
 ### Return type
 

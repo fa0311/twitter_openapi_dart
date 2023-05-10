@@ -8,7 +8,7 @@ part of 'retweet.dart';
 
 class _$Retweet extends Retweet {
   @override
-  final BuiltList<RetweetLegacyInner> legacy;
+  final RetweetLegacy legacy;
   @override
   final String restId;
 
@@ -54,11 +54,10 @@ class _$Retweet extends Retweet {
 class RetweetBuilder implements Builder<Retweet, RetweetBuilder> {
   _$Retweet? _$v;
 
-  ListBuilder<RetweetLegacyInner>? _legacy;
-  ListBuilder<RetweetLegacyInner> get legacy =>
-      _$this._legacy ??= new ListBuilder<RetweetLegacyInner>();
-  set legacy(ListBuilder<RetweetLegacyInner>? legacy) =>
-      _$this._legacy = legacy;
+  RetweetLegacyBuilder? _legacy;
+  RetweetLegacyBuilder get legacy =>
+      _$this._legacy ??= new RetweetLegacyBuilder();
+  set legacy(RetweetLegacyBuilder? legacy) => _$this._legacy = legacy;
 
   String? _restId;
   String? get restId => _$this._restId;

@@ -47,16 +47,16 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 
 final api = TwitterOpenapiDartGenerated().getDefaultApi();
-final String queryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
-final String variables = {"screen_name": "elonmusk"}; // String | 
-final String features = {}; // String | 
+final String userAgent = userAgent_example; // String | 
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String userAgent = userAgent_example; // String | 
+final String queryId = "9zwVLJ48lmVUk8u_Gh9DmA"; // String | 
+final String variables = {"screen_name": "elonmusk"}; // String | 
+final String features = {}; // String | 
 
 try {
-    final response = await api.getProfileSpotlightsQuery(queryId, variables, features, authorization, xTwitterActiveUser, xTwitterClientLanguage, userAgent);
+    final response = await api.getProfileSpotlightsQuery(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, queryId, variables, features);
     print(response);
 } catch on DioError (e) {
     print("Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n");
@@ -66,29 +66,34 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://twitter.com/i/api/graphql*
+All URIs are relative to *https://twitter.com/i/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
-[*PostApi*](doc/PostApi.md) | [**postCreateRetweet**](doc/PostApi.md#postcreateretweet) | **POST** /ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
-[*PostApi*](doc/PostApi.md) | [**postCreateTweet**](doc/PostApi.md#postcreatetweet) | **POST** /1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
-[*PostApi*](doc/PostApi.md) | [**postDeleteRetweet**](doc/PostApi.md#postdeleteretweet) | **POST** /iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
-[*PostApi*](doc/PostApi.md) | [**postDeleteTweet**](doc/PostApi.md#postdeletetweet) | **POST** /VaenaVgh5q5ih7kvyVjgtg/DeleteTweet | 
-[*PostApi*](doc/PostApi.md) | [**postFavoriteTweet**](doc/PostApi.md#postfavoritetweet) | **POST** /lI07N6Otwv1PhnEgXILM7A/FavoriteTweet | 
-[*PostApi*](doc/PostApi.md) | [**postUnfavoriteTweet**](doc/PostApi.md#postunfavoritetweet) | **POST** /ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet | 
-[*TweetApi*](doc/TweetApi.md) | [**getBookmarks**](doc/TweetApi.md#getbookmarks) | **GET** /tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
-[*TweetApi*](doc/TweetApi.md) | [**getHomeLatestTimeline**](doc/TweetApi.md#gethomelatesttimeline) | **GET** /zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
-[*TweetApi*](doc/TweetApi.md) | [**getHomeTimeline**](doc/TweetApi.md#gethometimeline) | **GET** /HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
-[*TweetApi*](doc/TweetApi.md) | [**getLikes**](doc/TweetApi.md#getlikes) | **GET** /5fmEkRT-1AdHqEsbVgehMg/Likes | 
-[*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
-[*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
-[*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
-[*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /HuTx74BxAnezK1gWvYY7zg/UserTweets | 
-[*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
-[*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
-[*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /djdTXDIk2qhd4OStqlUFeQ/Followers | 
-[*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /IWP6Zt14sARO29lJT35bBw/Following | 
+[*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /graphql/9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
+[*PostApi*](doc/PostApi.md) | [**postCreateRetweet**](doc/PostApi.md#postcreateretweet) | **POST** /graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
+[*PostApi*](doc/PostApi.md) | [**postCreateTweet**](doc/PostApi.md#postcreatetweet) | **POST** /graphql/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
+[*PostApi*](doc/PostApi.md) | [**postDeleteRetweet**](doc/PostApi.md#postdeleteretweet) | **POST** /graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
+[*PostApi*](doc/PostApi.md) | [**postDeleteTweet**](doc/PostApi.md#postdeletetweet) | **POST** /graphql/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet | 
+[*PostApi*](doc/PostApi.md) | [**postFavoriteTweet**](doc/PostApi.md#postfavoritetweet) | **POST** /graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet | 
+[*PostApi*](doc/PostApi.md) | [**postUnfavoriteTweet**](doc/PostApi.md#postunfavoritetweet) | **POST** /graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet | 
+[*TweetApi*](doc/TweetApi.md) | [**getBookmarks**](doc/TweetApi.md#getbookmarks) | **GET** /graphql/tmd4ifV8RHltzn8ymGg1aw/Bookmarks | 
+[*TweetApi*](doc/TweetApi.md) | [**getHomeLatestTimeline**](doc/TweetApi.md#gethomelatesttimeline) | **GET** /graphql/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getHomeTimeline**](doc/TweetApi.md#gethometimeline) | **GET** /graphql/HCosKfLNW1AcOo3la3mMgg/HomeTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getLikes**](doc/TweetApi.md#getlikes) | **GET** /graphql/5fmEkRT-1AdHqEsbVgehMg/Likes | 
+[*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /graphql/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /graphql/wNNG8DBB8EaXw1lq4vFWGA/TweetDetail | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /graphql/YqiE3JL1KNgf9nSljYdxaA/UserMedia | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /graphql/HuTx74BxAnezK1gWvYY7zg/UserTweets | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /graphql/RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies | 
+[*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /graphql/sLVLhk0bGj3MVFEKTdax1w/UserByScreenName | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /graphql/djdTXDIk2qhd4OStqlUFeQ/Followers | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /graphql/IWP6Zt14sARO29lJT35bBw/Following | 
+[*V11GetApi*](doc/V11GetApi.md) | [**getFriendsFollowingList**](doc/V11GetApi.md#getfriendsfollowinglist) | **GET** /1.1/friends/following/list.json | 
+[*V11GetApi*](doc/V11GetApi.md) | [**getSearchTypeahead**](doc/V11GetApi.md#getsearchtypeahead) | **GET** /1.1/search/typeahead.json | 
+[*V11PostApi*](doc/V11PostApi.md) | [**postCreateFriendships**](doc/V11PostApi.md#postcreatefriendships) | **POST** /1.1/friendships/create.json | 
+[*V11PostApi*](doc/V11PostApi.md) | [**postDestroyFriendships**](doc/V11PostApi.md#postdestroyfriendships) | **POST** /1.1/friendships/destroy.json | 
+[*V20GetApi*](doc/V20GetApi.md) | [**getSearchAdaptive**](doc/V20GetApi.md#getsearchadaptive) | **GET** /2/search/adaptive.json | 
 
 
 ## Documentation For Models
@@ -135,16 +140,22 @@ Class | Method | HTTP request | Description
  - [MediaOriginalInfo](doc/MediaOriginalInfo.md)
  - [ModuleEntry](doc/ModuleEntry.md)
  - [ModuleItem](doc/ModuleItem.md)
+ - [PostCreateFriendshipsRequest](doc/PostCreateFriendshipsRequest.md)
  - [PostCreateRetweetRequest](doc/PostCreateRetweetRequest.md)
  - [PostCreateTweetRequest](doc/PostCreateTweetRequest.md)
+ - [PostCreateTweetRequestFeatures](doc/PostCreateTweetRequestFeatures.md)
+ - [PostCreateTweetRequestVariables](doc/PostCreateTweetRequestVariables.md)
+ - [PostCreateTweetRequestVariablesMedia](doc/PostCreateTweetRequestVariablesMedia.md)
  - [PostDeleteRetweetRequest](doc/PostDeleteRetweetRequest.md)
+ - [PostDeleteRetweetRequestVariables](doc/PostDeleteRetweetRequestVariables.md)
  - [PostDeleteTweetRequest](doc/PostDeleteTweetRequest.md)
+ - [PostDeleteTweetRequestVariables](doc/PostDeleteTweetRequestVariables.md)
  - [PostFavoriteTweetRequest](doc/PostFavoriteTweetRequest.md)
  - [PostUnfavoriteTweetRequest](doc/PostUnfavoriteTweetRequest.md)
  - [ProfileResponse](doc/ProfileResponse.md)
  - [ProfileResponseData](doc/ProfileResponseData.md)
  - [Retweet](doc/Retweet.md)
- - [RetweetLegacyInner](doc/RetweetLegacyInner.md)
+ - [RetweetLegacy](doc/RetweetLegacy.md)
  - [SocialContext](doc/SocialContext.md)
  - [Timeline](doc/Timeline.md)
  - [TimelineAddEntries](doc/TimelineAddEntries.md)
