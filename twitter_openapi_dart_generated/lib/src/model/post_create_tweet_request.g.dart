@@ -8,18 +8,26 @@ part of 'post_create_tweet_request.dart';
 
 class _$PostCreateTweetRequest extends PostCreateTweetRequest {
   @override
-  final PostCreateTweetRequestFeatures? features;
+  final PostCreateTweetRequestFeatures features;
   @override
-  final String? queryId;
+  final String queryId;
   @override
-  final PostCreateTweetRequestVariables? variables;
+  final PostCreateTweetRequestVariables variables;
 
   factory _$PostCreateTweetRequest(
           [void Function(PostCreateTweetRequestBuilder)? updates]) =>
       (new PostCreateTweetRequestBuilder()..update(updates))._build();
 
-  _$PostCreateTweetRequest._({this.features, this.queryId, this.variables})
-      : super._();
+  _$PostCreateTweetRequest._(
+      {required this.features, required this.queryId, required this.variables})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        features, r'PostCreateTweetRequest', 'features');
+    BuiltValueNullFieldError.checkNotNull(
+        queryId, r'PostCreateTweetRequest', 'queryId');
+    BuiltValueNullFieldError.checkNotNull(
+        variables, r'PostCreateTweetRequest', 'variables');
+  }
 
   @override
   PostCreateTweetRequest rebuild(
@@ -86,9 +94,9 @@ class PostCreateTweetRequestBuilder
   PostCreateTweetRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _features = $v.features?.toBuilder();
+      _features = $v.features.toBuilder();
       _queryId = $v.queryId;
-      _variables = $v.variables?.toBuilder();
+      _variables = $v.variables.toBuilder();
       _$v = null;
     }
     return this;
@@ -113,17 +121,18 @@ class PostCreateTweetRequestBuilder
     try {
       _$result = _$v ??
           new _$PostCreateTweetRequest._(
-              features: _features?.build(),
-              queryId: queryId,
-              variables: _variables?.build());
+              features: features.build(),
+              queryId: BuiltValueNullFieldError.checkNotNull(
+                  queryId, r'PostCreateTweetRequest', 'queryId'),
+              variables: variables.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'features';
-        _features?.build();
+        features.build();
 
         _$failedField = 'variables';
-        _variables?.build();
+        variables.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'PostCreateTweetRequest', _$failedField, e.toString());

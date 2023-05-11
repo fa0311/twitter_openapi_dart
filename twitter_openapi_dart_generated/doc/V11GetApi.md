@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getFriendsFollowingList**
-> getFriendsFollowingList(includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount)
+> getFriendsFollowingList(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount)
 
 
 
@@ -37,6 +37,10 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
+final String userAgent = userAgent_example; // String | 
+final String authorization = authorization_example; // String | 
+final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
+final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String includeProfileInterstitialType = 1; // String | 
 final String includeBlocking = 1; // String | 
 final String includeBlockedBy = 1; // String | 
@@ -51,12 +55,12 @@ final String includeExtVerifiedType = 1; // String |
 final String includeExtProfileImageShape = 1; // String | 
 final String skipStatus = 1; // String | 
 final String cursor = -1; // String | 
-final String userId = 17152334; // String | 
+final String userId = "44196397"; // String | 
 final String count = 3; // String | 
 final String withTotalCount = true; // String | 
 
 try {
-    api.getFriendsFollowingList(includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
+    api.getFriendsFollowingList(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
 } catch on DioError (e) {
     print('Exception when calling V11GetApi->getFriendsFollowingList: $e\n');
 }
@@ -66,6 +70,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
+ **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
+ **xTwitterActiveUser** | **String**|  | [default to 'yes']
+ **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **includeProfileInterstitialType** | **String**|  | [default to '1']
  **includeBlocking** | **String**|  | [default to '1']
  **includeBlockedBy** | **String**|  | [default to '1']
@@ -80,7 +88,7 @@ Name | Type | Description  | Notes
  **includeExtProfileImageShape** | **String**|  | [default to '1']
  **skipStatus** | **String**|  | [default to '1']
  **cursor** | **String**|  | [default to '-1']
- **userId** | **String**|  | [default to '17152334']
+ **userId** | **String**|  | [default to '"44196397"']
  **count** | **String**|  | [default to '3']
  **withTotalCount** | **String**|  | [default to 'true']
 
@@ -100,7 +108,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSearchTypeahead**
-> getSearchTypeahead(includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType)
+> getSearchTypeahead(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType)
 
 
 
@@ -123,15 +131,19 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CsrfToken').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
+final String userAgent = userAgent_example; // String | 
+final String authorization = authorization_example; // String | 
+final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
+final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final String includeExtIsBlueVerified = 1; // String | 
 final String includeExtVerifiedType = 1; // String | 
 final String includeExtProfileImageShape = 1; // String | 
-final String q = "aaa"; // String | 
+final String q = "test"; // String | 
 final String src = "search_box"; // String | 
 final String resultType = "events,users,topics"; // String | 
 
 try {
-    api.getSearchTypeahead(includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
+    api.getSearchTypeahead(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
 } catch on DioError (e) {
     print('Exception when calling V11GetApi->getSearchTypeahead: $e\n');
 }
@@ -141,10 +153,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
+ **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
+ **xTwitterActiveUser** | **String**|  | [default to 'yes']
+ **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **includeExtIsBlueVerified** | **String**|  | [default to '1']
  **includeExtVerifiedType** | **String**|  | [default to '1']
  **includeExtProfileImageShape** | **String**|  | [default to '1']
- **q** | **String**|  | [default to '"aaa"']
+ **q** | **String**|  | [default to '"test"']
  **src** | **String**|  | [default to '"search_box"']
  **resultType** | **String**|  | [default to '"events,users,topics"']
 

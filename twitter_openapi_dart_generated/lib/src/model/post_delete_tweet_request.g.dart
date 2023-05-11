@@ -8,15 +8,21 @@ part of 'post_delete_tweet_request.dart';
 
 class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   @override
-  final String? queryId;
+  final String queryId;
   @override
-  final PostDeleteTweetRequestVariables? variables;
+  final PostDeleteTweetRequestVariables variables;
 
   factory _$PostDeleteTweetRequest(
           [void Function(PostDeleteTweetRequestBuilder)? updates]) =>
       (new PostDeleteTweetRequestBuilder()..update(updates))._build();
 
-  _$PostDeleteTweetRequest._({this.queryId, this.variables}) : super._();
+  _$PostDeleteTweetRequest._({required this.queryId, required this.variables})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        queryId, r'PostDeleteTweetRequest', 'queryId');
+    BuiltValueNullFieldError.checkNotNull(
+        variables, r'PostDeleteTweetRequest', 'variables');
+  }
 
   @override
   PostDeleteTweetRequest rebuild(
@@ -75,7 +81,7 @@ class PostDeleteTweetRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _queryId = $v.queryId;
-      _variables = $v.variables?.toBuilder();
+      _variables = $v.variables.toBuilder();
       _$v = null;
     }
     return this;
@@ -100,12 +106,14 @@ class PostDeleteTweetRequestBuilder
     try {
       _$result = _$v ??
           new _$PostDeleteTweetRequest._(
-              queryId: queryId, variables: _variables?.build());
+              queryId: BuiltValueNullFieldError.checkNotNull(
+                  queryId, r'PostDeleteTweetRequest', 'queryId'),
+              variables: variables.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'variables';
-        _variables?.build();
+        variables.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'PostDeleteTweetRequest', _$failedField, e.toString());

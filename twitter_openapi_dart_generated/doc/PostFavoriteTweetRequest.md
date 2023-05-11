@@ -8,8 +8,8 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**queryId** | **String** |  | [optional] [default to 'lI07N6Otwv1PhnEgXILM7A']
-**variables** | [**PostDeleteTweetRequestVariables**](PostDeleteTweetRequestVariables.md) |  | [optional] 
+**queryId** | **String** |  | [default to 'lI07N6Otwv1PhnEgXILM7A']
+**variables** | [**PostDeleteTweetRequestVariables**](PostDeleteTweetRequestVariables.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

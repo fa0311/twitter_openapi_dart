@@ -19,13 +19,13 @@ part 'post_create_tweet_request.g.dart';
 @BuiltValue()
 abstract class PostCreateTweetRequest implements Built<PostCreateTweetRequest, PostCreateTweetRequestBuilder> {
   @BuiltValueField(wireName: r'features')
-  PostCreateTweetRequestFeatures? get features;
+  PostCreateTweetRequestFeatures get features;
 
   @BuiltValueField(wireName: r'queryId')
-  String? get queryId;
+  String get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  PostCreateTweetRequestVariables? get variables;
+  PostCreateTweetRequestVariables get variables;
 
   PostCreateTweetRequest._();
 
@@ -51,27 +51,21 @@ class _$PostCreateTweetRequestSerializer implements PrimitiveSerializer<PostCrea
     PostCreateTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.features != null) {
-      yield r'features';
-      yield serializers.serialize(
-        object.features,
-        specifiedType: const FullType(PostCreateTweetRequestFeatures),
-      );
-    }
-    if (object.queryId != null) {
-      yield r'queryId';
-      yield serializers.serialize(
-        object.queryId,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.variables != null) {
-      yield r'variables';
-      yield serializers.serialize(
-        object.variables,
-        specifiedType: const FullType(PostCreateTweetRequestVariables),
-      );
-    }
+    yield r'features';
+    yield serializers.serialize(
+      object.features,
+      specifiedType: const FullType(PostCreateTweetRequestFeatures),
+    );
+    yield r'queryId';
+    yield serializers.serialize(
+      object.queryId,
+      specifiedType: const FullType(String),
+    );
+    yield r'variables';
+    yield serializers.serialize(
+      object.variables,
+      specifiedType: const FullType(PostCreateTweetRequestVariables),
+    );
   }
 
   @override

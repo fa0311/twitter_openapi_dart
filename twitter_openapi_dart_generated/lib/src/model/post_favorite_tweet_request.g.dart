@@ -8,15 +8,21 @@ part of 'post_favorite_tweet_request.dart';
 
 class _$PostFavoriteTweetRequest extends PostFavoriteTweetRequest {
   @override
-  final String? queryId;
+  final String queryId;
   @override
-  final PostDeleteTweetRequestVariables? variables;
+  final PostDeleteTweetRequestVariables variables;
 
   factory _$PostFavoriteTweetRequest(
           [void Function(PostFavoriteTweetRequestBuilder)? updates]) =>
       (new PostFavoriteTweetRequestBuilder()..update(updates))._build();
 
-  _$PostFavoriteTweetRequest._({this.queryId, this.variables}) : super._();
+  _$PostFavoriteTweetRequest._({required this.queryId, required this.variables})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        queryId, r'PostFavoriteTweetRequest', 'queryId');
+    BuiltValueNullFieldError.checkNotNull(
+        variables, r'PostFavoriteTweetRequest', 'variables');
+  }
 
   @override
   PostFavoriteTweetRequest rebuild(
@@ -76,7 +82,7 @@ class PostFavoriteTweetRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _queryId = $v.queryId;
-      _variables = $v.variables?.toBuilder();
+      _variables = $v.variables.toBuilder();
       _$v = null;
     }
     return this;
@@ -101,12 +107,14 @@ class PostFavoriteTweetRequestBuilder
     try {
       _$result = _$v ??
           new _$PostFavoriteTweetRequest._(
-              queryId: queryId, variables: _variables?.build());
+              queryId: BuiltValueNullFieldError.checkNotNull(
+                  queryId, r'PostFavoriteTweetRequest', 'queryId'),
+              variables: variables.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'variables';
-        _variables?.build();
+        variables.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'PostFavoriteTweetRequest', _$failedField, e.toString());

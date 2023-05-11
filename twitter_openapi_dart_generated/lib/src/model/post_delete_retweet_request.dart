@@ -17,10 +17,10 @@ part 'post_delete_retweet_request.g.dart';
 @BuiltValue()
 abstract class PostDeleteRetweetRequest implements Built<PostDeleteRetweetRequest, PostDeleteRetweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
-  String? get queryId;
+  String get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  PostDeleteRetweetRequestVariables? get variables;
+  PostDeleteRetweetRequestVariables get variables;
 
   PostDeleteRetweetRequest._();
 
@@ -46,20 +46,16 @@ class _$PostDeleteRetweetRequestSerializer implements PrimitiveSerializer<PostDe
     PostDeleteRetweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.queryId != null) {
-      yield r'queryId';
-      yield serializers.serialize(
-        object.queryId,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.variables != null) {
-      yield r'variables';
-      yield serializers.serialize(
-        object.variables,
-        specifiedType: const FullType(PostDeleteRetweetRequestVariables),
-      );
-    }
+    yield r'queryId';
+    yield serializers.serialize(
+      object.queryId,
+      specifiedType: const FullType(String),
+    );
+    yield r'variables';
+    yield serializers.serialize(
+      object.variables,
+      specifiedType: const FullType(PostDeleteRetweetRequestVariables),
+    );
   }
 
   @override

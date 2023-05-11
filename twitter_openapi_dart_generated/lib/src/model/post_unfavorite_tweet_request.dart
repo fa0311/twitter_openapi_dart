@@ -17,10 +17,10 @@ part 'post_unfavorite_tweet_request.g.dart';
 @BuiltValue()
 abstract class PostUnfavoriteTweetRequest implements Built<PostUnfavoriteTweetRequest, PostUnfavoriteTweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
-  String? get queryId;
+  String get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  PostDeleteTweetRequestVariables? get variables;
+  PostDeleteTweetRequestVariables get variables;
 
   PostUnfavoriteTweetRequest._();
 
@@ -46,20 +46,16 @@ class _$PostUnfavoriteTweetRequestSerializer implements PrimitiveSerializer<Post
     PostUnfavoriteTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.queryId != null) {
-      yield r'queryId';
-      yield serializers.serialize(
-        object.queryId,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.variables != null) {
-      yield r'variables';
-      yield serializers.serialize(
-        object.variables,
-        specifiedType: const FullType(PostDeleteTweetRequestVariables),
-      );
-    }
+    yield r'queryId';
+    yield serializers.serialize(
+      object.queryId,
+      specifiedType: const FullType(String),
+    );
+    yield r'variables';
+    yield serializers.serialize(
+      object.variables,
+      specifiedType: const FullType(PostDeleteTweetRequestVariables),
+    );
   }
 
   @override

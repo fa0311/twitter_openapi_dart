@@ -21,6 +21,10 @@ class V20GetApi {
   /// get search adaptive
   ///
   /// Parameters:
+  /// * [userAgent] 
+  /// * [authorization] 
+  /// * [xTwitterActiveUser] 
+  /// * [xTwitterClientLanguage] 
   /// * [includeProfileInterstitialType] 
   /// * [includeBlocking] 
   /// * [includeBlockedBy] 
@@ -68,6 +72,10 @@ class V20GetApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> getSearchAdaptive({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    String xTwitterActiveUser = 'yes',
+    String xTwitterClientLanguage = 'en',
     String includeProfileInterstitialType = '1',
     String includeBlocking = '1',
     String includeBlockedBy = '1',
@@ -116,6 +124,10 @@ class V20GetApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
+        r'authorization': authorization,
+        r'x-twitter-active-user': xTwitterActiveUser,
+        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{

@@ -8,15 +8,21 @@ part of 'post_create_retweet_request.dart';
 
 class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   @override
-  final String? queryId;
+  final String queryId;
   @override
-  final PostDeleteTweetRequestVariables? variables;
+  final PostDeleteTweetRequestVariables variables;
 
   factory _$PostCreateRetweetRequest(
           [void Function(PostCreateRetweetRequestBuilder)? updates]) =>
       (new PostCreateRetweetRequestBuilder()..update(updates))._build();
 
-  _$PostCreateRetweetRequest._({this.queryId, this.variables}) : super._();
+  _$PostCreateRetweetRequest._({required this.queryId, required this.variables})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        queryId, r'PostCreateRetweetRequest', 'queryId');
+    BuiltValueNullFieldError.checkNotNull(
+        variables, r'PostCreateRetweetRequest', 'variables');
+  }
 
   @override
   PostCreateRetweetRequest rebuild(
@@ -76,7 +82,7 @@ class PostCreateRetweetRequestBuilder
     final $v = _$v;
     if ($v != null) {
       _queryId = $v.queryId;
-      _variables = $v.variables?.toBuilder();
+      _variables = $v.variables.toBuilder();
       _$v = null;
     }
     return this;
@@ -101,12 +107,14 @@ class PostCreateRetweetRequestBuilder
     try {
       _$result = _$v ??
           new _$PostCreateRetweetRequest._(
-              queryId: queryId, variables: _variables?.build());
+              queryId: BuiltValueNullFieldError.checkNotNull(
+                  queryId, r'PostCreateRetweetRequest', 'queryId'),
+              variables: variables.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'variables';
-        _variables?.build();
+        variables.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'PostCreateRetweetRequest', _$failedField, e.toString());

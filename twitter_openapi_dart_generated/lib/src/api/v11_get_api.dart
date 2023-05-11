@@ -21,6 +21,10 @@ class V11GetApi {
   /// get friends following list
   ///
   /// Parameters:
+  /// * [userAgent] 
+  /// * [authorization] 
+  /// * [xTwitterActiveUser] 
+  /// * [xTwitterClientLanguage] 
   /// * [includeProfileInterstitialType] 
   /// * [includeBlocking] 
   /// * [includeBlockedBy] 
@@ -48,6 +52,10 @@ class V11GetApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> getFriendsFollowingList({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    String xTwitterActiveUser = 'yes',
+    String xTwitterClientLanguage = 'en',
     String includeProfileInterstitialType = '1',
     String includeBlocking = '1',
     String includeBlockedBy = '1',
@@ -62,7 +70,7 @@ class V11GetApi {
     String includeExtProfileImageShape = '1',
     String skipStatus = '1',
     String cursor = '-1',
-    String userId = '17152334',
+    String userId = '"44196397"',
     String count = '3',
     String withTotalCount = 'true',
     CancelToken? cancelToken,
@@ -76,6 +84,10 @@ class V11GetApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
+        r'authorization': authorization,
+        r'x-twitter-active-user': xTwitterActiveUser,
+        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -138,6 +150,10 @@ class V11GetApi {
   /// get search typeahead
   ///
   /// Parameters:
+  /// * [userAgent] 
+  /// * [authorization] 
+  /// * [xTwitterActiveUser] 
+  /// * [xTwitterClientLanguage] 
   /// * [includeExtIsBlueVerified] 
   /// * [includeExtVerifiedType] 
   /// * [includeExtProfileImageShape] 
@@ -154,10 +170,14 @@ class V11GetApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> getSearchTypeahead({ 
+    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+    String xTwitterActiveUser = 'yes',
+    String xTwitterClientLanguage = 'en',
     String includeExtIsBlueVerified = '1',
     String includeExtVerifiedType = '1',
     String includeExtProfileImageShape = '1',
-    String q = '"aaa"',
+    String q = '"test"',
     String src = '"search_box"',
     String resultType = '"events,users,topics"',
     CancelToken? cancelToken,
@@ -171,6 +191,10 @@ class V11GetApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
+        r'user-agent': userAgent,
+        r'authorization': authorization,
+        r'x-twitter-active-user': xTwitterActiveUser,
+        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
