@@ -22,6 +22,7 @@ class HeaderAuth extends Interceptor {
     options.headers.addAll(<String, String>{
       "x-csrf-token": cookies.entries.firstWhere((e) => e.key == HeaderAuth.ct0).value,
       "cookie": cookies.entries.fold("", (a, b) => "${a}${b.key}=${b.value};"),
+      // "x-client-uuid": "",
     });
     return handler.next(options);
   }
@@ -260,7 +261,42 @@ void main() async {
     expect(response.data == null, false);
   });
   test('createFriendships', () async {
-    final response = await client.getV11PostApi().postCreateFriendships();
+    final response = await client.getV11PostApi().postCreateFriendships(
+          includeBlockedBy: 1,
+          includeBlocking: 1,
+          includeCanDm: 1,
+          includeCanMediaTag: 1,
+          includeExtHasNftAvatar: 1,
+          includeExtIsBlueVerified: 1,
+          includeExtProfileImageShape: 1,
+          includeExtVerifiedType: 1,
+          includeFollowedBy: 1,
+          includeMuteEdge: 1,
+          includeProfileInterstitialType: 1,
+          includeWantRetweets: 1,
+          skipStatus: 1,
+          userId: "44196397",
+        );
+    print(response);
+    expect(response.statusCode, 200);
+  });
+  test('destroyFriendships', () async {
+    final response = await client.getV11PostApi().postDestroyFriendships(
+          includeBlockedBy: 1,
+          includeBlocking: 1,
+          includeCanDm: 1,
+          includeCanMediaTag: 1,
+          includeExtHasNftAvatar: 1,
+          includeExtIsBlueVerified: 1,
+          includeExtProfileImageShape: 1,
+          includeExtVerifiedType: 1,
+          includeFollowedBy: 1,
+          includeMuteEdge: 1,
+          includeProfileInterstitialType: 1,
+          includeWantRetweets: 1,
+          skipStatus: 1,
+          userId: "44196397",
+        );
     print(response);
     expect(response.statusCode, 200);
   });
