@@ -41,23 +41,23 @@ final String userAgent = userAgent_example; // String |
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String includeProfileInterstitialType = 1; // String | 
-final String includeBlocking = 1; // String | 
-final String includeBlockedBy = 1; // String | 
-final String includeFollowedBy = 1; // String | 
-final String includeWantRetweets = 1; // String | 
-final String includeMuteEdge = 1; // String | 
-final String includeCanDm = 1; // String | 
-final String includeCanMediaTag = 1; // String | 
-final String includeExtHasNftAvatar = 1; // String | 
-final String includeExtIsBlueVerified = 1; // String | 
-final String includeExtVerifiedType = 1; // String | 
-final String includeExtProfileImageShape = 1; // String | 
-final String skipStatus = 1; // String | 
-final String cursor = -1; // String | 
-final String userId = "44196397"; // String | 
-final String count = 3; // String | 
-final String withTotalCount = true; // String | 
+final int includeProfileInterstitialType = 1; // int | 
+final int includeBlocking = 1; // int | 
+final int includeBlockedBy = 1; // int | 
+final int includeFollowedBy = 1; // int | 
+final int includeWantRetweets = 1; // int | 
+final int includeMuteEdge = 1; // int | 
+final int includeCanDm = 1; // int | 
+final int includeCanMediaTag = 1; // int | 
+final int includeExtHasNftAvatar = 1; // int | 
+final int includeExtIsBlueVerified = 1; // int | 
+final int includeExtVerifiedType = 1; // int | 
+final int includeExtProfileImageShape = 1; // int | 
+final int skipStatus = 1; // int | 
+final int cursor = -1; // int | 
+final String userId = 44196397; // String | 
+final int count = 3; // int | 
+final bool withTotalCount = true; // bool | 
 
 try {
     api.getFriendsFollowingList(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
@@ -74,23 +74,23 @@ Name | Type | Description  | Notes
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **includeProfileInterstitialType** | **String**|  | [default to '1']
- **includeBlocking** | **String**|  | [default to '1']
- **includeBlockedBy** | **String**|  | [default to '1']
- **includeFollowedBy** | **String**|  | [default to '1']
- **includeWantRetweets** | **String**|  | [default to '1']
- **includeMuteEdge** | **String**|  | [default to '1']
- **includeCanDm** | **String**|  | [default to '1']
- **includeCanMediaTag** | **String**|  | [default to '1']
- **includeExtHasNftAvatar** | **String**|  | [default to '1']
- **includeExtIsBlueVerified** | **String**|  | [default to '1']
- **includeExtVerifiedType** | **String**|  | [default to '1']
- **includeExtProfileImageShape** | **String**|  | [default to '1']
- **skipStatus** | **String**|  | [default to '1']
- **cursor** | **String**|  | [default to '-1']
- **userId** | **String**|  | [default to '"44196397"']
- **count** | **String**|  | [default to '3']
- **withTotalCount** | **String**|  | [default to 'true']
+ **includeProfileInterstitialType** | **int**|  | [default to 1]
+ **includeBlocking** | **int**|  | [default to 1]
+ **includeBlockedBy** | **int**|  | [default to 1]
+ **includeFollowedBy** | **int**|  | [default to 1]
+ **includeWantRetweets** | **int**|  | [default to 1]
+ **includeMuteEdge** | **int**|  | [default to 1]
+ **includeCanDm** | **int**|  | [default to 1]
+ **includeCanMediaTag** | **int**|  | [default to 1]
+ **includeExtHasNftAvatar** | **int**|  | [default to 1]
+ **includeExtIsBlueVerified** | **int**|  | [default to 1]
+ **includeExtVerifiedType** | **int**|  | [default to 1]
+ **includeExtProfileImageShape** | **int**|  | [default to 1]
+ **skipStatus** | **int**|  | [default to 1]
+ **cursor** | **int**|  | [default to -1]
+ **userId** | **String**|  | [default to '44196397']
+ **count** | **int**|  | [default to 3]
+ **withTotalCount** | **bool**|  | [default to true]
 
 ### Return type
 
@@ -135,12 +135,12 @@ final String userAgent = userAgent_example; // String |
 final String authorization = authorization_example; // String | 
 final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
 final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
-final String includeExtIsBlueVerified = 1; // String | 
-final String includeExtVerifiedType = 1; // String | 
-final String includeExtProfileImageShape = 1; // String | 
-final String q = "test"; // String | 
-final String src = "search_box"; // String | 
-final String resultType = "events,users,topics"; // String | 
+final int includeExtIsBlueVerified = 1; // int | 
+final int includeExtVerifiedType = 1; // int | 
+final int includeExtProfileImageShape = 1; // int | 
+final String q = test; // String | 
+final String src = search_box; // String | 
+final String resultType = events,users,topics; // String | 
 
 try {
     api.getSearchTypeahead(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
@@ -157,12 +157,12 @@ Name | Type | Description  | Notes
  **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
  **xTwitterActiveUser** | **String**|  | [default to 'yes']
  **xTwitterClientLanguage** | **String**|  | [default to 'en']
- **includeExtIsBlueVerified** | **String**|  | [default to '1']
- **includeExtVerifiedType** | **String**|  | [default to '1']
- **includeExtProfileImageShape** | **String**|  | [default to '1']
- **q** | **String**|  | [default to '"test"']
- **src** | **String**|  | [default to '"search_box"']
- **resultType** | **String**|  | [default to '"events,users,topics"']
+ **includeExtIsBlueVerified** | **int**|  | [default to 1]
+ **includeExtVerifiedType** | **int**|  | [default to 1]
+ **includeExtProfileImageShape** | **int**|  | [default to 1]
+ **q** | **String**|  | [default to 'test']
+ **src** | **String**|  | [default to 'search_box']
+ **resultType** | **String**|  | [default to 'events,users,topics']
 
 ### Return type
 
