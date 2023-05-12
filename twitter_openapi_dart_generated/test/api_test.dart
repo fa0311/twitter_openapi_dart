@@ -300,4 +300,24 @@ void main() async {
     print(response);
     expect(response.statusCode, 200);
   });
+
+  test('friendsFollowingList', () async {
+    final response = await client.getV11GetApi().getFriendsFollowingList(
+          userId: "44196397",
+        );
+    print(response);
+    expect(response.statusCode, 200);
+  });
+
+  test('searchTypeahead', () async {
+    final response = await client.getV11GetApi().getSearchTypeahead(q: "japan");
+    print(response);
+    expect(response.statusCode, 200);
+  });
+
+  test('searchAdaptive', () async {
+    final response = await client.getV20GetApi().getSearchAdaptive(q: "japan");
+    print(response);
+    expect(response.statusCode, 200);
+  });
 }
