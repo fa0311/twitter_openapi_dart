@@ -12,7 +12,7 @@ class ApiSelectPage extends StatefulWidget {
     required this.limitedMode,
   });
 
-  final TwitterOpenapiDart client;
+  final TwitterOpenapiDartClient client;
   final bool limitedMode;
 
   @override
@@ -23,8 +23,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
   List<TweetApiUtils> tweetList = [];
 
   Future getInitialStateApi() async {
-    final initialState = widget.client.getTwitterInitialStateDart();
-    final home = await initialState.getInitialStateApi().getHome();
+    final home = await widget.client.getInitialStateApi().getHome();
 
     return Navigator.of(context).push(
       MaterialPageRoute(

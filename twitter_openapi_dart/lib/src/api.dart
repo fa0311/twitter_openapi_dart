@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
 import 'package:twitter_openapi_dart/src/api/initial_state_api.dart';
@@ -13,46 +12,101 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:twitter_openapi_dart/src/auth/header.dart';
 
+class InterceptorWrap {
+  final Interceptor interceptor;
+  final bool apiOnly;
+
+  InterceptorWrap(this.interceptor, {this.apiOnly = false});
+}
+
 class TwitterOpenapiDart {
-  TwitterOpenapiDartGenerated api;
+  static String hash = "d5ccc25869b68cbb39c68fa81a1fa77967a667da";
+  static Uri placeholderUrl = Uri.https("raw.githubusercontent.com", "/fa0311/twitter-openapi/$hash/src/config/placeholder.json");
+  static Map<String, dynamic> placeholder = {};
 
   static Uri base = Uri.https("twitter.com", "/");
   static Uri home = base.resolve("home");
-  static String hash = "5b65f7658cef13d9d55a2694fc96f98e81d2ba18";
-  static Uri placeholderUrl = Uri.https("raw.githubusercontent.com", "/fa0311/twitter-openapi/$hash/src/config/placeholder.json");
 
-  static Future<Map<String, dynamic>> flag =
-      Dio().requestUri(placeholderUrl, options: Options(method: "GET")).then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
+  final List<InterceptorWrap> beforInterceptorsWrap = [];
+  final List<InterceptorWrap> afterInterceptorsWrap = [];
 
-  Dio get dio => api.dio;
+  TwitterOpenapiDart();
 
-  TwitterOpenapiDart.fromCookies({
-    required String ct0,
-    required String authToken,
-  }) : api = TwitterOpenapiDartGenerated() {
+  Future<CookieJar> getCookieJar() async {
     final cookie = CookieJar();
+    final dio = Dio()..interceptors.add(CookieManager(cookie));
+    await dio.requestUri(
+      TwitterOpenapiDart.base,
+      options: Options(
+        followRedirects: false,
+        validateStatus: (status) => status == null ? false : status < 400,
+        method: "GET",
+      ),
+    );
+    await cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", "38caa71559e4e4ee20b2db177bf6bccc")]);
+    return cookie;
+  }
+
+  Future<TwitterOpenapiDartClient> getTwitterOpenapiDartClient({List<InterceptorWrap> interceptor = const []}) async {
+    return TwitterOpenapiDartClient(
+      api: TwitterOpenapiDartGenerated(),
+      flag: await getPlaceholder(),
+      interceptorWrap: [...beforInterceptorsWrap, ...interceptor, ...afterInterceptorsWrap],
+    );
+  }
+
+  Future<TwitterOpenapiDartClient> getClient() async {
+    final cookie = await getCookieJar();
+    final interceptor = [
+      InterceptorWrap(CookieManager(cookie)),
+      InterceptorWrap(HeaderAuth(), apiOnly: true),
+    ];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
+  }
+
+  Future<TwitterOpenapiDartClient> getClientFromCookies({required String ct0, required String authToken}) async {
+    final cookie = await getCookieJar();
     cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
-    dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
+    final interceptor = [
+      InterceptorWrap(CookieManager(cookie)),
+      InterceptorWrap(HeaderAuth(), apiOnly: true),
+    ];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
-  TwitterOpenapiDart.fromCookiesPath(
-    String cookiePath,
-  ) : api = TwitterOpenapiDartGenerated() {
+  Future<TwitterOpenapiDartClient> getClientFromCookiePath(String cookiePath) async {
     final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
-    dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
+    final interceptor = [
+      InterceptorWrap(CookieManager(cookie)),
+      InterceptorWrap(HeaderAuth(), apiOnly: true),
+    ];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
-  TwitterOpenapiDart.fromCookieJar(
-    CookieJar cookie,
-  ) : api = TwitterOpenapiDartGenerated() {
-    dio.interceptors.addAll([CookieManager(cookie), HeaderAuth()]);
+  void addBeforInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
+    beforInterceptorsWrap.add(InterceptorWrap(interceptor, apiOnly: apiOnly));
   }
 
-  TwitterOpenapiDart.fromInterceptors(List<Interceptor> interceptors) : api = TwitterOpenapiDartGenerated() {
-    dio.interceptors.addAll([...interceptors, HeaderAuth()]);
+  void addAfterInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
+    afterInterceptorsWrap.add(InterceptorWrap(interceptor, apiOnly: apiOnly));
   }
 
-  TwitterOpenapiDart.fromApi(this.api);
+  Future<Map<String, dynamic>> getPlaceholder() {
+    return Dio().requestUri(placeholderUrl, options: Options(method: "GET")).then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
+  }
+}
+
+class TwitterOpenapiDartClient {
+  TwitterOpenapiDartGenerated api;
+  Map<String, dynamic> flag = {};
+
+  Dio dio;
+  Dio get dioApi => api.dio;
+
+  TwitterOpenapiDartClient({required this.api, this.flag = const {}, List<InterceptorWrap> interceptorWrap = const []}) : dio = Dio() {
+    dio.interceptors.addAll(interceptorWrap.where((e) => !e.apiOnly).map((e) => e.interceptor));
+    dioApi.interceptors.addAll(interceptorWrap.map((e) => e.interceptor));
+  }
 
   DefaultApiUtils getDefaultApi() {
     return DefaultApiUtils(api.getDefaultApi(), flag);
@@ -70,59 +124,7 @@ class TwitterOpenapiDart {
     return UserListApiUtils(api.getUserListApi(), flag);
   }
 
-  TwitterInitialStateDart getTwitterInitialStateDart() {
-    final api = Dio()
-      ..interceptors.addAll(dio.interceptors.where((e) => e.runtimeType != HeaderAuth))
-      ..options = dio.options
-      ..httpClientAdapter = dio.httpClientAdapter
-      ..transformer = dio.transformer;
-    return TwitterInitialStateDart.fromDio(api);
-  }
-}
-
-class TwitterInitialStateDart {
-  final Dio dio;
-
-  TwitterInitialStateDart.fromCookies({
-    required String ct0,
-    required String authToken,
-  }) : dio = Dio() {
-    final cookie = CookieJar();
-    cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
-    dio.interceptors.addAll([CookieManager(cookie)]);
-  }
-
-  TwitterInitialStateDart.fromCookiesPath(
-    String cookiePath,
-  ) : dio = Dio() {
-    final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
-    dio.interceptors.addAll([CookieManager(cookie)]);
-  }
-
-  TwitterInitialStateDart.fromCookieJar(
-    CookieJar cookie,
-  ) : dio = Dio() {
-    dio.interceptors.addAll([CookieManager(cookie)]);
-  }
-
-  TwitterInitialStateDart.fromInterceptors(List<Interceptor> interceptors) : dio = Dio() {
-    dio.interceptors.addAll([...interceptors]);
-  }
-  TwitterInitialStateDart.fromDio(this.dio);
-
   InitialStateApi getInitialStateApi() {
     return InitialStateApi(dio);
   }
-}
-
-Future<CookieJar> getGuestCookies() async {
-  final cookie = CookieJar();
-  final dio = Dio()..interceptors.add(CookieManager(cookie));
-  await dio.requestUri(TwitterOpenapiDart.base, options: Options(method: "GET"));
-
-  const String charset = '0123456789abcdef';
-  final Random random = Random.secure();
-  final csrfToken = List.generate(32, (_) => charset[random.nextInt(charset.length)]).join();
-  await cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", csrfToken)]);
-  return cookie;
 }

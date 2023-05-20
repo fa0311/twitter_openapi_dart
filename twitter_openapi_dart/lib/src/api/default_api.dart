@@ -4,7 +4,7 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 class DefaultApiUtils {
   final DefaultApi api;
-  final Future<Map<String, dynamic>> flag;
+  final Map<String, dynamic> flag;
 
   const DefaultApiUtils(this.api, this.flag);
 
@@ -13,10 +13,10 @@ class DefaultApiUtils {
     required String key,
     required Map<String, dynamic> param,
   }) async {
-    assert((await flag)[key] != null);
+    assert((flag[key] != null));
     final response = await apiFn(
-      variables: jsonEncode((await flag)[key]!["Variables"]..addAll(param)),
-      features: jsonEncode((await flag)[key]!["Features"]),
+      variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
+      features: jsonEncode(flag[key]!["features"]),
     );
     return response.data!;
   }
