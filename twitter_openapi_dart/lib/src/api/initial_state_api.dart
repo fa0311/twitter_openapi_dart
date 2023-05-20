@@ -7,11 +7,16 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 class InitialStateApi {
   final Dio dio;
+  static const String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36";
 
   const InitialStateApi(this.dio);
 
-  Future<InitialStateApiUtilsResponse> request({required Uri url}) async {
-    final response = await dio.requestUri(url, options: Options(method: "GET"));
+  Future<Response> request({required Uri url}) {
+    return dio.requestUri(url, options: Options(method: "GET", headers: {"User-Agent": userAgent}));
+  }
+
+  Future<InitialStateApiUtilsResponse> getInitialState({required Uri url}) async {
+    final response = await request(url: url);
     const String nonce = r"([a-zA-Z0-9]{48})";
     const String any = r'([\s\S]*?)';
     final js = RegExp('<script type="text/javascript" charset="utf-8" nonce="$nonce">$any</script>').firstMatch(response.data)!.group(2)!;
@@ -49,6 +54,6 @@ class InitialStateApi {
   }
 
   Future<InitialStateApiUtilsResponse> getHome() async {
-    return await request(url: TwitterOpenapiDart.home);
+    return await getInitialState(url: TwitterOpenapiDart.home);
   }
 }

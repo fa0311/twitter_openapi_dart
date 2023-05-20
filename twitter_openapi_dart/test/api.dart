@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 
 const int testCount = 100;
@@ -26,8 +25,8 @@ void printUser(UserApiUtils user) {
 
 Future<TwitterOpenapiDartClient> getClient() async {
   final cookies = (json.decode(await File("test/cookies.json").readAsString()) as Map).cast<String, String>();
-  final client = TwitterOpenapiDart();
+  final api = TwitterOpenapiDart();
+  final client = await api.getClientFromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
   // client.addAfterInterceptor(LogInterceptor(request: false, responseHeader: false));
-
-  return await client.getClientFromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
+  return client;
 }

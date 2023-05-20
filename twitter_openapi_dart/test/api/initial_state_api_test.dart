@@ -8,5 +8,6 @@ main() async {
     final result = await client.getInitialStateApi().getHome();
     expect(result.user == null, false);
     print(result.user!.screenName);
+    print(result.session!.userId);
   });
 }
