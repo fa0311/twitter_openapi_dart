@@ -21,7 +21,7 @@ dependencies:
     git:
       url: https://github.com/fa0311/twitter_openapi_dart.git
       path: twitter_openapi_dart_generated
-      ref: "059add3baef5298998bf92f22766ea5ffb6ef6f0"
+      ref: "d5ccc25869b68cbb39c68fa81a1fa77967a667da"
 
   collection: ^1.17.0
   built_value: ">=8.4.0 <9.0.0"
