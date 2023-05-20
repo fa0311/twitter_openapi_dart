@@ -71,6 +71,7 @@ All URIs are relative to *https://twitter.com/i/api*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 [*DefaultApi*](doc/DefaultApi.md) | [**getProfileSpotlightsQuery**](doc/DefaultApi.md#getprofilespotlightsquery) | **GET** /graphql/9zwVLJ48lmVUk8u_Gh9DmA/ProfileSpotlightsQuery | 
+[*OtherApi*](doc/OtherApi.md) | [**other**](doc/OtherApi.md#other) | **GET** /other | 
 [*PostApi*](doc/PostApi.md) | [**postCreateRetweet**](doc/PostApi.md#postcreateretweet) | **POST** /graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet | 
 [*PostApi*](doc/PostApi.md) | [**postCreateTweet**](doc/PostApi.md#postcreatetweet) | **POST** /graphql/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet | 
 [*PostApi*](doc/PostApi.md) | [**postDeleteRetweet**](doc/PostApi.md#postdeleteretweet) | **POST** /graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet | 
@@ -101,6 +102,7 @@ Class | Method | HTTP request | Description
  - [BookmarksResponse](doc/BookmarksResponse.md)
  - [BookmarksResponseData](doc/BookmarksResponseData.md)
  - [BookmarksTimeline](doc/BookmarksTimeline.md)
+ - [CommunitiesActions](doc/CommunitiesActions.md)
  - [ContentEntryType](doc/ContentEntryType.md)
  - [ContentItemType](doc/ContentItemType.md)
  - [ContentUnion](doc/ContentUnion.md)
@@ -140,6 +142,8 @@ Class | Method | HTTP request | Description
  - [MediaOriginalInfo](doc/MediaOriginalInfo.md)
  - [ModuleEntry](doc/ModuleEntry.md)
  - [ModuleItem](doc/ModuleItem.md)
+ - [OneFactorLoginEligibility](doc/OneFactorLoginEligibility.md)
+ - [OtherResponse](doc/OtherResponse.md)
  - [PostCreateRetweetRequest](doc/PostCreateRetweetRequest.md)
  - [PostCreateTweetRequest](doc/PostCreateTweetRequest.md)
  - [PostCreateTweetRequestFeatures](doc/PostCreateTweetRequestFeatures.md)
@@ -155,6 +159,7 @@ Class | Method | HTTP request | Description
  - [ProfileResponseData](doc/ProfileResponseData.md)
  - [Retweet](doc/Retweet.md)
  - [RetweetLegacy](doc/RetweetLegacy.md)
+ - [Session](doc/Session.md)
  - [SocialContext](doc/SocialContext.md)
  - [Timeline](doc/Timeline.md)
  - [TimelineAddEntries](doc/TimelineAddEntries.md)
@@ -183,6 +188,7 @@ Class | Method | HTTP request | Description
  - [UnfavoriteTweet](doc/UnfavoriteTweet.md)
  - [UnfavoriteTweetResponseData](doc/UnfavoriteTweetResponseData.md)
  - [User](doc/User.md)
+ - [UserFeatures](doc/UserFeatures.md)
  - [UserLegacy](doc/UserLegacy.md)
  - [UserResponse](doc/UserResponse.md)
  - [UserResponseData](doc/UserResponseData.md)

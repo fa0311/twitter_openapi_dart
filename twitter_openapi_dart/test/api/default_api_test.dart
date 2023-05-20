@@ -11,9 +11,4 @@ main() async {
     print("followedBy: ${legacy.followedBy} following: ${legacy.following}");
     expect(0, 0);
   });
-  test('aaaaaaaaaaa', () async {
-    final clientInitialState = client.getTwitterInitialStateDart();
-    final result = await clientInitialState.getInitialStateApi().getHome();
-    final id = result.session;
-  });
 }

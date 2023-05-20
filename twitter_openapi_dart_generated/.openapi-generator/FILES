@@ -3,6 +3,7 @@ README.md
 doc/BookmarksResponse.md
 doc/BookmarksResponseData.md
 doc/BookmarksTimeline.md
+doc/CommunitiesActions.md
 doc/ContentEntryType.md
 doc/ContentItemType.md
 doc/ContentUnion.md
@@ -43,6 +44,9 @@ doc/Media.md
 doc/MediaOriginalInfo.md
 doc/ModuleEntry.md
 doc/ModuleItem.md
+doc/OneFactorLoginEligibility.md
+doc/OtherApi.md
+doc/OtherResponse.md
 doc/PostApi.md
 doc/PostCreateRetweetRequest.md
 doc/PostCreateTweetRequest.md
@@ -59,6 +63,7 @@ doc/ProfileResponse.md
 doc/ProfileResponseData.md
 doc/Retweet.md
 doc/RetweetLegacy.md
+doc/Session.md
 doc/SocialContext.md
 doc/Timeline.md
 doc/TimelineAddEntries.md
@@ -89,6 +94,7 @@ doc/UnfavoriteTweet.md
 doc/UnfavoriteTweetResponseData.md
 doc/User.md
 doc/UserApi.md
+doc/UserFeatures.md
 doc/UserLegacy.md
 doc/UserListApi.md
 doc/UserResponse.md
@@ -107,6 +113,7 @@ doc/V11PostApi.md
 doc/V20GetApi.md
 lib/src/api.dart
 lib/src/api/default_api.dart
+lib/src/api/other_api.dart
 lib/src/api/post_api.dart
 lib/src/api/tweet_api.dart
 lib/src/api/user_api.dart
@@ -124,6 +131,7 @@ lib/src/date_serializer.dart
 lib/src/model/bookmarks_response.dart
 lib/src/model/bookmarks_response_data.dart
 lib/src/model/bookmarks_timeline.dart
+lib/src/model/communities_actions.dart
 lib/src/model/content_entry_type.dart
 lib/src/model/content_item_type.dart
 lib/src/model/content_union.dart
@@ -164,6 +172,8 @@ lib/src/model/media.dart
 lib/src/model/media_original_info.dart
 lib/src/model/module_entry.dart
 lib/src/model/module_item.dart
+lib/src/model/one_factor_login_eligibility.dart
+lib/src/model/other_response.dart
 lib/src/model/post_create_retweet_request.dart
 lib/src/model/post_create_tweet_request.dart
 lib/src/model/post_create_tweet_request_features.dart
@@ -179,6 +189,7 @@ lib/src/model/profile_response.dart
 lib/src/model/profile_response_data.dart
 lib/src/model/retweet.dart
 lib/src/model/retweet_legacy.dart
+lib/src/model/session.dart
 lib/src/model/social_context.dart
 lib/src/model/timeline.dart
 lib/src/model/timeline_add_entries.dart
@@ -207,6 +218,7 @@ lib/src/model/type_name.dart
 lib/src/model/unfavorite_tweet.dart
 lib/src/model/unfavorite_tweet_response_data.dart
 lib/src/model/user.dart
+lib/src/model/user_features.dart
 lib/src/model/user_legacy.dart
 lib/src/model/user_response.dart
 lib/src/model/user_response_data.dart
@@ -221,3 +233,4 @@ lib/src/model/user_tweets_result.dart
 lib/src/model/user_tweets_user.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
+pubspec.yaml

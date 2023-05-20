@@ -6,53 +6,51 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'retweet_legacy_inner.g.dart';
+part 'communities_actions.g.dart';
 
-/// RetweetLegacyInner
+/// CommunitiesActions
 ///
 /// Properties:
-/// * [fullText] 
+/// * [create] 
 @BuiltValue()
-abstract class RetweetLegacyInner implements Built<RetweetLegacyInner, RetweetLegacyInnerBuilder> {
-  @BuiltValueField(wireName: r'full_text')
-  String? get fullText;
+abstract class CommunitiesActions implements Built<CommunitiesActions, CommunitiesActionsBuilder> {
+  @BuiltValueField(wireName: r'create')
+  bool get create;
 
-  RetweetLegacyInner._();
+  CommunitiesActions._();
 
-  factory RetweetLegacyInner([void updates(RetweetLegacyInnerBuilder b)]) = _$RetweetLegacyInner;
+  factory CommunitiesActions([void updates(CommunitiesActionsBuilder b)]) = _$CommunitiesActions;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RetweetLegacyInnerBuilder b) => b;
+  static void _defaults(CommunitiesActionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RetweetLegacyInner> get serializer => _$RetweetLegacyInnerSerializer();
+  static Serializer<CommunitiesActions> get serializer => _$CommunitiesActionsSerializer();
 }
 
-class _$RetweetLegacyInnerSerializer implements PrimitiveSerializer<RetweetLegacyInner> {
+class _$CommunitiesActionsSerializer implements PrimitiveSerializer<CommunitiesActions> {
   @override
-  final Iterable<Type> types = const [RetweetLegacyInner, _$RetweetLegacyInner];
+  final Iterable<Type> types = const [CommunitiesActions, _$CommunitiesActions];
 
   @override
-  final String wireName = r'RetweetLegacyInner';
+  final String wireName = r'CommunitiesActions';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    RetweetLegacyInner object, {
+    CommunitiesActions object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.fullText != null) {
-      yield r'full_text';
-      yield serializers.serialize(
-        object.fullText,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'create';
+    yield serializers.serialize(
+      object.create,
+      specifiedType: const FullType(bool),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    RetweetLegacyInner object, {
+    CommunitiesActions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
@@ -63,19 +61,19 @@ class _$RetweetLegacyInnerSerializer implements PrimitiveSerializer<RetweetLegac
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required RetweetLegacyInnerBuilder result,
+    required CommunitiesActionsBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'full_text':
+        case r'create':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.fullText = valueDes;
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.create = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -86,12 +84,12 @@ class _$RetweetLegacyInnerSerializer implements PrimitiveSerializer<RetweetLegac
   }
 
   @override
-  RetweetLegacyInner deserialize(
+  CommunitiesActions deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = RetweetLegacyInnerBuilder();
+    final result = CommunitiesActionsBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
