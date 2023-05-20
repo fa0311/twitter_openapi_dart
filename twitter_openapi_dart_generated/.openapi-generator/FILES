@@ -233,4 +233,3 @@ lib/src/model/user_tweets_result.dart
 lib/src/model/user_tweets_user.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
-pubspec.yaml

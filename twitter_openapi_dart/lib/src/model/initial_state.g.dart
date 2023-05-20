@@ -10,13 +10,15 @@ class _$InitialStateApiUtilsResponse extends InitialStateApiUtilsResponse {
   @override
   final InitialStateApiUtilsRaw raw;
   @override
-  final UserLegacy? session;
+  final UserLegacy? user;
+  @override
+  final Session? session;
 
   factory _$InitialStateApiUtilsResponse(
           [void Function(InitialStateApiUtilsResponseBuilder)? updates]) =>
       (new InitialStateApiUtilsResponseBuilder()..update(updates))._build();
 
-  _$InitialStateApiUtilsResponse._({required this.raw, this.session})
+  _$InitialStateApiUtilsResponse._({required this.raw, this.user, this.session})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         raw, r'InitialStateApiUtilsResponse', 'raw');
@@ -36,6 +38,7 @@ class _$InitialStateApiUtilsResponse extends InitialStateApiUtilsResponse {
     if (identical(other, this)) return true;
     return other is InitialStateApiUtilsResponse &&
         raw == other.raw &&
+        user == other.user &&
         session == other.session;
   }
 
@@ -43,6 +46,7 @@ class _$InitialStateApiUtilsResponse extends InitialStateApiUtilsResponse {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, raw.hashCode);
+    _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jc(_$hash, session.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -52,6 +56,7 @@ class _$InitialStateApiUtilsResponse extends InitialStateApiUtilsResponse {
   String toString() {
     return (newBuiltValueToStringHelper(r'InitialStateApiUtilsResponse')
           ..add('raw', raw)
+          ..add('user', user)
           ..add('session', session))
         .toString();
   }
@@ -68,9 +73,13 @@ class InitialStateApiUtilsResponseBuilder
       _$this._raw ??= new InitialStateApiUtilsRawBuilder();
   set raw(InitialStateApiUtilsRawBuilder? raw) => _$this._raw = raw;
 
-  UserLegacyBuilder? _session;
-  UserLegacyBuilder get session => _$this._session ??= new UserLegacyBuilder();
-  set session(UserLegacyBuilder? session) => _$this._session = session;
+  UserLegacyBuilder? _user;
+  UserLegacyBuilder get user => _$this._user ??= new UserLegacyBuilder();
+  set user(UserLegacyBuilder? user) => _$this._user = user;
+
+  SessionBuilder? _session;
+  SessionBuilder get session => _$this._session ??= new SessionBuilder();
+  set session(SessionBuilder? session) => _$this._session = session;
 
   InitialStateApiUtilsResponseBuilder();
 
@@ -78,6 +87,7 @@ class InitialStateApiUtilsResponseBuilder
     final $v = _$v;
     if ($v != null) {
       _raw = $v.raw.toBuilder();
+      _user = $v.user?.toBuilder();
       _session = $v.session?.toBuilder();
       _$v = null;
     }
@@ -103,12 +113,16 @@ class InitialStateApiUtilsResponseBuilder
     try {
       _$result = _$v ??
           new _$InitialStateApiUtilsResponse._(
-              raw: raw.build(), session: _session?.build());
+              raw: raw.build(),
+              user: _user?.build(),
+              session: _session?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'raw';
         raw.build();
+        _$failedField = 'user';
+        _user?.build();
         _$failedField = 'session';
         _session?.build();
       } catch (e) {

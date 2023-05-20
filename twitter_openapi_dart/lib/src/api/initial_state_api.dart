@@ -22,7 +22,7 @@ class InitialStateApi {
         ..metaData = JsonObject(json.decode(source.group(2)!)),
     );
     final initialState = raw.initialState.value as Map;
-    final session = () {
+    final user = () {
       try {
         final entities = (initialState["entities"]["users"]["entities"] as Map).values.first;
         return standardSerializers.deserialize(entities, specifiedType: FullType(UserLegacy)) as UserLegacy;
@@ -31,9 +31,19 @@ class InitialStateApi {
       }
     }();
 
+    final session = () {
+      try {
+        final session = initialState["session"];
+        return standardSerializers.deserialize(session, specifiedType: FullType(Session)) as Session;
+      } catch (e) {
+        return null;
+      }
+    }();
+
     return InitialStateApiUtilsResponse(
       (e) => e
         ..raw = raw.toBuilder()
+        ..user = user?.toBuilder()
         ..session = session?.toBuilder(),
     );
   }

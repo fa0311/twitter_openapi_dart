@@ -6,7 +6,8 @@ part 'initial_state.g.dart';
 
 abstract class InitialStateApiUtilsResponse implements Built<InitialStateApiUtilsResponse, InitialStateApiUtilsResponseBuilder> {
   InitialStateApiUtilsRaw get raw;
-  UserLegacy? get session;
+  UserLegacy? get user;
+  Session? get session;
 
   InitialStateApiUtilsResponse._();
 

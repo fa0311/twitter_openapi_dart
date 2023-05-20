@@ -3,10 +3,10 @@ import 'package:test/test.dart';
 import '../api.dart';
 
 main() async {
-  final client = await gettInitialStateClient();
+  final client = await getClient();
   test('getHome', () async {
     final result = await client.getInitialStateApi().getHome();
-    expect(result.session == null, false);
-    print(result.session!.screenName);
+    expect(result.user == null, false);
+    print(result.user!.screenName);
   });
 }
