@@ -7,7 +7,7 @@ class PostApiUtils {
 
   const PostApiUtils(this.api);
 
-  Future<Response<CreateTweetResponse>> postCreateTweet({required String tweetText}) {
+  Future<Response<CreateTweetResponse>> postCreateTweet({required String tweetText}) async {
     final variables = PostCreateTweetRequestVariables(
       (e) => e
         ..tweetText = tweetText
@@ -15,52 +15,58 @@ class PostApiUtils {
         ..media = PostCreateTweetRequestVariablesMedia((e) => e..mediaEntities = ListBuilder()).toBuilder(),
     );
 
-    return api.postCreateTweet(
+    final response = await api.postCreateTweet(
       postCreateTweetRequest: PostCreateTweetRequest(
         (e) => e
           ..variables = variables.toBuilder()
           ..features = PostCreateTweetRequestFeatures((e) => e).toBuilder(),
       ),
     );
+    return response;
   }
 
   Future<Response<DeleteTweetResponse>> postDeleteTweet({required String tweetId}) async {
-    return api.postDeleteTweet(
+    final response = await api.postDeleteTweet(
       postDeleteTweetRequest: PostDeleteTweetRequest(
         (e) => e..variables = PostDeleteTweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
+    return response;
   }
 
-  Future<Response<CreateRetweetResponse>> postCreateRetweet({required String tweetId}) {
-    return api.postCreateRetweet(
+  Future<Response<CreateRetweetResponse>> postCreateRetweet({required String tweetId}) async {
+    final response = await api.postCreateRetweet(
       postCreateRetweetRequest: PostCreateRetweetRequest(
         (e) => e..variables = PostDeleteTweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
+    return response;
   }
 
-  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({required String sourceTweetId}) {
-    return api.postDeleteRetweet(
+  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({required String sourceTweetId}) async {
+    final response = await api.postDeleteRetweet(
       postDeleteRetweetRequest: PostDeleteRetweetRequest(
         (e) => e..variables = PostDeleteRetweetRequestVariables((e) => e.sourceTweetId = sourceTweetId).toBuilder(),
       ),
     );
+    return response;
   }
 
-  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({required String tweetId}) {
-    return api.postFavoriteTweet(
+  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({required String tweetId}) async {
+    final response = await api.postFavoriteTweet(
       postFavoriteTweetRequest: PostFavoriteTweetRequest(
         (e) => e..variables = PostDeleteTweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
+    return response;
   }
 
-  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({required String tweetId}) {
-    return api.postUnfavoriteTweet(
+  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({required String tweetId}) async {
+    final response = await api.postUnfavoriteTweet(
       postUnfavoriteTweetRequest: PostUnfavoriteTweetRequest(
         (e) => e..variables = PostDeleteTweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
+    return response;
   }
 }

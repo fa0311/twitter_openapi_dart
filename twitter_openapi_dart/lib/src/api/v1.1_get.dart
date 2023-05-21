@@ -5,13 +5,15 @@ class V11GetApiUtils {
   final V11GetApi api;
   const V11GetApiUtils(this.api);
 
-  Future<Response<void>> getFriendsFollowingList({required String userId}) {
+  Future<Response<void>> getFriendsFollowingList({required String userId}) async {
     // todo
-    return api.getFriendsFollowingList(userId: userId);
+    final response = await api.getFriendsFollowingList(userId: userId);
+    return response;
   }
 
-  Future<Response<void>> getSearchTypeahead({required String q}) {
+  Future<Response<void>> getSearchTypeahead({required String q}) async {
     // todo
-    return api.getSearchTypeahead(q: q);
+    final response = await api.getSearchTypeahead(q: q);
+    return response;
   }
 }

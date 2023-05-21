@@ -6,8 +6,9 @@ class V20GetApiUtils {
 
   const V20GetApiUtils(this.api);
 
-  Future<Response<void>> getSearchAdaptive({required String q}) {
+  Future<Response<void>> getSearchAdaptive({required String q}) async {
     // todo
-    return api.getSearchAdaptive(q: q);
+    final response = await api.getSearchAdaptive(q: q);
+    return response;
   }
 }

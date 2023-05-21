@@ -6,8 +6,8 @@ class V11PostApiUtils {
 
   const V11PostApiUtils(this.api);
 
-  Future<Response<void>> postCreateFriendships({required String userId}) {
-    return api.postCreateFriendships(
+  Future<Response<void>> postCreateFriendships({required String userId}) async {
+    final response = await api.postCreateFriendships(
       includeBlockedBy: 1,
       includeBlocking: 1,
       includeCanDm: 1,
@@ -23,10 +23,11 @@ class V11PostApiUtils {
       skipStatus: 1,
       userId: userId,
     );
+    return response;
   }
 
-  Future<Response<void>> postDestroyFriendships({required String userId}) {
-    return api.postDestroyFriendships(
+  Future<Response<void>> postDestroyFriendships({required String userId}) async {
+    final response = await api.postDestroyFriendships(
       includeBlockedBy: 1,
       includeBlocking: 1,
       includeCanDm: 1,
@@ -42,5 +43,6 @@ class V11PostApiUtils {
       skipStatus: 1,
       userId: userId,
     );
+    return response;
   }
 }
