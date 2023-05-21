@@ -4,7 +4,13 @@ import '../api.dart';
 
 main() async {
   final client = await getClient();
-  test('tweet', () async {
+  test('postCreateTweet', () async {
+    final time = DateTime.now().toIso8601String();
+    final result = await client.getPostApi().postCreateTweet(tweetText: "Test[$time]");
+    expect(result.statusCode, 200);
+  });
+
+  test('postDeleteTweet', () async {
     final time = DateTime.now().toIso8601String();
     final result = await client.getPostApi().postCreateTweet(tweetText: "Test[$time]");
     final tweetId = result.data!.data.createTweet.tweetResults.result.restId;
