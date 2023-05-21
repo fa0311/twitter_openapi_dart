@@ -6,7 +6,7 @@ main() async {
   final client = await getClient();
 
   test('getFriendsFollowingList', () async {
-    final result = await client.getV11GetApi().getFriendsFollowingList(userId: "1180389371481976833");
+    final result = await client.getV11GetApi().getFriendsFollowingList(userId: "44196397");
     expect(result.statusCode, 200);
   });
 

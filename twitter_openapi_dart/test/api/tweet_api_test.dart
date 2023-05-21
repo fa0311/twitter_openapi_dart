@@ -40,7 +40,7 @@ main() async {
   });
 
   test('getUserTweets', () async {
-    final result = await client.getTweetApi().getUserTweets(userId: "900282258736545792");
+    final result = await client.getTweetApi().getUserTweets(userId: "44196397");
     for (final tweet in result.data) {
       printTweet(tweet);
     }
@@ -48,7 +48,7 @@ main() async {
   });
 
   test('getUserTweetsAndReplies', () async {
-    final result = await client.getTweetApi().getUserTweetsAndReplies(userId: "900282258736545792");
+    final result = await client.getTweetApi().getUserTweetsAndReplies(userId: "44196397");
     for (final tweet in result.data) {
       printTweet(tweet);
     }
@@ -56,7 +56,7 @@ main() async {
   });
 
   test('getUserMedia', () async {
-    final result = await client.getTweetApi().getUserMedia(userId: "900282258736545792");
+    final result = await client.getTweetApi().getUserMedia(userId: "44196397");
     for (final tweet in result.data) {
       printTweet(tweet);
     }
@@ -64,7 +64,7 @@ main() async {
   });
 
   test('getLikes', () async {
-    final result = await client.getTweetApi().getLikes(userId: "900282258736545792");
+    final result = await client.getTweetApi().getLikes(userId: "44196397");
     for (final tweet in result.data) {
       printTweet(tweet);
     }

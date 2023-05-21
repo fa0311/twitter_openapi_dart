@@ -6,7 +6,7 @@ main() async {
   final client = await getClient();
 
   test('getFollowers', () async {
-    final result = await client.getUserListApi().getFollowers(userId: "1180389371481976833");
+    final result = await client.getUserListApi().getFollowers(userId: "44196397");
     for (final tweet in result.data) {
       printUser(tweet);
     }
@@ -14,7 +14,7 @@ main() async {
   });
 
   test('getFollowing', () async {
-    final result = await client.getUserListApi().getFollowing(userId: "1180389371481976833");
+    final result = await client.getUserListApi().getFollowing(userId: "44196397");
     for (final tweet in result.data) {
       printUser(tweet);
     }
