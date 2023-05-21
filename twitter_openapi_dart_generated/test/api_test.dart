@@ -250,7 +250,7 @@ void main() async {
     expect(response.statusCode, 200);
     expect(response.data == null, false);
   });
-  test('favoriteTweet', () async {
+  test('unfavoriteTweet', () async {
     final response = await client.getPostApi().postUnfavoriteTweet(
           postUnfavoriteTweetRequest: PostUnfavoriteTweetRequest(
             (e) => e..variables = PostDeleteTweetRequestVariables().toBuilder(),
