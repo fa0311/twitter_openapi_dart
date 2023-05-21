@@ -3,14 +3,18 @@ import 'dart:io';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
 import 'package:twitter_openapi_dart/src/api/initial_state_api.dart';
+import 'package:twitter_openapi_dart/src/api/post.dart';
 import 'package:twitter_openapi_dart/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_list_api.dart';
+import 'package:twitter_openapi_dart/src/api/v1.1_get.dart';
+import 'package:twitter_openapi_dart/src/api/v1.1_post.dart';
+import 'package:twitter_openapi_dart/src/api/v2.0_get.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+import 'package:twitter_openapi_dart/src/auth/header.dart';
 import 'package:dio/dio.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:twitter_openapi_dart/src/auth/header.dart';
 
 class InterceptorWrap {
   final Interceptor interceptor;
@@ -122,6 +126,22 @@ class TwitterOpenapiDartClient {
 
   UserListApiUtils getUserListApi() {
     return UserListApiUtils(api.getUserListApi(), flag);
+  }
+
+  PostApiUtils getPostApi() {
+    return PostApiUtils(api.getPostApi());
+  }
+
+  V11GetApiUtils getV11GetApi() {
+    return V11GetApiUtils(api.getV11GetApi());
+  }
+
+  V11PostApiUtils getV11PostApi() {
+    return V11PostApiUtils(api.getV11PostApi());
+  }
+
+  V20GetApiUtils getV20GetApi() {
+    return V20GetApiUtils(api.getV20GetApi());
   }
 
   InitialStateApi getInitialStateApi() {
