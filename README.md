@@ -22,6 +22,8 @@ graph LR
 
 ## twitter_openapi_dart_generated
 
+> Note! twitter-openapi-typescript-generated is a package for advanced users who are familiar with Twitter's API. In general, [twitter-openapi-dart](./twitter-openapi-dart) should be used!
+
 ### Build
 
 ```shell
