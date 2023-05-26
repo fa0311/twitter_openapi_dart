@@ -47,7 +47,6 @@ class TwitterOpenapiDart {
         method: "GET",
       ),
     );
-    await cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", "38caa71559e4e4ee20b2db177bf6bccc")]);
     return cookie;
   }
 
