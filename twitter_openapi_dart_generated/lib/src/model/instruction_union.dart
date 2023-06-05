@@ -3,10 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';

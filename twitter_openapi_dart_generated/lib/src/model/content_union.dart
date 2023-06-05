@@ -3,14 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
-import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
-import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_item.dart';
-import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
-import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_module.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';

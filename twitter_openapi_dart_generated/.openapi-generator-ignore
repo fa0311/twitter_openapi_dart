@@ -1,8 +1,9 @@
 .vscode/**
 test/**
-tools/**
+tool/**
 twitter-openapi/**
-LICENSE.txt
+LICENSE
+CHANGELOG.md
 .openapi-generator-ignore
 .openapi-generator-ignore-overwrites
 analysis_options.yaml

@@ -3,17 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_with_visibility_results.dart';
-import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
-import 'package:twitter_openapi_dart_generated/src/model/user_result_core.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
-import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
-import 'package:built_value/json_object.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
