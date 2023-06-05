@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
 import 'package:twitter_openapi_dart/src/api/initial_state_api.dart';
@@ -31,6 +32,8 @@ class TwitterOpenapiDart {
   static Uri base = Uri.https("twitter.com", "/");
   static Uri home = base.resolve("home");
 
+  static List<String> charset = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+
   final List<InterceptorWrap> beforInterceptorsWrap = [];
   final List<InterceptorWrap> afterInterceptorsWrap = [];
 
@@ -47,6 +50,33 @@ class TwitterOpenapiDart {
         method: "GET",
       ),
     );
+
+    final Random random = Random();
+    final csrfToken = List.generate(32, (_) => charset[random.nextInt(charset.length)]).join();
+
+    cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", csrfToken)]);
+
+    final response = await dio.requestUri(
+      TwitterOpenapiDart.base,
+      options: Options(method: "GET"),
+    );
+    final html = response.data as String;
+    final re = RegExp('<script nonce="([a-zA-Z0-9]{48})">(document.cookie="(.*?)";)+<\\/script>');
+    final script = re.firstMatch(html)!.group(0)!;
+    final beforCookie = await cookie.loadForRequest(TwitterOpenapiDart.base);
+    final documentCookie = script
+        .split('document.cookie="')
+        .skip(1)
+        .map((e) => e.replaceAll('</script>', ''))
+        .map((e) => e.substring(0, e.length - 2))
+        .map((e) => e.split('; ')[0])
+        .map((e) => e.split('='))
+        .where((e) => beforCookie.every((c) => c.name != e[0]))
+        .map((e) => Cookie(e[0], e.sublist(1, e.length).join('=')))
+        .toList();
+
+    cookie.saveFromResponse(TwitterOpenapiDart.base, documentCookie);
+
     return cookie;
   }
 

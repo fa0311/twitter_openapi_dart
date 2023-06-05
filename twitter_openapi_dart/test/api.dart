@@ -27,6 +27,7 @@ Future<TwitterOpenapiDartClient> getClient() async {
   final cookies = (json.decode(await File("test/cookies.json").readAsString()) as Map).cast<String, String>();
   final api = TwitterOpenapiDart();
   final client = await api.getClientFromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
+  // final client = await api.getClient();
   // client.addAfterInterceptor(LogInterceptor(request: false, responseHeader: false));
   return client;
 }
