@@ -206,28 +206,35 @@ Class | Method | HTTP request | Description
 ## Documentation For Authorization
 
 
-## CookieAuthToken
+Authentication schemes defined for the API:
+### AuthType
+
+- **Type**: API key
+- **API key parameter name**: x-twitter-auth-type
+- **Location**: HTTP header
+
+### CookieAuthToken
 
 - **Type**: API key
 - **API key parameter name**: auth_token
 - **Location**: 
 
-## CookieCt0
+### CookieCt0
 
 - **Type**: API key
 - **API key parameter name**: ct0
 - **Location**: 
 
-## CsrfToken
+### CsrfToken
 
 - **Type**: API key
 - **API key parameter name**: x-csrf-token
 - **Location**: HTTP header
 
-## authType
+### GuestToken
 
 - **Type**: API key
-- **API key parameter name**: x-twitter-auth-type
+- **API key parameter name**: x-guest-token
 - **Location**: HTTP header
 
 

@@ -10,7 +10,7 @@ class _$Entities extends Entities {
   @override
   final BuiltList<JsonObject> hashtags;
   @override
-  final BuiltList<Media> media;
+  final BuiltList<Media>? media;
   @override
   final BuiltList<JsonObject> symbols;
   @override
@@ -23,13 +23,12 @@ class _$Entities extends Entities {
 
   _$Entities._(
       {required this.hashtags,
-      required this.media,
+      this.media,
       required this.symbols,
       required this.urls,
       required this.userMentions})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(hashtags, r'Entities', 'hashtags');
-    BuiltValueNullFieldError.checkNotNull(media, r'Entities', 'media');
     BuiltValueNullFieldError.checkNotNull(symbols, r'Entities', 'symbols');
     BuiltValueNullFieldError.checkNotNull(urls, r'Entities', 'urls');
     BuiltValueNullFieldError.checkNotNull(
@@ -115,7 +114,7 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
     final $v = _$v;
     if ($v != null) {
       _hashtags = $v.hashtags.toBuilder();
-      _media = $v.media.toBuilder();
+      _media = $v.media?.toBuilder();
       _symbols = $v.symbols.toBuilder();
       _urls = $v.urls.toBuilder();
       _userMentions = $v.userMentions.toBuilder();
@@ -144,7 +143,7 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
       _$result = _$v ??
           new _$Entities._(
               hashtags: hashtags.build(),
-              media: media.build(),
+              media: _media?.build(),
               symbols: symbols.build(),
               urls: urls.build(),
               userMentions: userMentions.build());
@@ -154,7 +153,7 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
         _$failedField = 'hashtags';
         hashtags.build();
         _$failedField = 'media';
-        media.build();
+        _media?.build();
         _$failedField = 'symbols';
         symbols.build();
         _$failedField = 'urls';

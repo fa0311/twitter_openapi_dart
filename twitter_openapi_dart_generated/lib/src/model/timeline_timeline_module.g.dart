@@ -20,7 +20,7 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
   @override
   final JsonObject? header;
   @override
-  final BuiltList<ModuleItem> items;
+  final BuiltList<ModuleItem>? items;
 
   factory _$TimelineTimelineModule(
           [void Function(TimelineTimelineModuleBuilder)? updates]) =>
@@ -33,7 +33,7 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
       required this.entryType,
       this.footer,
       this.header,
-      required this.items})
+      this.items})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'TimelineTimelineModule', 'typename');
@@ -43,8 +43,6 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
         displayType, r'TimelineTimelineModule', 'displayType');
     BuiltValueNullFieldError.checkNotNull(
         entryType, r'TimelineTimelineModule', 'entryType');
-    BuiltValueNullFieldError.checkNotNull(
-        items, r'TimelineTimelineModule', 'items');
   }
 
   @override
@@ -144,7 +142,7 @@ class TimelineTimelineModuleBuilder
       _entryType = $v.entryType;
       _footer = $v.footer;
       _header = $v.header;
-      _items = $v.items.toBuilder();
+      _items = $v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -181,12 +179,12 @@ class TimelineTimelineModuleBuilder
                   entryType, r'TimelineTimelineModule', 'entryType'),
               footer: footer,
               header: header,
-              items: items.build());
+              items: _items?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
-        items.build();
+        _items?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TimelineTimelineModule', _$failedField, e.toString());

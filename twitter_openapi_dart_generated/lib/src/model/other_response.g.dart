@@ -8,14 +8,12 @@ part of 'other_response.dart';
 
 class _$OtherResponse extends OtherResponse {
   @override
-  final Session session;
+  final Session? session;
 
   factory _$OtherResponse([void Function(OtherResponseBuilder)? updates]) =>
       (new OtherResponseBuilder()..update(updates))._build();
 
-  _$OtherResponse._({required this.session}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(session, r'OtherResponse', 'session');
-  }
+  _$OtherResponse._({this.session}) : super._();
 
   @override
   OtherResponse rebuild(void Function(OtherResponseBuilder) updates) =>
@@ -61,7 +59,7 @@ class OtherResponseBuilder
   OtherResponseBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _session = $v.session.toBuilder();
+      _session = $v.session?.toBuilder();
       _$v = null;
     }
     return this;
@@ -84,12 +82,12 @@ class OtherResponseBuilder
   _$OtherResponse _build() {
     _$OtherResponse _$result;
     try {
-      _$result = _$v ?? new _$OtherResponse._(session: session.build());
+      _$result = _$v ?? new _$OtherResponse._(session: _session?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'session';
-        session.build();
+        _session?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'OtherResponse', _$failedField, e.toString());

@@ -77,8 +77,18 @@ class UserListApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -102,13 +112,13 @@ class UserListApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FollowResponse _responseData;
+    FollowResponse? _responseData;
 
     try {
-      const _responseType = FullType(FollowResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FollowResponse),
       ) as FollowResponse;
 
     } catch (error, stackTrace) {
@@ -192,8 +202,18 @@ class UserListApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -217,13 +237,13 @@ class UserListApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FollowResponse _responseData;
+    FollowResponse? _responseData;
 
     try {
-      const _responseType = FullType(FollowResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(FollowResponse),
       ) as FollowResponse;
 
     } catch (error, stackTrace) {

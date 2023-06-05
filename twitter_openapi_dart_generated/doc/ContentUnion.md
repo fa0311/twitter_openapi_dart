@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **displayType** | **String** |  | 
 **footer** | [**JsonObject**](.md) |  | [optional] 
 **header** | [**JsonObject**](.md) |  | [optional] 
-**items** | [**BuiltList&lt;ModuleItem&gt;**](ModuleItem.md) |  | 
+**items** | [**BuiltList&lt;ModuleItem&gt;**](ModuleItem.md) |  | [optional] 
 **cursorType** | **String** |  | 
 **itemType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **String** |  | 

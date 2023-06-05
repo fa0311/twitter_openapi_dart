@@ -98,8 +98,18 @@ class V11PostApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -234,8 +244,18 @@ class V11PostApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],

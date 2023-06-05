@@ -15,8 +15,8 @@ part 'other_response.g.dart';
 /// * [session] 
 @BuiltValue()
 abstract class OtherResponse implements Built<OtherResponse, OtherResponseBuilder> {
-  @BuiltValueField(wireName: r'session')
-  Session get session;
+  @BuiltValueField(wireName: r'Session')
+  Session? get session;
 
   OtherResponse._();
 
@@ -41,11 +41,13 @@ class _$OtherResponseSerializer implements PrimitiveSerializer<OtherResponse> {
     OtherResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'session';
-    yield serializers.serialize(
-      object.session,
-      specifiedType: const FullType(Session),
-    );
+    if (object.session != null) {
+      yield r'Session';
+      yield serializers.serialize(
+        object.session,
+        specifiedType: const FullType(Session),
+      );
+    }
   }
 
   @override
@@ -69,7 +71,7 @@ class _$OtherResponseSerializer implements PrimitiveSerializer<OtherResponse> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'session':
+        case r'Session':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(Session),

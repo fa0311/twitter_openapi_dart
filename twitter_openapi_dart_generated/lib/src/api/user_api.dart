@@ -77,8 +77,18 @@ class UserApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -102,13 +112,13 @@ class UserApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserResponse _responseData;
+    UserResponse? _responseData;
 
     try {
-      const _responseType = FullType(UserResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserResponse),
       ) as UserResponse;
 
     } catch (error, stackTrace) {
