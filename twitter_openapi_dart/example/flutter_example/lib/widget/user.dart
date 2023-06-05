@@ -79,7 +79,7 @@ class UserProfileWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
                       child: CachedNetworkImage(
-                        imageUrl: state.session!.profileImageUrlHttps,
+                        imageUrl: state.user!.profileImageUrlHttps,
                         progressIndicatorBuilder: (context, url, progress) => CircleAvatar(backgroundColor: Colors.black.withAlpha(0)),
                         errorWidget: (context, url, error) => const Icon(Icons.error),
                         fit: BoxFit.fill,
@@ -95,15 +95,15 @@ class UserProfileWidget extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                state.session!.name,
+                                state.user!.name,
                                 style: const TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text("@${state.session!.screenName}", style: TextStyle(color: Colors.black.withAlpha(150), fontSize: 12)),
+                              Text("@${state.user!.screenName}", style: TextStyle(color: Colors.black.withAlpha(150), fontSize: 12)),
                             ],
                           ),
-                          Text(state.session!.description),
+                          Text(state.user!.description),
                           Text(
-                            "friendsCount: ${state.session!.friendsCount} followersCount: ${state.session!.followersCount}",
+                            "friendsCount: ${state.user!.friendsCount} followersCount: ${state.user!.followersCount}",
                             style: TextStyle(color: Colors.black.withAlpha(150), fontSize: 12),
                           ),
                         ],
