@@ -4,7 +4,7 @@ import '../api.dart';
 
 main() async {
   final client = await getClient();
-  test('getTweetDetail', () async {
+  test('getProfileSpotlightsQuery', () async {
     final result = await client.getDefaultApi().getProfileSpotlightsQuery(screenName: "elonmusk");
     final legacy = result.result.legacy;
     print(legacy.screenName);
