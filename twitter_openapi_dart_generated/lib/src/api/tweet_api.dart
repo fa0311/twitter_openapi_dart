@@ -81,8 +81,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -106,13 +116,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BookmarksResponse _responseData;
+    BookmarksResponse? _responseData;
 
     try {
-      const _responseType = FullType(BookmarksResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(BookmarksResponse),
       ) as BookmarksResponse;
 
     } catch (error, stackTrace) {
@@ -196,8 +206,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -221,13 +241,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimelineResponse _responseData;
+    TimelineResponse? _responseData;
 
     try {
-      const _responseType = FullType(TimelineResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(TimelineResponse),
       ) as TimelineResponse;
 
     } catch (error, stackTrace) {
@@ -311,8 +331,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -336,13 +366,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimelineResponse _responseData;
+    TimelineResponse? _responseData;
 
     try {
-      const _responseType = FullType(TimelineResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(TimelineResponse),
       ) as TimelineResponse;
 
     } catch (error, stackTrace) {
@@ -426,8 +456,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -451,13 +491,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
-      const _responseType = FullType(UserTweetsResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserTweetsResponse),
       ) as UserTweetsResponse;
 
     } catch (error, stackTrace) {
@@ -541,8 +581,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -566,13 +616,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ListTweetsTimelineResponse _responseData;
+    ListTweetsTimelineResponse? _responseData;
 
     try {
-      const _responseType = FullType(ListTweetsTimelineResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(ListTweetsTimelineResponse),
       ) as ListTweetsTimelineResponse;
 
     } catch (error, stackTrace) {
@@ -656,8 +706,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -681,13 +741,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TweetDetailResponse _responseData;
+    TweetDetailResponse? _responseData;
 
     try {
-      const _responseType = FullType(TweetDetailResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(TweetDetailResponse),
       ) as TweetDetailResponse;
 
     } catch (error, stackTrace) {
@@ -771,8 +831,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -796,13 +866,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
-      const _responseType = FullType(UserTweetsResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserTweetsResponse),
       ) as UserTweetsResponse;
 
     } catch (error, stackTrace) {
@@ -886,8 +956,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -911,13 +991,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
-      const _responseType = FullType(UserTweetsResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserTweetsResponse),
       ) as UserTweetsResponse;
 
     } catch (error, stackTrace) {
@@ -1001,8 +1081,18 @@ class TweetApi {
             'where': '',
           },{
             'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
+            'where': 'header',
+          },{
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
             'where': 'header',
           },
         ],
@@ -1026,13 +1116,13 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
-      const _responseType = FullType(UserTweetsResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : _serializers.deserialize(
+        rawResponse,
+        specifiedType: const FullType(UserTweetsResponse),
       ) as UserTweetsResponse;
 
     } catch (error, stackTrace) {

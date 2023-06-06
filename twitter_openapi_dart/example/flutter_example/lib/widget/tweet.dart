@@ -61,25 +61,25 @@ class TwitterWidget extends StatelessWidget {
                       ),
                     ),
                     Text(view.tweet.legacy.fullText),
-                    if (view.tweet.legacy.entities.media.length == 1)
+                    if ((view.tweet.legacy.entities.media?.length ?? 0) == 1)
                       ConstrainedBox(
                         constraints: const BoxConstraints(maxHeight: 200.0, minWidth: double.infinity),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            imageUrl: view.tweet.legacy.entities.media.first.mediaUrlHttps,
+                            imageUrl: view.tweet.legacy.entities.media!.first.mediaUrlHttps,
                             progressIndicatorBuilder: (context, url, progress) => CircleAvatar(backgroundColor: Colors.black.withAlpha(0)),
                             errorWidget: (context, url, error) => const Icon(Icons.error),
                             fit: BoxFit.fitWidth,
                           ),
                         ),
                       ),
-                    if (view.tweet.legacy.entities.media.length > 1)
+                    if ((view.tweet.legacy.entities.media?.length ?? 0) > 1)
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            ...view.tweet.legacy.entities.media.map(
+                            ...view.tweet.legacy.entities.media!.map(
                               (e) => ConstrainedBox(
                                 constraints: const BoxConstraints(maxHeight: 200.0),
                                 child: ClipRRect(

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
 **footer** | [**JsonObject**](.md) |  | [optional] 
 **header** | [**JsonObject**](.md) |  | [optional] 
-**items** | [**BuiltList&lt;ModuleItem&gt;**](ModuleItem.md) |  | 
+**items** | [**BuiltList&lt;ModuleItem&gt;**](ModuleItem.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,7 +20,7 @@ List<TweetApiUtils> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
           if (timeline == null) return null;
           return buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata);
         } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
-          final item = (e.content.oneOf.value as TimelineTimelineModule).items;
+          final item = (e.content.oneOf.value as TimelineTimelineModule).items ?? BuiltList();
           final timelineList =
               item.where((e) => e.item.itemContent.oneOf.isType(TimelineTweet)).map((e) => e.item.itemContent.oneOf.value as TimelineTweet).toList();
           if (timelineList.isEmpty) return null;

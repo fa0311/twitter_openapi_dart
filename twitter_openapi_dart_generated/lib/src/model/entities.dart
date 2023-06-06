@@ -25,7 +25,7 @@ abstract class Entities implements Built<Entities, EntitiesBuilder> {
   BuiltList<JsonObject> get hashtags;
 
   @BuiltValueField(wireName: r'media')
-  BuiltList<Media> get media;
+  BuiltList<Media>? get media;
 
   @BuiltValueField(wireName: r'symbols')
   BuiltList<JsonObject> get symbols;
@@ -64,11 +64,13 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
       object.hashtags,
       specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
     );
-    yield r'media';
-    yield serializers.serialize(
-      object.media,
-      specifiedType: const FullType(BuiltList, [FullType(Media)]),
-    );
+    if (object.media != null) {
+      yield r'media';
+      yield serializers.serialize(
+        object.media,
+        specifiedType: const FullType(BuiltList, [FullType(Media)]),
+      );
+    }
     yield r'symbols';
     yield serializers.serialize(
       object.symbols,

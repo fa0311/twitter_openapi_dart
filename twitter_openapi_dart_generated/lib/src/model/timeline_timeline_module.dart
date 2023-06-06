@@ -46,7 +46,7 @@ abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, T
   JsonObject? get header;
 
   @BuiltValueField(wireName: r'items')
-  BuiltList<ModuleItem> get items;
+  BuiltList<ModuleItem>? get items;
 
   TimelineTimelineModule._();
 
@@ -105,11 +105,13 @@ class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<Timeline
         specifiedType: const FullType(JsonObject),
       );
     }
-    yield r'items';
-    yield serializers.serialize(
-      object.items,
-      specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
-    );
+    if (object.items != null) {
+      yield r'items';
+      yield serializers.serialize(
+        object.items,
+        specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
+      );
+    }
   }
 
   @override

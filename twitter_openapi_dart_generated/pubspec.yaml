@@ -1,7 +1,7 @@
 name: twitter_openapi_dart_generated
-version: 0.0.1
+version: 0.0.2
 description: Twitter OpenAPI Dart
-homepage: homepage
+homepage: https://github.com/fa0311/twitter_openapi_dart
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
