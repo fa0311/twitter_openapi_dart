@@ -12,7 +12,7 @@ part 'user_results.g.dart';
 /// UserResults
 ///
 /// Properties:
-/// * [result] 
+/// * [result]
 @BuiltValue()
 abstract class UserResults implements Built<UserResults, UserResultsBuilder> {
   @BuiltValueField(wireName: r'result')
@@ -54,7 +54,9 @@ class _$UserResultsSerializer implements PrimitiveSerializer<UserResults> {
     UserResults object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +106,3 @@ class _$UserResultsSerializer implements PrimitiveSerializer<UserResults> {
     return result.build();
   }
 }
-

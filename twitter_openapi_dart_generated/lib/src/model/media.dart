@@ -14,17 +14,17 @@ part 'media.g.dart';
 /// Media
 ///
 /// Properties:
-/// * [displayUrl] 
-/// * [expandedUrl] 
-/// * [extMediaAvailability] 
-/// * [idStr] 
-/// * [indices] 
-/// * [mediaKey] 
-/// * [mediaUrlHttps] 
-/// * [originalInfo] 
-/// * [sizes] 
-/// * [type] 
-/// * [url] 
+/// * [displayUrl]
+/// * [expandedUrl]
+/// * [extMediaAvailability]
+/// * [idStr]
+/// * [indices]
+/// * [mediaKey]
+/// * [mediaUrlHttps]
+/// * [originalInfo]
+/// * [sizes]
+/// * [type]
+/// * [url]
 @BuiltValue()
 abstract class Media implements Built<Media, MediaBuilder> {
   @BuiltValueField(wireName: r'display_url')
@@ -150,7 +150,9 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
     Media object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -270,4 +272,3 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
     return result.build();
   }
 }
-

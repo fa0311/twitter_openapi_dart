@@ -14,18 +14,18 @@ part 'user.g.dart';
 /// User
 ///
 /// Properties:
-/// * [typename] 
-/// * [affiliatesHighlightedLabel] 
-/// * [businessAccount] 
-/// * [hasGraduatedAccess] 
-/// * [hasNftAvatar] 
-/// * [id] 
-/// * [isBlueVerified] 
-/// * [legacy] 
-/// * [restId] 
-/// * [superFollowEligible] 
-/// * [superFollowedBy] 
-/// * [superFollowing] 
+/// * [typename]
+/// * [affiliatesHighlightedLabel]
+/// * [businessAccount]
+/// * [hasGraduatedAccess]
+/// * [hasNftAvatar]
+/// * [id]
+/// * [isBlueVerified]
+/// * [legacy]
+/// * [restId]
+/// * [superFollowEligible]
+/// * [superFollowedBy]
+/// * [superFollowing]
 @BuiltValue()
 abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'__typename')
@@ -71,11 +71,11 @@ abstract class User implements Built<User, UserBuilder> {
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserBuilder b) => b
-      ..hasNftAvatar = false
-      ..isBlueVerified = false
-      ..superFollowEligible = false
-      ..superFollowedBy = false
-      ..superFollowing = false;
+    ..hasNftAvatar = false
+    ..isBlueVerified = false
+    ..superFollowEligible = false
+    ..superFollowedBy = false
+    ..superFollowing = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<User> get serializer => _$UserSerializer();
@@ -167,7 +167,9 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
     User object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -294,4 +296,3 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
     return result.build();
   }
 }
-

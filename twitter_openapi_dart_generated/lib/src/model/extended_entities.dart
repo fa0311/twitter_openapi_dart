@@ -13,24 +13,28 @@ part 'extended_entities.g.dart';
 /// ExtendedEntities
 ///
 /// Properties:
-/// * [media] 
+/// * [media]
 @BuiltValue()
-abstract class ExtendedEntities implements Built<ExtendedEntities, ExtendedEntitiesBuilder> {
+abstract class ExtendedEntities
+    implements Built<ExtendedEntities, ExtendedEntitiesBuilder> {
   @BuiltValueField(wireName: r'media')
   BuiltList<Media> get media;
 
   ExtendedEntities._();
 
-  factory ExtendedEntities([void updates(ExtendedEntitiesBuilder b)]) = _$ExtendedEntities;
+  factory ExtendedEntities([void updates(ExtendedEntitiesBuilder b)]) =
+      _$ExtendedEntities;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ExtendedEntitiesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ExtendedEntities> get serializer => _$ExtendedEntitiesSerializer();
+  static Serializer<ExtendedEntities> get serializer =>
+      _$ExtendedEntitiesSerializer();
 }
 
-class _$ExtendedEntitiesSerializer implements PrimitiveSerializer<ExtendedEntities> {
+class _$ExtendedEntitiesSerializer
+    implements PrimitiveSerializer<ExtendedEntities> {
   @override
   final Iterable<Type> types = const [ExtendedEntities, _$ExtendedEntities];
 
@@ -55,7 +59,9 @@ class _$ExtendedEntitiesSerializer implements PrimitiveSerializer<ExtendedEntiti
     ExtendedEntities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +111,3 @@ class _$ExtendedEntitiesSerializer implements PrimitiveSerializer<ExtendedEntiti
     return result.build();
   }
 }
-

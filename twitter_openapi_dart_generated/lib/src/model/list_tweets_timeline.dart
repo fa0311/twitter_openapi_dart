@@ -12,24 +12,28 @@ part 'list_tweets_timeline.g.dart';
 /// ListTweetsTimeline
 ///
 /// Properties:
-/// * [timeline] 
+/// * [timeline]
 @BuiltValue()
-abstract class ListTweetsTimeline implements Built<ListTweetsTimeline, ListTweetsTimelineBuilder> {
+abstract class ListTweetsTimeline
+    implements Built<ListTweetsTimeline, ListTweetsTimelineBuilder> {
   @BuiltValueField(wireName: r'timeline')
   Timeline get timeline;
 
   ListTweetsTimeline._();
 
-  factory ListTweetsTimeline([void updates(ListTweetsTimelineBuilder b)]) = _$ListTweetsTimeline;
+  factory ListTweetsTimeline([void updates(ListTweetsTimelineBuilder b)]) =
+      _$ListTweetsTimeline;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ListTweetsTimelineBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ListTweetsTimeline> get serializer => _$ListTweetsTimelineSerializer();
+  static Serializer<ListTweetsTimeline> get serializer =>
+      _$ListTweetsTimelineSerializer();
 }
 
-class _$ListTweetsTimelineSerializer implements PrimitiveSerializer<ListTweetsTimeline> {
+class _$ListTweetsTimelineSerializer
+    implements PrimitiveSerializer<ListTweetsTimeline> {
   @override
   final Iterable<Type> types = const [ListTweetsTimeline, _$ListTweetsTimeline];
 
@@ -54,7 +58,9 @@ class _$ListTweetsTimelineSerializer implements PrimitiveSerializer<ListTweetsTi
     ListTweetsTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$ListTweetsTimelineSerializer implements PrimitiveSerializer<ListTweetsTi
     return result.build();
   }
 }
-

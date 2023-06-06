@@ -12,24 +12,28 @@ part 'user_tweets_user.g.dart';
 /// UserTweetsUser
 ///
 /// Properties:
-/// * [result] 
+/// * [result]
 @BuiltValue()
-abstract class UserTweetsUser implements Built<UserTweetsUser, UserTweetsUserBuilder> {
+abstract class UserTweetsUser
+    implements Built<UserTweetsUser, UserTweetsUserBuilder> {
   @BuiltValueField(wireName: r'result')
   UserTweetsResult get result;
 
   UserTweetsUser._();
 
-  factory UserTweetsUser([void updates(UserTweetsUserBuilder b)]) = _$UserTweetsUser;
+  factory UserTweetsUser([void updates(UserTweetsUserBuilder b)]) =
+      _$UserTweetsUser;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserTweetsUserBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserTweetsUser> get serializer => _$UserTweetsUserSerializer();
+  static Serializer<UserTweetsUser> get serializer =>
+      _$UserTweetsUserSerializer();
 }
 
-class _$UserTweetsUserSerializer implements PrimitiveSerializer<UserTweetsUser> {
+class _$UserTweetsUserSerializer
+    implements PrimitiveSerializer<UserTweetsUser> {
   @override
   final Iterable<Type> types = const [UserTweetsUser, _$UserTweetsUser];
 
@@ -54,7 +58,9 @@ class _$UserTweetsUserSerializer implements PrimitiveSerializer<UserTweetsUser> 
     UserTweetsUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$UserTweetsUserSerializer implements PrimitiveSerializer<UserTweetsUser> 
     return result.build();
   }
 }
-

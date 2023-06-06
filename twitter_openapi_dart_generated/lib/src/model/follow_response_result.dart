@@ -13,10 +13,11 @@ part 'follow_response_result.g.dart';
 /// FollowResponseResult
 ///
 /// Properties:
-/// * [typename] 
-/// * [timeline] 
+/// * [typename]
+/// * [timeline]
 @BuiltValue()
-abstract class FollowResponseResult implements Built<FollowResponseResult, FollowResponseResultBuilder> {
+abstract class FollowResponseResult
+    implements Built<FollowResponseResult, FollowResponseResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -26,18 +27,24 @@ abstract class FollowResponseResult implements Built<FollowResponseResult, Follo
 
   FollowResponseResult._();
 
-  factory FollowResponseResult([void updates(FollowResponseResultBuilder b)]) = _$FollowResponseResult;
+  factory FollowResponseResult([void updates(FollowResponseResultBuilder b)]) =
+      _$FollowResponseResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FollowResponseResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FollowResponseResult> get serializer => _$FollowResponseResultSerializer();
+  static Serializer<FollowResponseResult> get serializer =>
+      _$FollowResponseResultSerializer();
 }
 
-class _$FollowResponseResultSerializer implements PrimitiveSerializer<FollowResponseResult> {
+class _$FollowResponseResultSerializer
+    implements PrimitiveSerializer<FollowResponseResult> {
   @override
-  final Iterable<Type> types = const [FollowResponseResult, _$FollowResponseResult];
+  final Iterable<Type> types = const [
+    FollowResponseResult,
+    _$FollowResponseResult
+  ];
 
   @override
   final String wireName = r'FollowResponseResult';
@@ -65,7 +72,9 @@ class _$FollowResponseResultSerializer implements PrimitiveSerializer<FollowResp
     FollowResponseResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +131,3 @@ class _$FollowResponseResultSerializer implements PrimitiveSerializer<FollowResp
     return result.build();
   }
 }
-

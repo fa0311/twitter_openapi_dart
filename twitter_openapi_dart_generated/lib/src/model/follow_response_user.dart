@@ -12,24 +12,28 @@ part 'follow_response_user.g.dart';
 /// FollowResponseUser
 ///
 /// Properties:
-/// * [result] 
+/// * [result]
 @BuiltValue()
-abstract class FollowResponseUser implements Built<FollowResponseUser, FollowResponseUserBuilder> {
+abstract class FollowResponseUser
+    implements Built<FollowResponseUser, FollowResponseUserBuilder> {
   @BuiltValueField(wireName: r'result')
   FollowResponseResult get result;
 
   FollowResponseUser._();
 
-  factory FollowResponseUser([void updates(FollowResponseUserBuilder b)]) = _$FollowResponseUser;
+  factory FollowResponseUser([void updates(FollowResponseUserBuilder b)]) =
+      _$FollowResponseUser;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FollowResponseUserBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FollowResponseUser> get serializer => _$FollowResponseUserSerializer();
+  static Serializer<FollowResponseUser> get serializer =>
+      _$FollowResponseUserSerializer();
 }
 
-class _$FollowResponseUserSerializer implements PrimitiveSerializer<FollowResponseUser> {
+class _$FollowResponseUserSerializer
+    implements PrimitiveSerializer<FollowResponseUser> {
   @override
   final Iterable<Type> types = const [FollowResponseUser, _$FollowResponseUser];
 
@@ -54,7 +58,9 @@ class _$FollowResponseUserSerializer implements PrimitiveSerializer<FollowRespon
     FollowResponseUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$FollowResponseUserSerializer implements PrimitiveSerializer<FollowRespon
     return result.build();
   }
 }
-

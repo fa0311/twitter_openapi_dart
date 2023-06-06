@@ -11,8 +11,8 @@ part 'tweet_views.g.dart';
 /// TweetViews
 ///
 /// Properties:
-/// * [count] 
-/// * [state] 
+/// * [count]
+/// * [state]
 @BuiltValue()
 abstract class TweetViews implements Built<TweetViews, TweetViewsBuilder> {
   @BuiltValueField(wireName: r'count')
@@ -66,7 +66,9 @@ class _$TweetViewsSerializer implements PrimitiveSerializer<TweetViews> {
     TweetViews object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -123,4 +125,3 @@ class _$TweetViewsSerializer implements PrimitiveSerializer<TweetViews> {
     return result.build();
   }
 }
-

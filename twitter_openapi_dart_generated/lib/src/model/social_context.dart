@@ -11,11 +11,12 @@ part 'social_context.g.dart';
 /// SocialContext
 ///
 /// Properties:
-/// * [contextType] 
-/// * [text] 
-/// * [type] 
+/// * [contextType]
+/// * [text]
+/// * [type]
 @BuiltValue()
-abstract class SocialContext implements Built<SocialContext, SocialContextBuilder> {
+abstract class SocialContext
+    implements Built<SocialContext, SocialContextBuilder> {
   @BuiltValueField(wireName: r'contextType')
   String? get contextType;
 
@@ -27,13 +28,15 @@ abstract class SocialContext implements Built<SocialContext, SocialContextBuilde
 
   SocialContext._();
 
-  factory SocialContext([void updates(SocialContextBuilder b)]) = _$SocialContext;
+  factory SocialContext([void updates(SocialContextBuilder b)]) =
+      _$SocialContext;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SocialContextBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SocialContext> get serializer => _$SocialContextSerializer();
+  static Serializer<SocialContext> get serializer =>
+      _$SocialContextSerializer();
 }
 
 class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
@@ -77,7 +80,9 @@ class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
     SocialContext object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,4 +146,3 @@ class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
     return result.build();
   }
 }
-

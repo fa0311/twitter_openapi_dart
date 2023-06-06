@@ -13,10 +13,12 @@ part 'timeline_terminate_timeline.g.dart';
 /// TimelineTerminateTimeline
 ///
 /// Properties:
-/// * [direction] 
-/// * [type] 
+/// * [direction]
+/// * [type]
 @BuiltValue()
-abstract class TimelineTerminateTimeline implements Built<TimelineTerminateTimeline, TimelineTerminateTimelineBuilder> {
+abstract class TimelineTerminateTimeline
+    implements
+        Built<TimelineTerminateTimeline, TimelineTerminateTimelineBuilder> {
   @BuiltValueField(wireName: r'direction')
   TimelineTerminateTimelineDirectionEnum get direction;
   // enum directionEnum {  Top,  Bottom,  };
@@ -27,18 +29,25 @@ abstract class TimelineTerminateTimeline implements Built<TimelineTerminateTimel
 
   TimelineTerminateTimeline._();
 
-  factory TimelineTerminateTimeline([void updates(TimelineTerminateTimelineBuilder b)]) = _$TimelineTerminateTimeline;
+  factory TimelineTerminateTimeline(
+          [void updates(TimelineTerminateTimelineBuilder b)]) =
+      _$TimelineTerminateTimeline;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineTerminateTimelineBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTerminateTimeline> get serializer => _$TimelineTerminateTimelineSerializer();
+  static Serializer<TimelineTerminateTimeline> get serializer =>
+      _$TimelineTerminateTimelineSerializer();
 }
 
-class _$TimelineTerminateTimelineSerializer implements PrimitiveSerializer<TimelineTerminateTimeline> {
+class _$TimelineTerminateTimelineSerializer
+    implements PrimitiveSerializer<TimelineTerminateTimeline> {
   @override
-  final Iterable<Type> types = const [TimelineTerminateTimeline, _$TimelineTerminateTimeline];
+  final Iterable<Type> types = const [
+    TimelineTerminateTimeline,
+    _$TimelineTerminateTimeline
+  ];
 
   @override
   final String wireName = r'TimelineTerminateTimeline';
@@ -66,7 +75,9 @@ class _$TimelineTerminateTimelineSerializer implements PrimitiveSerializer<Timel
     TimelineTerminateTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -84,7 +95,8 @@ class _$TimelineTerminateTimelineSerializer implements PrimitiveSerializer<Timel
         case r'direction':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TimelineTerminateTimelineDirectionEnum),
+            specifiedType:
+                const FullType(TimelineTerminateTimelineDirectionEnum),
           ) as TimelineTerminateTimelineDirectionEnum;
           result.direction = valueDes;
           break;
@@ -125,17 +137,20 @@ class _$TimelineTerminateTimelineSerializer implements PrimitiveSerializer<Timel
 }
 
 class TimelineTerminateTimelineDirectionEnum extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Top')
-  static const TimelineTerminateTimelineDirectionEnum top = _$timelineTerminateTimelineDirectionEnum_top;
+  static const TimelineTerminateTimelineDirectionEnum top =
+      _$timelineTerminateTimelineDirectionEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
-  static const TimelineTerminateTimelineDirectionEnum bottom = _$timelineTerminateTimelineDirectionEnum_bottom;
+  static const TimelineTerminateTimelineDirectionEnum bottom =
+      _$timelineTerminateTimelineDirectionEnum_bottom;
 
-  static Serializer<TimelineTerminateTimelineDirectionEnum> get serializer => _$timelineTerminateTimelineDirectionEnumSerializer;
+  static Serializer<TimelineTerminateTimelineDirectionEnum> get serializer =>
+      _$timelineTerminateTimelineDirectionEnumSerializer;
 
-  const TimelineTerminateTimelineDirectionEnum._(String name): super(name);
+  const TimelineTerminateTimelineDirectionEnum._(String name) : super(name);
 
-  static BuiltSet<TimelineTerminateTimelineDirectionEnum> get values => _$timelineTerminateTimelineDirectionEnumValues;
-  static TimelineTerminateTimelineDirectionEnum valueOf(String name) => _$timelineTerminateTimelineDirectionEnumValueOf(name);
+  static BuiltSet<TimelineTerminateTimelineDirectionEnum> get values =>
+      _$timelineTerminateTimelineDirectionEnumValues;
+  static TimelineTerminateTimelineDirectionEnum valueOf(String name) =>
+      _$timelineTerminateTimelineDirectionEnumValueOf(name);
 }
-

@@ -16,15 +16,16 @@ part 'timeline_timeline_module.g.dart';
 /// TimelineTimelineModule
 ///
 /// Properties:
-/// * [typename] 
-/// * [clientEventInfo] 
-/// * [displayType] 
-/// * [entryType] 
-/// * [footer] 
-/// * [header] 
-/// * [items] 
+/// * [typename]
+/// * [clientEventInfo]
+/// * [displayType]
+/// * [entryType]
+/// * [footer]
+/// * [header]
+/// * [items]
 @BuiltValue()
-abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
+abstract class TimelineTimelineModule
+    implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -50,18 +51,25 @@ abstract class TimelineTimelineModule implements Built<TimelineTimelineModule, T
 
   TimelineTimelineModule._();
 
-  factory TimelineTimelineModule([void updates(TimelineTimelineModuleBuilder b)]) = _$TimelineTimelineModule;
+  factory TimelineTimelineModule(
+          [void updates(TimelineTimelineModuleBuilder b)]) =
+      _$TimelineTimelineModule;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineTimelineModuleBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTimelineModule> get serializer => _$TimelineTimelineModuleSerializer();
+  static Serializer<TimelineTimelineModule> get serializer =>
+      _$TimelineTimelineModuleSerializer();
 }
 
-class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<TimelineTimelineModule> {
+class _$TimelineTimelineModuleSerializer
+    implements PrimitiveSerializer<TimelineTimelineModule> {
   @override
-  final Iterable<Type> types = const [TimelineTimelineModule, _$TimelineTimelineModule];
+  final Iterable<Type> types = const [
+    TimelineTimelineModule,
+    _$TimelineTimelineModule
+  ];
 
   @override
   final String wireName = r'TimelineTimelineModule';
@@ -120,7 +128,9 @@ class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<Timeline
     TimelineTimelineModule object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -212,4 +222,3 @@ class _$TimelineTimelineModuleSerializer implements PrimitiveSerializer<Timeline
     return result.build();
   }
 }
-

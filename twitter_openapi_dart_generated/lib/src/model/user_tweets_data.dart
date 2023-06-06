@@ -12,24 +12,28 @@ part 'user_tweets_data.g.dart';
 /// UserTweetsData
 ///
 /// Properties:
-/// * [user] 
+/// * [user]
 @BuiltValue()
-abstract class UserTweetsData implements Built<UserTweetsData, UserTweetsDataBuilder> {
+abstract class UserTweetsData
+    implements Built<UserTweetsData, UserTweetsDataBuilder> {
   @BuiltValueField(wireName: r'user')
   UserTweetsUser get user;
 
   UserTweetsData._();
 
-  factory UserTweetsData([void updates(UserTweetsDataBuilder b)]) = _$UserTweetsData;
+  factory UserTweetsData([void updates(UserTweetsDataBuilder b)]) =
+      _$UserTweetsData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserTweetsDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserTweetsData> get serializer => _$UserTweetsDataSerializer();
+  static Serializer<UserTweetsData> get serializer =>
+      _$UserTweetsDataSerializer();
 }
 
-class _$UserTweetsDataSerializer implements PrimitiveSerializer<UserTweetsData> {
+class _$UserTweetsDataSerializer
+    implements PrimitiveSerializer<UserTweetsData> {
   @override
   final Iterable<Type> types = const [UserTweetsData, _$UserTweetsData];
 
@@ -54,7 +58,9 @@ class _$UserTweetsDataSerializer implements PrimitiveSerializer<UserTweetsData> 
     UserTweetsData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$UserTweetsDataSerializer implements PrimitiveSerializer<UserTweetsData> 
     return result.build();
   }
 }
-

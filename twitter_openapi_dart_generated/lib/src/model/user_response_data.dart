@@ -12,24 +12,28 @@ part 'user_response_data.g.dart';
 /// UserResponseData
 ///
 /// Properties:
-/// * [user] 
+/// * [user]
 @BuiltValue()
-abstract class UserResponseData implements Built<UserResponseData, UserResponseDataBuilder> {
+abstract class UserResponseData
+    implements Built<UserResponseData, UserResponseDataBuilder> {
   @BuiltValueField(wireName: r'user')
   UserResults get user;
 
   UserResponseData._();
 
-  factory UserResponseData([void updates(UserResponseDataBuilder b)]) = _$UserResponseData;
+  factory UserResponseData([void updates(UserResponseDataBuilder b)]) =
+      _$UserResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserResponseData> get serializer => _$UserResponseDataSerializer();
+  static Serializer<UserResponseData> get serializer =>
+      _$UserResponseDataSerializer();
 }
 
-class _$UserResponseDataSerializer implements PrimitiveSerializer<UserResponseData> {
+class _$UserResponseDataSerializer
+    implements PrimitiveSerializer<UserResponseData> {
   @override
   final Iterable<Type> types = const [UserResponseData, _$UserResponseData];
 
@@ -54,7 +58,9 @@ class _$UserResponseDataSerializer implements PrimitiveSerializer<UserResponseDa
     UserResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$UserResponseDataSerializer implements PrimitiveSerializer<UserResponseDa
     return result.build();
   }
 }
-

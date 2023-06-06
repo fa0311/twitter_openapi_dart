@@ -41,8 +41,9 @@ TimelineTimelineCursorCursorTypeEnum
 }
 
 final BuiltSet<TimelineTimelineCursorCursorTypeEnum>
-    _$timelineTimelineCursorCursorTypeEnumValues = new BuiltSet<
-        TimelineTimelineCursorCursorTypeEnum>(const <TimelineTimelineCursorCursorTypeEnum>[
+    _$timelineTimelineCursorCursorTypeEnumValues =
+    new BuiltSet<TimelineTimelineCursorCursorTypeEnum>(const <
+        TimelineTimelineCursorCursorTypeEnum>[
   _$timelineTimelineCursorCursorTypeEnum_top,
   _$timelineTimelineCursorCursorTypeEnum_bottom,
   _$timelineTimelineCursorCursorTypeEnum_showMore,

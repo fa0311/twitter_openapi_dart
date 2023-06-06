@@ -12,26 +12,33 @@ part 'delete_tweet_response.g.dart';
 /// DeleteTweetResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class DeleteTweetResponse implements Built<DeleteTweetResponse, DeleteTweetResponseBuilder> {
+abstract class DeleteTweetResponse
+    implements Built<DeleteTweetResponse, DeleteTweetResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   DeleteTweetResponseData get data;
 
   DeleteTweetResponse._();
 
-  factory DeleteTweetResponse([void updates(DeleteTweetResponseBuilder b)]) = _$DeleteTweetResponse;
+  factory DeleteTweetResponse([void updates(DeleteTweetResponseBuilder b)]) =
+      _$DeleteTweetResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeleteTweetResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeleteTweetResponse> get serializer => _$DeleteTweetResponseSerializer();
+  static Serializer<DeleteTweetResponse> get serializer =>
+      _$DeleteTweetResponseSerializer();
 }
 
-class _$DeleteTweetResponseSerializer implements PrimitiveSerializer<DeleteTweetResponse> {
+class _$DeleteTweetResponseSerializer
+    implements PrimitiveSerializer<DeleteTweetResponse> {
   @override
-  final Iterable<Type> types = const [DeleteTweetResponse, _$DeleteTweetResponse];
+  final Iterable<Type> types = const [
+    DeleteTweetResponse,
+    _$DeleteTweetResponse
+  ];
 
   @override
   final String wireName = r'DeleteTweetResponse';
@@ -54,7 +61,9 @@ class _$DeleteTweetResponseSerializer implements PrimitiveSerializer<DeleteTweet
     DeleteTweetResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +113,3 @@ class _$DeleteTweetResponseSerializer implements PrimitiveSerializer<DeleteTweet
     return result.build();
   }
 }
-

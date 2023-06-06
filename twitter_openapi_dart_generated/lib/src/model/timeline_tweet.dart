@@ -16,14 +16,15 @@ part 'timeline_tweet.g.dart';
 /// TimelineTweet
 ///
 /// Properties:
-/// * [socialContext] 
-/// * [typename] 
-/// * [itemType] 
-/// * [promotedMetadata] 
-/// * [tweetDisplayType] 
-/// * [tweetResults] 
+/// * [socialContext]
+/// * [typename]
+/// * [itemType]
+/// * [promotedMetadata]
+/// * [tweetDisplayType]
+/// * [tweetResults]
 @BuiltValue()
-abstract class TimelineTweet implements Built<TimelineTweet, TimelineTweetBuilder> {
+abstract class TimelineTweet
+    implements Built<TimelineTweet, TimelineTweetBuilder> {
   @BuiltValueField(wireName: r'SocialContext')
   SocialContext? get socialContext;
 
@@ -46,13 +47,15 @@ abstract class TimelineTweet implements Built<TimelineTweet, TimelineTweetBuilde
 
   TimelineTweet._();
 
-  factory TimelineTweet([void updates(TimelineTweetBuilder b)]) = _$TimelineTweet;
+  factory TimelineTweet([void updates(TimelineTweetBuilder b)]) =
+      _$TimelineTweet;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineTweetBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTweet> get serializer => _$TimelineTweetSerializer();
+  static Serializer<TimelineTweet> get serializer =>
+      _$TimelineTweetSerializer();
 }
 
 class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
@@ -109,7 +112,9 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
     TimelineTweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -194,4 +199,3 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
     return result.build();
   }
 }
-

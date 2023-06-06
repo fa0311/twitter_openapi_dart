@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart_generated/src/model/other_response.dart';
 
 class OtherApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -30,7 +29,7 @@ class OtherApi {
   ///
   /// Returns a [Future] containing a [Response] with a [OtherResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<OtherResponse>> other({ 
+  Future<Response<OtherResponse>> other({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -51,22 +50,26 @@ class OtherApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -90,11 +93,12 @@ class OtherApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(OtherResponse),
-      ) as OtherResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(OtherResponse),
+            ) as OtherResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -116,5 +120,4 @@ class OtherApi {
       extra: _response.extra,
     );
   }
-
 }

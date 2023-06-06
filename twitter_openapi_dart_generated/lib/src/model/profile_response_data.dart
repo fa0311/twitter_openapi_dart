@@ -12,26 +12,33 @@ part 'profile_response_data.g.dart';
 /// ProfileResponseData
 ///
 /// Properties:
-/// * [userResultByScreenName] 
+/// * [userResultByScreenName]
 @BuiltValue()
-abstract class ProfileResponseData implements Built<ProfileResponseData, ProfileResponseDataBuilder> {
+abstract class ProfileResponseData
+    implements Built<ProfileResponseData, ProfileResponseDataBuilder> {
   @BuiltValueField(wireName: r'user_result_by_screen_name')
   UserResultByScreenName get userResultByScreenName;
 
   ProfileResponseData._();
 
-  factory ProfileResponseData([void updates(ProfileResponseDataBuilder b)]) = _$ProfileResponseData;
+  factory ProfileResponseData([void updates(ProfileResponseDataBuilder b)]) =
+      _$ProfileResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProfileResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProfileResponseData> get serializer => _$ProfileResponseDataSerializer();
+  static Serializer<ProfileResponseData> get serializer =>
+      _$ProfileResponseDataSerializer();
 }
 
-class _$ProfileResponseDataSerializer implements PrimitiveSerializer<ProfileResponseData> {
+class _$ProfileResponseDataSerializer
+    implements PrimitiveSerializer<ProfileResponseData> {
   @override
-  final Iterable<Type> types = const [ProfileResponseData, _$ProfileResponseData];
+  final Iterable<Type> types = const [
+    ProfileResponseData,
+    _$ProfileResponseData
+  ];
 
   @override
   final String wireName = r'ProfileResponseData';
@@ -54,7 +61,9 @@ class _$ProfileResponseDataSerializer implements PrimitiveSerializer<ProfileResp
     ProfileResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +113,3 @@ class _$ProfileResponseDataSerializer implements PrimitiveSerializer<ProfileResp
     return result.build();
   }
 }
-

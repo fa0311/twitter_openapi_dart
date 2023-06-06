@@ -14,13 +14,16 @@ part 'user_result_by_screen_name_result.g.dart';
 /// UserResultByScreenNameResult
 ///
 /// Properties:
-/// * [typename] 
-/// * [id] 
-/// * [legacy] 
-/// * [profilemodules] 
-/// * [restId] 
+/// * [typename]
+/// * [id]
+/// * [legacy]
+/// * [profilemodules]
+/// * [restId]
 @BuiltValue()
-abstract class UserResultByScreenNameResult implements Built<UserResultByScreenNameResult, UserResultByScreenNameResultBuilder> {
+abstract class UserResultByScreenNameResult
+    implements
+        Built<UserResultByScreenNameResult,
+            UserResultByScreenNameResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -39,18 +42,25 @@ abstract class UserResultByScreenNameResult implements Built<UserResultByScreenN
 
   UserResultByScreenNameResult._();
 
-  factory UserResultByScreenNameResult([void updates(UserResultByScreenNameResultBuilder b)]) = _$UserResultByScreenNameResult;
+  factory UserResultByScreenNameResult(
+          [void updates(UserResultByScreenNameResultBuilder b)]) =
+      _$UserResultByScreenNameResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserResultByScreenNameResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserResultByScreenNameResult> get serializer => _$UserResultByScreenNameResultSerializer();
+  static Serializer<UserResultByScreenNameResult> get serializer =>
+      _$UserResultByScreenNameResultSerializer();
 }
 
-class _$UserResultByScreenNameResultSerializer implements PrimitiveSerializer<UserResultByScreenNameResult> {
+class _$UserResultByScreenNameResultSerializer
+    implements PrimitiveSerializer<UserResultByScreenNameResult> {
   @override
-  final Iterable<Type> types = const [UserResultByScreenNameResult, _$UserResultByScreenNameResult];
+  final Iterable<Type> types = const [
+    UserResultByScreenNameResult,
+    _$UserResultByScreenNameResult
+  ];
 
   @override
   final String wireName = r'UserResultByScreenNameResult';
@@ -93,7 +103,9 @@ class _$UserResultByScreenNameResultSerializer implements PrimitiveSerializer<Us
     UserResultByScreenNameResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -171,4 +183,3 @@ class _$UserResultByScreenNameResultSerializer implements PrimitiveSerializer<Us
     return result.build();
   }
 }
-

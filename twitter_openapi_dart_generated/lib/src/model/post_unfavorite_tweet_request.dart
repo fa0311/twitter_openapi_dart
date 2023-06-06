@@ -12,10 +12,12 @@ part 'post_unfavorite_tweet_request.g.dart';
 /// PostUnfavoriteTweetRequest
 ///
 /// Properties:
-/// * [queryId] 
-/// * [variables] 
+/// * [queryId]
+/// * [variables]
 @BuiltValue()
-abstract class PostUnfavoriteTweetRequest implements Built<PostUnfavoriteTweetRequest, PostUnfavoriteTweetRequestBuilder> {
+abstract class PostUnfavoriteTweetRequest
+    implements
+        Built<PostUnfavoriteTweetRequest, PostUnfavoriteTweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
   String get queryId;
 
@@ -24,19 +26,26 @@ abstract class PostUnfavoriteTweetRequest implements Built<PostUnfavoriteTweetRe
 
   PostUnfavoriteTweetRequest._();
 
-  factory PostUnfavoriteTweetRequest([void updates(PostUnfavoriteTweetRequestBuilder b)]) = _$PostUnfavoriteTweetRequest;
+  factory PostUnfavoriteTweetRequest(
+          [void updates(PostUnfavoriteTweetRequestBuilder b)]) =
+      _$PostUnfavoriteTweetRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PostUnfavoriteTweetRequestBuilder b) => b
-      ..queryId = 'ZYKSe-w7KEslx3JhSIk5LA';
+  static void _defaults(PostUnfavoriteTweetRequestBuilder b) =>
+      b..queryId = 'ZYKSe-w7KEslx3JhSIk5LA';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostUnfavoriteTweetRequest> get serializer => _$PostUnfavoriteTweetRequestSerializer();
+  static Serializer<PostUnfavoriteTweetRequest> get serializer =>
+      _$PostUnfavoriteTweetRequestSerializer();
 }
 
-class _$PostUnfavoriteTweetRequestSerializer implements PrimitiveSerializer<PostUnfavoriteTweetRequest> {
+class _$PostUnfavoriteTweetRequestSerializer
+    implements PrimitiveSerializer<PostUnfavoriteTweetRequest> {
   @override
-  final Iterable<Type> types = const [PostUnfavoriteTweetRequest, _$PostUnfavoriteTweetRequest];
+  final Iterable<Type> types = const [
+    PostUnfavoriteTweetRequest,
+    _$PostUnfavoriteTweetRequest
+  ];
 
   @override
   final String wireName = r'PostUnfavoriteTweetRequest';
@@ -64,7 +73,9 @@ class _$PostUnfavoriteTweetRequestSerializer implements PrimitiveSerializer<Post
     PostUnfavoriteTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +132,3 @@ class _$PostUnfavoriteTweetRequestSerializer implements PrimitiveSerializer<Post
     return result.build();
   }
 }
-

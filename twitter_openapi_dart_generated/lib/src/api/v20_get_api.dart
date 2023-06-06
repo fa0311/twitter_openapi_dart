@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 
 class V20GetApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,47 +20,47 @@ class V20GetApi {
   /// get search adaptive
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [includeProfileInterstitialType] 
-  /// * [includeBlocking] 
-  /// * [includeBlockedBy] 
-  /// * [includeFollowedBy] 
-  /// * [includeWantRetweets] 
-  /// * [includeMuteEdge] 
-  /// * [includeCanDm] 
-  /// * [includeCanMediaTag] 
-  /// * [includeExtHasNftAvatar] 
-  /// * [includeExtIsBlueVerified] 
-  /// * [includeExtVerifiedType] 
-  /// * [includeExtProfileImageShape] 
-  /// * [skipStatus] 
-  /// * [cardsPlatform] 
-  /// * [includeCards] 
-  /// * [includeExtAltText] 
-  /// * [includeExtLimitedActionResults] 
-  /// * [includeQuoteCount] 
-  /// * [includeReplyCount] 
-  /// * [tweetMode] 
-  /// * [includeExtViews] 
-  /// * [includeEntities] 
-  /// * [includeUserEntities] 
-  /// * [includeExtMediaColor] 
-  /// * [includeExtMediaAvailability] 
-  /// * [includeExtSensitiveMediaWarning] 
-  /// * [includeExtTrustedFriendsMetadata] 
-  /// * [sendErrorCodes] 
-  /// * [simpleQuotedTweet] 
-  /// * [q] 
-  /// * [querySource] 
-  /// * [count] 
-  /// * [requestContext] 
-  /// * [pc] 
-  /// * [spellingCorrections] 
-  /// * [includeExtEditControl] 
-  /// * [ext] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [includeProfileInterstitialType]
+  /// * [includeBlocking]
+  /// * [includeBlockedBy]
+  /// * [includeFollowedBy]
+  /// * [includeWantRetweets]
+  /// * [includeMuteEdge]
+  /// * [includeCanDm]
+  /// * [includeCanMediaTag]
+  /// * [includeExtHasNftAvatar]
+  /// * [includeExtIsBlueVerified]
+  /// * [includeExtVerifiedType]
+  /// * [includeExtProfileImageShape]
+  /// * [skipStatus]
+  /// * [cardsPlatform]
+  /// * [includeCards]
+  /// * [includeExtAltText]
+  /// * [includeExtLimitedActionResults]
+  /// * [includeQuoteCount]
+  /// * [includeReplyCount]
+  /// * [tweetMode]
+  /// * [includeExtViews]
+  /// * [includeEntities]
+  /// * [includeUserEntities]
+  /// * [includeExtMediaColor]
+  /// * [includeExtMediaAvailability]
+  /// * [includeExtSensitiveMediaWarning]
+  /// * [includeExtTrustedFriendsMetadata]
+  /// * [sendErrorCodes]
+  /// * [simpleQuotedTweet]
+  /// * [q]
+  /// * [querySource]
+  /// * [count]
+  /// * [requestContext]
+  /// * [pc]
+  /// * [spellingCorrections]
+  /// * [includeExtEditControl]
+  /// * [ext]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -71,9 +70,11 @@ class V20GetApi {
   ///
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> getSearchAdaptive({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<void>> getSearchAdaptive({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     int includeProfileInterstitialType = 1,
@@ -112,7 +113,8 @@ class V20GetApi {
     int pc = 1,
     int spellingCorrections = 1,
     bool includeExtEditControl = true,
-    String ext = 'mediaStats,highlightedLabel,hasNftAvatar,voiceInfo,birdwatchPivot,enrichments,superFollowMetadata,unmentionInfo,editControl,vibe',
+    String ext =
+        'mediaStats,highlightedLabel,hasNftAvatar,voiceInfo,birdwatchPivot,enrichments,superFollowMetadata,unmentionInfo,editControl,vibe',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -137,22 +139,26 @@ class V20GetApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -165,42 +171,75 @@ class V20GetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'include_profile_interstitial_type': encodeQueryParameter(_serializers, includeProfileInterstitialType, const FullType(int)),
-      r'include_blocking': encodeQueryParameter(_serializers, includeBlocking, const FullType(int)),
-      r'include_blocked_by': encodeQueryParameter(_serializers, includeBlockedBy, const FullType(int)),
-      r'include_followed_by': encodeQueryParameter(_serializers, includeFollowedBy, const FullType(int)),
-      r'include_want_retweets': encodeQueryParameter(_serializers, includeWantRetweets, const FullType(int)),
-      r'include_mute_edge': encodeQueryParameter(_serializers, includeMuteEdge, const FullType(int)),
-      r'include_can_dm': encodeQueryParameter(_serializers, includeCanDm, const FullType(int)),
-      r'include_can_media_tag': encodeQueryParameter(_serializers, includeCanMediaTag, const FullType(int)),
-      r'include_ext_has_nft_avatar': encodeQueryParameter(_serializers, includeExtHasNftAvatar, const FullType(int)),
-      r'include_ext_is_blue_verified': encodeQueryParameter(_serializers, includeExtIsBlueVerified, const FullType(int)),
-      r'include_ext_verified_type': encodeQueryParameter(_serializers, includeExtVerifiedType, const FullType(int)),
-      r'include_ext_profile_image_shape': encodeQueryParameter(_serializers, includeExtProfileImageShape, const FullType(int)),
-      r'skip_status': encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
-      r'cards_platform': encodeQueryParameter(_serializers, cardsPlatform, const FullType(String)),
-      r'include_cards': encodeQueryParameter(_serializers, includeCards, const FullType(int)),
-      r'include_ext_alt_text': encodeQueryParameter(_serializers, includeExtAltText, const FullType(bool)),
-      r'include_ext_limited_action_results': encodeQueryParameter(_serializers, includeExtLimitedActionResults, const FullType(bool)),
-      r'include_quote_count': encodeQueryParameter(_serializers, includeQuoteCount, const FullType(bool)),
-      r'include_reply_count': encodeQueryParameter(_serializers, includeReplyCount, const FullType(int)),
-      r'tweet_mode': encodeQueryParameter(_serializers, tweetMode, const FullType(String)),
-      r'include_ext_views': encodeQueryParameter(_serializers, includeExtViews, const FullType(bool)),
-      r'include_entities': encodeQueryParameter(_serializers, includeEntities, const FullType(bool)),
-      r'include_user_entities': encodeQueryParameter(_serializers, includeUserEntities, const FullType(bool)),
-      r'include_ext_media_color': encodeQueryParameter(_serializers, includeExtMediaColor, const FullType(bool)),
-      r'include_ext_media_availability': encodeQueryParameter(_serializers, includeExtMediaAvailability, const FullType(bool)),
-      r'include_ext_sensitive_media_warning': encodeQueryParameter(_serializers, includeExtSensitiveMediaWarning, const FullType(bool)),
-      r'include_ext_trusted_friends_metadata': encodeQueryParameter(_serializers, includeExtTrustedFriendsMetadata, const FullType(bool)),
-      r'send_error_codes': encodeQueryParameter(_serializers, sendErrorCodes, const FullType(bool)),
-      r'simple_quoted_tweet': encodeQueryParameter(_serializers, simpleQuotedTweet, const FullType(bool)),
+      r'include_profile_interstitial_type': encodeQueryParameter(
+          _serializers, includeProfileInterstitialType, const FullType(int)),
+      r'include_blocking': encodeQueryParameter(
+          _serializers, includeBlocking, const FullType(int)),
+      r'include_blocked_by': encodeQueryParameter(
+          _serializers, includeBlockedBy, const FullType(int)),
+      r'include_followed_by': encodeQueryParameter(
+          _serializers, includeFollowedBy, const FullType(int)),
+      r'include_want_retweets': encodeQueryParameter(
+          _serializers, includeWantRetweets, const FullType(int)),
+      r'include_mute_edge': encodeQueryParameter(
+          _serializers, includeMuteEdge, const FullType(int)),
+      r'include_can_dm':
+          encodeQueryParameter(_serializers, includeCanDm, const FullType(int)),
+      r'include_can_media_tag': encodeQueryParameter(
+          _serializers, includeCanMediaTag, const FullType(int)),
+      r'include_ext_has_nft_avatar': encodeQueryParameter(
+          _serializers, includeExtHasNftAvatar, const FullType(int)),
+      r'include_ext_is_blue_verified': encodeQueryParameter(
+          _serializers, includeExtIsBlueVerified, const FullType(int)),
+      r'include_ext_verified_type': encodeQueryParameter(
+          _serializers, includeExtVerifiedType, const FullType(int)),
+      r'include_ext_profile_image_shape': encodeQueryParameter(
+          _serializers, includeExtProfileImageShape, const FullType(int)),
+      r'skip_status':
+          encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
+      r'cards_platform': encodeQueryParameter(
+          _serializers, cardsPlatform, const FullType(String)),
+      r'include_cards':
+          encodeQueryParameter(_serializers, includeCards, const FullType(int)),
+      r'include_ext_alt_text': encodeQueryParameter(
+          _serializers, includeExtAltText, const FullType(bool)),
+      r'include_ext_limited_action_results': encodeQueryParameter(
+          _serializers, includeExtLimitedActionResults, const FullType(bool)),
+      r'include_quote_count': encodeQueryParameter(
+          _serializers, includeQuoteCount, const FullType(bool)),
+      r'include_reply_count': encodeQueryParameter(
+          _serializers, includeReplyCount, const FullType(int)),
+      r'tweet_mode':
+          encodeQueryParameter(_serializers, tweetMode, const FullType(String)),
+      r'include_ext_views': encodeQueryParameter(
+          _serializers, includeExtViews, const FullType(bool)),
+      r'include_entities': encodeQueryParameter(
+          _serializers, includeEntities, const FullType(bool)),
+      r'include_user_entities': encodeQueryParameter(
+          _serializers, includeUserEntities, const FullType(bool)),
+      r'include_ext_media_color': encodeQueryParameter(
+          _serializers, includeExtMediaColor, const FullType(bool)),
+      r'include_ext_media_availability': encodeQueryParameter(
+          _serializers, includeExtMediaAvailability, const FullType(bool)),
+      r'include_ext_sensitive_media_warning': encodeQueryParameter(
+          _serializers, includeExtSensitiveMediaWarning, const FullType(bool)),
+      r'include_ext_trusted_friends_metadata': encodeQueryParameter(
+          _serializers, includeExtTrustedFriendsMetadata, const FullType(bool)),
+      r'send_error_codes': encodeQueryParameter(
+          _serializers, sendErrorCodes, const FullType(bool)),
+      r'simple_quoted_tweet': encodeQueryParameter(
+          _serializers, simpleQuotedTweet, const FullType(bool)),
       r'q': encodeQueryParameter(_serializers, q, const FullType(String)),
-      r'query_source': encodeQueryParameter(_serializers, querySource, const FullType(String)),
+      r'query_source': encodeQueryParameter(
+          _serializers, querySource, const FullType(String)),
       r'count': encodeQueryParameter(_serializers, count, const FullType(int)),
-      r'requestContext': encodeQueryParameter(_serializers, requestContext, const FullType(String)),
+      r'requestContext': encodeQueryParameter(
+          _serializers, requestContext, const FullType(String)),
       r'pc': encodeQueryParameter(_serializers, pc, const FullType(int)),
-      r'spelling_corrections': encodeQueryParameter(_serializers, spellingCorrections, const FullType(int)),
-      r'include_ext_edit_control': encodeQueryParameter(_serializers, includeExtEditControl, const FullType(bool)),
+      r'spelling_corrections': encodeQueryParameter(
+          _serializers, spellingCorrections, const FullType(int)),
+      r'include_ext_edit_control': encodeQueryParameter(
+          _serializers, includeExtEditControl, const FullType(bool)),
       r'ext': encodeQueryParameter(_serializers, ext, const FullType(String)),
     };
 
@@ -215,5 +254,4 @@ class V20GetApi {
 
     return _response;
   }
-
 }

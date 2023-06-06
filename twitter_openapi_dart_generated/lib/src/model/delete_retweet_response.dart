@@ -12,26 +12,33 @@ part 'delete_retweet_response.g.dart';
 /// DeleteRetweetResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class DeleteRetweetResponse implements Built<DeleteRetweetResponse, DeleteRetweetResponseBuilder> {
+abstract class DeleteRetweetResponse
+    implements Built<DeleteRetweetResponse, DeleteRetweetResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   DeleteRetweetResponseData get data;
 
   DeleteRetweetResponse._();
 
-  factory DeleteRetweetResponse([void updates(DeleteRetweetResponseBuilder b)]) = _$DeleteRetweetResponse;
+  factory DeleteRetweetResponse(
+      [void updates(DeleteRetweetResponseBuilder b)]) = _$DeleteRetweetResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeleteRetweetResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeleteRetweetResponse> get serializer => _$DeleteRetweetResponseSerializer();
+  static Serializer<DeleteRetweetResponse> get serializer =>
+      _$DeleteRetweetResponseSerializer();
 }
 
-class _$DeleteRetweetResponseSerializer implements PrimitiveSerializer<DeleteRetweetResponse> {
+class _$DeleteRetweetResponseSerializer
+    implements PrimitiveSerializer<DeleteRetweetResponse> {
   @override
-  final Iterable<Type> types = const [DeleteRetweetResponse, _$DeleteRetweetResponse];
+  final Iterable<Type> types = const [
+    DeleteRetweetResponse,
+    _$DeleteRetweetResponse
+  ];
 
   @override
   final String wireName = r'DeleteRetweetResponse';
@@ -54,7 +61,9 @@ class _$DeleteRetweetResponseSerializer implements PrimitiveSerializer<DeleteRet
     DeleteRetweetResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +113,3 @@ class _$DeleteRetweetResponseSerializer implements PrimitiveSerializer<DeleteRet
     return result.build();
   }
 }
-

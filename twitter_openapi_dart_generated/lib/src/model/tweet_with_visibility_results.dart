@@ -13,10 +13,12 @@ part 'tweet_with_visibility_results.g.dart';
 /// TweetWithVisibilityResults
 ///
 /// Properties:
-/// * [typename] 
-/// * [tweet] 
+/// * [typename]
+/// * [tweet]
 @BuiltValue()
-abstract class TweetWithVisibilityResults implements Built<TweetWithVisibilityResults, TweetWithVisibilityResultsBuilder> {
+abstract class TweetWithVisibilityResults
+    implements
+        Built<TweetWithVisibilityResults, TweetWithVisibilityResultsBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -26,18 +28,25 @@ abstract class TweetWithVisibilityResults implements Built<TweetWithVisibilityRe
 
   TweetWithVisibilityResults._();
 
-  factory TweetWithVisibilityResults([void updates(TweetWithVisibilityResultsBuilder b)]) = _$TweetWithVisibilityResults;
+  factory TweetWithVisibilityResults(
+          [void updates(TweetWithVisibilityResultsBuilder b)]) =
+      _$TweetWithVisibilityResults;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetWithVisibilityResultsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetWithVisibilityResults> get serializer => _$TweetWithVisibilityResultsSerializer();
+  static Serializer<TweetWithVisibilityResults> get serializer =>
+      _$TweetWithVisibilityResultsSerializer();
 }
 
-class _$TweetWithVisibilityResultsSerializer implements PrimitiveSerializer<TweetWithVisibilityResults> {
+class _$TweetWithVisibilityResultsSerializer
+    implements PrimitiveSerializer<TweetWithVisibilityResults> {
   @override
-  final Iterable<Type> types = const [TweetWithVisibilityResults, _$TweetWithVisibilityResults];
+  final Iterable<Type> types = const [
+    TweetWithVisibilityResults,
+    _$TweetWithVisibilityResults
+  ];
 
   @override
   final String wireName = r'TweetWithVisibilityResults';
@@ -65,7 +74,9 @@ class _$TweetWithVisibilityResultsSerializer implements PrimitiveSerializer<Twee
     TweetWithVisibilityResults object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +133,3 @@ class _$TweetWithVisibilityResultsSerializer implements PrimitiveSerializer<Twee
     return result.build();
   }
 }
-

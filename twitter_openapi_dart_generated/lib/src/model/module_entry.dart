@@ -13,8 +13,8 @@ part 'module_entry.g.dart';
 /// ModuleEntry
 ///
 /// Properties:
-/// * [clientEventInfo] 
-/// * [itemContent] 
+/// * [clientEventInfo]
+/// * [itemContent]
 @BuiltValue()
 abstract class ModuleEntry implements Built<ModuleEntry, ModuleEntryBuilder> {
   @BuiltValueField(wireName: r'clientEventInfo')
@@ -64,7 +64,9 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
     ModuleEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +123,3 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
     return result.build();
   }
 }
-

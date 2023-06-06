@@ -14,10 +14,11 @@ part 'timeline_add_entries.g.dart';
 /// TimelineAddEntries
 ///
 /// Properties:
-/// * [entries] 
-/// * [type] 
+/// * [entries]
+/// * [type]
 @BuiltValue()
-abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
+abstract class TimelineAddEntries
+    implements Built<TimelineAddEntries, TimelineAddEntriesBuilder> {
   @BuiltValueField(wireName: r'entries')
   BuiltList<TimelineAddEntry> get entries;
 
@@ -27,16 +28,19 @@ abstract class TimelineAddEntries implements Built<TimelineAddEntries, TimelineA
 
   TimelineAddEntries._();
 
-  factory TimelineAddEntries([void updates(TimelineAddEntriesBuilder b)]) = _$TimelineAddEntries;
+  factory TimelineAddEntries([void updates(TimelineAddEntriesBuilder b)]) =
+      _$TimelineAddEntries;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineAddEntriesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineAddEntries> get serializer => _$TimelineAddEntriesSerializer();
+  static Serializer<TimelineAddEntries> get serializer =>
+      _$TimelineAddEntriesSerializer();
 }
 
-class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddEntries> {
+class _$TimelineAddEntriesSerializer
+    implements PrimitiveSerializer<TimelineAddEntries> {
   @override
   final Iterable<Type> types = const [TimelineAddEntries, _$TimelineAddEntries];
 
@@ -66,7 +70,9 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
     TimelineAddEntries object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -84,7 +90,8 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
         case r'entries':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TimelineAddEntry)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(TimelineAddEntry)]),
           ) as BuiltList<TimelineAddEntry>;
           result.entries.replace(valueDes);
           break;
@@ -123,4 +130,3 @@ class _$TimelineAddEntriesSerializer implements PrimitiveSerializer<TimelineAddE
     return result.build();
   }
 }
-

@@ -12,7 +12,7 @@ part 'create_tweet.g.dart';
 /// CreateTweet
 ///
 /// Properties:
-/// * [result] 
+/// * [result]
 @BuiltValue()
 abstract class CreateTweet implements Built<CreateTweet, CreateTweetBuilder> {
   @BuiltValueField(wireName: r'result')
@@ -54,7 +54,9 @@ class _$CreateTweetSerializer implements PrimitiveSerializer<CreateTweet> {
     CreateTweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +106,3 @@ class _$CreateTweetSerializer implements PrimitiveSerializer<CreateTweet> {
     return result.build();
   }
 }
-

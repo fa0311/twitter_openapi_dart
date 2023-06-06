@@ -13,8 +13,8 @@ part 'item_result.g.dart';
 /// ItemResult
 ///
 /// Properties:
-/// * [typename] 
-/// * [result] 
+/// * [typename]
+/// * [result]
 @BuiltValue()
 abstract class ItemResult implements Built<ItemResult, ItemResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
@@ -67,7 +67,9 @@ class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
     ItemResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,4 +126,3 @@ class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
     return result.build();
   }
 }
-

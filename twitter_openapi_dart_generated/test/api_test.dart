@@ -14,13 +14,16 @@ class HeaderAuth extends Interceptor {
 
   Future<void> readCookies(String path) async {
     final file = new File(path);
-    cookies = (json.decode(await file.readAsString()) as Map).cast<String, String>();
+    cookies =
+        (json.decode(await file.readAsString()) as Map).cast<String, String>();
   }
 
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     options.headers.addAll(<String, String>{
-      "x-csrf-token": cookies.entries.firstWhere((e) => e.key == HeaderAuth.ct0).value,
+      "x-csrf-token":
+          cookies.entries.firstWhere((e) => e.key == HeaderAuth.ct0).value,
       "cookie": cookies.entries.fold("", (a, b) => "${a}${b.key}=${b.value};"),
       // "x-client-uuid": "",
     });
@@ -29,13 +32,21 @@ class HeaderAuth extends Interceptor {
 }
 
 bool contentTest(BuiltList<InstructionUnion> instructions) {
-  final item = instructions.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first;
+  final item = instructions
+      .expand((e) => e.oneOf.isType(TimelineAddEntries)
+          ? [e.oneOf.value as TimelineAddEntries]
+          : <TimelineAddEntries>[])
+      .first;
 
-  final timelineItem =
-      item.entries.expand((e) => e.content.oneOf.isType(TimelineTimelineItem) ? [e.content.oneOf.value as TimelineTimelineItem] : <TimelineTimelineItem>[]);
+  final timelineItem = item.entries.expand((e) =>
+      e.content.oneOf.isType(TimelineTimelineItem)
+          ? [e.content.oneOf.value as TimelineTimelineItem]
+          : <TimelineTimelineItem>[]);
 
-  final timelineModule = item.entries
-      .expand((e) => e.content.oneOf.isType(TimelineTimelineModule) ? [e.content.oneOf.value as TimelineTimelineModule] : <TimelineTimelineModule>[]);
+  final timelineModule = item.entries.expand((e) =>
+      e.content.oneOf.isType(TimelineTimelineModule)
+          ? [e.content.oneOf.value as TimelineTimelineModule]
+          : <TimelineTimelineModule>[]);
   print(timelineItem.length + timelineModule.length);
   return (timelineItem.length + timelineModule.length) > 0;
 }
@@ -54,7 +65,8 @@ void main() async {
   );
 
   final file = new File("twitter-openapi/src/config/placeholder.json");
-  final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
+  final config =
+      (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
   test('getHomeTimeline', () async {
     final response = await client.getTweetApi().getHomeTimeline(
           variables: jsonEncode(config["HomeTimeline"]!["variables"]),
@@ -62,7 +74,8 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions), true);
+    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions),
+        true);
   });
 
   test('getHomeLatestTimeline', () async {
@@ -72,17 +85,22 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions), true);
+    expect(contentTest(response.data!.data.home.homeTimelineUrt.instructions),
+        true);
   });
 
   test('getListLatestTweetsTimeline', () async {
     final response = await client.getTweetApi().getListLatestTweetsTimeline(
-          variables: jsonEncode(config["ListLatestTweetsTimeline"]!["variables"]),
+          variables:
+              jsonEncode(config["ListLatestTweetsTimeline"]!["variables"]),
           features: jsonEncode(config["ListLatestTweetsTimeline"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.list.tweetsTimeline.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.list.tweetsTimeline.timeline.instructions),
+        true);
   });
 
   test('getUserByScreenName', () async {
@@ -103,7 +121,8 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(response.data!.data.userResultByScreenName.result.legacy.screenName, "elonmusk");
+    expect(response.data!.data.userResultByScreenName.result.legacy.screenName,
+        "elonmusk");
   });
 
   test('getUserTweets', () async {
@@ -113,7 +132,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timelineV2.timeline.instructions),
+        true);
   });
 
   test('getUserTweetsAndReplies', () async {
@@ -123,7 +145,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timelineV2.timeline.instructions),
+        true);
   });
 
   test('getUserMedia', () async {
@@ -133,7 +158,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timelineV2.timeline.instructions),
+        true);
   });
 
   test('getLikes', () async {
@@ -143,7 +171,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timelineV2.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timelineV2.timeline.instructions),
+        true);
   });
 
   test('getBookmarks', () async {
@@ -153,7 +184,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.bookmarkTimelineV2.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.bookmarkTimelineV2.timeline.instructions),
+        true);
   });
 
   test('getTweetDetail', () async {
@@ -163,16 +197,23 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.threadedConversationWithInjectionsV2.instructions), true);
+    expect(
+        contentTest(response
+            .data!.data.threadedConversationWithInjectionsV2.instructions),
+        true);
   });
   test('getTweetDetail2', () async {
     final response = await client.getTweetApi().getTweetDetail(
-          variables: jsonEncode(config["TweetDetail"]!["variables"]..addAll({"focalTweetId": "1349265937392930816"})),
+          variables: jsonEncode(config["TweetDetail"]!["variables"]
+            ..addAll({"focalTweetId": "1349265937392930816"})),
           features: jsonEncode(config["TweetDetail"]!["features"]),
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.threadedConversationWithInjectionsV2.instructions), true);
+    expect(
+        contentTest(response
+            .data!.data.threadedConversationWithInjectionsV2.instructions),
+        true);
   });
 
   test('getFollowers', () async {
@@ -182,7 +223,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timeline.timeline.instructions),
+        true);
   });
 
   test('getFollowing', () async {
@@ -192,7 +236,10 @@ void main() async {
         );
     expect(response.statusCode, 200);
     expect(response.data == null, false);
-    expect(contentTest(response.data!.data.user.result.timeline.timeline.instructions), true);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timeline.timeline.instructions),
+        true);
   });
 
   test('tweet', () async {
@@ -200,7 +247,8 @@ void main() async {
     final response = await client.getPostApi().postCreateTweet(
           postCreateTweetRequest: PostCreateTweetRequest(
             (e) => e
-              ..variables = PostCreateTweetRequestVariables((e) => e..tweetText = "Test[${time}]").toBuilder()
+              ..variables = PostCreateTweetRequestVariables(
+                  (e) => e..tweetText = "Test[${time}]").toBuilder()
               ..features = PostCreateTweetRequestFeatures((e) => e).toBuilder(),
           ),
         );
@@ -211,7 +259,10 @@ void main() async {
     expect(response.data == null, false);
     final response2 = await client.getPostApi().postDeleteTweet(
           postDeleteTweetRequest: PostDeleteTweetRequest(
-            (e) => e..variables = PostDeleteTweetRequestVariables((e) => e..tweetId = tweetId).toBuilder(),
+            (e) => e
+              ..variables =
+                  PostDeleteTweetRequestVariables((e) => e..tweetId = tweetId)
+                      .toBuilder(),
           ),
         );
     print(response2);
@@ -232,7 +283,8 @@ void main() async {
   test('deleteRetweet', () async {
     final response = await client.getPostApi().postDeleteRetweet(
           postDeleteRetweetRequest: PostDeleteRetweetRequest(
-            (e) => e..variables = PostDeleteRetweetRequestVariables().toBuilder(),
+            (e) =>
+                e..variables = PostDeleteRetweetRequestVariables().toBuilder(),
           ),
         );
     print(response);

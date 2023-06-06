@@ -12,11 +12,12 @@ part 'timeline_add_entry.g.dart';
 /// TimelineAddEntry
 ///
 /// Properties:
-/// * [content] 
-/// * [entryId] 
-/// * [sortIndex] 
+/// * [content]
+/// * [entryId]
+/// * [sortIndex]
 @BuiltValue()
-abstract class TimelineAddEntry implements Built<TimelineAddEntry, TimelineAddEntryBuilder> {
+abstract class TimelineAddEntry
+    implements Built<TimelineAddEntry, TimelineAddEntryBuilder> {
   @BuiltValueField(wireName: r'content')
   ContentUnion get content;
 
@@ -28,16 +29,19 @@ abstract class TimelineAddEntry implements Built<TimelineAddEntry, TimelineAddEn
 
   TimelineAddEntry._();
 
-  factory TimelineAddEntry([void updates(TimelineAddEntryBuilder b)]) = _$TimelineAddEntry;
+  factory TimelineAddEntry([void updates(TimelineAddEntryBuilder b)]) =
+      _$TimelineAddEntry;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineAddEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineAddEntry> get serializer => _$TimelineAddEntrySerializer();
+  static Serializer<TimelineAddEntry> get serializer =>
+      _$TimelineAddEntrySerializer();
 }
 
-class _$TimelineAddEntrySerializer implements PrimitiveSerializer<TimelineAddEntry> {
+class _$TimelineAddEntrySerializer
+    implements PrimitiveSerializer<TimelineAddEntry> {
   @override
   final Iterable<Type> types = const [TimelineAddEntry, _$TimelineAddEntry];
 
@@ -72,7 +76,9 @@ class _$TimelineAddEntrySerializer implements PrimitiveSerializer<TimelineAddEnt
     TimelineAddEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -136,4 +142,3 @@ class _$TimelineAddEntrySerializer implements PrimitiveSerializer<TimelineAddEnt
     return result.build();
   }
 }
-

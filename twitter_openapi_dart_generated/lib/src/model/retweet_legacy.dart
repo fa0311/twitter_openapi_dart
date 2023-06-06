@@ -11,21 +11,24 @@ part 'retweet_legacy.g.dart';
 /// RetweetLegacy
 ///
 /// Properties:
-/// * [fullText] 
+/// * [fullText]
 @BuiltValue()
-abstract class RetweetLegacy implements Built<RetweetLegacy, RetweetLegacyBuilder> {
+abstract class RetweetLegacy
+    implements Built<RetweetLegacy, RetweetLegacyBuilder> {
   @BuiltValueField(wireName: r'full_text')
   String get fullText;
 
   RetweetLegacy._();
 
-  factory RetweetLegacy([void updates(RetweetLegacyBuilder b)]) = _$RetweetLegacy;
+  factory RetweetLegacy([void updates(RetweetLegacyBuilder b)]) =
+      _$RetweetLegacy;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RetweetLegacyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RetweetLegacy> get serializer => _$RetweetLegacySerializer();
+  static Serializer<RetweetLegacy> get serializer =>
+      _$RetweetLegacySerializer();
 }
 
 class _$RetweetLegacySerializer implements PrimitiveSerializer<RetweetLegacy> {
@@ -53,7 +56,9 @@ class _$RetweetLegacySerializer implements PrimitiveSerializer<RetweetLegacy> {
     RetweetLegacy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +108,3 @@ class _$RetweetLegacySerializer implements PrimitiveSerializer<RetweetLegacy> {
     return result.build();
   }
 }
-

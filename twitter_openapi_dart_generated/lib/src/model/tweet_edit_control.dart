@@ -12,12 +12,13 @@ part 'tweet_edit_control.g.dart';
 /// TweetEditControl
 ///
 /// Properties:
-/// * [editTweetIds] 
-/// * [editableUntilMsecs] 
-/// * [editsRemaining] 
-/// * [isEditEligible] 
+/// * [editTweetIds]
+/// * [editableUntilMsecs]
+/// * [editsRemaining]
+/// * [isEditEligible]
 @BuiltValue()
-abstract class TweetEditControl implements Built<TweetEditControl, TweetEditControlBuilder> {
+abstract class TweetEditControl
+    implements Built<TweetEditControl, TweetEditControlBuilder> {
   @BuiltValueField(wireName: r'edit_tweet_ids')
   BuiltList<String>? get editTweetIds;
 
@@ -32,16 +33,19 @@ abstract class TweetEditControl implements Built<TweetEditControl, TweetEditCont
 
   TweetEditControl._();
 
-  factory TweetEditControl([void updates(TweetEditControlBuilder b)]) = _$TweetEditControl;
+  factory TweetEditControl([void updates(TweetEditControlBuilder b)]) =
+      _$TweetEditControl;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetEditControlBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetEditControl> get serializer => _$TweetEditControlSerializer();
+  static Serializer<TweetEditControl> get serializer =>
+      _$TweetEditControlSerializer();
 }
 
-class _$TweetEditControlSerializer implements PrimitiveSerializer<TweetEditControl> {
+class _$TweetEditControlSerializer
+    implements PrimitiveSerializer<TweetEditControl> {
   @override
   final Iterable<Type> types = const [TweetEditControl, _$TweetEditControl];
 
@@ -89,7 +93,9 @@ class _$TweetEditControlSerializer implements PrimitiveSerializer<TweetEditContr
     TweetEditControl object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -160,4 +166,3 @@ class _$TweetEditControlSerializer implements PrimitiveSerializer<TweetEditContr
     return result.build();
   }
 }
-

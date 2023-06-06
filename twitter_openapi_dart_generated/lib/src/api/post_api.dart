@@ -21,7 +21,6 @@ import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_r
 import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_response_data.dart';
 
 class PostApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -32,10 +31,10 @@ class PostApi {
   /// create Retweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postCreateRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -46,9 +45,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<CreateRetweetResponse>> postCreateRetweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<CreateRetweetResponse>> postCreateRetweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostCreateRetweetRequest postCreateRetweetRequest,
@@ -76,22 +77,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -108,11 +113,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostCreateRetweetRequest);
-      _bodyData = _serializers.serialize(postCreateRetweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(postCreateRetweetRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -135,11 +140,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CreateRetweetResponse),
-      ) as CreateRetweetResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CreateRetweetResponse),
+            ) as CreateRetweetResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -166,10 +172,10 @@ class PostApi {
   /// create Tweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postCreateTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -180,9 +186,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<CreateTweetResponse>> postCreateTweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<CreateTweetResponse>> postCreateTweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostCreateTweetRequest postCreateTweetRequest,
@@ -210,22 +218,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -242,11 +254,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostCreateTweetRequest);
-      _bodyData = _serializers.serialize(postCreateTweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(postCreateTweetRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -269,11 +281,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(CreateTweetResponse),
-      ) as CreateTweetResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CreateTweetResponse),
+            ) as CreateTweetResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -300,10 +313,10 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postDeleteRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -314,9 +327,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
@@ -344,22 +359,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -376,11 +395,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostDeleteRetweetRequest);
-      _bodyData = _serializers.serialize(postDeleteRetweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(postDeleteRetweetRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -403,11 +422,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(DeleteRetweetResponse),
-      ) as DeleteRetweetResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeleteRetweetResponse),
+            ) as DeleteRetweetResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -434,10 +454,10 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postDeleteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -448,9 +468,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeleteTweetResponse>> postDeleteTweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<DeleteTweetResponse>> postDeleteTweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostDeleteTweetRequest postDeleteTweetRequest,
@@ -478,22 +500,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -510,11 +536,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostDeleteTweetRequest);
-      _bodyData = _serializers.serialize(postDeleteTweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData =
+          _serializers.serialize(postDeleteTweetRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -537,11 +563,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(DeleteTweetResponse),
-      ) as DeleteTweetResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeleteTweetResponse),
+            ) as DeleteTweetResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -568,10 +595,10 @@ class PostApi {
   /// favorite Tweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postFavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -582,9 +609,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
@@ -612,22 +641,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -644,11 +677,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostFavoriteTweetRequest);
-      _bodyData = _serializers.serialize(postFavoriteTweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(postFavoriteTweetRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -671,11 +704,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(FavoriteTweetResponseData),
-      ) as FavoriteTweetResponseData;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(FavoriteTweetResponseData),
+            ) as FavoriteTweetResponseData;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -702,10 +736,10 @@ class PostApi {
   /// unfavorite Tweet
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
   /// * [postUnfavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -716,9 +750,11 @@ class PostApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
@@ -746,22 +782,26 @@ class PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -778,11 +818,11 @@ class PostApi {
 
     try {
       const _type = FullType(PostUnfavoriteTweetRequest);
-      _bodyData = _serializers.serialize(postUnfavoriteTweetRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = _serializers.serialize(postUnfavoriteTweetRequest,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -805,11 +845,12 @@ class PostApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(UnfavoriteTweetResponseData),
-      ) as UnfavoriteTweetResponseData;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UnfavoriteTweetResponseData),
+            ) as UnfavoriteTweetResponseData;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -831,5 +872,4 @@ class PostApi {
       extra: _response.extra,
     );
   }
-
 }

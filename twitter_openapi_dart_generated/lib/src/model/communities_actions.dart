@@ -11,24 +11,28 @@ part 'communities_actions.g.dart';
 /// CommunitiesActions
 ///
 /// Properties:
-/// * [create] 
+/// * [create]
 @BuiltValue()
-abstract class CommunitiesActions implements Built<CommunitiesActions, CommunitiesActionsBuilder> {
+abstract class CommunitiesActions
+    implements Built<CommunitiesActions, CommunitiesActionsBuilder> {
   @BuiltValueField(wireName: r'create')
   bool get create;
 
   CommunitiesActions._();
 
-  factory CommunitiesActions([void updates(CommunitiesActionsBuilder b)]) = _$CommunitiesActions;
+  factory CommunitiesActions([void updates(CommunitiesActionsBuilder b)]) =
+      _$CommunitiesActions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CommunitiesActionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CommunitiesActions> get serializer => _$CommunitiesActionsSerializer();
+  static Serializer<CommunitiesActions> get serializer =>
+      _$CommunitiesActionsSerializer();
 }
 
-class _$CommunitiesActionsSerializer implements PrimitiveSerializer<CommunitiesActions> {
+class _$CommunitiesActionsSerializer
+    implements PrimitiveSerializer<CommunitiesActions> {
   @override
   final Iterable<Type> types = const [CommunitiesActions, _$CommunitiesActions];
 
@@ -53,7 +57,9 @@ class _$CommunitiesActionsSerializer implements PrimitiveSerializer<CommunitiesA
     CommunitiesActions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +109,3 @@ class _$CommunitiesActionsSerializer implements PrimitiveSerializer<CommunitiesA
     return result.build();
   }
 }
-

@@ -12,26 +12,35 @@ part 'home_timeline_response_data.g.dart';
 /// HomeTimelineResponseData
 ///
 /// Properties:
-/// * [home] 
+/// * [home]
 @BuiltValue()
-abstract class HomeTimelineResponseData implements Built<HomeTimelineResponseData, HomeTimelineResponseDataBuilder> {
+abstract class HomeTimelineResponseData
+    implements
+        Built<HomeTimelineResponseData, HomeTimelineResponseDataBuilder> {
   @BuiltValueField(wireName: r'home')
   HomeTimelineHome get home;
 
   HomeTimelineResponseData._();
 
-  factory HomeTimelineResponseData([void updates(HomeTimelineResponseDataBuilder b)]) = _$HomeTimelineResponseData;
+  factory HomeTimelineResponseData(
+          [void updates(HomeTimelineResponseDataBuilder b)]) =
+      _$HomeTimelineResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(HomeTimelineResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineResponseData> get serializer => _$HomeTimelineResponseDataSerializer();
+  static Serializer<HomeTimelineResponseData> get serializer =>
+      _$HomeTimelineResponseDataSerializer();
 }
 
-class _$HomeTimelineResponseDataSerializer implements PrimitiveSerializer<HomeTimelineResponseData> {
+class _$HomeTimelineResponseDataSerializer
+    implements PrimitiveSerializer<HomeTimelineResponseData> {
   @override
-  final Iterable<Type> types = const [HomeTimelineResponseData, _$HomeTimelineResponseData];
+  final Iterable<Type> types = const [
+    HomeTimelineResponseData,
+    _$HomeTimelineResponseData
+  ];
 
   @override
   final String wireName = r'HomeTimelineResponseData';
@@ -54,7 +63,9 @@ class _$HomeTimelineResponseDataSerializer implements PrimitiveSerializer<HomeTi
     HomeTimelineResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$HomeTimelineResponseDataSerializer implements PrimitiveSerializer<HomeTi
     return result.build();
   }
 }
-

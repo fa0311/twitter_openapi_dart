@@ -12,26 +12,33 @@ part 'create_retweet_response.g.dart';
 /// CreateRetweetResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class CreateRetweetResponse implements Built<CreateRetweetResponse, CreateRetweetResponseBuilder> {
+abstract class CreateRetweetResponse
+    implements Built<CreateRetweetResponse, CreateRetweetResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   CreateRetweetResponseData get data;
 
   CreateRetweetResponse._();
 
-  factory CreateRetweetResponse([void updates(CreateRetweetResponseBuilder b)]) = _$CreateRetweetResponse;
+  factory CreateRetweetResponse(
+      [void updates(CreateRetweetResponseBuilder b)]) = _$CreateRetweetResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CreateRetweetResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateRetweetResponse> get serializer => _$CreateRetweetResponseSerializer();
+  static Serializer<CreateRetweetResponse> get serializer =>
+      _$CreateRetweetResponseSerializer();
 }
 
-class _$CreateRetweetResponseSerializer implements PrimitiveSerializer<CreateRetweetResponse> {
+class _$CreateRetweetResponseSerializer
+    implements PrimitiveSerializer<CreateRetweetResponse> {
   @override
-  final Iterable<Type> types = const [CreateRetweetResponse, _$CreateRetweetResponse];
+  final Iterable<Type> types = const [
+    CreateRetweetResponse,
+    _$CreateRetweetResponse
+  ];
 
   @override
   final String wireName = r'CreateRetweetResponse';
@@ -54,7 +61,9 @@ class _$CreateRetweetResponseSerializer implements PrimitiveSerializer<CreateRet
     CreateRetweetResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +113,3 @@ class _$CreateRetweetResponseSerializer implements PrimitiveSerializer<CreateRet
     return result.build();
   }
 }
-

@@ -12,26 +12,34 @@ part 'list_tweets_timeline_list.g.dart';
 /// ListTweetsTimelineList
 ///
 /// Properties:
-/// * [tweetsTimeline] 
+/// * [tweetsTimeline]
 @BuiltValue()
-abstract class ListTweetsTimelineList implements Built<ListTweetsTimelineList, ListTweetsTimelineListBuilder> {
+abstract class ListTweetsTimelineList
+    implements Built<ListTweetsTimelineList, ListTweetsTimelineListBuilder> {
   @BuiltValueField(wireName: r'tweets_timeline')
   ListTweetsTimeline get tweetsTimeline;
 
   ListTweetsTimelineList._();
 
-  factory ListTweetsTimelineList([void updates(ListTweetsTimelineListBuilder b)]) = _$ListTweetsTimelineList;
+  factory ListTweetsTimelineList(
+          [void updates(ListTweetsTimelineListBuilder b)]) =
+      _$ListTweetsTimelineList;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ListTweetsTimelineListBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ListTweetsTimelineList> get serializer => _$ListTweetsTimelineListSerializer();
+  static Serializer<ListTweetsTimelineList> get serializer =>
+      _$ListTweetsTimelineListSerializer();
 }
 
-class _$ListTweetsTimelineListSerializer implements PrimitiveSerializer<ListTweetsTimelineList> {
+class _$ListTweetsTimelineListSerializer
+    implements PrimitiveSerializer<ListTweetsTimelineList> {
   @override
-  final Iterable<Type> types = const [ListTweetsTimelineList, _$ListTweetsTimelineList];
+  final Iterable<Type> types = const [
+    ListTweetsTimelineList,
+    _$ListTweetsTimelineList
+  ];
 
   @override
   final String wireName = r'ListTweetsTimelineList';
@@ -54,7 +62,9 @@ class _$ListTweetsTimelineListSerializer implements PrimitiveSerializer<ListTwee
     ListTweetsTimelineList object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +114,3 @@ class _$ListTweetsTimelineListSerializer implements PrimitiveSerializer<ListTwee
     return result.build();
   }
 }
-

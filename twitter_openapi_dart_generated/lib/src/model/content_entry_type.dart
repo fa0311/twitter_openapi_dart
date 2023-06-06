@@ -10,17 +10,19 @@ import 'package:built_value/serializer.dart';
 part 'content_entry_type.g.dart';
 
 class ContentEntryType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'TimelineTimelineItem')
   static const ContentEntryType timelineTimelineItem = _$timelineTimelineItem;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineCursor')
-  static const ContentEntryType timelineTimelineCursor = _$timelineTimelineCursor;
+  static const ContentEntryType timelineTimelineCursor =
+      _$timelineTimelineCursor;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineModule')
-  static const ContentEntryType timelineTimelineModule = _$timelineTimelineModule;
+  static const ContentEntryType timelineTimelineModule =
+      _$timelineTimelineModule;
 
-  static Serializer<ContentEntryType> get serializer => _$contentEntryTypeSerializer;
+  static Serializer<ContentEntryType> get serializer =>
+      _$contentEntryTypeSerializer;
 
-  const ContentEntryType._(String name): super(name);
+  const ContentEntryType._(String name) : super(name);
 
   static BuiltSet<ContentEntryType> get values => _$values;
   static ContentEntryType valueOf(String name) => _$valueOf(name);
@@ -33,4 +35,3 @@ class ContentEntryType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ContentEntryTypeMixin = Object with _$ContentEntryTypeMixin;
-

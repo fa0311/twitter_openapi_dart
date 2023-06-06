@@ -11,24 +11,28 @@ part 'unfavorite_tweet.g.dart';
 /// UnfavoriteTweet
 ///
 /// Properties:
-/// * [unfavoriteTweet] 
+/// * [unfavoriteTweet]
 @BuiltValue()
-abstract class UnfavoriteTweet implements Built<UnfavoriteTweet, UnfavoriteTweetBuilder> {
+abstract class UnfavoriteTweet
+    implements Built<UnfavoriteTweet, UnfavoriteTweetBuilder> {
   @BuiltValueField(wireName: r'unfavorite_tweet')
   String get unfavoriteTweet;
 
   UnfavoriteTweet._();
 
-  factory UnfavoriteTweet([void updates(UnfavoriteTweetBuilder b)]) = _$UnfavoriteTweet;
+  factory UnfavoriteTweet([void updates(UnfavoriteTweetBuilder b)]) =
+      _$UnfavoriteTweet;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UnfavoriteTweetBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UnfavoriteTweet> get serializer => _$UnfavoriteTweetSerializer();
+  static Serializer<UnfavoriteTweet> get serializer =>
+      _$UnfavoriteTweetSerializer();
 }
 
-class _$UnfavoriteTweetSerializer implements PrimitiveSerializer<UnfavoriteTweet> {
+class _$UnfavoriteTweetSerializer
+    implements PrimitiveSerializer<UnfavoriteTweet> {
   @override
   final Iterable<Type> types = const [UnfavoriteTweet, _$UnfavoriteTweet];
 
@@ -53,7 +57,9 @@ class _$UnfavoriteTweetSerializer implements PrimitiveSerializer<UnfavoriteTweet
     UnfavoriteTweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +109,3 @@ class _$UnfavoriteTweetSerializer implements PrimitiveSerializer<UnfavoriteTweet
     return result.build();
   }
 }
-

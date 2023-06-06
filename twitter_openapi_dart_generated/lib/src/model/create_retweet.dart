@@ -12,21 +12,24 @@ part 'create_retweet.g.dart';
 /// CreateRetweet
 ///
 /// Properties:
-/// * [result] 
+/// * [result]
 @BuiltValue()
-abstract class CreateRetweet implements Built<CreateRetweet, CreateRetweetBuilder> {
+abstract class CreateRetweet
+    implements Built<CreateRetweet, CreateRetweetBuilder> {
   @BuiltValueField(wireName: r'result')
   Retweet get result;
 
   CreateRetweet._();
 
-  factory CreateRetweet([void updates(CreateRetweetBuilder b)]) = _$CreateRetweet;
+  factory CreateRetweet([void updates(CreateRetweetBuilder b)]) =
+      _$CreateRetweet;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CreateRetweetBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateRetweet> get serializer => _$CreateRetweetSerializer();
+  static Serializer<CreateRetweet> get serializer =>
+      _$CreateRetweetSerializer();
 }
 
 class _$CreateRetweetSerializer implements PrimitiveSerializer<CreateRetweet> {
@@ -54,7 +57,9 @@ class _$CreateRetweetSerializer implements PrimitiveSerializer<CreateRetweet> {
     CreateRetweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +109,3 @@ class _$CreateRetweetSerializer implements PrimitiveSerializer<CreateRetweet> {
     return result.build();
   }
 }
-

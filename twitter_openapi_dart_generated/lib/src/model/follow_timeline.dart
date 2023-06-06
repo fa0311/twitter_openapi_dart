@@ -12,24 +12,28 @@ part 'follow_timeline.g.dart';
 /// FollowTimeline
 ///
 /// Properties:
-/// * [timeline] 
+/// * [timeline]
 @BuiltValue()
-abstract class FollowTimeline implements Built<FollowTimeline, FollowTimelineBuilder> {
+abstract class FollowTimeline
+    implements Built<FollowTimeline, FollowTimelineBuilder> {
   @BuiltValueField(wireName: r'timeline')
   Timeline get timeline;
 
   FollowTimeline._();
 
-  factory FollowTimeline([void updates(FollowTimelineBuilder b)]) = _$FollowTimeline;
+  factory FollowTimeline([void updates(FollowTimelineBuilder b)]) =
+      _$FollowTimeline;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FollowTimelineBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FollowTimeline> get serializer => _$FollowTimelineSerializer();
+  static Serializer<FollowTimeline> get serializer =>
+      _$FollowTimelineSerializer();
 }
 
-class _$FollowTimelineSerializer implements PrimitiveSerializer<FollowTimeline> {
+class _$FollowTimelineSerializer
+    implements PrimitiveSerializer<FollowTimeline> {
   @override
   final Iterable<Type> types = const [FollowTimeline, _$FollowTimeline];
 
@@ -54,7 +58,9 @@ class _$FollowTimelineSerializer implements PrimitiveSerializer<FollowTimeline> 
     FollowTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$FollowTimelineSerializer implements PrimitiveSerializer<FollowTimeline> 
     return result.build();
   }
 }
-

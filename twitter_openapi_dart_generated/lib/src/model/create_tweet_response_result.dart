@@ -12,26 +12,35 @@ part 'create_tweet_response_result.g.dart';
 /// CreateTweetResponseResult
 ///
 /// Properties:
-/// * [tweetResults] 
+/// * [tweetResults]
 @BuiltValue()
-abstract class CreateTweetResponseResult implements Built<CreateTweetResponseResult, CreateTweetResponseResultBuilder> {
+abstract class CreateTweetResponseResult
+    implements
+        Built<CreateTweetResponseResult, CreateTweetResponseResultBuilder> {
   @BuiltValueField(wireName: r'tweet_results')
   CreateTweet get tweetResults;
 
   CreateTweetResponseResult._();
 
-  factory CreateTweetResponseResult([void updates(CreateTweetResponseResultBuilder b)]) = _$CreateTweetResponseResult;
+  factory CreateTweetResponseResult(
+          [void updates(CreateTweetResponseResultBuilder b)]) =
+      _$CreateTweetResponseResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CreateTweetResponseResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateTweetResponseResult> get serializer => _$CreateTweetResponseResultSerializer();
+  static Serializer<CreateTweetResponseResult> get serializer =>
+      _$CreateTweetResponseResultSerializer();
 }
 
-class _$CreateTweetResponseResultSerializer implements PrimitiveSerializer<CreateTweetResponseResult> {
+class _$CreateTweetResponseResultSerializer
+    implements PrimitiveSerializer<CreateTweetResponseResult> {
   @override
-  final Iterable<Type> types = const [CreateTweetResponseResult, _$CreateTweetResponseResult];
+  final Iterable<Type> types = const [
+    CreateTweetResponseResult,
+    _$CreateTweetResponseResult
+  ];
 
   @override
   final String wireName = r'CreateTweetResponseResult';
@@ -54,7 +63,9 @@ class _$CreateTweetResponseResultSerializer implements PrimitiveSerializer<Creat
     CreateTweetResponseResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$CreateTweetResponseResultSerializer implements PrimitiveSerializer<Creat
     return result.build();
   }
 }
-

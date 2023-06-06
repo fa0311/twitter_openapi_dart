@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'type_name.g.dart';
 
 class TypeName extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'TimelineTweet')
   static const TypeName timelineTweet = _$timelineTweet;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineItem')
@@ -20,7 +19,8 @@ class TypeName extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TimelineTimelineCursor')
   static const TypeName timelineTimelineCursor = _$timelineTimelineCursor;
   @BuiltValueEnumConst(wireName: r'TweetWithVisibilityResults')
-  static const TypeName tweetWithVisibilityResults = _$tweetWithVisibilityResults;
+  static const TypeName tweetWithVisibilityResults =
+      _$tweetWithVisibilityResults;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineModule')
   static const TypeName timelineTimelineModule = _$timelineTimelineModule;
   @BuiltValueEnumConst(wireName: r'TweetTombstone')
@@ -32,7 +32,7 @@ class TypeName extends EnumClass {
 
   static Serializer<TypeName> get serializer => _$typeNameSerializer;
 
-  const TypeName._(String name): super(name);
+  const TypeName._(String name) : super(name);
 
   static BuiltSet<TypeName> get values => _$values;
   static TypeName valueOf(String name) => _$valueOf(name);
@@ -45,4 +45,3 @@ class TypeName extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class TypeNameMixin = Object with _$TypeNameMixin;
-

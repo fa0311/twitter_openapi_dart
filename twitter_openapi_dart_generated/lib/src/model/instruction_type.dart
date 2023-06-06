@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'instruction_type.g.dart';
 
 class InstructionType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'TimelineAddEntries')
   static const InstructionType timelineAddEntries = _$timelineAddEntries;
   @BuiltValueEnumConst(wireName: r'TimelineClearCache')
@@ -18,11 +17,13 @@ class InstructionType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TimelinePinEntry')
   static const InstructionType timelinePinEntry = _$timelinePinEntry;
   @BuiltValueEnumConst(wireName: r'TimelineTerminateTimeline')
-  static const InstructionType timelineTerminateTimeline = _$timelineTerminateTimeline;
+  static const InstructionType timelineTerminateTimeline =
+      _$timelineTerminateTimeline;
 
-  static Serializer<InstructionType> get serializer => _$instructionTypeSerializer;
+  static Serializer<InstructionType> get serializer =>
+      _$instructionTypeSerializer;
 
-  const InstructionType._(String name): super(name);
+  const InstructionType._(String name) : super(name);
 
   static BuiltSet<InstructionType> get values => _$values;
   static InstructionType valueOf(String name) => _$valueOf(name);
@@ -35,4 +36,3 @@ class InstructionType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class InstructionTypeMixin = Object with _$InstructionTypeMixin;
-

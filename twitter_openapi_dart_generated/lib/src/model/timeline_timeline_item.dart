@@ -15,13 +15,14 @@ part 'timeline_timeline_item.g.dart';
 /// TimelineTimelineItem
 ///
 /// Properties:
-/// * [typename] 
-/// * [clientEventInfo] 
-/// * [entryType] 
-/// * [feedbackInfo] 
-/// * [itemContent] 
+/// * [typename]
+/// * [clientEventInfo]
+/// * [entryType]
+/// * [feedbackInfo]
+/// * [itemContent]
 @BuiltValue()
-abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
+abstract class TimelineTimelineItem
+    implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -41,18 +42,24 @@ abstract class TimelineTimelineItem implements Built<TimelineTimelineItem, Timel
 
   TimelineTimelineItem._();
 
-  factory TimelineTimelineItem([void updates(TimelineTimelineItemBuilder b)]) = _$TimelineTimelineItem;
+  factory TimelineTimelineItem([void updates(TimelineTimelineItemBuilder b)]) =
+      _$TimelineTimelineItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineTimelineItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTimelineItem> get serializer => _$TimelineTimelineItemSerializer();
+  static Serializer<TimelineTimelineItem> get serializer =>
+      _$TimelineTimelineItemSerializer();
 }
 
-class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTimelineItem> {
+class _$TimelineTimelineItemSerializer
+    implements PrimitiveSerializer<TimelineTimelineItem> {
   @override
-  final Iterable<Type> types = const [TimelineTimelineItem, _$TimelineTimelineItem];
+  final Iterable<Type> types = const [
+    TimelineTimelineItem,
+    _$TimelineTimelineItem
+  ];
 
   @override
   final String wireName = r'TimelineTimelineItem';
@@ -99,7 +106,9 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
     TimelineTimelineItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -177,4 +186,3 @@ class _$TimelineTimelineItemSerializer implements PrimitiveSerializer<TimelineTi
     return result.build();
   }
 }
-

@@ -12,25 +12,29 @@ part 'tweet_tombstone.g.dart';
 /// TweetTombstone
 ///
 /// Properties:
-/// * [typename] 
+/// * [typename]
 @BuiltValue()
-abstract class TweetTombstone implements Built<TweetTombstone, TweetTombstoneBuilder> {
+abstract class TweetTombstone
+    implements Built<TweetTombstone, TweetTombstoneBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName? get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
 
   TweetTombstone._();
 
-  factory TweetTombstone([void updates(TweetTombstoneBuilder b)]) = _$TweetTombstone;
+  factory TweetTombstone([void updates(TweetTombstoneBuilder b)]) =
+      _$TweetTombstone;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetTombstoneBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetTombstone> get serializer => _$TweetTombstoneSerializer();
+  static Serializer<TweetTombstone> get serializer =>
+      _$TweetTombstoneSerializer();
 }
 
-class _$TweetTombstoneSerializer implements PrimitiveSerializer<TweetTombstone> {
+class _$TweetTombstoneSerializer
+    implements PrimitiveSerializer<TweetTombstone> {
   @override
   final Iterable<Type> types = const [TweetTombstone, _$TweetTombstone];
 
@@ -57,7 +61,9 @@ class _$TweetTombstoneSerializer implements PrimitiveSerializer<TweetTombstone> 
     TweetTombstone object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -107,4 +113,3 @@ class _$TweetTombstoneSerializer implements PrimitiveSerializer<TweetTombstone> 
     return result.build();
   }
 }
-

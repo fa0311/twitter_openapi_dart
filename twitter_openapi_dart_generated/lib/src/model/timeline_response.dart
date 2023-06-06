@@ -12,24 +12,28 @@ part 'timeline_response.g.dart';
 /// TimelineResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class TimelineResponse implements Built<TimelineResponse, TimelineResponseBuilder> {
+abstract class TimelineResponse
+    implements Built<TimelineResponse, TimelineResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   HomeTimelineResponseData get data;
 
   TimelineResponse._();
 
-  factory TimelineResponse([void updates(TimelineResponseBuilder b)]) = _$TimelineResponse;
+  factory TimelineResponse([void updates(TimelineResponseBuilder b)]) =
+      _$TimelineResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineResponse> get serializer => _$TimelineResponseSerializer();
+  static Serializer<TimelineResponse> get serializer =>
+      _$TimelineResponseSerializer();
 }
 
-class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineResponse> {
+class _$TimelineResponseSerializer
+    implements PrimitiveSerializer<TimelineResponse> {
   @override
   final Iterable<Type> types = const [TimelineResponse, _$TimelineResponse];
 
@@ -54,7 +58,9 @@ class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineRespon
     TimelineResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$TimelineResponseSerializer implements PrimitiveSerializer<TimelineRespon
     return result.build();
   }
 }
-

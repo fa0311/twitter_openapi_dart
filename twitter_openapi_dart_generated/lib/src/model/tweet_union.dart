@@ -15,17 +15,17 @@ part 'tweet_union.g.dart';
 /// TweetUnion
 ///
 /// Properties:
-/// * [typename] 
-/// * [core] 
-/// * [editControl] 
-/// * [editPrespective] 
-/// * [isTranslatable] 
-/// * [legacy] 
-/// * [quotedStatusResult] 
-/// * [restId] 
-/// * [unmentionData] 
-/// * [views] 
-/// * [tweet] 
+/// * [typename]
+/// * [core]
+/// * [editControl]
+/// * [editPrespective]
+/// * [isTranslatable]
+/// * [legacy]
+/// * [quotedStatusResult]
+/// * [restId]
+/// * [unmentionData]
+/// * [views]
+/// * [tweet]
 @BuiltValue()
 abstract class TweetUnion implements Built<TweetUnion, TweetUnionBuilder> {
   /// One Of [Tweet], [TweetTombstone], [TweetWithVisibilityResults]
@@ -51,32 +51,33 @@ abstract class TweetUnion implements Built<TweetUnion, TweetUnionBuilder> {
 }
 
 extension TweetUnionDiscriminatorExt on TweetUnion {
-    String? get discriminatorValue {
-        if (this is Tweet) {
-            return r'Tweet';
-        }
-        if (this is TweetTombstone) {
-            return r'TweetTombstone';
-        }
-        if (this is TweetWithVisibilityResults) {
-            return r'TweetWithVisibilityResults';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is Tweet) {
+      return r'Tweet';
     }
+    if (this is TweetTombstone) {
+      return r'TweetTombstone';
+    }
+    if (this is TweetWithVisibilityResults) {
+      return r'TweetWithVisibilityResults';
+    }
+    return null;
+  }
 }
+
 extension TweetUnionBuilderDiscriminatorExt on TweetUnionBuilder {
-    String? get discriminatorValue {
-        if (this is TweetBuilder) {
-            return r'Tweet';
-        }
-        if (this is TweetTombstoneBuilder) {
-            return r'TweetTombstone';
-        }
-        if (this is TweetWithVisibilityResultsBuilder) {
-            return r'TweetWithVisibilityResults';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is TweetBuilder) {
+      return r'Tweet';
     }
+    if (this is TweetTombstoneBuilder) {
+      return r'TweetTombstone';
+    }
+    if (this is TweetWithVisibilityResultsBuilder) {
+      return r'TweetWithVisibilityResults';
+    }
+    return null;
+  }
 }
 
 class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
@@ -90,8 +91,7 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
     Serializers serializers,
     TweetUnion object, {
     FullType specifiedType = FullType.unspecified,
-  }) sync* {
-  }
+  }) sync* {}
 
   @override
   Object serialize(
@@ -100,7 +100,8 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final oneOf = object.oneOf;
-    return serializers.serialize(oneOf.value, specifiedType: FullType(oneOf.valueType))!;
+    return serializers.serialize(oneOf.value,
+        specifiedType: FullType(oneOf.valueType))!;
   }
 
   @override
@@ -112,10 +113,16 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
     final result = TweetUnionBuilder();
     Object? oneOfDataSrc;
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(TweetUnion.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(TweetUnion.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [Tweet, TweetTombstone, TweetWithVisibilityResults, ];
+    final oneOfTypes = [
+      Tweet,
+      TweetTombstone,
+      TweetWithVisibilityResults,
+    ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -141,10 +148,13 @@ class _$TweetUnionSerializer implements PrimitiveSerializer<TweetUnion> {
         oneOfType = TweetWithVisibilityResults;
         break;
       default:
-        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+        throw UnsupportedError(
+            "Couldn't deserialize oneOf for the discriminator value: ${discValue}");
     }
-    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
+    result.oneOf = OneOfDynamic(
+        typeIndex: oneOfTypes.indexOf(oneOfType),
+        types: oneOfTypes,
+        value: oneOfResult);
     return result.build();
   }
 }
-

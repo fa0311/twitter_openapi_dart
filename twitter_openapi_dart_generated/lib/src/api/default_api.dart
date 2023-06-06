@@ -11,7 +11,6 @@ import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
 
 class DefaultApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,13 +21,13 @@ class DefaultApi {
   /// get user by screen name
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [queryId]
+  /// * [variables]
+  /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -38,9 +37,11 @@ class DefaultApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<ProfileResponse>> getProfileSpotlightsQuery({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<ProfileResponse>> getProfileSpotlightsQuery({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     String queryId = '"9zwVLJ48lmVUk8u_Gh9DmA"',
@@ -70,22 +71,26 @@ class DefaultApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -98,9 +103,12 @@ class DefaultApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'queryId':
+          encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'variables':
+          encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features':
+          encodeQueryParameter(_serializers, features, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -116,11 +124,12 @@ class DefaultApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ProfileResponse),
-      ) as ProfileResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ProfileResponse),
+            ) as ProfileResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -142,5 +151,4 @@ class DefaultApi {
       extra: _response.extra,
     );
   }
-
 }

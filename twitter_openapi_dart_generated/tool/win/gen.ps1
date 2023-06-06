@@ -22,6 +22,5 @@ Copy-Item -Path twitter-openapi/LICENSE.txt -Destination LICENSE -Force
 Start-Process -FilePath "python" -ArgumentList "tool/win/replace.py" -Wait -NoNewWindow
 
 dart fix --apply
-
+dart format .
 dart analyze
-

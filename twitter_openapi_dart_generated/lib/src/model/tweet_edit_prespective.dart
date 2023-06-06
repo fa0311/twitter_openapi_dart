@@ -11,10 +11,11 @@ part 'tweet_edit_prespective.g.dart';
 /// TweetEditPrespective
 ///
 /// Properties:
-/// * [favorited] 
-/// * [retweeted] 
+/// * [favorited]
+/// * [retweeted]
 @BuiltValue()
-abstract class TweetEditPrespective implements Built<TweetEditPrespective, TweetEditPrespectiveBuilder> {
+abstract class TweetEditPrespective
+    implements Built<TweetEditPrespective, TweetEditPrespectiveBuilder> {
   @BuiltValueField(wireName: r'favorited')
   bool? get favorited;
 
@@ -23,18 +24,24 @@ abstract class TweetEditPrespective implements Built<TweetEditPrespective, Tweet
 
   TweetEditPrespective._();
 
-  factory TweetEditPrespective([void updates(TweetEditPrespectiveBuilder b)]) = _$TweetEditPrespective;
+  factory TweetEditPrespective([void updates(TweetEditPrespectiveBuilder b)]) =
+      _$TweetEditPrespective;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetEditPrespectiveBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetEditPrespective> get serializer => _$TweetEditPrespectiveSerializer();
+  static Serializer<TweetEditPrespective> get serializer =>
+      _$TweetEditPrespectiveSerializer();
 }
 
-class _$TweetEditPrespectiveSerializer implements PrimitiveSerializer<TweetEditPrespective> {
+class _$TweetEditPrespectiveSerializer
+    implements PrimitiveSerializer<TweetEditPrespective> {
   @override
-  final Iterable<Type> types = const [TweetEditPrespective, _$TweetEditPrespective];
+  final Iterable<Type> types = const [
+    TweetEditPrespective,
+    _$TweetEditPrespective
+  ];
 
   @override
   final String wireName = r'TweetEditPrespective';
@@ -66,7 +73,9 @@ class _$TweetEditPrespectiveSerializer implements PrimitiveSerializer<TweetEditP
     TweetEditPrespective object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -123,4 +132,3 @@ class _$TweetEditPrespectiveSerializer implements PrimitiveSerializer<TweetEditP
     return result.build();
   }
 }
-

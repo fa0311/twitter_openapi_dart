@@ -11,9 +11,10 @@ part 'user_features.g.dart';
 /// UserFeatures
 ///
 /// Properties:
-/// * [mediatoolStudioLibrary] 
+/// * [mediatoolStudioLibrary]
 @BuiltValue()
-abstract class UserFeatures implements Built<UserFeatures, UserFeaturesBuilder> {
+abstract class UserFeatures
+    implements Built<UserFeatures, UserFeaturesBuilder> {
   @BuiltValueField(wireName: r'mediatool_studio_library')
   bool get mediatoolStudioLibrary;
 
@@ -53,7 +54,9 @@ class _$UserFeaturesSerializer implements PrimitiveSerializer<UserFeatures> {
     UserFeatures object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +106,3 @@ class _$UserFeaturesSerializer implements PrimitiveSerializer<UserFeatures> {
     return result.build();
   }
 }
-

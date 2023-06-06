@@ -11,7 +11,6 @@ import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response.dart';
 
 class UserListApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,13 +21,13 @@ class UserListApi {
   /// get user list of followers
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [queryId]
+  /// * [variables]
+  /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -38,14 +37,18 @@ class UserListApi {
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FollowResponse>> getFollowers({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<FollowResponse>> getFollowers({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     String queryId = '"djdTXDIk2qhd4OStqlUFeQ"',
-    String variables = '{"userId": "44196397", "count": 20, "includePromotedContent": false}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String variables =
+        '{"userId": "44196397", "count": 20, "includePromotedContent": false}',
+    String features =
+        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -70,22 +73,26 @@ class UserListApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -98,9 +105,12 @@ class UserListApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'queryId':
+          encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'variables':
+          encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features':
+          encodeQueryParameter(_serializers, features, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -116,11 +126,12 @@ class UserListApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(FollowResponse),
-      ) as FollowResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(FollowResponse),
+            ) as FollowResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -147,13 +158,13 @@ class UserListApi {
   /// get user list of following
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [queryId]
+  /// * [variables]
+  /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -163,14 +174,18 @@ class UserListApi {
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<FollowResponse>> getFollowing({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<FollowResponse>> getFollowing({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     String queryId = '"IWP6Zt14sARO29lJT35bBw"',
-    String variables = '{"userId": "44196397", "count": 20, "includePromotedContent": false}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+    String variables =
+        '{"userId": "44196397", "count": 20, "includePromotedContent": false}',
+    String features =
+        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -195,22 +210,26 @@ class UserListApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -223,9 +242,12 @@ class UserListApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'queryId':
+          encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'variables':
+          encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features':
+          encodeQueryParameter(_serializers, features, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -241,11 +263,12 @@ class UserListApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(FollowResponse),
-      ) as FollowResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(FollowResponse),
+            ) as FollowResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -267,5 +290,4 @@ class UserListApi {
       extra: _response.extra,
     );
   }
-
 }

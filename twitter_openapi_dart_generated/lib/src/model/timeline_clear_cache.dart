@@ -12,25 +12,29 @@ part 'timeline_clear_cache.g.dart';
 /// TimelineClearCache
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 @BuiltValue()
-abstract class TimelineClearCache implements Built<TimelineClearCache, TimelineClearCacheBuilder> {
+abstract class TimelineClearCache
+    implements Built<TimelineClearCache, TimelineClearCacheBuilder> {
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineClearCache,  TimelinePinEntry,  TimelineTerminateTimeline,  };
 
   TimelineClearCache._();
 
-  factory TimelineClearCache([void updates(TimelineClearCacheBuilder b)]) = _$TimelineClearCache;
+  factory TimelineClearCache([void updates(TimelineClearCacheBuilder b)]) =
+      _$TimelineClearCache;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineClearCacheBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineClearCache> get serializer => _$TimelineClearCacheSerializer();
+  static Serializer<TimelineClearCache> get serializer =>
+      _$TimelineClearCacheSerializer();
 }
 
-class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClearCache> {
+class _$TimelineClearCacheSerializer
+    implements PrimitiveSerializer<TimelineClearCache> {
   @override
   final Iterable<Type> types = const [TimelineClearCache, _$TimelineClearCache];
 
@@ -55,7 +59,9 @@ class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClea
     TimelineClearCache object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +111,3 @@ class _$TimelineClearCacheSerializer implements PrimitiveSerializer<TimelineClea
     return result.build();
   }
 }
-

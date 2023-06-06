@@ -13,10 +13,11 @@ part 'user_tweets_result.g.dart';
 /// UserTweetsResult
 ///
 /// Properties:
-/// * [typename] 
-/// * [timelineV2] 
+/// * [typename]
+/// * [timelineV2]
 @BuiltValue()
-abstract class UserTweetsResult implements Built<UserTweetsResult, UserTweetsResultBuilder> {
+abstract class UserTweetsResult
+    implements Built<UserTweetsResult, UserTweetsResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -26,16 +27,19 @@ abstract class UserTweetsResult implements Built<UserTweetsResult, UserTweetsRes
 
   UserTweetsResult._();
 
-  factory UserTweetsResult([void updates(UserTweetsResultBuilder b)]) = _$UserTweetsResult;
+  factory UserTweetsResult([void updates(UserTweetsResultBuilder b)]) =
+      _$UserTweetsResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserTweetsResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserTweetsResult> get serializer => _$UserTweetsResultSerializer();
+  static Serializer<UserTweetsResult> get serializer =>
+      _$UserTweetsResultSerializer();
 }
 
-class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResult> {
+class _$UserTweetsResultSerializer
+    implements PrimitiveSerializer<UserTweetsResult> {
   @override
   final Iterable<Type> types = const [UserTweetsResult, _$UserTweetsResult];
 
@@ -65,7 +69,9 @@ class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResu
     UserTweetsResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +128,3 @@ class _$UserTweetsResultSerializer implements PrimitiveSerializer<UserTweetsResu
     return result.build();
   }
 }
-

@@ -14,9 +14,9 @@ part 'timeline.g.dart';
 /// Timeline
 ///
 /// Properties:
-/// * [instructions] 
-/// * [metadata] 
-/// * [responseObjects] 
+/// * [instructions]
+/// * [metadata]
+/// * [responseObjects]
 @BuiltValue()
 abstract class Timeline implements Built<Timeline, TimelineBuilder> {
   @BuiltValueField(wireName: r'instructions')
@@ -78,7 +78,9 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
     Timeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -96,7 +98,8 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
         case r'instructions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(InstructionUnion)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(InstructionUnion)]),
           ) as BuiltList<InstructionUnion>;
           result.instructions.replace(valueDes);
           break;
@@ -142,4 +145,3 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
     return result.build();
   }
 }
-

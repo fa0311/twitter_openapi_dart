@@ -7,7 +7,6 @@ import 'package:built_value/serializer.dart';
 import 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
 class DateSerializer implements PrimitiveSerializer<Date> {
-
   const DateSerializer();
 
   @override

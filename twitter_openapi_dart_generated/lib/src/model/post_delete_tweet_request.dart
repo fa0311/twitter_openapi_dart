@@ -12,10 +12,11 @@ part 'post_delete_tweet_request.g.dart';
 /// PostDeleteTweetRequest
 ///
 /// Properties:
-/// * [queryId] 
-/// * [variables] 
+/// * [queryId]
+/// * [variables]
 @BuiltValue()
-abstract class PostDeleteTweetRequest implements Built<PostDeleteTweetRequest, PostDeleteTweetRequestBuilder> {
+abstract class PostDeleteTweetRequest
+    implements Built<PostDeleteTweetRequest, PostDeleteTweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
   String get queryId;
 
@@ -24,19 +25,26 @@ abstract class PostDeleteTweetRequest implements Built<PostDeleteTweetRequest, P
 
   PostDeleteTweetRequest._();
 
-  factory PostDeleteTweetRequest([void updates(PostDeleteTweetRequestBuilder b)]) = _$PostDeleteTweetRequest;
+  factory PostDeleteTweetRequest(
+          [void updates(PostDeleteTweetRequestBuilder b)]) =
+      _$PostDeleteTweetRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PostDeleteTweetRequestBuilder b) => b
-      ..queryId = 'VaenaVgh5q5ih7kvyVjgtg';
+  static void _defaults(PostDeleteTweetRequestBuilder b) =>
+      b..queryId = 'VaenaVgh5q5ih7kvyVjgtg';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostDeleteTweetRequest> get serializer => _$PostDeleteTweetRequestSerializer();
+  static Serializer<PostDeleteTweetRequest> get serializer =>
+      _$PostDeleteTweetRequestSerializer();
 }
 
-class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDeleteTweetRequest> {
+class _$PostDeleteTweetRequestSerializer
+    implements PrimitiveSerializer<PostDeleteTweetRequest> {
   @override
-  final Iterable<Type> types = const [PostDeleteTweetRequest, _$PostDeleteTweetRequest];
+  final Iterable<Type> types = const [
+    PostDeleteTweetRequest,
+    _$PostDeleteTweetRequest
+  ];
 
   @override
   final String wireName = r'PostDeleteTweetRequest';
@@ -64,7 +72,9 @@ class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDele
     PostDeleteTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +131,3 @@ class _$PostDeleteTweetRequestSerializer implements PrimitiveSerializer<PostDele
     return result.build();
   }
 }
-

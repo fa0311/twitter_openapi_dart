@@ -11,7 +11,6 @@ import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 
 class UserApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,13 +21,13 @@ class UserApi {
   /// get user by screen name
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [queryId] 
-  /// * [variables] 
-  /// * [features] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [queryId]
+  /// * [variables]
+  /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -38,14 +37,18 @@ class UserApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UserResponse>> getUserByScreenName({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<UserResponse>> getUserByScreenName({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     String queryId = '"sLVLhk0bGj3MVFEKTdax1w"',
-    String variables = '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
-    String features = '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}',
+    String variables =
+        '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
+    String features =
+        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -70,22 +73,26 @@ class UserApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -98,9 +105,12 @@ class UserApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId': encodeQueryParameter(_serializers, queryId, const FullType(String)),
-      r'variables': encodeQueryParameter(_serializers, variables, const FullType(String)),
-      r'features': encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'queryId':
+          encodeQueryParameter(_serializers, queryId, const FullType(String)),
+      r'variables':
+          encodeQueryParameter(_serializers, variables, const FullType(String)),
+      r'features':
+          encodeQueryParameter(_serializers, features, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -116,11 +126,12 @@ class UserApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(UserResponse),
-      ) as UserResponse;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UserResponse),
+            ) as UserResponse;
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -142,5 +153,4 @@ class UserApi {
       extra: _response.extra,
     );
   }
-
 }

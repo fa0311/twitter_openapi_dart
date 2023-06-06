@@ -12,8 +12,8 @@ part 'module_item.g.dart';
 /// ModuleItem
 ///
 /// Properties:
-/// * [entryId] 
-/// * [item] 
+/// * [entryId]
+/// * [item]
 @BuiltValue()
 abstract class ModuleItem implements Built<ModuleItem, ModuleItemBuilder> {
   @BuiltValueField(wireName: r'entryId')
@@ -63,7 +63,9 @@ class _$ModuleItemSerializer implements PrimitiveSerializer<ModuleItem> {
     ModuleItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +122,3 @@ class _$ModuleItemSerializer implements PrimitiveSerializer<ModuleItem> {
     return result.build();
   }
 }
-

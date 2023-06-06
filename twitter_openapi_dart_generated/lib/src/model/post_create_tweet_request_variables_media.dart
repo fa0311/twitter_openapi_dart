@@ -13,10 +13,13 @@ part 'post_create_tweet_request_variables_media.g.dart';
 /// PostCreateTweetRequestVariablesMedia
 ///
 /// Properties:
-/// * [mediaEntities] 
-/// * [possiblySensitive] 
+/// * [mediaEntities]
+/// * [possiblySensitive]
 @BuiltValue()
-abstract class PostCreateTweetRequestVariablesMedia implements Built<PostCreateTweetRequestVariablesMedia, PostCreateTweetRequestVariablesMediaBuilder> {
+abstract class PostCreateTweetRequestVariablesMedia
+    implements
+        Built<PostCreateTweetRequestVariablesMedia,
+            PostCreateTweetRequestVariablesMediaBuilder> {
   @BuiltValueField(wireName: r'media_entities')
   BuiltList<JsonObject> get mediaEntities;
 
@@ -25,19 +28,26 @@ abstract class PostCreateTweetRequestVariablesMedia implements Built<PostCreateT
 
   PostCreateTweetRequestVariablesMedia._();
 
-  factory PostCreateTweetRequestVariablesMedia([void updates(PostCreateTweetRequestVariablesMediaBuilder b)]) = _$PostCreateTweetRequestVariablesMedia;
+  factory PostCreateTweetRequestVariablesMedia(
+          [void updates(PostCreateTweetRequestVariablesMediaBuilder b)]) =
+      _$PostCreateTweetRequestVariablesMedia;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PostCreateTweetRequestVariablesMediaBuilder b) => b
-      ..possiblySensitive = false;
+  static void _defaults(PostCreateTweetRequestVariablesMediaBuilder b) =>
+      b..possiblySensitive = false;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostCreateTweetRequestVariablesMedia> get serializer => _$PostCreateTweetRequestVariablesMediaSerializer();
+  static Serializer<PostCreateTweetRequestVariablesMedia> get serializer =>
+      _$PostCreateTweetRequestVariablesMediaSerializer();
 }
 
-class _$PostCreateTweetRequestVariablesMediaSerializer implements PrimitiveSerializer<PostCreateTweetRequestVariablesMedia> {
+class _$PostCreateTweetRequestVariablesMediaSerializer
+    implements PrimitiveSerializer<PostCreateTweetRequestVariablesMedia> {
   @override
-  final Iterable<Type> types = const [PostCreateTweetRequestVariablesMedia, _$PostCreateTweetRequestVariablesMedia];
+  final Iterable<Type> types = const [
+    PostCreateTweetRequestVariablesMedia,
+    _$PostCreateTweetRequestVariablesMedia
+  ];
 
   @override
   final String wireName = r'PostCreateTweetRequestVariablesMedia';
@@ -65,7 +75,9 @@ class _$PostCreateTweetRequestVariablesMediaSerializer implements PrimitiveSeria
     PostCreateTweetRequestVariablesMedia object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +134,3 @@ class _$PostCreateTweetRequestVariablesMediaSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

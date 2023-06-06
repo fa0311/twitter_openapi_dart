@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 
 class V11PostApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,24 +20,24 @@ class V11PostApi {
   /// post create friendships
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [includeBlockedBy] 
-  /// * [includeBlocking] 
-  /// * [includeCanDm] 
-  /// * [includeCanMediaTag] 
-  /// * [includeExtHasNftAvatar] 
-  /// * [includeExtIsBlueVerified] 
-  /// * [includeExtProfileImageShape] 
-  /// * [includeExtVerifiedType] 
-  /// * [includeFollowedBy] 
-  /// * [includeMuteEdge] 
-  /// * [includeProfileInterstitialType] 
-  /// * [includeWantRetweets] 
-  /// * [skipStatus] 
-  /// * [userId] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [includeBlockedBy]
+  /// * [includeBlocking]
+  /// * [includeCanDm]
+  /// * [includeCanMediaTag]
+  /// * [includeExtHasNftAvatar]
+  /// * [includeExtIsBlueVerified]
+  /// * [includeExtProfileImageShape]
+  /// * [includeExtVerifiedType]
+  /// * [includeFollowedBy]
+  /// * [includeMuteEdge]
+  /// * [includeProfileInterstitialType]
+  /// * [includeWantRetweets]
+  /// * [skipStatus]
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -48,9 +47,11 @@ class V11PostApi {
   ///
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> postCreateFriendships({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<void>> postCreateFriendships({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required int includeBlockedBy,
@@ -91,22 +92,26 @@ class V11PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -123,25 +128,38 @@ class V11PostApi {
 
     try {
       _bodyData = <String, dynamic>{
-        r'include_blocked_by': encodeQueryParameter(_serializers, includeBlockedBy, const FullType(int)),
-        r'include_blocking': encodeQueryParameter(_serializers, includeBlocking, const FullType(int)),
-        r'include_can_dm': encodeQueryParameter(_serializers, includeCanDm, const FullType(int)),
-        r'include_can_media_tag': encodeQueryParameter(_serializers, includeCanMediaTag, const FullType(int)),
-        r'include_ext_has_nft_avatar': encodeQueryParameter(_serializers, includeExtHasNftAvatar, const FullType(int)),
-        r'include_ext_is_blue_verified': encodeQueryParameter(_serializers, includeExtIsBlueVerified, const FullType(int)),
-        r'include_ext_profile_image_shape': encodeQueryParameter(_serializers, includeExtProfileImageShape, const FullType(int)),
-        r'include_ext_verified_type': encodeQueryParameter(_serializers, includeExtVerifiedType, const FullType(int)),
-        r'include_followed_by': encodeQueryParameter(_serializers, includeFollowedBy, const FullType(int)),
-        r'include_mute_edge': encodeQueryParameter(_serializers, includeMuteEdge, const FullType(int)),
-        r'include_profile_interstitial_type': encodeQueryParameter(_serializers, includeProfileInterstitialType, const FullType(int)),
-        r'include_want_retweets': encodeQueryParameter(_serializers, includeWantRetweets, const FullType(int)),
-        r'skip_status': encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
-        r'user_id': encodeQueryParameter(_serializers, userId, const FullType(String)),
+        r'include_blocked_by': encodeQueryParameter(
+            _serializers, includeBlockedBy, const FullType(int)),
+        r'include_blocking': encodeQueryParameter(
+            _serializers, includeBlocking, const FullType(int)),
+        r'include_can_dm': encodeQueryParameter(
+            _serializers, includeCanDm, const FullType(int)),
+        r'include_can_media_tag': encodeQueryParameter(
+            _serializers, includeCanMediaTag, const FullType(int)),
+        r'include_ext_has_nft_avatar': encodeQueryParameter(
+            _serializers, includeExtHasNftAvatar, const FullType(int)),
+        r'include_ext_is_blue_verified': encodeQueryParameter(
+            _serializers, includeExtIsBlueVerified, const FullType(int)),
+        r'include_ext_profile_image_shape': encodeQueryParameter(
+            _serializers, includeExtProfileImageShape, const FullType(int)),
+        r'include_ext_verified_type': encodeQueryParameter(
+            _serializers, includeExtVerifiedType, const FullType(int)),
+        r'include_followed_by': encodeQueryParameter(
+            _serializers, includeFollowedBy, const FullType(int)),
+        r'include_mute_edge': encodeQueryParameter(
+            _serializers, includeMuteEdge, const FullType(int)),
+        r'include_profile_interstitial_type': encodeQueryParameter(
+            _serializers, includeProfileInterstitialType, const FullType(int)),
+        r'include_want_retweets': encodeQueryParameter(
+            _serializers, includeWantRetweets, const FullType(int)),
+        r'skip_status':
+            encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
+        r'user_id':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       };
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -167,24 +185,24 @@ class V11PostApi {
   /// post destroy friendships
   ///
   /// Parameters:
-  /// * [userAgent] 
-  /// * [authorization] 
-  /// * [xTwitterActiveUser] 
-  /// * [xTwitterClientLanguage] 
-  /// * [includeBlockedBy] 
-  /// * [includeBlocking] 
-  /// * [includeCanDm] 
-  /// * [includeCanMediaTag] 
-  /// * [includeExtHasNftAvatar] 
-  /// * [includeExtIsBlueVerified] 
-  /// * [includeExtProfileImageShape] 
-  /// * [includeExtVerifiedType] 
-  /// * [includeFollowedBy] 
-  /// * [includeMuteEdge] 
-  /// * [includeProfileInterstitialType] 
-  /// * [includeWantRetweets] 
-  /// * [skipStatus] 
-  /// * [userId] 
+  /// * [userAgent]
+  /// * [authorization]
+  /// * [xTwitterActiveUser]
+  /// * [xTwitterClientLanguage]
+  /// * [includeBlockedBy]
+  /// * [includeBlocking]
+  /// * [includeCanDm]
+  /// * [includeCanMediaTag]
+  /// * [includeExtHasNftAvatar]
+  /// * [includeExtIsBlueVerified]
+  /// * [includeExtProfileImageShape]
+  /// * [includeExtVerifiedType]
+  /// * [includeFollowedBy]
+  /// * [includeMuteEdge]
+  /// * [includeProfileInterstitialType]
+  /// * [includeWantRetweets]
+  /// * [skipStatus]
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -194,9 +212,11 @@ class V11PostApi {
   ///
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> postDestroyFriendships({ 
-    String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization = 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  Future<Response<void>> postDestroyFriendships({
+    String userAgent =
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    String authorization =
+        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
     String xTwitterActiveUser = 'yes',
     String xTwitterClientLanguage = 'en',
     required int includeBlockedBy,
@@ -237,22 +257,26 @@ class V11PostApi {
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'AuthType',
             'keyName': 'x-twitter-auth-type',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'CsrfToken',
             'keyName': 'x-csrf-token',
             'where': 'header',
-          },{
+          },
+          {
             'type': 'apiKey',
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
@@ -269,25 +293,38 @@ class V11PostApi {
 
     try {
       _bodyData = <String, dynamic>{
-        r'include_blocked_by': encodeQueryParameter(_serializers, includeBlockedBy, const FullType(int)),
-        r'include_blocking': encodeQueryParameter(_serializers, includeBlocking, const FullType(int)),
-        r'include_can_dm': encodeQueryParameter(_serializers, includeCanDm, const FullType(int)),
-        r'include_can_media_tag': encodeQueryParameter(_serializers, includeCanMediaTag, const FullType(int)),
-        r'include_ext_has_nft_avatar': encodeQueryParameter(_serializers, includeExtHasNftAvatar, const FullType(int)),
-        r'include_ext_is_blue_verified': encodeQueryParameter(_serializers, includeExtIsBlueVerified, const FullType(int)),
-        r'include_ext_profile_image_shape': encodeQueryParameter(_serializers, includeExtProfileImageShape, const FullType(int)),
-        r'include_ext_verified_type': encodeQueryParameter(_serializers, includeExtVerifiedType, const FullType(int)),
-        r'include_followed_by': encodeQueryParameter(_serializers, includeFollowedBy, const FullType(int)),
-        r'include_mute_edge': encodeQueryParameter(_serializers, includeMuteEdge, const FullType(int)),
-        r'include_profile_interstitial_type': encodeQueryParameter(_serializers, includeProfileInterstitialType, const FullType(int)),
-        r'include_want_retweets': encodeQueryParameter(_serializers, includeWantRetweets, const FullType(int)),
-        r'skip_status': encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
-        r'user_id': encodeQueryParameter(_serializers, userId, const FullType(String)),
+        r'include_blocked_by': encodeQueryParameter(
+            _serializers, includeBlockedBy, const FullType(int)),
+        r'include_blocking': encodeQueryParameter(
+            _serializers, includeBlocking, const FullType(int)),
+        r'include_can_dm': encodeQueryParameter(
+            _serializers, includeCanDm, const FullType(int)),
+        r'include_can_media_tag': encodeQueryParameter(
+            _serializers, includeCanMediaTag, const FullType(int)),
+        r'include_ext_has_nft_avatar': encodeQueryParameter(
+            _serializers, includeExtHasNftAvatar, const FullType(int)),
+        r'include_ext_is_blue_verified': encodeQueryParameter(
+            _serializers, includeExtIsBlueVerified, const FullType(int)),
+        r'include_ext_profile_image_shape': encodeQueryParameter(
+            _serializers, includeExtProfileImageShape, const FullType(int)),
+        r'include_ext_verified_type': encodeQueryParameter(
+            _serializers, includeExtVerifiedType, const FullType(int)),
+        r'include_followed_by': encodeQueryParameter(
+            _serializers, includeFollowedBy, const FullType(int)),
+        r'include_mute_edge': encodeQueryParameter(
+            _serializers, includeMuteEdge, const FullType(int)),
+        r'include_profile_interstitial_type': encodeQueryParameter(
+            _serializers, includeProfileInterstitialType, const FullType(int)),
+        r'include_want_retweets': encodeQueryParameter(
+            _serializers, includeWantRetweets, const FullType(int)),
+        r'skip_status':
+            encodeQueryParameter(_serializers, skipStatus, const FullType(int)),
+        r'user_id':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       };
-
-    } catch(error, stackTrace) {
+    } catch (error, stackTrace) {
       throw DioError(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -308,5 +345,4 @@ class V11PostApi {
 
     return _response;
   }
-
 }

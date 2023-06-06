@@ -13,45 +13,45 @@ part 'user_legacy.g.dart';
 /// UserLegacy
 ///
 /// Properties:
-/// * [blockedBy] 
-/// * [blocking] 
-/// * [canDm] 
-/// * [canMediaTag] 
-/// * [createdAt] 
-/// * [defaultProfile] 
-/// * [defaultProfileImage] 
-/// * [description] 
-/// * [entities] 
-/// * [fastFollowersCount] 
-/// * [favouritesCount] 
-/// * [followRequestSent] 
-/// * [followedBy] 
-/// * [followersCount] 
-/// * [following] 
-/// * [friendsCount] 
-/// * [hasCustomTimelines] 
-/// * [isTranslator] 
-/// * [listedCount] 
-/// * [location] 
-/// * [mediaCount] 
-/// * [muting] 
-/// * [name] 
-/// * [normalFollowersCount] 
-/// * [notifications] 
-/// * [pinnedTweetIdsStr] 
-/// * [possiblySensitive] 
-/// * [profileBannerExtensions] 
-/// * [profileBannerUrl] 
-/// * [profileImageExtensions] 
-/// * [profileImageUrlHttps] 
-/// * [profileInterstitialType] 
-/// * [protected] 
-/// * [screenName] 
-/// * [statusesCount] 
-/// * [translatorType] 
-/// * [url] 
-/// * [verified] 
-/// * [wantRetweets] 
+/// * [blockedBy]
+/// * [blocking]
+/// * [canDm]
+/// * [canMediaTag]
+/// * [createdAt]
+/// * [defaultProfile]
+/// * [defaultProfileImage]
+/// * [description]
+/// * [entities]
+/// * [fastFollowersCount]
+/// * [favouritesCount]
+/// * [followRequestSent]
+/// * [followedBy]
+/// * [followersCount]
+/// * [following]
+/// * [friendsCount]
+/// * [hasCustomTimelines]
+/// * [isTranslator]
+/// * [listedCount]
+/// * [location]
+/// * [mediaCount]
+/// * [muting]
+/// * [name]
+/// * [normalFollowersCount]
+/// * [notifications]
+/// * [pinnedTweetIdsStr]
+/// * [possiblySensitive]
+/// * [profileBannerExtensions]
+/// * [profileBannerUrl]
+/// * [profileImageExtensions]
+/// * [profileImageUrlHttps]
+/// * [profileInterstitialType]
+/// * [protected]
+/// * [screenName]
+/// * [statusesCount]
+/// * [translatorType]
+/// * [url]
+/// * [verified]
+/// * [wantRetweets]
 @BuiltValue()
 abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   @BuiltValueField(wireName: r'blocked_by')
@@ -177,29 +177,29 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserLegacyBuilder b) => b
-      ..blockedBy = false
-      ..blocking = false
-      ..canDm = false
-      ..canMediaTag = false
-      ..defaultProfile = false
-      ..defaultProfileImage = false
-      ..favouritesCount = 0
-      ..followRequestSent = false
-      ..followedBy = false
-      ..followersCount = 0
-      ..following = false
-      ..friendsCount = 0
-      ..hasCustomTimelines = false
-      ..isTranslator = false
-      ..listedCount = 0
-      ..mediaCount = 0
-      ..muting = false
-      ..normalFollowersCount = 0
-      ..notifications = false
-      ..possiblySensitive = false
-      ..protected = false
-      ..statusesCount = 0
-      ..wantRetweets = false;
+    ..blockedBy = false
+    ..blocking = false
+    ..canDm = false
+    ..canMediaTag = false
+    ..defaultProfile = false
+    ..defaultProfileImage = false
+    ..favouritesCount = 0
+    ..followRequestSent = false
+    ..followedBy = false
+    ..followersCount = 0
+    ..following = false
+    ..friendsCount = 0
+    ..hasCustomTimelines = false
+    ..isTranslator = false
+    ..listedCount = 0
+    ..mediaCount = 0
+    ..muting = false
+    ..normalFollowersCount = 0
+    ..notifications = false
+    ..possiblySensitive = false
+    ..protected = false
+    ..statusesCount = 0
+    ..wantRetweets = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserLegacy> get serializer => _$UserLegacySerializer();
@@ -428,7 +428,9 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     UserLegacy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -744,4 +746,3 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     return result.build();
   }
 }
-

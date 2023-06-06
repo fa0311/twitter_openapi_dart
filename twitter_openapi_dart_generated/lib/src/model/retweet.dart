@@ -12,8 +12,8 @@ part 'retweet.g.dart';
 /// Retweet
 ///
 /// Properties:
-/// * [legacy] 
-/// * [restId] 
+/// * [legacy]
+/// * [restId]
 @BuiltValue()
 abstract class Retweet implements Built<Retweet, RetweetBuilder> {
   @BuiltValueField(wireName: r'legacy')
@@ -63,7 +63,9 @@ class _$RetweetSerializer implements PrimitiveSerializer<Retweet> {
     Retweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +122,3 @@ class _$RetweetSerializer implements PrimitiveSerializer<Retweet> {
     return result.build();
   }
 }
-

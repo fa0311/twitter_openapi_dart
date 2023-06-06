@@ -11,34 +11,38 @@ part 'post_create_tweet_request_features.g.dart';
 /// PostCreateTweetRequestFeatures
 ///
 /// Properties:
-/// * [blueBusinessProfileImageShapeEnabled] 
-/// * [freedomOfSpeechNotReachFetchEnabled] 
-/// * [graphqlIsTranslatableRwebTweetIsTranslatableEnabled] 
-/// * [interactiveTextEnabled] 
-/// * [longformNotetweetsConsumptionEnabled] 
-/// * [longformNotetweetsRichTextReadEnabled] 
-/// * [responsiveWebEditTweetApiEnabled] 
-/// * [responsiveWebEnhanceCardsEnabled] 
-/// * [responsiveWebGraphqlExcludeDirectiveEnabled] 
-/// * [responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled] 
-/// * [responsiveWebGraphqlTimelineNavigationEnabled] 
-/// * [responsiveWebTextConversationsEnabled] 
-/// * [standardizedNudgesMisinfo] 
-/// * [tweetAwardsWebTippingEnabled] 
-/// * [tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled] 
-/// * [tweetypieUnmentionOptimizationEnabled] 
-/// * [verifiedPhoneLabelEnabled] 
-/// * [vibeApiEnabled] 
-/// * [viewCountsEverywhereApiEnabled] 
+/// * [blueBusinessProfileImageShapeEnabled]
+/// * [freedomOfSpeechNotReachFetchEnabled]
+/// * [graphqlIsTranslatableRwebTweetIsTranslatableEnabled]
+/// * [interactiveTextEnabled]
+/// * [longformNotetweetsConsumptionEnabled]
+/// * [longformNotetweetsRichTextReadEnabled]
+/// * [responsiveWebEditTweetApiEnabled]
+/// * [responsiveWebEnhanceCardsEnabled]
+/// * [responsiveWebGraphqlExcludeDirectiveEnabled]
+/// * [responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled]
+/// * [responsiveWebGraphqlTimelineNavigationEnabled]
+/// * [responsiveWebTextConversationsEnabled]
+/// * [standardizedNudgesMisinfo]
+/// * [tweetAwardsWebTippingEnabled]
+/// * [tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled]
+/// * [tweetypieUnmentionOptimizationEnabled]
+/// * [verifiedPhoneLabelEnabled]
+/// * [vibeApiEnabled]
+/// * [viewCountsEverywhereApiEnabled]
 @BuiltValue()
-abstract class PostCreateTweetRequestFeatures implements Built<PostCreateTweetRequestFeatures, PostCreateTweetRequestFeaturesBuilder> {
+abstract class PostCreateTweetRequestFeatures
+    implements
+        Built<PostCreateTweetRequestFeatures,
+            PostCreateTweetRequestFeaturesBuilder> {
   @BuiltValueField(wireName: r'blue_business_profile_image_shape_enabled')
   bool get blueBusinessProfileImageShapeEnabled;
 
   @BuiltValueField(wireName: r'freedom_of_speech_not_reach_fetch_enabled')
   bool get freedomOfSpeechNotReachFetchEnabled;
 
-  @BuiltValueField(wireName: r'graphql_is_translatable_rweb_tweet_is_translatable_enabled')
+  @BuiltValueField(
+      wireName: r'graphql_is_translatable_rweb_tweet_is_translatable_enabled')
   bool get graphqlIsTranslatableRwebTweetIsTranslatableEnabled;
 
   @BuiltValueField(wireName: r'interactive_text_enabled')
@@ -56,13 +60,17 @@ abstract class PostCreateTweetRequestFeatures implements Built<PostCreateTweetRe
   @BuiltValueField(wireName: r'responsive_web_enhance_cards_enabled')
   bool get responsiveWebEnhanceCardsEnabled;
 
-  @BuiltValueField(wireName: r'responsive_web_graphql_exclude_directive_enabled')
+  @BuiltValueField(
+      wireName: r'responsive_web_graphql_exclude_directive_enabled')
   bool get responsiveWebGraphqlExcludeDirectiveEnabled;
 
-  @BuiltValueField(wireName: r'responsive_web_graphql_skip_user_profile_image_extensions_enabled')
+  @BuiltValueField(
+      wireName:
+          r'responsive_web_graphql_skip_user_profile_image_extensions_enabled')
   bool get responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled;
 
-  @BuiltValueField(wireName: r'responsive_web_graphql_timeline_navigation_enabled')
+  @BuiltValueField(
+      wireName: r'responsive_web_graphql_timeline_navigation_enabled')
   bool get responsiveWebGraphqlTimelineNavigationEnabled;
 
   @BuiltValueField(wireName: r'responsive_web_text_conversations_enabled')
@@ -74,7 +82,9 @@ abstract class PostCreateTweetRequestFeatures implements Built<PostCreateTweetRe
   @BuiltValueField(wireName: r'tweet_awards_web_tipping_enabled')
   bool get tweetAwardsWebTippingEnabled;
 
-  @BuiltValueField(wireName: r'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled')
+  @BuiltValueField(
+      wireName:
+          r'tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled')
   bool get tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled;
 
   @BuiltValueField(wireName: r'tweetypie_unmention_optimization_enabled')
@@ -91,37 +101,44 @@ abstract class PostCreateTweetRequestFeatures implements Built<PostCreateTweetRe
 
   PostCreateTweetRequestFeatures._();
 
-  factory PostCreateTweetRequestFeatures([void updates(PostCreateTweetRequestFeaturesBuilder b)]) = _$PostCreateTweetRequestFeatures;
+  factory PostCreateTweetRequestFeatures(
+          [void updates(PostCreateTweetRequestFeaturesBuilder b)]) =
+      _$PostCreateTweetRequestFeatures;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostCreateTweetRequestFeaturesBuilder b) => b
-      ..blueBusinessProfileImageShapeEnabled = true
-      ..freedomOfSpeechNotReachFetchEnabled = true
-      ..graphqlIsTranslatableRwebTweetIsTranslatableEnabled = true
-      ..interactiveTextEnabled = true
-      ..longformNotetweetsConsumptionEnabled = true
-      ..longformNotetweetsRichTextReadEnabled = true
-      ..responsiveWebEditTweetApiEnabled = true
-      ..responsiveWebEnhanceCardsEnabled = false
-      ..responsiveWebGraphqlExcludeDirectiveEnabled = true
-      ..responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled = false
-      ..responsiveWebGraphqlTimelineNavigationEnabled = true
-      ..responsiveWebTextConversationsEnabled = false
-      ..standardizedNudgesMisinfo = true
-      ..tweetAwardsWebTippingEnabled = false
-      ..tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = false
-      ..tweetypieUnmentionOptimizationEnabled = true
-      ..verifiedPhoneLabelEnabled = false
-      ..vibeApiEnabled = true
-      ..viewCountsEverywhereApiEnabled = true;
+    ..blueBusinessProfileImageShapeEnabled = true
+    ..freedomOfSpeechNotReachFetchEnabled = true
+    ..graphqlIsTranslatableRwebTweetIsTranslatableEnabled = true
+    ..interactiveTextEnabled = true
+    ..longformNotetweetsConsumptionEnabled = true
+    ..longformNotetweetsRichTextReadEnabled = true
+    ..responsiveWebEditTweetApiEnabled = true
+    ..responsiveWebEnhanceCardsEnabled = false
+    ..responsiveWebGraphqlExcludeDirectiveEnabled = true
+    ..responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled = false
+    ..responsiveWebGraphqlTimelineNavigationEnabled = true
+    ..responsiveWebTextConversationsEnabled = false
+    ..standardizedNudgesMisinfo = true
+    ..tweetAwardsWebTippingEnabled = false
+    ..tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = false
+    ..tweetypieUnmentionOptimizationEnabled = true
+    ..verifiedPhoneLabelEnabled = false
+    ..vibeApiEnabled = true
+    ..viewCountsEverywhereApiEnabled = true;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostCreateTweetRequestFeatures> get serializer => _$PostCreateTweetRequestFeaturesSerializer();
+  static Serializer<PostCreateTweetRequestFeatures> get serializer =>
+      _$PostCreateTweetRequestFeaturesSerializer();
 }
 
-class _$PostCreateTweetRequestFeaturesSerializer implements PrimitiveSerializer<PostCreateTweetRequestFeatures> {
+class _$PostCreateTweetRequestFeaturesSerializer
+    implements PrimitiveSerializer<PostCreateTweetRequestFeatures> {
   @override
-  final Iterable<Type> types = const [PostCreateTweetRequestFeatures, _$PostCreateTweetRequestFeatures];
+  final Iterable<Type> types = const [
+    PostCreateTweetRequestFeatures,
+    _$PostCreateTweetRequestFeatures
+  ];
 
   @override
   final String wireName = r'PostCreateTweetRequestFeatures';
@@ -234,7 +251,9 @@ class _$PostCreateTweetRequestFeaturesSerializer implements PrimitiveSerializer<
     PostCreateTweetRequestFeatures object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -317,7 +336,8 @@ class _$PostCreateTweetRequestFeaturesSerializer implements PrimitiveSerializer<
             value,
             specifiedType: const FullType(bool),
           ) as bool;
-          result.responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled = valueDes;
+          result.responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled =
+              valueDes;
           break;
         case r'responsive_web_graphql_timeline_navigation_enabled':
           final valueDes = serializers.deserialize(
@@ -352,7 +372,8 @@ class _$PostCreateTweetRequestFeaturesSerializer implements PrimitiveSerializer<
             value,
             specifiedType: const FullType(bool),
           ) as bool;
-          result.tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = valueDes;
+          result.tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled =
+              valueDes;
           break;
         case r'tweetypie_unmention_optimization_enabled':
           final valueDes = serializers.deserialize(
@@ -410,4 +431,3 @@ class _$PostCreateTweetRequestFeaturesSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

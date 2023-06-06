@@ -11,15 +11,18 @@ part 'user_result_by_screen_name_legacy.g.dart';
 /// UserResultByScreenNameLegacy
 ///
 /// Properties:
-/// * [blockedBy] 
-/// * [blocking] 
-/// * [followedBy] 
-/// * [following] 
-/// * [name] 
-/// * [protected] 
-/// * [screenName] 
+/// * [blockedBy]
+/// * [blocking]
+/// * [followedBy]
+/// * [following]
+/// * [name]
+/// * [protected]
+/// * [screenName]
 @BuiltValue()
-abstract class UserResultByScreenNameLegacy implements Built<UserResultByScreenNameLegacy, UserResultByScreenNameLegacyBuilder> {
+abstract class UserResultByScreenNameLegacy
+    implements
+        Built<UserResultByScreenNameLegacy,
+            UserResultByScreenNameLegacyBuilder> {
   @BuiltValueField(wireName: r'blocked_by')
   bool? get blockedBy;
 
@@ -43,18 +46,25 @@ abstract class UserResultByScreenNameLegacy implements Built<UserResultByScreenN
 
   UserResultByScreenNameLegacy._();
 
-  factory UserResultByScreenNameLegacy([void updates(UserResultByScreenNameLegacyBuilder b)]) = _$UserResultByScreenNameLegacy;
+  factory UserResultByScreenNameLegacy(
+          [void updates(UserResultByScreenNameLegacyBuilder b)]) =
+      _$UserResultByScreenNameLegacy;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserResultByScreenNameLegacyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserResultByScreenNameLegacy> get serializer => _$UserResultByScreenNameLegacySerializer();
+  static Serializer<UserResultByScreenNameLegacy> get serializer =>
+      _$UserResultByScreenNameLegacySerializer();
 }
 
-class _$UserResultByScreenNameLegacySerializer implements PrimitiveSerializer<UserResultByScreenNameLegacy> {
+class _$UserResultByScreenNameLegacySerializer
+    implements PrimitiveSerializer<UserResultByScreenNameLegacy> {
   @override
-  final Iterable<Type> types = const [UserResultByScreenNameLegacy, _$UserResultByScreenNameLegacy];
+  final Iterable<Type> types = const [
+    UserResultByScreenNameLegacy,
+    _$UserResultByScreenNameLegacy
+  ];
 
   @override
   final String wireName = r'UserResultByScreenNameLegacy';
@@ -121,7 +131,9 @@ class _$UserResultByScreenNameLegacySerializer implements PrimitiveSerializer<Us
     UserResultByScreenNameLegacy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -213,4 +225,3 @@ class _$UserResultByScreenNameLegacySerializer implements PrimitiveSerializer<Us
     return result.build();
   }
 }
-

@@ -12,10 +12,11 @@ part 'user_result_by_screen_name.g.dart';
 /// UserResultByScreenName
 ///
 /// Properties:
-/// * [id] 
-/// * [result] 
+/// * [id]
+/// * [result]
 @BuiltValue()
-abstract class UserResultByScreenName implements Built<UserResultByScreenName, UserResultByScreenNameBuilder> {
+abstract class UserResultByScreenName
+    implements Built<UserResultByScreenName, UserResultByScreenNameBuilder> {
   @BuiltValueField(wireName: r'id')
   String get id;
 
@@ -24,18 +25,25 @@ abstract class UserResultByScreenName implements Built<UserResultByScreenName, U
 
   UserResultByScreenName._();
 
-  factory UserResultByScreenName([void updates(UserResultByScreenNameBuilder b)]) = _$UserResultByScreenName;
+  factory UserResultByScreenName(
+          [void updates(UserResultByScreenNameBuilder b)]) =
+      _$UserResultByScreenName;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserResultByScreenNameBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserResultByScreenName> get serializer => _$UserResultByScreenNameSerializer();
+  static Serializer<UserResultByScreenName> get serializer =>
+      _$UserResultByScreenNameSerializer();
 }
 
-class _$UserResultByScreenNameSerializer implements PrimitiveSerializer<UserResultByScreenName> {
+class _$UserResultByScreenNameSerializer
+    implements PrimitiveSerializer<UserResultByScreenName> {
   @override
-  final Iterable<Type> types = const [UserResultByScreenName, _$UserResultByScreenName];
+  final Iterable<Type> types = const [
+    UserResultByScreenName,
+    _$UserResultByScreenName
+  ];
 
   @override
   final String wireName = r'UserResultByScreenName';
@@ -63,7 +71,9 @@ class _$UserResultByScreenNameSerializer implements PrimitiveSerializer<UserResu
     UserResultByScreenName object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +130,3 @@ class _$UserResultByScreenNameSerializer implements PrimitiveSerializer<UserResu
     return result.build();
   }
 }
-

@@ -12,24 +12,28 @@ part 'bookmarks_timeline.g.dart';
 /// BookmarksTimeline
 ///
 /// Properties:
-/// * [timeline] 
+/// * [timeline]
 @BuiltValue()
-abstract class BookmarksTimeline implements Built<BookmarksTimeline, BookmarksTimelineBuilder> {
+abstract class BookmarksTimeline
+    implements Built<BookmarksTimeline, BookmarksTimelineBuilder> {
   @BuiltValueField(wireName: r'timeline')
   Timeline get timeline;
 
   BookmarksTimeline._();
 
-  factory BookmarksTimeline([void updates(BookmarksTimelineBuilder b)]) = _$BookmarksTimeline;
+  factory BookmarksTimeline([void updates(BookmarksTimelineBuilder b)]) =
+      _$BookmarksTimeline;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BookmarksTimelineBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksTimeline> get serializer => _$BookmarksTimelineSerializer();
+  static Serializer<BookmarksTimeline> get serializer =>
+      _$BookmarksTimelineSerializer();
 }
 
-class _$BookmarksTimelineSerializer implements PrimitiveSerializer<BookmarksTimeline> {
+class _$BookmarksTimelineSerializer
+    implements PrimitiveSerializer<BookmarksTimeline> {
   @override
   final Iterable<Type> types = const [BookmarksTimeline, _$BookmarksTimeline];
 
@@ -54,7 +58,9 @@ class _$BookmarksTimelineSerializer implements PrimitiveSerializer<BookmarksTime
     BookmarksTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$BookmarksTimelineSerializer implements PrimitiveSerializer<BookmarksTime
     return result.build();
   }
 }
-

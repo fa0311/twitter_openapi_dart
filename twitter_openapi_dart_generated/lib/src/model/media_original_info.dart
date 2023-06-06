@@ -13,11 +13,12 @@ part 'media_original_info.g.dart';
 /// MediaOriginalInfo
 ///
 /// Properties:
-/// * [focusRects] 
-/// * [height] 
-/// * [width] 
+/// * [focusRects]
+/// * [height]
+/// * [width]
 @BuiltValue()
-abstract class MediaOriginalInfo implements Built<MediaOriginalInfo, MediaOriginalInfoBuilder> {
+abstract class MediaOriginalInfo
+    implements Built<MediaOriginalInfo, MediaOriginalInfoBuilder> {
   @BuiltValueField(wireName: r'focus_rects')
   BuiltList<JsonObject>? get focusRects;
 
@@ -29,16 +30,19 @@ abstract class MediaOriginalInfo implements Built<MediaOriginalInfo, MediaOrigin
 
   MediaOriginalInfo._();
 
-  factory MediaOriginalInfo([void updates(MediaOriginalInfoBuilder b)]) = _$MediaOriginalInfo;
+  factory MediaOriginalInfo([void updates(MediaOriginalInfoBuilder b)]) =
+      _$MediaOriginalInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MediaOriginalInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaOriginalInfo> get serializer => _$MediaOriginalInfoSerializer();
+  static Serializer<MediaOriginalInfo> get serializer =>
+      _$MediaOriginalInfoSerializer();
 }
 
-class _$MediaOriginalInfoSerializer implements PrimitiveSerializer<MediaOriginalInfo> {
+class _$MediaOriginalInfoSerializer
+    implements PrimitiveSerializer<MediaOriginalInfo> {
   @override
   final Iterable<Type> types = const [MediaOriginalInfo, _$MediaOriginalInfo];
 
@@ -79,7 +83,9 @@ class _$MediaOriginalInfoSerializer implements PrimitiveSerializer<MediaOriginal
     MediaOriginalInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -143,4 +149,3 @@ class _$MediaOriginalInfoSerializer implements PrimitiveSerializer<MediaOriginal
     return result.build();
   }
 }
-

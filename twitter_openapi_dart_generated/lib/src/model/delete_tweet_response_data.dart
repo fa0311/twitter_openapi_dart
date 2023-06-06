@@ -12,26 +12,34 @@ part 'delete_tweet_response_data.g.dart';
 /// DeleteTweetResponseData
 ///
 /// Properties:
-/// * [deleteRetweet] 
+/// * [deleteRetweet]
 @BuiltValue()
-abstract class DeleteTweetResponseData implements Built<DeleteTweetResponseData, DeleteTweetResponseDataBuilder> {
+abstract class DeleteTweetResponseData
+    implements Built<DeleteTweetResponseData, DeleteTweetResponseDataBuilder> {
   @BuiltValueField(wireName: r'delete_retweet')
   DeleteTweetResponseResult? get deleteRetweet;
 
   DeleteTweetResponseData._();
 
-  factory DeleteTweetResponseData([void updates(DeleteTweetResponseDataBuilder b)]) = _$DeleteTweetResponseData;
+  factory DeleteTweetResponseData(
+          [void updates(DeleteTweetResponseDataBuilder b)]) =
+      _$DeleteTweetResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeleteTweetResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeleteTweetResponseData> get serializer => _$DeleteTweetResponseDataSerializer();
+  static Serializer<DeleteTweetResponseData> get serializer =>
+      _$DeleteTweetResponseDataSerializer();
 }
 
-class _$DeleteTweetResponseDataSerializer implements PrimitiveSerializer<DeleteTweetResponseData> {
+class _$DeleteTweetResponseDataSerializer
+    implements PrimitiveSerializer<DeleteTweetResponseData> {
   @override
-  final Iterable<Type> types = const [DeleteTweetResponseData, _$DeleteTweetResponseData];
+  final Iterable<Type> types = const [
+    DeleteTweetResponseData,
+    _$DeleteTweetResponseData
+  ];
 
   @override
   final String wireName = r'DeleteTweetResponseData';
@@ -56,7 +64,9 @@ class _$DeleteTweetResponseDataSerializer implements PrimitiveSerializer<DeleteT
     DeleteTweetResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,4 +116,3 @@ class _$DeleteTweetResponseDataSerializer implements PrimitiveSerializer<DeleteT
     return result.build();
   }
 }
-

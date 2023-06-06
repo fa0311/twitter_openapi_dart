@@ -12,24 +12,28 @@ part 'bookmarks_response.g.dart';
 /// BookmarksResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class BookmarksResponse implements Built<BookmarksResponse, BookmarksResponseBuilder> {
+abstract class BookmarksResponse
+    implements Built<BookmarksResponse, BookmarksResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   BookmarksResponseData get data;
 
   BookmarksResponse._();
 
-  factory BookmarksResponse([void updates(BookmarksResponseBuilder b)]) = _$BookmarksResponse;
+  factory BookmarksResponse([void updates(BookmarksResponseBuilder b)]) =
+      _$BookmarksResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BookmarksResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksResponse> get serializer => _$BookmarksResponseSerializer();
+  static Serializer<BookmarksResponse> get serializer =>
+      _$BookmarksResponseSerializer();
 }
 
-class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResponse> {
+class _$BookmarksResponseSerializer
+    implements PrimitiveSerializer<BookmarksResponse> {
   @override
   final Iterable<Type> types = const [BookmarksResponse, _$BookmarksResponse];
 
@@ -54,7 +58,9 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
     BookmarksResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$BookmarksResponseSerializer implements PrimitiveSerializer<BookmarksResp
     return result.build();
   }
 }
-

@@ -12,24 +12,28 @@ part 'follow_response.g.dart';
 /// FollowResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class FollowResponse implements Built<FollowResponse, FollowResponseBuilder> {
+abstract class FollowResponse
+    implements Built<FollowResponse, FollowResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   FollowResponseData get data;
 
   FollowResponse._();
 
-  factory FollowResponse([void updates(FollowResponseBuilder b)]) = _$FollowResponse;
+  factory FollowResponse([void updates(FollowResponseBuilder b)]) =
+      _$FollowResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FollowResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FollowResponse> get serializer => _$FollowResponseSerializer();
+  static Serializer<FollowResponse> get serializer =>
+      _$FollowResponseSerializer();
 }
 
-class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> {
+class _$FollowResponseSerializer
+    implements PrimitiveSerializer<FollowResponse> {
   @override
   final Iterable<Type> types = const [FollowResponse, _$FollowResponse];
 
@@ -54,7 +58,9 @@ class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> 
     FollowResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$FollowResponseSerializer implements PrimitiveSerializer<FollowResponse> 
     return result.build();
   }
 }
-

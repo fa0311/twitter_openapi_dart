@@ -12,24 +12,28 @@ part 'user_result_core.g.dart';
 /// UserResultCore
 ///
 /// Properties:
-/// * [userResults] 
+/// * [userResults]
 @BuiltValue()
-abstract class UserResultCore implements Built<UserResultCore, UserResultCoreBuilder> {
+abstract class UserResultCore
+    implements Built<UserResultCore, UserResultCoreBuilder> {
   @BuiltValueField(wireName: r'user_results')
   UserResults get userResults;
 
   UserResultCore._();
 
-  factory UserResultCore([void updates(UserResultCoreBuilder b)]) = _$UserResultCore;
+  factory UserResultCore([void updates(UserResultCoreBuilder b)]) =
+      _$UserResultCore;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserResultCoreBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserResultCore> get serializer => _$UserResultCoreSerializer();
+  static Serializer<UserResultCore> get serializer =>
+      _$UserResultCoreSerializer();
 }
 
-class _$UserResultCoreSerializer implements PrimitiveSerializer<UserResultCore> {
+class _$UserResultCoreSerializer
+    implements PrimitiveSerializer<UserResultCore> {
   @override
   final Iterable<Type> types = const [UserResultCore, _$UserResultCore];
 
@@ -54,7 +58,9 @@ class _$UserResultCoreSerializer implements PrimitiveSerializer<UserResultCore> 
     UserResultCore object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$UserResultCoreSerializer implements PrimitiveSerializer<UserResultCore> 
     return result.build();
   }
 }
-

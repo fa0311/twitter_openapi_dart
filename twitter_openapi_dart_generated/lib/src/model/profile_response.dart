@@ -12,24 +12,28 @@ part 'profile_response.g.dart';
 /// ProfileResponse
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class ProfileResponse implements Built<ProfileResponse, ProfileResponseBuilder> {
+abstract class ProfileResponse
+    implements Built<ProfileResponse, ProfileResponseBuilder> {
   @BuiltValueField(wireName: r'data')
   ProfileResponseData get data;
 
   ProfileResponse._();
 
-  factory ProfileResponse([void updates(ProfileResponseBuilder b)]) = _$ProfileResponse;
+  factory ProfileResponse([void updates(ProfileResponseBuilder b)]) =
+      _$ProfileResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProfileResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProfileResponse> get serializer => _$ProfileResponseSerializer();
+  static Serializer<ProfileResponse> get serializer =>
+      _$ProfileResponseSerializer();
 }
 
-class _$ProfileResponseSerializer implements PrimitiveSerializer<ProfileResponse> {
+class _$ProfileResponseSerializer
+    implements PrimitiveSerializer<ProfileResponse> {
   @override
   final Iterable<Type> types = const [ProfileResponse, _$ProfileResponse];
 
@@ -54,7 +58,9 @@ class _$ProfileResponseSerializer implements PrimitiveSerializer<ProfileResponse
     ProfileResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$ProfileResponseSerializer implements PrimitiveSerializer<ProfileResponse
     return result.build();
   }
 }
-

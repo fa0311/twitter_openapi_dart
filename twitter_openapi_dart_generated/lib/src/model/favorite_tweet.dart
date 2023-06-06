@@ -11,21 +11,24 @@ part 'favorite_tweet.g.dart';
 /// FavoriteTweet
 ///
 /// Properties:
-/// * [favoriteTweet] 
+/// * [favoriteTweet]
 @BuiltValue()
-abstract class FavoriteTweet implements Built<FavoriteTweet, FavoriteTweetBuilder> {
+abstract class FavoriteTweet
+    implements Built<FavoriteTweet, FavoriteTweetBuilder> {
   @BuiltValueField(wireName: r'favorite_tweet')
   String get favoriteTweet;
 
   FavoriteTweet._();
 
-  factory FavoriteTweet([void updates(FavoriteTweetBuilder b)]) = _$FavoriteTweet;
+  factory FavoriteTweet([void updates(FavoriteTweetBuilder b)]) =
+      _$FavoriteTweet;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FavoriteTweetBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FavoriteTweet> get serializer => _$FavoriteTweetSerializer();
+  static Serializer<FavoriteTweet> get serializer =>
+      _$FavoriteTweetSerializer();
 }
 
 class _$FavoriteTweetSerializer implements PrimitiveSerializer<FavoriteTweet> {
@@ -53,7 +56,9 @@ class _$FavoriteTweetSerializer implements PrimitiveSerializer<FavoriteTweet> {
     FavoriteTweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +108,3 @@ class _$FavoriteTweetSerializer implements PrimitiveSerializer<FavoriteTweet> {
     return result.build();
   }
 }
-

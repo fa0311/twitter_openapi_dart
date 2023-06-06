@@ -13,10 +13,11 @@ part 'timeline_pin_entry.g.dart';
 /// TimelinePinEntry
 ///
 /// Properties:
-/// * [entry] 
-/// * [type] 
+/// * [entry]
+/// * [type]
 @BuiltValue()
-abstract class TimelinePinEntry implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
+abstract class TimelinePinEntry
+    implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
   @BuiltValueField(wireName: r'entry')
   TimelineAddEntry get entry;
 
@@ -26,16 +27,19 @@ abstract class TimelinePinEntry implements Built<TimelinePinEntry, TimelinePinEn
 
   TimelinePinEntry._();
 
-  factory TimelinePinEntry([void updates(TimelinePinEntryBuilder b)]) = _$TimelinePinEntry;
+  factory TimelinePinEntry([void updates(TimelinePinEntryBuilder b)]) =
+      _$TimelinePinEntry;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelinePinEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelinePinEntry> get serializer => _$TimelinePinEntrySerializer();
+  static Serializer<TimelinePinEntry> get serializer =>
+      _$TimelinePinEntrySerializer();
 }
 
-class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEntry> {
+class _$TimelinePinEntrySerializer
+    implements PrimitiveSerializer<TimelinePinEntry> {
   @override
   final Iterable<Type> types = const [TimelinePinEntry, _$TimelinePinEntry];
 
@@ -65,7 +69,9 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
     TimelinePinEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -122,4 +128,3 @@ class _$TimelinePinEntrySerializer implements PrimitiveSerializer<TimelinePinEnt
     return result.build();
   }
 }
-

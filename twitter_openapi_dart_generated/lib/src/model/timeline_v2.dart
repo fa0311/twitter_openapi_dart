@@ -12,7 +12,7 @@ part 'timeline_v2.g.dart';
 /// TimelineV2
 ///
 /// Properties:
-/// * [timeline] 
+/// * [timeline]
 @BuiltValue()
 abstract class TimelineV2 implements Built<TimelineV2, TimelineV2Builder> {
   @BuiltValueField(wireName: r'timeline')
@@ -54,7 +54,9 @@ class _$TimelineV2Serializer implements PrimitiveSerializer<TimelineV2> {
     TimelineV2 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +106,3 @@ class _$TimelineV2Serializer implements PrimitiveSerializer<TimelineV2> {
     return result.build();
   }
 }
-

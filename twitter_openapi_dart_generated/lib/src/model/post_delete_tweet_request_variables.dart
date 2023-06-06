@@ -11,10 +11,13 @@ part 'post_delete_tweet_request_variables.g.dart';
 /// PostDeleteTweetRequestVariables
 ///
 /// Properties:
-/// * [darkRequest] 
-/// * [tweetId] 
+/// * [darkRequest]
+/// * [tweetId]
 @BuiltValue()
-abstract class PostDeleteTweetRequestVariables implements Built<PostDeleteTweetRequestVariables, PostDeleteTweetRequestVariablesBuilder> {
+abstract class PostDeleteTweetRequestVariables
+    implements
+        Built<PostDeleteTweetRequestVariables,
+            PostDeleteTweetRequestVariablesBuilder> {
   @BuiltValueField(wireName: r'dark_request')
   bool get darkRequest;
 
@@ -23,20 +26,27 @@ abstract class PostDeleteTweetRequestVariables implements Built<PostDeleteTweetR
 
   PostDeleteTweetRequestVariables._();
 
-  factory PostDeleteTweetRequestVariables([void updates(PostDeleteTweetRequestVariablesBuilder b)]) = _$PostDeleteTweetRequestVariables;
+  factory PostDeleteTweetRequestVariables(
+          [void updates(PostDeleteTweetRequestVariablesBuilder b)]) =
+      _$PostDeleteTweetRequestVariables;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostDeleteTweetRequestVariablesBuilder b) => b
-      ..darkRequest = false
-      ..tweetId = '1349129669258448897';
+    ..darkRequest = false
+    ..tweetId = '1349129669258448897';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostDeleteTweetRequestVariables> get serializer => _$PostDeleteTweetRequestVariablesSerializer();
+  static Serializer<PostDeleteTweetRequestVariables> get serializer =>
+      _$PostDeleteTweetRequestVariablesSerializer();
 }
 
-class _$PostDeleteTweetRequestVariablesSerializer implements PrimitiveSerializer<PostDeleteTweetRequestVariables> {
+class _$PostDeleteTweetRequestVariablesSerializer
+    implements PrimitiveSerializer<PostDeleteTweetRequestVariables> {
   @override
-  final Iterable<Type> types = const [PostDeleteTweetRequestVariables, _$PostDeleteTweetRequestVariables];
+  final Iterable<Type> types = const [
+    PostDeleteTweetRequestVariables,
+    _$PostDeleteTweetRequestVariables
+  ];
 
   @override
   final String wireName = r'PostDeleteTweetRequestVariables';
@@ -64,7 +74,9 @@ class _$PostDeleteTweetRequestVariablesSerializer implements PrimitiveSerializer
     PostDeleteTweetRequestVariables object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +133,3 @@ class _$PostDeleteTweetRequestVariablesSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

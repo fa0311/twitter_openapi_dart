@@ -15,27 +15,27 @@ part 'tweet_legacy.g.dart';
 /// TweetLegacy
 ///
 /// Properties:
-/// * [bookmarkCount] 
-/// * [bookmarked] 
-/// * [conversationIdStr] 
-/// * [createdAt] 
-/// * [displayTextRange] 
-/// * [entities] 
-/// * [extendedEntities] 
-/// * [favoriteCount] 
-/// * [favorited] 
-/// * [fullText] 
-/// * [idStr] 
-/// * [isQuoteStatus] 
-/// * [lang] 
-/// * [possiblySensitive] 
-/// * [possiblySensitiveEditable] 
-/// * [quoteCount] 
-/// * [replyCount] 
-/// * [retweetCount] 
-/// * [retweeted] 
-/// * [retweetedStatusResult] 
-/// * [userIdStr] 
+/// * [bookmarkCount]
+/// * [bookmarked]
+/// * [conversationIdStr]
+/// * [createdAt]
+/// * [displayTextRange]
+/// * [entities]
+/// * [extendedEntities]
+/// * [favoriteCount]
+/// * [favorited]
+/// * [fullText]
+/// * [idStr]
+/// * [isQuoteStatus]
+/// * [lang]
+/// * [possiblySensitive]
+/// * [possiblySensitiveEditable]
+/// * [quoteCount]
+/// * [replyCount]
+/// * [retweetCount]
+/// * [retweeted]
+/// * [retweetedStatusResult]
+/// * [userIdStr]
 @BuiltValue()
 abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   @BuiltValueField(wireName: r'bookmark_count')
@@ -107,8 +107,8 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetLegacyBuilder b) => b
-      ..possiblySensitive = false
-      ..possiblySensitiveEditable = false;
+    ..possiblySensitive = false
+    ..possiblySensitiveEditable = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TweetLegacy> get serializer => _$TweetLegacySerializer();
@@ -247,7 +247,9 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
     TweetLegacy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -437,4 +439,3 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
     return result.build();
   }
 }
-

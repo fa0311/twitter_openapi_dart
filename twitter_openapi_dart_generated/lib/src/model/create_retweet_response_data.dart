@@ -12,26 +12,35 @@ part 'create_retweet_response_data.g.dart';
 /// CreateRetweetResponseData
 ///
 /// Properties:
-/// * [createRetweet] 
+/// * [createRetweet]
 @BuiltValue()
-abstract class CreateRetweetResponseData implements Built<CreateRetweetResponseData, CreateRetweetResponseDataBuilder> {
+abstract class CreateRetweetResponseData
+    implements
+        Built<CreateRetweetResponseData, CreateRetweetResponseDataBuilder> {
   @BuiltValueField(wireName: r'create_retweet')
   CreateRetweetResponseResult get createRetweet;
 
   CreateRetweetResponseData._();
 
-  factory CreateRetweetResponseData([void updates(CreateRetweetResponseDataBuilder b)]) = _$CreateRetweetResponseData;
+  factory CreateRetweetResponseData(
+          [void updates(CreateRetweetResponseDataBuilder b)]) =
+      _$CreateRetweetResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CreateRetweetResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateRetweetResponseData> get serializer => _$CreateRetweetResponseDataSerializer();
+  static Serializer<CreateRetweetResponseData> get serializer =>
+      _$CreateRetweetResponseDataSerializer();
 }
 
-class _$CreateRetweetResponseDataSerializer implements PrimitiveSerializer<CreateRetweetResponseData> {
+class _$CreateRetweetResponseDataSerializer
+    implements PrimitiveSerializer<CreateRetweetResponseData> {
   @override
-  final Iterable<Type> types = const [CreateRetweetResponseData, _$CreateRetweetResponseData];
+  final Iterable<Type> types = const [
+    CreateRetweetResponseData,
+    _$CreateRetweetResponseData
+  ];
 
   @override
   final String wireName = r'CreateRetweetResponseData';
@@ -54,7 +63,9 @@ class _$CreateRetweetResponseDataSerializer implements PrimitiveSerializer<Creat
     CreateRetweetResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$CreateRetweetResponseDataSerializer implements PrimitiveSerializer<Creat
     return result.build();
   }
 }
-

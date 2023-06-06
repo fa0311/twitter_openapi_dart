@@ -15,20 +15,20 @@ part 'session.g.dart';
 /// Session
 ///
 /// Properties:
-/// * [ssoInitTokens] 
-/// * [communitiesActions] 
-/// * [country] 
-/// * [guestId] 
-/// * [hasCommunityMemberships] 
-/// * [isActiveCreator] 
-/// * [isRestrictedSession] 
-/// * [isSuperFollowSubscriber] 
-/// * [language] 
-/// * [oneFactorLoginEligibility] 
-/// * [superFollowersCount] 
-/// * [superFollowsApplicationStatus] 
-/// * [userFeatures] 
-/// * [userId] 
+/// * [ssoInitTokens]
+/// * [communitiesActions]
+/// * [country]
+/// * [guestId]
+/// * [hasCommunityMemberships]
+/// * [isActiveCreator]
+/// * [isRestrictedSession]
+/// * [isSuperFollowSubscriber]
+/// * [language]
+/// * [oneFactorLoginEligibility]
+/// * [superFollowersCount]
+/// * [superFollowsApplicationStatus]
+/// * [userFeatures]
+/// * [userId]
 @BuiltValue()
 abstract class Session implements Built<Session, SessionBuilder> {
   @BuiltValueField(wireName: r'SsoInitTokens')
@@ -176,7 +176,9 @@ class _$SessionSerializer implements PrimitiveSerializer<Session> {
     Session object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -317,4 +319,3 @@ class _$SessionSerializer implements PrimitiveSerializer<Session> {
     return result.build();
   }
 }
-

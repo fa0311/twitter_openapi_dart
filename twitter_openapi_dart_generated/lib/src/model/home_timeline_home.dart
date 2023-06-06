@@ -12,24 +12,28 @@ part 'home_timeline_home.g.dart';
 /// HomeTimelineHome
 ///
 /// Properties:
-/// * [homeTimelineUrt] 
+/// * [homeTimelineUrt]
 @BuiltValue()
-abstract class HomeTimelineHome implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
+abstract class HomeTimelineHome
+    implements Built<HomeTimelineHome, HomeTimelineHomeBuilder> {
   @BuiltValueField(wireName: r'home_timeline_urt')
   Timeline get homeTimelineUrt;
 
   HomeTimelineHome._();
 
-  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) = _$HomeTimelineHome;
+  factory HomeTimelineHome([void updates(HomeTimelineHomeBuilder b)]) =
+      _$HomeTimelineHome;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(HomeTimelineHomeBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HomeTimelineHome> get serializer => _$HomeTimelineHomeSerializer();
+  static Serializer<HomeTimelineHome> get serializer =>
+      _$HomeTimelineHomeSerializer();
 }
 
-class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHome> {
+class _$HomeTimelineHomeSerializer
+    implements PrimitiveSerializer<HomeTimelineHome> {
   @override
   final Iterable<Type> types = const [HomeTimelineHome, _$HomeTimelineHome];
 
@@ -54,7 +58,9 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
     HomeTimelineHome object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +110,3 @@ class _$HomeTimelineHomeSerializer implements PrimitiveSerializer<HomeTimelineHo
     return result.build();
   }
 }
-

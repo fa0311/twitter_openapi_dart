@@ -14,11 +14,11 @@ part 'entities.g.dart';
 /// Entities
 ///
 /// Properties:
-/// * [hashtags] 
-/// * [media] 
-/// * [symbols] 
-/// * [urls] 
-/// * [userMentions] 
+/// * [hashtags]
+/// * [media]
+/// * [symbols]
+/// * [urls]
+/// * [userMentions]
 @BuiltValue()
 abstract class Entities implements Built<Entities, EntitiesBuilder> {
   @BuiltValueField(wireName: r'hashtags')
@@ -94,7 +94,9 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     Entities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -172,4 +174,3 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     return result.build();
   }
 }
-

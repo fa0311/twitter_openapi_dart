@@ -15,13 +15,14 @@ part 'timeline_user.g.dart';
 /// TimelineUser
 ///
 /// Properties:
-/// * [socialContext] 
-/// * [typename] 
-/// * [itemType] 
-/// * [userDisplayType] 
-/// * [userResults] 
+/// * [socialContext]
+/// * [typename]
+/// * [itemType]
+/// * [userDisplayType]
+/// * [userResults]
 @BuiltValue()
-abstract class TimelineUser implements Built<TimelineUser, TimelineUserBuilder> {
+abstract class TimelineUser
+    implements Built<TimelineUser, TimelineUserBuilder> {
   @BuiltValueField(wireName: r'SocialContext')
   SocialContext? get socialContext;
 
@@ -97,7 +98,9 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     TimelineUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -175,4 +178,3 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     return result.build();
   }
 }
-

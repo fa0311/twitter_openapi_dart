@@ -12,26 +12,34 @@ part 'tweet_detail_response_data.g.dart';
 /// TweetDetailResponseData
 ///
 /// Properties:
-/// * [threadedConversationWithInjectionsV2] 
+/// * [threadedConversationWithInjectionsV2]
 @BuiltValue()
-abstract class TweetDetailResponseData implements Built<TweetDetailResponseData, TweetDetailResponseDataBuilder> {
+abstract class TweetDetailResponseData
+    implements Built<TweetDetailResponseData, TweetDetailResponseDataBuilder> {
   @BuiltValueField(wireName: r'threaded_conversation_with_injections_v2')
   Timeline get threadedConversationWithInjectionsV2;
 
   TweetDetailResponseData._();
 
-  factory TweetDetailResponseData([void updates(TweetDetailResponseDataBuilder b)]) = _$TweetDetailResponseData;
+  factory TweetDetailResponseData(
+          [void updates(TweetDetailResponseDataBuilder b)]) =
+      _$TweetDetailResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TweetDetailResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TweetDetailResponseData> get serializer => _$TweetDetailResponseDataSerializer();
+  static Serializer<TweetDetailResponseData> get serializer =>
+      _$TweetDetailResponseDataSerializer();
 }
 
-class _$TweetDetailResponseDataSerializer implements PrimitiveSerializer<TweetDetailResponseData> {
+class _$TweetDetailResponseDataSerializer
+    implements PrimitiveSerializer<TweetDetailResponseData> {
   @override
-  final Iterable<Type> types = const [TweetDetailResponseData, _$TweetDetailResponseData];
+  final Iterable<Type> types = const [
+    TweetDetailResponseData,
+    _$TweetDetailResponseData
+  ];
 
   @override
   final String wireName = r'TweetDetailResponseData';
@@ -54,7 +62,9 @@ class _$TweetDetailResponseDataSerializer implements PrimitiveSerializer<TweetDe
     TweetDetailResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +114,3 @@ class _$TweetDetailResponseDataSerializer implements PrimitiveSerializer<TweetDe
     return result.build();
   }
 }
-

@@ -14,12 +14,15 @@ part 'post_create_tweet_request_variables.g.dart';
 /// PostCreateTweetRequestVariables
 ///
 /// Properties:
-/// * [darkRequest] 
-/// * [media] 
-/// * [semanticAnnotationIds] 
-/// * [tweetText] 
+/// * [darkRequest]
+/// * [media]
+/// * [semanticAnnotationIds]
+/// * [tweetText]
 @BuiltValue()
-abstract class PostCreateTweetRequestVariables implements Built<PostCreateTweetRequestVariables, PostCreateTweetRequestVariablesBuilder> {
+abstract class PostCreateTweetRequestVariables
+    implements
+        Built<PostCreateTweetRequestVariables,
+            PostCreateTweetRequestVariablesBuilder> {
   @BuiltValueField(wireName: r'dark_request')
   bool get darkRequest;
 
@@ -34,20 +37,27 @@ abstract class PostCreateTweetRequestVariables implements Built<PostCreateTweetR
 
   PostCreateTweetRequestVariables._();
 
-  factory PostCreateTweetRequestVariables([void updates(PostCreateTweetRequestVariablesBuilder b)]) = _$PostCreateTweetRequestVariables;
+  factory PostCreateTweetRequestVariables(
+          [void updates(PostCreateTweetRequestVariablesBuilder b)]) =
+      _$PostCreateTweetRequestVariables;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostCreateTweetRequestVariablesBuilder b) => b
-      ..darkRequest = false
-      ..tweetText = 'test';
+    ..darkRequest = false
+    ..tweetText = 'test';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostCreateTweetRequestVariables> get serializer => _$PostCreateTweetRequestVariablesSerializer();
+  static Serializer<PostCreateTweetRequestVariables> get serializer =>
+      _$PostCreateTweetRequestVariablesSerializer();
 }
 
-class _$PostCreateTweetRequestVariablesSerializer implements PrimitiveSerializer<PostCreateTweetRequestVariables> {
+class _$PostCreateTweetRequestVariablesSerializer
+    implements PrimitiveSerializer<PostCreateTweetRequestVariables> {
   @override
-  final Iterable<Type> types = const [PostCreateTweetRequestVariables, _$PostCreateTweetRequestVariables];
+  final Iterable<Type> types = const [
+    PostCreateTweetRequestVariables,
+    _$PostCreateTweetRequestVariables
+  ];
 
   @override
   final String wireName = r'PostCreateTweetRequestVariables';
@@ -85,7 +95,9 @@ class _$PostCreateTweetRequestVariablesSerializer implements PrimitiveSerializer
     PostCreateTweetRequestVariables object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -156,4 +168,3 @@ class _$PostCreateTweetRequestVariablesSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

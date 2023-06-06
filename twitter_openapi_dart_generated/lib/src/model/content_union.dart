@@ -16,20 +16,21 @@ part 'content_union.g.dart';
 /// ContentUnion
 ///
 /// Properties:
-/// * [typename] 
-/// * [clientEventInfo] 
-/// * [entryType] 
-/// * [feedbackInfo] 
-/// * [itemContent] 
-/// * [displayType] 
-/// * [footer] 
-/// * [header] 
-/// * [items] 
-/// * [cursorType] 
-/// * [itemType] 
-/// * [value] 
+/// * [typename]
+/// * [clientEventInfo]
+/// * [entryType]
+/// * [feedbackInfo]
+/// * [itemContent]
+/// * [displayType]
+/// * [footer]
+/// * [header]
+/// * [items]
+/// * [cursorType]
+/// * [itemType]
+/// * [value]
 @BuiltValue()
-abstract class ContentUnion implements Built<ContentUnion, ContentUnionBuilder> {
+abstract class ContentUnion
+    implements Built<ContentUnion, ContentUnionBuilder> {
   /// One Of [TimelineTimelineCursor], [TimelineTimelineItem], [TimelineTimelineModule]
   OneOf get oneOf;
 
@@ -53,32 +54,33 @@ abstract class ContentUnion implements Built<ContentUnion, ContentUnionBuilder> 
 }
 
 extension ContentUnionDiscriminatorExt on ContentUnion {
-    String? get discriminatorValue {
-        if (this is TimelineTimelineCursor) {
-            return r'TimelineTimelineCursor';
-        }
-        if (this is TimelineTimelineItem) {
-            return r'TimelineTimelineItem';
-        }
-        if (this is TimelineTimelineModule) {
-            return r'TimelineTimelineModule';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is TimelineTimelineCursor) {
+      return r'TimelineTimelineCursor';
     }
+    if (this is TimelineTimelineItem) {
+      return r'TimelineTimelineItem';
+    }
+    if (this is TimelineTimelineModule) {
+      return r'TimelineTimelineModule';
+    }
+    return null;
+  }
 }
+
 extension ContentUnionBuilderDiscriminatorExt on ContentUnionBuilder {
-    String? get discriminatorValue {
-        if (this is TimelineTimelineCursorBuilder) {
-            return r'TimelineTimelineCursor';
-        }
-        if (this is TimelineTimelineItemBuilder) {
-            return r'TimelineTimelineItem';
-        }
-        if (this is TimelineTimelineModuleBuilder) {
-            return r'TimelineTimelineModule';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is TimelineTimelineCursorBuilder) {
+      return r'TimelineTimelineCursor';
     }
+    if (this is TimelineTimelineItemBuilder) {
+      return r'TimelineTimelineItem';
+    }
+    if (this is TimelineTimelineModuleBuilder) {
+      return r'TimelineTimelineModule';
+    }
+    return null;
+  }
 }
 
 class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
@@ -92,8 +94,7 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
     Serializers serializers,
     ContentUnion object, {
     FullType specifiedType = FullType.unspecified,
-  }) sync* {
-  }
+  }) sync* {}
 
   @override
   Object serialize(
@@ -102,7 +103,8 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final oneOf = object.oneOf;
-    return serializers.serialize(oneOf.value, specifiedType: FullType(oneOf.valueType))!;
+    return serializers.serialize(oneOf.value,
+        specifiedType: FullType(oneOf.valueType))!;
   }
 
   @override
@@ -114,10 +116,16 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
     final result = ContentUnionBuilder();
     Object? oneOfDataSrc;
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(ContentUnion.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(ContentUnion.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineTimelineCursor, TimelineTimelineItem, TimelineTimelineModule, ];
+    final oneOfTypes = [
+      TimelineTimelineCursor,
+      TimelineTimelineItem,
+      TimelineTimelineModule,
+    ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -143,31 +151,41 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
         oneOfType = TimelineTimelineModule;
         break;
       default:
-        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+        throw UnsupportedError(
+            "Couldn't deserialize oneOf for the discriminator value: ${discValue}");
     }
-    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
+    result.oneOf = OneOfDynamic(
+        typeIndex: oneOfTypes.indexOf(oneOfType),
+        types: oneOfTypes,
+        value: oneOfResult);
     return result.build();
   }
 }
 
 class ContentUnionCursorTypeEnum extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Top')
-  static const ContentUnionCursorTypeEnum top = _$contentUnionCursorTypeEnum_top;
+  static const ContentUnionCursorTypeEnum top =
+      _$contentUnionCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
-  static const ContentUnionCursorTypeEnum bottom = _$contentUnionCursorTypeEnum_bottom;
+  static const ContentUnionCursorTypeEnum bottom =
+      _$contentUnionCursorTypeEnum_bottom;
   @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const ContentUnionCursorTypeEnum showMore = _$contentUnionCursorTypeEnum_showMore;
+  static const ContentUnionCursorTypeEnum showMore =
+      _$contentUnionCursorTypeEnum_showMore;
   @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const ContentUnionCursorTypeEnum showMoreThreads = _$contentUnionCursorTypeEnum_showMoreThreads;
+  static const ContentUnionCursorTypeEnum showMoreThreads =
+      _$contentUnionCursorTypeEnum_showMoreThreads;
   @BuiltValueEnumConst(wireName: r'Gap')
-  static const ContentUnionCursorTypeEnum gap = _$contentUnionCursorTypeEnum_gap;
+  static const ContentUnionCursorTypeEnum gap =
+      _$contentUnionCursorTypeEnum_gap;
 
-  static Serializer<ContentUnionCursorTypeEnum> get serializer => _$contentUnionCursorTypeEnumSerializer;
+  static Serializer<ContentUnionCursorTypeEnum> get serializer =>
+      _$contentUnionCursorTypeEnumSerializer;
 
-  const ContentUnionCursorTypeEnum._(String name): super(name);
+  const ContentUnionCursorTypeEnum._(String name) : super(name);
 
-  static BuiltSet<ContentUnionCursorTypeEnum> get values => _$contentUnionCursorTypeEnumValues;
-  static ContentUnionCursorTypeEnum valueOf(String name) => _$contentUnionCursorTypeEnumValueOf(name);
+  static BuiltSet<ContentUnionCursorTypeEnum> get values =>
+      _$contentUnionCursorTypeEnumValues;
+  static ContentUnionCursorTypeEnum valueOf(String name) =>
+      _$contentUnionCursorTypeEnumValueOf(name);
 }
-

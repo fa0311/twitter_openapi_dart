@@ -14,13 +14,14 @@ part 'timeline_timeline_cursor.g.dart';
 /// TimelineTimelineCursor
 ///
 /// Properties:
-/// * [typename] 
-/// * [cursorType] 
-/// * [entryType] 
-/// * [itemType] 
-/// * [value] 
+/// * [typename]
+/// * [cursorType]
+/// * [entryType]
+/// * [itemType]
+/// * [value]
 @BuiltValue()
-abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
+abstract class TimelineTimelineCursor
+    implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
@@ -42,18 +43,25 @@ abstract class TimelineTimelineCursor implements Built<TimelineTimelineCursor, T
 
   TimelineTimelineCursor._();
 
-  factory TimelineTimelineCursor([void updates(TimelineTimelineCursorBuilder b)]) = _$TimelineTimelineCursor;
+  factory TimelineTimelineCursor(
+          [void updates(TimelineTimelineCursorBuilder b)]) =
+      _$TimelineTimelineCursor;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimelineTimelineCursorBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelineTimelineCursor> get serializer => _$TimelineTimelineCursorSerializer();
+  static Serializer<TimelineTimelineCursor> get serializer =>
+      _$TimelineTimelineCursorSerializer();
 }
 
-class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<TimelineTimelineCursor> {
+class _$TimelineTimelineCursorSerializer
+    implements PrimitiveSerializer<TimelineTimelineCursor> {
   @override
-  final Iterable<Type> types = const [TimelineTimelineCursor, _$TimelineTimelineCursor];
+  final Iterable<Type> types = const [
+    TimelineTimelineCursor,
+    _$TimelineTimelineCursor
+  ];
 
   @override
   final String wireName = r'TimelineTimelineCursor';
@@ -100,7 +108,9 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
     TimelineTimelineCursor object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -180,23 +190,29 @@ class _$TimelineTimelineCursorSerializer implements PrimitiveSerializer<Timeline
 }
 
 class TimelineTimelineCursorCursorTypeEnum extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Top')
-  static const TimelineTimelineCursorCursorTypeEnum top = _$timelineTimelineCursorCursorTypeEnum_top;
+  static const TimelineTimelineCursorCursorTypeEnum top =
+      _$timelineTimelineCursorCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
-  static const TimelineTimelineCursorCursorTypeEnum bottom = _$timelineTimelineCursorCursorTypeEnum_bottom;
+  static const TimelineTimelineCursorCursorTypeEnum bottom =
+      _$timelineTimelineCursorCursorTypeEnum_bottom;
   @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const TimelineTimelineCursorCursorTypeEnum showMore = _$timelineTimelineCursorCursorTypeEnum_showMore;
+  static const TimelineTimelineCursorCursorTypeEnum showMore =
+      _$timelineTimelineCursorCursorTypeEnum_showMore;
   @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const TimelineTimelineCursorCursorTypeEnum showMoreThreads = _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
+  static const TimelineTimelineCursorCursorTypeEnum showMoreThreads =
+      _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
   @BuiltValueEnumConst(wireName: r'Gap')
-  static const TimelineTimelineCursorCursorTypeEnum gap = _$timelineTimelineCursorCursorTypeEnum_gap;
+  static const TimelineTimelineCursorCursorTypeEnum gap =
+      _$timelineTimelineCursorCursorTypeEnum_gap;
 
-  static Serializer<TimelineTimelineCursorCursorTypeEnum> get serializer => _$timelineTimelineCursorCursorTypeEnumSerializer;
+  static Serializer<TimelineTimelineCursorCursorTypeEnum> get serializer =>
+      _$timelineTimelineCursorCursorTypeEnumSerializer;
 
-  const TimelineTimelineCursorCursorTypeEnum._(String name): super(name);
+  const TimelineTimelineCursorCursorTypeEnum._(String name) : super(name);
 
-  static BuiltSet<TimelineTimelineCursorCursorTypeEnum> get values => _$timelineTimelineCursorCursorTypeEnumValues;
-  static TimelineTimelineCursorCursorTypeEnum valueOf(String name) => _$timelineTimelineCursorCursorTypeEnumValueOf(name);
+  static BuiltSet<TimelineTimelineCursorCursorTypeEnum> get values =>
+      _$timelineTimelineCursorCursorTypeEnumValues;
+  static TimelineTimelineCursorCursorTypeEnum valueOf(String name) =>
+      _$timelineTimelineCursorCursorTypeEnumValueOf(name);
 }
-

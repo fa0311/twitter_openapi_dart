@@ -19,16 +19,16 @@ part 'tweet.g.dart';
 /// Tweet
 ///
 /// Properties:
-/// * [typename] 
-/// * [core] 
-/// * [editControl] 
-/// * [editPrespective] 
-/// * [isTranslatable] 
-/// * [legacy] 
-/// * [quotedStatusResult] 
-/// * [restId] 
-/// * [unmentionData] 
-/// * [views] 
+/// * [typename]
+/// * [core]
+/// * [editControl]
+/// * [editPrespective]
+/// * [isTranslatable]
+/// * [legacy]
+/// * [quotedStatusResult]
+/// * [restId]
+/// * [unmentionData]
+/// * [views]
 @BuiltValue()
 abstract class Tweet implements Built<Tweet, TweetBuilder> {
   @BuiltValueField(wireName: r'__typename')
@@ -67,8 +67,7 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
   factory Tweet([void updates(TweetBuilder b)]) = _$Tweet;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TweetBuilder b) => b
-      ..isTranslatable = false;
+  static void _defaults(TweetBuilder b) => b..isTranslatable = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<Tweet> get serializer => _$TweetSerializer();
@@ -150,7 +149,9 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
     Tweet object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -263,4 +264,3 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
     return result.build();
   }
 }
-

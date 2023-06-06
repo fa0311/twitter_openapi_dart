@@ -16,19 +16,20 @@ part 'item_content_union.g.dart';
 /// ItemContentUnion
 ///
 /// Properties:
-/// * [socialContext] 
-/// * [typename] 
-/// * [itemType] 
-/// * [promotedMetadata] 
-/// * [tweetDisplayType] 
-/// * [tweetResults] 
-/// * [cursorType] 
-/// * [entryType] 
-/// * [value] 
-/// * [userDisplayType] 
-/// * [userResults] 
+/// * [socialContext]
+/// * [typename]
+/// * [itemType]
+/// * [promotedMetadata]
+/// * [tweetDisplayType]
+/// * [tweetResults]
+/// * [cursorType]
+/// * [entryType]
+/// * [value]
+/// * [userDisplayType]
+/// * [userResults]
 @BuiltValue()
-abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUnionBuilder> {
+abstract class ItemContentUnion
+    implements Built<ItemContentUnion, ItemContentUnionBuilder> {
   /// One Of [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
   OneOf get oneOf;
 
@@ -42,45 +43,49 @@ abstract class ItemContentUnion implements Built<ItemContentUnion, ItemContentUn
 
   ItemContentUnion._();
 
-  factory ItemContentUnion([void updates(ItemContentUnionBuilder b)]) = _$ItemContentUnion;
+  factory ItemContentUnion([void updates(ItemContentUnionBuilder b)]) =
+      _$ItemContentUnion;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ItemContentUnionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ItemContentUnion> get serializer => _$ItemContentUnionSerializer();
+  static Serializer<ItemContentUnion> get serializer =>
+      _$ItemContentUnionSerializer();
 }
 
 extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
-    String? get discriminatorValue {
-        if (this is TimelineTimelineCursor) {
-            return r'TimelineTimelineCursor';
-        }
-        if (this is TimelineTweet) {
-            return r'TimelineTweet';
-        }
-        if (this is TimelineUser) {
-            return r'TimelineUser';
-        }
-        return null;
+  String? get discriminatorValue {
+    if (this is TimelineTimelineCursor) {
+      return r'TimelineTimelineCursor';
     }
-}
-extension ItemContentUnionBuilderDiscriminatorExt on ItemContentUnionBuilder {
-    String? get discriminatorValue {
-        if (this is TimelineTimelineCursorBuilder) {
-            return r'TimelineTimelineCursor';
-        }
-        if (this is TimelineTweetBuilder) {
-            return r'TimelineTweet';
-        }
-        if (this is TimelineUserBuilder) {
-            return r'TimelineUser';
-        }
-        return null;
+    if (this is TimelineTweet) {
+      return r'TimelineTweet';
     }
+    if (this is TimelineUser) {
+      return r'TimelineUser';
+    }
+    return null;
+  }
 }
 
-class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUnion> {
+extension ItemContentUnionBuilderDiscriminatorExt on ItemContentUnionBuilder {
+  String? get discriminatorValue {
+    if (this is TimelineTimelineCursorBuilder) {
+      return r'TimelineTimelineCursor';
+    }
+    if (this is TimelineTweetBuilder) {
+      return r'TimelineTweet';
+    }
+    if (this is TimelineUserBuilder) {
+      return r'TimelineUser';
+    }
+    return null;
+  }
+}
+
+class _$ItemContentUnionSerializer
+    implements PrimitiveSerializer<ItemContentUnion> {
   @override
   final Iterable<Type> types = const [ItemContentUnion, _$ItemContentUnion];
 
@@ -91,8 +96,7 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
     Serializers serializers,
     ItemContentUnion object, {
     FullType specifiedType = FullType.unspecified,
-  }) sync* {
-  }
+  }) sync* {}
 
   @override
   Object serialize(
@@ -101,7 +105,8 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
     FullType specifiedType = FullType.unspecified,
   }) {
     final oneOf = object.oneOf;
-    return serializers.serialize(oneOf.value, specifiedType: FullType(oneOf.valueType))!;
+    return serializers.serialize(oneOf.value,
+        specifiedType: FullType(oneOf.valueType))!;
   }
 
   @override
@@ -113,10 +118,16 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
     final result = ItemContentUnionBuilder();
     Object? oneOfDataSrc;
     final serializedList = (serialized as Iterable<Object?>).toList();
-    final discIndex = serializedList.indexOf(ItemContentUnion.discriminatorFieldName) + 1;
-    final discValue = serializers.deserialize(serializedList[discIndex], specifiedType: FullType(String)) as String;
+    final discIndex =
+        serializedList.indexOf(ItemContentUnion.discriminatorFieldName) + 1;
+    final discValue = serializers.deserialize(serializedList[discIndex],
+        specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
-    final oneOfTypes = [TimelineTimelineCursor, TimelineTweet, TimelineUser, ];
+    final oneOfTypes = [
+      TimelineTimelineCursor,
+      TimelineTweet,
+      TimelineUser,
+    ];
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
@@ -142,31 +153,41 @@ class _$ItemContentUnionSerializer implements PrimitiveSerializer<ItemContentUni
         oneOfType = TimelineUser;
         break;
       default:
-        throw UnsupportedError("Couldn't deserialize oneOf for the discriminator value: ${discValue}");
+        throw UnsupportedError(
+            "Couldn't deserialize oneOf for the discriminator value: ${discValue}");
     }
-    result.oneOf = OneOfDynamic(typeIndex: oneOfTypes.indexOf(oneOfType), types: oneOfTypes, value: oneOfResult);
+    result.oneOf = OneOfDynamic(
+        typeIndex: oneOfTypes.indexOf(oneOfType),
+        types: oneOfTypes,
+        value: oneOfResult);
     return result.build();
   }
 }
 
 class ItemContentUnionCursorTypeEnum extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Top')
-  static const ItemContentUnionCursorTypeEnum top = _$itemContentUnionCursorTypeEnum_top;
+  static const ItemContentUnionCursorTypeEnum top =
+      _$itemContentUnionCursorTypeEnum_top;
   @BuiltValueEnumConst(wireName: r'Bottom')
-  static const ItemContentUnionCursorTypeEnum bottom = _$itemContentUnionCursorTypeEnum_bottom;
+  static const ItemContentUnionCursorTypeEnum bottom =
+      _$itemContentUnionCursorTypeEnum_bottom;
   @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const ItemContentUnionCursorTypeEnum showMore = _$itemContentUnionCursorTypeEnum_showMore;
+  static const ItemContentUnionCursorTypeEnum showMore =
+      _$itemContentUnionCursorTypeEnum_showMore;
   @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const ItemContentUnionCursorTypeEnum showMoreThreads = _$itemContentUnionCursorTypeEnum_showMoreThreads;
+  static const ItemContentUnionCursorTypeEnum showMoreThreads =
+      _$itemContentUnionCursorTypeEnum_showMoreThreads;
   @BuiltValueEnumConst(wireName: r'Gap')
-  static const ItemContentUnionCursorTypeEnum gap = _$itemContentUnionCursorTypeEnum_gap;
+  static const ItemContentUnionCursorTypeEnum gap =
+      _$itemContentUnionCursorTypeEnum_gap;
 
-  static Serializer<ItemContentUnionCursorTypeEnum> get serializer => _$itemContentUnionCursorTypeEnumSerializer;
+  static Serializer<ItemContentUnionCursorTypeEnum> get serializer =>
+      _$itemContentUnionCursorTypeEnumSerializer;
 
-  const ItemContentUnionCursorTypeEnum._(String name): super(name);
+  const ItemContentUnionCursorTypeEnum._(String name) : super(name);
 
-  static BuiltSet<ItemContentUnionCursorTypeEnum> get values => _$itemContentUnionCursorTypeEnumValues;
-  static ItemContentUnionCursorTypeEnum valueOf(String name) => _$itemContentUnionCursorTypeEnumValueOf(name);
+  static BuiltSet<ItemContentUnionCursorTypeEnum> get values =>
+      _$itemContentUnionCursorTypeEnumValues;
+  static ItemContentUnionCursorTypeEnum valueOf(String name) =>
+      _$itemContentUnionCursorTypeEnumValueOf(name);
 }
-

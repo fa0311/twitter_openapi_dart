@@ -12,26 +12,33 @@ part 'bookmarks_response_data.g.dart';
 /// BookmarksResponseData
 ///
 /// Properties:
-/// * [bookmarkTimelineV2] 
+/// * [bookmarkTimelineV2]
 @BuiltValue()
-abstract class BookmarksResponseData implements Built<BookmarksResponseData, BookmarksResponseDataBuilder> {
+abstract class BookmarksResponseData
+    implements Built<BookmarksResponseData, BookmarksResponseDataBuilder> {
   @BuiltValueField(wireName: r'bookmark_timeline_v2')
   BookmarksTimeline get bookmarkTimelineV2;
 
   BookmarksResponseData._();
 
-  factory BookmarksResponseData([void updates(BookmarksResponseDataBuilder b)]) = _$BookmarksResponseData;
+  factory BookmarksResponseData(
+      [void updates(BookmarksResponseDataBuilder b)]) = _$BookmarksResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BookmarksResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookmarksResponseData> get serializer => _$BookmarksResponseDataSerializer();
+  static Serializer<BookmarksResponseData> get serializer =>
+      _$BookmarksResponseDataSerializer();
 }
 
-class _$BookmarksResponseDataSerializer implements PrimitiveSerializer<BookmarksResponseData> {
+class _$BookmarksResponseDataSerializer
+    implements PrimitiveSerializer<BookmarksResponseData> {
   @override
-  final Iterable<Type> types = const [BookmarksResponseData, _$BookmarksResponseData];
+  final Iterable<Type> types = const [
+    BookmarksResponseData,
+    _$BookmarksResponseData
+  ];
 
   @override
   final String wireName = r'BookmarksResponseData';
@@ -54,7 +61,9 @@ class _$BookmarksResponseDataSerializer implements PrimitiveSerializer<Bookmarks
     BookmarksResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +113,3 @@ class _$BookmarksResponseDataSerializer implements PrimitiveSerializer<Bookmarks
     return result.build();
   }
 }
-

@@ -12,10 +12,12 @@ part 'post_create_retweet_request.g.dart';
 /// PostCreateRetweetRequest
 ///
 /// Properties:
-/// * [queryId] 
-/// * [variables] 
+/// * [queryId]
+/// * [variables]
 @BuiltValue()
-abstract class PostCreateRetweetRequest implements Built<PostCreateRetweetRequest, PostCreateRetweetRequestBuilder> {
+abstract class PostCreateRetweetRequest
+    implements
+        Built<PostCreateRetweetRequest, PostCreateRetweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
   String get queryId;
 
@@ -24,19 +26,26 @@ abstract class PostCreateRetweetRequest implements Built<PostCreateRetweetReques
 
   PostCreateRetweetRequest._();
 
-  factory PostCreateRetweetRequest([void updates(PostCreateRetweetRequestBuilder b)]) = _$PostCreateRetweetRequest;
+  factory PostCreateRetweetRequest(
+          [void updates(PostCreateRetweetRequestBuilder b)]) =
+      _$PostCreateRetweetRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PostCreateRetweetRequestBuilder b) => b
-      ..queryId = 'ojPdsZsimiJrUGLR1sjUtA';
+  static void _defaults(PostCreateRetweetRequestBuilder b) =>
+      b..queryId = 'ojPdsZsimiJrUGLR1sjUtA';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostCreateRetweetRequest> get serializer => _$PostCreateRetweetRequestSerializer();
+  static Serializer<PostCreateRetweetRequest> get serializer =>
+      _$PostCreateRetweetRequestSerializer();
 }
 
-class _$PostCreateRetweetRequestSerializer implements PrimitiveSerializer<PostCreateRetweetRequest> {
+class _$PostCreateRetweetRequestSerializer
+    implements PrimitiveSerializer<PostCreateRetweetRequest> {
   @override
-  final Iterable<Type> types = const [PostCreateRetweetRequest, _$PostCreateRetweetRequest];
+  final Iterable<Type> types = const [
+    PostCreateRetweetRequest,
+    _$PostCreateRetweetRequest
+  ];
 
   @override
   final String wireName = r'PostCreateRetweetRequest';
@@ -64,7 +73,9 @@ class _$PostCreateRetweetRequestSerializer implements PrimitiveSerializer<PostCr
     PostCreateRetweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +132,3 @@ class _$PostCreateRetweetRequestSerializer implements PrimitiveSerializer<PostCr
     return result.build();
   }
 }
-

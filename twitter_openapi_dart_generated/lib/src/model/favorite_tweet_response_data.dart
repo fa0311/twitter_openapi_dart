@@ -12,26 +12,35 @@ part 'favorite_tweet_response_data.g.dart';
 /// FavoriteTweetResponseData
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class FavoriteTweetResponseData implements Built<FavoriteTweetResponseData, FavoriteTweetResponseDataBuilder> {
+abstract class FavoriteTweetResponseData
+    implements
+        Built<FavoriteTweetResponseData, FavoriteTweetResponseDataBuilder> {
   @BuiltValueField(wireName: r'data')
   FavoriteTweet get data;
 
   FavoriteTweetResponseData._();
 
-  factory FavoriteTweetResponseData([void updates(FavoriteTweetResponseDataBuilder b)]) = _$FavoriteTweetResponseData;
+  factory FavoriteTweetResponseData(
+          [void updates(FavoriteTweetResponseDataBuilder b)]) =
+      _$FavoriteTweetResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FavoriteTweetResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FavoriteTweetResponseData> get serializer => _$FavoriteTweetResponseDataSerializer();
+  static Serializer<FavoriteTweetResponseData> get serializer =>
+      _$FavoriteTweetResponseDataSerializer();
 }
 
-class _$FavoriteTweetResponseDataSerializer implements PrimitiveSerializer<FavoriteTweetResponseData> {
+class _$FavoriteTweetResponseDataSerializer
+    implements PrimitiveSerializer<FavoriteTweetResponseData> {
   @override
-  final Iterable<Type> types = const [FavoriteTweetResponseData, _$FavoriteTweetResponseData];
+  final Iterable<Type> types = const [
+    FavoriteTweetResponseData,
+    _$FavoriteTweetResponseData
+  ];
 
   @override
   final String wireName = r'FavoriteTweetResponseData';
@@ -54,7 +63,9 @@ class _$FavoriteTweetResponseDataSerializer implements PrimitiveSerializer<Favor
     FavoriteTweetResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$FavoriteTweetResponseDataSerializer implements PrimitiveSerializer<Favor
     return result.build();
   }
 }
-

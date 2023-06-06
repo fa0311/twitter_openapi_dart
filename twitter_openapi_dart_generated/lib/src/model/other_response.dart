@@ -12,21 +12,24 @@ part 'other_response.g.dart';
 /// OtherResponse
 ///
 /// Properties:
-/// * [session] 
+/// * [session]
 @BuiltValue()
-abstract class OtherResponse implements Built<OtherResponse, OtherResponseBuilder> {
+abstract class OtherResponse
+    implements Built<OtherResponse, OtherResponseBuilder> {
   @BuiltValueField(wireName: r'Session')
   Session? get session;
 
   OtherResponse._();
 
-  factory OtherResponse([void updates(OtherResponseBuilder b)]) = _$OtherResponse;
+  factory OtherResponse([void updates(OtherResponseBuilder b)]) =
+      _$OtherResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OtherResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<OtherResponse> get serializer => _$OtherResponseSerializer();
+  static Serializer<OtherResponse> get serializer =>
+      _$OtherResponseSerializer();
 }
 
 class _$OtherResponseSerializer implements PrimitiveSerializer<OtherResponse> {
@@ -56,7 +59,9 @@ class _$OtherResponseSerializer implements PrimitiveSerializer<OtherResponse> {
     OtherResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,4 +111,3 @@ class _$OtherResponseSerializer implements PrimitiveSerializer<OtherResponse> {
     return result.build();
   }
 }
-

@@ -11,26 +11,35 @@ part 'one_factor_login_eligibility.g.dart';
 /// OneFactorLoginEligibility
 ///
 /// Properties:
-/// * [fetchStatus] 
+/// * [fetchStatus]
 @BuiltValue()
-abstract class OneFactorLoginEligibility implements Built<OneFactorLoginEligibility, OneFactorLoginEligibilityBuilder> {
+abstract class OneFactorLoginEligibility
+    implements
+        Built<OneFactorLoginEligibility, OneFactorLoginEligibilityBuilder> {
   @BuiltValueField(wireName: r'fetchStatus')
   String get fetchStatus;
 
   OneFactorLoginEligibility._();
 
-  factory OneFactorLoginEligibility([void updates(OneFactorLoginEligibilityBuilder b)]) = _$OneFactorLoginEligibility;
+  factory OneFactorLoginEligibility(
+          [void updates(OneFactorLoginEligibilityBuilder b)]) =
+      _$OneFactorLoginEligibility;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OneFactorLoginEligibilityBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<OneFactorLoginEligibility> get serializer => _$OneFactorLoginEligibilitySerializer();
+  static Serializer<OneFactorLoginEligibility> get serializer =>
+      _$OneFactorLoginEligibilitySerializer();
 }
 
-class _$OneFactorLoginEligibilitySerializer implements PrimitiveSerializer<OneFactorLoginEligibility> {
+class _$OneFactorLoginEligibilitySerializer
+    implements PrimitiveSerializer<OneFactorLoginEligibility> {
   @override
-  final Iterable<Type> types = const [OneFactorLoginEligibility, _$OneFactorLoginEligibility];
+  final Iterable<Type> types = const [
+    OneFactorLoginEligibility,
+    _$OneFactorLoginEligibility
+  ];
 
   @override
   final String wireName = r'OneFactorLoginEligibility';
@@ -53,7 +62,9 @@ class _$OneFactorLoginEligibilitySerializer implements PrimitiveSerializer<OneFa
     OneFactorLoginEligibility object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -103,4 +114,3 @@ class _$OneFactorLoginEligibilitySerializer implements PrimitiveSerializer<OneFa
     return result.build();
   }
 }
-

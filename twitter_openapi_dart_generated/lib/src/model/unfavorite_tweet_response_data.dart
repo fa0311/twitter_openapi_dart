@@ -12,26 +12,35 @@ part 'unfavorite_tweet_response_data.g.dart';
 /// UnfavoriteTweetResponseData
 ///
 /// Properties:
-/// * [data] 
+/// * [data]
 @BuiltValue()
-abstract class UnfavoriteTweetResponseData implements Built<UnfavoriteTweetResponseData, UnfavoriteTweetResponseDataBuilder> {
+abstract class UnfavoriteTweetResponseData
+    implements
+        Built<UnfavoriteTweetResponseData, UnfavoriteTweetResponseDataBuilder> {
   @BuiltValueField(wireName: r'data')
   UnfavoriteTweet get data;
 
   UnfavoriteTweetResponseData._();
 
-  factory UnfavoriteTweetResponseData([void updates(UnfavoriteTweetResponseDataBuilder b)]) = _$UnfavoriteTweetResponseData;
+  factory UnfavoriteTweetResponseData(
+          [void updates(UnfavoriteTweetResponseDataBuilder b)]) =
+      _$UnfavoriteTweetResponseData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UnfavoriteTweetResponseDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UnfavoriteTweetResponseData> get serializer => _$UnfavoriteTweetResponseDataSerializer();
+  static Serializer<UnfavoriteTweetResponseData> get serializer =>
+      _$UnfavoriteTweetResponseDataSerializer();
 }
 
-class _$UnfavoriteTweetResponseDataSerializer implements PrimitiveSerializer<UnfavoriteTweetResponseData> {
+class _$UnfavoriteTweetResponseDataSerializer
+    implements PrimitiveSerializer<UnfavoriteTweetResponseData> {
   @override
-  final Iterable<Type> types = const [UnfavoriteTweetResponseData, _$UnfavoriteTweetResponseData];
+  final Iterable<Type> types = const [
+    UnfavoriteTweetResponseData,
+    _$UnfavoriteTweetResponseData
+  ];
 
   @override
   final String wireName = r'UnfavoriteTweetResponseData';
@@ -54,7 +63,9 @@ class _$UnfavoriteTweetResponseDataSerializer implements PrimitiveSerializer<Unf
     UnfavoriteTweetResponseData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -104,4 +115,3 @@ class _$UnfavoriteTweetResponseDataSerializer implements PrimitiveSerializer<Unf
     return result.build();
   }
 }
-

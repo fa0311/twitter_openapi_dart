@@ -12,10 +12,12 @@ part 'post_favorite_tweet_request.g.dart';
 /// PostFavoriteTweetRequest
 ///
 /// Properties:
-/// * [queryId] 
-/// * [variables] 
+/// * [queryId]
+/// * [variables]
 @BuiltValue()
-abstract class PostFavoriteTweetRequest implements Built<PostFavoriteTweetRequest, PostFavoriteTweetRequestBuilder> {
+abstract class PostFavoriteTweetRequest
+    implements
+        Built<PostFavoriteTweetRequest, PostFavoriteTweetRequestBuilder> {
   @BuiltValueField(wireName: r'queryId')
   String get queryId;
 
@@ -24,19 +26,26 @@ abstract class PostFavoriteTweetRequest implements Built<PostFavoriteTweetReques
 
   PostFavoriteTweetRequest._();
 
-  factory PostFavoriteTweetRequest([void updates(PostFavoriteTweetRequestBuilder b)]) = _$PostFavoriteTweetRequest;
+  factory PostFavoriteTweetRequest(
+          [void updates(PostFavoriteTweetRequestBuilder b)]) =
+      _$PostFavoriteTweetRequest;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PostFavoriteTweetRequestBuilder b) => b
-      ..queryId = 'lI07N6Otwv1PhnEgXILM7A';
+  static void _defaults(PostFavoriteTweetRequestBuilder b) =>
+      b..queryId = 'lI07N6Otwv1PhnEgXILM7A';
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PostFavoriteTweetRequest> get serializer => _$PostFavoriteTweetRequestSerializer();
+  static Serializer<PostFavoriteTweetRequest> get serializer =>
+      _$PostFavoriteTweetRequestSerializer();
 }
 
-class _$PostFavoriteTweetRequestSerializer implements PrimitiveSerializer<PostFavoriteTweetRequest> {
+class _$PostFavoriteTweetRequestSerializer
+    implements PrimitiveSerializer<PostFavoriteTweetRequest> {
   @override
-  final Iterable<Type> types = const [PostFavoriteTweetRequest, _$PostFavoriteTweetRequest];
+  final Iterable<Type> types = const [
+    PostFavoriteTweetRequest,
+    _$PostFavoriteTweetRequest
+  ];
 
   @override
   final String wireName = r'PostFavoriteTweetRequest';
@@ -64,7 +73,9 @@ class _$PostFavoriteTweetRequestSerializer implements PrimitiveSerializer<PostFa
     PostFavoriteTweetRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,4 +132,3 @@ class _$PostFavoriteTweetRequestSerializer implements PrimitiveSerializer<PostFa
     return result.build();
   }
 }
-
