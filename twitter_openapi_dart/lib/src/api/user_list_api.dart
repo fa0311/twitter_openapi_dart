@@ -42,6 +42,18 @@ class UserListApiUtils {
     );
   }
 
+  /// getFollowers
+  /// Get a list of users who follow a specified user.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user whose followers you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of users to get.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+
   Future<UserListApiUtilsResponse> getFollowers({
     required String userId,
     String? cursor,
@@ -62,6 +74,18 @@ class UserListApiUtils {
     );
     return response;
   }
+
+  /// getFollowing
+  /// Get a list of users who a specified user follows.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user whose following you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of users to get.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
 
   Future<UserListApiUtilsResponse> getFollowing({
     required String userId,

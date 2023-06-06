@@ -53,6 +53,16 @@ class InitialStateApi {
     );
   }
 
+  /// getHome
+  /// Get initial state from twitter.com.
+  /// Note: Can only be used while logged in.
+  ///
+  /// Parameters:
+  /// * [url] The url of the page to get.
+  ///
+  /// Returns [Future] containing [InitialStateApiUtilsResponse] as data.
+  /// The [InitialStateApiUtilsResponse] contains [InitialStateApiUtilsRaw], [UserLegacy], [Session].
+
   Future<InitialStateApiUtilsResponse> getHome() async {
     return await getInitialState(url: TwitterOpenapiDart.home);
   }

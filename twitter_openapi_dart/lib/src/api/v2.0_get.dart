@@ -6,6 +6,14 @@ class V20GetApiUtils {
 
   const V20GetApiUtils(this.api);
 
+  /// getSearchTypeahead
+  /// Get search results.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [q] The query to search for.
+  ///
+  /// Note: Not yet implemented.
   Future<Response<void>> getSearchAdaptive({required String q}) async {
     // todo
     final response = await api.getSearchAdaptive(q: q);

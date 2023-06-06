@@ -1,9 +1,10 @@
 import 'package:intl/intl.dart';
 
-DateTime dateFormatFromTwitterFormat(String input) {
-  // https://api.flutter.dev/flutter/intl/DateFormat-class.html
-  // final dateFormat = DateFormat('EEE MMM d H:m:s Z y');
+/// Convert Twitter date format to DateTime.
+/// https://api.flutter.dev/flutter/intl/DateFormat-class.html
+/// final dateFormat = DateFormat('EEE MMM d H:m:s Z y');
 
+DateTime dateFormatFromTwitterFormat(String input) {
   final dateFormat = DateFormat('EEE MMM d H:m:s  y');
   final dateReg = RegExp(r"^(.+)(\+|-)([0-9]{2})([0-9]{2})(.+)$");
   final matches = dateReg.firstMatch(input)!;

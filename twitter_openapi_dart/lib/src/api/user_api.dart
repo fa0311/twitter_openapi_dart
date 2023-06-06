@@ -33,6 +33,15 @@ class UserApiUtils {
     );
   }
 
+  /// getUserByScreenName
+  /// Get a User by screen name.
+  ///
+  /// parameters:
+  /// * [screenName] The screen name of the user.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UserApiUtilsResponse] as data.
+
   Future<UserApiUtilsResponse> getUserByScreenName({
     required String screenName,
     Map<String, dynamic>? extraParam,

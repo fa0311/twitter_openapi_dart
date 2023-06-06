@@ -6,6 +6,15 @@ class V11PostApiUtils {
 
   const V11PostApiUtils(this.api);
 
+  /// postCreateFriendships
+  /// Follow users.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user for whom to befriend.
+  ///
+  /// Note: Return value is not implemented.
+
   Future<Response<void>> postCreateFriendships({required String userId}) async {
     final response = await api.postCreateFriendships(
       includeBlockedBy: 1,
@@ -25,6 +34,15 @@ class V11PostApiUtils {
     );
     return response;
   }
+
+  /// postDestroyFriendships
+  /// Unfollow users.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user for whom to unfriend.
+  ///
+  /// Note: Return value is not implemented.
 
   Future<Response<void>> postDestroyFriendships({required String userId}) async {
     final response = await api.postDestroyFriendships(

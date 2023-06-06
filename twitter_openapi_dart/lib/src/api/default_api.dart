@@ -21,6 +21,13 @@ class DefaultApiUtils {
     return response.data!;
   }
 
+  /// getProfileSpotlightsQuery
+  /// Get user profile by screen name.
+  ///
+  /// Parameters:
+  /// * [screenName] The screen name of the user for whom to return results.
+  /// * [extraParam] Additional optional parameters.
+
   Future<UserResultByScreenName> getProfileSpotlightsQuery({
     required String screenName,
     Map<String, dynamic>? extraParam,

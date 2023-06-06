@@ -41,7 +41,17 @@ class TweetApiUtils {
     );
   }
 
-  // ====== TweetDetail ==========
+  /// getTweetDetail
+  /// Get a Tweet.
+  /// This is the same as the Tweet detail page on Twitter.
+  ///
+  /// parameters:
+  /// * [focalTweetId] The ID of the Tweet that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [controllerData] The controller data.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getTweetDetail({
     required String focalTweetId,
@@ -60,7 +70,17 @@ class TweetApiUtils {
     return response;
   }
 
-  // ====== timeline ==========
+  /// getHomeTimeline
+  /// Get recommended tweets from people you follow.
+  /// This is the same as the home timeline on Twitter.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getHomeTimeline({
     String? cursor,
@@ -81,6 +101,18 @@ class TweetApiUtils {
     return response;
   }
 
+  /// getHomeLatestTimeline
+  /// Get the latest Tweets from people you follow.
+  /// This is the same as the home timeline on Twitter.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
   Future<TweetListApiUtilsResponse> getHomeLatestTimeline({
     String? cursor,
     int? count,
@@ -99,6 +131,18 @@ class TweetApiUtils {
     );
     return response;
   }
+
+  /// getListLatestTweetsTimeline
+  /// Get the latest Tweets from a list.
+  /// This is the same as the list's profile page on Twitter.
+  ///
+  /// parameters:
+  /// * [listId] The ID of the list that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getListLatestTweetsTimeline({
     required String listId,
@@ -121,7 +165,17 @@ class TweetApiUtils {
     return response;
   }
 
-  // ====== user ==========
+  /// getUserTweets
+  /// Get Tweets from a user.
+  /// This is the same as the user's profile page on Twitter.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getUserTweets({
     required String userId,
@@ -144,6 +198,18 @@ class TweetApiUtils {
     return response;
   }
 
+  /// getUserTweetsAndReplies
+  /// Get Tweets and replies from a user.
+  /// This is the same as the user's profile page on Twitter.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
   Future<TweetListApiUtilsResponse> getUserTweetsAndReplies({
     required String userId,
     String? cursor,
@@ -164,6 +230,18 @@ class TweetApiUtils {
     );
     return response;
   }
+
+  /// getUserMedia
+  /// Get media from a user.
+  /// This is the same as the user's media page on Twitter.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getUserMedia({
     required String userId,
@@ -186,6 +264,19 @@ class TweetApiUtils {
     return response;
   }
 
+  /// getUserLikes
+  /// Get likes from a user.
+  /// This is the same as the user's likes page on Twitter.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
   Future<TweetListApiUtilsResponse> getLikes({
     required String userId,
     String? cursor,
@@ -207,7 +298,18 @@ class TweetApiUtils {
     return response;
   }
 
-  // ====== bookmark ========
+  /// getBookmarks
+  /// Get bookmarks from a user.
+  /// This is the same as the user's bookmarks page on Twitter.
+  /// Note: Twitter Blue is not supported at this time.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
 
   Future<TweetListApiUtilsResponse> getBookmarks({
     String? cursor,
