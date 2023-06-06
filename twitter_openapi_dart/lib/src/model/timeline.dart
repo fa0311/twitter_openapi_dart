@@ -5,7 +5,8 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 part 'timeline.g.dart';
 
-// Cursor
+/// TimelineApiUtilsResponse
+/// This class is used to store the cursor of the tweet list.
 
 abstract class CursorApiUtilsResponse implements Built<CursorApiUtilsResponse, CursorApiUtilsResponseBuilder> {
   TimelineTimelineCursor? get bottom;
@@ -16,7 +17,8 @@ abstract class CursorApiUtilsResponse implements Built<CursorApiUtilsResponse, C
   factory CursorApiUtilsResponse([void Function(CursorApiUtilsResponseBuilder) updates]) = _$CursorApiUtilsResponse;
 }
 
-// Raw
+/// ApiUtilsRaw
+/// This class is used to store the listing Raw.
 
 abstract class ApiUtilsRaw implements Built<ApiUtilsRaw, ApiUtilsRawBuilder> {
   Response get response;

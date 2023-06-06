@@ -4,6 +4,8 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 
 part 'initial_state.g.dart';
 
+/// InitialStateApiUtilsResponse
+/// this class is used to store the response of the initial state.
 abstract class InitialStateApiUtilsResponse implements Built<InitialStateApiUtilsResponse, InitialStateApiUtilsResponseBuilder> {
   InitialStateApiUtilsRaw get raw;
   UserLegacy? get user;
@@ -14,6 +16,8 @@ abstract class InitialStateApiUtilsResponse implements Built<InitialStateApiUtil
   factory InitialStateApiUtilsResponse([void Function(InitialStateApiUtilsResponseBuilder) updates]) = _$InitialStateApiUtilsResponse;
 }
 
+/// InitialStateApiUtilsRaw
+/// this class is used to store the raw response of the initial state.
 abstract class InitialStateApiUtilsRaw implements Built<InitialStateApiUtilsRaw, InitialStateApiUtilsRawBuilder> {
   JsonObject get initialState;
   JsonObject get metaData;

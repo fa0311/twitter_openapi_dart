@@ -3,6 +3,9 @@ import 'package:dio/dio.dart';
 
 part 'header.g.dart';
 
+/// ApiUtilsHeader
+/// this class is used to store the header of the response.
+
 abstract class ApiUtilsHeader implements Built<ApiUtilsHeader, ApiUtilsHeaderBuilder> {
   Headers get raw;
   String get connectionHash;
