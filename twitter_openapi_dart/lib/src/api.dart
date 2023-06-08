@@ -102,11 +102,11 @@ class TwitterOpenapiDart {
   /// getClient
   /// get [TwitterOpenapiDartClient]
 
-  Future<TwitterOpenapiDartClient> getClient() async {
+  Future<TwitterOpenapiDartClient> getClient({initCookie = true, header = true}) async {
     final cookie = await getCookieJar();
     final interceptor = [
-      InterceptorWrap(CookieManager(cookie)),
-      InterceptorWrap(HeaderAuth(), apiOnly: true),
+      if (initCookie) InterceptorWrap(CookieManager(cookie)),
+      if (header) InterceptorWrap(HeaderAuth(), apiOnly: true),
     ];
     return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
