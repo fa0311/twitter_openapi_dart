@@ -467,18 +467,19 @@ packages:
   twitter_openapi_dart:
     dependency: "direct main"
     description:
-      path: "../.."
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: twitter_openapi_dart
+      sha256: "80426a155687bc018276e2365808fc2dc9383f85d1ac4a310d21fc76698efb34"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   twitter_openapi_dart_generated:
     dependency: transitive
     description:
       name: twitter_openapi_dart_generated
-      sha256: aed4e2416231105ba59bb6b8704046c2be0065b0a7ede05ec948d856bb39a3c7
+      sha256: "5dc87d31abcd06f35564fe1912cd64e2771a3d568732a6a02b390315fcca88f6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.3"
   typed_data:
     dependency: transitive
     description:

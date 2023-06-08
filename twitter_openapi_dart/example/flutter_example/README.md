@@ -2,7 +2,7 @@
 
 ## Login
 
-### Login with Browser (Recommend/Android Only)
+### Login with Browser (Recommend/Mobile Only)
 
 APIs can be executed.  
 Webview implementation using [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).  
@@ -11,14 +11,19 @@ The implementation is as follows.
 - [web.dart](./lib/view/login/web.dart)
 - [inappwebview.dart](./lib/auth/inappwebview.dart)
 
+```dart
+final api = TwitterOpenapiDart()..addBeforInterceptor(FlutterInappwebviewDio());
+final client = await api.getClient(initCookie: false);
+```
+
 ### Login Guest Mode
 
 Some APIs cannot be used because they run without login.  
 The implementation is as follows.  
 
 ```dart
-import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
-final client = TwitterOpenapiDart.fromCookieJar(await getGuestCookies());
+final api = TwitterOpenapiDart();
+final client = await api.getClient();
 ```
 
 ## API Select

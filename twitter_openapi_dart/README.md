@@ -26,7 +26,7 @@ Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutt
 
 ```dart
 final api = TwitterOpenapiDart()..addBeforInterceptor(FlutterInappwebviewDio());
-final client = await api.getClient();
+final client = await api.getClient(initCookie: false);
 ```
 
 - [web.dart](https://github.com/fa0311/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/view/login/web.dart)
