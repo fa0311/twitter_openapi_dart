@@ -12,7 +12,7 @@ The implementation is as follows.
 - [inappwebview.dart](./lib/auth/inappwebview.dart)
 
 ```dart
-final api = TwitterOpenapiDart()..addBeforInterceptor(FlutterInappwebviewDio());
+final api = TwitterOpenapiDart()..addBeforeInterceptor(FlutterInappwebviewDio());
 final client = await api.getClient(initCookie: false);
 ```
 

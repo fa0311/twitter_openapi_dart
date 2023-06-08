@@ -143,7 +143,7 @@ class TwitterOpenapiDart {
     return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
-  void addBeforInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
+  void addBeforeInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
     beforInterceptorsWrap.add(InterceptorWrap(interceptor, apiOnly: apiOnly));
   }
 

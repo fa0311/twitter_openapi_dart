@@ -25,7 +25,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).
 
 ```dart
-final api = TwitterOpenapiDart()..addBeforInterceptor(FlutterInappwebviewDio());
+final api = TwitterOpenapiDart()..addBeforeInterceptor(FlutterInappwebviewDio());
 final client = await api.getClient(initCookie: false);
 ```
 
