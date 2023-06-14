@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/url.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media.dart';
 import 'package:built_value/json_object.dart';
@@ -31,7 +32,7 @@ abstract class Entities implements Built<Entities, EntitiesBuilder> {
   BuiltList<JsonObject> get symbols;
 
   @BuiltValueField(wireName: r'urls')
-  BuiltList<JsonObject> get urls;
+  BuiltList<Url> get urls;
 
   @BuiltValueField(wireName: r'user_mentions')
   BuiltList<JsonObject> get userMentions;
@@ -79,7 +80,7 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     yield r'urls';
     yield serializers.serialize(
       object.urls,
-      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      specifiedType: const FullType(BuiltList, [FullType(Url)]),
     );
     yield r'user_mentions';
     yield serializers.serialize(
@@ -135,8 +136,8 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
         case r'urls':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [FullType(Url)]),
+          ) as BuiltList<Url>;
           result.urls.replace(valueDes);
           break;
         case r'user_mentions':

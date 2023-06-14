@@ -49,6 +49,7 @@ doc/OtherApi.md
 doc/OtherResponse.md
 doc/PostApi.md
 doc/PostCreateRetweetRequest.md
+doc/PostCreateRetweetRequestVariables.md
 doc/PostCreateTweetRequest.md
 doc/PostCreateTweetRequestFeatures.md
 doc/PostCreateTweetRequestVariables.md
@@ -56,7 +57,6 @@ doc/PostCreateTweetRequestVariablesMedia.md
 doc/PostDeleteRetweetRequest.md
 doc/PostDeleteRetweetRequestVariables.md
 doc/PostDeleteTweetRequest.md
-doc/PostDeleteTweetRequestVariables.md
 doc/PostFavoriteTweetRequest.md
 doc/PostUnfavoriteTweetRequest.md
 doc/ProfileResponse.md
@@ -80,6 +80,10 @@ doc/TimelineUser.md
 doc/TimelineV2.md
 doc/Tweet.md
 doc/TweetApi.md
+doc/TweetCard.md
+doc/TweetCardLegacy.md
+doc/TweetCardLegacyBindingValuesInner.md
+doc/TweetCardLegacyBindingValuesInnerValue.md
 doc/TweetDetailResponse.md
 doc/TweetDetailResponseData.md
 doc/TweetEditControl.md
@@ -92,6 +96,7 @@ doc/TweetWithVisibilityResults.md
 doc/TypeName.md
 doc/UnfavoriteTweet.md
 doc/UnfavoriteTweetResponseData.md
+doc/Url.md
 doc/User.md
 doc/UserApi.md
 doc/UserFeatures.md
@@ -175,6 +180,7 @@ lib/src/model/module_item.dart
 lib/src/model/one_factor_login_eligibility.dart
 lib/src/model/other_response.dart
 lib/src/model/post_create_retweet_request.dart
+lib/src/model/post_create_retweet_request_variables.dart
 lib/src/model/post_create_tweet_request.dart
 lib/src/model/post_create_tweet_request_features.dart
 lib/src/model/post_create_tweet_request_variables.dart
@@ -182,7 +188,6 @@ lib/src/model/post_create_tweet_request_variables_media.dart
 lib/src/model/post_delete_retweet_request.dart
 lib/src/model/post_delete_retweet_request_variables.dart
 lib/src/model/post_delete_tweet_request.dart
-lib/src/model/post_delete_tweet_request_variables.dart
 lib/src/model/post_favorite_tweet_request.dart
 lib/src/model/post_unfavorite_tweet_request.dart
 lib/src/model/profile_response.dart
@@ -205,6 +210,10 @@ lib/src/model/timeline_tweet.dart
 lib/src/model/timeline_user.dart
 lib/src/model/timeline_v2.dart
 lib/src/model/tweet.dart
+lib/src/model/tweet_card.dart
+lib/src/model/tweet_card_legacy.dart
+lib/src/model/tweet_card_legacy_binding_values_inner.dart
+lib/src/model/tweet_card_legacy_binding_values_inner_value.dart
 lib/src/model/tweet_detail_response.dart
 lib/src/model/tweet_detail_response_data.dart
 lib/src/model/tweet_edit_control.dart
@@ -217,6 +226,7 @@ lib/src/model/tweet_with_visibility_results.dart
 lib/src/model/type_name.dart
 lib/src/model/unfavorite_tweet.dart
 lib/src/model/unfavorite_tweet_response_data.dart
+lib/src/model/url.dart
 lib/src/model/user.dart
 lib/src/model/user_features.dart
 lib/src/model/user_legacy.dart

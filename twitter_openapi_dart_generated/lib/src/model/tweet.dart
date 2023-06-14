@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
@@ -20,6 +21,7 @@ part 'tweet.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [card]
 /// * [core]
 /// * [editControl]
 /// * [editPrespective]
@@ -34,6 +36,9 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName? get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
+
+  @BuiltValueField(wireName: r'card')
+  TweetCard? get card;
 
   @BuiltValueField(wireName: r'core')
   UserResultCore get core;
@@ -90,6 +95,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
       yield serializers.serialize(
         object.typename,
         specifiedType: const FullType(TypeName),
+      );
+    }
+    if (object.card != null) {
+      yield r'card';
+      yield serializers.serialize(
+        object.card,
+        specifiedType: const FullType(TweetCard),
       );
     }
     yield r'core';
@@ -172,6 +184,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
             specifiedType: const FullType(TypeName),
           ) as TypeName;
           result.typename = valueDes;
+          break;
+        case r'card':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetCard),
+          ) as TweetCard;
+          result.card.replace(valueDes);
           break;
         case r'core':
           final valueDes = serializers.deserialize(

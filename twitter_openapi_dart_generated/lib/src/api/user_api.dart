@@ -21,11 +21,7 @@ class UserApi {
   /// get user by screen name
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -38,13 +34,7 @@ class UserApi {
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserResponse>> getUserByScreenName({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"sLVLhk0bGj3MVFEKTdax1w"',
+    required String pathQueryId,
     String variables =
         '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
     String features =
@@ -56,23 +46,38 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/sLVLhk0bGj3MVFEKTdax1w/UserByScreenName';
+    final _path = r'/graphql/{pathQueryId}/UserByScreenName'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -98,6 +103,11 @@ class UserApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -105,8 +115,6 @@ class UserApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':

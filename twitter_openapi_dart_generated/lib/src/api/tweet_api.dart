@@ -25,11 +25,7 @@ class TweetApi {
   /// get bookmarks
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -42,13 +38,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [BookmarksResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<BookmarksResponse>> getBookmarks({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"tmd4ifV8RHltzn8ymGg1aw"',
+    required String pathQueryId,
     String variables = '{"count": 20, "includePromotedContent": true}',
     String features =
         '{"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
@@ -59,23 +49,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/tmd4ifV8RHltzn8ymGg1aw/Bookmarks';
+    final _path = r'/graphql/{pathQueryId}/Bookmarks'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -101,6 +106,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -108,8 +118,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -161,11 +169,7 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -178,13 +182,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TimelineResponse>> getHomeLatestTimeline({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"zhX91JE87mWvfprhYE97xA"',
+    required String pathQueryId,
     String variables =
         '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}',
     String features =
@@ -196,23 +194,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/zhX91JE87mWvfprhYE97xA/HomeLatestTimeline';
+    final _path = r'/graphql/{pathQueryId}/HomeLatestTimeline'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -238,6 +251,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -245,8 +263,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -298,11 +314,7 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -315,13 +327,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TimelineResponse>> getHomeTimeline({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"HCosKfLNW1AcOo3la3mMgg"',
+    required String pathQueryId,
     String variables =
         '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true}',
     String features =
@@ -333,23 +339,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/HCosKfLNW1AcOo3la3mMgg/HomeTimeline';
+    final _path = r'/graphql/{pathQueryId}/HomeTimeline'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -375,6 +396,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -382,8 +408,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -435,11 +459,7 @@ class TweetApi {
   /// get user likes tweets
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -452,13 +472,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getLikes({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"5fmEkRT-1AdHqEsbVgehMg"',
+    required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 20, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
     String features =
@@ -470,23 +484,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/5fmEkRT-1AdHqEsbVgehMg/Likes';
+    final _path = r'/graphql/{pathQueryId}/Likes'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -512,6 +541,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -519,8 +553,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -572,11 +604,7 @@ class TweetApi {
   /// get tweet list of timeline
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -589,13 +617,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [ListTweetsTimelineResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<ListTweetsTimelineResponse>> getListLatestTweetsTimeline({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"2TemLyqrMpTeAmysdbnVqw"',
+    required String pathQueryId,
     String variables = '{"listId": "53044119", "count": 20}',
     String features =
         '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
@@ -606,23 +628,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/2TemLyqrMpTeAmysdbnVqw/ListLatestTweetsTimeline';
+    final _path = r'/graphql/{pathQueryId}/ListLatestTweetsTimeline'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -648,6 +685,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -655,8 +697,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -708,11 +748,7 @@ class TweetApi {
   /// get TweetDetail
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -725,13 +761,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [TweetDetailResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<TweetDetailResponse>> getTweetDetail({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"wNNG8DBB8EaXw1lq4vFWGA"',
+    required String pathQueryId,
     String variables =
         '{"focalTweetId": "1349129669258448897", "with_rux_injections": false, "includePromotedContent": true, "withCommunity": true, "withQuickPromoteEligibilityTweetFields": true, "withBirdwatchNotes": true, "withVoice": true, "withV2Timeline": true}',
     String features =
@@ -743,23 +773,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/wNNG8DBB8EaXw1lq4vFWGA/TweetDetail';
+    final _path = r'/graphql/{pathQueryId}/TweetDetail'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -785,6 +830,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -792,8 +842,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -845,11 +893,7 @@ class TweetApi {
   /// get user media tweets
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -862,13 +906,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserMedia({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"YqiE3JL1KNgf9nSljYdxaA"',
+    required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
     String features =
@@ -880,23 +918,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/YqiE3JL1KNgf9nSljYdxaA/UserMedia';
+    final _path = r'/graphql/{pathQueryId}/UserMedia'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -922,6 +975,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -929,8 +987,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -982,11 +1038,7 @@ class TweetApi {
   /// get user tweets
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -999,13 +1051,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserTweets({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"HuTx74BxAnezK1gWvYY7zg"',
+    required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withQuickPromoteEligibilityTweetFields": true, "withVoice": true, "withV2Timeline": true}',
     String features =
@@ -1017,23 +1063,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/HuTx74BxAnezK1gWvYY7zg/UserTweets';
+    final _path = r'/graphql/{pathQueryId}/UserTweets'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -1059,6 +1120,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -1066,8 +1132,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
@@ -1119,11 +1183,7 @@ class TweetApi {
   /// get user replies tweets
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
-  /// * [queryId]
+  /// * [pathQueryId]
   /// * [variables]
   /// * [features]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1136,13 +1196,7 @@ class TweetApi {
   /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
-    String queryId = '"RIWc55YCNyUJ-U3HHGYkdg"',
+    required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withCommunity": true, "withVoice": true, "withV2Timeline": true}',
     String features =
@@ -1154,23 +1208,38 @@ class TweetApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/RIWc55YCNyUJ-U3HHGYkdg/UserTweetsAndReplies';
+    final _path = r'/graphql/{pathQueryId}/UserTweetsAndReplies'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -1196,6 +1265,11 @@ class TweetApi {
             'keyName': 'x-guest-token',
             'where': 'header',
           },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
         ],
         ...?extra,
       },
@@ -1203,8 +1277,6 @@ class TweetApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'queryId':
-          encodeQueryParameter(_serializers, queryId, const FullType(String)),
       r'variables':
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':

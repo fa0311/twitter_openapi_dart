@@ -10,7 +10,7 @@ class _$PostCreateRetweetRequest extends PostCreateRetweetRequest {
   @override
   final String queryId;
   @override
-  final PostDeleteTweetRequestVariables variables;
+  final PostCreateRetweetRequestVariables variables;
 
   factory _$PostCreateRetweetRequest(
           [void Function(PostCreateRetweetRequestBuilder)? updates]) =>
@@ -68,10 +68,10 @@ class PostCreateRetweetRequestBuilder
   String? get queryId => _$this._queryId;
   set queryId(String? queryId) => _$this._queryId = queryId;
 
-  PostDeleteTweetRequestVariablesBuilder? _variables;
-  PostDeleteTweetRequestVariablesBuilder get variables =>
-      _$this._variables ??= new PostDeleteTweetRequestVariablesBuilder();
-  set variables(PostDeleteTweetRequestVariablesBuilder? variables) =>
+  PostCreateRetweetRequestVariablesBuilder? _variables;
+  PostCreateRetweetRequestVariablesBuilder get variables =>
+      _$this._variables ??= new PostCreateRetweetRequestVariablesBuilder();
+  set variables(PostCreateRetweetRequestVariablesBuilder? variables) =>
       _$this._variables = variables;
 
   PostCreateRetweetRequestBuilder() {

@@ -9,6 +9,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
+**card** | [**TweetCard**](TweetCard.md) |  | [optional] 
 **core** | [**UserResultCore**](UserResultCore.md) |  | 
 **editControl** | [**TweetEditControl**](TweetEditControl.md) |  | 
 **editPrespective** | [**TweetEditPrespective**](TweetEditPrespective.md) |  | 

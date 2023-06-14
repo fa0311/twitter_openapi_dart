@@ -10,6 +10,8 @@ class _$Tweet extends Tweet {
   @override
   final TypeName? typename;
   @override
+  final TweetCard? card;
+  @override
   final UserResultCore core;
   @override
   final TweetEditControl editControl;
@@ -33,6 +35,7 @@ class _$Tweet extends Tweet {
 
   _$Tweet._(
       {this.typename,
+      this.card,
       required this.core,
       required this.editControl,
       required this.editPrespective,
@@ -66,6 +69,7 @@ class _$Tweet extends Tweet {
     if (identical(other, this)) return true;
     return other is Tweet &&
         typename == other.typename &&
+        card == other.card &&
         core == other.core &&
         editControl == other.editControl &&
         editPrespective == other.editPrespective &&
@@ -81,6 +85,7 @@ class _$Tweet extends Tweet {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, typename.hashCode);
+    _$hash = $jc(_$hash, card.hashCode);
     _$hash = $jc(_$hash, core.hashCode);
     _$hash = $jc(_$hash, editControl.hashCode);
     _$hash = $jc(_$hash, editPrespective.hashCode);
@@ -98,6 +103,7 @@ class _$Tweet extends Tweet {
   String toString() {
     return (newBuiltValueToStringHelper(r'Tweet')
           ..add('typename', typename)
+          ..add('card', card)
           ..add('core', core)
           ..add('editControl', editControl)
           ..add('editPrespective', editPrespective)
@@ -117,6 +123,10 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
   TypeName? _typename;
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
+
+  TweetCardBuilder? _card;
+  TweetCardBuilder get card => _$this._card ??= new TweetCardBuilder();
+  set card(TweetCardBuilder? card) => _$this._card = card;
 
   UserResultCoreBuilder? _core;
   UserResultCoreBuilder get core =>
@@ -171,6 +181,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
+      _card = $v.card?.toBuilder();
       _core = $v.core.toBuilder();
       _editControl = $v.editControl.toBuilder();
       _editPrespective = $v.editPrespective.toBuilder();
@@ -205,6 +216,7 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
       _$result = _$v ??
           new _$Tweet._(
               typename: typename,
+              card: _card?.build(),
               core: core.build(),
               editControl: editControl.build(),
               editPrespective: editPrespective.build(),
@@ -219,6 +231,8 @@ class TweetBuilder implements Builder<Tweet, TweetBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'card';
+        _card?.build();
         _$failedField = 'core';
         core.build();
         _$failedField = 'editControl';

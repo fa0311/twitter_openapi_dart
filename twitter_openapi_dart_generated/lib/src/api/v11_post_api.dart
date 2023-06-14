@@ -20,10 +20,6 @@ class V11PostApi {
   /// post create friendships
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
   /// * [includeBlockedBy]
   /// * [includeBlocking]
   /// * [includeCanDm]
@@ -48,12 +44,6 @@ class V11PostApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> postCreateFriendships({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
     required int includeBlockedBy,
     required int includeBlocking,
     required int includeCanDm,
@@ -79,19 +69,33 @@ class V11PostApi {
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -116,6 +120,11 @@ class V11PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -185,10 +194,6 @@ class V11PostApi {
   /// post destroy friendships
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
   /// * [includeBlockedBy]
   /// * [includeBlocking]
   /// * [includeCanDm]
@@ -213,12 +218,6 @@ class V11PostApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> postDestroyFriendships({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
     required int includeBlockedBy,
     required int includeBlocking,
     required int includeCanDm,
@@ -244,19 +243,33 @@ class V11PostApi {
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -281,6 +294,11 @@ class V11PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,

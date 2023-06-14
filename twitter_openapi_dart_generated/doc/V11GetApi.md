@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getFriendsFollowingList**
-> getFriendsFollowingList(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount)
+> getFriendsFollowingList(includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount)
 
 
 
@@ -23,10 +23,22 @@ get friends following list
 ### Example
 ```dart
 import 'package:twitter_openapi_dart_generated/api.dart';
+// TODO Configure API key authorization: ClientLanguage
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ClientLanguage').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ClientLanguage').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: CookieCt0
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieCt0').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieCt0').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: ActiveUser
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ActiveUser').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ActiveUser').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: UserAgent
+//defaultApiClient.getAuthentication<ApiKeyAuth>('UserAgent').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('UserAgent').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: CookieAuthToken
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieAuthToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -43,12 +55,11 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: BearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
-final String userAgent = userAgent_example; // String | 
-final String authorization = authorization_example; // String | 
-final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final int includeProfileInterstitialType = 1; // int | 
 final int includeBlocking = 1; // int | 
 final int includeBlockedBy = 1; // int | 
@@ -68,7 +79,7 @@ final int count = 3; // int |
 final bool withTotalCount = true; // bool | 
 
 try {
-    api.getFriendsFollowingList(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
+    api.getFriendsFollowingList(includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
 } catch on DioError (e) {
     print('Exception when calling V11GetApi->getFriendsFollowingList: $e\n');
 }
@@ -78,10 +89,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
- **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **includeProfileInterstitialType** | **int**|  | [default to 1]
  **includeBlocking** | **int**|  | [default to 1]
  **includeBlockedBy** | **int**|  | [default to 1]
@@ -106,7 +113,7 @@ void (empty response body)
 
 ### Authorization
 
-[CookieCt0](../README.md#CookieCt0), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken)
+[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -116,7 +123,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSearchTypeahead**
-> getSearchTypeahead(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType)
+> getSearchTypeahead(includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType)
 
 
 
@@ -125,10 +132,22 @@ get search typeahead
 ### Example
 ```dart
 import 'package:twitter_openapi_dart_generated/api.dart';
+// TODO Configure API key authorization: ClientLanguage
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ClientLanguage').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ClientLanguage').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: CookieCt0
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieCt0').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieCt0').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: ActiveUser
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ActiveUser').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ActiveUser').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: UserAgent
+//defaultApiClient.getAuthentication<ApiKeyAuth>('UserAgent').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('UserAgent').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: CookieAuthToken
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CookieAuthToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -145,12 +164,11 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
+// TODO Configure HTTP basic authorization: BearerAuth
+//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
+//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
-final String userAgent = userAgent_example; // String | 
-final String authorization = authorization_example; // String | 
-final String xTwitterActiveUser = xTwitterActiveUser_example; // String | 
-final String xTwitterClientLanguage = xTwitterClientLanguage_example; // String | 
 final int includeExtIsBlueVerified = 1; // int | 
 final int includeExtVerifiedType = 1; // int | 
 final int includeExtProfileImageShape = 1; // int | 
@@ -159,7 +177,7 @@ final String src = search_box; // String |
 final String resultType = events,users,topics; // String | 
 
 try {
-    api.getSearchTypeahead(userAgent, authorization, xTwitterActiveUser, xTwitterClientLanguage, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
+    api.getSearchTypeahead(includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
 } catch on DioError (e) {
     print('Exception when calling V11GetApi->getSearchTypeahead: $e\n');
 }
@@ -169,10 +187,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userAgent** | **String**|  | [default to 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36']
- **authorization** | **String**|  | [default to 'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA']
- **xTwitterActiveUser** | **String**|  | [default to 'yes']
- **xTwitterClientLanguage** | **String**|  | [default to 'en']
  **includeExtIsBlueVerified** | **int**|  | [default to 1]
  **includeExtVerifiedType** | **int**|  | [default to 1]
  **includeExtProfileImageShape** | **int**|  | [default to 1]
@@ -186,7 +200,7 @@ void (empty response body)
 
 ### Authorization
 
-[CookieCt0](../README.md#CookieCt0), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken)
+[ClientLanguage](../README.md#ClientLanguage), [CookieCt0](../README.md#CookieCt0), [ActiveUser](../README.md#ActiveUser), [UserAgent](../README.md#UserAgent), [CookieAuthToken](../README.md#CookieAuthToken), [AuthType](../README.md#AuthType), [CsrfToken](../README.md#CsrfToken), [GuestToken](../README.md#GuestToken), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

@@ -31,10 +31,7 @@ class PostApi {
   /// create Retweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postCreateRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -46,12 +43,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<CreateRetweetResponse>> postCreateRetweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostCreateRetweetRequest postCreateRetweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -60,23 +52,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/ojPdsZsimiJrUGLR1sjUtA/CreateRetweet';
+    final _path = r'/graphql/{pathQueryId}/CreateRetweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -101,6 +108,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -172,10 +184,7 @@ class PostApi {
   /// create Tweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postCreateTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -187,12 +196,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<CreateTweetResponse>> postCreateTweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostCreateTweetRequest postCreateTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -201,23 +205,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/1RyAhNwby-gzGCRVsMxKbQ/CreateTweet';
+    final _path = r'/graphql/{pathQueryId}/CreateTweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -242,6 +261,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -313,10 +337,7 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postDeleteRetweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -328,12 +349,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<DeleteRetweetResponse>> postDeleteRetweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -342,23 +358,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/iQtK4dl5hBmXewYZuEOKVw/DeleteRetweet';
+    final _path = r'/graphql/{pathQueryId}/DeleteRetweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -383,6 +414,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -454,10 +490,7 @@ class PostApi {
   /// delete Retweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postDeleteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -469,12 +502,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<DeleteTweetResponse>> postDeleteTweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostDeleteTweetRequest postDeleteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -483,23 +511,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/VaenaVgh5q5ih7kvyVjgtg/DeleteTweet';
+    final _path = r'/graphql/{pathQueryId}/DeleteTweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -524,6 +567,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -595,10 +643,7 @@ class PostApi {
   /// favorite Tweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postFavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -610,12 +655,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -624,23 +664,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/lI07N6Otwv1PhnEgXILM7A/FavoriteTweet';
+    final _path = r'/graphql/{pathQueryId}/FavoriteTweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -665,6 +720,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -736,10 +796,7 @@ class PostApi {
   /// unfavorite Tweet
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
+  /// * [pathQueryId]
   /// * [postUnfavoriteTweetRequest] - body
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -751,12 +808,7 @@ class PostApi {
   /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
+    required String pathQueryId,
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -765,23 +817,38 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/ZYKSe-w7KEslx3JhSIk5LA/UnfavoriteTweet';
+    final _path = r'/graphql/{pathQueryId}/UnfavoriteTweet'
+        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -806,6 +873,11 @@ class PostApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,

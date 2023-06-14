@@ -47,9 +47,27 @@ class OtherApi {
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -74,6 +92,11 @@ class OtherApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,

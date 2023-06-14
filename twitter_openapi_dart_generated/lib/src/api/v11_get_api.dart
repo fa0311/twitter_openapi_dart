@@ -20,10 +20,6 @@ class V11GetApi {
   /// get friends following list
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
   /// * [includeProfileInterstitialType]
   /// * [includeBlocking]
   /// * [includeBlockedBy]
@@ -51,12 +47,6 @@ class V11GetApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> getFriendsFollowingList({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
     int includeProfileInterstitialType = 1,
     int includeBlocking = 1,
     int includeBlockedBy = 1,
@@ -85,19 +75,33 @@ class V11GetApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -122,6 +126,11 @@ class V11GetApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,
@@ -181,10 +190,6 @@ class V11GetApi {
   /// get search typeahead
   ///
   /// Parameters:
-  /// * [userAgent]
-  /// * [authorization]
-  /// * [xTwitterActiveUser]
-  /// * [xTwitterClientLanguage]
   /// * [includeExtIsBlueVerified]
   /// * [includeExtVerifiedType]
   /// * [includeExtProfileImageShape]
@@ -201,12 +206,6 @@ class V11GetApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> getSearchTypeahead({
-    String userAgent =
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    String authorization =
-        'Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-    String xTwitterActiveUser = 'yes',
-    String xTwitterClientLanguage = 'en',
     int includeExtIsBlueVerified = 1,
     int includeExtVerifiedType = 1,
     int includeExtProfileImageShape = 1,
@@ -224,19 +223,33 @@ class V11GetApi {
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
-        r'user-agent': userAgent,
-        r'authorization': authorization,
-        r'x-twitter-active-user': xTwitterActiveUser,
-        r'x-twitter-client-language': xTwitterClientLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
         'secure': <Map<String, String>>[
           {
             'type': 'apiKey',
+            'name': 'ClientLanguage',
+            'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieCt0',
             'keyName': 'ct0',
             'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
@@ -261,6 +274,11 @@ class V11GetApi {
             'name': 'GuestToken',
             'keyName': 'x-guest-token',
             'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
           },
         ],
         ...?extra,

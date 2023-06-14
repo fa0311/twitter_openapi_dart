@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request_variables.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request_variables.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,7 +22,7 @@ abstract class PostFavoriteTweetRequest
   String get queryId;
 
   @BuiltValueField(wireName: r'variables')
-  PostDeleteTweetRequestVariables get variables;
+  PostCreateRetweetRequestVariables get variables;
 
   PostFavoriteTweetRequest._();
 
@@ -63,7 +63,7 @@ class _$PostFavoriteTweetRequestSerializer
     yield r'variables';
     yield serializers.serialize(
       object.variables,
-      specifiedType: const FullType(PostDeleteTweetRequestVariables),
+      specifiedType: const FullType(PostCreateRetweetRequestVariables),
     );
   }
 
@@ -100,8 +100,8 @@ class _$PostFavoriteTweetRequestSerializer
         case r'variables':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(PostDeleteTweetRequestVariables),
-          ) as PostDeleteTweetRequestVariables;
+            specifiedType: const FullType(PostCreateRetweetRequestVariables),
+          ) as PostCreateRetweetRequestVariables;
           result.variables.replace(valueDes);
           break;
         default:

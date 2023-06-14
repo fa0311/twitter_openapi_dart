@@ -16,6 +16,7 @@ part 'tweet_union.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [card]
 /// * [core]
 /// * [editControl]
 /// * [editPrespective]

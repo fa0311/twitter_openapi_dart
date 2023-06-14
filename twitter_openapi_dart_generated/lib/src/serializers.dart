@@ -60,6 +60,7 @@ import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
 import 'package:twitter_openapi_dart_generated/src/model/one_factor_login_eligibility.dart';
 import 'package:twitter_openapi_dart_generated/src/model/other_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables.dart';
@@ -67,7 +68,6 @@ import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_reque
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
@@ -90,6 +90,10 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_values_inner.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_values_inner_value.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
@@ -102,6 +106,7 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_with_visibility_r
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/url.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_features.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
@@ -166,6 +171,7 @@ part 'serializers.g.dart';
   OneFactorLoginEligibility,
   OtherResponse,
   PostCreateRetweetRequest,
+  PostCreateRetweetRequestVariables,
   PostCreateTweetRequest,
   PostCreateTweetRequestFeatures,
   PostCreateTweetRequestVariables,
@@ -173,7 +179,6 @@ part 'serializers.g.dart';
   PostDeleteRetweetRequest,
   PostDeleteRetweetRequestVariables,
   PostDeleteTweetRequest,
-  PostDeleteTweetRequestVariables,
   PostFavoriteTweetRequest,
   PostUnfavoriteTweetRequest,
   ProfileResponse,
@@ -196,6 +201,10 @@ part 'serializers.g.dart';
   TimelineUser,
   TimelineV2,
   Tweet,
+  TweetCard,
+  TweetCardLegacy,
+  TweetCardLegacyBindingValuesInner,
+  TweetCardLegacyBindingValuesInnerValue,
   TweetDetailResponse,
   TweetDetailResponseData,
   TweetEditControl,
@@ -208,6 +217,7 @@ part 'serializers.g.dart';
   TypeName,
   UnfavoriteTweet,
   UnfavoriteTweetResponseData,
+  Url,
   User,
   UserFeatures,
   UserLegacy,

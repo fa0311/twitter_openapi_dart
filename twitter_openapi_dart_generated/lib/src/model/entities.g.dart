@@ -14,7 +14,7 @@ class _$Entities extends Entities {
   @override
   final BuiltList<JsonObject> symbols;
   @override
-  final BuiltList<JsonObject> urls;
+  final BuiltList<Url> urls;
   @override
   final BuiltList<JsonObject> userMentions;
 
@@ -95,10 +95,9 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
       _$this._symbols ??= new ListBuilder<JsonObject>();
   set symbols(ListBuilder<JsonObject>? symbols) => _$this._symbols = symbols;
 
-  ListBuilder<JsonObject>? _urls;
-  ListBuilder<JsonObject> get urls =>
-      _$this._urls ??= new ListBuilder<JsonObject>();
-  set urls(ListBuilder<JsonObject>? urls) => _$this._urls = urls;
+  ListBuilder<Url>? _urls;
+  ListBuilder<Url> get urls => _$this._urls ??= new ListBuilder<Url>();
+  set urls(ListBuilder<Url>? urls) => _$this._urls = urls;
 
   ListBuilder<JsonObject>? _userMentions;
   ListBuilder<JsonObject> get userMentions =>

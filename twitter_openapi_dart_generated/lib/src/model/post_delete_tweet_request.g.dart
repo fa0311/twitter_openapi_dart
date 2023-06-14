@@ -10,7 +10,7 @@ class _$PostDeleteTweetRequest extends PostDeleteTweetRequest {
   @override
   final String queryId;
   @override
-  final PostDeleteTweetRequestVariables variables;
+  final PostCreateRetweetRequestVariables variables;
 
   factory _$PostDeleteTweetRequest(
           [void Function(PostDeleteTweetRequestBuilder)? updates]) =>
@@ -67,10 +67,10 @@ class PostDeleteTweetRequestBuilder
   String? get queryId => _$this._queryId;
   set queryId(String? queryId) => _$this._queryId = queryId;
 
-  PostDeleteTweetRequestVariablesBuilder? _variables;
-  PostDeleteTweetRequestVariablesBuilder get variables =>
-      _$this._variables ??= new PostDeleteTweetRequestVariablesBuilder();
-  set variables(PostDeleteTweetRequestVariablesBuilder? variables) =>
+  PostCreateRetweetRequestVariablesBuilder? _variables;
+  PostCreateRetweetRequestVariablesBuilder get variables =>
+      _$this._variables ??= new PostCreateRetweetRequestVariablesBuilder();
+  set variables(PostCreateRetweetRequestVariablesBuilder? variables) =>
       _$this._variables = variables;
 
   PostDeleteTweetRequestBuilder() {
