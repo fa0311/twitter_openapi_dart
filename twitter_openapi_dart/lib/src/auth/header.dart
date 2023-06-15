@@ -6,8 +6,6 @@ import 'package:dio/dio.dart';
 class HeaderAuth extends Interceptor {
   static String ct0 = "ct0";
 
-  Map<String, String> cookies = {};
-
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     final cookies = options.headers[HttpHeaders.cookieHeader] as String?;

@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 typedef ApiFunction<T> = Future<Response<T>> Function({
+  required String pathQueryId,
   required String features,
   required String variables,
 });

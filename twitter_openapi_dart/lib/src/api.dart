@@ -17,16 +17,6 @@ import 'package:dio/dio.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 
-/// InterceptorWrap
-/// [InterceptorWrap] is a wrapper for [Interceptor].
-/// If [apiOnly] is true, the interceptor will only be used for api requests.
-class InterceptorWrap {
-  final Interceptor interceptor;
-  final bool apiOnly;
-
-  InterceptorWrap(this.interceptor, {this.apiOnly = false});
-}
-
 /// TwitterOpenapiDart
 /// [TwitterOpenapiDart] is a wrapper for [TwitterOpenapiDartGenerated].
 /// It provides a more convenient way to use the api.
@@ -41,8 +31,8 @@ class TwitterOpenapiDart {
 
   static List<String> charset = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
 
-  final List<InterceptorWrap> beforInterceptorsWrap = [];
-  final List<InterceptorWrap> afterInterceptorsWrap = [];
+  static String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36';
+  static String bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA';
 
   TwitterOpenapiDart();
 
@@ -91,23 +81,28 @@ class TwitterOpenapiDart {
     return cookie;
   }
 
-  Future<TwitterOpenapiDartClient> getTwitterOpenapiDartClient({List<InterceptorWrap> interceptor = const []}) async {
+  Future<TwitterOpenapiDartClient> getTwitterOpenapiDartClient({List<Interceptor> interceptor = const []}) async {
+    final api = TwitterOpenapiDartGenerated();
+    api.dio.interceptors.addAll(interceptor);
+    api.dio.interceptors.add(HeaderAuth());
+
+    api.setApiKey("UserAgent", userAgent);
+    api.setBearerAuth("BearerAuth", bearer);
+    api.setApiKey("ClientLanguage", "en");
+    api.setApiKey("ActiveUser", "yes");
+
     return TwitterOpenapiDartClient(
-      api: TwitterOpenapiDartGenerated(),
+      api: api,
       flag: await getPlaceholder(),
-      interceptorWrap: [...beforInterceptorsWrap, ...interceptor, ...afterInterceptorsWrap],
     );
   }
 
   /// getClient
   /// get [TwitterOpenapiDartClient]
 
-  Future<TwitterOpenapiDartClient> getClient({initCookie = true, header = true}) async {
+  Future<TwitterOpenapiDartClient> getClient() async {
     final cookie = await getCookieJar();
-    final interceptor = [
-      if (initCookie) InterceptorWrap(CookieManager(cookie)),
-      if (header) InterceptorWrap(HeaderAuth(), apiOnly: true),
-    ];
+    final interceptor = [CookieManager(cookie)];
     return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
@@ -121,10 +116,7 @@ class TwitterOpenapiDart {
   Future<TwitterOpenapiDartClient> getClientFromCookies({required String ct0, required String authToken}) async {
     final cookie = await getCookieJar();
     cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
-    final interceptor = [
-      InterceptorWrap(CookieManager(cookie)),
-      InterceptorWrap(HeaderAuth(), apiOnly: true),
-    ];
+    final interceptor = [CookieManager(cookie)];
     return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
@@ -136,19 +128,8 @@ class TwitterOpenapiDart {
 
   Future<TwitterOpenapiDartClient> getClientFromCookiePath(String cookiePath) async {
     final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
-    final interceptor = [
-      InterceptorWrap(CookieManager(cookie)),
-      InterceptorWrap(HeaderAuth(), apiOnly: true),
-    ];
+    final interceptor = [CookieManager(cookie)];
     return getTwitterOpenapiDartClient(interceptor: interceptor);
-  }
-
-  void addBeforeInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
-    beforInterceptorsWrap.add(InterceptorWrap(interceptor, apiOnly: apiOnly));
-  }
-
-  void addAfterInterceptor(Interceptor interceptor, {bool apiOnly = false}) {
-    afterInterceptorsWrap.add(InterceptorWrap(interceptor, apiOnly: apiOnly));
   }
 
   /// getPlaceholder
@@ -162,13 +143,7 @@ class TwitterOpenapiDartClient {
   TwitterOpenapiDartGenerated api;
   Map<String, dynamic> flag = {};
 
-  Dio dio;
-  Dio get dioApi => api.dio;
-
-  TwitterOpenapiDartClient({required this.api, this.flag = const {}, List<InterceptorWrap> interceptorWrap = const []}) : dio = Dio() {
-    dio.interceptors.addAll(interceptorWrap.where((e) => !e.apiOnly).map((e) => e.interceptor));
-    dioApi.interceptors.addAll(interceptorWrap.map((e) => e.interceptor));
-  }
+  TwitterOpenapiDartClient({required this.api, this.flag = const {}});
 
   DefaultApiUtils getDefaultApi() {
     return DefaultApiUtils(api.getDefaultApi(), flag);
@@ -187,7 +162,7 @@ class TwitterOpenapiDartClient {
   }
 
   PostApiUtils getPostApi() {
-    return PostApiUtils(api.getPostApi());
+    return PostApiUtils(api.getPostApi(), flag);
   }
 
   V11GetApiUtils getV11GetApi() {
@@ -203,6 +178,6 @@ class TwitterOpenapiDartClient {
   }
 
   InitialStateApi getInitialStateApi() {
-    return InitialStateApi(dio);
+    return InitialStateApi(api.dio);
   }
 }

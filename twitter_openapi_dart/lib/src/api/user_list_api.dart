@@ -18,6 +18,7 @@ class UserListApiUtils {
   }) async {
     assert(flag[key] != null);
     final response = await apiFn(
+      pathQueryId: flag[key]!["queryId"],
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );
@@ -68,7 +69,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getFollowers,
-      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Followers',
       param: param,
     );
@@ -101,7 +102,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getFollowing,
-      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
+      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Following',
       param: param,
     );

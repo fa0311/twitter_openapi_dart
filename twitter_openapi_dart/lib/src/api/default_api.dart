@@ -15,6 +15,7 @@ class DefaultApiUtils {
   }) async {
     assert((flag[key] != null));
     final response = await apiFn(
+      pathQueryId: flag[key]!["queryId"],
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );

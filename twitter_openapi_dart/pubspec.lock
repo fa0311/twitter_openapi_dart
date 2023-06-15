@@ -541,10 +541,10 @@ packages:
     dependency: "direct main"
     description:
       name: twitter_openapi_dart_generated
-      sha256: "5dc87d31abcd06f35564fe1912cd64e2771a3d568732a6a02b390315fcca88f6"
+      sha256: "1a6935e0e004bc20983f23228ea23f9efacc188ccc7b821c29b3656343d3a8b3"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   typed_data:
     dependency: transitive
     description:
@@ -594,4 +594,4 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.19.6 <3.0.0"
+  dart: ">=2.19.6 <4.0.0"
