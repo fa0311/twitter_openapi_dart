@@ -48,6 +48,8 @@ class _$TweetLegacy extends TweetLegacy {
   @override
   final ItemResult? retweetedStatusResult;
   @override
+  final TweetLegacySelfThread? selfThread;
+  @override
   final String userIdStr;
 
   factory _$TweetLegacy([void Function(TweetLegacyBuilder)? updates]) =>
@@ -74,6 +76,7 @@ class _$TweetLegacy extends TweetLegacy {
       required this.retweetCount,
       required this.retweeted,
       this.retweetedStatusResult,
+      this.selfThread,
       required this.userIdStr})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -139,6 +142,7 @@ class _$TweetLegacy extends TweetLegacy {
         retweetCount == other.retweetCount &&
         retweeted == other.retweeted &&
         retweetedStatusResult == other.retweetedStatusResult &&
+        selfThread == other.selfThread &&
         userIdStr == other.userIdStr;
   }
 
@@ -165,6 +169,7 @@ class _$TweetLegacy extends TweetLegacy {
     _$hash = $jc(_$hash, retweetCount.hashCode);
     _$hash = $jc(_$hash, retweeted.hashCode);
     _$hash = $jc(_$hash, retweetedStatusResult.hashCode);
+    _$hash = $jc(_$hash, selfThread.hashCode);
     _$hash = $jc(_$hash, userIdStr.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -193,6 +198,7 @@ class _$TweetLegacy extends TweetLegacy {
           ..add('retweetCount', retweetCount)
           ..add('retweeted', retweeted)
           ..add('retweetedStatusResult', retweetedStatusResult)
+          ..add('selfThread', selfThread)
           ..add('userIdStr', userIdStr))
         .toString();
   }
@@ -293,6 +299,12 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   set retweetedStatusResult(ItemResultBuilder? retweetedStatusResult) =>
       _$this._retweetedStatusResult = retweetedStatusResult;
 
+  TweetLegacySelfThreadBuilder? _selfThread;
+  TweetLegacySelfThreadBuilder get selfThread =>
+      _$this._selfThread ??= new TweetLegacySelfThreadBuilder();
+  set selfThread(TweetLegacySelfThreadBuilder? selfThread) =>
+      _$this._selfThread = selfThread;
+
   String? _userIdStr;
   String? get userIdStr => _$this._userIdStr;
   set userIdStr(String? userIdStr) => _$this._userIdStr = userIdStr;
@@ -324,6 +336,7 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
       _retweetCount = $v.retweetCount;
       _retweeted = $v.retweeted;
       _retweetedStatusResult = $v.retweetedStatusResult?.toBuilder();
+      _selfThread = $v.selfThread?.toBuilder();
       _userIdStr = $v.userIdStr;
       _$v = null;
     }
@@ -377,6 +390,7 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
               retweetCount: BuiltValueNullFieldError.checkNotNull(retweetCount, r'TweetLegacy', 'retweetCount'),
               retweeted: BuiltValueNullFieldError.checkNotNull(retweeted, r'TweetLegacy', 'retweeted'),
               retweetedStatusResult: _retweetedStatusResult?.build(),
+              selfThread: _selfThread?.build(),
               userIdStr: BuiltValueNullFieldError.checkNotNull(userIdStr, r'TweetLegacy', 'userIdStr'));
     } catch (_) {
       late String _$failedField;
@@ -390,6 +404,8 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
 
         _$failedField = 'retweetedStatusResult';
         _retweetedStatusResult?.build();
+        _$failedField = 'selfThread';
+        _selfThread?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TweetLegacy', _$failedField, e.toString());

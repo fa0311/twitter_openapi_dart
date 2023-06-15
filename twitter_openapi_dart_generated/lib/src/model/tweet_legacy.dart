@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
 import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:built_value/built_value.dart';
@@ -35,6 +36,7 @@ part 'tweet_legacy.g.dart';
 /// * [retweetCount]
 /// * [retweeted]
 /// * [retweetedStatusResult]
+/// * [selfThread]
 /// * [userIdStr]
 @BuiltValue()
 abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
@@ -97,6 +99,9 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'retweeted_status_result')
   ItemResult? get retweetedStatusResult;
+
+  @BuiltValueField(wireName: r'self_thread')
+  TweetLegacySelfThread? get selfThread;
 
   @BuiltValueField(wireName: r'user_id_str')
   String get userIdStr;
@@ -232,6 +237,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       yield serializers.serialize(
         object.retweetedStatusResult,
         specifiedType: const FullType(ItemResult),
+      );
+    }
+    if (object.selfThread != null) {
+      yield r'self_thread';
+      yield serializers.serialize(
+        object.selfThread,
+        specifiedType: const FullType(TweetLegacySelfThread),
       );
     }
     yield r'user_id_str';
@@ -403,6 +415,13 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(ItemResult),
           ) as ItemResult;
           result.retweetedStatusResult.replace(valueDes);
+          break;
+        case r'self_thread':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetLegacySelfThread),
+          ) as TweetLegacySelfThread;
+          result.selfThread.replace(valueDes);
           break;
         case r'user_id_str':
           final valueDes = serializers.deserialize(

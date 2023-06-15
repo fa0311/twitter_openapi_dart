@@ -89,6 +89,7 @@ doc/TweetDetailResponseData.md
 doc/TweetEditControl.md
 doc/TweetEditPrespective.md
 doc/TweetLegacy.md
+doc/TweetLegacySelfThread.md
 doc/TweetTombstone.md
 doc/TweetUnion.md
 doc/TweetViews.md
@@ -219,6 +220,7 @@ lib/src/model/tweet_detail_response_data.dart
 lib/src/model/tweet_edit_control.dart
 lib/src/model/tweet_edit_prespective.dart
 lib/src/model/tweet_legacy.dart
+lib/src/model/tweet_legacy_self_thread.dart
 lib/src/model/tweet_tombstone.dart
 lib/src/model/tweet_union.dart
 lib/src/model/tweet_views.dart

@@ -99,6 +99,7 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_d
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
@@ -210,6 +211,7 @@ part 'serializers.g.dart';
   TweetEditControl,
   TweetEditPrespective,
   TweetLegacy,
+  TweetLegacySelfThread,
   TweetTombstone,
   TweetUnion,
   TweetViews,

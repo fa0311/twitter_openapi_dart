@@ -104,6 +104,7 @@ export 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_d
 export 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
+export 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_union.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
