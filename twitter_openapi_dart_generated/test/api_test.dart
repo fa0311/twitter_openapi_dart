@@ -43,15 +43,18 @@ bool contentTest(BuiltList<InstructionUnion> instructions) {
 void main() async {
   final auth = HeaderAuth();
   await auth.readCookies("test/cookies.json");
-  final client = TwitterOpenapiDartGenerated(
-    dio: Dio(BaseOptions(
-      baseUrl: TwitterOpenapiDartGenerated.basePath,
-    )),
-    interceptors: [
-      auth,
-      LogInterceptor(),
-    ],
-  );
+  final client = TwitterOpenapiDartGenerated();
+
+  client.dio.interceptors.add(auth);
+  client.dio.interceptors.add(LogInterceptor());
+
+  client.setBearerAuth("BearerAuth", "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA");
+  client.setApiKey("ClientLanguage", "en");
+  client.setApiKey("ActiveUser", "yes");
+  client.setApiKey("UserAgent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,like Gecko) Chrome/112.0.0.0 Safari/537.36");
+
+  // login
+  client.setApiKey("AuthType", "OAuth2Session");
 
   final file = new File("twitter-openapi/src/config/placeholder.json");
   final config = (json.decode(await file.readAsString()) as Map).cast<String, dynamic>();
@@ -188,7 +191,7 @@ void main() async {
   });
 
   test('getFollowers', () async {
-    final response = await client.getUserListApi().getFollowing(
+    final response = await client.getUserListApi().getFollowers(
           pathQueryId: config["Followers"]!["queryId"].toString(),
           variables: jsonEncode(config["Followers"]!["variables"]),
           features: jsonEncode(config["Followers"]!["features"]),
