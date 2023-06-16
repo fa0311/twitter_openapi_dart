@@ -15,3 +15,7 @@ Add getClient args
 ## 0.0.4
 
 Fix typo
+
+## 0.0.5
+
+Migration of twitter_openapi_dart_generated v0.0.4
