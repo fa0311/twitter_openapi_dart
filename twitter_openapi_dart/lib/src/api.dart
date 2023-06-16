@@ -31,10 +31,17 @@ class TwitterOpenapiDart {
 
   static List<String> charset = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
 
-  static String userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36';
-  static String bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA';
+  String lang;
+  String bearer;
+  String userAgent;
+  Map<String, dynamic>? flag = {};
 
-  TwitterOpenapiDart();
+  TwitterOpenapiDart({
+    this.flag,
+    this.lang = "en",
+    this.userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
+    this.bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
+  });
 
   /// getCookieJar
   /// Retrieve default cookies.
@@ -88,12 +95,12 @@ class TwitterOpenapiDart {
 
     api.setApiKey("UserAgent", userAgent);
     api.setBearerAuth("BearerAuth", bearer);
-    api.setApiKey("ClientLanguage", "en");
+    api.setApiKey("ClientLanguage", lang);
     api.setApiKey("ActiveUser", "yes");
 
     return TwitterOpenapiDartClient(
       api: api,
-      flag: await getPlaceholder(),
+      flag: flag ?? (await getPlaceholder()),
     );
   }
 
