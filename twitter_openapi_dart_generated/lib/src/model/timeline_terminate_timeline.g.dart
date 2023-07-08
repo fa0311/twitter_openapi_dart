@@ -26,8 +26,9 @@ TimelineTerminateTimelineDirectionEnum
 }
 
 final BuiltSet<TimelineTerminateTimelineDirectionEnum>
-    _$timelineTerminateTimelineDirectionEnumValues = new BuiltSet<
-        TimelineTerminateTimelineDirectionEnum>(const <TimelineTerminateTimelineDirectionEnum>[
+    _$timelineTerminateTimelineDirectionEnumValues =
+    new BuiltSet<TimelineTerminateTimelineDirectionEnum>(const <
+        TimelineTerminateTimelineDirectionEnum>[
   _$timelineTerminateTimelineDirectionEnum_top,
   _$timelineTerminateTimelineDirectionEnum_bottom,
 ]);
