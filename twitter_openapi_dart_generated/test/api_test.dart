@@ -249,7 +249,7 @@ void main() async {
   });
 
   test('Favoriters', () async {
-    final response = await client.getTweetApi().getTweetFavoriters(
+    final response = await client.getUserListApi().getTweetFavoriters(
           pathQueryId: config["Favoriters"]!["queryId"].toString(),
           variables: jsonEncode(config["Favoriters"]!["variables"]
             ..addAll({"tweetId": "1349129669258448897"})),
@@ -264,7 +264,7 @@ void main() async {
   });
 
   test('Retweeters', () async {
-    final response = await client.getTweetApi().getTweetRetweeters(
+    final response = await client.getUserListApi().getTweetRetweeters(
           pathQueryId: config["Retweeters"]!["queryId"].toString(),
           variables: jsonEncode(config["Retweeters"]!["variables"]
             ..addAll({"tweetId": "1349129669258448897"})),

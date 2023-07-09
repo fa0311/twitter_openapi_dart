@@ -108,4 +108,67 @@ class UserListApiUtils {
     );
     return response;
   }
+
+  /// getFavoriters
+  /// Get users who liked a Tweet.
+  ///
+  /// parameters:
+  /// * [tweetId] The ID of the Tweet that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of users to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
+  Future<TweetListApiUtilsResponse> getFavoriters({
+    required String tweetId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "tweetId": tweetId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getTweetFavoriters,
+      convertFn: (TweetFavoritersResponse e) => e.data.favoritersTimeline.timeline.instructions,
+      key: 'Favoriters',
+      param: param,
+    );
+    return response;
+  }
+
+  /// getRetweeters
+  /// Get users who retweeted a Tweet.
+  ///
+  /// parameters:
+  /// * [tweetId] The ID of the Tweet that you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of users to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
+  Future<TweetListApiUtilsResponse> getRetweeters({
+    required String tweetId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getTweetRetweeters,
+      convertFn: (TweetRetweetersResponse e) => e.data.retweetersTimeline.timeline.instructions,
+      key: 'Retweeters',
+      param: param,
+    );
+    return response;
+  }
 }
