@@ -85,7 +85,9 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.da
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_to_module.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_message_prompt.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_prompt.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_replace_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert.dart';
@@ -209,7 +211,9 @@ part 'serializers.g.dart';
   TimelineAddEntry,
   TimelineAddToModule,
   TimelineClearCache,
+  TimelineMessagePrompt,
   TimelinePinEntry,
+  TimelinePrompt,
   TimelineReplaceEntry,
   TimelineResponse,
   TimelineShowAlert,

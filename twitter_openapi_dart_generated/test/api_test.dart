@@ -306,7 +306,7 @@ void main() async {
         true);
   });
 
-  test('FollowersYouKnow', () async {
+  test('getFollowersYouKnow', () async {
     final response = await client.getUserListApi().getFollowersYouKnow(
           pathQueryId: config["FollowersYouKnow"]!["queryId"].toString(),
           variables: jsonEncode(config["FollowersYouKnow"]!["variables"]),

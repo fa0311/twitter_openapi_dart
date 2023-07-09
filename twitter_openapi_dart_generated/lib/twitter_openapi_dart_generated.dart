@@ -90,7 +90,9 @@ export 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.da
 export 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_add_to_module.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
+export 'package:twitter_openapi_dart_generated/src/model/timeline_message_prompt.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
+export 'package:twitter_openapi_dart_generated/src/model/timeline_prompt.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_replace_entry.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert.dart';

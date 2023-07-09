@@ -32,7 +32,7 @@ abstract class TimelineUser
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
 
   @BuiltValueField(wireName: r'userDisplayType')
   String get userDisplayType;

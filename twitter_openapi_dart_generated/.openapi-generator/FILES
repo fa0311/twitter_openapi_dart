@@ -74,7 +74,9 @@ doc/TimelineAddEntries.md
 doc/TimelineAddEntry.md
 doc/TimelineAddToModule.md
 doc/TimelineClearCache.md
+doc/TimelineMessagePrompt.md
 doc/TimelinePinEntry.md
+doc/TimelinePrompt.md
 doc/TimelineReplaceEntry.md
 doc/TimelineResponse.md
 doc/TimelineShowAlert.md
@@ -218,7 +220,9 @@ lib/src/model/timeline_add_entries.dart
 lib/src/model/timeline_add_entry.dart
 lib/src/model/timeline_add_to_module.dart
 lib/src/model/timeline_clear_cache.dart
+lib/src/model/timeline_message_prompt.dart
 lib/src/model/timeline_pin_entry.dart
+lib/src/model/timeline_prompt.dart
 lib/src/model/timeline_replace_entry.dart
 lib/src/model/timeline_response.dart
 lib/src/model/timeline_show_alert.dart

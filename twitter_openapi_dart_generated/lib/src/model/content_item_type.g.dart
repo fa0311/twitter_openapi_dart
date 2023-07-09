@@ -11,6 +11,10 @@ const ContentItemType _$timelineTweet =
 const ContentItemType _$timelineTimelineCursor =
     const ContentItemType._('timelineTimelineCursor');
 const ContentItemType _$timelineUser = const ContentItemType._('timelineUser');
+const ContentItemType _$timelinePrompt =
+    const ContentItemType._('timelinePrompt');
+const ContentItemType _$timelineMessagePrompt =
+    const ContentItemType._('timelineMessagePrompt');
 
 ContentItemType _$valueOf(String name) {
   switch (name) {
@@ -20,6 +24,10 @@ ContentItemType _$valueOf(String name) {
       return _$timelineTimelineCursor;
     case 'timelineUser':
       return _$timelineUser;
+    case 'timelinePrompt':
+      return _$timelinePrompt;
+    case 'timelineMessagePrompt':
+      return _$timelineMessagePrompt;
     default:
       throw new ArgumentError(name);
   }
@@ -30,6 +38,8 @@ final BuiltSet<ContentItemType> _$values =
   _$timelineTweet,
   _$timelineTimelineCursor,
   _$timelineUser,
+  _$timelinePrompt,
+  _$timelineMessagePrompt,
 ]);
 
 class _$ContentItemTypeMeta {
@@ -37,6 +47,8 @@ class _$ContentItemTypeMeta {
   ContentItemType get timelineTweet => _$timelineTweet;
   ContentItemType get timelineTimelineCursor => _$timelineTimelineCursor;
   ContentItemType get timelineUser => _$timelineUser;
+  ContentItemType get timelinePrompt => _$timelinePrompt;
+  ContentItemType get timelineMessagePrompt => _$timelineMessagePrompt;
   ContentItemType valueOf(String name) => _$valueOf(name);
   BuiltSet<ContentItemType> get values => _$values;
 }
@@ -55,11 +67,15 @@ class _$ContentItemTypeSerializer
     'timelineTweet': 'TimelineTweet',
     'timelineTimelineCursor': 'TimelineTimelineCursor',
     'timelineUser': 'TimelineUser',
+    'timelinePrompt': 'TimelinePrompt',
+    'timelineMessagePrompt': 'TimelineMessagePrompt',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
     'TimelineTimelineCursor': 'timelineTimelineCursor',
     'TimelineUser': 'timelineUser',
+    'TimelinePrompt': 'timelinePrompt',
+    'TimelineMessagePrompt': 'timelineMessagePrompt',
   };
 
   @override

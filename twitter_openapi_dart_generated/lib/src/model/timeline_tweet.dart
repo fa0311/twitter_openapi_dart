@@ -34,7 +34,7 @@ abstract class TimelineTweet
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
 
   @BuiltValueField(wireName: r'promotedMetadata')
   JsonObject? get promotedMetadata;

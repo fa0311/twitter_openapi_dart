@@ -3,10 +3,12 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/timeline_prompt.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_message_prompt.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
@@ -30,12 +32,14 @@ part 'item_content_union.g.dart';
 @BuiltValue()
 abstract class ItemContentUnion
     implements Built<ItemContentUnion, ItemContentUnionBuilder> {
-  /// One Of [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
+  /// One Of [TimelineMessagePrompt], [TimelinePrompt], [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'itemType';
 
   static const Map<String, Type> discriminatorMapping = {
+    r'TimelineMessagePrompt': TimelineMessagePrompt,
+    r'TimelinePrompt': TimelinePrompt,
     r'TimelineTimelineCursor': TimelineTimelineCursor,
     r'TimelineTweet': TimelineTweet,
     r'TimelineUser': TimelineUser,
@@ -56,6 +60,12 @@ abstract class ItemContentUnion
 
 extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
   String? get discriminatorValue {
+    if (this is TimelineMessagePrompt) {
+      return r'TimelineMessagePrompt';
+    }
+    if (this is TimelinePrompt) {
+      return r'TimelinePrompt';
+    }
     if (this is TimelineTimelineCursor) {
       return r'TimelineTimelineCursor';
     }
@@ -71,6 +81,12 @@ extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
 
 extension ItemContentUnionBuilderDiscriminatorExt on ItemContentUnionBuilder {
   String? get discriminatorValue {
+    if (this is TimelineMessagePromptBuilder) {
+      return r'TimelineMessagePrompt';
+    }
+    if (this is TimelinePromptBuilder) {
+      return r'TimelinePrompt';
+    }
     if (this is TimelineTimelineCursorBuilder) {
       return r'TimelineTimelineCursor';
     }
@@ -124,6 +140,8 @@ class _$ItemContentUnionSerializer
         specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
     final oneOfTypes = [
+      TimelineMessagePrompt,
+      TimelinePrompt,
       TimelineTimelineCursor,
       TimelineTweet,
       TimelineUser,
@@ -131,6 +149,20 @@ class _$ItemContentUnionSerializer
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
+      case r'TimelineMessagePrompt':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineMessagePrompt),
+        ) as TimelineMessagePrompt;
+        oneOfType = TimelineMessagePrompt;
+        break;
+      case r'TimelinePrompt':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelinePrompt),
+        ) as TimelinePrompt;
+        oneOfType = TimelinePrompt;
+        break;
       case r'TimelineTimelineCursor':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
