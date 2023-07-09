@@ -163,7 +163,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getListLatestTweetsTimeline,
-      convertFn: (ListTweetsTimelineResponse e) => e.data.list.tweetsTimeline.timeline.instructions,
+      convertFn: (ListLatestTweetsTimelineResponse e) => e.data.list.tweetsTimeline.timeline.instructions,
       key: 'ListLatestTweetsTimeline',
       param: param,
     );
