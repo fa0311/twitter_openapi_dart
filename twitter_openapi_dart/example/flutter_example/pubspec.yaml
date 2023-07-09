@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
 
-  twitter_openapi_dart: ^0.0.4
+  twitter_openapi_dart: ^0.0.5
   flutter_inappwebview: ^5.7.2+3
   collection: ^1.17.0
   dio: "^5.0.0"

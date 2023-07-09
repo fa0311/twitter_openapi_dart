@@ -26,8 +26,9 @@ class _TwitterLoginState extends State<TwitterLogin> {
             if (url == null) return;
             if (url.path == url.resolve("home").path) {
               if (!context.mounted) return;
-              final api = TwitterOpenapiDart()..addBeforeInterceptor(FlutterInappwebviewDio());
-              final client = await api.getClient(initCookie: false);
+              final api = TwitterOpenapiDart();
+              api.getTwitterOpenapiDartClient(interceptor: [FlutterInappwebviewDio()]);
+              final client = await api.getClient();
               const snackBar = SnackBar(content: Text('Login Success!'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
               Navigator.of(context)
