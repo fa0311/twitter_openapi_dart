@@ -69,7 +69,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getFollowers,
-      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Followers',
       param: param,
     );
@@ -102,7 +102,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getFollowing,
-      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Following',
       param: param,
     );
@@ -135,7 +135,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getFollowersYouKnow,
-      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'FollowersYouKnow',
       param: param,
     );
@@ -168,7 +168,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getTweetFavoriters,
-      convertFn: (TweetFavoritersResponse e) => e.data.favoritersTimeline.timeline.instructions,
+      convertFn: (e) => e.data.favoritersTimeline.timeline.instructions,
       key: 'Favoriters',
       param: param,
     );
@@ -200,7 +200,7 @@ class UserListApiUtils {
     };
     final response = await request(
       apiFn: api.getTweetRetweeters,
-      convertFn: (TweetRetweetersResponse e) => e.data.retweetersTimeline.timeline.instructions,
+      convertFn: (e) => e.data.retweetersTimeline.timeline.instructions,
       key: 'Retweeters',
       param: param,
     );

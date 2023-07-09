@@ -53,7 +53,7 @@ class UserApiUtils {
     };
     final response = await request(
       apiFn: api.getUserByScreenName,
-      convertFn: (UserResponse e) => e.data.user,
+      convertFn: (e) => e.data.user,
       key: 'UserByScreenName',
       param: param,
     );

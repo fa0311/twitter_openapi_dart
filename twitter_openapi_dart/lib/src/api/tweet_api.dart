@@ -68,7 +68,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getTweetDetail,
-      convertFn: (TweetDetailResponse e) => e.data.threadedConversationWithInjectionsV2.instructions,
+      convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
       key: 'TweetDetail',
       param: param,
     );
@@ -105,7 +105,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getSearchTimeline,
-      convertFn: (SearchTimelineResponse e) => e.data.searchByRawQuery.searchTimeline.timeline.instructions,
+      convertFn: (e) => e.data.searchByRawQuery.searchTimeline.timeline.instructions,
       key: 'SearchTimeline',
       param: param,
     );
@@ -136,7 +136,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getHomeTimeline,
-      convertFn: (TimelineResponse e) => e.data.home.homeTimelineUrt.instructions,
+      convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeTimeline',
       param: param,
     );
@@ -167,7 +167,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getHomeLatestTimeline,
-      convertFn: (TimelineResponse e) => e.data.home.homeTimelineUrt.instructions,
+      convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeLatestTimeline',
       param: param,
     );
@@ -200,7 +200,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getListLatestTweetsTimeline,
-      convertFn: (ListLatestTweetsTimelineResponse e) => e.data.list.tweetsTimeline.timeline.instructions,
+      convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
       key: 'ListLatestTweetsTimeline',
       param: param,
     );
@@ -233,7 +233,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getUserTweets,
-      convertFn: (UserTweetsResponse e) => e.data.user.result.timelineV2.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweets',
       param: param,
     );
@@ -266,7 +266,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getUserTweetsAndReplies,
-      convertFn: (UserTweetsResponse e) => e.data.user.result.timelineV2.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweetsAndReplies',
       param: param,
     );
@@ -299,7 +299,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getUserMedia,
-      convertFn: (UserTweetsResponse e) => e.data.user.result.timelineV2.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserMedia',
       param: param,
     );
@@ -333,7 +333,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getLikes,
-      convertFn: (UserTweetsResponse e) => e.data.user.result.timelineV2.timeline.instructions,
+      convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'Likes',
       param: param,
     );
@@ -365,7 +365,7 @@ class TweetApiUtils {
     };
     final response = await request(
       apiFn: api.getBookmarks,
-      convertFn: (BookmarksResponse e) => e.data.bookmarkTimelineV2.timeline.instructions,
+      convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
       key: 'Bookmarks',
       param: param,
     );
