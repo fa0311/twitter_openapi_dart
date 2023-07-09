@@ -12,10 +12,16 @@ part 'instruction_type.g.dart';
 class InstructionType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TimelineAddEntries')
   static const InstructionType timelineAddEntries = _$timelineAddEntries;
+  @BuiltValueEnumConst(wireName: r'TimelineAddToModule')
+  static const InstructionType timelineAddToModule = _$timelineAddToModule;
   @BuiltValueEnumConst(wireName: r'TimelineClearCache')
   static const InstructionType timelineClearCache = _$timelineClearCache;
   @BuiltValueEnumConst(wireName: r'TimelinePinEntry')
   static const InstructionType timelinePinEntry = _$timelinePinEntry;
+  @BuiltValueEnumConst(wireName: r'TimelineReplaceEntry')
+  static const InstructionType timelineReplaceEntry = _$timelineReplaceEntry;
+  @BuiltValueEnumConst(wireName: r'TimelineShowAlert')
+  static const InstructionType timelineShowAlert = _$timelineShowAlert;
   @BuiltValueEnumConst(wireName: r'TimelineTerminateTimeline')
   static const InstructionType timelineTerminateTimeline =
       _$timelineTerminateTimeline;

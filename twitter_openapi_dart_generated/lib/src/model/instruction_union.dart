@@ -3,11 +3,14 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/timeline_replace_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_timeline.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_timeline.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_add_to_module.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
@@ -19,20 +22,35 @@ part 'instruction_union.g.dart';
 /// Properties:
 /// * [entries]
 /// * [type]
+/// * [moduleEntryId]
+/// * [moduleItems]
+/// * [prepend]
 /// * [entry]
+/// * [entryIdToReplace]
+/// * [alertType]
+/// * [colorConfig]
+/// * [displayDurationMs]
+/// * [displayLocation]
+/// * [iconDisplayInfo]
+/// * [richText]
+/// * [triggerDelayMs]
+/// * [usersResults]
 /// * [direction]
 @BuiltValue()
 abstract class InstructionUnion
     implements Built<InstructionUnion, InstructionUnionBuilder> {
-  /// One Of [TimelineAddEntries], [TimelineClearCache], [TimelinePinEntry], [TimelineTerminateTimeline]
+  /// One Of [TimelineAddEntries], [TimelineAddToModule], [TimelineClearCache], [TimelinePinEntry], [TimelineReplaceEntry], [TimelineShowAlert], [TimelineTerminateTimeline]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'type';
 
   static const Map<String, Type> discriminatorMapping = {
     r'TimelineAddEntries': TimelineAddEntries,
+    r'TimelineAddToModule': TimelineAddToModule,
     r'TimelineClearCache': TimelineClearCache,
     r'TimelinePinEntry': TimelinePinEntry,
+    r'TimelineReplaceEntry': TimelineReplaceEntry,
+    r'TimelineShowAlert': TimelineShowAlert,
     r'TimelineTerminateTimeline': TimelineTerminateTimeline,
   };
 
@@ -54,11 +72,20 @@ extension InstructionUnionDiscriminatorExt on InstructionUnion {
     if (this is TimelineAddEntries) {
       return r'TimelineAddEntries';
     }
+    if (this is TimelineAddToModule) {
+      return r'TimelineAddToModule';
+    }
     if (this is TimelineClearCache) {
       return r'TimelineClearCache';
     }
     if (this is TimelinePinEntry) {
       return r'TimelinePinEntry';
+    }
+    if (this is TimelineReplaceEntry) {
+      return r'TimelineReplaceEntry';
+    }
+    if (this is TimelineShowAlert) {
+      return r'TimelineShowAlert';
     }
     if (this is TimelineTerminateTimeline) {
       return r'TimelineTerminateTimeline';
@@ -72,11 +99,20 @@ extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
     if (this is TimelineAddEntriesBuilder) {
       return r'TimelineAddEntries';
     }
+    if (this is TimelineAddToModuleBuilder) {
+      return r'TimelineAddToModule';
+    }
     if (this is TimelineClearCacheBuilder) {
       return r'TimelineClearCache';
     }
     if (this is TimelinePinEntryBuilder) {
       return r'TimelinePinEntry';
+    }
+    if (this is TimelineReplaceEntryBuilder) {
+      return r'TimelineReplaceEntry';
+    }
+    if (this is TimelineShowAlertBuilder) {
+      return r'TimelineShowAlert';
     }
     if (this is TimelineTerminateTimelineBuilder) {
       return r'TimelineTerminateTimeline';
@@ -126,8 +162,11 @@ class _$InstructionUnionSerializer
     oneOfDataSrc = serialized;
     final oneOfTypes = [
       TimelineAddEntries,
+      TimelineAddToModule,
       TimelineClearCache,
       TimelinePinEntry,
+      TimelineReplaceEntry,
+      TimelineShowAlert,
       TimelineTerminateTimeline,
     ];
     Object oneOfResult;
@@ -139,6 +178,13 @@ class _$InstructionUnionSerializer
           specifiedType: FullType(TimelineAddEntries),
         ) as TimelineAddEntries;
         oneOfType = TimelineAddEntries;
+        break;
+      case r'TimelineAddToModule':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineAddToModule),
+        ) as TimelineAddToModule;
+        oneOfType = TimelineAddToModule;
         break;
       case r'TimelineClearCache':
         oneOfResult = serializers.deserialize(
@@ -153,6 +199,20 @@ class _$InstructionUnionSerializer
           specifiedType: FullType(TimelinePinEntry),
         ) as TimelinePinEntry;
         oneOfType = TimelinePinEntry;
+        break;
+      case r'TimelineReplaceEntry':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineReplaceEntry),
+        ) as TimelineReplaceEntry;
+        oneOfType = TimelineReplaceEntry;
+        break;
+      case r'TimelineShowAlert':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineShowAlert),
+        ) as TimelineShowAlert;
+        oneOfType = TimelineShowAlert;
         break;
       case r'TimelineTerminateTimeline':
         oneOfResult = serializers.deserialize(
@@ -171,6 +231,38 @@ class _$InstructionUnionSerializer
         value: oneOfResult);
     return result.build();
   }
+}
+
+class InstructionUnionAlertTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'NewTweets')
+  static const InstructionUnionAlertTypeEnum newTweets =
+      _$instructionUnionAlertTypeEnum_newTweets;
+
+  static Serializer<InstructionUnionAlertTypeEnum> get serializer =>
+      _$instructionUnionAlertTypeEnumSerializer;
+
+  const InstructionUnionAlertTypeEnum._(String name) : super(name);
+
+  static BuiltSet<InstructionUnionAlertTypeEnum> get values =>
+      _$instructionUnionAlertTypeEnumValues;
+  static InstructionUnionAlertTypeEnum valueOf(String name) =>
+      _$instructionUnionAlertTypeEnumValueOf(name);
+}
+
+class InstructionUnionDisplayLocationEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Top')
+  static const InstructionUnionDisplayLocationEnum top =
+      _$instructionUnionDisplayLocationEnum_top;
+
+  static Serializer<InstructionUnionDisplayLocationEnum> get serializer =>
+      _$instructionUnionDisplayLocationEnumSerializer;
+
+  const InstructionUnionDisplayLocationEnum._(String name) : super(name);
+
+  static BuiltSet<InstructionUnionDisplayLocationEnum> get values =>
+      _$instructionUnionDisplayLocationEnumValues;
+  static InstructionUnionDisplayLocationEnum valueOf(String name) =>
+      _$instructionUnionDisplayLocationEnumValueOf(name);
 }
 
 class InstructionUnionDirectionEnum extends EnumClass {

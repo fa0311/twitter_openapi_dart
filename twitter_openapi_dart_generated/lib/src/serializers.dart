@@ -79,9 +79,13 @@ import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_add_to_module.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_replace_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert_rich_text.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_item.dart';
@@ -98,8 +102,12 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.d
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_favoriters_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_favoriters_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_retweeters_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_retweeters_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
@@ -191,9 +199,13 @@ part 'serializers.g.dart';
   Timeline,
   TimelineAddEntries,
   TimelineAddEntry,
+  TimelineAddToModule,
   TimelineClearCache,
   TimelinePinEntry,
+  TimelineReplaceEntry,
   TimelineResponse,
+  TimelineShowAlert,
+  TimelineShowAlertRichText,
   TimelineTerminateTimeline,
   TimelineTimelineCursor,
   TimelineTimelineItem,
@@ -210,8 +222,12 @@ part 'serializers.g.dart';
   TweetDetailResponseData,
   TweetEditControl,
   TweetEditPrespective,
+  TweetFavoritersResponse,
+  TweetFavoritersResponseData,
   TweetLegacy,
   TweetLegacySelfThread,
+  TweetRetweetersResponse,
+  TweetRetweetersResponseData,
   TweetTombstone,
   TweetUnion,
   TweetViews,

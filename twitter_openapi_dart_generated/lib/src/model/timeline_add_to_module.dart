@@ -4,58 +4,82 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/instruction_type.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'timeline_pin_entry.g.dart';
+part 'timeline_add_to_module.g.dart';
 
-/// TimelinePinEntry
+/// TimelineAddToModule
 ///
 /// Properties:
-/// * [entry]
+/// * [moduleEntryId]
+/// * [moduleItems]
+/// * [prepend]
 /// * [type]
 @BuiltValue()
-abstract class TimelinePinEntry
-    implements Built<TimelinePinEntry, TimelinePinEntryBuilder> {
-  @BuiltValueField(wireName: r'entry')
-  TimelineAddEntry get entry;
+abstract class TimelineAddToModule
+    implements Built<TimelineAddToModule, TimelineAddToModuleBuilder> {
+  @BuiltValueField(wireName: r'moduleEntryId')
+  String get moduleEntryId;
+
+  @BuiltValueField(wireName: r'moduleItems')
+  BuiltList<ModuleItem> get moduleItems;
+
+  @BuiltValueField(wireName: r'prepend')
+  bool? get prepend;
 
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
   // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineClearCache,  TimelinePinEntry,  TimelineReplaceEntry,  TimelineShowAlert,  TimelineTerminateTimeline,  };
 
-  TimelinePinEntry._();
+  TimelineAddToModule._();
 
-  factory TimelinePinEntry([void updates(TimelinePinEntryBuilder b)]) =
-      _$TimelinePinEntry;
+  factory TimelineAddToModule([void updates(TimelineAddToModuleBuilder b)]) =
+      _$TimelineAddToModule;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelinePinEntryBuilder b) => b;
+  static void _defaults(TimelineAddToModuleBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimelinePinEntry> get serializer =>
-      _$TimelinePinEntrySerializer();
+  static Serializer<TimelineAddToModule> get serializer =>
+      _$TimelineAddToModuleSerializer();
 }
 
-class _$TimelinePinEntrySerializer
-    implements PrimitiveSerializer<TimelinePinEntry> {
+class _$TimelineAddToModuleSerializer
+    implements PrimitiveSerializer<TimelineAddToModule> {
   @override
-  final Iterable<Type> types = const [TimelinePinEntry, _$TimelinePinEntry];
+  final Iterable<Type> types = const [
+    TimelineAddToModule,
+    _$TimelineAddToModule
+  ];
 
   @override
-  final String wireName = r'TimelinePinEntry';
+  final String wireName = r'TimelineAddToModule';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    TimelinePinEntry object, {
+    TimelineAddToModule object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'entry';
+    yield r'moduleEntryId';
     yield serializers.serialize(
-      object.entry,
-      specifiedType: const FullType(TimelineAddEntry),
+      object.moduleEntryId,
+      specifiedType: const FullType(String),
     );
+    yield r'moduleItems';
+    yield serializers.serialize(
+      object.moduleItems,
+      specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
+    );
+    if (object.prepend != null) {
+      yield r'prepend';
+      yield serializers.serialize(
+        object.prepend,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'type';
     yield serializers.serialize(
       object.type,
@@ -66,7 +90,7 @@ class _$TimelinePinEntrySerializer
   @override
   Object serialize(
     Serializers serializers,
-    TimelinePinEntry object, {
+    TimelineAddToModule object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object,
@@ -79,19 +103,33 @@ class _$TimelinePinEntrySerializer
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required TimelinePinEntryBuilder result,
+    required TimelineAddToModuleBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'entry':
+        case r'moduleEntryId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TimelineAddEntry),
-          ) as TimelineAddEntry;
-          result.entry.replace(valueDes);
+            specifiedType: const FullType(String),
+          ) as String;
+          result.moduleEntryId = valueDes;
+          break;
+        case r'moduleItems':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
+          ) as BuiltList<ModuleItem>;
+          result.moduleItems.replace(valueDes);
+          break;
+        case r'prepend':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.prepend = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(
@@ -109,12 +147,12 @@ class _$TimelinePinEntrySerializer
   }
 
   @override
-  TimelinePinEntry deserialize(
+  TimelineAddToModule deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = TimelinePinEntryBuilder();
+    final result = TimelineAddToModuleBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

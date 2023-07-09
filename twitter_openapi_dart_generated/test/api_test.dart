@@ -234,6 +234,36 @@ void main() async {
         true);
   });
 
+  test('Favoriters', () async {
+    final response = await client.getTweetApi().getTweetFavoriters(
+          pathQueryId: config["Favoriters"]!["queryId"].toString(),
+          variables: jsonEncode(config["Favoriters"]!["variables"]
+            ..addAll({"tweetId": "1349129669258448897"})),
+          features: jsonEncode(config["Favoriters"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(
+        contentTest(
+            response.data!.data.favoritersTimeline.timeline.instructions),
+        true);
+  });
+
+  test('Retweeters', () async {
+    final response = await client.getTweetApi().getTweetRetweeters(
+          pathQueryId: config["Retweeters"]!["queryId"].toString(),
+          variables: jsonEncode(config["Retweeters"]!["variables"]
+            ..addAll({"tweetId": "1349129669258448897"})),
+          features: jsonEncode(config["Retweeters"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(
+        contentTest(
+            response.data!.data.retweetersTimeline.timeline.instructions),
+        true);
+  });
+
   test('getFollowers', () async {
     final response = await client.getUserListApi().getFollowers(
           pathQueryId: config["Followers"]!["queryId"].toString(),

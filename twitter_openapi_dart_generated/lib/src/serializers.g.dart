@@ -72,9 +72,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Timeline.serializer)
       ..add(TimelineAddEntries.serializer)
       ..add(TimelineAddEntry.serializer)
+      ..add(TimelineAddToModule.serializer)
       ..add(TimelineClearCache.serializer)
       ..add(TimelinePinEntry.serializer)
+      ..add(TimelineReplaceEntry.serializer)
       ..add(TimelineResponse.serializer)
+      ..add(TimelineShowAlert.serializer)
+      ..add(TimelineShowAlertAlertTypeEnum.serializer)
+      ..add(TimelineShowAlertDisplayLocationEnum.serializer)
+      ..add(TimelineShowAlertRichText.serializer)
       ..add(TimelineTerminateTimeline.serializer)
       ..add(TimelineTerminateTimelineDirectionEnum.serializer)
       ..add(TimelineTimelineCursor.serializer)
@@ -93,8 +99,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TweetDetailResponseData.serializer)
       ..add(TweetEditControl.serializer)
       ..add(TweetEditPrespective.serializer)
+      ..add(TweetFavoritersResponse.serializer)
+      ..add(TweetFavoritersResponseData.serializer)
       ..add(TweetLegacy.serializer)
       ..add(TweetLegacySelfThread.serializer)
+      ..add(TweetRetweetersResponse.serializer)
+      ..add(TweetRetweetersResponseData.serializer)
       ..add(TweetTombstone.serializer)
       ..add(TweetUnion.serializer)
       ..add(TweetViews.serializer)
@@ -133,6 +143,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(JsonObject)]),
           () => new ListBuilder<JsonObject>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(JsonObject)]),
+          () => new ListBuilder<JsonObject>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Media)]),
           () => new ListBuilder<Media>())
       ..addBuilderFactory(
@@ -151,6 +164,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(ModuleItem)]),
           () => new ListBuilder<ModuleItem>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(ModuleItem)]),
+          () => new ListBuilder<ModuleItem>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
@@ -163,6 +179,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType(TweetCardLegacyBindingValuesInner)]),
           () => new ListBuilder<TweetCardLegacyBindingValuesInner>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UserResults)]),
+          () => new ListBuilder<UserResults>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>())

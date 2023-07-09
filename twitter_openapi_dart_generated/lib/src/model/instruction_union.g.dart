@@ -6,6 +6,46 @@ part of 'instruction_union.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const InstructionUnionAlertTypeEnum _$instructionUnionAlertTypeEnum_newTweets =
+    const InstructionUnionAlertTypeEnum._('newTweets');
+
+InstructionUnionAlertTypeEnum _$instructionUnionAlertTypeEnumValueOf(
+    String name) {
+  switch (name) {
+    case 'newTweets':
+      return _$instructionUnionAlertTypeEnum_newTweets;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<InstructionUnionAlertTypeEnum>
+    _$instructionUnionAlertTypeEnumValues = new BuiltSet<
+        InstructionUnionAlertTypeEnum>(const <InstructionUnionAlertTypeEnum>[
+  _$instructionUnionAlertTypeEnum_newTweets,
+]);
+
+const InstructionUnionDisplayLocationEnum
+    _$instructionUnionDisplayLocationEnum_top =
+    const InstructionUnionDisplayLocationEnum._('top');
+
+InstructionUnionDisplayLocationEnum
+    _$instructionUnionDisplayLocationEnumValueOf(String name) {
+  switch (name) {
+    case 'top':
+      return _$instructionUnionDisplayLocationEnum_top;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<InstructionUnionDisplayLocationEnum>
+    _$instructionUnionDisplayLocationEnumValues =
+    new BuiltSet<InstructionUnionDisplayLocationEnum>(const <
+        InstructionUnionDisplayLocationEnum>[
+  _$instructionUnionDisplayLocationEnum_top,
+]);
+
 const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_top =
     const InstructionUnionDirectionEnum._('top');
 const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_bottom =
@@ -30,9 +70,73 @@ final BuiltSet<InstructionUnionDirectionEnum>
   _$instructionUnionDirectionEnum_bottom,
 ]);
 
+Serializer<InstructionUnionAlertTypeEnum>
+    _$instructionUnionAlertTypeEnumSerializer =
+    new _$InstructionUnionAlertTypeEnumSerializer();
+Serializer<InstructionUnionDisplayLocationEnum>
+    _$instructionUnionDisplayLocationEnumSerializer =
+    new _$InstructionUnionDisplayLocationEnumSerializer();
 Serializer<InstructionUnionDirectionEnum>
     _$instructionUnionDirectionEnumSerializer =
     new _$InstructionUnionDirectionEnumSerializer();
+
+class _$InstructionUnionAlertTypeEnumSerializer
+    implements PrimitiveSerializer<InstructionUnionAlertTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'newTweets': 'NewTweets',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'NewTweets': 'newTweets',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[InstructionUnionAlertTypeEnum];
+  @override
+  final String wireName = 'InstructionUnionAlertTypeEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, InstructionUnionAlertTypeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  InstructionUnionAlertTypeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      InstructionUnionAlertTypeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
+class _$InstructionUnionDisplayLocationEnumSerializer
+    implements PrimitiveSerializer<InstructionUnionDisplayLocationEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'top': 'Top',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'Top': 'top',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    InstructionUnionDisplayLocationEnum
+  ];
+  @override
+  final String wireName = 'InstructionUnionDisplayLocationEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, InstructionUnionDisplayLocationEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  InstructionUnionDisplayLocationEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      InstructionUnionDisplayLocationEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
 
 class _$InstructionUnionDirectionEnumSerializer
     implements PrimitiveSerializer<InstructionUnionDirectionEnum> {

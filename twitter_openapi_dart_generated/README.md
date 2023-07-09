@@ -80,6 +80,8 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getLikes**](doc/TweetApi.md#getlikes) | **GET** /graphql/{pathQueryId}/Likes | 
 [*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /graphql/{pathQueryId}/ListLatestTweetsTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /graphql/{pathQueryId}/TweetDetail | 
+[*TweetApi*](doc/TweetApi.md) | [**getTweetFavoriters**](doc/TweetApi.md#gettweetfavoriters) | **GET** /graphql/{pathQueryId}/Favoriters | 
+[*TweetApi*](doc/TweetApi.md) | [**getTweetRetweeters**](doc/TweetApi.md#gettweetretweeters) | **GET** /graphql/{pathQueryId}/Retweeters | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /graphql/{pathQueryId}/UserMedia | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /graphql/{pathQueryId}/UserTweets | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /graphql/{pathQueryId}/UserTweetsAndReplies | 
@@ -160,9 +162,13 @@ Class | Method | HTTP request | Description
  - [Timeline](doc/Timeline.md)
  - [TimelineAddEntries](doc/TimelineAddEntries.md)
  - [TimelineAddEntry](doc/TimelineAddEntry.md)
+ - [TimelineAddToModule](doc/TimelineAddToModule.md)
  - [TimelineClearCache](doc/TimelineClearCache.md)
  - [TimelinePinEntry](doc/TimelinePinEntry.md)
+ - [TimelineReplaceEntry](doc/TimelineReplaceEntry.md)
  - [TimelineResponse](doc/TimelineResponse.md)
+ - [TimelineShowAlert](doc/TimelineShowAlert.md)
+ - [TimelineShowAlertRichText](doc/TimelineShowAlertRichText.md)
  - [TimelineTerminateTimeline](doc/TimelineTerminateTimeline.md)
  - [TimelineTimelineCursor](doc/TimelineTimelineCursor.md)
  - [TimelineTimelineItem](doc/TimelineTimelineItem.md)
@@ -179,8 +185,12 @@ Class | Method | HTTP request | Description
  - [TweetDetailResponseData](doc/TweetDetailResponseData.md)
  - [TweetEditControl](doc/TweetEditControl.md)
  - [TweetEditPrespective](doc/TweetEditPrespective.md)
+ - [TweetFavoritersResponse](doc/TweetFavoritersResponse.md)
+ - [TweetFavoritersResponseData](doc/TweetFavoritersResponseData.md)
  - [TweetLegacy](doc/TweetLegacy.md)
  - [TweetLegacySelfThread](doc/TweetLegacySelfThread.md)
+ - [TweetRetweetersResponse](doc/TweetRetweetersResponse.md)
+ - [TweetRetweetersResponseData](doc/TweetRetweetersResponseData.md)
  - [TweetTombstone](doc/TweetTombstone.md)
  - [TweetUnion](doc/TweetUnion.md)
  - [TweetViews](doc/TweetViews.md)
