@@ -75,6 +75,43 @@ class TweetApiUtils {
     return response;
   }
 
+  /// getSearchTimeline
+  /// Get Tweets from a search query.
+  /// This is the same as the search page on Twitter.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [rawQuery] The search query.
+  /// * [product] The product to search for. (enum: "Top", "Latest", "People", "Photos", "Videos")
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of Tweets to return per page.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+
+  Future<TweetListApiUtilsResponse> getSearchTimeline({
+    required String rawQuery,
+    String? product,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "rawQuery": rawQuery,
+      if (product != null) "product": product,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getSearchTimeline,
+      convertFn: (SearchTimelineResponse e) => e.data.searchByRawQuery.searchTimeline.timeline.instructions,
+      key: 'SearchTimeline',
+      param: param,
+    );
+    return response;
+  }
+
   /// getHomeTimeline
   /// Get recommended tweets from people you follow.
   /// This is the same as the home timeline on Twitter.

@@ -109,8 +109,42 @@ class UserListApiUtils {
     return response;
   }
 
+  /// getFollowersYouKnow
+  /// Get a list of users who follow a specified user and who you also follow.
+  /// Note: Can only be used while logged in.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user whose followers you would like to get.
+  /// * [cursor] The cursor to start at.
+  /// * [count] The number of users to get.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+
+  Future<UserListApiUtilsResponse> getFollowersYouKnow({
+    required String userId,
+    String? cursor,
+    int? count,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      if (count != null) "count": count,
+      if (cursor != null) "cursor": cursor,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getFollowersYouKnow,
+      convertFn: (FollowResponse e) => e.data.user.result.timeline.timeline.instructions,
+      key: 'FollowersYouKnow',
+      param: param,
+    );
+    return response;
+  }
+
   /// getFavoriters
   /// Get users who liked a Tweet.
+  /// Note: Can only be used while logged in.
   ///
   /// parameters:
   /// * [tweetId] The ID of the Tweet that you would like to get.
@@ -118,9 +152,9 @@ class UserListApiUtils {
   /// * [count] The number of users to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
 
-  Future<TweetListApiUtilsResponse> getFavoriters({
+  Future<UserListApiUtilsResponse> getFavoriters({
     required String tweetId,
     String? cursor,
     int? count,
@@ -143,6 +177,7 @@ class UserListApiUtils {
 
   /// getRetweeters
   /// Get users who retweeted a Tweet.
+  /// Note: Can only be used while logged in.
   ///
   /// parameters:
   /// * [tweetId] The ID of the Tweet that you would like to get.
@@ -150,9 +185,9 @@ class UserListApiUtils {
   /// * [count] The number of users to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
 
-  Future<TweetListApiUtilsResponse> getRetweeters({
+  Future<UserListApiUtilsResponse> getRetweeters({
     required String tweetId,
     String? cursor,
     int? count,

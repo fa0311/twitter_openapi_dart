@@ -13,6 +13,15 @@ main() async {
     expect(0, 0);
   });
 
+  test("getSearchTimeline", () async {
+    final result = await client.getTweetApi().getSearchTimeline(rawQuery: "elonmusk");
+    for (final tweet in result.data) {
+      if (tweet.promotedMetadata != null) continue;
+      printTweet(tweet);
+    }
+    expect(0, 0);
+  });
+
   test('getHomeTimeline', () async {
     final result = await client.getTweetApi().getHomeTimeline();
     for (final tweet in result.data) {
