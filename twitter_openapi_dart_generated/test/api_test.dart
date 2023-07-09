@@ -112,6 +112,20 @@ void main() async {
         true);
   });
 
+  test("getSearchTimeline", () async {
+    final response = await client.getTweetApi().getSearchTimeline(
+          pathQueryId: config["SearchTimeline"]!["queryId"].toString(),
+          variables: jsonEncode(config["SearchTimeline"]!["variables"]),
+          features: jsonEncode(config["SearchTimeline"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(
+        contentTest(response
+            .data!.data.searchByRawQuery.searchTimeline.timeline.instructions),
+        true);
+  });
+
   test('getUserByScreenName', () async {
     const name = "elonmusk";
     final response = await client.getUserApi().getUserByScreenName(
@@ -292,7 +306,21 @@ void main() async {
         true);
   });
 
-  test('tweet', () async {
+  test('FollowersYouKnow', () async {
+    final response = await client.getUserListApi().getFollowersYouKnow(
+          pathQueryId: config["FollowersYouKnow"]!["queryId"].toString(),
+          variables: jsonEncode(config["FollowersYouKnow"]!["variables"]),
+          features: jsonEncode(config["FollowersYouKnow"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+    expect(
+        contentTest(
+            response.data!.data.user.result.timeline.timeline.instructions),
+        true);
+  });
+
+  test('createtweet', () async {
     final time = DateTime.now().toIso8601String();
     final response = await client.getPostApi().postCreateTweet(
           pathQueryId: config["CreateTweet"]!["queryId"].toString(),
