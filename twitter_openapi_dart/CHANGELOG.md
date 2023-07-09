@@ -19,3 +19,8 @@ Fix typo
 ## 0.0.5
 
 Migration of twitter_openapi_dart_generated v0.0.4
+
+## 0.0.6
+
+Migration of twitter_openapi_dart_generated v0.0.7
+add Favoriters, Retweeters, FollowersYouKnow, SearchTimeline

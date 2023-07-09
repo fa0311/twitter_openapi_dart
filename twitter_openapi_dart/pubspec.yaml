@@ -1,6 +1,6 @@
 name: twitter_openapi_dart
 description: It is a Dart implementation of Twitter's internal API. It is available without special API tokens and also supports GraphQL endpoints.
-version: 0.0.5
+version: 0.0.6
 repository: https://github.com/fa0311/twitter_openapi_dart
 
 environment:
