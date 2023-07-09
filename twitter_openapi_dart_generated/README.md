@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getHomeTimeline**](doc/TweetApi.md#gethometimeline) | **GET** /graphql/{pathQueryId}/HomeTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getLikes**](doc/TweetApi.md#getlikes) | **GET** /graphql/{pathQueryId}/Likes | 
 [*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /graphql/{pathQueryId}/ListLatestTweetsTimeline | 
+[*TweetApi*](doc/TweetApi.md) | [**getSearchTimeline**](doc/TweetApi.md#getsearchtimeline) | **GET** /graphql/{pathQueryId}/SearchTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /graphql/{pathQueryId}/TweetDetail | 
 [*TweetApi*](doc/TweetApi.md) | [**getTweetFavoriters**](doc/TweetApi.md#gettweetfavoriters) | **GET** /graphql/{pathQueryId}/Favoriters | 
 [*TweetApi*](doc/TweetApi.md) | [**getTweetRetweeters**](doc/TweetApi.md#gettweetretweeters) | **GET** /graphql/{pathQueryId}/Retweeters | 
@@ -87,6 +88,7 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /graphql/{pathQueryId}/UserTweetsAndReplies | 
 [*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /graphql/{pathQueryId}/UserByScreenName | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /graphql/{pathQueryId}/Followers | 
+[*UserListApi*](doc/UserListApi.md) | [**getFollowersYouKnow**](doc/UserListApi.md#getfollowersyouknow) | **GET** /graphql/{pathQueryId}/FollowersYouKnow | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /graphql/{pathQueryId}/Following | 
 [*V11GetApi*](doc/V11GetApi.md) | [**getFriendsFollowingList**](doc/V11GetApi.md#getfriendsfollowinglist) | **GET** /1.1/friends/following/list.json | 
 [*V11GetApi*](doc/V11GetApi.md) | [**getSearchTypeahead**](doc/V11GetApi.md#getsearchtypeahead) | **GET** /1.1/search/typeahead.json | 
@@ -132,10 +134,10 @@ Class | Method | HTTP request | Description
  - [InstructionUnion](doc/InstructionUnion.md)
  - [ItemContentUnion](doc/ItemContentUnion.md)
  - [ItemResult](doc/ItemResult.md)
+ - [ListLatestTweetsTimelineResponse](doc/ListLatestTweetsTimelineResponse.md)
  - [ListTweetsTimeline](doc/ListTweetsTimeline.md)
  - [ListTweetsTimelineData](doc/ListTweetsTimelineData.md)
  - [ListTweetsTimelineList](doc/ListTweetsTimelineList.md)
- - [ListTweetsTimelineResponse](doc/ListTweetsTimelineResponse.md)
  - [Media](doc/Media.md)
  - [MediaOriginalInfo](doc/MediaOriginalInfo.md)
  - [ModuleEntry](doc/ModuleEntry.md)
@@ -157,6 +159,10 @@ Class | Method | HTTP request | Description
  - [ProfileResponseData](doc/ProfileResponseData.md)
  - [Retweet](doc/Retweet.md)
  - [RetweetLegacy](doc/RetweetLegacy.md)
+ - [SearchByRawQuery](doc/SearchByRawQuery.md)
+ - [SearchTimeline](doc/SearchTimeline.md)
+ - [SearchTimelineData](doc/SearchTimelineData.md)
+ - [SearchTimelineResponse](doc/SearchTimelineResponse.md)
  - [Session](doc/Session.md)
  - [SocialContext](doc/SocialContext.md)
  - [Timeline](doc/Timeline.md)

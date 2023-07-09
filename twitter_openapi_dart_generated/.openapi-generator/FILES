@@ -36,10 +36,10 @@ doc/InstructionType.md
 doc/InstructionUnion.md
 doc/ItemContentUnion.md
 doc/ItemResult.md
+doc/ListLatestTweetsTimelineResponse.md
 doc/ListTweetsTimeline.md
 doc/ListTweetsTimelineData.md
 doc/ListTweetsTimelineList.md
-doc/ListTweetsTimelineResponse.md
 doc/Media.md
 doc/MediaOriginalInfo.md
 doc/ModuleEntry.md
@@ -63,6 +63,10 @@ doc/ProfileResponse.md
 doc/ProfileResponseData.md
 doc/Retweet.md
 doc/RetweetLegacy.md
+doc/SearchByRawQuery.md
+doc/SearchTimeline.md
+doc/SearchTimelineData.md
+doc/SearchTimelineResponse.md
 doc/Session.md
 doc/SocialContext.md
 doc/Timeline.md
@@ -178,10 +182,10 @@ lib/src/model/instruction_type.dart
 lib/src/model/instruction_union.dart
 lib/src/model/item_content_union.dart
 lib/src/model/item_result.dart
+lib/src/model/list_latest_tweets_timeline_response.dart
 lib/src/model/list_tweets_timeline.dart
 lib/src/model/list_tweets_timeline_data.dart
 lib/src/model/list_tweets_timeline_list.dart
-lib/src/model/list_tweets_timeline_response.dart
 lib/src/model/media.dart
 lib/src/model/media_original_info.dart
 lib/src/model/module_entry.dart
@@ -203,6 +207,10 @@ lib/src/model/profile_response.dart
 lib/src/model/profile_response_data.dart
 lib/src/model/retweet.dart
 lib/src/model/retweet_legacy.dart
+lib/src/model/search_by_raw_query.dart
+lib/src/model/search_timeline.dart
+lib/src/model/search_timeline_data.dart
+lib/src/model/search_timeline_response.dart
 lib/src/model/session.dart
 lib/src/model/social_context.dart
 lib/src/model/timeline.dart

@@ -49,10 +49,10 @@ import 'package:twitter_openapi_dart_generated/src/model/instruction_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/instruction_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/list_latest_tweets_timeline_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_list.dart';
-import 'package:twitter_openapi_dart_generated/src/model/list_tweets_timeline_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/module_entry.dart';
@@ -74,6 +74,10 @@ import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/search_by_raw_query.dart';
+import 'package:twitter_openapi_dart_generated/src/model/search_timeline.dart';
+import 'package:twitter_openapi_dart_generated/src/model/search_timeline_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/search_timeline_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/session.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline.dart';
@@ -169,10 +173,10 @@ part 'serializers.g.dart';
   InstructionUnion,
   ItemContentUnion,
   ItemResult,
+  ListLatestTweetsTimelineResponse,
   ListTweetsTimeline,
   ListTweetsTimelineData,
   ListTweetsTimelineList,
-  ListTweetsTimelineResponse,
   Media,
   MediaOriginalInfo,
   ModuleEntry,
@@ -194,6 +198,10 @@ part 'serializers.g.dart';
   ProfileResponseData,
   Retweet,
   RetweetLegacy,
+  SearchByRawQuery,
+  SearchTimeline,
+  SearchTimelineData,
+  SearchTimelineResponse,
   Session,
   SocialContext,
   Timeline,
