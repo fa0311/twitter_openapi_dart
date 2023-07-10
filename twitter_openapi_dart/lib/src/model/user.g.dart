@@ -137,6 +137,138 @@ class UserApiUtilsResponseBuilder
   }
 }
 
+class _$UsersApiUtilsResponse extends UsersApiUtilsResponse {
+  @override
+  final UserApiUtilsRaw raw;
+  @override
+  final ApiUtilsHeader header;
+  @override
+  final List<User> data;
+
+  factory _$UsersApiUtilsResponse(
+          [void Function(UsersApiUtilsResponseBuilder)? updates]) =>
+      (new UsersApiUtilsResponseBuilder()..update(updates))._build();
+
+  _$UsersApiUtilsResponse._(
+      {required this.raw, required this.header, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(raw, r'UsersApiUtilsResponse', 'raw');
+    BuiltValueNullFieldError.checkNotNull(
+        header, r'UsersApiUtilsResponse', 'header');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UsersApiUtilsResponse', 'data');
+  }
+
+  @override
+  UsersApiUtilsResponse rebuild(
+          void Function(UsersApiUtilsResponseBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersApiUtilsResponseBuilder toBuilder() =>
+      new UsersApiUtilsResponseBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersApiUtilsResponse &&
+        raw == other.raw &&
+        header == other.header &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, raw.hashCode);
+    _$hash = $jc(_$hash, header.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersApiUtilsResponse')
+          ..add('raw', raw)
+          ..add('header', header)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UsersApiUtilsResponseBuilder
+    implements Builder<UsersApiUtilsResponse, UsersApiUtilsResponseBuilder> {
+  _$UsersApiUtilsResponse? _$v;
+
+  UserApiUtilsRawBuilder? _raw;
+  UserApiUtilsRawBuilder get raw =>
+      _$this._raw ??= new UserApiUtilsRawBuilder();
+  set raw(UserApiUtilsRawBuilder? raw) => _$this._raw = raw;
+
+  ApiUtilsHeaderBuilder? _header;
+  ApiUtilsHeaderBuilder get header =>
+      _$this._header ??= new ApiUtilsHeaderBuilder();
+  set header(ApiUtilsHeaderBuilder? header) => _$this._header = header;
+
+  List<User>? _data;
+  List<User>? get data => _$this._data;
+  set data(List<User>? data) => _$this._data = data;
+
+  UsersApiUtilsResponseBuilder();
+
+  UsersApiUtilsResponseBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _raw = $v.raw.toBuilder();
+      _header = $v.header.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(UsersApiUtilsResponse other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersApiUtilsResponse;
+  }
+
+  @override
+  void update(void Function(UsersApiUtilsResponseBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersApiUtilsResponse build() => _build();
+
+  _$UsersApiUtilsResponse _build() {
+    _$UsersApiUtilsResponse _$result;
+    try {
+      _$result = _$v ??
+          new _$UsersApiUtilsResponse._(
+              raw: raw.build(),
+              header: header.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UsersApiUtilsResponse', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'raw';
+        raw.build();
+        _$failedField = 'header';
+        header.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UsersApiUtilsResponse', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$UserApiUtilsRaw extends UserApiUtilsRaw {
   @override
   final Response<dynamic> response;

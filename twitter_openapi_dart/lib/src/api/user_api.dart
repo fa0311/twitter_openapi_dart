@@ -34,6 +34,30 @@ class UserApiUtils {
     );
   }
 
+  Future<UsersApiUtilsResponse> requests<T>({
+    required ApiFunction<T> apiFn,
+    required List<UserResults> Function(T) convertFn,
+    required String key,
+    required Map<String, dynamic> param,
+  }) async {
+    assert(flag[key] != null);
+    final response = await apiFn(
+      pathQueryId: flag[key]!["queryId"],
+      variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
+      features: jsonEncode(flag[key]!["features"]),
+    );
+    final user = convertFn(response.data as T).map((e) => e.result);
+    final raw = UserApiUtilsRaw(
+      (e) => e..response = response,
+    );
+    return UsersApiUtilsResponse(
+      (e) => e
+        ..raw = raw.toBuilder()
+        ..header = buildHeader(response.headers).toBuilder()
+        ..data = user.toList(),
+    );
+  }
+
   /// getUserByScreenName
   /// Get a User by screen name.
   ///
@@ -55,6 +79,40 @@ class UserApiUtils {
       apiFn: api.getUserByScreenName,
       convertFn: (e) => e.data.user,
       key: 'UserByScreenName',
+      param: param,
+    );
+    return response;
+  }
+
+  Future<UserApiUtilsResponse> getUserByRestId({
+    required String userId,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userId": userId,
+      ...?extraParam,
+    };
+    final response = await request(
+      apiFn: api.getUserByRestId,
+      convertFn: (e) => e.data.user,
+      key: 'UserByRestId',
+      param: param,
+    );
+    return response;
+  }
+
+  Future<UsersApiUtilsResponse> getUsersByRestIds({
+    required List<String> userIds,
+    Map<String, dynamic>? extraParam,
+  }) async {
+    final param = {
+      "userIds": userIds,
+      ...?extraParam,
+    };
+    final response = await requests(
+      apiFn: api.getUsersByRestIds,
+      convertFn: (e) => e.data.users.toList(),
+      key: 'UsersByRestIds',
       param: param,
     );
     return response;

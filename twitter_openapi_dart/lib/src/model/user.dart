@@ -15,6 +15,16 @@ abstract class UserApiUtilsResponse implements Built<UserApiUtilsResponse, UserA
   factory UserApiUtilsResponse([void Function(UserApiUtilsResponseBuilder) updates]) = _$UserApiUtilsResponse;
 }
 
+abstract class UsersApiUtilsResponse implements Built<UsersApiUtilsResponse, UsersApiUtilsResponseBuilder> {
+  UserApiUtilsRaw get raw;
+  ApiUtilsHeader get header;
+  List<User> get data;
+
+  UsersApiUtilsResponse._();
+
+  factory UsersApiUtilsResponse([void Function(UsersApiUtilsResponseBuilder) updates]) = _$UsersApiUtilsResponse;
+}
+
 abstract class UserApiUtilsRaw implements Built<UserApiUtilsRaw, UserApiUtilsRawBuilder> {
   UserApiUtilsRaw._();
   Response get response;

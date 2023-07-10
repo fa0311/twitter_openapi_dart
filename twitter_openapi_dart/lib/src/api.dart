@@ -22,7 +22,7 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 /// It provides a more convenient way to use the api.
 /// It also provides a way to use the api without a token.
 class TwitterOpenapiDart {
-  static String hash = "c025cda1d3c4cdfbc6496341ddb543248688fbcb";
+  static String hash = "48c2e11b112576bb3f5aefd1da3b4b3510cad8c1";
   static Uri placeholderUrl = Uri.https("raw.githubusercontent.com", "/fa0311/twitter-openapi/$hash/src/config/placeholder.json");
   static Map<String, dynamic> placeholder = {};
 
