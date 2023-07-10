@@ -128,6 +128,8 @@ doc/UserTweetsData.md
 doc/UserTweetsResponse.md
 doc/UserTweetsResult.md
 doc/UserTweetsUser.md
+doc/UsersResponse.md
+doc/UsersResponseData.md
 doc/V11GetApi.md
 doc/V11PostApi.md
 doc/V20GetApi.md
@@ -271,5 +273,7 @@ lib/src/model/user_tweets_data.dart
 lib/src/model/user_tweets_response.dart
 lib/src/model/user_tweets_result.dart
 lib/src/model/user_tweets_user.dart
+lib/src/model/users_response.dart
+lib/src/model/users_response_data.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart

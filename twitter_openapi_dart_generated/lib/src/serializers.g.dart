@@ -133,6 +133,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(UserTweetsResponse.serializer)
       ..add(UserTweetsResult.serializer)
       ..add(UserTweetsUser.serializer)
+      ..add(UsersResponse.serializer)
+      ..add(UsersResponseData.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(InstructionUnion)]),
           () => new ListBuilder<InstructionUnion>())
@@ -185,6 +187,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType(TweetCardLegacyBindingValuesInner)]),
           () => new ListBuilder<TweetCardLegacyBindingValuesInner>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UserResults)]),
+          () => new ListBuilder<UserResults>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(UserResults)]),
           () => new ListBuilder<UserResults>())

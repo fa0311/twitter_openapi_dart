@@ -40,9 +40,8 @@ InstructionUnionDisplayLocationEnum
 }
 
 final BuiltSet<InstructionUnionDisplayLocationEnum>
-    _$instructionUnionDisplayLocationEnumValues =
-    new BuiltSet<InstructionUnionDisplayLocationEnum>(const <
-        InstructionUnionDisplayLocationEnum>[
+    _$instructionUnionDisplayLocationEnumValues = new BuiltSet<
+        InstructionUnionDisplayLocationEnum>(const <InstructionUnionDisplayLocationEnum>[
   _$instructionUnionDisplayLocationEnum_top,
 ]);
 

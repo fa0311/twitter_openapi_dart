@@ -84,7 +84,9 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /graphql/{pathQueryId}/UserMedia | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /graphql/{pathQueryId}/UserTweets | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /graphql/{pathQueryId}/UserTweetsAndReplies | 
+[*UserApi*](doc/UserApi.md) | [**getUserByRestId**](doc/UserApi.md#getuserbyrestid) | **GET** /graphql/{pathQueryId}/UserByRestId | 
 [*UserApi*](doc/UserApi.md) | [**getUserByScreenName**](doc/UserApi.md#getuserbyscreenname) | **GET** /graphql/{pathQueryId}/UserByScreenName | 
+[*UserApi*](doc/UserApi.md) | [**getUsersByRestIds**](doc/UserApi.md#getusersbyrestids) | **GET** /graphql/{pathQueryId}/UsersByRestIds | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowers**](doc/UserListApi.md#getfollowers) | **GET** /graphql/{pathQueryId}/Followers | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowersYouKnow**](doc/UserListApi.md#getfollowersyouknow) | **GET** /graphql/{pathQueryId}/FollowersYouKnow | 
 [*UserListApi*](doc/UserListApi.md) | [**getFollowing**](doc/UserListApi.md#getfollowing) | **GET** /graphql/{pathQueryId}/Following | 
@@ -221,6 +223,8 @@ Class | Method | HTTP request | Description
  - [UserTweetsResponse](doc/UserTweetsResponse.md)
  - [UserTweetsResult](doc/UserTweetsResult.md)
  - [UserTweetsUser](doc/UserTweetsUser.md)
+ - [UsersResponse](doc/UsersResponse.md)
+ - [UsersResponseData](doc/UsersResponseData.md)
 
 
 ## Documentation For Authorization

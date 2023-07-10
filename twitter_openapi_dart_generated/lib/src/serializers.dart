@@ -136,6 +136,8 @@ import 'package:twitter_openapi_dart_generated/src/model/user_tweets_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_user.dart';
+import 'package:twitter_openapi_dart_generated/src/model/users_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/users_response_data.dart';
 
 part 'serializers.g.dart';
 
@@ -262,6 +264,8 @@ part 'serializers.g.dart';
   UserTweetsResponse,
   UserTweetsResult,
   UserTweetsUser,
+  UsersResponse,
+  UsersResponseData,
 ])
 Serializers serializers = (_$serializers.toBuilder()
       ..add(const OneOfSerializer())

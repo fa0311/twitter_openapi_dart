@@ -41,9 +41,8 @@ TimelineShowAlertDisplayLocationEnum
 }
 
 final BuiltSet<TimelineShowAlertDisplayLocationEnum>
-    _$timelineShowAlertDisplayLocationEnumValues =
-    new BuiltSet<TimelineShowAlertDisplayLocationEnum>(const <
-        TimelineShowAlertDisplayLocationEnum>[
+    _$timelineShowAlertDisplayLocationEnumValues = new BuiltSet<
+        TimelineShowAlertDisplayLocationEnum>(const <TimelineShowAlertDisplayLocationEnum>[
   _$timelineShowAlertDisplayLocationEnum_top,
 ]);
 
