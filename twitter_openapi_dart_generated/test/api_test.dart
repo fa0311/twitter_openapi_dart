@@ -138,6 +138,26 @@ void main() async {
     expect(response.data!.data.user.result.legacy.screenName, name);
   });
 
+  test('UserByRestId', () async {
+    final response = await client.getUserApi().getUserByRestId(
+          pathQueryId: config["UserByRestId"]!["queryId"].toString(),
+          variables: jsonEncode(config["UserByRestId"]!["variables"]),
+          features: jsonEncode(config["UserByRestId"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
+  test('UsersByRestIds', () async {
+    final response = await client.getUserApi().getUsersByRestIds(
+          pathQueryId: config["UsersByRestIds"]!["queryId"].toString(),
+          variables: jsonEncode(config["UsersByRestIds"]!["variables"]),
+          features: jsonEncode(config["UsersByRestIds"]!["features"]),
+        );
+    expect(response.statusCode, 200);
+    expect(response.data == null, false);
+  });
+
   test('ProfileSpotlightsQuery', () async {
     final response = await client.getDefaultApi().getProfileSpotlightsQuery(
           pathQueryId: config["ProfileSpotlightsQuery"]!["queryId"].toString(),
