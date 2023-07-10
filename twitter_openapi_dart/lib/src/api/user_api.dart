@@ -84,6 +84,15 @@ class UserApiUtils {
     return response;
   }
 
+  /// getUserByUserId
+  /// Get a User by user ID.
+  ///
+  /// parameters:
+  /// * [userId] The ID of the user.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UserApiUtilsResponse] as data.
+
   Future<UserApiUtilsResponse> getUserByRestId({
     required String userId,
     Map<String, dynamic>? extraParam,
@@ -100,6 +109,15 @@ class UserApiUtils {
     );
     return response;
   }
+
+  /// getUsersByRestIds
+  /// Get multiple Users by their user ID.
+  ///
+  /// parameters:
+  /// * [userIds] The IDs of the users.
+  /// * [extraParam] Extra parameters.
+  ///
+  /// Returns a [Future] containing a [UsersApiUtilsResponse] as data.
 
   Future<UsersApiUtilsResponse> getUsersByRestIds({
     required List<String> userIds,
