@@ -29,3 +29,7 @@ add Favoriters, Retweeters, FollowersYouKnow, SearchTimeline
 
 Migration of twitter_openapi_dart_generated v0.0.8
 add UserByRestId, UsersByRestIds
+
+## 0.0.8
+
+Migration of twitter_openapi_dart_generated v0.0.9
