@@ -115,6 +115,11 @@ doc/Url.md
 doc/User.md
 doc/UserApi.md
 doc/UserFeatures.md
+doc/UserHighlightsTweetsData.md
+doc/UserHighlightsTweetsResponse.md
+doc/UserHighlightsTweetsResult.md
+doc/UserHighlightsTweetsTimeline.md
+doc/UserHighlightsTweetsUser.md
 doc/UserLegacy.md
 doc/UserListApi.md
 doc/UserResponse.md
@@ -261,6 +266,11 @@ lib/src/model/unfavorite_tweet_response_data.dart
 lib/src/model/url.dart
 lib/src/model/user.dart
 lib/src/model/user_features.dart
+lib/src/model/user_highlights_tweets_data.dart
+lib/src/model/user_highlights_tweets_response.dart
+lib/src/model/user_highlights_tweets_result.dart
+lib/src/model/user_highlights_tweets_timeline.dart
+lib/src/model/user_highlights_tweets_user.dart
 lib/src/model/user_legacy.dart
 lib/src/model/user_response.dart
 lib/src/model/user_response_data.dart

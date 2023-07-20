@@ -124,6 +124,11 @@ import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_respon
 import 'package:twitter_openapi_dart_generated/src/model/url.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_features.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_timeline.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_response_data.dart';
@@ -252,6 +257,11 @@ part 'serializers.g.dart';
   Url,
   User,
   UserFeatures,
+  UserHighlightsTweetsData,
+  UserHighlightsTweetsResponse,
+  UserHighlightsTweetsResult,
+  UserHighlightsTweetsTimeline,
+  UserHighlightsTweetsUser,
   UserLegacy,
   UserResponse,
   UserResponseData,

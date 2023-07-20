@@ -129,6 +129,11 @@ export 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_respon
 export 'package:twitter_openapi_dart_generated/src/model/url.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_features.dart';
+export 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_data.dart';
+export 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_response.dart';
+export 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_result.dart';
+export 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_timeline.dart';
+export 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_user.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 export 'package:twitter_openapi_dart_generated/src/model/user_response_data.dart';

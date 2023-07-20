@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 [*TweetApi*](doc/TweetApi.md) | [**getListLatestTweetsTimeline**](doc/TweetApi.md#getlistlatesttweetstimeline) | **GET** /graphql/{pathQueryId}/ListLatestTweetsTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getSearchTimeline**](doc/TweetApi.md#getsearchtimeline) | **GET** /graphql/{pathQueryId}/SearchTimeline | 
 [*TweetApi*](doc/TweetApi.md) | [**getTweetDetail**](doc/TweetApi.md#gettweetdetail) | **GET** /graphql/{pathQueryId}/TweetDetail | 
+[*TweetApi*](doc/TweetApi.md) | [**getUserHighlightsTweets**](doc/TweetApi.md#getuserhighlightstweets) | **GET** /graphql/{pathQueryId}/UserHighlightsTweets | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserMedia**](doc/TweetApi.md#getusermedia) | **GET** /graphql/{pathQueryId}/UserMedia | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweets**](doc/TweetApi.md#getusertweets) | **GET** /graphql/{pathQueryId}/UserTweets | 
 [*TweetApi*](doc/TweetApi.md) | [**getUserTweetsAndReplies**](doc/TweetApi.md#getusertweetsandreplies) | **GET** /graphql/{pathQueryId}/UserTweetsAndReplies | 
@@ -211,6 +212,11 @@ Class | Method | HTTP request | Description
  - [Url](doc/Url.md)
  - [User](doc/User.md)
  - [UserFeatures](doc/UserFeatures.md)
+ - [UserHighlightsTweetsData](doc/UserHighlightsTweetsData.md)
+ - [UserHighlightsTweetsResponse](doc/UserHighlightsTweetsResponse.md)
+ - [UserHighlightsTweetsResult](doc/UserHighlightsTweetsResult.md)
+ - [UserHighlightsTweetsTimeline](doc/UserHighlightsTweetsTimeline.md)
+ - [UserHighlightsTweetsUser](doc/UserHighlightsTweetsUser.md)
  - [UserLegacy](doc/UserLegacy.md)
  - [UserResponse](doc/UserResponse.md)
  - [UserResponseData](doc/UserResponseData.md)
