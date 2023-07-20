@@ -8,7 +8,14 @@ import 'package:dio/dio.dart';
 import 'model/header.dart';
 
 BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {
-  return item.expand((e) => e.oneOf.isType(TimelineAddEntries) ? [e.oneOf.value as TimelineAddEntries] : <TimelineAddEntries>[]).first.entries;
+  return BuiltList.from(item.expand((e) {
+    if (e.oneOf.isType(TimelineAddEntries)) {
+      return (e.oneOf.value as TimelineAddEntries).entries;
+    } else if (e.oneOf.isType(TimelineReplaceEntry)) {
+      return [(e.oneOf.value as TimelineReplaceEntry).entry];
+    }
+    return <TimelineAddEntry>[];
+  }));
 }
 
 List<TweetApiUtils> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {

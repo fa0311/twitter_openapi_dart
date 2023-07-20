@@ -31,3 +31,7 @@ update [twitter-openapi 24b04344f172d9749e137bc8cef88c1932196db0](https://github
 ## 0.0.8
 
 update [twitter-openapi 29e05d162f600933fdbf633e992d2d0a249c9413](https://github.com/fa0311/twitter-openapi/tree/29e05d162f600933fdbf633e992d2d0a249c9413)
+
+## 0.0.9
+
+update [twitter-openapi 132f3aedc0f0b5d70a2af093af9a744ab92f3317](https://github.com/fa0311/twitter-openapi/tree/132f3aedc0f0b5d70a2af093af9a744ab92f3317)

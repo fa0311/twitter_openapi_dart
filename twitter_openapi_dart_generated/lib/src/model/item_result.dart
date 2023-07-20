@@ -19,7 +19,7 @@ part 'item_result.g.dart';
 abstract class ItemResult implements Built<ItemResult, ItemResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName? get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
 
   @BuiltValueField(wireName: r'result')
   TweetUnion get result;

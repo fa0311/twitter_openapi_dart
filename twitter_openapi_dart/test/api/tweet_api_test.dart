@@ -1,4 +1,5 @@
 import 'package:test/test.dart';
+import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 import '../api.dart';
 
@@ -18,6 +19,19 @@ main() async {
     for (final tweet in result.data) {
       if (tweet.promotedMetadata != null) continue;
       printTweet(tweet);
+    }
+    expect(0, 0);
+  });
+
+  test("issue-32", () async {
+    TimelineTimelineCursor? cursor;
+    for (int i = 0; i < 10; i++) {
+      final result = await client.getTweetApi().getSearchTimeline(rawQuery: "elonmusk", cursor: cursor?.value);
+      for (final tweet in result.data) {
+        if (tweet.promotedMetadata != null) continue;
+        printTweet(tweet);
+      }
+      cursor = result.cursor.bottom;
     }
     expect(0, 0);
   });

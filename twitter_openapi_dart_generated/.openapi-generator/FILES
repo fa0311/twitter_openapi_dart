@@ -277,4 +277,3 @@ lib/src/model/users_response.dart
 lib/src/model/users_response_data.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
-pubspec.yaml

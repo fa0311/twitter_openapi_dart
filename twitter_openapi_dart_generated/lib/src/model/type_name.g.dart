@@ -17,6 +17,9 @@ const TypeName _$tweetWithVisibilityResults =
 const TypeName _$timelineTimelineModule =
     const TypeName._('timelineTimelineModule');
 const TypeName _$tweetTombstone = const TypeName._('tweetTombstone');
+const TypeName _$timelinePrompt = const TypeName._('timelinePrompt');
+const TypeName _$timelineMessagePrompt =
+    const TypeName._('timelineMessagePrompt');
 const TypeName _$tweet = const TypeName._('tweet');
 const TypeName _$user = const TypeName._('user');
 
@@ -36,6 +39,10 @@ TypeName _$valueOf(String name) {
       return _$timelineTimelineModule;
     case 'tweetTombstone':
       return _$tweetTombstone;
+    case 'timelinePrompt':
+      return _$timelinePrompt;
+    case 'timelineMessagePrompt':
+      return _$timelineMessagePrompt;
     case 'tweet':
       return _$tweet;
     case 'user':
@@ -53,6 +60,8 @@ final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$tweetWithVisibilityResults,
   _$timelineTimelineModule,
   _$tweetTombstone,
+  _$timelinePrompt,
+  _$timelineMessagePrompt,
   _$tweet,
   _$user,
 ]);
@@ -66,6 +75,8 @@ class _$TypeNameMeta {
   TypeName get tweetWithVisibilityResults => _$tweetWithVisibilityResults;
   TypeName get timelineTimelineModule => _$timelineTimelineModule;
   TypeName get tweetTombstone => _$tweetTombstone;
+  TypeName get timelinePrompt => _$timelinePrompt;
+  TypeName get timelineMessagePrompt => _$timelineMessagePrompt;
   TypeName get tweet => _$tweet;
   TypeName get user => _$user;
   TypeName valueOf(String name) => _$valueOf(name);
@@ -88,6 +99,8 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'tweetWithVisibilityResults': 'TweetWithVisibilityResults',
     'timelineTimelineModule': 'TimelineTimelineModule',
     'tweetTombstone': 'TweetTombstone',
+    'timelinePrompt': 'TimelinePrompt',
+    'timelineMessagePrompt': 'TimelineMessagePrompt',
     'tweet': 'Tweet',
     'user': 'User',
   };
@@ -99,6 +112,8 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'TweetWithVisibilityResults': 'tweetWithVisibilityResults',
     'TimelineTimelineModule': 'timelineTimelineModule',
     'TweetTombstone': 'tweetTombstone',
+    'TimelinePrompt': 'timelinePrompt',
+    'TimelineMessagePrompt': 'timelineMessagePrompt',
     'Tweet': 'tweet',
     'User': 'user',
   };

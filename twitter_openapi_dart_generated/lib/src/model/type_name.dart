@@ -25,6 +25,10 @@ class TypeName extends EnumClass {
   static const TypeName timelineTimelineModule = _$timelineTimelineModule;
   @BuiltValueEnumConst(wireName: r'TweetTombstone')
   static const TypeName tweetTombstone = _$tweetTombstone;
+  @BuiltValueEnumConst(wireName: r'TimelinePrompt')
+  static const TypeName timelinePrompt = _$timelinePrompt;
+  @BuiltValueEnumConst(wireName: r'TimelineMessagePrompt')
+  static const TypeName timelineMessagePrompt = _$timelineMessagePrompt;
   @BuiltValueEnumConst(wireName: r'Tweet')
   static const TypeName tweet = _$tweet;
   @BuiltValueEnumConst(wireName: r'User')
