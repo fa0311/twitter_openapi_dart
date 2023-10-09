@@ -12,7 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   twitter_openapi_dart: ^0.0.6
-  flutter_inappwebview: ^5.7.2+3
+  flutter_inappwebview: ^5.8.0
   collection: ^1.17.0
   dio: "^5.0.0"
   cached_network_image: ^3.2.3
