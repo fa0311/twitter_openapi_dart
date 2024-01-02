@@ -55,9 +55,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
 final int includeProfileInterstitialType = 1; // int | 
@@ -80,7 +77,7 @@ final bool withTotalCount = true; // bool |
 
 try {
     api.getFriendsFollowingList(includeProfileInterstitialType, includeBlocking, includeBlockedBy, includeFollowedBy, includeWantRetweets, includeMuteEdge, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, skipStatus, cursor, userId, count, withTotalCount);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling V11GetApi->getFriendsFollowingList: $e\n');
 }
 ```
@@ -164,9 +161,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11GetApi();
 final int includeExtIsBlueVerified = 1; // int | 
@@ -178,7 +172,7 @@ final String resultType = events,users,topics; // String |
 
 try {
     api.getSearchTypeahead(includeExtIsBlueVerified, includeExtVerifiedType, includeExtProfileImageShape, q, src, resultType);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling V11GetApi->getSearchTypeahead: $e\n');
 }
 ```

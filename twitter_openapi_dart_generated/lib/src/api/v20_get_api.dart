@@ -65,7 +65,7 @@ class V20GetApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> getSearchAdaptive({
     int includeProfileInterstitialType = 1,
     int includeBlocking = 1,

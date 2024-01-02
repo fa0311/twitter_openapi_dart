@@ -56,9 +56,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserApi();
 final String pathQueryId = Lxg1V9AiIzzXEiP2c8dRnw; // String | 
@@ -68,7 +65,7 @@ final String features = {"hidden_profile_likes_enabled": false, "responsive_web_
 try {
     final response = api.getUserByRestId(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUserByRestId: $e\n');
 }
 ```
@@ -138,9 +135,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserApi();
 final String pathQueryId = sLVLhk0bGj3MVFEKTdax1w; // String | 
@@ -150,7 +144,7 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 try {
     final response = api.getUserByScreenName(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUserByScreenName: $e\n');
 }
 ```
@@ -220,9 +214,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserApi();
 final String pathQueryId = GD4q8bBE2i6cqWw2iT74Gg; // String | 
@@ -232,7 +223,7 @@ final String features = {"responsive_web_graphql_exclude_directive_enabled": tru
 try {
     final response = api.getUsersByRestIds(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUsersByRestIds: $e\n');
 }
 ```

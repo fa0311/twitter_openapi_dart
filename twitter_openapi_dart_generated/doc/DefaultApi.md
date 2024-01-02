@@ -54,9 +54,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getDefaultApi();
 final String pathQueryId = 9zwVLJ48lmVUk8u_Gh9DmA; // String | 
@@ -66,7 +63,7 @@ final String features = {}; // String |
 try {
     final response = api.getProfileSpotlightsQuery(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n');
 }
 ```

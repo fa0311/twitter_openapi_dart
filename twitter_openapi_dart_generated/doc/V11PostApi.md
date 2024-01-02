@@ -55,9 +55,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11PostApi();
 final int includeBlockedBy = 56; // int | 
@@ -77,7 +74,7 @@ final String userId = userId_example; // String |
 
 try {
     api.postCreateFriendships(includeBlockedBy, includeBlocking, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtProfileImageShape, includeExtVerifiedType, includeFollowedBy, includeMuteEdge, includeProfileInterstitialType, includeWantRetweets, skipStatus, userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling V11PostApi->postCreateFriendships: $e\n');
 }
 ```
@@ -158,9 +155,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getV11PostApi();
 final int includeBlockedBy = 56; // int | 
@@ -180,7 +174,7 @@ final String userId = userId_example; // String |
 
 try {
     api.postDestroyFriendships(includeBlockedBy, includeBlocking, includeCanDm, includeCanMediaTag, includeExtHasNftAvatar, includeExtIsBlueVerified, includeExtProfileImageShape, includeExtVerifiedType, includeFollowedBy, includeMuteEdge, includeProfileInterstitialType, includeWantRetweets, skipStatus, userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling V11PostApi->postDestroyFriendships: $e\n');
 }
 ```

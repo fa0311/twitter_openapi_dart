@@ -34,7 +34,7 @@ class UserListApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<FollowResponse>> getFollowers({
     required String pathQueryId,
     String variables =
@@ -48,8 +48,10 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/Followers'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/Followers'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -143,10 +145,10 @@ class UserListApi {
               specifiedType: const FullType(FollowResponse),
             ) as FollowResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -180,7 +182,7 @@ class UserListApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<FollowResponse>> getFollowersYouKnow({
     required String pathQueryId,
     String variables =
@@ -195,8 +197,10 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/FollowersYouKnow'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/FollowersYouKnow'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -292,10 +296,10 @@ class UserListApi {
               specifiedType: const FullType(FollowResponse),
             ) as FollowResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -328,7 +332,7 @@ class UserListApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [FollowResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<FollowResponse>> getFollowing({
     required String pathQueryId,
     String variables =
@@ -342,8 +346,10 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/Following'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/Following'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -437,10 +443,10 @@ class UserListApi {
               specifiedType: const FullType(FollowResponse),
             ) as FollowResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -473,7 +479,7 @@ class UserListApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TweetFavoritersResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<TweetFavoritersResponse>> getTweetFavoriters({
     required String pathQueryId,
     String variables =
@@ -487,8 +493,10 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/Favoriters'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/Favoriters'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -582,10 +590,10 @@ class UserListApi {
               specifiedType: const FullType(TweetFavoritersResponse),
             ) as TweetFavoritersResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -618,7 +626,7 @@ class UserListApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TweetRetweetersResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<TweetRetweetersResponse>> getTweetRetweeters({
     required String pathQueryId,
     String variables =
@@ -632,8 +640,10 @@ class UserListApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/Retweeters'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/Retweeters'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -727,10 +737,10 @@ class UserListApi {
               specifiedType: const FullType(TweetRetweetersResponse),
             ) as TweetRetweetersResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

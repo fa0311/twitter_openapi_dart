@@ -59,9 +59,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = ojPdsZsimiJrUGLR1sjUtA; // String | 
@@ -70,7 +67,7 @@ final PostCreateRetweetRequest postCreateRetweetRequest = ; // PostCreateRetweet
 try {
     final response = api.postCreateRetweet(pathQueryId, postCreateRetweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postCreateRetweet: $e\n');
 }
 ```
@@ -139,9 +136,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = 1RyAhNwby-gzGCRVsMxKbQ; // String | 
@@ -150,7 +144,7 @@ final PostCreateTweetRequest postCreateTweetRequest = ; // PostCreateTweetReques
 try {
     final response = api.postCreateTweet(pathQueryId, postCreateTweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postCreateTweet: $e\n');
 }
 ```
@@ -219,9 +213,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = iQtK4dl5hBmXewYZuEOKVw; // String | 
@@ -230,7 +221,7 @@ final PostDeleteRetweetRequest postDeleteRetweetRequest = ; // PostDeleteRetweet
 try {
     final response = api.postDeleteRetweet(pathQueryId, postDeleteRetweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postDeleteRetweet: $e\n');
 }
 ```
@@ -299,9 +290,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = VaenaVgh5q5ih7kvyVjgtg; // String | 
@@ -310,7 +298,7 @@ final PostDeleteTweetRequest postDeleteTweetRequest = ; // PostDeleteTweetReques
 try {
     final response = api.postDeleteTweet(pathQueryId, postDeleteTweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postDeleteTweet: $e\n');
 }
 ```
@@ -379,9 +367,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = lI07N6Otwv1PhnEgXILM7A; // String | 
@@ -390,7 +375,7 @@ final PostFavoriteTweetRequest postFavoriteTweetRequest = ; // PostFavoriteTweet
 try {
     final response = api.postFavoriteTweet(pathQueryId, postFavoriteTweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postFavoriteTweet: $e\n');
 }
 ```
@@ -459,9 +444,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
 final String pathQueryId = ZYKSe-w7KEslx3JhSIk5LA; // String | 
@@ -470,7 +452,7 @@ final PostUnfavoriteTweetRequest postUnfavoriteTweetRequest = ; // PostUnfavorit
 try {
     final response = api.postUnfavoriteTweet(pathQueryId, postUnfavoriteTweetRequest);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PostApi->postUnfavoriteTweet: $e\n');
 }
 ```

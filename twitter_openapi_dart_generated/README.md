@@ -26,7 +26,7 @@ If this Dart package is published to Github, please include the following in pub
 dependencies:
   twitter_openapi_dart_generated:
     git:
-      url: https://github.com/fa0311/twitter_openapi_dart.git
+      url: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
       #ref: main
 ```
 
@@ -54,7 +54,7 @@ final String features = {}; // String |
 try {
     final response = await api.getProfileSpotlightsQuery(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print("Exception when calling DefaultApi->getProfileSpotlightsQuery: $e\n");
 }
 
@@ -251,7 +251,7 @@ Authentication schemes defined for the API:
 
 ### BearerAuth
 
-- **Type**: HTTP basic authentication
+- **Type**: HTTP Bearer Token authentication
 
 ### ClientLanguage
 

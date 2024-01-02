@@ -32,7 +32,7 @@ class DefaultApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<ProfileResponse>> getProfileSpotlightsQuery({
     required String pathQueryId,
     String variables = '{"screen_name": "elonmusk"}',
@@ -44,8 +44,10 @@ class DefaultApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/ProfileSpotlightsQuery'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/ProfileSpotlightsQuery'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -139,10 +141,10 @@ class DefaultApi {
               specifiedType: const FullType(ProfileResponse),
             ) as ProfileResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

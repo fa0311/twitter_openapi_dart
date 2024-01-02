@@ -58,9 +58,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserListApi();
 final String pathQueryId = djdTXDIk2qhd4OStqlUFeQ; // String | 
@@ -70,7 +67,7 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 try {
     final response = api.getFollowers(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserListApi->getFollowers: $e\n');
 }
 ```
@@ -140,9 +137,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserListApi();
 final String pathQueryId = W9Iz6TVLymzCWjG2uOFKZg; // String | 
@@ -153,7 +147,7 @@ final String fieldToggles = {"withArticleRichContentState": false}; // String |
 try {
     final response = api.getFollowersYouKnow(pathQueryId, variables, features, fieldToggles);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserListApi->getFollowersYouKnow: $e\n');
 }
 ```
@@ -224,9 +218,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserListApi();
 final String pathQueryId = IWP6Zt14sARO29lJT35bBw; // String | 
@@ -236,7 +227,7 @@ final String features = {"blue_business_profile_image_shape_enabled": true, "res
 try {
     final response = api.getFollowing(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserListApi->getFollowing: $e\n');
 }
 ```
@@ -306,9 +297,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserListApi();
 final String pathQueryId = rUyh8HWk8IXv_fvVKj3QjA; // String | 
@@ -318,7 +306,7 @@ final String features = {"rweb_lists_timeline_redesign_enabled": true, "responsi
 try {
     final response = api.getTweetFavoriters(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserListApi->getTweetFavoriters: $e\n');
 }
 ```
@@ -388,9 +376,6 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('GuestToken').apiKeyPrefix = 'Bearer';
-// TODO Configure HTTP basic authorization: BearerAuth
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').username = 'YOUR_USERNAME'
-//defaultApiClient.getAuthentication<HttpBasicAuth>('BearerAuth').password = 'YOUR_PASSWORD';
 
 final api = TwitterOpenapiDartGenerated().getUserListApi();
 final String pathQueryId = Gnw_Swm60cS-biSLn2OWNw; // String | 
@@ -400,7 +385,7 @@ final String features = {"rweb_lists_timeline_redesign_enabled": true, "responsi
 try {
     final response = api.getTweetRetweeters(pathQueryId, variables, features);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserListApi->getTweetRetweeters: $e\n');
 }
 ```

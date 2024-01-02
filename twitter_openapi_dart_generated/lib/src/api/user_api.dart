@@ -33,7 +33,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserResponse>> getUserByRestId({
     required String pathQueryId,
     String variables =
@@ -47,8 +47,10 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/UserByRestId'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/UserByRestId'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -142,10 +144,10 @@ class UserApi {
               specifiedType: const FullType(UserResponse),
             ) as UserResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -178,7 +180,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserResponse>> getUserByScreenName({
     required String pathQueryId,
     String variables =
@@ -192,8 +194,10 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/UserByScreenName'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/UserByScreenName'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -287,10 +291,10 @@ class UserApi {
               specifiedType: const FullType(UserResponse),
             ) as UserResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -323,7 +327,7 @@ class UserApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UsersResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UsersResponse>> getUsersByRestIds({
     required String pathQueryId,
     String variables = '{"userIds": ["44196397"]}',
@@ -336,8 +340,10 @@ class UserApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/UsersByRestIds'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/UsersByRestIds'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -431,10 +437,10 @@ class UserApi {
               specifiedType: const FullType(UsersResponse),
             ) as UsersResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
