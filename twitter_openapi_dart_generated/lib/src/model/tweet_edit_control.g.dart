@@ -8,11 +8,15 @@ part of 'tweet_edit_control.dart';
 
 class _$TweetEditControl extends TweetEditControl {
   @override
+  final TweetEditControlInitial? editControlInitial;
+  @override
   final BuiltList<String>? editTweetIds;
   @override
   final String? editableUntilMsecs;
   @override
   final String? editsRemaining;
+  @override
+  final String? initialTweetId;
   @override
   final bool? isEditEligible;
 
@@ -21,9 +25,11 @@ class _$TweetEditControl extends TweetEditControl {
       (new TweetEditControlBuilder()..update(updates))._build();
 
   _$TweetEditControl._(
-      {this.editTweetIds,
+      {this.editControlInitial,
+      this.editTweetIds,
       this.editableUntilMsecs,
       this.editsRemaining,
+      this.initialTweetId,
       this.isEditEligible})
       : super._();
 
@@ -39,18 +45,22 @@ class _$TweetEditControl extends TweetEditControl {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TweetEditControl &&
+        editControlInitial == other.editControlInitial &&
         editTweetIds == other.editTweetIds &&
         editableUntilMsecs == other.editableUntilMsecs &&
         editsRemaining == other.editsRemaining &&
+        initialTweetId == other.initialTweetId &&
         isEditEligible == other.isEditEligible;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, editControlInitial.hashCode);
     _$hash = $jc(_$hash, editTweetIds.hashCode);
     _$hash = $jc(_$hash, editableUntilMsecs.hashCode);
     _$hash = $jc(_$hash, editsRemaining.hashCode);
+    _$hash = $jc(_$hash, initialTweetId.hashCode);
     _$hash = $jc(_$hash, isEditEligible.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -59,9 +69,11 @@ class _$TweetEditControl extends TweetEditControl {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TweetEditControl')
+          ..add('editControlInitial', editControlInitial)
           ..add('editTweetIds', editTweetIds)
           ..add('editableUntilMsecs', editableUntilMsecs)
           ..add('editsRemaining', editsRemaining)
+          ..add('initialTweetId', initialTweetId)
           ..add('isEditEligible', isEditEligible))
         .toString();
   }
@@ -70,6 +82,12 @@ class _$TweetEditControl extends TweetEditControl {
 class TweetEditControlBuilder
     implements Builder<TweetEditControl, TweetEditControlBuilder> {
   _$TweetEditControl? _$v;
+
+  TweetEditControlInitialBuilder? _editControlInitial;
+  TweetEditControlInitialBuilder get editControlInitial =>
+      _$this._editControlInitial ??= new TweetEditControlInitialBuilder();
+  set editControlInitial(TweetEditControlInitialBuilder? editControlInitial) =>
+      _$this._editControlInitial = editControlInitial;
 
   ListBuilder<String>? _editTweetIds;
   ListBuilder<String> get editTweetIds =>
@@ -87,6 +105,11 @@ class TweetEditControlBuilder
   set editsRemaining(String? editsRemaining) =>
       _$this._editsRemaining = editsRemaining;
 
+  String? _initialTweetId;
+  String? get initialTweetId => _$this._initialTweetId;
+  set initialTweetId(String? initialTweetId) =>
+      _$this._initialTweetId = initialTweetId;
+
   bool? _isEditEligible;
   bool? get isEditEligible => _$this._isEditEligible;
   set isEditEligible(bool? isEditEligible) =>
@@ -99,9 +122,11 @@ class TweetEditControlBuilder
   TweetEditControlBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _editControlInitial = $v.editControlInitial?.toBuilder();
       _editTweetIds = $v.editTweetIds?.toBuilder();
       _editableUntilMsecs = $v.editableUntilMsecs;
       _editsRemaining = $v.editsRemaining;
+      _initialTweetId = $v.initialTweetId;
       _isEditEligible = $v.isEditEligible;
       _$v = null;
     }
@@ -127,13 +152,17 @@ class TweetEditControlBuilder
     try {
       _$result = _$v ??
           new _$TweetEditControl._(
+              editControlInitial: _editControlInitial?.build(),
               editTweetIds: _editTweetIds?.build(),
               editableUntilMsecs: editableUntilMsecs,
               editsRemaining: editsRemaining,
+              initialTweetId: initialTweetId,
               isEditEligible: isEditEligible);
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'editControlInitial';
+        _editControlInitial?.build();
         _$failedField = 'editTweetIds';
         _editTweetIds?.build();
       } catch (e) {

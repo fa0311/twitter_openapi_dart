@@ -6,19 +6,89 @@ part of 'timeline_timeline_module.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const TimelineTimelineModuleDisplayTypeEnum
+    _$timelineTimelineModuleDisplayTypeEnum_vertical =
+    const TimelineTimelineModuleDisplayTypeEnum._('vertical');
+const TimelineTimelineModuleDisplayTypeEnum
+    _$timelineTimelineModuleDisplayTypeEnum_verticalConversation =
+    const TimelineTimelineModuleDisplayTypeEnum._('verticalConversation');
+const TimelineTimelineModuleDisplayTypeEnum
+    _$timelineTimelineModuleDisplayTypeEnum_carousel =
+    const TimelineTimelineModuleDisplayTypeEnum._('carousel');
+
+TimelineTimelineModuleDisplayTypeEnum
+    _$timelineTimelineModuleDisplayTypeEnumValueOf(String name) {
+  switch (name) {
+    case 'vertical':
+      return _$timelineTimelineModuleDisplayTypeEnum_vertical;
+    case 'verticalConversation':
+      return _$timelineTimelineModuleDisplayTypeEnum_verticalConversation;
+    case 'carousel':
+      return _$timelineTimelineModuleDisplayTypeEnum_carousel;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<TimelineTimelineModuleDisplayTypeEnum>
+    _$timelineTimelineModuleDisplayTypeEnumValues = new BuiltSet<
+        TimelineTimelineModuleDisplayTypeEnum>(const <TimelineTimelineModuleDisplayTypeEnum>[
+  _$timelineTimelineModuleDisplayTypeEnum_vertical,
+  _$timelineTimelineModuleDisplayTypeEnum_verticalConversation,
+  _$timelineTimelineModuleDisplayTypeEnum_carousel,
+]);
+
+Serializer<TimelineTimelineModuleDisplayTypeEnum>
+    _$timelineTimelineModuleDisplayTypeEnumSerializer =
+    new _$TimelineTimelineModuleDisplayTypeEnumSerializer();
+
+class _$TimelineTimelineModuleDisplayTypeEnumSerializer
+    implements PrimitiveSerializer<TimelineTimelineModuleDisplayTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'vertical': 'Vertical',
+    'verticalConversation': 'VerticalConversation',
+    'carousel': 'Carousel',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'Vertical': 'vertical',
+    'VerticalConversation': 'verticalConversation',
+    'Carousel': 'carousel',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    TimelineTimelineModuleDisplayTypeEnum
+  ];
+  @override
+  final String wireName = 'TimelineTimelineModuleDisplayTypeEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, TimelineTimelineModuleDisplayTypeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  TimelineTimelineModuleDisplayTypeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      TimelineTimelineModuleDisplayTypeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$TimelineTimelineModule extends TimelineTimelineModule {
   @override
   final TypeName typename;
   @override
-  final JsonObject clientEventInfo;
+  final BuiltMap<String, JsonObject?> clientEventInfo;
   @override
-  final String displayType;
+  final TimelineTimelineModuleDisplayTypeEnum displayType;
   @override
   final ContentEntryType entryType;
   @override
-  final JsonObject? footer;
+  final BuiltMap<String, JsonObject?>? footer;
   @override
-  final JsonObject? header;
+  final BuiltMap<String, JsonObject?>? header;
   @override
   final BuiltList<ModuleItem>? items;
 
@@ -103,26 +173,32 @@ class TimelineTimelineModuleBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  JsonObject? _clientEventInfo;
-  JsonObject? get clientEventInfo => _$this._clientEventInfo;
-  set clientEventInfo(JsonObject? clientEventInfo) =>
+  MapBuilder<String, JsonObject?>? _clientEventInfo;
+  MapBuilder<String, JsonObject?> get clientEventInfo =>
+      _$this._clientEventInfo ??= new MapBuilder<String, JsonObject?>();
+  set clientEventInfo(MapBuilder<String, JsonObject?>? clientEventInfo) =>
       _$this._clientEventInfo = clientEventInfo;
 
-  String? _displayType;
-  String? get displayType => _$this._displayType;
-  set displayType(String? displayType) => _$this._displayType = displayType;
+  TimelineTimelineModuleDisplayTypeEnum? _displayType;
+  TimelineTimelineModuleDisplayTypeEnum? get displayType => _$this._displayType;
+  set displayType(TimelineTimelineModuleDisplayTypeEnum? displayType) =>
+      _$this._displayType = displayType;
 
   ContentEntryType? _entryType;
   ContentEntryType? get entryType => _$this._entryType;
   set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
 
-  JsonObject? _footer;
-  JsonObject? get footer => _$this._footer;
-  set footer(JsonObject? footer) => _$this._footer = footer;
+  MapBuilder<String, JsonObject?>? _footer;
+  MapBuilder<String, JsonObject?> get footer =>
+      _$this._footer ??= new MapBuilder<String, JsonObject?>();
+  set footer(MapBuilder<String, JsonObject?>? footer) =>
+      _$this._footer = footer;
 
-  JsonObject? _header;
-  JsonObject? get header => _$this._header;
-  set header(JsonObject? header) => _$this._header = header;
+  MapBuilder<String, JsonObject?>? _header;
+  MapBuilder<String, JsonObject?> get header =>
+      _$this._header ??= new MapBuilder<String, JsonObject?>();
+  set header(MapBuilder<String, JsonObject?>? header) =>
+      _$this._header = header;
 
   ListBuilder<ModuleItem>? _items;
   ListBuilder<ModuleItem> get items =>
@@ -137,11 +213,11 @@ class TimelineTimelineModuleBuilder
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
-      _clientEventInfo = $v.clientEventInfo;
+      _clientEventInfo = $v.clientEventInfo.toBuilder();
       _displayType = $v.displayType;
       _entryType = $v.entryType;
-      _footer = $v.footer;
-      _header = $v.header;
+      _footer = $v.footer?.toBuilder();
+      _header = $v.header?.toBuilder();
       _items = $v.items?.toBuilder();
       _$v = null;
     }
@@ -169,20 +245,24 @@ class TimelineTimelineModuleBuilder
           new _$TimelineTimelineModule._(
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineTimelineModule', 'typename'),
-              clientEventInfo: BuiltValueNullFieldError.checkNotNull(
-                  clientEventInfo,
-                  r'TimelineTimelineModule',
-                  'clientEventInfo'),
+              clientEventInfo: clientEventInfo.build(),
               displayType: BuiltValueNullFieldError.checkNotNull(
                   displayType, r'TimelineTimelineModule', 'displayType'),
               entryType: BuiltValueNullFieldError.checkNotNull(
                   entryType, r'TimelineTimelineModule', 'entryType'),
-              footer: footer,
-              header: header,
+              footer: _footer?.build(),
+              header: _header?.build(),
               items: _items?.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'clientEventInfo';
+        clientEventInfo.build();
+
+        _$failedField = 'footer';
+        _footer?.build();
+        _$failedField = 'header';
+        _header?.build();
         _$failedField = 'items';
         _items?.build();
       } catch (e) {

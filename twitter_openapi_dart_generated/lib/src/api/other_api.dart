@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:twitter_openapi_dart_generated/src/model/other_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/other200_response.dart';
 
 class OtherApi {
   final Dio _dio;
@@ -27,9 +27,9 @@ class OtherApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [OtherResponse] as data
+  /// Returns a [Future] containing a [Response] with a [Other200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<OtherResponse>> other({
+  Future<Response<Other200Response>> other({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -53,32 +53,32 @@ class OtherApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -98,6 +98,72 @@ class OtherApi {
             'scheme': 'bearer',
             'name': 'BearerAuth',
           },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
+          },
         ],
         ...?extra,
       },
@@ -112,7 +178,7 @@ class OtherApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    OtherResponse? _responseData;
+    Other200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -120,8 +186,8 @@ class OtherApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(OtherResponse),
-            ) as OtherResponse;
+              specifiedType: const FullType(Other200Response),
+            ) as Other200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -132,7 +198,7 @@ class OtherApi {
       );
     }
 
-    return Response<OtherResponse>(
+    return Response<Other200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

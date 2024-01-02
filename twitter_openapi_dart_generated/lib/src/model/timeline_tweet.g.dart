@@ -14,7 +14,7 @@ class _$TimelineTweet extends TimelineTweet {
   @override
   final ContentItemType itemType;
   @override
-  final JsonObject? promotedMetadata;
+  final BuiltMap<String, JsonObject?>? promotedMetadata;
   @override
   final String tweetDisplayType;
   @override
@@ -104,9 +104,10 @@ class TimelineTweetBuilder
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
-  JsonObject? _promotedMetadata;
-  JsonObject? get promotedMetadata => _$this._promotedMetadata;
-  set promotedMetadata(JsonObject? promotedMetadata) =>
+  MapBuilder<String, JsonObject?>? _promotedMetadata;
+  MapBuilder<String, JsonObject?> get promotedMetadata =>
+      _$this._promotedMetadata ??= new MapBuilder<String, JsonObject?>();
+  set promotedMetadata(MapBuilder<String, JsonObject?>? promotedMetadata) =>
       _$this._promotedMetadata = promotedMetadata;
 
   String? _tweetDisplayType;
@@ -130,7 +131,7 @@ class TimelineTweetBuilder
       _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
       _itemType = $v.itemType;
-      _promotedMetadata = $v.promotedMetadata;
+      _promotedMetadata = $v.promotedMetadata?.toBuilder();
       _tweetDisplayType = $v.tweetDisplayType;
       _tweetResults = $v.tweetResults.toBuilder();
       _$v = null;
@@ -162,7 +163,7 @@ class TimelineTweetBuilder
                   typename, r'TimelineTweet', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineTweet', 'itemType'),
-              promotedMetadata: promotedMetadata,
+              promotedMetadata: _promotedMetadata?.build(),
               tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
                   tweetDisplayType, r'TimelineTweet', 'tweetDisplayType'),
               tweetResults: tweetResults.build());
@@ -171,6 +172,9 @@ class TimelineTweetBuilder
       try {
         _$failedField = 'socialContext';
         _socialContext?.build();
+
+        _$failedField = 'promotedMetadata';
+        _promotedMetadata?.build();
 
         _$failedField = 'tweetResults';
         tweetResults.build();

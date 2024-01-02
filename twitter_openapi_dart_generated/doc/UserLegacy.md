@@ -16,13 +16,13 @@ Name | Type | Description | Notes
 **defaultProfile** | **bool** |  | [default to false]
 **defaultProfileImage** | **bool** |  | [default to false]
 **description** | **String** |  | 
-**entities** | [**JsonObject**](.md) |  | 
+**entities** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | 
 **fastFollowersCount** | **int** |  | 
 **favouritesCount** | **int** |  | [default to 0]
-**followRequestSent** | **bool** |  | [default to false]
-**followedBy** | **bool** |  | [default to false]
+**followRequestSent** | **bool** |  | [optional] [default to false]
+**followedBy** | **bool** |  | [optional] [default to false]
 **followersCount** | **int** |  | [default to 0]
-**following** | **bool** |  | [default to false]
+**following** | **bool** |  | [optional] [default to false]
 **friendsCount** | **int** |  | [default to 0]
 **hasCustomTimelines** | **bool** |  | [default to false]
 **isTranslator** | **bool** |  | [default to false]
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 **muting** | **bool** |  | [default to false]
 **name** | **String** |  | 
 **normalFollowersCount** | **int** |  | [default to 0]
-**notifications** | **bool** |  | [default to false]
+**notifications** | **bool** |  | [optional] [default to false]
 **pinnedTweetIdsStr** | **BuiltList&lt;String&gt;** |  | 
 **possiblySensitive** | **bool** |  | [default to false]
 **profileBannerExtensions** | [**JsonObject**](.md) |  | [optional] 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **profileImageExtensions** | [**JsonObject**](.md) |  | [optional] 
 **profileImageUrlHttps** | **String** |  | 
 **profileInterstitialType** | **String** |  | 
-**protected** | **bool** |  | [default to false]
+**protected** | **bool** |  | [optional] [default to false]
 **screenName** | **String** |  | 
 **statusesCount** | **int** |  | [default to 0]
 **translatorType** | **String** |  | 

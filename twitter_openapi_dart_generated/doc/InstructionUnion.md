@@ -16,14 +16,16 @@ Name | Type | Description | Notes
 **entry** | [**TimelineAddEntry**](TimelineAddEntry.md) |  | 
 **entryIdToReplace** | **String** |  | 
 **alertType** | **String** |  | [optional] 
-**colorConfig** | [**JsonObject**](.md) |  | [optional] 
+**colorConfig** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **displayDurationMs** | **int** |  | [optional] 
 **displayLocation** | **String** |  | [optional] 
-**iconDisplayInfo** | [**JsonObject**](.md) |  | [optional] 
+**iconDisplayInfo** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **richText** | [**TimelineShowAlertRichText**](TimelineShowAlertRichText.md) |  | 
 **triggerDelayMs** | **int** |  | [optional] 
 **usersResults** | [**BuiltList&lt;UserResults&gt;**](UserResults.md) |  | 
 **direction** | **String** |  | 
+**clientEventInfo** | [**ClientEventInfo**](ClientEventInfo.md) |  | 
+**cover** | [**TimelineHalfCover**](TimelineHalfCover.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

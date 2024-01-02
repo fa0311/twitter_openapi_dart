@@ -14,7 +14,7 @@ class _$UserResultByScreenNameResult extends UserResultByScreenNameResult {
   @override
   final UserResultByScreenNameLegacy legacy;
   @override
-  final JsonObject profilemodules;
+  final BuiltMap<String, JsonObject?> profilemodules;
   @override
   final String restId;
 
@@ -105,9 +105,10 @@ class UserResultByScreenNameResultBuilder
   set legacy(UserResultByScreenNameLegacyBuilder? legacy) =>
       _$this._legacy = legacy;
 
-  JsonObject? _profilemodules;
-  JsonObject? get profilemodules => _$this._profilemodules;
-  set profilemodules(JsonObject? profilemodules) =>
+  MapBuilder<String, JsonObject?>? _profilemodules;
+  MapBuilder<String, JsonObject?> get profilemodules =>
+      _$this._profilemodules ??= new MapBuilder<String, JsonObject?>();
+  set profilemodules(MapBuilder<String, JsonObject?>? profilemodules) =>
       _$this._profilemodules = profilemodules;
 
   String? _restId;
@@ -124,7 +125,7 @@ class UserResultByScreenNameResultBuilder
       _typename = $v.typename;
       _id = $v.id;
       _legacy = $v.legacy.toBuilder();
-      _profilemodules = $v.profilemodules;
+      _profilemodules = $v.profilemodules.toBuilder();
       _restId = $v.restId;
       _$v = null;
     }
@@ -155,10 +156,7 @@ class UserResultByScreenNameResultBuilder
               id: BuiltValueNullFieldError.checkNotNull(
                   id, r'UserResultByScreenNameResult', 'id'),
               legacy: legacy.build(),
-              profilemodules: BuiltValueNullFieldError.checkNotNull(
-                  profilemodules,
-                  r'UserResultByScreenNameResult',
-                  'profilemodules'),
+              profilemodules: profilemodules.build(),
               restId: BuiltValueNullFieldError.checkNotNull(
                   restId, r'UserResultByScreenNameResult', 'restId'));
     } catch (_) {
@@ -166,6 +164,8 @@ class UserResultByScreenNameResultBuilder
       try {
         _$failedField = 'legacy';
         legacy.build();
+        _$failedField = 'profilemodules';
+        profilemodules.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UserResultByScreenNameResult', _$failedField, e.toString());

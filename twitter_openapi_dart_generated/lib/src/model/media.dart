@@ -6,6 +6,7 @@
 import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart_generated/src/model/media_sizes.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,10 +17,9 @@ part 'media.g.dart';
 /// Properties:
 /// * [displayUrl]
 /// * [expandedUrl]
-/// * [extMediaAvailability]
+/// * [features]
 /// * [idStr]
 /// * [indices]
-/// * [mediaKey]
 /// * [mediaUrlHttps]
 /// * [originalInfo]
 /// * [sizes]
@@ -33,17 +33,14 @@ abstract class Media implements Built<Media, MediaBuilder> {
   @BuiltValueField(wireName: r'expanded_url')
   String get expandedUrl;
 
-  @BuiltValueField(wireName: r'ext_media_availability')
-  JsonObject? get extMediaAvailability;
+  @BuiltValueField(wireName: r'features')
+  JsonObject? get features;
 
   @BuiltValueField(wireName: r'id_str')
   String get idStr;
 
   @BuiltValueField(wireName: r'indices')
   BuiltList<int> get indices;
-
-  @BuiltValueField(wireName: r'media_key')
-  String? get mediaKey;
 
   @BuiltValueField(wireName: r'media_url_https')
   String get mediaUrlHttps;
@@ -52,10 +49,11 @@ abstract class Media implements Built<Media, MediaBuilder> {
   MediaOriginalInfo get originalInfo;
 
   @BuiltValueField(wireName: r'sizes')
-  JsonObject get sizes;
+  MediaSizes get sizes;
 
   @BuiltValueField(wireName: r'type')
-  String get type;
+  MediaTypeEnum get type;
+  // enum typeEnum {  photo,  video,  animated_gif,  };
 
   @BuiltValueField(wireName: r'url')
   String get url;
@@ -93,10 +91,10 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
       object.expandedUrl,
       specifiedType: const FullType(String),
     );
-    if (object.extMediaAvailability != null) {
-      yield r'ext_media_availability';
+    if (object.features != null) {
+      yield r'features';
       yield serializers.serialize(
-        object.extMediaAvailability,
+        object.features,
         specifiedType: const FullType(JsonObject),
       );
     }
@@ -110,13 +108,6 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
       object.indices,
       specifiedType: const FullType(BuiltList, [FullType(int)]),
     );
-    if (object.mediaKey != null) {
-      yield r'media_key';
-      yield serializers.serialize(
-        object.mediaKey,
-        specifiedType: const FullType(String),
-      );
-    }
     yield r'media_url_https';
     yield serializers.serialize(
       object.mediaUrlHttps,
@@ -130,12 +121,12 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
     yield r'sizes';
     yield serializers.serialize(
       object.sizes,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(MediaSizes),
     );
     yield r'type';
     yield serializers.serialize(
       object.type,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType(MediaTypeEnum),
     );
     yield r'url';
     yield serializers.serialize(
@@ -181,12 +172,12 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
           ) as String;
           result.expandedUrl = valueDes;
           break;
-        case r'ext_media_availability':
+        case r'features':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(JsonObject),
           ) as JsonObject;
-          result.extMediaAvailability = valueDes;
+          result.features = valueDes;
           break;
         case r'id_str':
           final valueDes = serializers.deserialize(
@@ -201,13 +192,6 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
             specifiedType: const FullType(BuiltList, [FullType(int)]),
           ) as BuiltList<int>;
           result.indices.replace(valueDes);
-          break;
-        case r'media_key':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.mediaKey = valueDes;
           break;
         case r'media_url_https':
           final valueDes = serializers.deserialize(
@@ -226,15 +210,15 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
         case r'sizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.sizes = valueDes;
+            specifiedType: const FullType(MediaSizes),
+          ) as MediaSizes;
+          result.sizes.replace(valueDes);
           break;
         case r'type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(MediaTypeEnum),
+          ) as MediaTypeEnum;
           result.type = valueDes;
           break;
         case r'url':
@@ -271,4 +255,20 @@ class _$MediaSerializer implements PrimitiveSerializer<Media> {
     );
     return result.build();
   }
+}
+
+class MediaTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'photo')
+  static const MediaTypeEnum photo = _$mediaTypeEnum_photo;
+  @BuiltValueEnumConst(wireName: r'video')
+  static const MediaTypeEnum video = _$mediaTypeEnum_video;
+  @BuiltValueEnumConst(wireName: r'animated_gif')
+  static const MediaTypeEnum animatedGif = _$mediaTypeEnum_animatedGif;
+
+  static Serializer<MediaTypeEnum> get serializer => _$mediaTypeEnumSerializer;
+
+  const MediaTypeEnum._(String name) : super(name);
+
+  static BuiltSet<MediaTypeEnum> get values => _$mediaTypeEnumValues;
+  static MediaTypeEnum valueOf(String name) => _$mediaTypeEnumValueOf(name);
 }

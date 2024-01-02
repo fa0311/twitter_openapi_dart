@@ -8,14 +8,12 @@ part of 'user_results.dart';
 
 class _$UserResults extends UserResults {
   @override
-  final User result;
+  final UserUnion? result;
 
   factory _$UserResults([void Function(UserResultsBuilder)? updates]) =>
       (new UserResultsBuilder()..update(updates))._build();
 
-  _$UserResults._({required this.result}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(result, r'UserResults', 'result');
-  }
+  _$UserResults._({this.result}) : super._();
 
   @override
   UserResults rebuild(void Function(UserResultsBuilder) updates) =>
@@ -48,9 +46,9 @@ class _$UserResults extends UserResults {
 class UserResultsBuilder implements Builder<UserResults, UserResultsBuilder> {
   _$UserResults? _$v;
 
-  UserBuilder? _result;
-  UserBuilder get result => _$this._result ??= new UserBuilder();
-  set result(UserBuilder? result) => _$this._result = result;
+  UserUnionBuilder? _result;
+  UserUnionBuilder get result => _$this._result ??= new UserUnionBuilder();
+  set result(UserUnionBuilder? result) => _$this._result = result;
 
   UserResultsBuilder() {
     UserResults._defaults(this);
@@ -59,7 +57,7 @@ class UserResultsBuilder implements Builder<UserResults, UserResultsBuilder> {
   UserResultsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _result = $v.result.toBuilder();
+      _result = $v.result?.toBuilder();
       _$v = null;
     }
     return this;
@@ -82,12 +80,12 @@ class UserResultsBuilder implements Builder<UserResults, UserResultsBuilder> {
   _$UserResults _build() {
     _$UserResults _$result;
     try {
-      _$result = _$v ?? new _$UserResults._(result: result.build());
+      _$result = _$v ?? new _$UserResults._(result: _result?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'result';
-        result.build();
+        _result?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UserResults', _$failedField, e.toString());

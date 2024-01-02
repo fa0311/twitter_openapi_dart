@@ -8,7 +8,7 @@ part of 'extended_entities.dart';
 
 class _$ExtendedEntities extends ExtendedEntities {
   @override
-  final BuiltList<Media> media;
+  final BuiltList<MediaExtended> media;
 
   factory _$ExtendedEntities(
           [void Function(ExtendedEntitiesBuilder)? updates]) =>
@@ -52,9 +52,10 @@ class ExtendedEntitiesBuilder
     implements Builder<ExtendedEntities, ExtendedEntitiesBuilder> {
   _$ExtendedEntities? _$v;
 
-  ListBuilder<Media>? _media;
-  ListBuilder<Media> get media => _$this._media ??= new ListBuilder<Media>();
-  set media(ListBuilder<Media>? media) => _$this._media = media;
+  ListBuilder<MediaExtended>? _media;
+  ListBuilder<MediaExtended> get media =>
+      _$this._media ??= new ListBuilder<MediaExtended>();
+  set media(ListBuilder<MediaExtended>? media) => _$this._media = media;
 
   ExtendedEntitiesBuilder() {
     ExtendedEntities._defaults(this);

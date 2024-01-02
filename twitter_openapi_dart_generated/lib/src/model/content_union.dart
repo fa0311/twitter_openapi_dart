@@ -162,30 +162,24 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
   }
 }
 
-class ContentUnionCursorTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Top')
-  static const ContentUnionCursorTypeEnum top =
-      _$contentUnionCursorTypeEnum_top;
-  @BuiltValueEnumConst(wireName: r'Bottom')
-  static const ContentUnionCursorTypeEnum bottom =
-      _$contentUnionCursorTypeEnum_bottom;
-  @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const ContentUnionCursorTypeEnum showMore =
-      _$contentUnionCursorTypeEnum_showMore;
-  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const ContentUnionCursorTypeEnum showMoreThreads =
-      _$contentUnionCursorTypeEnum_showMoreThreads;
-  @BuiltValueEnumConst(wireName: r'Gap')
-  static const ContentUnionCursorTypeEnum gap =
-      _$contentUnionCursorTypeEnum_gap;
+class ContentUnionDisplayTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Vertical')
+  static const ContentUnionDisplayTypeEnum vertical =
+      _$contentUnionDisplayTypeEnum_vertical;
+  @BuiltValueEnumConst(wireName: r'VerticalConversation')
+  static const ContentUnionDisplayTypeEnum verticalConversation =
+      _$contentUnionDisplayTypeEnum_verticalConversation;
+  @BuiltValueEnumConst(wireName: r'Carousel')
+  static const ContentUnionDisplayTypeEnum carousel =
+      _$contentUnionDisplayTypeEnum_carousel;
 
-  static Serializer<ContentUnionCursorTypeEnum> get serializer =>
-      _$contentUnionCursorTypeEnumSerializer;
+  static Serializer<ContentUnionDisplayTypeEnum> get serializer =>
+      _$contentUnionDisplayTypeEnumSerializer;
 
-  const ContentUnionCursorTypeEnum._(String name) : super(name);
+  const ContentUnionDisplayTypeEnum._(String name) : super(name);
 
-  static BuiltSet<ContentUnionCursorTypeEnum> get values =>
-      _$contentUnionCursorTypeEnumValues;
-  static ContentUnionCursorTypeEnum valueOf(String name) =>
-      _$contentUnionCursorTypeEnumValueOf(name);
+  static BuiltSet<ContentUnionDisplayTypeEnum> get values =>
+      _$contentUnionDisplayTypeEnumValues;
+  static ContentUnionDisplayTypeEnum valueOf(String name) =>
+      _$contentUnionDisplayTypeEnumValueOf(name);
 }

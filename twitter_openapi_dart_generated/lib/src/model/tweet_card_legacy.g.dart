@@ -8,7 +8,7 @@ part of 'tweet_card_legacy.dart';
 
 class _$TweetCardLegacy extends TweetCardLegacy {
   @override
-  final BuiltList<TweetCardLegacyBindingValuesInner> bindingValues;
+  final BuiltList<TweetCardLegacyBindingValue> bindingValues;
   @override
   final String name;
   @override
@@ -67,12 +67,10 @@ class TweetCardLegacyBuilder
     implements Builder<TweetCardLegacy, TweetCardLegacyBuilder> {
   _$TweetCardLegacy? _$v;
 
-  ListBuilder<TweetCardLegacyBindingValuesInner>? _bindingValues;
-  ListBuilder<TweetCardLegacyBindingValuesInner> get bindingValues =>
-      _$this._bindingValues ??=
-          new ListBuilder<TweetCardLegacyBindingValuesInner>();
-  set bindingValues(
-          ListBuilder<TweetCardLegacyBindingValuesInner>? bindingValues) =>
+  ListBuilder<TweetCardLegacyBindingValue>? _bindingValues;
+  ListBuilder<TweetCardLegacyBindingValue> get bindingValues =>
+      _$this._bindingValues ??= new ListBuilder<TweetCardLegacyBindingValue>();
+  set bindingValues(ListBuilder<TweetCardLegacyBindingValue>? bindingValues) =>
       _$this._bindingValues = bindingValues;
 
   String? _name;

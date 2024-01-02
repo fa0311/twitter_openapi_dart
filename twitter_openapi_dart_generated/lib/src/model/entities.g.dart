@@ -8,15 +8,15 @@ part of 'entities.dart';
 
 class _$Entities extends Entities {
   @override
-  final BuiltList<JsonObject> hashtags;
+  final BuiltList<BuiltMap<String, JsonObject?>> hashtags;
   @override
   final BuiltList<Media>? media;
   @override
-  final BuiltList<JsonObject> symbols;
+  final BuiltList<BuiltMap<String, JsonObject?>> symbols;
   @override
   final BuiltList<Url> urls;
   @override
-  final BuiltList<JsonObject> userMentions;
+  final BuiltList<BuiltMap<String, JsonObject?>> userMentions;
 
   factory _$Entities([void Function(EntitiesBuilder)? updates]) =>
       (new EntitiesBuilder()..update(updates))._build();
@@ -80,29 +80,30 @@ class _$Entities extends Entities {
 class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
   _$Entities? _$v;
 
-  ListBuilder<JsonObject>? _hashtags;
-  ListBuilder<JsonObject> get hashtags =>
-      _$this._hashtags ??= new ListBuilder<JsonObject>();
-  set hashtags(ListBuilder<JsonObject>? hashtags) =>
+  ListBuilder<BuiltMap<String, JsonObject?>>? _hashtags;
+  ListBuilder<BuiltMap<String, JsonObject?>> get hashtags =>
+      _$this._hashtags ??= new ListBuilder<BuiltMap<String, JsonObject?>>();
+  set hashtags(ListBuilder<BuiltMap<String, JsonObject?>>? hashtags) =>
       _$this._hashtags = hashtags;
 
   ListBuilder<Media>? _media;
   ListBuilder<Media> get media => _$this._media ??= new ListBuilder<Media>();
   set media(ListBuilder<Media>? media) => _$this._media = media;
 
-  ListBuilder<JsonObject>? _symbols;
-  ListBuilder<JsonObject> get symbols =>
-      _$this._symbols ??= new ListBuilder<JsonObject>();
-  set symbols(ListBuilder<JsonObject>? symbols) => _$this._symbols = symbols;
+  ListBuilder<BuiltMap<String, JsonObject?>>? _symbols;
+  ListBuilder<BuiltMap<String, JsonObject?>> get symbols =>
+      _$this._symbols ??= new ListBuilder<BuiltMap<String, JsonObject?>>();
+  set symbols(ListBuilder<BuiltMap<String, JsonObject?>>? symbols) =>
+      _$this._symbols = symbols;
 
   ListBuilder<Url>? _urls;
   ListBuilder<Url> get urls => _$this._urls ??= new ListBuilder<Url>();
   set urls(ListBuilder<Url>? urls) => _$this._urls = urls;
 
-  ListBuilder<JsonObject>? _userMentions;
-  ListBuilder<JsonObject> get userMentions =>
-      _$this._userMentions ??= new ListBuilder<JsonObject>();
-  set userMentions(ListBuilder<JsonObject>? userMentions) =>
+  ListBuilder<BuiltMap<String, JsonObject?>>? _userMentions;
+  ListBuilder<BuiltMap<String, JsonObject?>> get userMentions =>
+      _$this._userMentions ??= new ListBuilder<BuiltMap<String, JsonObject?>>();
+  set userMentions(ListBuilder<BuiltMap<String, JsonObject?>>? userMentions) =>
       _$this._userMentions = userMentions;
 
   EntitiesBuilder() {

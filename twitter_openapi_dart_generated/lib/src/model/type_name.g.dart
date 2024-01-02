@@ -20,8 +20,11 @@ const TypeName _$tweetTombstone = const TypeName._('tweetTombstone');
 const TypeName _$timelinePrompt = const TypeName._('timelinePrompt');
 const TypeName _$timelineMessagePrompt =
     const TypeName._('timelineMessagePrompt');
+const TypeName _$timelineCommunity = const TypeName._('timelineCommunity');
+const TypeName _$tweetUnavailable = const TypeName._('tweetUnavailable');
 const TypeName _$tweet = const TypeName._('tweet');
 const TypeName _$user = const TypeName._('user');
+const TypeName _$userUnavailable = const TypeName._('userUnavailable');
 
 TypeName _$valueOf(String name) {
   switch (name) {
@@ -43,10 +46,16 @@ TypeName _$valueOf(String name) {
       return _$timelinePrompt;
     case 'timelineMessagePrompt':
       return _$timelineMessagePrompt;
+    case 'timelineCommunity':
+      return _$timelineCommunity;
+    case 'tweetUnavailable':
+      return _$tweetUnavailable;
     case 'tweet':
       return _$tweet;
     case 'user':
       return _$user;
+    case 'userUnavailable':
+      return _$userUnavailable;
     default:
       throw new ArgumentError(name);
   }
@@ -62,8 +71,11 @@ final BuiltSet<TypeName> _$values = new BuiltSet<TypeName>(const <TypeName>[
   _$tweetTombstone,
   _$timelinePrompt,
   _$timelineMessagePrompt,
+  _$timelineCommunity,
+  _$tweetUnavailable,
   _$tweet,
   _$user,
+  _$userUnavailable,
 ]);
 
 class _$TypeNameMeta {
@@ -77,8 +89,11 @@ class _$TypeNameMeta {
   TypeName get tweetTombstone => _$tweetTombstone;
   TypeName get timelinePrompt => _$timelinePrompt;
   TypeName get timelineMessagePrompt => _$timelineMessagePrompt;
+  TypeName get timelineCommunity => _$timelineCommunity;
+  TypeName get tweetUnavailable => _$tweetUnavailable;
   TypeName get tweet => _$tweet;
   TypeName get user => _$user;
+  TypeName get userUnavailable => _$userUnavailable;
   TypeName valueOf(String name) => _$valueOf(name);
   BuiltSet<TypeName> get values => _$values;
 }
@@ -101,8 +116,11 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'tweetTombstone': 'TweetTombstone',
     'timelinePrompt': 'TimelinePrompt',
     'timelineMessagePrompt': 'TimelineMessagePrompt',
+    'timelineCommunity': 'TimelineCommunity',
+    'tweetUnavailable': 'TweetUnavailable',
     'tweet': 'Tweet',
     'user': 'User',
+    'userUnavailable': 'UserUnavailable',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
@@ -114,8 +132,11 @@ class _$TypeNameSerializer implements PrimitiveSerializer<TypeName> {
     'TweetTombstone': 'tweetTombstone',
     'TimelinePrompt': 'timelinePrompt',
     'TimelineMessagePrompt': 'timelineMessagePrompt',
+    'TimelineCommunity': 'timelineCommunity',
+    'TweetUnavailable': 'tweetUnavailable',
     'Tweet': 'tweet',
     'User': 'user',
+    'UserUnavailable': 'userUnavailable',
   };
 
   @override

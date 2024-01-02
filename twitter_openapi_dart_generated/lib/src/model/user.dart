@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
@@ -30,13 +31,13 @@ part 'user.g.dart';
 abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
 
   @BuiltValueField(wireName: r'affiliates_highlighted_label')
-  JsonObject get affiliatesHighlightedLabel;
+  BuiltMap<String, JsonObject?> get affiliatesHighlightedLabel;
 
   @BuiltValueField(wireName: r'business_account')
-  JsonObject? get businessAccount;
+  BuiltMap<String, JsonObject?>? get businessAccount;
 
   @BuiltValueField(wireName: r'has_graduated_access')
   bool? get hasGraduatedAccess;
@@ -101,13 +102,15 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
     yield r'affiliates_highlighted_label';
     yield serializers.serialize(
       object.affiliatesHighlightedLabel,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(
+          BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
     );
     if (object.businessAccount != null) {
       yield r'business_account';
       yield serializers.serialize(
         object.businessAccount,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     if (object.hasGraduatedAccess != null) {
@@ -194,16 +197,18 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         case r'affiliates_highlighted_label':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.affiliatesHighlightedLabel = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.affiliatesHighlightedLabel.replace(valueDes);
           break;
         case r'business_account':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.businessAccount = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.businessAccount.replace(valueDes);
           break;
         case r'has_graduated_access':
           final valueDes = serializers.deserialize(

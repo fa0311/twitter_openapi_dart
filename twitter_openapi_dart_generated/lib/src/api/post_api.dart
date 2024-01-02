@@ -8,18 +8,18 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/create_retweet_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/create_tweet_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/delete_retweet_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/delete_tweet_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/favorite_tweet_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_response_data.dart';
 
 class PostApi {
   final Dio _dio;
@@ -41,9 +41,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostCreateRetweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateRetweetResponse>> postCreateRetweet({
+  Future<Response<PostCreateRetweet200Response>> postCreateRetweet({
     required String pathQueryId,
     required PostCreateRetweetRequest postCreateRetweetRequest,
     CancelToken? cancelToken,
@@ -72,32 +72,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -116,6 +116,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -151,7 +217,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CreateRetweetResponse? _responseData;
+    PostCreateRetweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -159,8 +225,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(CreateRetweetResponse),
-            ) as CreateRetweetResponse;
+              specifiedType: const FullType(PostCreateRetweet200Response),
+            ) as PostCreateRetweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -171,7 +237,7 @@ class PostApi {
       );
     }
 
-    return Response<CreateRetweetResponse>(
+    return Response<PostCreateRetweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -196,9 +262,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostCreateTweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<CreateTweetResponse>> postCreateTweet({
+  Future<Response<PostCreateTweet200Response>> postCreateTweet({
     required String pathQueryId,
     required PostCreateTweetRequest postCreateTweetRequest,
     CancelToken? cancelToken,
@@ -227,32 +293,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -271,6 +337,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -306,7 +438,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CreateTweetResponse? _responseData;
+    PostCreateTweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -314,8 +446,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(CreateTweetResponse),
-            ) as CreateTweetResponse;
+              specifiedType: const FullType(PostCreateTweet200Response),
+            ) as PostCreateTweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -326,7 +458,7 @@ class PostApi {
       );
     }
 
-    return Response<CreateTweetResponse>(
+    return Response<PostCreateTweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -351,9 +483,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostDeleteRetweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({
+  Future<Response<PostDeleteRetweet200Response>> postDeleteRetweet({
     required String pathQueryId,
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
     CancelToken? cancelToken,
@@ -382,32 +514,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -426,6 +558,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -461,7 +659,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeleteRetweetResponse? _responseData;
+    PostDeleteRetweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -469,8 +667,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(DeleteRetweetResponse),
-            ) as DeleteRetweetResponse;
+              specifiedType: const FullType(PostDeleteRetweet200Response),
+            ) as PostDeleteRetweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -481,7 +679,7 @@ class PostApi {
       );
     }
 
-    return Response<DeleteRetweetResponse>(
+    return Response<PostDeleteRetweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -506,9 +704,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
+  /// Returns a [Future] containing a [Response] with a [PostDeleteTweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<DeleteTweetResponse>> postDeleteTweet({
+  Future<Response<PostDeleteTweet200Response>> postDeleteTweet({
     required String pathQueryId,
     required PostDeleteTweetRequest postDeleteTweetRequest,
     CancelToken? cancelToken,
@@ -537,32 +735,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -581,6 +779,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -616,7 +880,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeleteTweetResponse? _responseData;
+    PostDeleteTweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -624,8 +888,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(DeleteTweetResponse),
-            ) as DeleteTweetResponse;
+              specifiedType: const FullType(PostDeleteTweet200Response),
+            ) as PostDeleteTweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -636,7 +900,7 @@ class PostApi {
       );
     }
 
-    return Response<DeleteTweetResponse>(
+    return Response<PostDeleteTweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -661,9 +925,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
+  /// Returns a [Future] containing a [Response] with a [PostFavoriteTweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({
+  Future<Response<PostFavoriteTweet200Response>> postFavoriteTweet({
     required String pathQueryId,
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
     CancelToken? cancelToken,
@@ -692,32 +956,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -736,6 +1000,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -771,7 +1101,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    FavoriteTweetResponseData? _responseData;
+    PostFavoriteTweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -779,8 +1109,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(FavoriteTweetResponseData),
-            ) as FavoriteTweetResponseData;
+              specifiedType: const FullType(PostFavoriteTweet200Response),
+            ) as PostFavoriteTweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -791,7 +1121,7 @@ class PostApi {
       );
     }
 
-    return Response<FavoriteTweetResponseData>(
+    return Response<PostFavoriteTweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -816,9 +1146,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
+  /// Returns a [Future] containing a [Response] with a [PostUnfavoriteTweet200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({
+  Future<Response<PostUnfavoriteTweet200Response>> postUnfavoriteTweet({
     required String pathQueryId,
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
     CancelToken? cancelToken,
@@ -847,32 +1177,32 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -891,6 +1221,72 @@ class PostApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -926,7 +1322,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UnfavoriteTweetResponseData? _responseData;
+    PostUnfavoriteTweet200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -934,8 +1330,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UnfavoriteTweetResponseData),
-            ) as UnfavoriteTweetResponseData;
+              specifiedType: const FullType(PostUnfavoriteTweet200Response),
+            ) as PostUnfavoriteTweet200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -946,7 +1342,7 @@ class PostApi {
       );
     }
 
-    return Response<UnfavoriteTweetResponseData>(
+    return Response<PostUnfavoriteTweet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

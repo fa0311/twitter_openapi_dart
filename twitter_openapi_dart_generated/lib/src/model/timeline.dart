@@ -23,10 +23,10 @@ abstract class Timeline implements Built<Timeline, TimelineBuilder> {
   BuiltList<InstructionUnion> get instructions;
 
   @BuiltValueField(wireName: r'metadata')
-  JsonObject? get metadata;
+  BuiltMap<String, JsonObject?>? get metadata;
 
   @BuiltValueField(wireName: r'responseObjects')
-  JsonObject? get responseObjects;
+  BuiltMap<String, JsonObject?>? get responseObjects;
 
   Timeline._();
 
@@ -60,14 +60,16 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
       yield r'metadata';
       yield serializers.serialize(
         object.metadata,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     if (object.responseObjects != null) {
       yield r'responseObjects';
       yield serializers.serialize(
         object.responseObjects,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
   }
@@ -106,16 +108,18 @@ class _$TimelineSerializer implements PrimitiveSerializer<Timeline> {
         case r'metadata':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.metadata = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.metadata.replace(valueDes);
           break;
         case r'responseObjects':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.responseObjects = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.responseObjects.replace(valueDes);
           break;
         default:
           unhandled.add(key);

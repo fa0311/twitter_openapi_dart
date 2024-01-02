@@ -8,17 +8,23 @@ part of 'media_original_info.dart';
 
 class _$MediaOriginalInfo extends MediaOriginalInfo {
   @override
-  final BuiltList<JsonObject>? focusRects;
+  final BuiltList<MediaOriginalInfoFocusRect>? focusRects;
   @override
-  final int? height;
+  final int height;
   @override
-  final int? width;
+  final int width;
 
   factory _$MediaOriginalInfo(
           [void Function(MediaOriginalInfoBuilder)? updates]) =>
       (new MediaOriginalInfoBuilder()..update(updates))._build();
 
-  _$MediaOriginalInfo._({this.focusRects, this.height, this.width}) : super._();
+  _$MediaOriginalInfo._(
+      {this.focusRects, required this.height, required this.width})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        height, r'MediaOriginalInfo', 'height');
+    BuiltValueNullFieldError.checkNotNull(width, r'MediaOriginalInfo', 'width');
+  }
 
   @override
   MediaOriginalInfo rebuild(void Function(MediaOriginalInfoBuilder) updates) =>
@@ -61,10 +67,10 @@ class MediaOriginalInfoBuilder
     implements Builder<MediaOriginalInfo, MediaOriginalInfoBuilder> {
   _$MediaOriginalInfo? _$v;
 
-  ListBuilder<JsonObject>? _focusRects;
-  ListBuilder<JsonObject> get focusRects =>
-      _$this._focusRects ??= new ListBuilder<JsonObject>();
-  set focusRects(ListBuilder<JsonObject>? focusRects) =>
+  ListBuilder<MediaOriginalInfoFocusRect>? _focusRects;
+  ListBuilder<MediaOriginalInfoFocusRect> get focusRects =>
+      _$this._focusRects ??= new ListBuilder<MediaOriginalInfoFocusRect>();
+  set focusRects(ListBuilder<MediaOriginalInfoFocusRect>? focusRects) =>
       _$this._focusRects = focusRects;
 
   int? _height;
@@ -109,7 +115,11 @@ class MediaOriginalInfoBuilder
     try {
       _$result = _$v ??
           new _$MediaOriginalInfo._(
-              focusRects: _focusRects?.build(), height: height, width: width);
+              focusRects: _focusRects?.build(),
+              height: BuiltValueNullFieldError.checkNotNull(
+                  height, r'MediaOriginalInfo', 'height'),
+              width: BuiltValueNullFieldError.checkNotNull(
+                  width, r'MediaOriginalInfo', 'width'));
     } catch (_) {
       late String _$failedField;
       try {

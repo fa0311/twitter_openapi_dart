@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart_generated/src/model/media_original_info_focus_rect.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,13 +20,13 @@ part 'media_original_info.g.dart';
 abstract class MediaOriginalInfo
     implements Built<MediaOriginalInfo, MediaOriginalInfoBuilder> {
   @BuiltValueField(wireName: r'focus_rects')
-  BuiltList<JsonObject>? get focusRects;
+  BuiltList<MediaOriginalInfoFocusRect>? get focusRects;
 
   @BuiltValueField(wireName: r'height')
-  int? get height;
+  int get height;
 
   @BuiltValueField(wireName: r'width')
-  int? get width;
+  int get width;
 
   MediaOriginalInfo._();
 
@@ -58,23 +58,20 @@ class _$MediaOriginalInfoSerializer
       yield r'focus_rects';
       yield serializers.serialize(
         object.focusRects,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(MediaOriginalInfoFocusRect)]),
       );
     }
-    if (object.height != null) {
-      yield r'height';
-      yield serializers.serialize(
-        object.height,
-        specifiedType: const FullType(int),
-      );
-    }
-    if (object.width != null) {
-      yield r'width';
-      yield serializers.serialize(
-        object.width,
-        specifiedType: const FullType(int),
-      );
-    }
+    yield r'height';
+    yield serializers.serialize(
+      object.height,
+      specifiedType: const FullType(int),
+    );
+    yield r'width';
+    yield serializers.serialize(
+      object.width,
+      specifiedType: const FullType(int),
+    );
   }
 
   @override
@@ -103,8 +100,9 @@ class _$MediaOriginalInfoSerializer
         case r'focus_rects':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(
+                BuiltList, [FullType(MediaOriginalInfoFocusRect)]),
+          ) as BuiltList<MediaOriginalInfoFocusRect>;
           result.focusRects.replace(valueDes);
           break;
         case r'height':

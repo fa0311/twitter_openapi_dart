@@ -24,19 +24,19 @@ class _$UserLegacy extends UserLegacy {
   @override
   final String description;
   @override
-  final JsonObject entities;
+  final BuiltMap<String, JsonObject?> entities;
   @override
   final int fastFollowersCount;
   @override
   final int favouritesCount;
   @override
-  final bool followRequestSent;
+  final bool? followRequestSent;
   @override
-  final bool followedBy;
+  final bool? followedBy;
   @override
   final int followersCount;
   @override
-  final bool following;
+  final bool? following;
   @override
   final int friendsCount;
   @override
@@ -56,7 +56,7 @@ class _$UserLegacy extends UserLegacy {
   @override
   final int normalFollowersCount;
   @override
-  final bool notifications;
+  final bool? notifications;
   @override
   final BuiltList<String> pinnedTweetIdsStr;
   @override
@@ -72,7 +72,7 @@ class _$UserLegacy extends UserLegacy {
   @override
   final String profileInterstitialType;
   @override
-  final bool protected;
+  final bool? protected;
   @override
   final String screenName;
   @override
@@ -101,10 +101,10 @@ class _$UserLegacy extends UserLegacy {
       required this.entities,
       required this.fastFollowersCount,
       required this.favouritesCount,
-      required this.followRequestSent,
-      required this.followedBy,
+      this.followRequestSent,
+      this.followedBy,
       required this.followersCount,
-      required this.following,
+      this.following,
       required this.friendsCount,
       required this.hasCustomTimelines,
       required this.isTranslator,
@@ -114,7 +114,7 @@ class _$UserLegacy extends UserLegacy {
       required this.muting,
       required this.name,
       required this.normalFollowersCount,
-      required this.notifications,
+      this.notifications,
       required this.pinnedTweetIdsStr,
       required this.possiblySensitive,
       this.profileBannerExtensions,
@@ -122,7 +122,7 @@ class _$UserLegacy extends UserLegacy {
       this.profileImageExtensions,
       required this.profileImageUrlHttps,
       required this.profileInterstitialType,
-      required this.protected,
+      this.protected,
       required this.screenName,
       required this.statusesCount,
       required this.translatorType,
@@ -150,13 +150,7 @@ class _$UserLegacy extends UserLegacy {
     BuiltValueNullFieldError.checkNotNull(
         favouritesCount, r'UserLegacy', 'favouritesCount');
     BuiltValueNullFieldError.checkNotNull(
-        followRequestSent, r'UserLegacy', 'followRequestSent');
-    BuiltValueNullFieldError.checkNotNull(
-        followedBy, r'UserLegacy', 'followedBy');
-    BuiltValueNullFieldError.checkNotNull(
         followersCount, r'UserLegacy', 'followersCount');
-    BuiltValueNullFieldError.checkNotNull(
-        following, r'UserLegacy', 'following');
     BuiltValueNullFieldError.checkNotNull(
         friendsCount, r'UserLegacy', 'friendsCount');
     BuiltValueNullFieldError.checkNotNull(
@@ -173,8 +167,6 @@ class _$UserLegacy extends UserLegacy {
     BuiltValueNullFieldError.checkNotNull(
         normalFollowersCount, r'UserLegacy', 'normalFollowersCount');
     BuiltValueNullFieldError.checkNotNull(
-        notifications, r'UserLegacy', 'notifications');
-    BuiltValueNullFieldError.checkNotNull(
         pinnedTweetIdsStr, r'UserLegacy', 'pinnedTweetIdsStr');
     BuiltValueNullFieldError.checkNotNull(
         possiblySensitive, r'UserLegacy', 'possiblySensitive');
@@ -182,8 +174,6 @@ class _$UserLegacy extends UserLegacy {
         profileImageUrlHttps, r'UserLegacy', 'profileImageUrlHttps');
     BuiltValueNullFieldError.checkNotNull(
         profileInterstitialType, r'UserLegacy', 'profileInterstitialType');
-    BuiltValueNullFieldError.checkNotNull(
-        protected, r'UserLegacy', 'protected');
     BuiltValueNullFieldError.checkNotNull(
         screenName, r'UserLegacy', 'screenName');
     BuiltValueNullFieldError.checkNotNull(
@@ -376,9 +366,11 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
-  JsonObject? _entities;
-  JsonObject? get entities => _$this._entities;
-  set entities(JsonObject? entities) => _$this._entities = entities;
+  MapBuilder<String, JsonObject?>? _entities;
+  MapBuilder<String, JsonObject?> get entities =>
+      _$this._entities ??= new MapBuilder<String, JsonObject?>();
+  set entities(MapBuilder<String, JsonObject?>? entities) =>
+      _$this._entities = entities;
 
   int? _fastFollowersCount;
   int? get fastFollowersCount => _$this._fastFollowersCount;
@@ -532,7 +524,7 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
       _defaultProfile = $v.defaultProfile;
       _defaultProfileImage = $v.defaultProfileImage;
       _description = $v.description;
-      _entities = $v.entities;
+      _entities = $v.entities.toBuilder();
       _fastFollowersCount = $v.fastFollowersCount;
       _favouritesCount = $v.favouritesCount;
       _followRequestSent = $v.followRequestSent;
@@ -603,14 +595,14 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
                   defaultProfileImage, r'UserLegacy', 'defaultProfileImage'),
               description: BuiltValueNullFieldError.checkNotNull(
                   description, r'UserLegacy', 'description'),
-              entities:
-                  BuiltValueNullFieldError.checkNotNull(entities, r'UserLegacy', 'entities'),
-              fastFollowersCount: BuiltValueNullFieldError.checkNotNull(fastFollowersCount, r'UserLegacy', 'fastFollowersCount'),
+              entities: entities.build(),
+              fastFollowersCount:
+                  BuiltValueNullFieldError.checkNotNull(fastFollowersCount, r'UserLegacy', 'fastFollowersCount'),
               favouritesCount: BuiltValueNullFieldError.checkNotNull(favouritesCount, r'UserLegacy', 'favouritesCount'),
-              followRequestSent: BuiltValueNullFieldError.checkNotNull(followRequestSent, r'UserLegacy', 'followRequestSent'),
-              followedBy: BuiltValueNullFieldError.checkNotNull(followedBy, r'UserLegacy', 'followedBy'),
+              followRequestSent: followRequestSent,
+              followedBy: followedBy,
               followersCount: BuiltValueNullFieldError.checkNotNull(followersCount, r'UserLegacy', 'followersCount'),
-              following: BuiltValueNullFieldError.checkNotNull(following, r'UserLegacy', 'following'),
+              following: following,
               friendsCount: BuiltValueNullFieldError.checkNotNull(friendsCount, r'UserLegacy', 'friendsCount'),
               hasCustomTimelines: BuiltValueNullFieldError.checkNotNull(hasCustomTimelines, r'UserLegacy', 'hasCustomTimelines'),
               isTranslator: BuiltValueNullFieldError.checkNotNull(isTranslator, r'UserLegacy', 'isTranslator'),
@@ -620,7 +612,7 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
               muting: BuiltValueNullFieldError.checkNotNull(muting, r'UserLegacy', 'muting'),
               name: BuiltValueNullFieldError.checkNotNull(name, r'UserLegacy', 'name'),
               normalFollowersCount: BuiltValueNullFieldError.checkNotNull(normalFollowersCount, r'UserLegacy', 'normalFollowersCount'),
-              notifications: BuiltValueNullFieldError.checkNotNull(notifications, r'UserLegacy', 'notifications'),
+              notifications: notifications,
               pinnedTweetIdsStr: pinnedTweetIdsStr.build(),
               possiblySensitive: BuiltValueNullFieldError.checkNotNull(possiblySensitive, r'UserLegacy', 'possiblySensitive'),
               profileBannerExtensions: profileBannerExtensions,
@@ -628,7 +620,7 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
               profileImageExtensions: profileImageExtensions,
               profileImageUrlHttps: BuiltValueNullFieldError.checkNotNull(profileImageUrlHttps, r'UserLegacy', 'profileImageUrlHttps'),
               profileInterstitialType: BuiltValueNullFieldError.checkNotNull(profileInterstitialType, r'UserLegacy', 'profileInterstitialType'),
-              protected: BuiltValueNullFieldError.checkNotNull(protected, r'UserLegacy', 'protected'),
+              protected: protected,
               screenName: BuiltValueNullFieldError.checkNotNull(screenName, r'UserLegacy', 'screenName'),
               statusesCount: BuiltValueNullFieldError.checkNotNull(statusesCount, r'UserLegacy', 'statusesCount'),
               translatorType: BuiltValueNullFieldError.checkNotNull(translatorType, r'UserLegacy', 'translatorType'),
@@ -638,6 +630,9 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'entities';
+        entities.build();
+
         _$failedField = 'pinnedTweetIdsStr';
         pinnedTweetIdsStr.build();
       } catch (e) {

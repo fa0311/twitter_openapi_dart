@@ -115,13 +115,13 @@ class _$TimelineShowAlert extends TimelineShowAlert {
   @override
   final TimelineShowAlertAlertTypeEnum? alertType;
   @override
-  final JsonObject? colorConfig;
+  final BuiltMap<String, JsonObject?>? colorConfig;
   @override
   final int? displayDurationMs;
   @override
   final TimelineShowAlertDisplayLocationEnum? displayLocation;
   @override
-  final JsonObject? iconDisplayInfo;
+  final BuiltMap<String, JsonObject?>? iconDisplayInfo;
   @override
   final TimelineShowAlertRichText richText;
   @override
@@ -217,9 +217,11 @@ class TimelineShowAlertBuilder
   set alertType(TimelineShowAlertAlertTypeEnum? alertType) =>
       _$this._alertType = alertType;
 
-  JsonObject? _colorConfig;
-  JsonObject? get colorConfig => _$this._colorConfig;
-  set colorConfig(JsonObject? colorConfig) => _$this._colorConfig = colorConfig;
+  MapBuilder<String, JsonObject?>? _colorConfig;
+  MapBuilder<String, JsonObject?> get colorConfig =>
+      _$this._colorConfig ??= new MapBuilder<String, JsonObject?>();
+  set colorConfig(MapBuilder<String, JsonObject?>? colorConfig) =>
+      _$this._colorConfig = colorConfig;
 
   int? _displayDurationMs;
   int? get displayDurationMs => _$this._displayDurationMs;
@@ -232,9 +234,10 @@ class TimelineShowAlertBuilder
   set displayLocation(TimelineShowAlertDisplayLocationEnum? displayLocation) =>
       _$this._displayLocation = displayLocation;
 
-  JsonObject? _iconDisplayInfo;
-  JsonObject? get iconDisplayInfo => _$this._iconDisplayInfo;
-  set iconDisplayInfo(JsonObject? iconDisplayInfo) =>
+  MapBuilder<String, JsonObject?>? _iconDisplayInfo;
+  MapBuilder<String, JsonObject?> get iconDisplayInfo =>
+      _$this._iconDisplayInfo ??= new MapBuilder<String, JsonObject?>();
+  set iconDisplayInfo(MapBuilder<String, JsonObject?>? iconDisplayInfo) =>
       _$this._iconDisplayInfo = iconDisplayInfo;
 
   TimelineShowAlertRichTextBuilder? _richText;
@@ -266,10 +269,10 @@ class TimelineShowAlertBuilder
     final $v = _$v;
     if ($v != null) {
       _alertType = $v.alertType;
-      _colorConfig = $v.colorConfig;
+      _colorConfig = $v.colorConfig?.toBuilder();
       _displayDurationMs = $v.displayDurationMs;
       _displayLocation = $v.displayLocation;
-      _iconDisplayInfo = $v.iconDisplayInfo;
+      _iconDisplayInfo = $v.iconDisplayInfo?.toBuilder();
       _richText = $v.richText.toBuilder();
       _triggerDelayMs = $v.triggerDelayMs;
       _type = $v.type;
@@ -299,10 +302,10 @@ class TimelineShowAlertBuilder
       _$result = _$v ??
           new _$TimelineShowAlert._(
               alertType: alertType,
-              colorConfig: colorConfig,
+              colorConfig: _colorConfig?.build(),
               displayDurationMs: displayDurationMs,
               displayLocation: displayLocation,
-              iconDisplayInfo: iconDisplayInfo,
+              iconDisplayInfo: _iconDisplayInfo?.build(),
               richText: richText.build(),
               triggerDelayMs: triggerDelayMs,
               type: BuiltValueNullFieldError.checkNotNull(
@@ -311,6 +314,11 @@ class TimelineShowAlertBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'colorConfig';
+        _colorConfig?.build();
+
+        _$failedField = 'iconDisplayInfo';
+        _iconDisplayInfo?.build();
         _$failedField = 'richText';
         richText.build();
 

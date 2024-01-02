@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control_initial.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,13 +13,18 @@ part 'tweet_edit_control.g.dart';
 /// TweetEditControl
 ///
 /// Properties:
+/// * [editControlInitial]
 /// * [editTweetIds]
 /// * [editableUntilMsecs]
 /// * [editsRemaining]
+/// * [initialTweetId]
 /// * [isEditEligible]
 @BuiltValue()
 abstract class TweetEditControl
     implements Built<TweetEditControl, TweetEditControlBuilder> {
+  @BuiltValueField(wireName: r'edit_control_initial')
+  TweetEditControlInitial? get editControlInitial;
+
   @BuiltValueField(wireName: r'edit_tweet_ids')
   BuiltList<String>? get editTweetIds;
 
@@ -27,6 +33,9 @@ abstract class TweetEditControl
 
   @BuiltValueField(wireName: r'edits_remaining')
   String? get editsRemaining;
+
+  @BuiltValueField(wireName: r'initial_tweet_id')
+  String? get initialTweetId;
 
   @BuiltValueField(wireName: r'is_edit_eligible')
   bool? get isEditEligible;
@@ -57,6 +66,13 @@ class _$TweetEditControlSerializer
     TweetEditControl object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.editControlInitial != null) {
+      yield r'edit_control_initial';
+      yield serializers.serialize(
+        object.editControlInitial,
+        specifiedType: const FullType(TweetEditControlInitial),
+      );
+    }
     if (object.editTweetIds != null) {
       yield r'edit_tweet_ids';
       yield serializers.serialize(
@@ -75,6 +91,13 @@ class _$TweetEditControlSerializer
       yield r'edits_remaining';
       yield serializers.serialize(
         object.editsRemaining,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.initialTweetId != null) {
+      yield r'initial_tweet_id';
+      yield serializers.serialize(
+        object.initialTweetId,
         specifiedType: const FullType(String),
       );
     }
@@ -110,6 +133,13 @@ class _$TweetEditControlSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'edit_control_initial':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetEditControlInitial),
+          ) as TweetEditControlInitial;
+          result.editControlInitial.replace(valueDes);
+          break;
         case r'edit_tweet_ids':
           final valueDes = serializers.deserialize(
             value,
@@ -130,6 +160,13 @@ class _$TweetEditControlSerializer
             specifiedType: const FullType(String),
           ) as String;
           result.editsRemaining = valueDes;
+          break;
+        case r'initial_tweet_id':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.initialTweetId = valueDes;
           break;
         case r'is_edit_eligible':
           final valueDes = serializers.deserialize(

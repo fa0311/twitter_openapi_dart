@@ -3,15 +3,18 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot.dart';
+import 'package:twitter_openapi_dart_generated/src/model/note_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_result_core.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_views.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_view.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -21,39 +24,52 @@ part 'tweet.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [birdwatchPivot]
 /// * [card]
 /// * [core]
 /// * [editControl]
 /// * [editPrespective]
 /// * [isTranslatable]
 /// * [legacy]
+/// * [noteTweet]
+/// * [quickPromoteEligibility]
 /// * [quotedStatusResult]
 /// * [restId]
+/// * [source_]
 /// * [unmentionData]
 /// * [views]
 @BuiltValue()
 abstract class Tweet implements Built<Tweet, TweetBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName? get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
+
+  @BuiltValueField(wireName: r'birdwatch_pivot')
+  BirdwatchPivot? get birdwatchPivot;
 
   @BuiltValueField(wireName: r'card')
   TweetCard? get card;
 
   @BuiltValueField(wireName: r'core')
-  UserResultCore get core;
+  UserResultCore? get core;
 
   @BuiltValueField(wireName: r'edit_control')
   TweetEditControl get editControl;
 
   @BuiltValueField(wireName: r'edit_prespective')
-  TweetEditPrespective get editPrespective;
+  TweetEditPrespective? get editPrespective;
 
   @BuiltValueField(wireName: r'is_translatable')
   bool get isTranslatable;
 
   @BuiltValueField(wireName: r'legacy')
-  TweetLegacy get legacy;
+  TweetLegacy? get legacy;
+
+  @BuiltValueField(wireName: r'note_tweet')
+  NoteTweet? get noteTweet;
+
+  @BuiltValueField(wireName: r'quick_promote_eligibility')
+  JsonObject? get quickPromoteEligibility;
 
   @BuiltValueField(wireName: r'quoted_status_result')
   ItemResult? get quotedStatusResult;
@@ -61,11 +77,14 @@ abstract class Tweet implements Built<Tweet, TweetBuilder> {
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
 
+  @BuiltValueField(wireName: r'source')
+  String? get source_;
+
   @BuiltValueField(wireName: r'unmention_data')
-  JsonObject? get unmentionData;
+  BuiltMap<String, JsonObject?>? get unmentionData;
 
   @BuiltValueField(wireName: r'views')
-  TweetViews get views;
+  TweetView get views;
 
   Tweet._();
 
@@ -97,6 +116,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
         specifiedType: const FullType(TypeName),
       );
     }
+    if (object.birdwatchPivot != null) {
+      yield r'birdwatch_pivot';
+      yield serializers.serialize(
+        object.birdwatchPivot,
+        specifiedType: const FullType(BirdwatchPivot),
+      );
+    }
     if (object.card != null) {
       yield r'card';
       yield serializers.serialize(
@@ -104,31 +130,51 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
         specifiedType: const FullType(TweetCard),
       );
     }
-    yield r'core';
-    yield serializers.serialize(
-      object.core,
-      specifiedType: const FullType(UserResultCore),
-    );
+    if (object.core != null) {
+      yield r'core';
+      yield serializers.serialize(
+        object.core,
+        specifiedType: const FullType(UserResultCore),
+      );
+    }
     yield r'edit_control';
     yield serializers.serialize(
       object.editControl,
       specifiedType: const FullType(TweetEditControl),
     );
-    yield r'edit_prespective';
-    yield serializers.serialize(
-      object.editPrespective,
-      specifiedType: const FullType(TweetEditPrespective),
-    );
+    if (object.editPrespective != null) {
+      yield r'edit_prespective';
+      yield serializers.serialize(
+        object.editPrespective,
+        specifiedType: const FullType(TweetEditPrespective),
+      );
+    }
     yield r'is_translatable';
     yield serializers.serialize(
       object.isTranslatable,
       specifiedType: const FullType(bool),
     );
-    yield r'legacy';
-    yield serializers.serialize(
-      object.legacy,
-      specifiedType: const FullType(TweetLegacy),
-    );
+    if (object.legacy != null) {
+      yield r'legacy';
+      yield serializers.serialize(
+        object.legacy,
+        specifiedType: const FullType(TweetLegacy),
+      );
+    }
+    if (object.noteTweet != null) {
+      yield r'note_tweet';
+      yield serializers.serialize(
+        object.noteTweet,
+        specifiedType: const FullType(NoteTweet),
+      );
+    }
+    if (object.quickPromoteEligibility != null) {
+      yield r'quick_promote_eligibility';
+      yield serializers.serialize(
+        object.quickPromoteEligibility,
+        specifiedType: const FullType(JsonObject),
+      );
+    }
     if (object.quotedStatusResult != null) {
       yield r'quoted_status_result';
       yield serializers.serialize(
@@ -141,17 +187,25 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
       object.restId,
       specifiedType: const FullType(String),
     );
+    if (object.source_ != null) {
+      yield r'source';
+      yield serializers.serialize(
+        object.source_,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.unmentionData != null) {
       yield r'unmention_data';
       yield serializers.serialize(
         object.unmentionData,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     yield r'views';
     yield serializers.serialize(
       object.views,
-      specifiedType: const FullType(TweetViews),
+      specifiedType: const FullType(TweetView),
     );
   }
 
@@ -184,6 +238,13 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
             specifiedType: const FullType(TypeName),
           ) as TypeName;
           result.typename = valueDes;
+          break;
+        case r'birdwatch_pivot':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BirdwatchPivot),
+          ) as BirdwatchPivot;
+          result.birdwatchPivot.replace(valueDes);
           break;
         case r'card':
           final valueDes = serializers.deserialize(
@@ -227,6 +288,20 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
           ) as TweetLegacy;
           result.legacy.replace(valueDes);
           break;
+        case r'note_tweet':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(NoteTweet),
+          ) as NoteTweet;
+          result.noteTweet.replace(valueDes);
+          break;
+        case r'quick_promote_eligibility':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(JsonObject),
+          ) as JsonObject;
+          result.quickPromoteEligibility = valueDes;
+          break;
         case r'quoted_status_result':
           final valueDes = serializers.deserialize(
             value,
@@ -241,18 +316,26 @@ class _$TweetSerializer implements PrimitiveSerializer<Tweet> {
           ) as String;
           result.restId = valueDes;
           break;
+        case r'source':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.source_ = valueDes;
+          break;
         case r'unmention_data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.unmentionData = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.unmentionData.replace(valueDes);
           break;
         case r'views':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TweetViews),
-          ) as TweetViews;
+            specifiedType: const FullType(TweetView),
+          ) as TweetView;
           result.views.replace(valueDes);
           break;
         default:

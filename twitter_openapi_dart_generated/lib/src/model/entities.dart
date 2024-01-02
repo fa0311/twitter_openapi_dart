@@ -23,19 +23,19 @@ part 'entities.g.dart';
 @BuiltValue()
 abstract class Entities implements Built<Entities, EntitiesBuilder> {
   @BuiltValueField(wireName: r'hashtags')
-  BuiltList<JsonObject> get hashtags;
+  BuiltList<BuiltMap<String, JsonObject?>> get hashtags;
 
   @BuiltValueField(wireName: r'media')
   BuiltList<Media>? get media;
 
   @BuiltValueField(wireName: r'symbols')
-  BuiltList<JsonObject> get symbols;
+  BuiltList<BuiltMap<String, JsonObject?>> get symbols;
 
   @BuiltValueField(wireName: r'urls')
   BuiltList<Url> get urls;
 
   @BuiltValueField(wireName: r'user_mentions')
-  BuiltList<JsonObject> get userMentions;
+  BuiltList<BuiltMap<String, JsonObject?>> get userMentions;
 
   Entities._();
 
@@ -63,7 +63,9 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     yield r'hashtags';
     yield serializers.serialize(
       object.hashtags,
-      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      specifiedType: const FullType(BuiltList, [
+        FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+      ]),
     );
     if (object.media != null) {
       yield r'media';
@@ -75,7 +77,9 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     yield r'symbols';
     yield serializers.serialize(
       object.symbols,
-      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      specifiedType: const FullType(BuiltList, [
+        FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+      ]),
     );
     yield r'urls';
     yield serializers.serialize(
@@ -85,7 +89,9 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
     yield r'user_mentions';
     yield serializers.serialize(
       object.userMentions,
-      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      specifiedType: const FullType(BuiltList, [
+        FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+      ]),
     );
   }
 
@@ -115,8 +121,11 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
         case r'hashtags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+            ]),
+          ) as BuiltList<BuiltMap<String, JsonObject?>>;
           result.hashtags.replace(valueDes);
           break;
         case r'media':
@@ -129,8 +138,11 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
         case r'symbols':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+            ]),
+          ) as BuiltList<BuiltMap<String, JsonObject?>>;
           result.symbols.replace(valueDes);
           break;
         case r'urls':
@@ -143,8 +155,11 @@ class _$EntitiesSerializer implements PrimitiveSerializer<Entities> {
         case r'user_mentions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+            ]),
+          ) as BuiltList<BuiltMap<String, JsonObject?>>;
           result.userMentions.replace(valueDes);
           break;
         default:

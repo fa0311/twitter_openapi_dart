@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **darkRequest** | **bool** |  | [default to false]
 **media** | [**PostCreateTweetRequestVariablesMedia**](PostCreateTweetRequestVariablesMedia.md) |  | 
+**reply** | [**PostCreateTweetRequestVariablesReply**](PostCreateTweetRequestVariablesReply.md) |  | [optional] 
 **semanticAnnotationIds** | [**BuiltList&lt;JsonObject&gt;**](JsonObject.md) |  | 
 **tweetText** | **String** |  | [default to 'test']
 

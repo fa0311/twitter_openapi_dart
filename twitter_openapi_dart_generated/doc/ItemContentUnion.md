@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **socialContext** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
-**promotedMetadata** | [**JsonObject**](.md) |  | [optional] 
+**promotedMetadata** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **tweetDisplayType** | **String** |  | 
 **tweetResults** | [**ItemResult**](ItemResult.md) |  | 
-**cursorType** | **String** |  | 
+**cursorType** | [**CursorType**](CursorType.md) |  | 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **String** |  | 
 **userDisplayType** | **String** |  | 

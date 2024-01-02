@@ -6,97 +6,11 @@ part of 'timeline_timeline_cursor.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnum_top =
-    const TimelineTimelineCursorCursorTypeEnum._('top');
-const TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnum_bottom =
-    const TimelineTimelineCursorCursorTypeEnum._('bottom');
-const TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnum_showMore =
-    const TimelineTimelineCursorCursorTypeEnum._('showMore');
-const TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnum_showMoreThreads =
-    const TimelineTimelineCursorCursorTypeEnum._('showMoreThreads');
-const TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnum_gap =
-    const TimelineTimelineCursorCursorTypeEnum._('gap');
-
-TimelineTimelineCursorCursorTypeEnum
-    _$timelineTimelineCursorCursorTypeEnumValueOf(String name) {
-  switch (name) {
-    case 'top':
-      return _$timelineTimelineCursorCursorTypeEnum_top;
-    case 'bottom':
-      return _$timelineTimelineCursorCursorTypeEnum_bottom;
-    case 'showMore':
-      return _$timelineTimelineCursorCursorTypeEnum_showMore;
-    case 'showMoreThreads':
-      return _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
-    case 'gap':
-      return _$timelineTimelineCursorCursorTypeEnum_gap;
-    default:
-      throw new ArgumentError(name);
-  }
-}
-
-final BuiltSet<TimelineTimelineCursorCursorTypeEnum>
-    _$timelineTimelineCursorCursorTypeEnumValues = new BuiltSet<
-        TimelineTimelineCursorCursorTypeEnum>(const <TimelineTimelineCursorCursorTypeEnum>[
-  _$timelineTimelineCursorCursorTypeEnum_top,
-  _$timelineTimelineCursorCursorTypeEnum_bottom,
-  _$timelineTimelineCursorCursorTypeEnum_showMore,
-  _$timelineTimelineCursorCursorTypeEnum_showMoreThreads,
-  _$timelineTimelineCursorCursorTypeEnum_gap,
-]);
-
-Serializer<TimelineTimelineCursorCursorTypeEnum>
-    _$timelineTimelineCursorCursorTypeEnumSerializer =
-    new _$TimelineTimelineCursorCursorTypeEnumSerializer();
-
-class _$TimelineTimelineCursorCursorTypeEnumSerializer
-    implements PrimitiveSerializer<TimelineTimelineCursorCursorTypeEnum> {
-  static const Map<String, Object> _toWire = const <String, Object>{
-    'top': 'Top',
-    'bottom': 'Bottom',
-    'showMore': 'ShowMore',
-    'showMoreThreads': 'ShowMoreThreads',
-    'gap': 'Gap',
-  };
-  static const Map<Object, String> _fromWire = const <Object, String>{
-    'Top': 'top',
-    'Bottom': 'bottom',
-    'ShowMore': 'showMore',
-    'ShowMoreThreads': 'showMoreThreads',
-    'Gap': 'gap',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[
-    TimelineTimelineCursorCursorTypeEnum
-  ];
-  @override
-  final String wireName = 'TimelineTimelineCursorCursorTypeEnum';
-
-  @override
-  Object serialize(
-          Serializers serializers, TimelineTimelineCursorCursorTypeEnum object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      _toWire[object.name] ?? object.name;
-
-  @override
-  TimelineTimelineCursorCursorTypeEnum deserialize(
-          Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      TimelineTimelineCursorCursorTypeEnum.valueOf(
-          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
-}
-
 class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   @override
   final TypeName typename;
   @override
-  final TimelineTimelineCursorCursorTypeEnum cursorType;
+  final CursorType cursorType;
   @override
   final ContentEntryType? entryType;
   @override
@@ -175,10 +89,9 @@ class TimelineTimelineCursorBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  TimelineTimelineCursorCursorTypeEnum? _cursorType;
-  TimelineTimelineCursorCursorTypeEnum? get cursorType => _$this._cursorType;
-  set cursorType(TimelineTimelineCursorCursorTypeEnum? cursorType) =>
-      _$this._cursorType = cursorType;
+  CursorType? _cursorType;
+  CursorType? get cursorType => _$this._cursorType;
+  set cursorType(CursorType? cursorType) => _$this._cursorType = cursorType;
 
   ContentEntryType? _entryType;
   ContentEntryType? get entryType => _$this._entryType;

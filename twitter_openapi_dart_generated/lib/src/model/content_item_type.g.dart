@@ -15,6 +15,8 @@ const ContentItemType _$timelinePrompt =
     const ContentItemType._('timelinePrompt');
 const ContentItemType _$timelineMessagePrompt =
     const ContentItemType._('timelineMessagePrompt');
+const ContentItemType _$timelineCommunity =
+    const ContentItemType._('timelineCommunity');
 
 ContentItemType _$valueOf(String name) {
   switch (name) {
@@ -28,6 +30,8 @@ ContentItemType _$valueOf(String name) {
       return _$timelinePrompt;
     case 'timelineMessagePrompt':
       return _$timelineMessagePrompt;
+    case 'timelineCommunity':
+      return _$timelineCommunity;
     default:
       throw new ArgumentError(name);
   }
@@ -40,6 +44,7 @@ final BuiltSet<ContentItemType> _$values =
   _$timelineUser,
   _$timelinePrompt,
   _$timelineMessagePrompt,
+  _$timelineCommunity,
 ]);
 
 class _$ContentItemTypeMeta {
@@ -49,6 +54,7 @@ class _$ContentItemTypeMeta {
   ContentItemType get timelineUser => _$timelineUser;
   ContentItemType get timelinePrompt => _$timelinePrompt;
   ContentItemType get timelineMessagePrompt => _$timelineMessagePrompt;
+  ContentItemType get timelineCommunity => _$timelineCommunity;
   ContentItemType valueOf(String name) => _$valueOf(name);
   BuiltSet<ContentItemType> get values => _$values;
 }
@@ -69,6 +75,7 @@ class _$ContentItemTypeSerializer
     'timelineUser': 'TimelineUser',
     'timelinePrompt': 'TimelinePrompt',
     'timelineMessagePrompt': 'TimelineMessagePrompt',
+    'timelineCommunity': 'TimelineCommunity',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineTweet': 'timelineTweet',
@@ -76,6 +83,7 @@ class _$ContentItemTypeSerializer
     'TimelineUser': 'timelineUser',
     'TimelinePrompt': 'timelinePrompt',
     'TimelineMessagePrompt': 'timelineMessagePrompt',
+    'TimelineCommunity': 'timelineCommunity',
   };
 
   @override

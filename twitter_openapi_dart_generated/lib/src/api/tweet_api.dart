@@ -8,13 +8,13 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/list_latest_tweets_timeline_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/search_timeline_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/user_tweets_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_bookmarks200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_home_latest_timeline200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_likes200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_list_latest_tweets_timeline200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_search_timeline200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_tweet_detail200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/get_user_highlights_tweets200_response.dart';
 
 class TweetApi {
   final Dio _dio;
@@ -37,13 +37,13 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BookmarksResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetBookmarks200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BookmarksResponse>> getBookmarks({
+  Future<Response<GetBookmarks200Response>> getBookmarks({
     required String pathQueryId,
     String variables = '{"count": 20, "includePromotedContent": true}',
     String features =
-        '{"graphql_timeline_v2_bookmark_timeline": true, "blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"graphql_timeline_v2_bookmark_timeline": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -70,32 +70,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -114,6 +114,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -137,7 +203,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BookmarksResponse? _responseData;
+    GetBookmarks200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -145,8 +211,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(BookmarksResponse),
-            ) as BookmarksResponse;
+              specifiedType: const FullType(GetBookmarks200Response),
+            ) as GetBookmarks200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -157,7 +223,7 @@ class TweetApi {
       );
     }
 
-    return Response<BookmarksResponse>(
+    return Response<GetBookmarks200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -183,14 +249,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetHomeLatestTimeline200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TimelineResponse>> getHomeLatestTimeline({
+  Future<Response<GetHomeLatestTimeline200Response>> getHomeLatestTimeline({
     required String pathQueryId,
     String variables =
         '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -217,32 +283,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -261,6 +327,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -284,7 +416,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimelineResponse? _responseData;
+    GetHomeLatestTimeline200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -292,8 +424,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(TimelineResponse),
-            ) as TimelineResponse;
+              specifiedType: const FullType(GetHomeLatestTimeline200Response),
+            ) as GetHomeLatestTimeline200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -304,7 +436,7 @@ class TweetApi {
       );
     }
 
-    return Response<TimelineResponse>(
+    return Response<GetHomeLatestTimeline200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -330,14 +462,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetHomeLatestTimeline200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TimelineResponse>> getHomeTimeline({
+  Future<Response<GetHomeLatestTimeline200Response>> getHomeTimeline({
     required String pathQueryId,
     String variables =
-        '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true}',
+        '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "seenTweetIds": ["1349129669258448897"], "withCommunity": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -364,32 +496,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -408,6 +540,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -431,7 +629,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimelineResponse? _responseData;
+    GetHomeLatestTimeline200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -439,8 +637,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(TimelineResponse),
-            ) as TimelineResponse;
+              specifiedType: const FullType(GetHomeLatestTimeline200Response),
+            ) as GetHomeLatestTimeline200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -451,7 +649,7 @@ class TweetApi {
       );
     }
 
-    return Response<TimelineResponse>(
+    return Response<GetHomeLatestTimeline200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -477,14 +675,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UserTweetsResponse>> getLikes({
+  Future<Response<GetLikes200Response>> getLikes({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 20, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -511,32 +709,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -555,6 +753,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -578,7 +842,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse? _responseData;
+    GetLikes200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -586,8 +850,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UserTweetsResponse),
-            ) as UserTweetsResponse;
+              specifiedType: const FullType(GetLikes200Response),
+            ) as GetLikes200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -598,7 +862,7 @@ class TweetApi {
       );
     }
 
-    return Response<UserTweetsResponse>(
+    return Response<GetLikes200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -624,14 +888,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ListLatestTweetsTimelineResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetListLatestTweetsTimeline200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ListLatestTweetsTimelineResponse>>
+  Future<Response<GetListLatestTweetsTimeline200Response>>
       getListLatestTweetsTimeline({
     required String pathQueryId,
-    String variables = '{"listId": "53044119", "count": 20}',
+    String variables = '{"listId": "1539453138322673664", "count": 20}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -658,32 +922,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -702,6 +966,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -725,7 +1055,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ListLatestTweetsTimelineResponse? _responseData;
+    GetListLatestTweetsTimeline200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -733,8 +1063,9 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(ListLatestTweetsTimelineResponse),
-            ) as ListLatestTweetsTimelineResponse;
+              specifiedType:
+                  const FullType(GetListLatestTweetsTimeline200Response),
+            ) as GetListLatestTweetsTimeline200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -745,7 +1076,7 @@ class TweetApi {
       );
     }
 
-    return Response<ListLatestTweetsTimelineResponse>(
+    return Response<GetListLatestTweetsTimeline200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -764,7 +1095,6 @@ class TweetApi {
   /// * [pathQueryId]
   /// * [variables]
   /// * [features]
-  /// * [fieldToggles]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -772,15 +1102,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [SearchTimelineResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetSearchTimeline200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SearchTimelineResponse>> getSearchTimeline({
+  Future<Response<GetSearchTimeline200Response>> getSearchTimeline({
     required String pathQueryId,
     String variables =
         '{"rawQuery": "elonmusk", "count": 20, "querySource": "typed_query", "product": "Top"}',
     String features =
-        '{"rweb_lists_timeline_redesign_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
-    String fieldToggles = '{"withArticleRichContentState": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -807,32 +1136,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -852,6 +1181,72 @@ class TweetApi {
             'scheme': 'bearer',
             'name': 'BearerAuth',
           },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
+          },
         ],
         ...?extra,
       },
@@ -863,8 +1258,6 @@ class TweetApi {
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
           encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'fieldToggles': encodeQueryParameter(
-          _serializers, fieldToggles, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -876,7 +1269,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SearchTimelineResponse? _responseData;
+    GetSearchTimeline200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -884,8 +1277,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(SearchTimelineResponse),
-            ) as SearchTimelineResponse;
+              specifiedType: const FullType(GetSearchTimeline200Response),
+            ) as GetSearchTimeline200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -896,7 +1289,7 @@ class TweetApi {
       );
     }
 
-    return Response<SearchTimelineResponse>(
+    return Response<GetSearchTimeline200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -915,6 +1308,7 @@ class TweetApi {
   /// * [pathQueryId]
   /// * [variables]
   /// * [features]
+  /// * [fieldToggles]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -922,14 +1316,15 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [TweetDetailResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetTweetDetail200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<TweetDetailResponse>> getTweetDetail({
+  Future<Response<GetTweetDetail200Response>> getTweetDetail({
     required String pathQueryId,
     String variables =
         '{"focalTweetId": "1349129669258448897", "with_rux_injections": false, "includePromotedContent": true, "withCommunity": true, "withQuickPromoteEligibilityTweetFields": true, "withBirdwatchNotes": true, "withVoice": true, "withV2Timeline": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
+    String fieldToggles = '{"withArticleRichContentState": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -956,32 +1351,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -1001,6 +1396,72 @@ class TweetApi {
             'scheme': 'bearer',
             'name': 'BearerAuth',
           },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
+          },
         ],
         ...?extra,
       },
@@ -1012,6 +1473,8 @@ class TweetApi {
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
           encodeQueryParameter(_serializers, features, const FullType(String)),
+      r'fieldToggles': encodeQueryParameter(
+          _serializers, fieldToggles, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1023,7 +1486,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TweetDetailResponse? _responseData;
+    GetTweetDetail200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1031,8 +1494,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(TweetDetailResponse),
-            ) as TweetDetailResponse;
+              specifiedType: const FullType(GetTweetDetail200Response),
+            ) as GetTweetDetail200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1043,7 +1506,7 @@ class TweetApi {
       );
     }
 
-    return Response<TweetDetailResponse>(
+    return Response<GetTweetDetail200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1062,7 +1525,6 @@ class TweetApi {
   /// * [pathQueryId]
   /// * [variables]
   /// * [features]
-  /// * [fieldToggles]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1070,16 +1532,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UserHighlightsTweetsResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetUserHighlightsTweets200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UserHighlightsTweetsResponse>> getUserHighlightsTweets({
+  Future<Response<GetUserHighlightsTweets200Response>> getUserHighlightsTweets({
     required String pathQueryId,
     String variables =
-        '{"userId": "44196397", "count": 20, "includePromotedContent": true, "withVoice": true}',
+        '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withVoice": true}',
     String features =
-        '{"rweb_lists_timeline_redesign_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
-    String fieldToggles =
-        '{"withAuxiliaryUserLabels": false, "withArticleRichContentState": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1106,32 +1566,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -1151,6 +1611,72 @@ class TweetApi {
             'scheme': 'bearer',
             'name': 'BearerAuth',
           },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
+          },
         ],
         ...?extra,
       },
@@ -1162,8 +1688,6 @@ class TweetApi {
           encodeQueryParameter(_serializers, variables, const FullType(String)),
       r'features':
           encodeQueryParameter(_serializers, features, const FullType(String)),
-      r'fieldToggles': encodeQueryParameter(
-          _serializers, fieldToggles, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1175,7 +1699,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserHighlightsTweetsResponse? _responseData;
+    GetUserHighlightsTweets200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1183,8 +1707,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UserHighlightsTweetsResponse),
-            ) as UserHighlightsTweetsResponse;
+              specifiedType: const FullType(GetUserHighlightsTweets200Response),
+            ) as GetUserHighlightsTweets200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1195,7 +1719,7 @@ class TweetApi {
       );
     }
 
-    return Response<UserHighlightsTweetsResponse>(
+    return Response<GetUserHighlightsTweets200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1221,14 +1745,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UserTweetsResponse>> getUserMedia({
+  Future<Response<GetLikes200Response>> getUserMedia({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1255,32 +1779,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -1299,6 +1823,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -1322,7 +1912,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse? _responseData;
+    GetLikes200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1330,8 +1920,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UserTweetsResponse),
-            ) as UserTweetsResponse;
+              specifiedType: const FullType(GetLikes200Response),
+            ) as GetLikes200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1342,7 +1932,7 @@ class TweetApi {
       );
     }
 
-    return Response<UserTweetsResponse>(
+    return Response<GetLikes200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1368,14 +1958,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UserTweetsResponse>> getUserTweets({
+  Future<Response<GetLikes200Response>> getUserTweets({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withQuickPromoteEligibilityTweetFields": true, "withVoice": true, "withV2Timeline": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1402,32 +1992,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -1446,6 +2036,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -1469,7 +2125,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse? _responseData;
+    GetLikes200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1477,8 +2133,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UserTweetsResponse),
-            ) as UserTweetsResponse;
+              specifiedType: const FullType(GetLikes200Response),
+            ) as GetLikes200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1489,7 +2145,7 @@ class TweetApi {
       );
     }
 
-    return Response<UserTweetsResponse>(
+    return Response<GetLikes200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1515,14 +2171,14 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
+  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({
+  Future<Response<GetLikes200Response>> getUserTweetsAndReplies({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withCommunity": true, "withVoice": true, "withV2Timeline": true}',
     String features =
-        '{"blue_business_profile_image_shape_enabled": true, "responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "vibe_api_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": false, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": false, "interactive_text_enabled": true, "responsive_web_text_conversations_enabled": false, "longform_notetweets_rich_text_read_enabled": true, "responsive_web_enhance_cards_enabled": false}',
+        '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "creator_subscriptions_tweet_preview_api_enabled": true, "responsive_web_graphql_timeline_navigation_enabled": true, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "tweetypie_unmention_optimization_enabled": true, "responsive_web_edit_tweet_api_enabled": true, "graphql_is_translatable_rweb_tweet_is_translatable_enabled": true, "view_counts_everywhere_api_enabled": true, "longform_notetweets_consumption_enabled": true, "responsive_web_twitter_article_tweet_consumption_enabled": false, "tweet_awards_web_tipping_enabled": false, "freedom_of_speech_not_reach_fetch_enabled": true, "standardized_nudges_misinfo": true, "tweet_with_visibility_results_prefer_gql_limited_actions_policy_enabled": true, "longform_notetweets_rich_text_read_enabled": true, "longform_notetweets_inline_media_enabled": true, "responsive_web_media_download_video_enabled": false, "responsive_web_enhance_cards_enabled": false}',
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1549,32 +2205,32 @@ class TweetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -1593,6 +2249,72 @@ class TweetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -1616,7 +2338,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserTweetsResponse? _responseData;
+    GetLikes200Response? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1624,8 +2346,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(UserTweetsResponse),
-            ) as UserTweetsResponse;
+              specifiedType: const FullType(GetLikes200Response),
+            ) as GetLikes200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1636,7 +2358,7 @@ class TweetApi {
       );
     }
 
-    return Response<UserTweetsResponse>(
+    return Response<GetLikes200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

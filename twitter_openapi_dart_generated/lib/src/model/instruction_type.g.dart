@@ -20,6 +20,8 @@ const InstructionType _$timelineShowAlert =
     const InstructionType._('timelineShowAlert');
 const InstructionType _$timelineTerminateTimeline =
     const InstructionType._('timelineTerminateTimeline');
+const InstructionType _$timelineShowCover =
+    const InstructionType._('timelineShowCover');
 
 InstructionType _$valueOf(String name) {
   switch (name) {
@@ -37,6 +39,8 @@ InstructionType _$valueOf(String name) {
       return _$timelineShowAlert;
     case 'timelineTerminateTimeline':
       return _$timelineTerminateTimeline;
+    case 'timelineShowCover':
+      return _$timelineShowCover;
     default:
       throw new ArgumentError(name);
   }
@@ -51,6 +55,7 @@ final BuiltSet<InstructionType> _$values =
   _$timelineReplaceEntry,
   _$timelineShowAlert,
   _$timelineTerminateTimeline,
+  _$timelineShowCover,
 ]);
 
 class _$InstructionTypeMeta {
@@ -62,6 +67,7 @@ class _$InstructionTypeMeta {
   InstructionType get timelineReplaceEntry => _$timelineReplaceEntry;
   InstructionType get timelineShowAlert => _$timelineShowAlert;
   InstructionType get timelineTerminateTimeline => _$timelineTerminateTimeline;
+  InstructionType get timelineShowCover => _$timelineShowCover;
   InstructionType valueOf(String name) => _$valueOf(name);
   BuiltSet<InstructionType> get values => _$values;
 }
@@ -84,6 +90,7 @@ class _$InstructionTypeSerializer
     'timelineReplaceEntry': 'TimelineReplaceEntry',
     'timelineShowAlert': 'TimelineShowAlert',
     'timelineTerminateTimeline': 'TimelineTerminateTimeline',
+    'timelineShowCover': 'TimelineShowCover',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineAddEntries': 'timelineAddEntries',
@@ -93,6 +100,7 @@ class _$InstructionTypeSerializer
     'TimelineReplaceEntry': 'timelineReplaceEntry',
     'TimelineShowAlert': 'timelineShowAlert',
     'TimelineTerminateTimeline': 'timelineTerminateTimeline',
+    'TimelineShowCover': 'timelineShowCover',
   };
 
   @override

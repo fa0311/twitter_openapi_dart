@@ -48,7 +48,7 @@ class _$TweetLegacy extends TweetLegacy {
   @override
   final ItemResult? retweetedStatusResult;
   @override
-  final TweetLegacySelfThread? selfThread;
+  final SelfThread? selfThread;
   @override
   final String userIdStr;
 
@@ -299,10 +299,10 @@ class TweetLegacyBuilder implements Builder<TweetLegacy, TweetLegacyBuilder> {
   set retweetedStatusResult(ItemResultBuilder? retweetedStatusResult) =>
       _$this._retweetedStatusResult = retweetedStatusResult;
 
-  TweetLegacySelfThreadBuilder? _selfThread;
-  TweetLegacySelfThreadBuilder get selfThread =>
-      _$this._selfThread ??= new TweetLegacySelfThreadBuilder();
-  set selfThread(TweetLegacySelfThreadBuilder? selfThread) =>
+  SelfThreadBuilder? _selfThread;
+  SelfThreadBuilder get selfThread =>
+      _$this._selfThread ??= new SelfThreadBuilder();
+  set selfThread(SelfThreadBuilder? selfThread) =>
       _$this._selfThread = selfThread;
 
   String? _userIdStr;

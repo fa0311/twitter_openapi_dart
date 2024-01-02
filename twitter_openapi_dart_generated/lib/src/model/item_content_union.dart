@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/timeline_prompt.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_community.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:built_collection/built_collection.dart';
@@ -32,12 +33,13 @@ part 'item_content_union.g.dart';
 @BuiltValue()
 abstract class ItemContentUnion
     implements Built<ItemContentUnion, ItemContentUnionBuilder> {
-  /// One Of [TimelineMessagePrompt], [TimelinePrompt], [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
+  /// One Of [TimelineCommunity], [TimelineMessagePrompt], [TimelinePrompt], [TimelineTimelineCursor], [TimelineTweet], [TimelineUser]
   OneOf get oneOf;
 
-  static const String discriminatorFieldName = r'itemType';
+  static const String discriminatorFieldName = r'__typename';
 
   static const Map<String, Type> discriminatorMapping = {
+    r'TimelineCommunity': TimelineCommunity,
     r'TimelineMessagePrompt': TimelineMessagePrompt,
     r'TimelinePrompt': TimelinePrompt,
     r'TimelineTimelineCursor': TimelineTimelineCursor,
@@ -60,6 +62,9 @@ abstract class ItemContentUnion
 
 extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
   String? get discriminatorValue {
+    if (this is TimelineCommunity) {
+      return r'TimelineCommunity';
+    }
     if (this is TimelineMessagePrompt) {
       return r'TimelineMessagePrompt';
     }
@@ -81,6 +86,9 @@ extension ItemContentUnionDiscriminatorExt on ItemContentUnion {
 
 extension ItemContentUnionBuilderDiscriminatorExt on ItemContentUnionBuilder {
   String? get discriminatorValue {
+    if (this is TimelineCommunityBuilder) {
+      return r'TimelineCommunity';
+    }
     if (this is TimelineMessagePromptBuilder) {
       return r'TimelineMessagePrompt';
     }
@@ -140,6 +148,7 @@ class _$ItemContentUnionSerializer
         specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
     final oneOfTypes = [
+      TimelineCommunity,
       TimelineMessagePrompt,
       TimelinePrompt,
       TimelineTimelineCursor,
@@ -149,6 +158,13 @@ class _$ItemContentUnionSerializer
     Object oneOfResult;
     Type oneOfType;
     switch (discValue) {
+      case r'TimelineCommunity':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineCommunity),
+        ) as TimelineCommunity;
+        oneOfType = TimelineCommunity;
+        break;
       case r'TimelineMessagePrompt':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
@@ -196,30 +212,24 @@ class _$ItemContentUnionSerializer
   }
 }
 
-class ItemContentUnionCursorTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Top')
-  static const ItemContentUnionCursorTypeEnum top =
-      _$itemContentUnionCursorTypeEnum_top;
-  @BuiltValueEnumConst(wireName: r'Bottom')
-  static const ItemContentUnionCursorTypeEnum bottom =
-      _$itemContentUnionCursorTypeEnum_bottom;
-  @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const ItemContentUnionCursorTypeEnum showMore =
-      _$itemContentUnionCursorTypeEnum_showMore;
-  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const ItemContentUnionCursorTypeEnum showMoreThreads =
-      _$itemContentUnionCursorTypeEnum_showMoreThreads;
-  @BuiltValueEnumConst(wireName: r'Gap')
-  static const ItemContentUnionCursorTypeEnum gap =
-      _$itemContentUnionCursorTypeEnum_gap;
+class ItemContentUnionUserDisplayTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'User')
+  static const ItemContentUnionUserDisplayTypeEnum user =
+      _$itemContentUnionUserDisplayTypeEnum_user;
+  @BuiltValueEnumConst(wireName: r'UserDetailed')
+  static const ItemContentUnionUserDisplayTypeEnum userDetailed =
+      _$itemContentUnionUserDisplayTypeEnum_userDetailed;
+  @BuiltValueEnumConst(wireName: r'SubscribableUser')
+  static const ItemContentUnionUserDisplayTypeEnum subscribableUser =
+      _$itemContentUnionUserDisplayTypeEnum_subscribableUser;
 
-  static Serializer<ItemContentUnionCursorTypeEnum> get serializer =>
-      _$itemContentUnionCursorTypeEnumSerializer;
+  static Serializer<ItemContentUnionUserDisplayTypeEnum> get serializer =>
+      _$itemContentUnionUserDisplayTypeEnumSerializer;
 
-  const ItemContentUnionCursorTypeEnum._(String name) : super(name);
+  const ItemContentUnionUserDisplayTypeEnum._(String name) : super(name);
 
-  static BuiltSet<ItemContentUnionCursorTypeEnum> get values =>
-      _$itemContentUnionCursorTypeEnumValues;
-  static ItemContentUnionCursorTypeEnum valueOf(String name) =>
-      _$itemContentUnionCursorTypeEnumValueOf(name);
+  static BuiltSet<ItemContentUnionUserDisplayTypeEnum> get values =>
+      _$itemContentUnionUserDisplayTypeEnumValues;
+  static ItemContentUnionUserDisplayTypeEnum valueOf(String name) =>
+      _$itemContentUnionUserDisplayTypeEnumValueOf(name);
 }

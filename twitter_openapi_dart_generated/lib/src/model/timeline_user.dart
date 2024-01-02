@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
@@ -28,14 +29,15 @@ abstract class TimelineUser
 
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  };
 
   @BuiltValueField(wireName: r'userDisplayType')
-  String get userDisplayType;
+  TimelineUserUserDisplayTypeEnum get userDisplayType;
+  // enum userDisplayTypeEnum {  User,  UserDetailed,  SubscribableUser,  };
 
   @BuiltValueField(wireName: r'user_results')
   UserResults get userResults;
@@ -83,7 +85,7 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     yield r'userDisplayType';
     yield serializers.serialize(
       object.userDisplayType,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType(TimelineUserUserDisplayTypeEnum),
     );
     yield r'user_results';
     yield serializers.serialize(
@@ -139,8 +141,8 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
         case r'userDisplayType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(TimelineUserUserDisplayTypeEnum),
+          ) as TimelineUserUserDisplayTypeEnum;
           result.userDisplayType = valueDes;
           break;
         case r'user_results':
@@ -177,4 +179,26 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     );
     return result.build();
   }
+}
+
+class TimelineUserUserDisplayTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'User')
+  static const TimelineUserUserDisplayTypeEnum user =
+      _$timelineUserUserDisplayTypeEnum_user;
+  @BuiltValueEnumConst(wireName: r'UserDetailed')
+  static const TimelineUserUserDisplayTypeEnum userDetailed =
+      _$timelineUserUserDisplayTypeEnum_userDetailed;
+  @BuiltValueEnumConst(wireName: r'SubscribableUser')
+  static const TimelineUserUserDisplayTypeEnum subscribableUser =
+      _$timelineUserUserDisplayTypeEnum_subscribableUser;
+
+  static Serializer<TimelineUserUserDisplayTypeEnum> get serializer =>
+      _$timelineUserUserDisplayTypeEnumSerializer;
+
+  const TimelineUserUserDisplayTypeEnum._(String name) : super(name);
+
+  static BuiltSet<TimelineUserUserDisplayTypeEnum> get values =>
+      _$timelineUserUserDisplayTypeEnumValues;
+  static TimelineUserUserDisplayTypeEnum valueOf(String name) =>
+      _$timelineUserUserDisplayTypeEnumValueOf(name);
 }

@@ -29,10 +29,16 @@ class TypeName extends EnumClass {
   static const TypeName timelinePrompt = _$timelinePrompt;
   @BuiltValueEnumConst(wireName: r'TimelineMessagePrompt')
   static const TypeName timelineMessagePrompt = _$timelineMessagePrompt;
+  @BuiltValueEnumConst(wireName: r'TimelineCommunity')
+  static const TypeName timelineCommunity = _$timelineCommunity;
+  @BuiltValueEnumConst(wireName: r'TweetUnavailable')
+  static const TypeName tweetUnavailable = _$tweetUnavailable;
   @BuiltValueEnumConst(wireName: r'Tweet')
   static const TypeName tweet = _$tweet;
   @BuiltValueEnumConst(wireName: r'User')
   static const TypeName user = _$user;
+  @BuiltValueEnumConst(wireName: r'UserUnavailable')
+  static const TypeName userUnavailable = _$userUnavailable;
 
   static Serializer<TypeName> get serializer => _$typeNameSerializer;
 

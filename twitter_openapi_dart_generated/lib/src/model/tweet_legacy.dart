@@ -5,9 +5,9 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
 import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/self_thread.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -101,7 +101,7 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   ItemResult? get retweetedStatusResult;
 
   @BuiltValueField(wireName: r'self_thread')
-  TweetLegacySelfThread? get selfThread;
+  SelfThread? get selfThread;
 
   @BuiltValueField(wireName: r'user_id_str')
   String get userIdStr;
@@ -243,7 +243,7 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       yield r'self_thread';
       yield serializers.serialize(
         object.selfThread,
-        specifiedType: const FullType(TweetLegacySelfThread),
+        specifiedType: const FullType(SelfThread),
       );
     }
     yield r'user_id_str';
@@ -419,8 +419,8 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
         case r'self_thread':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TweetLegacySelfThread),
-          ) as TweetLegacySelfThread;
+            specifiedType: const FullType(SelfThread),
+          ) as SelfThread;
           result.selfThread.replace(valueDes);
           break;
         case r'user_id_str':

@@ -79,7 +79,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   String get description;
 
   @BuiltValueField(wireName: r'entities')
-  JsonObject get entities;
+  BuiltMap<String, JsonObject?> get entities;
 
   @BuiltValueField(wireName: r'fast_followers_count')
   int get fastFollowersCount;
@@ -88,16 +88,16 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   int get favouritesCount;
 
   @BuiltValueField(wireName: r'follow_request_sent')
-  bool get followRequestSent;
+  bool? get followRequestSent;
 
   @BuiltValueField(wireName: r'followed_by')
-  bool get followedBy;
+  bool? get followedBy;
 
   @BuiltValueField(wireName: r'followers_count')
   int get followersCount;
 
   @BuiltValueField(wireName: r'following')
-  bool get following;
+  bool? get following;
 
   @BuiltValueField(wireName: r'friends_count')
   int get friendsCount;
@@ -127,7 +127,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   int get normalFollowersCount;
 
   @BuiltValueField(wireName: r'notifications')
-  bool get notifications;
+  bool? get notifications;
 
   @BuiltValueField(wireName: r'pinned_tweet_ids_str')
   BuiltList<String> get pinnedTweetIdsStr;
@@ -151,7 +151,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   String get profileInterstitialType;
 
   @BuiltValueField(wireName: r'protected')
-  bool get protected;
+  bool? get protected;
 
   @BuiltValueField(wireName: r'screen_name')
   String get screenName;
@@ -260,7 +260,8 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     yield r'entities';
     yield serializers.serialize(
       object.entities,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(
+          BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
     );
     yield r'fast_followers_count';
     yield serializers.serialize(
@@ -272,26 +273,32 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.favouritesCount,
       specifiedType: const FullType(int),
     );
-    yield r'follow_request_sent';
-    yield serializers.serialize(
-      object.followRequestSent,
-      specifiedType: const FullType(bool),
-    );
-    yield r'followed_by';
-    yield serializers.serialize(
-      object.followedBy,
-      specifiedType: const FullType(bool),
-    );
+    if (object.followRequestSent != null) {
+      yield r'follow_request_sent';
+      yield serializers.serialize(
+        object.followRequestSent,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.followedBy != null) {
+      yield r'followed_by';
+      yield serializers.serialize(
+        object.followedBy,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'followers_count';
     yield serializers.serialize(
       object.followersCount,
       specifiedType: const FullType(int),
     );
-    yield r'following';
-    yield serializers.serialize(
-      object.following,
-      specifiedType: const FullType(bool),
-    );
+    if (object.following != null) {
+      yield r'following';
+      yield serializers.serialize(
+        object.following,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'friends_count';
     yield serializers.serialize(
       object.friendsCount,
@@ -337,11 +344,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.normalFollowersCount,
       specifiedType: const FullType(int),
     );
-    yield r'notifications';
-    yield serializers.serialize(
-      object.notifications,
-      specifiedType: const FullType(bool),
-    );
+    if (object.notifications != null) {
+      yield r'notifications';
+      yield serializers.serialize(
+        object.notifications,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'pinned_tweet_ids_str';
     yield serializers.serialize(
       object.pinnedTweetIdsStr,
@@ -383,11 +392,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.profileInterstitialType,
       specifiedType: const FullType(String),
     );
-    yield r'protected';
-    yield serializers.serialize(
-      object.protected,
-      specifiedType: const FullType(bool),
-    );
+    if (object.protected != null) {
+      yield r'protected';
+      yield serializers.serialize(
+        object.protected,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'screen_name';
     yield serializers.serialize(
       object.screenName,
@@ -504,9 +515,10 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
         case r'entities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.entities = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.entities.replace(valueDes);
           break;
         case r'fast_followers_count':
           final valueDes = serializers.deserialize(

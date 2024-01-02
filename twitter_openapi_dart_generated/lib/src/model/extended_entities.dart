@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/media.dart';
+import 'package:twitter_openapi_dart_generated/src/model/media_extended.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +18,7 @@ part 'extended_entities.g.dart';
 abstract class ExtendedEntities
     implements Built<ExtendedEntities, ExtendedEntitiesBuilder> {
   @BuiltValueField(wireName: r'media')
-  BuiltList<Media> get media;
+  BuiltList<MediaExtended> get media;
 
   ExtendedEntities._();
 
@@ -49,7 +49,7 @@ class _$ExtendedEntitiesSerializer
     yield r'media';
     yield serializers.serialize(
       object.media,
-      specifiedType: const FullType(BuiltList, [FullType(Media)]),
+      specifiedType: const FullType(BuiltList, [FullType(MediaExtended)]),
     );
   }
 
@@ -79,8 +79,8 @@ class _$ExtendedEntitiesSerializer
         case r'media':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(Media)]),
-          ) as BuiltList<Media>;
+            specifiedType: const FullType(BuiltList, [FullType(MediaExtended)]),
+          ) as BuiltList<MediaExtended>;
           result.media.replace(valueDes);
           break;
         default:

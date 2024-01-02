@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_media.dart';
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_reply.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -16,6 +17,7 @@ part 'post_create_tweet_request_variables.g.dart';
 /// Properties:
 /// * [darkRequest]
 /// * [media]
+/// * [reply]
 /// * [semanticAnnotationIds]
 /// * [tweetText]
 @BuiltValue()
@@ -28,6 +30,9 @@ abstract class PostCreateTweetRequestVariables
 
   @BuiltValueField(wireName: r'media')
   PostCreateTweetRequestVariablesMedia get media;
+
+  @BuiltValueField(wireName: r'reply')
+  PostCreateTweetRequestVariablesReply? get reply;
 
   @BuiltValueField(wireName: r'semantic_annotation_ids')
   BuiltList<JsonObject> get semanticAnnotationIds;
@@ -77,6 +82,13 @@ class _$PostCreateTweetRequestVariablesSerializer
       object.media,
       specifiedType: const FullType(PostCreateTweetRequestVariablesMedia),
     );
+    if (object.reply != null) {
+      yield r'reply';
+      yield serializers.serialize(
+        object.reply,
+        specifiedType: const FullType(PostCreateTweetRequestVariablesReply),
+      );
+    }
     yield r'semantic_annotation_ids';
     yield serializers.serialize(
       object.semanticAnnotationIds,
@@ -125,6 +137,13 @@ class _$PostCreateTweetRequestVariablesSerializer
             specifiedType: const FullType(PostCreateTweetRequestVariablesMedia),
           ) as PostCreateTweetRequestVariablesMedia;
           result.media.replace(valueDes);
+          break;
+        case r'reply':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PostCreateTweetRequestVariablesReply),
+          ) as PostCreateTweetRequestVariablesReply;
+          result.reply.replace(valueDes);
           break;
         case r'semantic_annotation_ids':
           final valueDes = serializers.deserialize(

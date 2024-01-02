@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
-import 'package:built_value/json_object.dart';
+import 'package:twitter_openapi_dart_generated/src/model/client_event_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +18,7 @@ part 'module_entry.g.dart';
 @BuiltValue()
 abstract class ModuleEntry implements Built<ModuleEntry, ModuleEntryBuilder> {
   @BuiltValueField(wireName: r'clientEventInfo')
-  JsonObject get clientEventInfo;
+  ClientEventInfo get clientEventInfo;
 
   @BuiltValueField(wireName: r'itemContent')
   ItemContentUnion get itemContent;
@@ -49,7 +49,7 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
     yield r'clientEventInfo';
     yield serializers.serialize(
       object.clientEventInfo,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(ClientEventInfo),
     );
     yield r'itemContent';
     yield serializers.serialize(
@@ -84,9 +84,9 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
         case r'clientEventInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.clientEventInfo = valueDes;
+            specifiedType: const FullType(ClientEventInfo),
+          ) as ClientEventInfo;
+          result.clientEventInfo.replace(valueDes);
           break;
         case r'itemContent':
           final valueDes = serializers.deserialize(

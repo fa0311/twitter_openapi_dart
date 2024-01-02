@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_values_inner.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,7 +20,7 @@ part 'tweet_card_legacy.g.dart';
 abstract class TweetCardLegacy
     implements Built<TweetCardLegacy, TweetCardLegacyBuilder> {
   @BuiltValueField(wireName: r'binding_values')
-  BuiltList<TweetCardLegacyBindingValuesInner> get bindingValues;
+  BuiltList<TweetCardLegacyBindingValue> get bindingValues;
 
   @BuiltValueField(wireName: r'name')
   String get name;
@@ -57,8 +57,8 @@ class _$TweetCardLegacySerializer
     yield r'binding_values';
     yield serializers.serialize(
       object.bindingValues,
-      specifiedType: const FullType(
-          BuiltList, [FullType(TweetCardLegacyBindingValuesInner)]),
+      specifiedType:
+          const FullType(BuiltList, [FullType(TweetCardLegacyBindingValue)]),
     );
     yield r'name';
     yield serializers.serialize(
@@ -99,8 +99,8 @@ class _$TweetCardLegacySerializer
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(
-                BuiltList, [FullType(TweetCardLegacyBindingValuesInner)]),
-          ) as BuiltList<TweetCardLegacyBindingValuesInner>;
+                BuiltList, [FullType(TweetCardLegacyBindingValue)]),
+          ) as BuiltList<TweetCardLegacyBindingValue>;
           result.bindingValues.replace(valueDes);
           break;
         case r'name':

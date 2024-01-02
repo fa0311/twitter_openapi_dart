@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
@@ -30,14 +31,14 @@ abstract class TimelineTweet
 
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  };
 
   @BuiltValueField(wireName: r'promotedMetadata')
-  JsonObject? get promotedMetadata;
+  BuiltMap<String, JsonObject?>? get promotedMetadata;
 
   @BuiltValueField(wireName: r'tweetDisplayType')
   String get tweetDisplayType;
@@ -91,7 +92,8 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
       yield r'promotedMetadata';
       yield serializers.serialize(
         object.promotedMetadata,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     yield r'tweetDisplayType';
@@ -153,9 +155,10 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
         case r'promotedMetadata':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.promotedMetadata = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.promotedMetadata.replace(valueDes);
           break;
         case r'tweetDisplayType':
           final valueDes = serializers.deserialize(

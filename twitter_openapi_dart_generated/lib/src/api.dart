@@ -15,6 +15,7 @@ import 'package:twitter_openapi_dart_generated/src/api/post_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/user_list_api.dart';
+import 'package:twitter_openapi_dart_generated/src/api/users_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/v11_get_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/v11_post_api.dart';
 import 'package:twitter_openapi_dart_generated/src/api/v20_get_api.dart';
@@ -118,6 +119,12 @@ class TwitterOpenapiDartGenerated {
   /// by doing that all interceptors will not be executed
   UserListApi getUserListApi() {
     return UserListApi(dio, serializers);
+  }
+
+  /// Get UsersApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  UsersApi getUsersApi() {
+    return UsersApi(dio, serializers);
   }
 
   /// Get V11GetApi instance, base route and serializer can be overridden by a given but be careful,

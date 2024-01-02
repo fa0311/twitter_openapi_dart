@@ -10,9 +10,9 @@ class _$User extends User {
   @override
   final TypeName typename;
   @override
-  final JsonObject affiliatesHighlightedLabel;
+  final BuiltMap<String, JsonObject?> affiliatesHighlightedLabel;
   @override
-  final JsonObject? businessAccount;
+  final BuiltMap<String, JsonObject?>? businessAccount;
   @override
   final bool? hasGraduatedAccess;
   @override
@@ -135,15 +135,18 @@ class UserBuilder implements Builder<User, UserBuilder> {
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  JsonObject? _affiliatesHighlightedLabel;
-  JsonObject? get affiliatesHighlightedLabel =>
-      _$this._affiliatesHighlightedLabel;
-  set affiliatesHighlightedLabel(JsonObject? affiliatesHighlightedLabel) =>
+  MapBuilder<String, JsonObject?>? _affiliatesHighlightedLabel;
+  MapBuilder<String, JsonObject?> get affiliatesHighlightedLabel =>
+      _$this._affiliatesHighlightedLabel ??=
+          new MapBuilder<String, JsonObject?>();
+  set affiliatesHighlightedLabel(
+          MapBuilder<String, JsonObject?>? affiliatesHighlightedLabel) =>
       _$this._affiliatesHighlightedLabel = affiliatesHighlightedLabel;
 
-  JsonObject? _businessAccount;
-  JsonObject? get businessAccount => _$this._businessAccount;
-  set businessAccount(JsonObject? businessAccount) =>
+  MapBuilder<String, JsonObject?>? _businessAccount;
+  MapBuilder<String, JsonObject?> get businessAccount =>
+      _$this._businessAccount ??= new MapBuilder<String, JsonObject?>();
+  set businessAccount(MapBuilder<String, JsonObject?>? businessAccount) =>
       _$this._businessAccount = businessAccount;
 
   bool? _hasGraduatedAccess;
@@ -195,8 +198,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
-      _affiliatesHighlightedLabel = $v.affiliatesHighlightedLabel;
-      _businessAccount = $v.businessAccount;
+      _affiliatesHighlightedLabel = $v.affiliatesHighlightedLabel.toBuilder();
+      _businessAccount = $v.businessAccount?.toBuilder();
       _hasGraduatedAccess = $v.hasGraduatedAccess;
       _hasNftAvatar = $v.hasNftAvatar;
       _id = $v.id;
@@ -232,11 +235,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
           new _$User._(
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'User', 'typename'),
-              affiliatesHighlightedLabel: BuiltValueNullFieldError.checkNotNull(
-                  affiliatesHighlightedLabel,
-                  r'User',
-                  'affiliatesHighlightedLabel'),
-              businessAccount: businessAccount,
+              affiliatesHighlightedLabel: affiliatesHighlightedLabel.build(),
+              businessAccount: _businessAccount?.build(),
               hasGraduatedAccess: hasGraduatedAccess,
               hasNftAvatar: hasNftAvatar,
               id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
@@ -254,6 +254,11 @@ class UserBuilder implements Builder<User, UserBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'affiliatesHighlightedLabel';
+        affiliatesHighlightedLabel.build();
+        _$failedField = 'businessAccount';
+        _businessAccount?.build();
+
         _$failedField = 'legacy';
         legacy.build();
       } catch (e) {

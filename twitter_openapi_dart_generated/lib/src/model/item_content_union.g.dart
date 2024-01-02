@@ -6,83 +6,73 @@ part of 'item_content_union.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_top =
-    const ItemContentUnionCursorTypeEnum._('top');
-const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_bottom =
-    const ItemContentUnionCursorTypeEnum._('bottom');
-const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_showMore =
-    const ItemContentUnionCursorTypeEnum._('showMore');
-const ItemContentUnionCursorTypeEnum
-    _$itemContentUnionCursorTypeEnum_showMoreThreads =
-    const ItemContentUnionCursorTypeEnum._('showMoreThreads');
-const ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnum_gap =
-    const ItemContentUnionCursorTypeEnum._('gap');
+const ItemContentUnionUserDisplayTypeEnum
+    _$itemContentUnionUserDisplayTypeEnum_user =
+    const ItemContentUnionUserDisplayTypeEnum._('user');
+const ItemContentUnionUserDisplayTypeEnum
+    _$itemContentUnionUserDisplayTypeEnum_userDetailed =
+    const ItemContentUnionUserDisplayTypeEnum._('userDetailed');
+const ItemContentUnionUserDisplayTypeEnum
+    _$itemContentUnionUserDisplayTypeEnum_subscribableUser =
+    const ItemContentUnionUserDisplayTypeEnum._('subscribableUser');
 
-ItemContentUnionCursorTypeEnum _$itemContentUnionCursorTypeEnumValueOf(
-    String name) {
+ItemContentUnionUserDisplayTypeEnum
+    _$itemContentUnionUserDisplayTypeEnumValueOf(String name) {
   switch (name) {
-    case 'top':
-      return _$itemContentUnionCursorTypeEnum_top;
-    case 'bottom':
-      return _$itemContentUnionCursorTypeEnum_bottom;
-    case 'showMore':
-      return _$itemContentUnionCursorTypeEnum_showMore;
-    case 'showMoreThreads':
-      return _$itemContentUnionCursorTypeEnum_showMoreThreads;
-    case 'gap':
-      return _$itemContentUnionCursorTypeEnum_gap;
+    case 'user':
+      return _$itemContentUnionUserDisplayTypeEnum_user;
+    case 'userDetailed':
+      return _$itemContentUnionUserDisplayTypeEnum_userDetailed;
+    case 'subscribableUser':
+      return _$itemContentUnionUserDisplayTypeEnum_subscribableUser;
     default:
       throw new ArgumentError(name);
   }
 }
 
-final BuiltSet<ItemContentUnionCursorTypeEnum>
-    _$itemContentUnionCursorTypeEnumValues = new BuiltSet<
-        ItemContentUnionCursorTypeEnum>(const <ItemContentUnionCursorTypeEnum>[
-  _$itemContentUnionCursorTypeEnum_top,
-  _$itemContentUnionCursorTypeEnum_bottom,
-  _$itemContentUnionCursorTypeEnum_showMore,
-  _$itemContentUnionCursorTypeEnum_showMoreThreads,
-  _$itemContentUnionCursorTypeEnum_gap,
+final BuiltSet<ItemContentUnionUserDisplayTypeEnum>
+    _$itemContentUnionUserDisplayTypeEnumValues = new BuiltSet<
+        ItemContentUnionUserDisplayTypeEnum>(const <ItemContentUnionUserDisplayTypeEnum>[
+  _$itemContentUnionUserDisplayTypeEnum_user,
+  _$itemContentUnionUserDisplayTypeEnum_userDetailed,
+  _$itemContentUnionUserDisplayTypeEnum_subscribableUser,
 ]);
 
-Serializer<ItemContentUnionCursorTypeEnum>
-    _$itemContentUnionCursorTypeEnumSerializer =
-    new _$ItemContentUnionCursorTypeEnumSerializer();
+Serializer<ItemContentUnionUserDisplayTypeEnum>
+    _$itemContentUnionUserDisplayTypeEnumSerializer =
+    new _$ItemContentUnionUserDisplayTypeEnumSerializer();
 
-class _$ItemContentUnionCursorTypeEnumSerializer
-    implements PrimitiveSerializer<ItemContentUnionCursorTypeEnum> {
+class _$ItemContentUnionUserDisplayTypeEnumSerializer
+    implements PrimitiveSerializer<ItemContentUnionUserDisplayTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'top': 'Top',
-    'bottom': 'Bottom',
-    'showMore': 'ShowMore',
-    'showMoreThreads': 'ShowMoreThreads',
-    'gap': 'Gap',
+    'user': 'User',
+    'userDetailed': 'UserDetailed',
+    'subscribableUser': 'SubscribableUser',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Top': 'top',
-    'Bottom': 'bottom',
-    'ShowMore': 'showMore',
-    'ShowMoreThreads': 'showMoreThreads',
-    'Gap': 'gap',
+    'User': 'user',
+    'UserDetailed': 'userDetailed',
+    'SubscribableUser': 'subscribableUser',
   };
 
   @override
-  final Iterable<Type> types = const <Type>[ItemContentUnionCursorTypeEnum];
+  final Iterable<Type> types = const <Type>[
+    ItemContentUnionUserDisplayTypeEnum
+  ];
   @override
-  final String wireName = 'ItemContentUnionCursorTypeEnum';
+  final String wireName = 'ItemContentUnionUserDisplayTypeEnum';
 
   @override
   Object serialize(
-          Serializers serializers, ItemContentUnionCursorTypeEnum object,
+          Serializers serializers, ItemContentUnionUserDisplayTypeEnum object,
           {FullType specifiedType = FullType.unspecified}) =>
       _toWire[object.name] ?? object.name;
 
   @override
-  ItemContentUnionCursorTypeEnum deserialize(
+  ItemContentUnionUserDisplayTypeEnum deserialize(
           Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
-      ItemContentUnionCursorTypeEnum.valueOf(
+      ItemContentUnionUserDisplayTypeEnum.valueOf(
           _fromWire[serialized] ?? (serialized is String ? serialized : ''));
 }
 

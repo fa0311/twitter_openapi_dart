@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **retweetCount** | **int** |  | 
 **retweeted** | **bool** |  | 
 **retweetedStatusResult** | [**ItemResult**](ItemResult.md) |  | [optional] 
-**selfThread** | [**TweetLegacySelfThread**](TweetLegacySelfThread.md) |  | [optional] 
+**selfThread** | [**SelfThread**](SelfThread.md) |  | [optional] 
 **userIdStr** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -8,7 +8,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bindingValues** | [**BuiltList&lt;TweetCardLegacyBindingValuesInner&gt;**](TweetCardLegacyBindingValuesInner.md) |  | 
+**bindingValues** | [**BuiltList&lt;TweetCardLegacyBindingValue&gt;**](TweetCardLegacyBindingValue.md) |  | 
 **name** | **String** |  | 
 **url** | **String** |  | 
 

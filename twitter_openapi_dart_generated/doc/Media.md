@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **displayUrl** | **String** |  | 
 **expandedUrl** | **String** |  | 
-**extMediaAvailability** | [**JsonObject**](.md) |  | [optional] 
+**features** | [**JsonObject**](.md) |  | [optional] 
 **idStr** | **String** |  | 
 **indices** | **BuiltList&lt;int&gt;** |  | 
-**mediaKey** | **String** |  | [optional] 
 **mediaUrlHttps** | **String** |  | 
 **originalInfo** | [**MediaOriginalInfo**](MediaOriginalInfo.md) |  | 
-**sizes** | [**JsonObject**](.md) |  | 
+**sizes** | [**MediaSizes**](MediaSizes.md) |  | 
 **type** | **String** |  | 
 **url** | **String** |  | 
 

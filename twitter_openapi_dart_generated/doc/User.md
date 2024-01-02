@@ -9,8 +9,8 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**affiliatesHighlightedLabel** | [**JsonObject**](.md) |  | 
-**businessAccount** | [**JsonObject**](.md) |  | [optional] 
+**affiliatesHighlightedLabel** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | 
+**businessAccount** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **hasGraduatedAccess** | **bool** |  | [optional] 
 **hasNftAvatar** | **bool** |  | [optional] [default to false]
 **id** | **String** |  | 

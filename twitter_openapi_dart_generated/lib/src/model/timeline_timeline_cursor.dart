@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/cursor_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -24,10 +24,10 @@ abstract class TimelineTimelineCursor
     implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
 
   @BuiltValueField(wireName: r'cursorType')
-  TimelineTimelineCursorCursorTypeEnum get cursorType;
+  CursorType get cursorType;
   // enum cursorTypeEnum {  Top,  Bottom,  ShowMore,  ShowMoreThreads,  Gap,  };
 
   @BuiltValueField(wireName: r'entryType')
@@ -79,7 +79,7 @@ class _$TimelineTimelineCursorSerializer
     yield r'cursorType';
     yield serializers.serialize(
       object.cursorType,
-      specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
+      specifiedType: const FullType(CursorType),
     );
     if (object.entryType != null) {
       yield r'entryType';
@@ -135,8 +135,8 @@ class _$TimelineTimelineCursorSerializer
         case r'cursorType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TimelineTimelineCursorCursorTypeEnum),
-          ) as TimelineTimelineCursorCursorTypeEnum;
+            specifiedType: const FullType(CursorType),
+          ) as CursorType;
           result.cursorType = valueDes;
           break;
         case r'entryType':
@@ -187,32 +187,4 @@ class _$TimelineTimelineCursorSerializer
     );
     return result.build();
   }
-}
-
-class TimelineTimelineCursorCursorTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Top')
-  static const TimelineTimelineCursorCursorTypeEnum top =
-      _$timelineTimelineCursorCursorTypeEnum_top;
-  @BuiltValueEnumConst(wireName: r'Bottom')
-  static const TimelineTimelineCursorCursorTypeEnum bottom =
-      _$timelineTimelineCursorCursorTypeEnum_bottom;
-  @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const TimelineTimelineCursorCursorTypeEnum showMore =
-      _$timelineTimelineCursorCursorTypeEnum_showMore;
-  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const TimelineTimelineCursorCursorTypeEnum showMoreThreads =
-      _$timelineTimelineCursorCursorTypeEnum_showMoreThreads;
-  @BuiltValueEnumConst(wireName: r'Gap')
-  static const TimelineTimelineCursorCursorTypeEnum gap =
-      _$timelineTimelineCursorCursorTypeEnum_gap;
-
-  static Serializer<TimelineTimelineCursorCursorTypeEnum> get serializer =>
-      _$timelineTimelineCursorCursorTypeEnumSerializer;
-
-  const TimelineTimelineCursorCursorTypeEnum._(String name) : super(name);
-
-  static BuiltSet<TimelineTimelineCursorCursorTypeEnum> get values =>
-      _$timelineTimelineCursorCursorTypeEnumValues;
-  static TimelineTimelineCursorCursorTypeEnum valueOf(String name) =>
-      _$timelineTimelineCursorCursorTypeEnumValueOf(name);
 }

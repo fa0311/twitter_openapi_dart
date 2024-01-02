@@ -6,6 +6,73 @@ part of 'timeline_user.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const TimelineUserUserDisplayTypeEnum _$timelineUserUserDisplayTypeEnum_user =
+    const TimelineUserUserDisplayTypeEnum._('user');
+const TimelineUserUserDisplayTypeEnum
+    _$timelineUserUserDisplayTypeEnum_userDetailed =
+    const TimelineUserUserDisplayTypeEnum._('userDetailed');
+const TimelineUserUserDisplayTypeEnum
+    _$timelineUserUserDisplayTypeEnum_subscribableUser =
+    const TimelineUserUserDisplayTypeEnum._('subscribableUser');
+
+TimelineUserUserDisplayTypeEnum _$timelineUserUserDisplayTypeEnumValueOf(
+    String name) {
+  switch (name) {
+    case 'user':
+      return _$timelineUserUserDisplayTypeEnum_user;
+    case 'userDetailed':
+      return _$timelineUserUserDisplayTypeEnum_userDetailed;
+    case 'subscribableUser':
+      return _$timelineUserUserDisplayTypeEnum_subscribableUser;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<TimelineUserUserDisplayTypeEnum>
+    _$timelineUserUserDisplayTypeEnumValues = new BuiltSet<
+        TimelineUserUserDisplayTypeEnum>(const <TimelineUserUserDisplayTypeEnum>[
+  _$timelineUserUserDisplayTypeEnum_user,
+  _$timelineUserUserDisplayTypeEnum_userDetailed,
+  _$timelineUserUserDisplayTypeEnum_subscribableUser,
+]);
+
+Serializer<TimelineUserUserDisplayTypeEnum>
+    _$timelineUserUserDisplayTypeEnumSerializer =
+    new _$TimelineUserUserDisplayTypeEnumSerializer();
+
+class _$TimelineUserUserDisplayTypeEnumSerializer
+    implements PrimitiveSerializer<TimelineUserUserDisplayTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'user': 'User',
+    'userDetailed': 'UserDetailed',
+    'subscribableUser': 'SubscribableUser',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'User': 'user',
+    'UserDetailed': 'userDetailed',
+    'SubscribableUser': 'subscribableUser',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[TimelineUserUserDisplayTypeEnum];
+  @override
+  final String wireName = 'TimelineUserUserDisplayTypeEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, TimelineUserUserDisplayTypeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  TimelineUserUserDisplayTypeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      TimelineUserUserDisplayTypeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$TimelineUser extends TimelineUser {
   @override
   final SocialContext? socialContext;
@@ -14,7 +81,7 @@ class _$TimelineUser extends TimelineUser {
   @override
   final ContentItemType itemType;
   @override
-  final String userDisplayType;
+  final TimelineUserUserDisplayTypeEnum userDisplayType;
   @override
   final UserResults userResults;
 
@@ -98,9 +165,10 @@ class TimelineUserBuilder
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
-  String? _userDisplayType;
-  String? get userDisplayType => _$this._userDisplayType;
-  set userDisplayType(String? userDisplayType) =>
+  TimelineUserUserDisplayTypeEnum? _userDisplayType;
+  TimelineUserUserDisplayTypeEnum? get userDisplayType =>
+      _$this._userDisplayType;
+  set userDisplayType(TimelineUserUserDisplayTypeEnum? userDisplayType) =>
       _$this._userDisplayType = userDisplayType;
 
   UserResultsBuilder? _userResults;

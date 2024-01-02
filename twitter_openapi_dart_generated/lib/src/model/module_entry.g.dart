@@ -8,7 +8,7 @@ part of 'module_entry.dart';
 
 class _$ModuleEntry extends ModuleEntry {
   @override
-  final JsonObject clientEventInfo;
+  final ClientEventInfo clientEventInfo;
   @override
   final ItemContentUnion itemContent;
 
@@ -59,9 +59,10 @@ class _$ModuleEntry extends ModuleEntry {
 class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
   _$ModuleEntry? _$v;
 
-  JsonObject? _clientEventInfo;
-  JsonObject? get clientEventInfo => _$this._clientEventInfo;
-  set clientEventInfo(JsonObject? clientEventInfo) =>
+  ClientEventInfoBuilder? _clientEventInfo;
+  ClientEventInfoBuilder get clientEventInfo =>
+      _$this._clientEventInfo ??= new ClientEventInfoBuilder();
+  set clientEventInfo(ClientEventInfoBuilder? clientEventInfo) =>
       _$this._clientEventInfo = clientEventInfo;
 
   ItemContentUnionBuilder? _itemContent;
@@ -77,7 +78,7 @@ class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
   ModuleEntryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _clientEventInfo = $v.clientEventInfo;
+      _clientEventInfo = $v.clientEventInfo.toBuilder();
       _itemContent = $v.itemContent.toBuilder();
       _$v = null;
     }
@@ -103,12 +104,13 @@ class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
     try {
       _$result = _$v ??
           new _$ModuleEntry._(
-              clientEventInfo: BuiltValueNullFieldError.checkNotNull(
-                  clientEventInfo, r'ModuleEntry', 'clientEventInfo'),
+              clientEventInfo: clientEventInfo.build(),
               itemContent: itemContent.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'clientEventInfo';
+        clientEventInfo.build();
         _$failedField = 'itemContent';
         itemContent.build();
       } catch (e) {

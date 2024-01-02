@@ -21,6 +21,8 @@ class ContentItemType extends EnumClass {
   static const ContentItemType timelinePrompt = _$timelinePrompt;
   @BuiltValueEnumConst(wireName: r'TimelineMessagePrompt')
   static const ContentItemType timelineMessagePrompt = _$timelineMessagePrompt;
+  @BuiltValueEnumConst(wireName: r'TimelineCommunity')
+  static const ContentItemType timelineCommunity = _$timelineCommunity;
 
   static Serializer<ContentItemType> get serializer =>
       _$contentItemTypeSerializer;

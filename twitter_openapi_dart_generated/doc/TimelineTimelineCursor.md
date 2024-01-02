@@ -9,7 +9,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**cursorType** | **String** |  | 
+**cursorType** | [**CursorType**](CursorType.md) |  | 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **itemType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **value** | **String** |  | 

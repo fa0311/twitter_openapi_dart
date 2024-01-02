@@ -6,6 +6,60 @@ part of 'session.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const SessionSuperFollowsApplicationStatusEnum
+    _$sessionSuperFollowsApplicationStatusEnum_notStarted =
+    const SessionSuperFollowsApplicationStatusEnum._('notStarted');
+
+SessionSuperFollowsApplicationStatusEnum
+    _$sessionSuperFollowsApplicationStatusEnumValueOf(String name) {
+  switch (name) {
+    case 'notStarted':
+      return _$sessionSuperFollowsApplicationStatusEnum_notStarted;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<SessionSuperFollowsApplicationStatusEnum>
+    _$sessionSuperFollowsApplicationStatusEnumValues = new BuiltSet<
+        SessionSuperFollowsApplicationStatusEnum>(const <SessionSuperFollowsApplicationStatusEnum>[
+  _$sessionSuperFollowsApplicationStatusEnum_notStarted,
+]);
+
+Serializer<SessionSuperFollowsApplicationStatusEnum>
+    _$sessionSuperFollowsApplicationStatusEnumSerializer =
+    new _$SessionSuperFollowsApplicationStatusEnumSerializer();
+
+class _$SessionSuperFollowsApplicationStatusEnumSerializer
+    implements PrimitiveSerializer<SessionSuperFollowsApplicationStatusEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'notStarted': 'NotStarted',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'NotStarted': 'notStarted',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[
+    SessionSuperFollowsApplicationStatusEnum
+  ];
+  @override
+  final String wireName = 'SessionSuperFollowsApplicationStatusEnum';
+
+  @override
+  Object serialize(Serializers serializers,
+          SessionSuperFollowsApplicationStatusEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  SessionSuperFollowsApplicationStatusEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      SessionSuperFollowsApplicationStatusEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$Session extends Session {
   @override
   final JsonObject? ssoInitTokens;
@@ -30,7 +84,7 @@ class _$Session extends Session {
   @override
   final int superFollowersCount;
   @override
-  final String superFollowsApplicationStatus;
+  final SessionSuperFollowsApplicationStatusEnum superFollowsApplicationStatus;
   @override
   final UserFeatures userFeatures;
   @override
@@ -207,10 +261,12 @@ class SessionBuilder implements Builder<Session, SessionBuilder> {
   set superFollowersCount(int? superFollowersCount) =>
       _$this._superFollowersCount = superFollowersCount;
 
-  String? _superFollowsApplicationStatus;
-  String? get superFollowsApplicationStatus =>
+  SessionSuperFollowsApplicationStatusEnum? _superFollowsApplicationStatus;
+  SessionSuperFollowsApplicationStatusEnum? get superFollowsApplicationStatus =>
       _$this._superFollowsApplicationStatus;
-  set superFollowsApplicationStatus(String? superFollowsApplicationStatus) =>
+  set superFollowsApplicationStatus(
+          SessionSuperFollowsApplicationStatusEnum?
+              superFollowsApplicationStatus) =>
       _$this._superFollowsApplicationStatus = superFollowsApplicationStatus;
 
   UserFeaturesBuilder? _userFeatures;

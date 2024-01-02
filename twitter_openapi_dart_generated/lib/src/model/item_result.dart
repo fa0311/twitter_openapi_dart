@@ -19,10 +19,10 @@ part 'item_result.g.dart';
 abstract class ItemResult implements Built<ItemResult, ItemResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName? get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
 
   @BuiltValueField(wireName: r'result')
-  TweetUnion get result;
+  TweetUnion? get result;
 
   ItemResult._();
 
@@ -54,11 +54,13 @@ class _$ItemResultSerializer implements PrimitiveSerializer<ItemResult> {
         specifiedType: const FullType(TypeName),
       );
     }
-    yield r'result';
-    yield serializers.serialize(
-      object.result,
-      specifiedType: const FullType(TweetUnion),
-    );
+    if (object.result != null) {
+      yield r'result';
+      yield serializers.serialize(
+        object.result,
+        specifiedType: const FullType(TweetUnion),
+      );
+    }
   }
 
   @override
