@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
-import 'package:twitter_openapi_dart/src/model/tweet.dart';
+import 'package:twitter_openapi_dart/src/model/response.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
@@ -11,7 +11,7 @@ class TweetApiUtils {
 
   const TweetApiUtils(this.api, this.flag);
 
-  Future<TweetListApiUtilsResponse> request<T>({
+  Future<TwitterApiUtilsResponse> request<T>({
     required ApiFunction<T> apiFn,
     required ConvertTnstructionsFunction<T> convertFn,
     required String key,
@@ -33,7 +33,7 @@ class TweetApiUtils {
         ..instruction = instruction.toBuilder()
         ..entry = entry.toBuilder(),
     );
-    return TweetListApiUtilsResponse(
+    return TwitterApiUtilsResponse(
       (e) => e
         ..raw = raw.toBuilder()
         ..header = buildHeader(response.headers).toBuilder()

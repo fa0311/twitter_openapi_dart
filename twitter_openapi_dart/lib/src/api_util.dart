@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:collection/collection.dart';
@@ -6,6 +8,20 @@ import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.da
 import 'package:dio/dio.dart';
 
 import 'model/header.dart';
+
+T errorCheck<T>(Response<dynamic> data) {
+  if (data.data == null) {
+    throw Exception("No data");
+  }
+  final oneOf = data.data.oneOf;
+  if (oneOf is Errors) {
+    throw Exception(oneOf);
+  }
+  if (oneOf is T) {
+    return oneOf;
+  }
+  throw Exception("Error");
+}
 
 BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {
   return BuiltList.from(item.expand((e) {
@@ -18,7 +34,7 @@ BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item)
   }));
 }
 
-List<TweetApiUtils> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
+List<TweetApiUtilsData> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
   return item
       .map((e) {
         if (e.content.oneOf.isType(TimelineTimelineItem)) {
@@ -39,33 +55,56 @@ List<TweetApiUtils> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
       .toList();
 }
 
-TweetApiUtils? buildTweetApiUtils(ItemResult result, {JsonObject? promotedMetadata, List<TimelineTweet>? reply}) {
-  final tweet = tweetResultsConverter(result);
+TweetApiUtilsData? buildTweetApiUtils(ItemResult itemResult, {BuiltMap<String, JsonObject?>? promotedMetadata, List<TimelineTweet>? reply}) {
+  final tweet = tweetResultsConverter(itemResult);
   if (tweet == null) return null;
+  final result = tweet.core?.userResults.result;
+  final user = result == null ? null : userOrNullConverter(result);
+  if (user == null) return null;
   final quoted = tweet.quotedStatusResult;
-  final retweeted = tweet.legacy.retweetedStatusResult;
+  final retweeted = tweet.legacy?.retweetedStatusResult;
 
-  return TweetApiUtils(
+  // const tweet = tweetResultsConverter(args.result);
+  // if (tweet == undefined) return undefined;
+  // const result = tweet.core?.userResults.result;
+  // const user = result && userOrNullConverter(result);
+  // if (user == undefined) return undefined;
+  // const quoted = tweet.quotedStatusResult;
+  // const retweeted = tweet.legacy?.retweetedStatusResult;
+
+  final replies = reply?.map((e) => buildTweetApiUtils(e.tweetResults, promotedMetadata: e.promotedMetadata)).whereNotNull().toList() ?? [];
+
+  return TweetApiUtilsData(
     (e) => e
-      ..raw = result.toBuilder()
-      ..promotedMetadata = promotedMetadata
+      ..raw = itemResult.toBuilder()
+      ..promotedMetadata = promotedMetadata?.toBuilder()
       ..tweet = tweet.toBuilder()
-      ..user = tweet.core.userResults.result.toBuilder()
-      ..reply = reply?.map((e) => buildTweetApiUtils(e.tweetResults, promotedMetadata: e.promotedMetadata)).whereNotNull().toList()
+      ..user = user.toBuilder()
+      ..replies = replies.toBuiltList().toBuilder()
       ..quoted = quoted == null ? null : buildTweetApiUtils(quoted)?.toBuilder()
       ..retweeted = retweeted == null ? null : buildTweetApiUtils(retweeted)?.toBuilder(),
   );
 }
 
 Tweet? tweetResultsConverter(ItemResult tweetResults) {
-  if (tweetResults.result.oneOf.isType(Tweet)) {
-    return tweetResults.result.oneOf.value as Tweet;
-  } else if (tweetResults.result.oneOf.isType(TweetWithVisibilityResults)) {
-    return (tweetResults.result.oneOf.value as TweetWithVisibilityResults).tweet;
-  } else if (tweetResults.result.oneOf.isType(TweetTombstone)) {
+  final result = tweetResults.result;
+  if (result == null) {
+    return null;
+  } else if (result.oneOf.isType(Tweet)) {
+    return result.oneOf.value as Tweet;
+  } else if (result.oneOf.isType(TweetWithVisibilityResults)) {
+    return (result.oneOf.value as TweetWithVisibilityResults).tweet;
+  } else if (result.oneOf.isType(TweetTombstone)) {
     return null;
   }
   throw Exception();
+}
+
+User? userOrNullConverter(UserUnion userResults) {
+  if (userResults.oneOf.isType(User)) {
+    return userResults as User;
+  }
+  return null;
 }
 
 List<TimelineUser> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
@@ -80,12 +119,20 @@ List<TimelineUser> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
       .toList();
 }
 
-UserApiUtils buildUserResponse(TimelineUser user) {
-  return UserApiUtils(
-    (e) => e
-      ..raw = user.toBuilder()
-      ..user = user.userResults.result.toBuilder(),
-  );
+List<UserApiUtilsData> buildUserResult(List<UserResults> user) {
+  return user
+      .map((entry) {
+        final result = entry.result;
+        final user = result == null ? null : userOrNullConverter(result);
+        if (user == null) return null;
+        return UserApiUtilsData(
+          (e) => e
+            ..raw = entry.toBuilder()
+            ..user = user.toBuilder(),
+        );
+      })
+      .whereNotNull()
+      .toList();
 }
 
 CursorApiUtilsResponse entriesCursor(BuiltList<TimelineAddEntry> item) {
@@ -108,8 +155,8 @@ CursorApiUtilsResponse entriesCursor(BuiltList<TimelineAddEntry> item) {
 CursorApiUtilsResponse buildCursor(List<TimelineTimelineCursor> cursorList) {
   return CursorApiUtilsResponse(
     (e) => e
-      ..top = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.top)?.toBuilder()
-      ..bottom = cursorList.firstWhereOrNull((e) => e.cursorType == TimelineTimelineCursorCursorTypeEnum.bottom)?.toBuilder(),
+      ..top = cursorList.firstWhereOrNull((e) => e.cursorType == CursorType.top)?.toBuilder()
+      ..bottom = cursorList.firstWhereOrNull((e) => e.cursorType == CursorType.bottom)?.toBuilder(),
   );
 }
 
@@ -128,5 +175,38 @@ ApiUtilsHeader buildHeader(Headers headers) {
       ..transactionId = headers.value("x-transaction-id")
       ..twitterResponseTags = headers.value("x-twitter-response-tags")
       ..xssProtection = int.tryParse(headers.value("x-xss-protection") ?? "") ?? 0,
+  );
+}
+
+// def build_response(
+//     response: twitter.ApiResponse,
+//     data: T1,
+// ) -> TwitterApiUtilsResponse[T1]:
+//     if response.headers is None:
+//         raise Exception("headers is None")
+
+//     if isinstance(response.headers, Dict):
+//         header = build_header(response.headers)
+//     elif isinstance(response.headers, Mapping):
+//         header = build_header(dict(response.headers))
+//     else:
+//         raise Exception("headers is not a dict")
+
+//     return TwitterApiUtilsResponse(
+//         raw=TwitterApiUtilsRaw(response=response),
+//         header=header,
+//         data=data,
+//     )
+
+TwitterApiUtilsResponse<T> buildResponse<T>({
+  required Response<dynamic> response,
+  required T data,
+}) {
+  final header = buildHeader(response.headers);
+  return TwitterApiUtilsResponse(
+    (e) => e
+      ..raw = TwitterApiUtilsRaw((e) => e..response = response).toBuilder()
+      ..header = header.toBuilder()
+      ..data = data,
   );
 }
