@@ -4,7 +4,7 @@ description: Twitter OpenAPI Dart
 homepage: https://github.com/fa0311/twitter_openapi_dart
 
 environment:
-  sdk: '>=2.15.0 <3.0.0'
+  sdk: '>=2.15.0 <4.0.0'
 
 dependencies:
   dio: '^5.2.0'
