@@ -8,13 +8,15 @@ part of 'timeline_tweet.dart';
 
 class _$TimelineTweet extends TimelineTweet {
   @override
-  final SocialContext? socialContext;
-  @override
   final TypeName typename;
+  @override
+  final Highlight? highlights;
   @override
   final ContentItemType itemType;
   @override
   final BuiltMap<String, JsonObject?>? promotedMetadata;
+  @override
+  final SocialContextUnion? socialContext;
   @override
   final String tweetDisplayType;
   @override
@@ -24,10 +26,11 @@ class _$TimelineTweet extends TimelineTweet {
       (new TimelineTweetBuilder()..update(updates))._build();
 
   _$TimelineTweet._(
-      {this.socialContext,
-      required this.typename,
+      {required this.typename,
+      this.highlights,
       required this.itemType,
       this.promotedMetadata,
+      this.socialContext,
       required this.tweetDisplayType,
       required this.tweetResults})
       : super._() {
@@ -52,10 +55,11 @@ class _$TimelineTweet extends TimelineTweet {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TimelineTweet &&
-        socialContext == other.socialContext &&
         typename == other.typename &&
+        highlights == other.highlights &&
         itemType == other.itemType &&
         promotedMetadata == other.promotedMetadata &&
+        socialContext == other.socialContext &&
         tweetDisplayType == other.tweetDisplayType &&
         tweetResults == other.tweetResults;
   }
@@ -63,10 +67,11 @@ class _$TimelineTweet extends TimelineTweet {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, typename.hashCode);
+    _$hash = $jc(_$hash, highlights.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
     _$hash = $jc(_$hash, promotedMetadata.hashCode);
+    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, tweetDisplayType.hashCode);
     _$hash = $jc(_$hash, tweetResults.hashCode);
     _$hash = $jf(_$hash);
@@ -76,10 +81,11 @@ class _$TimelineTweet extends TimelineTweet {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelineTweet')
-          ..add('socialContext', socialContext)
           ..add('typename', typename)
+          ..add('highlights', highlights)
           ..add('itemType', itemType)
           ..add('promotedMetadata', promotedMetadata)
+          ..add('socialContext', socialContext)
           ..add('tweetDisplayType', tweetDisplayType)
           ..add('tweetResults', tweetResults))
         .toString();
@@ -90,15 +96,15 @@ class TimelineTweetBuilder
     implements Builder<TimelineTweet, TimelineTweetBuilder> {
   _$TimelineTweet? _$v;
 
-  SocialContextBuilder? _socialContext;
-  SocialContextBuilder get socialContext =>
-      _$this._socialContext ??= new SocialContextBuilder();
-  set socialContext(SocialContextBuilder? socialContext) =>
-      _$this._socialContext = socialContext;
-
   TypeName? _typename;
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
+
+  HighlightBuilder? _highlights;
+  HighlightBuilder get highlights =>
+      _$this._highlights ??= new HighlightBuilder();
+  set highlights(HighlightBuilder? highlights) =>
+      _$this._highlights = highlights;
 
   ContentItemType? _itemType;
   ContentItemType? get itemType => _$this._itemType;
@@ -109,6 +115,12 @@ class TimelineTweetBuilder
       _$this._promotedMetadata ??= new MapBuilder<String, JsonObject?>();
   set promotedMetadata(MapBuilder<String, JsonObject?>? promotedMetadata) =>
       _$this._promotedMetadata = promotedMetadata;
+
+  SocialContextUnionBuilder? _socialContext;
+  SocialContextUnionBuilder get socialContext =>
+      _$this._socialContext ??= new SocialContextUnionBuilder();
+  set socialContext(SocialContextUnionBuilder? socialContext) =>
+      _$this._socialContext = socialContext;
 
   String? _tweetDisplayType;
   String? get tweetDisplayType => _$this._tweetDisplayType;
@@ -128,10 +140,11 @@ class TimelineTweetBuilder
   TimelineTweetBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
+      _highlights = $v.highlights?.toBuilder();
       _itemType = $v.itemType;
       _promotedMetadata = $v.promotedMetadata?.toBuilder();
+      _socialContext = $v.socialContext?.toBuilder();
       _tweetDisplayType = $v.tweetDisplayType;
       _tweetResults = $v.tweetResults.toBuilder();
       _$v = null;
@@ -158,23 +171,26 @@ class TimelineTweetBuilder
     try {
       _$result = _$v ??
           new _$TimelineTweet._(
-              socialContext: _socialContext?.build(),
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineTweet', 'typename'),
+              highlights: _highlights?.build(),
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineTweet', 'itemType'),
               promotedMetadata: _promotedMetadata?.build(),
+              socialContext: _socialContext?.build(),
               tweetDisplayType: BuiltValueNullFieldError.checkNotNull(
                   tweetDisplayType, r'TimelineTweet', 'tweetDisplayType'),
               tweetResults: tweetResults.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'socialContext';
-        _socialContext?.build();
+        _$failedField = 'highlights';
+        _highlights?.build();
 
         _$failedField = 'promotedMetadata';
         _promotedMetadata?.build();
+        _$failedField = 'socialContext';
+        _socialContext?.build();
 
         _$failedField = 'tweetResults';
         tweetResults.build();

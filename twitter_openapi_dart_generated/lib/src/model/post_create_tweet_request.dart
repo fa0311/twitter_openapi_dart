@@ -36,7 +36,7 @@ abstract class PostCreateTweetRequest
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostCreateTweetRequestBuilder b) =>
-      b..queryId = 'PIZtQLRIYtSa9AtW_fI2Mw';
+      b..queryId = '8ED1SMuUGkOZVBEjiYUTfw';
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PostCreateTweetRequest> get serializer =>

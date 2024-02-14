@@ -105,6 +105,8 @@ class _$BirdwatchPivotVisualStyleEnumSerializer
 
 class _$BirdwatchPivot extends BirdwatchPivot {
   @override
+  final BirdwatchPivotCallToAction? callToAction;
+  @override
   final String destinationUrl;
   @override
   final BirdwatchPivotFooter footer;
@@ -125,7 +127,8 @@ class _$BirdwatchPivot extends BirdwatchPivot {
       (new BirdwatchPivotBuilder()..update(updates))._build();
 
   _$BirdwatchPivot._(
-      {required this.destinationUrl,
+      {this.callToAction,
+      required this.destinationUrl,
       required this.footer,
       required this.iconType,
       required this.note,
@@ -159,6 +162,7 @@ class _$BirdwatchPivot extends BirdwatchPivot {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BirdwatchPivot &&
+        callToAction == other.callToAction &&
         destinationUrl == other.destinationUrl &&
         footer == other.footer &&
         iconType == other.iconType &&
@@ -172,6 +176,7 @@ class _$BirdwatchPivot extends BirdwatchPivot {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, callToAction.hashCode);
     _$hash = $jc(_$hash, destinationUrl.hashCode);
     _$hash = $jc(_$hash, footer.hashCode);
     _$hash = $jc(_$hash, iconType.hashCode);
@@ -187,6 +192,7 @@ class _$BirdwatchPivot extends BirdwatchPivot {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BirdwatchPivot')
+          ..add('callToAction', callToAction)
           ..add('destinationUrl', destinationUrl)
           ..add('footer', footer)
           ..add('iconType', iconType)
@@ -202,6 +208,12 @@ class _$BirdwatchPivot extends BirdwatchPivot {
 class BirdwatchPivotBuilder
     implements Builder<BirdwatchPivot, BirdwatchPivotBuilder> {
   _$BirdwatchPivot? _$v;
+
+  BirdwatchPivotCallToActionBuilder? _callToAction;
+  BirdwatchPivotCallToActionBuilder get callToAction =>
+      _$this._callToAction ??= new BirdwatchPivotCallToActionBuilder();
+  set callToAction(BirdwatchPivotCallToActionBuilder? callToAction) =>
+      _$this._callToAction = callToAction;
 
   String? _destinationUrl;
   String? get destinationUrl => _$this._destinationUrl;
@@ -249,6 +261,7 @@ class BirdwatchPivotBuilder
   BirdwatchPivotBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _callToAction = $v.callToAction?.toBuilder();
       _destinationUrl = $v.destinationUrl;
       _footer = $v.footer.toBuilder();
       _iconType = $v.iconType;
@@ -281,6 +294,7 @@ class BirdwatchPivotBuilder
     try {
       _$result = _$v ??
           new _$BirdwatchPivot._(
+              callToAction: _callToAction?.build(),
               destinationUrl: BuiltValueNullFieldError.checkNotNull(
                   destinationUrl, r'BirdwatchPivot', 'destinationUrl'),
               footer: footer.build(),
@@ -296,6 +310,9 @@ class BirdwatchPivotBuilder
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'callToAction';
+        _callToAction?.build();
+
         _$failedField = 'footer';
         footer.build();
 

@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_unavailable.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user.dart';
 import 'package:built_value/built_value.dart';
@@ -17,15 +18,22 @@ part 'user_union.g.dart';
 /// * [typename]
 /// * [affiliatesHighlightedLabel]
 /// * [businessAccount]
+/// * [creatorSubscriptionsCount]
 /// * [hasGraduatedAccess]
 /// * [hasNftAvatar]
+/// * [highlightsInfo]
 /// * [id]
 /// * [isBlueVerified]
+/// * [isProfileTranslatable]
 /// * [legacy]
+/// * [professional]
+/// * [profileImageShape]
 /// * [restId]
 /// * [superFollowEligible]
 /// * [superFollowedBy]
 /// * [superFollowing]
+/// * [userSeedTweetCount]
+/// * [verificationInfo]
 /// * [reason]
 @BuiltValue()
 abstract class UserUnion implements Built<UserUnion, UserUnionBuilder> {
@@ -143,4 +151,26 @@ class _$UserUnionSerializer implements PrimitiveSerializer<UserUnion> {
         value: oneOfResult);
     return result.build();
   }
+}
+
+class UserUnionProfileImageShapeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Circle')
+  static const UserUnionProfileImageShapeEnum circle =
+      _$userUnionProfileImageShapeEnum_circle;
+  @BuiltValueEnumConst(wireName: r'Square')
+  static const UserUnionProfileImageShapeEnum square =
+      _$userUnionProfileImageShapeEnum_square;
+  @BuiltValueEnumConst(wireName: r'Hexagon')
+  static const UserUnionProfileImageShapeEnum hexagon =
+      _$userUnionProfileImageShapeEnum_hexagon;
+
+  static Serializer<UserUnionProfileImageShapeEnum> get serializer =>
+      _$userUnionProfileImageShapeEnumSerializer;
+
+  const UserUnionProfileImageShapeEnum._(String name) : super(name);
+
+  static BuiltSet<UserUnionProfileImageShapeEnum> get values =>
+      _$userUnionProfileImageShapeEnumValues;
+  static UserUnionProfileImageShapeEnum valueOf(String name) =>
+      _$userUnionProfileImageShapeEnumValueOf(name);
 }

@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**c9sTweetAnatomyModeratorBadgeEnabled** | **bool** |  | [default to true]
 **freedomOfSpeechNotReachFetchEnabled** | **bool** |  | [default to true]
 **graphqlIsTranslatableRwebTweetIsTranslatableEnabled** | **bool** |  | [default to true]
 **longformNotetweetsConsumptionEnabled** | **bool** |  | [default to true]
@@ -19,7 +20,8 @@ Name | Type | Description | Notes
 **responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled** | **bool** |  | [default to false]
 **responsiveWebGraphqlTimelineNavigationEnabled** | **bool** |  | [default to true]
 **responsiveWebMediaDownloadVideoEnabled** | **bool** |  | [default to false]
-**responsiveWebTwitterArticleTweetConsumptionEnabled** | **bool** |  | [default to false]
+**responsiveWebTwitterArticleTweetConsumptionEnabled** | **bool** |  | [default to true]
+**rwebVideoTimestampsEnabled** | **bool** |  | [default to true]
 **standardizedNudgesMisinfo** | **bool** |  | [default to true]
 **tweetAwardsWebTippingEnabled** | **bool** |  | [default to false]
 **tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled** | **bool** |  | [default to true]

@@ -9,6 +9,7 @@ import 'package:twitter_openapi_dart_generated/src/model/media_original_info.dar
 import 'package:twitter_openapi_dart_generated/src/model/ext_media_availability.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media_stats.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/sensitive_media_warning.dart';
 import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/media_sizes.dart';
 import 'package:built_value/built_value.dart';
@@ -22,6 +23,7 @@ part 'media_extended.g.dart';
 /// * [additionalMediaInfo]
 /// * [displayUrl]
 /// * [expandedUrl]
+/// * [extAltText]
 /// * [extMediaAvailability]
 /// * [features]
 /// * [idStr]
@@ -30,7 +32,10 @@ part 'media_extended.g.dart';
 /// * [mediaKey]
 /// * [mediaUrlHttps]
 /// * [originalInfo]
+/// * [sensitiveMediaWarning]
 /// * [sizes]
+/// * [sourceStatusIdStr]
+/// * [sourceUserIdStr]
 /// * [type]
 /// * [url]
 /// * [videoInfo]
@@ -45,6 +50,9 @@ abstract class MediaExtended
 
   @BuiltValueField(wireName: r'expanded_url')
   String get expandedUrl;
+
+  @BuiltValueField(wireName: r'ext_alt_text')
+  String? get extAltText;
 
   @BuiltValueField(wireName: r'ext_media_availability')
   ExtMediaAvailability? get extMediaAvailability;
@@ -70,8 +78,17 @@ abstract class MediaExtended
   @BuiltValueField(wireName: r'original_info')
   MediaOriginalInfo get originalInfo;
 
+  @BuiltValueField(wireName: r'sensitive_media_warning')
+  SensitiveMediaWarning? get sensitiveMediaWarning;
+
   @BuiltValueField(wireName: r'sizes')
   MediaSizes get sizes;
+
+  @BuiltValueField(wireName: r'source_status_id_str')
+  String? get sourceStatusIdStr;
+
+  @BuiltValueField(wireName: r'source_user_id_str')
+  String? get sourceUserIdStr;
 
   @BuiltValueField(wireName: r'type')
   MediaExtendedTypeEnum get type;
@@ -125,6 +142,13 @@ class _$MediaExtendedSerializer implements PrimitiveSerializer<MediaExtended> {
       object.expandedUrl,
       specifiedType: const FullType(String),
     );
+    if (object.extAltText != null) {
+      yield r'ext_alt_text';
+      yield serializers.serialize(
+        object.extAltText,
+        specifiedType: const FullType(String),
+      );
+    }
     if (object.extMediaAvailability != null) {
       yield r'ext_media_availability';
       yield serializers.serialize(
@@ -171,11 +195,32 @@ class _$MediaExtendedSerializer implements PrimitiveSerializer<MediaExtended> {
       object.originalInfo,
       specifiedType: const FullType(MediaOriginalInfo),
     );
+    if (object.sensitiveMediaWarning != null) {
+      yield r'sensitive_media_warning';
+      yield serializers.serialize(
+        object.sensitiveMediaWarning,
+        specifiedType: const FullType(SensitiveMediaWarning),
+      );
+    }
     yield r'sizes';
     yield serializers.serialize(
       object.sizes,
       specifiedType: const FullType(MediaSizes),
     );
+    if (object.sourceStatusIdStr != null) {
+      yield r'source_status_id_str';
+      yield serializers.serialize(
+        object.sourceStatusIdStr,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.sourceUserIdStr != null) {
+      yield r'source_user_id_str';
+      yield serializers.serialize(
+        object.sourceUserIdStr,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'type';
     yield serializers.serialize(
       object.type,
@@ -239,6 +284,13 @@ class _$MediaExtendedSerializer implements PrimitiveSerializer<MediaExtended> {
           ) as String;
           result.expandedUrl = valueDes;
           break;
+        case r'ext_alt_text':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.extAltText = valueDes;
+          break;
         case r'ext_media_availability':
           final valueDes = serializers.deserialize(
             value,
@@ -295,12 +347,33 @@ class _$MediaExtendedSerializer implements PrimitiveSerializer<MediaExtended> {
           ) as MediaOriginalInfo;
           result.originalInfo.replace(valueDes);
           break;
+        case r'sensitive_media_warning':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(SensitiveMediaWarning),
+          ) as SensitiveMediaWarning;
+          result.sensitiveMediaWarning.replace(valueDes);
+          break;
         case r'sizes':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(MediaSizes),
           ) as MediaSizes;
           result.sizes.replace(valueDes);
+          break;
+        case r'source_status_id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.sourceStatusIdStr = valueDes;
+          break;
+        case r'source_user_id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.sourceUserIdStr = valueDes;
           break;
         case r'type':
           final valueDes = serializers.deserialize(

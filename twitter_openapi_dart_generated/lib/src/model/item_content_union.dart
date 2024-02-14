@@ -19,14 +19,17 @@ part 'item_content_union.g.dart';
 /// ItemContentUnion
 ///
 /// Properties:
-/// * [socialContext]
 /// * [typename]
+/// * [highlights]
 /// * [itemType]
 /// * [promotedMetadata]
+/// * [socialContext]
 /// * [tweetDisplayType]
 /// * [tweetResults]
 /// * [cursorType]
+/// * [displayTreatment]
 /// * [entryType]
+/// * [stopOnEmptyResponse]
 /// * [value]
 /// * [userDisplayType]
 /// * [userResults]

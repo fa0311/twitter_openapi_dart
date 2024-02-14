@@ -21,6 +21,9 @@ class TypeName extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TweetWithVisibilityResults')
   static const TypeName tweetWithVisibilityResults =
       _$tweetWithVisibilityResults;
+  @BuiltValueEnumConst(wireName: r'ContextualTweetInterstitial')
+  static const TypeName contextualTweetInterstitial =
+      _$contextualTweetInterstitial;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineModule')
   static const TypeName timelineTimelineModule = _$timelineTimelineModule;
   @BuiltValueEnumConst(wireName: r'TweetTombstone')
@@ -39,6 +42,25 @@ class TypeName extends EnumClass {
   static const TypeName user = _$user;
   @BuiltValueEnumConst(wireName: r'UserUnavailable')
   static const TypeName userUnavailable = _$userUnavailable;
+  @BuiltValueEnumConst(wireName: r'Community')
+  static const TypeName community = _$community;
+  @BuiltValueEnumConst(wireName: r'CommunityDeleteActionUnavailable')
+  static const TypeName communityDeleteActionUnavailable =
+      _$communityDeleteActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityJoinAction')
+  static const TypeName communityJoinAction = _$communityJoinAction;
+  @BuiltValueEnumConst(wireName: r'CommunityLeaveActionUnavailable')
+  static const TypeName communityLeaveActionUnavailable =
+      _$communityLeaveActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityTweetPinActionUnavailable')
+  static const TypeName communityTweetPinActionUnavailable =
+      _$communityTweetPinActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityInvitesUnavailable')
+  static const TypeName communityInvitesUnavailable =
+      _$communityInvitesUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityJoinRequestsUnavailable')
+  static const TypeName communityJoinRequestsUnavailable =
+      _$communityJoinRequestsUnavailable;
 
   static Serializer<TypeName> get serializer => _$typeNameSerializer;
 

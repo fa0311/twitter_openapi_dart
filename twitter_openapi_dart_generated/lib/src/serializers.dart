@@ -15,9 +15,13 @@ import 'package:twitter_openapi_dart_generated/src/date_serializer.dart';
 import 'package:twitter_openapi_dart_generated/src/model/date.dart';
 
 import 'package:twitter_openapi_dart_generated/src/model/additional_media_info.dart';
+import 'package:twitter_openapi_dart_generated/src/model/additional_media_info_call_to_actions.dart';
+import 'package:twitter_openapi_dart_generated/src/model/additional_media_info_call_to_actions_url.dart';
+import 'package:twitter_openapi_dart_generated/src/model/author_community_relationship.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_entity.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_entity_ref.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot.dart';
+import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_call_to_action.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_footer.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_note.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_subtitle.dart';
@@ -27,6 +31,18 @@ import 'package:twitter_openapi_dart_generated/src/model/bookmarks_timeline.dart
 import 'package:twitter_openapi_dart_generated/src/model/callback.dart';
 import 'package:twitter_openapi_dart_generated/src/model/client_event_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/communities_actions.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_actions.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_delete_action_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_invites_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_join_action_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_join_requests_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_leave_action_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_pin_action_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_rule.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_urls.dart';
+import 'package:twitter_openapi_dart_generated/src/model/community_urls_permalink.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_union.dart';
@@ -48,6 +64,8 @@ import 'package:twitter_openapi_dart_generated/src/model/delete_retweet_response
 import 'package:twitter_openapi_dart_generated/src/model/delete_tweet_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/delete_tweet_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/delete_tweet_response_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/display_treatment.dart';
+import 'package:twitter_openapi_dart_generated/src/model/display_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/error.dart';
 import 'package:twitter_openapi_dart_generated/src/model/error_extensions.dart';
@@ -58,6 +76,7 @@ import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart'
 import 'package:twitter_openapi_dart_generated/src/model/extensions.dart';
 import 'package:twitter_openapi_dart_generated/src/model/favorite_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/favorite_tweet_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/feedback_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_result.dart';
@@ -77,6 +96,7 @@ import 'package:twitter_openapi_dart_generated/src/model/get_tweet_result_by_res
 import 'package:twitter_openapi_dart_generated/src/model/get_user_by_rest_id200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/get_user_highlights_tweets200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/get_users_by_rest_ids200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/highlight.dart';
 import 'package:twitter_openapi_dart_generated/src/model/home_timeline_home.dart';
 import 'package:twitter_openapi_dart_generated/src/model/home_timeline_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/instruction_type.dart';
@@ -128,8 +148,11 @@ import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet200_
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/primary_community_topic.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/quoted_ref_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/quoted_status_permalink.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/retweet_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/search_by_raw_query.dart';
@@ -137,11 +160,18 @@ import 'package:twitter_openapi_dart_generated/src/model/search_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/search_timeline_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/search_timeline_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/self_thread.dart';
+import 'package:twitter_openapi_dart_generated/src/model/sensitive_media_warning.dart';
 import 'package:twitter_openapi_dart_generated/src/model/session.dart';
-import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context_landing_url.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context_union_type.dart';
+import 'package:twitter_openapi_dart_generated/src/model/super_follows_reply_user_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/super_follows_reply_user_result_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/super_follows_reply_user_result_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/text.dart';
 import 'package:twitter_openapi_dart_generated/src/model/text_entity.dart';
 import 'package:twitter_openapi_dart_generated/src/model/text_entity_ref.dart';
+import 'package:twitter_openapi_dart_generated/src/model/text_highlight.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entries.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_add_entry.dart';
@@ -149,6 +179,7 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_add_to_module.
 import 'package:twitter_openapi_dart_generated/src/model/timeline_clear_cache.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_community.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_cover_behavior.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_general_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_half_cover.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_message_prompt.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
@@ -162,15 +193,22 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_time
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_item.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_module.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_topic_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
+import 'package:twitter_openapi_dart_generated/src/model/topic_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tracing.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value_data_image.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_platform.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_platform_audience.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_platform_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_platform_device.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control.dart';
@@ -178,7 +216,14 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_control_init
 import 'package:twitter_openapi_dart_generated/src/model/tweet_edit_prespective.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_favoriters_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_favoriters_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial_reveal_text.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial_text.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial_text_entity.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial_text_entity_ref.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_scopes.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_previous_counts.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_result_by_rest_id_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_result_by_rest_id_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_retweeters_response.dart';
@@ -190,15 +235,21 @@ import 'package:twitter_openapi_dart_generated/src/model/tweet_with_visibility_r
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_response_data.dart';
+import 'package:twitter_openapi_dart_generated/src/model/unified_card.dart';
 import 'package:twitter_openapi_dart_generated/src/model/url.dart';
+import 'package:twitter_openapi_dart_generated/src/model/urt_endpoint_options.dart';
+import 'package:twitter_openapi_dart_generated/src/model/urt_endpoint_request_params.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_features.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_legacy.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_professional.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_professional_category.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_result_by_screen_name.dart';
@@ -212,6 +263,12 @@ import 'package:twitter_openapi_dart_generated/src/model/user_tweets_result.dart
 import 'package:twitter_openapi_dart_generated/src/model/user_tweets_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_unavailable.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_value.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_verification_info.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_verification_info_reason.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_verification_info_reason_description.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_verification_info_reason_description_entities.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_verification_info_reason_description_entities_ref.dart';
 import 'package:twitter_openapi_dart_generated/src/model/users_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/users_response_data.dart';
 
@@ -219,9 +276,13 @@ part 'serializers.g.dart';
 
 @SerializersFor([
   AdditionalMediaInfo,
+  AdditionalMediaInfoCallToActions,
+  AdditionalMediaInfoCallToActionsUrl,
+  AuthorCommunityRelationship,
   BirdwatchEntity,
   BirdwatchEntityRef,
   BirdwatchPivot,
+  BirdwatchPivotCallToAction,
   BirdwatchPivotFooter,
   BirdwatchPivotNote,
   BirdwatchPivotSubtitle,
@@ -231,6 +292,18 @@ part 'serializers.g.dart';
   Callback,
   ClientEventInfo,
   CommunitiesActions,
+  Community,
+  CommunityActions,
+  CommunityData,
+  CommunityDeleteActionResult,
+  CommunityInvitesResult,
+  CommunityJoinActionResult,
+  CommunityJoinRequestsResult,
+  CommunityLeaveActionResult,
+  CommunityPinActionResult,
+  CommunityRule,
+  CommunityUrls,
+  CommunityUrlsPermalink,
   ContentEntryType,
   ContentItemType,
   ContentUnion,
@@ -252,6 +325,8 @@ part 'serializers.g.dart';
   DeleteTweetResponse,
   DeleteTweetResponseData,
   DeleteTweetResponseResult,
+  DisplayTreatment,
+  DisplayType,
   Entities,
   Error,
   ErrorExtensions,
@@ -262,6 +337,7 @@ part 'serializers.g.dart';
   Extensions,
   FavoriteTweet,
   FavoriteTweetResponseData,
+  FeedbackInfo,
   FollowResponse,
   FollowResponseData,
   FollowResponseResult,
@@ -281,6 +357,7 @@ part 'serializers.g.dart';
   GetUserByRestId200Response,
   GetUserHighlightsTweets200Response,
   GetUsersByRestIds200Response,
+  Highlight,
   HomeTimelineHome,
   HomeTimelineResponseData,
   InstructionType,
@@ -332,8 +409,11 @@ part 'serializers.g.dart';
   PostFavoriteTweetRequest,
   PostUnfavoriteTweet200Response,
   PostUnfavoriteTweetRequest,
+  PrimaryCommunityTopic,
   ProfileResponse,
   ProfileResponseData,
+  QuotedRefResult,
+  QuotedStatusPermalink,
   Retweet,
   RetweetLegacy,
   SearchByRawQuery,
@@ -341,11 +421,18 @@ part 'serializers.g.dart';
   SearchTimelineData,
   SearchTimelineResponse,
   SelfThread,
+  SensitiveMediaWarning,
   Session,
-  SocialContext,
+  SocialContextLandingUrl,
+  SocialContextUnion,
+  SocialContextUnionType,
+  SuperFollowsReplyUserResult,
+  SuperFollowsReplyUserResultData,
+  SuperFollowsReplyUserResultLegacy,
   Text,
   TextEntity,
   TextEntityRef,
+  TextHighlight,
   Timeline,
   TimelineAddEntries,
   TimelineAddEntry,
@@ -353,6 +440,7 @@ part 'serializers.g.dart';
   TimelineClearCache,
   TimelineCommunity,
   TimelineCoverBehavior,
+  TimelineGeneralContext,
   TimelineHalfCover,
   TimelineMessagePrompt,
   TimelinePinEntry,
@@ -366,15 +454,22 @@ part 'serializers.g.dart';
   TimelineTimelineCursor,
   TimelineTimelineItem,
   TimelineTimelineModule,
+  TimelineTopicContext,
   TimelineTweet,
   TimelineUser,
   TimelineV2,
+  TopicContext,
   Tracing,
   Tweet,
   TweetCard,
   TweetCardLegacy,
   TweetCardLegacyBindingValue,
   TweetCardLegacyBindingValueData,
+  TweetCardLegacyBindingValueDataImage,
+  TweetCardPlatform,
+  TweetCardPlatformAudience,
+  TweetCardPlatformData,
+  TweetCardPlatformDevice,
   TweetDetailResponse,
   TweetDetailResponseData,
   TweetEditControl,
@@ -382,7 +477,14 @@ part 'serializers.g.dart';
   TweetEditPrespective,
   TweetFavoritersResponse,
   TweetFavoritersResponseData,
+  TweetInterstitial,
+  TweetInterstitialRevealText,
+  TweetInterstitialText,
+  TweetInterstitialTextEntity,
+  TweetInterstitialTextEntityRef,
   TweetLegacy,
+  TweetLegacyScopes,
+  TweetPreviousCounts,
   TweetResultByRestIdData,
   TweetResultByRestIdResponse,
   TweetRetweetersResponse,
@@ -394,15 +496,21 @@ part 'serializers.g.dart';
   TypeName,
   UnfavoriteTweet,
   UnfavoriteTweetResponseData,
+  UnifiedCard,
   Url,
+  UrtEndpointOptions,
+  UrtEndpointRequestParams,
   User,
   UserFeatures,
+  UserHighlightsInfo,
   UserHighlightsTweetsData,
   UserHighlightsTweetsResponse,
   UserHighlightsTweetsResult,
   UserHighlightsTweetsTimeline,
   UserHighlightsTweetsUser,
   UserLegacy,
+  UserProfessional,
+  UserProfessionalCategory,
   UserResponse,
   UserResponseData,
   UserResultByScreenName,
@@ -416,6 +524,12 @@ part 'serializers.g.dart';
   UserTweetsUser,
   UserUnavailable,
   UserUnion,
+  UserValue,
+  UserVerificationInfo,
+  UserVerificationInfoReason,
+  UserVerificationInfoReasonDescription,
+  UserVerificationInfoReasonDescriptionEntities,
+  UserVerificationInfoReasonDescriptionEntitiesRef,
   UsersResponse,
   UsersResponseData,
 ])

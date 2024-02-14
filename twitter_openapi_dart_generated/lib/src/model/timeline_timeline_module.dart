@@ -4,8 +4,10 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/module_item.dart';
+import 'package:twitter_openapi_dart_generated/src/model/display_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/feedback_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
@@ -20,26 +22,31 @@ part 'timeline_timeline_module.g.dart';
 /// * [clientEventInfo]
 /// * [displayType]
 /// * [entryType]
+/// * [feedbackInfo]
 /// * [footer]
 /// * [header]
 /// * [items]
+/// * [metadata]
 @BuiltValue()
 abstract class TimelineTimelineModule
     implements Built<TimelineTimelineModule, TimelineTimelineModuleBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
 
   @BuiltValueField(wireName: r'clientEventInfo')
   BuiltMap<String, JsonObject?> get clientEventInfo;
 
   @BuiltValueField(wireName: r'displayType')
-  TimelineTimelineModuleDisplayTypeEnum get displayType;
-  // enum displayTypeEnum {  Vertical,  VerticalConversation,  Carousel,  };
+  DisplayType get displayType;
+  // enum displayTypeEnum {  Vertical,  VerticalConversation,  VerticalGrid,  Carousel,  };
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
+
+  @BuiltValueField(wireName: r'feedbackInfo')
+  FeedbackInfo? get feedbackInfo;
 
   @BuiltValueField(wireName: r'footer')
   BuiltMap<String, JsonObject?>? get footer;
@@ -49,6 +56,9 @@ abstract class TimelineTimelineModule
 
   @BuiltValueField(wireName: r'items')
   BuiltList<ModuleItem>? get items;
+
+  @BuiltValueField(wireName: r'metadata')
+  BuiltMap<String, JsonObject?>? get metadata;
 
   TimelineTimelineModule._();
 
@@ -94,13 +104,20 @@ class _$TimelineTimelineModuleSerializer
     yield r'displayType';
     yield serializers.serialize(
       object.displayType,
-      specifiedType: const FullType(TimelineTimelineModuleDisplayTypeEnum),
+      specifiedType: const FullType(DisplayType),
     );
     yield r'entryType';
     yield serializers.serialize(
       object.entryType,
       specifiedType: const FullType(ContentEntryType),
     );
+    if (object.feedbackInfo != null) {
+      yield r'feedbackInfo';
+      yield serializers.serialize(
+        object.feedbackInfo,
+        specifiedType: const FullType(FeedbackInfo),
+      );
+    }
     if (object.footer != null) {
       yield r'footer';
       yield serializers.serialize(
@@ -122,6 +139,14 @@ class _$TimelineTimelineModuleSerializer
       yield serializers.serialize(
         object.items,
         specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
+      );
+    }
+    if (object.metadata != null) {
+      yield r'metadata';
+      yield serializers.serialize(
+        object.metadata,
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
   }
@@ -167,9 +192,8 @@ class _$TimelineTimelineModuleSerializer
         case r'displayType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType(TimelineTimelineModuleDisplayTypeEnum),
-          ) as TimelineTimelineModuleDisplayTypeEnum;
+            specifiedType: const FullType(DisplayType),
+          ) as DisplayType;
           result.displayType = valueDes;
           break;
         case r'entryType':
@@ -178,6 +202,13 @@ class _$TimelineTimelineModuleSerializer
             specifiedType: const FullType(ContentEntryType),
           ) as ContentEntryType;
           result.entryType = valueDes;
+          break;
+        case r'feedbackInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(FeedbackInfo),
+          ) as FeedbackInfo;
+          result.feedbackInfo.replace(valueDes);
           break;
         case r'footer':
           final valueDes = serializers.deserialize(
@@ -201,6 +232,14 @@ class _$TimelineTimelineModuleSerializer
             specifiedType: const FullType(BuiltList, [FullType(ModuleItem)]),
           ) as BuiltList<ModuleItem>;
           result.items.replace(valueDes);
+          break;
+        case r'metadata':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.metadata.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -229,26 +268,4 @@ class _$TimelineTimelineModuleSerializer
     );
     return result.build();
   }
-}
-
-class TimelineTimelineModuleDisplayTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Vertical')
-  static const TimelineTimelineModuleDisplayTypeEnum vertical =
-      _$timelineTimelineModuleDisplayTypeEnum_vertical;
-  @BuiltValueEnumConst(wireName: r'VerticalConversation')
-  static const TimelineTimelineModuleDisplayTypeEnum verticalConversation =
-      _$timelineTimelineModuleDisplayTypeEnum_verticalConversation;
-  @BuiltValueEnumConst(wireName: r'Carousel')
-  static const TimelineTimelineModuleDisplayTypeEnum carousel =
-      _$timelineTimelineModuleDisplayTypeEnum_carousel;
-
-  static Serializer<TimelineTimelineModuleDisplayTypeEnum> get serializer =>
-      _$timelineTimelineModuleDisplayTypeEnumSerializer;
-
-  const TimelineTimelineModuleDisplayTypeEnum._(String name) : super(name);
-
-  static BuiltSet<TimelineTimelineModuleDisplayTypeEnum> get values =>
-      _$timelineTimelineModuleDisplayTypeEnumValues;
-  static TimelineTimelineModuleDisplayTypeEnum valueOf(String name) =>
-      _$timelineTimelineModuleDisplayTypeEnumValueOf(name);
 }

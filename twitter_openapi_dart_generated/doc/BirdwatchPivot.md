@@ -8,6 +8,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**callToAction** | [**BirdwatchPivotCallToAction**](BirdwatchPivotCallToAction.md) |  | [optional] 
 **destinationUrl** | **String** |  | 
 **footer** | [**BirdwatchPivotFooter**](BirdwatchPivotFooter.md) |  | 
 **iconType** | **String** |  | 

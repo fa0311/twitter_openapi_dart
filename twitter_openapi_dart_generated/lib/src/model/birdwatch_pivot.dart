@@ -7,6 +7,7 @@ import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_note.da
 import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_footer.dart';
 import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_subtitle.dart';
+import 'package:twitter_openapi_dart_generated/src/model/birdwatch_pivot_call_to_action.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,6 +16,7 @@ part 'birdwatch_pivot.g.dart';
 /// BirdwatchPivot
 ///
 /// Properties:
+/// * [callToAction]
 /// * [destinationUrl]
 /// * [footer]
 /// * [iconType]
@@ -26,6 +28,9 @@ part 'birdwatch_pivot.g.dart';
 @BuiltValue()
 abstract class BirdwatchPivot
     implements Built<BirdwatchPivot, BirdwatchPivotBuilder> {
+  @BuiltValueField(wireName: r'callToAction')
+  BirdwatchPivotCallToAction? get callToAction;
+
   @BuiltValueField(wireName: r'destinationUrl')
   String get destinationUrl;
 
@@ -78,6 +83,13 @@ class _$BirdwatchPivotSerializer
     BirdwatchPivot object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.callToAction != null) {
+      yield r'callToAction';
+      yield serializers.serialize(
+        object.callToAction,
+        specifiedType: const FullType(BirdwatchPivotCallToAction),
+      );
+    }
     yield r'destinationUrl';
     yield serializers.serialize(
       object.destinationUrl,
@@ -145,6 +157,13 @@ class _$BirdwatchPivotSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'callToAction':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BirdwatchPivotCallToAction),
+          ) as BirdwatchPivotCallToAction;
+          result.callToAction.replace(valueDes);
+          break;
         case r'destinationUrl':
           final valueDes = serializers.deserialize(
             value,

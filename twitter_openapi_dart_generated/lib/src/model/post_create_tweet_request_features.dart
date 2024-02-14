@@ -11,6 +11,7 @@ part 'post_create_tweet_request_features.g.dart';
 /// PostCreateTweetRequestFeatures
 ///
 /// Properties:
+/// * [c9sTweetAnatomyModeratorBadgeEnabled]
 /// * [freedomOfSpeechNotReachFetchEnabled]
 /// * [graphqlIsTranslatableRwebTweetIsTranslatableEnabled]
 /// * [longformNotetweetsConsumptionEnabled]
@@ -23,6 +24,7 @@ part 'post_create_tweet_request_features.g.dart';
 /// * [responsiveWebGraphqlTimelineNavigationEnabled]
 /// * [responsiveWebMediaDownloadVideoEnabled]
 /// * [responsiveWebTwitterArticleTweetConsumptionEnabled]
+/// * [rwebVideoTimestampsEnabled]
 /// * [standardizedNudgesMisinfo]
 /// * [tweetAwardsWebTippingEnabled]
 /// * [tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled]
@@ -34,6 +36,9 @@ abstract class PostCreateTweetRequestFeatures
     implements
         Built<PostCreateTweetRequestFeatures,
             PostCreateTweetRequestFeaturesBuilder> {
+  @BuiltValueField(wireName: r'c9s_tweet_anatomy_moderator_badge_enabled')
+  bool get c9sTweetAnatomyModeratorBadgeEnabled;
+
   @BuiltValueField(wireName: r'freedom_of_speech_not_reach_fetch_enabled')
   bool get freedomOfSpeechNotReachFetchEnabled;
 
@@ -76,6 +81,9 @@ abstract class PostCreateTweetRequestFeatures
       wireName: r'responsive_web_twitter_article_tweet_consumption_enabled')
   bool get responsiveWebTwitterArticleTweetConsumptionEnabled;
 
+  @BuiltValueField(wireName: r'rweb_video_timestamps_enabled')
+  bool get rwebVideoTimestampsEnabled;
+
   @BuiltValueField(wireName: r'standardized_nudges_misinfo')
   bool get standardizedNudgesMisinfo;
 
@@ -104,6 +112,7 @@ abstract class PostCreateTweetRequestFeatures
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostCreateTweetRequestFeaturesBuilder b) => b
+    ..c9sTweetAnatomyModeratorBadgeEnabled = true
     ..freedomOfSpeechNotReachFetchEnabled = true
     ..graphqlIsTranslatableRwebTweetIsTranslatableEnabled = true
     ..longformNotetweetsConsumptionEnabled = true
@@ -115,7 +124,8 @@ abstract class PostCreateTweetRequestFeatures
     ..responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled = false
     ..responsiveWebGraphqlTimelineNavigationEnabled = true
     ..responsiveWebMediaDownloadVideoEnabled = false
-    ..responsiveWebTwitterArticleTweetConsumptionEnabled = false
+    ..responsiveWebTwitterArticleTweetConsumptionEnabled = true
+    ..rwebVideoTimestampsEnabled = true
     ..standardizedNudgesMisinfo = true
     ..tweetAwardsWebTippingEnabled = false
     ..tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = true
@@ -144,6 +154,11 @@ class _$PostCreateTweetRequestFeaturesSerializer
     PostCreateTweetRequestFeatures object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    yield r'c9s_tweet_anatomy_moderator_badge_enabled';
+    yield serializers.serialize(
+      object.c9sTweetAnatomyModeratorBadgeEnabled,
+      specifiedType: const FullType(bool),
+    );
     yield r'freedom_of_speech_not_reach_fetch_enabled';
     yield serializers.serialize(
       object.freedomOfSpeechNotReachFetchEnabled,
@@ -204,6 +219,11 @@ class _$PostCreateTweetRequestFeaturesSerializer
       object.responsiveWebTwitterArticleTweetConsumptionEnabled,
       specifiedType: const FullType(bool),
     );
+    yield r'rweb_video_timestamps_enabled';
+    yield serializers.serialize(
+      object.rwebVideoTimestampsEnabled,
+      specifiedType: const FullType(bool),
+    );
     yield r'standardized_nudges_misinfo';
     yield serializers.serialize(
       object.standardizedNudgesMisinfo,
@@ -259,6 +279,13 @@ class _$PostCreateTweetRequestFeaturesSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'c9s_tweet_anatomy_moderator_badge_enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.c9sTweetAnatomyModeratorBadgeEnabled = valueDes;
+          break;
         case r'freedom_of_speech_not_reach_fetch_enabled':
           final valueDes = serializers.deserialize(
             value,
@@ -343,6 +370,13 @@ class _$PostCreateTweetRequestFeaturesSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.responsiveWebTwitterArticleTweetConsumptionEnabled = valueDes;
+          break;
+        case r'rweb_video_timestamps_enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.rwebVideoTimestampsEnabled = valueDes;
           break;
         case r'standardized_nudges_misinfo':
           final valueDes = serializers.deserialize(

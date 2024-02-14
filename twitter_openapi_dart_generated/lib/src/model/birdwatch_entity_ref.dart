@@ -12,21 +12,25 @@ part 'birdwatch_entity_ref.g.dart';
 /// BirdwatchEntityRef
 ///
 /// Properties:
+/// * [text]
 /// * [type]
 /// * [url]
 /// * [urlType]
 @BuiltValue()
 abstract class BirdwatchEntityRef
     implements Built<BirdwatchEntityRef, BirdwatchEntityRefBuilder> {
+  @BuiltValueField(wireName: r'text')
+  String? get text;
+
   @BuiltValueField(wireName: r'type')
   BirdwatchEntityRefTypeEnum get type;
-  // enum typeEnum {  TimelineUrl,  };
+  // enum typeEnum {  TimelineUrl,  TimelineRichTextHashtag,  };
 
   @BuiltValueField(wireName: r'url')
-  String get url;
+  String? get url;
 
   @BuiltValueField(wireName: r'urlType')
-  BirdwatchEntityRefUrlTypeEnum get urlType;
+  BirdwatchEntityRefUrlTypeEnum? get urlType;
   // enum urlTypeEnum {  ExternalUrl,  };
 
   BirdwatchEntityRef._();
@@ -55,21 +59,32 @@ class _$BirdwatchEntityRefSerializer
     BirdwatchEntityRef object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.text != null) {
+      yield r'text';
+      yield serializers.serialize(
+        object.text,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'type';
     yield serializers.serialize(
       object.type,
       specifiedType: const FullType(BirdwatchEntityRefTypeEnum),
     );
-    yield r'url';
-    yield serializers.serialize(
-      object.url,
-      specifiedType: const FullType(String),
-    );
-    yield r'urlType';
-    yield serializers.serialize(
-      object.urlType,
-      specifiedType: const FullType(BirdwatchEntityRefUrlTypeEnum),
-    );
+    if (object.url != null) {
+      yield r'url';
+      yield serializers.serialize(
+        object.url,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.urlType != null) {
+      yield r'urlType';
+      yield serializers.serialize(
+        object.urlType,
+        specifiedType: const FullType(BirdwatchEntityRefUrlTypeEnum),
+      );
+    }
   }
 
   @override
@@ -95,6 +110,13 @@ class _$BirdwatchEntityRefSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'text':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.text = valueDes;
+          break;
         case r'type':
           final valueDes = serializers.deserialize(
             value,
@@ -149,6 +171,9 @@ class BirdwatchEntityRefTypeEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TimelineUrl')
   static const BirdwatchEntityRefTypeEnum timelineUrl =
       _$birdwatchEntityRefTypeEnum_timelineUrl;
+  @BuiltValueEnumConst(wireName: r'TimelineRichTextHashtag')
+  static const BirdwatchEntityRefTypeEnum timelineRichTextHashtag =
+      _$birdwatchEntityRefTypeEnum_timelineRichTextHashtag;
 
   static Serializer<BirdwatchEntityRefTypeEnum> get serializer =>
       _$birdwatchEntityRefTypeEnumSerializer;

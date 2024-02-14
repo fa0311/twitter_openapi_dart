@@ -6,6 +6,71 @@ part of 'user_union.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const UserUnionProfileImageShapeEnum _$userUnionProfileImageShapeEnum_circle =
+    const UserUnionProfileImageShapeEnum._('circle');
+const UserUnionProfileImageShapeEnum _$userUnionProfileImageShapeEnum_square =
+    const UserUnionProfileImageShapeEnum._('square');
+const UserUnionProfileImageShapeEnum _$userUnionProfileImageShapeEnum_hexagon =
+    const UserUnionProfileImageShapeEnum._('hexagon');
+
+UserUnionProfileImageShapeEnum _$userUnionProfileImageShapeEnumValueOf(
+    String name) {
+  switch (name) {
+    case 'circle':
+      return _$userUnionProfileImageShapeEnum_circle;
+    case 'square':
+      return _$userUnionProfileImageShapeEnum_square;
+    case 'hexagon':
+      return _$userUnionProfileImageShapeEnum_hexagon;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<UserUnionProfileImageShapeEnum>
+    _$userUnionProfileImageShapeEnumValues = new BuiltSet<
+        UserUnionProfileImageShapeEnum>(const <UserUnionProfileImageShapeEnum>[
+  _$userUnionProfileImageShapeEnum_circle,
+  _$userUnionProfileImageShapeEnum_square,
+  _$userUnionProfileImageShapeEnum_hexagon,
+]);
+
+Serializer<UserUnionProfileImageShapeEnum>
+    _$userUnionProfileImageShapeEnumSerializer =
+    new _$UserUnionProfileImageShapeEnumSerializer();
+
+class _$UserUnionProfileImageShapeEnumSerializer
+    implements PrimitiveSerializer<UserUnionProfileImageShapeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'circle': 'Circle',
+    'square': 'Square',
+    'hexagon': 'Hexagon',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'Circle': 'circle',
+    'Square': 'square',
+    'Hexagon': 'hexagon',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[UserUnionProfileImageShapeEnum];
+  @override
+  final String wireName = 'UserUnionProfileImageShapeEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, UserUnionProfileImageShapeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  UserUnionProfileImageShapeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      UserUnionProfileImageShapeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$UserUnion extends UserUnion {
   @override
   final OneOf oneOf;

@@ -6,6 +6,60 @@ part of 'user_legacy.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const UserLegacyVerifiedTypeEnum _$userLegacyVerifiedTypeEnum_business =
+    const UserLegacyVerifiedTypeEnum._('business');
+const UserLegacyVerifiedTypeEnum _$userLegacyVerifiedTypeEnum_government =
+    const UserLegacyVerifiedTypeEnum._('government');
+
+UserLegacyVerifiedTypeEnum _$userLegacyVerifiedTypeEnumValueOf(String name) {
+  switch (name) {
+    case 'business':
+      return _$userLegacyVerifiedTypeEnum_business;
+    case 'government':
+      return _$userLegacyVerifiedTypeEnum_government;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<UserLegacyVerifiedTypeEnum> _$userLegacyVerifiedTypeEnumValues =
+    new BuiltSet<UserLegacyVerifiedTypeEnum>(const <UserLegacyVerifiedTypeEnum>[
+  _$userLegacyVerifiedTypeEnum_business,
+  _$userLegacyVerifiedTypeEnum_government,
+]);
+
+Serializer<UserLegacyVerifiedTypeEnum> _$userLegacyVerifiedTypeEnumSerializer =
+    new _$UserLegacyVerifiedTypeEnumSerializer();
+
+class _$UserLegacyVerifiedTypeEnumSerializer
+    implements PrimitiveSerializer<UserLegacyVerifiedTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'business': 'Business',
+    'government': 'Government',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'Business': 'business',
+    'Government': 'government',
+  };
+
+  @override
+  final Iterable<Type> types = const <Type>[UserLegacyVerifiedTypeEnum];
+  @override
+  final String wireName = 'UserLegacyVerifiedTypeEnum';
+
+  @override
+  Object serialize(Serializers serializers, UserLegacyVerifiedTypeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  UserLegacyVerifiedTypeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      UserLegacyVerifiedTypeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
 class _$UserLegacy extends UserLegacy {
   @override
   final bool blockedBy;
@@ -84,7 +138,11 @@ class _$UserLegacy extends UserLegacy {
   @override
   final bool verified;
   @override
+  final UserLegacyVerifiedTypeEnum? verifiedType;
+  @override
   final bool wantRetweets;
+  @override
+  final BuiltList<String>? withheldInCountries;
 
   factory _$UserLegacy([void Function(UserLegacyBuilder)? updates]) =>
       (new UserLegacyBuilder()..update(updates))._build();
@@ -128,7 +186,9 @@ class _$UserLegacy extends UserLegacy {
       required this.translatorType,
       this.url,
       required this.verified,
-      required this.wantRetweets})
+      this.verifiedType,
+      required this.wantRetweets,
+      this.withheldInCountries})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         blockedBy, r'UserLegacy', 'blockedBy');
@@ -234,7 +294,9 @@ class _$UserLegacy extends UserLegacy {
         translatorType == other.translatorType &&
         url == other.url &&
         verified == other.verified &&
-        wantRetweets == other.wantRetweets;
+        verifiedType == other.verifiedType &&
+        wantRetweets == other.wantRetweets &&
+        withheldInCountries == other.withheldInCountries;
   }
 
   @override
@@ -278,7 +340,9 @@ class _$UserLegacy extends UserLegacy {
     _$hash = $jc(_$hash, translatorType.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, verified.hashCode);
+    _$hash = $jc(_$hash, verifiedType.hashCode);
     _$hash = $jc(_$hash, wantRetweets.hashCode);
+    _$hash = $jc(_$hash, withheldInCountries.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -324,7 +388,9 @@ class _$UserLegacy extends UserLegacy {
           ..add('translatorType', translatorType)
           ..add('url', url)
           ..add('verified', verified)
-          ..add('wantRetweets', wantRetweets))
+          ..add('verifiedType', verifiedType)
+          ..add('wantRetweets', wantRetweets)
+          ..add('withheldInCountries', withheldInCountries))
         .toString();
   }
 }
@@ -505,9 +571,20 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
   bool? get verified => _$this._verified;
   set verified(bool? verified) => _$this._verified = verified;
 
+  UserLegacyVerifiedTypeEnum? _verifiedType;
+  UserLegacyVerifiedTypeEnum? get verifiedType => _$this._verifiedType;
+  set verifiedType(UserLegacyVerifiedTypeEnum? verifiedType) =>
+      _$this._verifiedType = verifiedType;
+
   bool? _wantRetweets;
   bool? get wantRetweets => _$this._wantRetweets;
   set wantRetweets(bool? wantRetweets) => _$this._wantRetweets = wantRetweets;
+
+  ListBuilder<String>? _withheldInCountries;
+  ListBuilder<String> get withheldInCountries =>
+      _$this._withheldInCountries ??= new ListBuilder<String>();
+  set withheldInCountries(ListBuilder<String>? withheldInCountries) =>
+      _$this._withheldInCountries = withheldInCountries;
 
   UserLegacyBuilder() {
     UserLegacy._defaults(this);
@@ -554,7 +631,9 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
       _translatorType = $v.translatorType;
       _url = $v.url;
       _verified = $v.verified;
+      _verifiedType = $v.verifiedType;
       _wantRetweets = $v.wantRetweets;
+      _withheldInCountries = $v.withheldInCountries?.toBuilder();
       _$v = null;
     }
     return this;
@@ -626,7 +705,9 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
               translatorType: BuiltValueNullFieldError.checkNotNull(translatorType, r'UserLegacy', 'translatorType'),
               url: url,
               verified: BuiltValueNullFieldError.checkNotNull(verified, r'UserLegacy', 'verified'),
-              wantRetweets: BuiltValueNullFieldError.checkNotNull(wantRetweets, r'UserLegacy', 'wantRetweets'));
+              verifiedType: verifiedType,
+              wantRetweets: BuiltValueNullFieldError.checkNotNull(wantRetweets, r'UserLegacy', 'wantRetweets'),
+              withheldInCountries: _withheldInCountries?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -635,6 +716,9 @@ class UserLegacyBuilder implements Builder<UserLegacy, UserLegacyBuilder> {
 
         _$failedField = 'pinnedTweetIdsStr';
         pinnedTweetIdsStr.build();
+
+        _$failedField = 'withheldInCountries';
+        _withheldInCountries?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UserLegacy', _$failedField, e.toString());

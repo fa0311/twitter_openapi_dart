@@ -51,7 +51,9 @@ part 'user_legacy.g.dart';
 /// * [translatorType]
 /// * [url]
 /// * [verified]
+/// * [verifiedType]
 /// * [wantRetweets]
+/// * [withheldInCountries]
 @BuiltValue()
 abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   @BuiltValueField(wireName: r'blocked_by')
@@ -168,8 +170,15 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   @BuiltValueField(wireName: r'verified')
   bool get verified;
 
+  @BuiltValueField(wireName: r'verified_type')
+  UserLegacyVerifiedTypeEnum? get verifiedType;
+  // enum verifiedTypeEnum {  Business,  Government,  };
+
   @BuiltValueField(wireName: r'want_retweets')
   bool get wantRetweets;
+
+  @BuiltValueField(wireName: r'withheld_in_countries')
+  BuiltList<String>? get withheldInCountries;
 
   UserLegacy._();
 
@@ -426,11 +435,25 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.verified,
       specifiedType: const FullType(bool),
     );
+    if (object.verifiedType != null) {
+      yield r'verified_type';
+      yield serializers.serialize(
+        object.verifiedType,
+        specifiedType: const FullType(UserLegacyVerifiedTypeEnum),
+      );
+    }
     yield r'want_retweets';
     yield serializers.serialize(
       object.wantRetweets,
       specifiedType: const FullType(bool),
     );
+    if (object.withheldInCountries != null) {
+      yield r'withheld_in_countries';
+      yield serializers.serialize(
+        object.withheldInCountries,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
   }
 
   @override
@@ -723,12 +746,26 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
           ) as bool;
           result.verified = valueDes;
           break;
+        case r'verified_type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserLegacyVerifiedTypeEnum),
+          ) as UserLegacyVerifiedTypeEnum;
+          result.verifiedType = valueDes;
+          break;
         case r'want_retweets':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
           result.wantRetweets = valueDes;
+          break;
+        case r'withheld_in_countries':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.withheldInCountries.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -757,4 +794,23 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     );
     return result.build();
   }
+}
+
+class UserLegacyVerifiedTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Business')
+  static const UserLegacyVerifiedTypeEnum business =
+      _$userLegacyVerifiedTypeEnum_business;
+  @BuiltValueEnumConst(wireName: r'Government')
+  static const UserLegacyVerifiedTypeEnum government =
+      _$userLegacyVerifiedTypeEnum_government;
+
+  static Serializer<UserLegacyVerifiedTypeEnum> get serializer =>
+      _$userLegacyVerifiedTypeEnumSerializer;
+
+  const UserLegacyVerifiedTypeEnum._(String name) : super(name);
+
+  static BuiltSet<UserLegacyVerifiedTypeEnum> get values =>
+      _$userLegacyVerifiedTypeEnumValues;
+  static UserLegacyVerifiedTypeEnum valueOf(String name) =>
+      _$userLegacyVerifiedTypeEnumValueOf(name);
 }

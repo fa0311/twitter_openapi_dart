@@ -6,11 +6,15 @@ part of 'tweet_view.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const TweetViewStateEnum _$tweetViewStateEnum_enabled =
+    const TweetViewStateEnum._('enabled');
 const TweetViewStateEnum _$tweetViewStateEnum_enabledWithCount =
     const TweetViewStateEnum._('enabledWithCount');
 
 TweetViewStateEnum _$tweetViewStateEnumValueOf(String name) {
   switch (name) {
+    case 'enabled':
+      return _$tweetViewStateEnum_enabled;
     case 'enabledWithCount':
       return _$tweetViewStateEnum_enabledWithCount;
     default:
@@ -20,6 +24,7 @@ TweetViewStateEnum _$tweetViewStateEnumValueOf(String name) {
 
 final BuiltSet<TweetViewStateEnum> _$tweetViewStateEnumValues =
     new BuiltSet<TweetViewStateEnum>(const <TweetViewStateEnum>[
+  _$tweetViewStateEnum_enabled,
   _$tweetViewStateEnum_enabledWithCount,
 ]);
 
@@ -29,9 +34,11 @@ Serializer<TweetViewStateEnum> _$tweetViewStateEnumSerializer =
 class _$TweetViewStateEnumSerializer
     implements PrimitiveSerializer<TweetViewStateEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
+    'enabled': 'Enabled',
     'enabledWithCount': 'EnabledWithCount',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
+    'Enabled': 'enabled',
     'EnabledWithCount': 'enabledWithCount',
   };
 

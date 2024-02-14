@@ -3,6 +3,10 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/user_value.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value_data_image.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,9 +16,12 @@ part 'tweet_card_legacy_binding_value_data.g.dart';
 ///
 /// Properties:
 /// * [booleanValue]
+/// * [imageColorValue]
+/// * [imageValue]
 /// * [scribeKey]
 /// * [stringValue]
 /// * [type]
+/// * [userValue]
 @BuiltValue()
 abstract class TweetCardLegacyBindingValueData
     implements
@@ -22,6 +29,12 @@ abstract class TweetCardLegacyBindingValueData
             TweetCardLegacyBindingValueDataBuilder> {
   @BuiltValueField(wireName: r'boolean_value')
   bool? get booleanValue;
+
+  @BuiltValueField(wireName: r'image_color_value')
+  BuiltMap<String, JsonObject?>? get imageColorValue;
+
+  @BuiltValueField(wireName: r'image_value')
+  TweetCardLegacyBindingValueDataImage? get imageValue;
 
   @BuiltValueField(wireName: r'scribe_key')
   String? get scribeKey;
@@ -31,6 +44,9 @@ abstract class TweetCardLegacyBindingValueData
 
   @BuiltValueField(wireName: r'type')
   String get type;
+
+  @BuiltValueField(wireName: r'user_value')
+  UserValue? get userValue;
 
   TweetCardLegacyBindingValueData._();
 
@@ -69,6 +85,21 @@ class _$TweetCardLegacyBindingValueDataSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.imageColorValue != null) {
+      yield r'image_color_value';
+      yield serializers.serialize(
+        object.imageColorValue,
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+      );
+    }
+    if (object.imageValue != null) {
+      yield r'image_value';
+      yield serializers.serialize(
+        object.imageValue,
+        specifiedType: const FullType(TweetCardLegacyBindingValueDataImage),
+      );
+    }
     if (object.scribeKey != null) {
       yield r'scribe_key';
       yield serializers.serialize(
@@ -88,6 +119,13 @@ class _$TweetCardLegacyBindingValueDataSerializer
       object.type,
       specifiedType: const FullType(String),
     );
+    if (object.userValue != null) {
+      yield r'user_value';
+      yield serializers.serialize(
+        object.userValue,
+        specifiedType: const FullType(UserValue),
+      );
+    }
   }
 
   @override
@@ -120,6 +158,21 @@ class _$TweetCardLegacyBindingValueDataSerializer
           ) as bool;
           result.booleanValue = valueDes;
           break;
+        case r'image_color_value':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.imageColorValue.replace(valueDes);
+          break;
+        case r'image_value':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetCardLegacyBindingValueDataImage),
+          ) as TweetCardLegacyBindingValueDataImage;
+          result.imageValue.replace(valueDes);
+          break;
         case r'scribe_key':
           final valueDes = serializers.deserialize(
             value,
@@ -140,6 +193,13 @@ class _$TweetCardLegacyBindingValueDataSerializer
             specifiedType: const FullType(String),
           ) as String;
           result.type = valueDes;
+          break;
+        case r'user_value':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserValue),
+          ) as UserValue;
+          result.userValue.replace(valueDes);
           break;
         default:
           unhandled.add(key);

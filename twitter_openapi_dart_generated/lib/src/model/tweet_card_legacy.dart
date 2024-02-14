@@ -4,7 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_card_legacy_binding_value.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_card_platform_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,19 +16,27 @@ part 'tweet_card_legacy.g.dart';
 ///
 /// Properties:
 /// * [bindingValues]
+/// * [cardPlatform]
 /// * [name]
 /// * [url]
+/// * [userRefsResults]
 @BuiltValue()
 abstract class TweetCardLegacy
     implements Built<TweetCardLegacy, TweetCardLegacyBuilder> {
   @BuiltValueField(wireName: r'binding_values')
   BuiltList<TweetCardLegacyBindingValue> get bindingValues;
 
+  @BuiltValueField(wireName: r'card_platform')
+  TweetCardPlatformData? get cardPlatform;
+
   @BuiltValueField(wireName: r'name')
   String get name;
 
   @BuiltValueField(wireName: r'url')
   String get url;
+
+  @BuiltValueField(wireName: r'user_refs_results')
+  BuiltList<UserResults>? get userRefsResults;
 
   TweetCardLegacy._();
 
@@ -60,6 +70,13 @@ class _$TweetCardLegacySerializer
       specifiedType:
           const FullType(BuiltList, [FullType(TweetCardLegacyBindingValue)]),
     );
+    if (object.cardPlatform != null) {
+      yield r'card_platform';
+      yield serializers.serialize(
+        object.cardPlatform,
+        specifiedType: const FullType(TweetCardPlatformData),
+      );
+    }
     yield r'name';
     yield serializers.serialize(
       object.name,
@@ -70,6 +87,13 @@ class _$TweetCardLegacySerializer
       object.url,
       specifiedType: const FullType(String),
     );
+    if (object.userRefsResults != null) {
+      yield r'user_refs_results';
+      yield serializers.serialize(
+        object.userRefsResults,
+        specifiedType: const FullType(BuiltList, [FullType(UserResults)]),
+      );
+    }
   }
 
   @override
@@ -103,6 +127,13 @@ class _$TweetCardLegacySerializer
           ) as BuiltList<TweetCardLegacyBindingValue>;
           result.bindingValues.replace(valueDes);
           break;
+        case r'card_platform':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetCardPlatformData),
+          ) as TweetCardPlatformData;
+          result.cardPlatform.replace(valueDes);
+          break;
         case r'name':
           final valueDes = serializers.deserialize(
             value,
@@ -116,6 +147,13 @@ class _$TweetCardLegacySerializer
             specifiedType: const FullType(String),
           ) as String;
           result.url = valueDes;
+          break;
+        case r'user_refs_results':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(UserResults)]),
+          ) as BuiltList<UserResults>;
+          result.userRefsResults.replace(valueDes);
           break;
         default:
           unhandled.add(key);

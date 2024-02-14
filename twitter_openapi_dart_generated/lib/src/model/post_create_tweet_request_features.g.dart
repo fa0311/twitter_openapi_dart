@@ -8,6 +8,8 @@ part of 'post_create_tweet_request_features.dart';
 
 class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
   @override
+  final bool c9sTweetAnatomyModeratorBadgeEnabled;
+  @override
   final bool freedomOfSpeechNotReachFetchEnabled;
   @override
   final bool graphqlIsTranslatableRwebTweetIsTranslatableEnabled;
@@ -32,6 +34,8 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
   @override
   final bool responsiveWebTwitterArticleTweetConsumptionEnabled;
   @override
+  final bool rwebVideoTimestampsEnabled;
+  @override
   final bool standardizedNudgesMisinfo;
   @override
   final bool tweetAwardsWebTippingEnabled;
@@ -49,7 +53,8 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
       (new PostCreateTweetRequestFeaturesBuilder()..update(updates))._build();
 
   _$PostCreateTweetRequestFeatures._(
-      {required this.freedomOfSpeechNotReachFetchEnabled,
+      {required this.c9sTweetAnatomyModeratorBadgeEnabled,
+      required this.freedomOfSpeechNotReachFetchEnabled,
       required this.graphqlIsTranslatableRwebTweetIsTranslatableEnabled,
       required this.longformNotetweetsConsumptionEnabled,
       required this.longformNotetweetsInlineMediaEnabled,
@@ -61,6 +66,7 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
       required this.responsiveWebGraphqlTimelineNavigationEnabled,
       required this.responsiveWebMediaDownloadVideoEnabled,
       required this.responsiveWebTwitterArticleTweetConsumptionEnabled,
+      required this.rwebVideoTimestampsEnabled,
       required this.standardizedNudgesMisinfo,
       required this.tweetAwardsWebTippingEnabled,
       required this.tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled,
@@ -68,6 +74,10 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
       required this.verifiedPhoneLabelEnabled,
       required this.viewCountsEverywhereApiEnabled})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        c9sTweetAnatomyModeratorBadgeEnabled,
+        r'PostCreateTweetRequestFeatures',
+        'c9sTweetAnatomyModeratorBadgeEnabled');
     BuiltValueNullFieldError.checkNotNull(
         freedomOfSpeechNotReachFetchEnabled,
         r'PostCreateTweetRequestFeatures',
@@ -112,6 +122,8 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
         responsiveWebTwitterArticleTweetConsumptionEnabled,
         r'PostCreateTweetRequestFeatures',
         'responsiveWebTwitterArticleTweetConsumptionEnabled');
+    BuiltValueNullFieldError.checkNotNull(rwebVideoTimestampsEnabled,
+        r'PostCreateTweetRequestFeatures', 'rwebVideoTimestampsEnabled');
     BuiltValueNullFieldError.checkNotNull(standardizedNudgesMisinfo,
         r'PostCreateTweetRequestFeatures', 'standardizedNudgesMisinfo');
     BuiltValueNullFieldError.checkNotNull(tweetAwardsWebTippingEnabled,
@@ -143,6 +155,8 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PostCreateTweetRequestFeatures &&
+        c9sTweetAnatomyModeratorBadgeEnabled ==
+            other.c9sTweetAnatomyModeratorBadgeEnabled &&
         freedomOfSpeechNotReachFetchEnabled ==
             other.freedomOfSpeechNotReachFetchEnabled &&
         graphqlIsTranslatableRwebTweetIsTranslatableEnabled ==
@@ -167,6 +181,7 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
             other.responsiveWebMediaDownloadVideoEnabled &&
         responsiveWebTwitterArticleTweetConsumptionEnabled ==
             other.responsiveWebTwitterArticleTweetConsumptionEnabled &&
+        rwebVideoTimestampsEnabled == other.rwebVideoTimestampsEnabled &&
         standardizedNudgesMisinfo == other.standardizedNudgesMisinfo &&
         tweetAwardsWebTippingEnabled == other.tweetAwardsWebTippingEnabled &&
         tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled ==
@@ -181,6 +196,7 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, c9sTweetAnatomyModeratorBadgeEnabled.hashCode);
     _$hash = $jc(_$hash, freedomOfSpeechNotReachFetchEnabled.hashCode);
     _$hash = $jc(
         _$hash, graphqlIsTranslatableRwebTweetIsTranslatableEnabled.hashCode);
@@ -197,6 +213,7 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
     _$hash = $jc(_$hash, responsiveWebMediaDownloadVideoEnabled.hashCode);
     _$hash = $jc(
         _$hash, responsiveWebTwitterArticleTweetConsumptionEnabled.hashCode);
+    _$hash = $jc(_$hash, rwebVideoTimestampsEnabled.hashCode);
     _$hash = $jc(_$hash, standardizedNudgesMisinfo.hashCode);
     _$hash = $jc(_$hash, tweetAwardsWebTippingEnabled.hashCode);
     _$hash = $jc(
@@ -213,6 +230,8 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PostCreateTweetRequestFeatures')
+          ..add('c9sTweetAnatomyModeratorBadgeEnabled',
+              c9sTweetAnatomyModeratorBadgeEnabled)
           ..add('freedomOfSpeechNotReachFetchEnabled',
               freedomOfSpeechNotReachFetchEnabled)
           ..add('graphqlIsTranslatableRwebTweetIsTranslatableEnabled',
@@ -237,6 +256,7 @@ class _$PostCreateTweetRequestFeatures extends PostCreateTweetRequestFeatures {
               responsiveWebMediaDownloadVideoEnabled)
           ..add('responsiveWebTwitterArticleTweetConsumptionEnabled',
               responsiveWebTwitterArticleTweetConsumptionEnabled)
+          ..add('rwebVideoTimestampsEnabled', rwebVideoTimestampsEnabled)
           ..add('standardizedNudgesMisinfo', standardizedNudgesMisinfo)
           ..add('tweetAwardsWebTippingEnabled', tweetAwardsWebTippingEnabled)
           ..add(
@@ -256,6 +276,14 @@ class PostCreateTweetRequestFeaturesBuilder
         Builder<PostCreateTweetRequestFeatures,
             PostCreateTweetRequestFeaturesBuilder> {
   _$PostCreateTweetRequestFeatures? _$v;
+
+  bool? _c9sTweetAnatomyModeratorBadgeEnabled;
+  bool? get c9sTweetAnatomyModeratorBadgeEnabled =>
+      _$this._c9sTweetAnatomyModeratorBadgeEnabled;
+  set c9sTweetAnatomyModeratorBadgeEnabled(
+          bool? c9sTweetAnatomyModeratorBadgeEnabled) =>
+      _$this._c9sTweetAnatomyModeratorBadgeEnabled =
+          c9sTweetAnatomyModeratorBadgeEnabled;
 
   bool? _freedomOfSpeechNotReachFetchEnabled;
   bool? get freedomOfSpeechNotReachFetchEnabled =>
@@ -353,6 +381,11 @@ class PostCreateTweetRequestFeaturesBuilder
       _$this._responsiveWebTwitterArticleTweetConsumptionEnabled =
           responsiveWebTwitterArticleTweetConsumptionEnabled;
 
+  bool? _rwebVideoTimestampsEnabled;
+  bool? get rwebVideoTimestampsEnabled => _$this._rwebVideoTimestampsEnabled;
+  set rwebVideoTimestampsEnabled(bool? rwebVideoTimestampsEnabled) =>
+      _$this._rwebVideoTimestampsEnabled = rwebVideoTimestampsEnabled;
+
   bool? _standardizedNudgesMisinfo;
   bool? get standardizedNudgesMisinfo => _$this._standardizedNudgesMisinfo;
   set standardizedNudgesMisinfo(bool? standardizedNudgesMisinfo) =>
@@ -399,6 +432,8 @@ class PostCreateTweetRequestFeaturesBuilder
   PostCreateTweetRequestFeaturesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _c9sTweetAnatomyModeratorBadgeEnabled =
+          $v.c9sTweetAnatomyModeratorBadgeEnabled;
       _freedomOfSpeechNotReachFetchEnabled =
           $v.freedomOfSpeechNotReachFetchEnabled;
       _graphqlIsTranslatableRwebTweetIsTranslatableEnabled =
@@ -421,6 +456,7 @@ class PostCreateTweetRequestFeaturesBuilder
           $v.responsiveWebMediaDownloadVideoEnabled;
       _responsiveWebTwitterArticleTweetConsumptionEnabled =
           $v.responsiveWebTwitterArticleTweetConsumptionEnabled;
+      _rwebVideoTimestampsEnabled = $v.rwebVideoTimestampsEnabled;
       _standardizedNudgesMisinfo = $v.standardizedNudgesMisinfo;
       _tweetAwardsWebTippingEnabled = $v.tweetAwardsWebTippingEnabled;
       _tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled =
@@ -451,6 +487,10 @@ class PostCreateTweetRequestFeaturesBuilder
   _$PostCreateTweetRequestFeatures _build() {
     final _$result = _$v ??
         new _$PostCreateTweetRequestFeatures._(
+            c9sTweetAnatomyModeratorBadgeEnabled: BuiltValueNullFieldError.checkNotNull(
+                c9sTweetAnatomyModeratorBadgeEnabled,
+                r'PostCreateTweetRequestFeatures',
+                'c9sTweetAnatomyModeratorBadgeEnabled'),
             freedomOfSpeechNotReachFetchEnabled: BuiltValueNullFieldError.checkNotNull(
                 freedomOfSpeechNotReachFetchEnabled,
                 r'PostCreateTweetRequestFeatures',
@@ -464,10 +504,7 @@ class PostCreateTweetRequestFeaturesBuilder
                 longformNotetweetsConsumptionEnabled,
                 r'PostCreateTweetRequestFeatures',
                 'longformNotetweetsConsumptionEnabled'),
-            longformNotetweetsInlineMediaEnabled: BuiltValueNullFieldError.checkNotNull(
-                longformNotetweetsInlineMediaEnabled,
-                r'PostCreateTweetRequestFeatures',
-                'longformNotetweetsInlineMediaEnabled'),
+            longformNotetweetsInlineMediaEnabled: BuiltValueNullFieldError.checkNotNull(longformNotetweetsInlineMediaEnabled, r'PostCreateTweetRequestFeatures', 'longformNotetweetsInlineMediaEnabled'),
             longformNotetweetsRichTextReadEnabled: BuiltValueNullFieldError.checkNotNull(longformNotetweetsRichTextReadEnabled, r'PostCreateTweetRequestFeatures', 'longformNotetweetsRichTextReadEnabled'),
             responsiveWebEditTweetApiEnabled: BuiltValueNullFieldError.checkNotNull(responsiveWebEditTweetApiEnabled, r'PostCreateTweetRequestFeatures', 'responsiveWebEditTweetApiEnabled'),
             responsiveWebEnhanceCardsEnabled: BuiltValueNullFieldError.checkNotNull(responsiveWebEnhanceCardsEnabled, r'PostCreateTweetRequestFeatures', 'responsiveWebEnhanceCardsEnabled'),
@@ -476,6 +513,7 @@ class PostCreateTweetRequestFeaturesBuilder
             responsiveWebGraphqlTimelineNavigationEnabled: BuiltValueNullFieldError.checkNotNull(responsiveWebGraphqlTimelineNavigationEnabled, r'PostCreateTweetRequestFeatures', 'responsiveWebGraphqlTimelineNavigationEnabled'),
             responsiveWebMediaDownloadVideoEnabled: BuiltValueNullFieldError.checkNotNull(responsiveWebMediaDownloadVideoEnabled, r'PostCreateTweetRequestFeatures', 'responsiveWebMediaDownloadVideoEnabled'),
             responsiveWebTwitterArticleTweetConsumptionEnabled: BuiltValueNullFieldError.checkNotNull(responsiveWebTwitterArticleTweetConsumptionEnabled, r'PostCreateTweetRequestFeatures', 'responsiveWebTwitterArticleTweetConsumptionEnabled'),
+            rwebVideoTimestampsEnabled: BuiltValueNullFieldError.checkNotNull(rwebVideoTimestampsEnabled, r'PostCreateTweetRequestFeatures', 'rwebVideoTimestampsEnabled'),
             standardizedNudgesMisinfo: BuiltValueNullFieldError.checkNotNull(standardizedNudgesMisinfo, r'PostCreateTweetRequestFeatures', 'standardizedNudgesMisinfo'),
             tweetAwardsWebTippingEnabled: BuiltValueNullFieldError.checkNotNull(tweetAwardsWebTippingEnabled, r'PostCreateTweetRequestFeatures', 'tweetAwardsWebTippingEnabled'),
             tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled: BuiltValueNullFieldError.checkNotNull(tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled, r'PostCreateTweetRequestFeatures', 'tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled'),

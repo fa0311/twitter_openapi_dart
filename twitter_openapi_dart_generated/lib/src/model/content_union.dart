@@ -3,9 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_item.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_module.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -25,8 +24,11 @@ part 'content_union.g.dart';
 /// * [footer]
 /// * [header]
 /// * [items]
+/// * [metadata]
 /// * [cursorType]
+/// * [displayTreatment]
 /// * [itemType]
+/// * [stopOnEmptyResponse]
 /// * [value]
 @BuiltValue()
 abstract class ContentUnion
@@ -160,26 +162,4 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
         value: oneOfResult);
     return result.build();
   }
-}
-
-class ContentUnionDisplayTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Vertical')
-  static const ContentUnionDisplayTypeEnum vertical =
-      _$contentUnionDisplayTypeEnum_vertical;
-  @BuiltValueEnumConst(wireName: r'VerticalConversation')
-  static const ContentUnionDisplayTypeEnum verticalConversation =
-      _$contentUnionDisplayTypeEnum_verticalConversation;
-  @BuiltValueEnumConst(wireName: r'Carousel')
-  static const ContentUnionDisplayTypeEnum carousel =
-      _$contentUnionDisplayTypeEnum_carousel;
-
-  static Serializer<ContentUnionDisplayTypeEnum> get serializer =>
-      _$contentUnionDisplayTypeEnumSerializer;
-
-  const ContentUnionDisplayTypeEnum._(String name) : super(name);
-
-  static BuiltSet<ContentUnionDisplayTypeEnum> get values =>
-      _$contentUnionDisplayTypeEnumValues;
-  static ContentUnionDisplayTypeEnum valueOf(String name) =>
-      _$contentUnionDisplayTypeEnumValueOf(name);
 }

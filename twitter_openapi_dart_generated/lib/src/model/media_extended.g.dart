@@ -74,6 +74,8 @@ class _$MediaExtended extends MediaExtended {
   @override
   final String expandedUrl;
   @override
+  final String? extAltText;
+  @override
   final ExtMediaAvailability? extMediaAvailability;
   @override
   final JsonObject? features;
@@ -90,7 +92,13 @@ class _$MediaExtended extends MediaExtended {
   @override
   final MediaOriginalInfo originalInfo;
   @override
+  final SensitiveMediaWarning? sensitiveMediaWarning;
+  @override
   final MediaSizes sizes;
+  @override
+  final String? sourceStatusIdStr;
+  @override
+  final String? sourceUserIdStr;
   @override
   final MediaExtendedTypeEnum type;
   @override
@@ -105,6 +113,7 @@ class _$MediaExtended extends MediaExtended {
       {this.additionalMediaInfo,
       required this.displayUrl,
       required this.expandedUrl,
+      this.extAltText,
       this.extMediaAvailability,
       this.features,
       required this.idStr,
@@ -113,7 +122,10 @@ class _$MediaExtended extends MediaExtended {
       required this.mediaKey,
       required this.mediaUrlHttps,
       required this.originalInfo,
+      this.sensitiveMediaWarning,
       required this.sizes,
+      this.sourceStatusIdStr,
+      this.sourceUserIdStr,
       required this.type,
       required this.url,
       this.videoInfo})
@@ -149,6 +161,7 @@ class _$MediaExtended extends MediaExtended {
         additionalMediaInfo == other.additionalMediaInfo &&
         displayUrl == other.displayUrl &&
         expandedUrl == other.expandedUrl &&
+        extAltText == other.extAltText &&
         extMediaAvailability == other.extMediaAvailability &&
         features == other.features &&
         idStr == other.idStr &&
@@ -157,7 +170,10 @@ class _$MediaExtended extends MediaExtended {
         mediaKey == other.mediaKey &&
         mediaUrlHttps == other.mediaUrlHttps &&
         originalInfo == other.originalInfo &&
+        sensitiveMediaWarning == other.sensitiveMediaWarning &&
         sizes == other.sizes &&
+        sourceStatusIdStr == other.sourceStatusIdStr &&
+        sourceUserIdStr == other.sourceUserIdStr &&
         type == other.type &&
         url == other.url &&
         videoInfo == other.videoInfo;
@@ -169,6 +185,7 @@ class _$MediaExtended extends MediaExtended {
     _$hash = $jc(_$hash, additionalMediaInfo.hashCode);
     _$hash = $jc(_$hash, displayUrl.hashCode);
     _$hash = $jc(_$hash, expandedUrl.hashCode);
+    _$hash = $jc(_$hash, extAltText.hashCode);
     _$hash = $jc(_$hash, extMediaAvailability.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
     _$hash = $jc(_$hash, idStr.hashCode);
@@ -177,7 +194,10 @@ class _$MediaExtended extends MediaExtended {
     _$hash = $jc(_$hash, mediaKey.hashCode);
     _$hash = $jc(_$hash, mediaUrlHttps.hashCode);
     _$hash = $jc(_$hash, originalInfo.hashCode);
+    _$hash = $jc(_$hash, sensitiveMediaWarning.hashCode);
     _$hash = $jc(_$hash, sizes.hashCode);
+    _$hash = $jc(_$hash, sourceStatusIdStr.hashCode);
+    _$hash = $jc(_$hash, sourceUserIdStr.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, videoInfo.hashCode);
@@ -191,6 +211,7 @@ class _$MediaExtended extends MediaExtended {
           ..add('additionalMediaInfo', additionalMediaInfo)
           ..add('displayUrl', displayUrl)
           ..add('expandedUrl', expandedUrl)
+          ..add('extAltText', extAltText)
           ..add('extMediaAvailability', extMediaAvailability)
           ..add('features', features)
           ..add('idStr', idStr)
@@ -199,7 +220,10 @@ class _$MediaExtended extends MediaExtended {
           ..add('mediaKey', mediaKey)
           ..add('mediaUrlHttps', mediaUrlHttps)
           ..add('originalInfo', originalInfo)
+          ..add('sensitiveMediaWarning', sensitiveMediaWarning)
           ..add('sizes', sizes)
+          ..add('sourceStatusIdStr', sourceStatusIdStr)
+          ..add('sourceUserIdStr', sourceUserIdStr)
           ..add('type', type)
           ..add('url', url)
           ..add('videoInfo', videoInfo))
@@ -224,6 +248,10 @@ class MediaExtendedBuilder
   String? _expandedUrl;
   String? get expandedUrl => _$this._expandedUrl;
   set expandedUrl(String? expandedUrl) => _$this._expandedUrl = expandedUrl;
+
+  String? _extAltText;
+  String? get extAltText => _$this._extAltText;
+  set extAltText(String? extAltText) => _$this._extAltText = extAltText;
 
   ExtMediaAvailabilityBuilder? _extMediaAvailability;
   ExtMediaAvailabilityBuilder get extMediaAvailability =>
@@ -264,9 +292,26 @@ class MediaExtendedBuilder
   set originalInfo(MediaOriginalInfoBuilder? originalInfo) =>
       _$this._originalInfo = originalInfo;
 
+  SensitiveMediaWarningBuilder? _sensitiveMediaWarning;
+  SensitiveMediaWarningBuilder get sensitiveMediaWarning =>
+      _$this._sensitiveMediaWarning ??= new SensitiveMediaWarningBuilder();
+  set sensitiveMediaWarning(
+          SensitiveMediaWarningBuilder? sensitiveMediaWarning) =>
+      _$this._sensitiveMediaWarning = sensitiveMediaWarning;
+
   MediaSizesBuilder? _sizes;
   MediaSizesBuilder get sizes => _$this._sizes ??= new MediaSizesBuilder();
   set sizes(MediaSizesBuilder? sizes) => _$this._sizes = sizes;
+
+  String? _sourceStatusIdStr;
+  String? get sourceStatusIdStr => _$this._sourceStatusIdStr;
+  set sourceStatusIdStr(String? sourceStatusIdStr) =>
+      _$this._sourceStatusIdStr = sourceStatusIdStr;
+
+  String? _sourceUserIdStr;
+  String? get sourceUserIdStr => _$this._sourceUserIdStr;
+  set sourceUserIdStr(String? sourceUserIdStr) =>
+      _$this._sourceUserIdStr = sourceUserIdStr;
 
   MediaExtendedTypeEnum? _type;
   MediaExtendedTypeEnum? get type => _$this._type;
@@ -292,6 +337,7 @@ class MediaExtendedBuilder
       _additionalMediaInfo = $v.additionalMediaInfo?.toBuilder();
       _displayUrl = $v.displayUrl;
       _expandedUrl = $v.expandedUrl;
+      _extAltText = $v.extAltText;
       _extMediaAvailability = $v.extMediaAvailability?.toBuilder();
       _features = $v.features;
       _idStr = $v.idStr;
@@ -300,7 +346,10 @@ class MediaExtendedBuilder
       _mediaKey = $v.mediaKey;
       _mediaUrlHttps = $v.mediaUrlHttps;
       _originalInfo = $v.originalInfo.toBuilder();
+      _sensitiveMediaWarning = $v.sensitiveMediaWarning?.toBuilder();
       _sizes = $v.sizes.toBuilder();
+      _sourceStatusIdStr = $v.sourceStatusIdStr;
+      _sourceUserIdStr = $v.sourceUserIdStr;
       _type = $v.type;
       _url = $v.url;
       _videoInfo = $v.videoInfo?.toBuilder();
@@ -333,6 +382,7 @@ class MediaExtendedBuilder
                   displayUrl, r'MediaExtended', 'displayUrl'),
               expandedUrl: BuiltValueNullFieldError.checkNotNull(
                   expandedUrl, r'MediaExtended', 'expandedUrl'),
+              extAltText: extAltText,
               extMediaAvailability: _extMediaAvailability?.build(),
               features: features,
               idStr: BuiltValueNullFieldError.checkNotNull(
@@ -344,7 +394,10 @@ class MediaExtendedBuilder
               mediaUrlHttps: BuiltValueNullFieldError.checkNotNull(
                   mediaUrlHttps, r'MediaExtended', 'mediaUrlHttps'),
               originalInfo: originalInfo.build(),
+              sensitiveMediaWarning: _sensitiveMediaWarning?.build(),
               sizes: sizes.build(),
+              sourceStatusIdStr: sourceStatusIdStr,
+              sourceUserIdStr: sourceUserIdStr,
               type: BuiltValueNullFieldError.checkNotNull(
                   type, r'MediaExtended', 'type'),
               url: BuiltValueNullFieldError.checkNotNull(
@@ -366,6 +419,8 @@ class MediaExtendedBuilder
 
         _$failedField = 'originalInfo';
         originalInfo.build();
+        _$failedField = 'sensitiveMediaWarning';
+        _sensitiveMediaWarning?.build();
         _$failedField = 'sizes';
         sizes.build();
 

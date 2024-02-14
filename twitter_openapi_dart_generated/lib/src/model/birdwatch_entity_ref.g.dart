@@ -8,11 +8,16 @@ part of 'birdwatch_entity_ref.dart';
 
 const BirdwatchEntityRefTypeEnum _$birdwatchEntityRefTypeEnum_timelineUrl =
     const BirdwatchEntityRefTypeEnum._('timelineUrl');
+const BirdwatchEntityRefTypeEnum
+    _$birdwatchEntityRefTypeEnum_timelineRichTextHashtag =
+    const BirdwatchEntityRefTypeEnum._('timelineRichTextHashtag');
 
 BirdwatchEntityRefTypeEnum _$birdwatchEntityRefTypeEnumValueOf(String name) {
   switch (name) {
     case 'timelineUrl':
       return _$birdwatchEntityRefTypeEnum_timelineUrl;
+    case 'timelineRichTextHashtag':
+      return _$birdwatchEntityRefTypeEnum_timelineRichTextHashtag;
     default:
       throw new ArgumentError(name);
   }
@@ -21,6 +26,7 @@ BirdwatchEntityRefTypeEnum _$birdwatchEntityRefTypeEnumValueOf(String name) {
 final BuiltSet<BirdwatchEntityRefTypeEnum> _$birdwatchEntityRefTypeEnumValues =
     new BuiltSet<BirdwatchEntityRefTypeEnum>(const <BirdwatchEntityRefTypeEnum>[
   _$birdwatchEntityRefTypeEnum_timelineUrl,
+  _$birdwatchEntityRefTypeEnum_timelineRichTextHashtag,
 ]);
 
 const BirdwatchEntityRefUrlTypeEnum
@@ -53,9 +59,11 @@ class _$BirdwatchEntityRefTypeEnumSerializer
     implements PrimitiveSerializer<BirdwatchEntityRefTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'timelineUrl': 'TimelineUrl',
+    'timelineRichTextHashtag': 'TimelineRichTextHashtag',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'TimelineUrl': 'timelineUrl',
+    'TimelineRichTextHashtag': 'timelineRichTextHashtag',
   };
 
   @override
@@ -106,23 +114,22 @@ class _$BirdwatchEntityRefUrlTypeEnumSerializer
 
 class _$BirdwatchEntityRef extends BirdwatchEntityRef {
   @override
+  final String? text;
+  @override
   final BirdwatchEntityRefTypeEnum type;
   @override
-  final String url;
+  final String? url;
   @override
-  final BirdwatchEntityRefUrlTypeEnum urlType;
+  final BirdwatchEntityRefUrlTypeEnum? urlType;
 
   factory _$BirdwatchEntityRef(
           [void Function(BirdwatchEntityRefBuilder)? updates]) =>
       (new BirdwatchEntityRefBuilder()..update(updates))._build();
 
   _$BirdwatchEntityRef._(
-      {required this.type, required this.url, required this.urlType})
+      {this.text, required this.type, this.url, this.urlType})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'BirdwatchEntityRef', 'type');
-    BuiltValueNullFieldError.checkNotNull(url, r'BirdwatchEntityRef', 'url');
-    BuiltValueNullFieldError.checkNotNull(
-        urlType, r'BirdwatchEntityRef', 'urlType');
   }
 
   @override
@@ -138,6 +145,7 @@ class _$BirdwatchEntityRef extends BirdwatchEntityRef {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BirdwatchEntityRef &&
+        text == other.text &&
         type == other.type &&
         url == other.url &&
         urlType == other.urlType;
@@ -146,6 +154,7 @@ class _$BirdwatchEntityRef extends BirdwatchEntityRef {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, text.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, urlType.hashCode);
@@ -156,6 +165,7 @@ class _$BirdwatchEntityRef extends BirdwatchEntityRef {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BirdwatchEntityRef')
+          ..add('text', text)
           ..add('type', type)
           ..add('url', url)
           ..add('urlType', urlType))
@@ -166,6 +176,10 @@ class _$BirdwatchEntityRef extends BirdwatchEntityRef {
 class BirdwatchEntityRefBuilder
     implements Builder<BirdwatchEntityRef, BirdwatchEntityRefBuilder> {
   _$BirdwatchEntityRef? _$v;
+
+  String? _text;
+  String? get text => _$this._text;
+  set text(String? text) => _$this._text = text;
 
   BirdwatchEntityRefTypeEnum? _type;
   BirdwatchEntityRefTypeEnum? get type => _$this._type;
@@ -187,6 +201,7 @@ class BirdwatchEntityRefBuilder
   BirdwatchEntityRefBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _text = $v.text;
       _type = $v.type;
       _url = $v.url;
       _urlType = $v.urlType;
@@ -212,12 +227,11 @@ class BirdwatchEntityRefBuilder
   _$BirdwatchEntityRef _build() {
     final _$result = _$v ??
         new _$BirdwatchEntityRef._(
+            text: text,
             type: BuiltValueNullFieldError.checkNotNull(
                 type, r'BirdwatchEntityRef', 'type'),
-            url: BuiltValueNullFieldError.checkNotNull(
-                url, r'BirdwatchEntityRef', 'url'),
-            urlType: BuiltValueNullFieldError.checkNotNull(
-                urlType, r'BirdwatchEntityRef', 'urlType'));
+            url: url,
+            urlType: urlType);
     replace(_$result);
     return _$result;
   }

@@ -8,9 +8,9 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**socialContext** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
+**socialContext** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **userDisplayType** | **String** |  | 
 **userResults** | [**UserResults**](UserResults.md) |  | 
 

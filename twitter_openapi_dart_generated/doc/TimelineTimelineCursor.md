@@ -10,8 +10,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
 **cursorType** | [**CursorType**](CursorType.md) |  | 
+**displayTreatment** | [**DisplayTreatment**](DisplayTreatment.md) |  | [optional] 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
 **itemType** | [**ContentEntryType**](ContentEntryType.md) |  | [optional] 
+**stopOnEmptyResponse** | **bool** |  | [default to false]
 **value** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

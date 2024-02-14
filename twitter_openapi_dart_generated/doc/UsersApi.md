@@ -100,7 +100,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('AcceptEncoding').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getUsersApi();
-final String pathQueryId = GD4q8bBE2i6cqWw2iT74Gg; // String | 
+final String pathQueryId = itEhGywpgX9b3GJCzOtSrA; // String | 
 final String variables = {"userIds": ["44196397"]}; // String | 
 final String features = {"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}; // String | 
 
@@ -116,7 +116,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pathQueryId** | **String**|  | [default to 'GD4q8bBE2i6cqWw2iT74Gg']
+ **pathQueryId** | **String**|  | [default to 'itEhGywpgX9b3GJCzOtSrA']
  **variables** | **String**|  | [default to '{"userIds": ["44196397"]}']
  **features** | **String**|  | [default to '{"responsive_web_graphql_exclude_directive_enabled": true, "verified_phone_label_enabled": false, "responsive_web_graphql_skip_user_profile_image_extensions_enabled": false, "responsive_web_graphql_timeline_navigation_enabled": true}']
 

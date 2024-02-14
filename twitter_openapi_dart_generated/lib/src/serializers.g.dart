@@ -8,11 +8,16 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AdditionalMediaInfo.serializer)
+      ..add(AdditionalMediaInfoCallToActions.serializer)
+      ..add(AdditionalMediaInfoCallToActionsUrl.serializer)
+      ..add(AuthorCommunityRelationship.serializer)
+      ..add(AuthorCommunityRelationshipRoleEnum.serializer)
       ..add(BirdwatchEntity.serializer)
       ..add(BirdwatchEntityRef.serializer)
       ..add(BirdwatchEntityRefTypeEnum.serializer)
       ..add(BirdwatchEntityRefUrlTypeEnum.serializer)
       ..add(BirdwatchPivot.serializer)
+      ..add(BirdwatchPivotCallToAction.serializer)
       ..add(BirdwatchPivotFooter.serializer)
       ..add(BirdwatchPivotIconTypeEnum.serializer)
       ..add(BirdwatchPivotNote.serializer)
@@ -24,6 +29,24 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Callback.serializer)
       ..add(ClientEventInfo.serializer)
       ..add(CommunitiesActions.serializer)
+      ..add(Community.serializer)
+      ..add(CommunityActions.serializer)
+      ..add(CommunityData.serializer)
+      ..add(CommunityDataInvitesPolicyEnum.serializer)
+      ..add(CommunityDataJoinPolicyEnum.serializer)
+      ..add(CommunityDataRoleEnum.serializer)
+      ..add(CommunityDeleteActionResult.serializer)
+      ..add(CommunityDeleteActionResultReasonEnum.serializer)
+      ..add(CommunityInvitesResult.serializer)
+      ..add(CommunityInvitesResultReasonEnum.serializer)
+      ..add(CommunityJoinActionResult.serializer)
+      ..add(CommunityJoinRequestsResult.serializer)
+      ..add(CommunityLeaveActionResult.serializer)
+      ..add(CommunityLeaveActionResultReasonEnum.serializer)
+      ..add(CommunityPinActionResult.serializer)
+      ..add(CommunityRule.serializer)
+      ..add(CommunityUrls.serializer)
+      ..add(CommunityUrlsPermalink.serializer)
       ..add(ContentEntryType.serializer)
       ..add(ContentItemType.serializer)
       ..add(ContentUnion.serializer)
@@ -47,6 +70,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DeleteTweetResponse.serializer)
       ..add(DeleteTweetResponseData.serializer)
       ..add(DeleteTweetResponseResult.serializer)
+      ..add(DisplayTreatment.serializer)
+      ..add(DisplayType.serializer)
       ..add(Entities.serializer)
       ..add(Error.serializer)
       ..add(ErrorExtensions.serializer)
@@ -58,6 +83,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(Extensions.serializer)
       ..add(FavoriteTweet.serializer)
       ..add(FavoriteTweetResponseData.serializer)
+      ..add(FeedbackInfo.serializer)
       ..add(FollowResponse.serializer)
       ..add(FollowResponseData.serializer)
       ..add(FollowResponseResult.serializer)
@@ -77,6 +103,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GetUserByRestId200Response.serializer)
       ..add(GetUserHighlightsTweets200Response.serializer)
       ..add(GetUsersByRestIds200Response.serializer)
+      ..add(Highlight.serializer)
       ..add(HomeTimelineHome.serializer)
       ..add(HomeTimelineResponseData.serializer)
       ..add(InstructionType.serializer)
@@ -132,8 +159,11 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(PostFavoriteTweetRequest.serializer)
       ..add(PostUnfavoriteTweet200Response.serializer)
       ..add(PostUnfavoriteTweetRequest.serializer)
+      ..add(PrimaryCommunityTopic.serializer)
       ..add(ProfileResponse.serializer)
       ..add(ProfileResponseData.serializer)
+      ..add(QuotedRefResult.serializer)
+      ..add(QuotedStatusPermalink.serializer)
       ..add(Retweet.serializer)
       ..add(RetweetLegacy.serializer)
       ..add(SearchByRawQuery.serializer)
@@ -141,14 +171,22 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SearchTimelineData.serializer)
       ..add(SearchTimelineResponse.serializer)
       ..add(SelfThread.serializer)
+      ..add(SensitiveMediaWarning.serializer)
       ..add(Session.serializer)
       ..add(SessionSuperFollowsApplicationStatusEnum.serializer)
-      ..add(SocialContext.serializer)
+      ..add(SocialContextLandingUrl.serializer)
+      ..add(SocialContextLandingUrlUrlTypeEnum.serializer)
+      ..add(SocialContextUnion.serializer)
+      ..add(SocialContextUnionType.serializer)
+      ..add(SuperFollowsReplyUserResult.serializer)
+      ..add(SuperFollowsReplyUserResultData.serializer)
+      ..add(SuperFollowsReplyUserResultLegacy.serializer)
       ..add(Text.serializer)
       ..add(TextEntity.serializer)
       ..add(TextEntityRef.serializer)
       ..add(TextEntityRefTypeEnum.serializer)
       ..add(TextEntityRefUrlTypeEnum.serializer)
+      ..add(TextHighlight.serializer)
       ..add(Timeline.serializer)
       ..add(TimelineAddEntries.serializer)
       ..add(TimelineAddEntry.serializer)
@@ -157,6 +195,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TimelineCommunity.serializer)
       ..add(TimelineCoverBehavior.serializer)
       ..add(TimelineCoverBehaviorTypeEnum.serializer)
+      ..add(TimelineGeneralContext.serializer)
+      ..add(TimelineGeneralContextContextTypeEnum.serializer)
       ..add(TimelineHalfCover.serializer)
       ..add(TimelineHalfCoverHalfCoverDisplayTypeEnum.serializer)
       ..add(TimelineHalfCoverTypeEnum.serializer)
@@ -175,17 +215,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TimelineTimelineCursor.serializer)
       ..add(TimelineTimelineItem.serializer)
       ..add(TimelineTimelineModule.serializer)
-      ..add(TimelineTimelineModuleDisplayTypeEnum.serializer)
+      ..add(TimelineTopicContext.serializer)
+      ..add(TimelineTopicContextFunctionalityTypeEnum.serializer)
       ..add(TimelineTweet.serializer)
       ..add(TimelineUser.serializer)
       ..add(TimelineUserUserDisplayTypeEnum.serializer)
       ..add(TimelineV2.serializer)
+      ..add(TopicContext.serializer)
       ..add(Tracing.serializer)
       ..add(Tweet.serializer)
       ..add(TweetCard.serializer)
       ..add(TweetCardLegacy.serializer)
       ..add(TweetCardLegacyBindingValue.serializer)
       ..add(TweetCardLegacyBindingValueData.serializer)
+      ..add(TweetCardLegacyBindingValueDataImage.serializer)
+      ..add(TweetCardPlatform.serializer)
+      ..add(TweetCardPlatformAudience.serializer)
+      ..add(TweetCardPlatformAudienceNameEnum.serializer)
+      ..add(TweetCardPlatformData.serializer)
+      ..add(TweetCardPlatformDevice.serializer)
       ..add(TweetDetailResponse.serializer)
       ..add(TweetDetailResponseData.serializer)
       ..add(TweetEditControl.serializer)
@@ -193,7 +241,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TweetEditPrespective.serializer)
       ..add(TweetFavoritersResponse.serializer)
       ..add(TweetFavoritersResponseData.serializer)
+      ..add(TweetInterstitial.serializer)
+      ..add(TweetInterstitialDisplayTypeEnum.serializer)
+      ..add(TweetInterstitialRevealText.serializer)
+      ..add(TweetInterstitialText.serializer)
+      ..add(TweetInterstitialTextEntity.serializer)
+      ..add(TweetInterstitialTextEntityRef.serializer)
+      ..add(TweetInterstitialTextEntityRefTypeEnum.serializer)
+      ..add(TweetInterstitialTextEntityRefUrlTypeEnum.serializer)
       ..add(TweetLegacy.serializer)
+      ..add(TweetLegacyLimitedActionsEnum.serializer)
+      ..add(TweetLegacyScopes.serializer)
+      ..add(TweetPreviousCounts.serializer)
       ..add(TweetResultByRestIdData.serializer)
       ..add(TweetResultByRestIdResponse.serializer)
       ..add(TweetRetweetersResponse.serializer)
@@ -206,15 +265,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TypeName.serializer)
       ..add(UnfavoriteTweet.serializer)
       ..add(UnfavoriteTweetResponseData.serializer)
+      ..add(UnifiedCard.serializer)
+      ..add(UnifiedCardCardFetchStateEnum.serializer)
       ..add(Url.serializer)
+      ..add(UrtEndpointOptions.serializer)
+      ..add(UrtEndpointRequestParams.serializer)
       ..add(User.serializer)
       ..add(UserFeatures.serializer)
+      ..add(UserHighlightsInfo.serializer)
       ..add(UserHighlightsTweetsData.serializer)
       ..add(UserHighlightsTweetsResponse.serializer)
       ..add(UserHighlightsTweetsResult.serializer)
       ..add(UserHighlightsTweetsTimeline.serializer)
       ..add(UserHighlightsTweetsUser.serializer)
       ..add(UserLegacy.serializer)
+      ..add(UserLegacyVerifiedTypeEnum.serializer)
+      ..add(UserProfessional.serializer)
+      ..add(UserProfessionalCategory.serializer)
+      ..add(UserProfessionalProfessionalTypeEnum.serializer)
+      ..add(UserProfileImageShapeEnum.serializer)
       ..add(UserResponse.serializer)
       ..add(UserResponseData.serializer)
       ..add(UserResultByScreenName.serializer)
@@ -228,6 +297,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(UserTweetsUser.serializer)
       ..add(UserUnavailable.serializer)
       ..add(UserUnion.serializer)
+      ..add(UserValue.serializer)
+      ..add(UserVerificationInfo.serializer)
+      ..add(UserVerificationInfoReason.serializer)
+      ..add(UserVerificationInfoReasonDescription.serializer)
+      ..add(UserVerificationInfoReasonDescriptionEntities.serializer)
+      ..add(UserVerificationInfoReasonDescriptionEntitiesRef.serializer)
+      ..add(UserVerificationInfoReasonDescriptionEntitiesRefUrlTypeEnum
+          .serializer)
       ..add(UsersResponse.serializer)
       ..add(UsersResponseData.serializer)
       ..addBuilderFactory(
@@ -353,8 +430,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TextEntity)]),
           () => new ListBuilder<TextEntity>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(TextHighlight)]),
+          () => new ListBuilder<TextHighlight>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TimelineAddEntry)]),
           () => new ListBuilder<TimelineAddEntry>())
@@ -366,11 +449,30 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(UserResults)]),
           () => new ListBuilder<UserResults>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          const FullType(
+              BuiltList, const [const FullType(TweetInterstitialTextEntity)]),
+          () => new ListBuilder<TweetInterstitialTextEntity>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          const FullType(
+              BuiltList, const [const FullType(TweetInterstitialTextEntity)]),
+          () => new ListBuilder<TweetInterstitialTextEntity>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(UrtEndpointRequestParams)]),
+          () => new ListBuilder<UrtEndpointRequestParams>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(UserProfessionalCategory)]),
+          () => new ListBuilder<UserProfessionalCategory>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UserResults)]),
+          () => new ListBuilder<UserResults>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(UserVerificationInfoReasonDescriptionEntities)
+          ]),
+          () =>
+              new ListBuilder<UserVerificationInfoReasonDescriptionEntities>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>())
@@ -421,8 +523,53 @@ Serializers _$serializers = (new Serializers().toBuilder()
           ]),
           () => new MapBuilder<String, JsonObject?>())
       ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
       ..addBuilderFactory(
           const FullType(BuiltMap, const [
             const FullType(String),
@@ -463,6 +610,36 @@ Serializers _$serializers = (new Serializers().toBuilder()
           ]),
           () => new MapBuilder<String, JsonObject?>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(UserResults)]),
+          () => new ListBuilder<UserResults>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CommunityRule)]),
+          () => new ListBuilder<CommunityRule>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>())
+      ..addBuilderFactory(
           const FullType(BuiltMap, const [
             const FullType(String),
             const FullType.nullable(JsonObject)
@@ -470,7 +647,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new MapBuilder<String, JsonObject?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ModuleItem)]),
-          () => new ListBuilder<ModuleItem>()))
+          () => new ListBuilder<ModuleItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType.nullable(JsonObject)
+          ]),
+          () => new MapBuilder<String, JsonObject?>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

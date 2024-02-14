@@ -8,10 +8,11 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**socialContext** | [**SocialContext**](SocialContext.md) |  | [optional] 
 **typename** | [**TypeName**](TypeName.md) |  | 
+**highlights** | [**Highlight**](Highlight.md) |  | [optional] 
 **itemType** | [**ContentItemType**](ContentItemType.md) |  | 
 **promotedMetadata** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
+**socialContext** | [**SocialContextUnion**](SocialContextUnion.md) |  | [optional] 
 **tweetDisplayType** | **String** |  | 
 **tweetResults** | [**ItemResult**](ItemResult.md) |  | 
 

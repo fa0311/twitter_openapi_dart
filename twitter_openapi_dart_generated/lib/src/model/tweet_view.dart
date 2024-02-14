@@ -21,7 +21,7 @@ abstract class TweetView implements Built<TweetView, TweetViewBuilder> {
 
   @BuiltValueField(wireName: r'state')
   TweetViewStateEnum get state;
-  // enum stateEnum {  EnabledWithCount,  };
+  // enum stateEnum {  Enabled,  EnabledWithCount,  };
 
   TweetView._();
 
@@ -127,6 +127,8 @@ class _$TweetViewSerializer implements PrimitiveSerializer<TweetView> {
 }
 
 class TweetViewStateEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Enabled')
+  static const TweetViewStateEnum enabled = _$tweetViewStateEnum_enabled;
   @BuiltValueEnumConst(wireName: r'EnabledWithCount')
   static const TweetViewStateEnum enabledWithCount =
       _$tweetViewStateEnum_enabledWithCount;

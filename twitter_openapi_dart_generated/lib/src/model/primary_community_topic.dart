@@ -6,78 +6,67 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'social_context.g.dart';
+part 'primary_community_topic.g.dart';
 
-/// SocialContext
+/// PrimaryCommunityTopic
 ///
 /// Properties:
-/// * [contextType]
-/// * [text]
-/// * [type]
+/// * [topicId]
+/// * [topicName]
 @BuiltValue()
-abstract class SocialContext
-    implements Built<SocialContext, SocialContextBuilder> {
-  @BuiltValueField(wireName: r'contextType')
-  String? get contextType;
+abstract class PrimaryCommunityTopic
+    implements Built<PrimaryCommunityTopic, PrimaryCommunityTopicBuilder> {
+  @BuiltValueField(wireName: r'topic_id')
+  String get topicId;
 
-  @BuiltValueField(wireName: r'text')
-  String? get text;
+  @BuiltValueField(wireName: r'topic_name')
+  String get topicName;
 
-  @BuiltValueField(wireName: r'type')
-  String? get type;
+  PrimaryCommunityTopic._();
 
-  SocialContext._();
-
-  factory SocialContext([void updates(SocialContextBuilder b)]) =
-      _$SocialContext;
+  factory PrimaryCommunityTopic(
+      [void updates(PrimaryCommunityTopicBuilder b)]) = _$PrimaryCommunityTopic;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SocialContextBuilder b) => b;
+  static void _defaults(PrimaryCommunityTopicBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SocialContext> get serializer =>
-      _$SocialContextSerializer();
+  static Serializer<PrimaryCommunityTopic> get serializer =>
+      _$PrimaryCommunityTopicSerializer();
 }
 
-class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
+class _$PrimaryCommunityTopicSerializer
+    implements PrimitiveSerializer<PrimaryCommunityTopic> {
   @override
-  final Iterable<Type> types = const [SocialContext, _$SocialContext];
+  final Iterable<Type> types = const [
+    PrimaryCommunityTopic,
+    _$PrimaryCommunityTopic
+  ];
 
   @override
-  final String wireName = r'SocialContext';
+  final String wireName = r'PrimaryCommunityTopic';
 
   Iterable<Object?> _serializeProperties(
     Serializers serializers,
-    SocialContext object, {
+    PrimaryCommunityTopic object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.contextType != null) {
-      yield r'contextType';
-      yield serializers.serialize(
-        object.contextType,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.text != null) {
-      yield r'text';
-      yield serializers.serialize(
-        object.text,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.type != null) {
-      yield r'type';
-      yield serializers.serialize(
-        object.type,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'topic_id';
+    yield serializers.serialize(
+      object.topicId,
+      specifiedType: const FullType(String),
+    );
+    yield r'topic_name';
+    yield serializers.serialize(
+      object.topicName,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override
   Object serialize(
     Serializers serializers,
-    SocialContext object, {
+    PrimaryCommunityTopic object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     return _serializeProperties(serializers, object,
@@ -90,33 +79,26 @@ class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
     required List<Object?> serializedList,
-    required SocialContextBuilder result,
+    required PrimaryCommunityTopicBuilder result,
     required List<Object?> unhandled,
   }) {
     for (var i = 0; i < serializedList.length; i += 2) {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'contextType':
+        case r'topic_id':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.contextType = valueDes;
+          result.topicId = valueDes;
           break;
-        case r'text':
+        case r'topic_name':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.text = valueDes;
-          break;
-        case r'type':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.type = valueDes;
+          result.topicName = valueDes;
           break;
         default:
           unhandled.add(key);
@@ -127,12 +109,12 @@ class _$SocialContextSerializer implements PrimitiveSerializer<SocialContext> {
   }
 
   @override
-  SocialContext deserialize(
+  PrimaryCommunityTopic deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = SocialContextBuilder();
+    final result = PrimaryCommunityTopicBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

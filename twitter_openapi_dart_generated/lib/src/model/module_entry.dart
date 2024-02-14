@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
+import 'package:twitter_openapi_dart_generated/src/model/feedback_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/client_event_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,11 +15,15 @@ part 'module_entry.g.dart';
 ///
 /// Properties:
 /// * [clientEventInfo]
+/// * [feedbackInfo]
 /// * [itemContent]
 @BuiltValue()
 abstract class ModuleEntry implements Built<ModuleEntry, ModuleEntryBuilder> {
   @BuiltValueField(wireName: r'clientEventInfo')
-  ClientEventInfo get clientEventInfo;
+  ClientEventInfo? get clientEventInfo;
+
+  @BuiltValueField(wireName: r'feedbackInfo')
+  FeedbackInfo? get feedbackInfo;
 
   @BuiltValueField(wireName: r'itemContent')
   ItemContentUnion get itemContent;
@@ -46,11 +51,20 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
     ModuleEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'clientEventInfo';
-    yield serializers.serialize(
-      object.clientEventInfo,
-      specifiedType: const FullType(ClientEventInfo),
-    );
+    if (object.clientEventInfo != null) {
+      yield r'clientEventInfo';
+      yield serializers.serialize(
+        object.clientEventInfo,
+        specifiedType: const FullType(ClientEventInfo),
+      );
+    }
+    if (object.feedbackInfo != null) {
+      yield r'feedbackInfo';
+      yield serializers.serialize(
+        object.feedbackInfo,
+        specifiedType: const FullType(FeedbackInfo),
+      );
+    }
     yield r'itemContent';
     yield serializers.serialize(
       object.itemContent,
@@ -87,6 +101,13 @@ class _$ModuleEntrySerializer implements PrimitiveSerializer<ModuleEntry> {
             specifiedType: const FullType(ClientEventInfo),
           ) as ClientEventInfo;
           result.clientEventInfo.replace(valueDes);
+          break;
+        case r'feedbackInfo':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(FeedbackInfo),
+          ) as FeedbackInfo;
+          result.feedbackInfo.replace(valueDes);
           break;
         case r'itemContent':
           final valueDes = serializers.deserialize(

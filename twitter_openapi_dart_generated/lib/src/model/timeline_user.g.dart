@@ -75,11 +75,11 @@ class _$TimelineUserUserDisplayTypeEnumSerializer
 
 class _$TimelineUser extends TimelineUser {
   @override
-  final SocialContext? socialContext;
-  @override
   final TypeName typename;
   @override
   final ContentItemType itemType;
+  @override
+  final SocialContextUnion? socialContext;
   @override
   final TimelineUserUserDisplayTypeEnum userDisplayType;
   @override
@@ -89,9 +89,9 @@ class _$TimelineUser extends TimelineUser {
       (new TimelineUserBuilder()..update(updates))._build();
 
   _$TimelineUser._(
-      {this.socialContext,
-      required this.typename,
+      {required this.typename,
       required this.itemType,
+      this.socialContext,
       required this.userDisplayType,
       required this.userResults})
       : super._() {
@@ -116,9 +116,9 @@ class _$TimelineUser extends TimelineUser {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TimelineUser &&
-        socialContext == other.socialContext &&
         typename == other.typename &&
         itemType == other.itemType &&
+        socialContext == other.socialContext &&
         userDisplayType == other.userDisplayType &&
         userResults == other.userResults;
   }
@@ -126,9 +126,9 @@ class _$TimelineUser extends TimelineUser {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
+    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, userDisplayType.hashCode);
     _$hash = $jc(_$hash, userResults.hashCode);
     _$hash = $jf(_$hash);
@@ -138,9 +138,9 @@ class _$TimelineUser extends TimelineUser {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelineUser')
-          ..add('socialContext', socialContext)
           ..add('typename', typename)
           ..add('itemType', itemType)
+          ..add('socialContext', socialContext)
           ..add('userDisplayType', userDisplayType)
           ..add('userResults', userResults))
         .toString();
@@ -151,12 +151,6 @@ class TimelineUserBuilder
     implements Builder<TimelineUser, TimelineUserBuilder> {
   _$TimelineUser? _$v;
 
-  SocialContextBuilder? _socialContext;
-  SocialContextBuilder get socialContext =>
-      _$this._socialContext ??= new SocialContextBuilder();
-  set socialContext(SocialContextBuilder? socialContext) =>
-      _$this._socialContext = socialContext;
-
   TypeName? _typename;
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
@@ -164,6 +158,12 @@ class TimelineUserBuilder
   ContentItemType? _itemType;
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
+
+  SocialContextUnionBuilder? _socialContext;
+  SocialContextUnionBuilder get socialContext =>
+      _$this._socialContext ??= new SocialContextUnionBuilder();
+  set socialContext(SocialContextUnionBuilder? socialContext) =>
+      _$this._socialContext = socialContext;
 
   TimelineUserUserDisplayTypeEnum? _userDisplayType;
   TimelineUserUserDisplayTypeEnum? get userDisplayType =>
@@ -184,9 +184,9 @@ class TimelineUserBuilder
   TimelineUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
       _itemType = $v.itemType;
+      _socialContext = $v.socialContext?.toBuilder();
       _userDisplayType = $v.userDisplayType;
       _userResults = $v.userResults.toBuilder();
       _$v = null;
@@ -213,11 +213,11 @@ class TimelineUserBuilder
     try {
       _$result = _$v ??
           new _$TimelineUser._(
-              socialContext: _socialContext?.build(),
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineUser', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineUser', 'itemType'),
+              socialContext: _socialContext?.build(),
               userDisplayType: BuiltValueNullFieldError.checkNotNull(
                   userDisplayType, r'TimelineUser', 'userDisplayType'),
               userResults: userResults.build());

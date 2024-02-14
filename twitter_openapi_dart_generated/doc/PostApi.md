@@ -226,7 +226,7 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('AcceptEncoding').apiKeyPrefix = 'Bearer';
 
 final api = TwitterOpenapiDartGenerated().getPostApi();
-final String pathQueryId = PIZtQLRIYtSa9AtW_fI2Mw; // String | 
+final String pathQueryId = 8ED1SMuUGkOZVBEjiYUTfw; // String | 
 final PostCreateTweetRequest postCreateTweetRequest = ; // PostCreateTweetRequest | body
 
 try {
@@ -241,7 +241,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pathQueryId** | **String**|  | [default to 'PIZtQLRIYtSa9AtW_fI2Mw']
+ **pathQueryId** | **String**|  | [default to '8ED1SMuUGkOZVBEjiYUTfw']
  **postCreateTweetRequest** | [**PostCreateTweetRequest**](PostCreateTweetRequest.md)| body | 
 
 ### Return type

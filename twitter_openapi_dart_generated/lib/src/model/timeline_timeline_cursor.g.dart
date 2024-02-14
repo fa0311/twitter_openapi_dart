@@ -12,9 +12,13 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   @override
   final CursorType cursorType;
   @override
+  final DisplayTreatment? displayTreatment;
+  @override
   final ContentEntryType? entryType;
   @override
   final ContentEntryType? itemType;
+  @override
+  final bool stopOnEmptyResponse;
   @override
   final String value;
 
@@ -25,14 +29,18 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
   _$TimelineTimelineCursor._(
       {required this.typename,
       required this.cursorType,
+      this.displayTreatment,
       this.entryType,
       this.itemType,
+      required this.stopOnEmptyResponse,
       required this.value})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'TimelineTimelineCursor', 'typename');
     BuiltValueNullFieldError.checkNotNull(
         cursorType, r'TimelineTimelineCursor', 'cursorType');
+    BuiltValueNullFieldError.checkNotNull(
+        stopOnEmptyResponse, r'TimelineTimelineCursor', 'stopOnEmptyResponse');
     BuiltValueNullFieldError.checkNotNull(
         value, r'TimelineTimelineCursor', 'value');
   }
@@ -52,8 +60,10 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
     return other is TimelineTimelineCursor &&
         typename == other.typename &&
         cursorType == other.cursorType &&
+        displayTreatment == other.displayTreatment &&
         entryType == other.entryType &&
         itemType == other.itemType &&
+        stopOnEmptyResponse == other.stopOnEmptyResponse &&
         value == other.value;
   }
 
@@ -62,8 +72,10 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
     var _$hash = 0;
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, cursorType.hashCode);
+    _$hash = $jc(_$hash, displayTreatment.hashCode);
     _$hash = $jc(_$hash, entryType.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
+    _$hash = $jc(_$hash, stopOnEmptyResponse.hashCode);
     _$hash = $jc(_$hash, value.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -74,8 +86,10 @@ class _$TimelineTimelineCursor extends TimelineTimelineCursor {
     return (newBuiltValueToStringHelper(r'TimelineTimelineCursor')
           ..add('typename', typename)
           ..add('cursorType', cursorType)
+          ..add('displayTreatment', displayTreatment)
           ..add('entryType', entryType)
           ..add('itemType', itemType)
+          ..add('stopOnEmptyResponse', stopOnEmptyResponse)
           ..add('value', value))
         .toString();
   }
@@ -93,6 +107,12 @@ class TimelineTimelineCursorBuilder
   CursorType? get cursorType => _$this._cursorType;
   set cursorType(CursorType? cursorType) => _$this._cursorType = cursorType;
 
+  DisplayTreatmentBuilder? _displayTreatment;
+  DisplayTreatmentBuilder get displayTreatment =>
+      _$this._displayTreatment ??= new DisplayTreatmentBuilder();
+  set displayTreatment(DisplayTreatmentBuilder? displayTreatment) =>
+      _$this._displayTreatment = displayTreatment;
+
   ContentEntryType? _entryType;
   ContentEntryType? get entryType => _$this._entryType;
   set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
@@ -100,6 +120,11 @@ class TimelineTimelineCursorBuilder
   ContentEntryType? _itemType;
   ContentEntryType? get itemType => _$this._itemType;
   set itemType(ContentEntryType? itemType) => _$this._itemType = itemType;
+
+  bool? _stopOnEmptyResponse;
+  bool? get stopOnEmptyResponse => _$this._stopOnEmptyResponse;
+  set stopOnEmptyResponse(bool? stopOnEmptyResponse) =>
+      _$this._stopOnEmptyResponse = stopOnEmptyResponse;
 
   String? _value;
   String? get value => _$this._value;
@@ -114,8 +139,10 @@ class TimelineTimelineCursorBuilder
     if ($v != null) {
       _typename = $v.typename;
       _cursorType = $v.cursorType;
+      _displayTreatment = $v.displayTreatment?.toBuilder();
       _entryType = $v.entryType;
       _itemType = $v.itemType;
+      _stopOnEmptyResponse = $v.stopOnEmptyResponse;
       _value = $v.value;
       _$v = null;
     }
@@ -137,16 +164,34 @@ class TimelineTimelineCursorBuilder
   TimelineTimelineCursor build() => _build();
 
   _$TimelineTimelineCursor _build() {
-    final _$result = _$v ??
-        new _$TimelineTimelineCursor._(
-            typename: BuiltValueNullFieldError.checkNotNull(
-                typename, r'TimelineTimelineCursor', 'typename'),
-            cursorType: BuiltValueNullFieldError.checkNotNull(
-                cursorType, r'TimelineTimelineCursor', 'cursorType'),
-            entryType: entryType,
-            itemType: itemType,
-            value: BuiltValueNullFieldError.checkNotNull(
-                value, r'TimelineTimelineCursor', 'value'));
+    _$TimelineTimelineCursor _$result;
+    try {
+      _$result = _$v ??
+          new _$TimelineTimelineCursor._(
+              typename: BuiltValueNullFieldError.checkNotNull(
+                  typename, r'TimelineTimelineCursor', 'typename'),
+              cursorType: BuiltValueNullFieldError.checkNotNull(
+                  cursorType, r'TimelineTimelineCursor', 'cursorType'),
+              displayTreatment: _displayTreatment?.build(),
+              entryType: entryType,
+              itemType: itemType,
+              stopOnEmptyResponse: BuiltValueNullFieldError.checkNotNull(
+                  stopOnEmptyResponse,
+                  r'TimelineTimelineCursor',
+                  'stopOnEmptyResponse'),
+              value: BuiltValueNullFieldError.checkNotNull(
+                  value, r'TimelineTimelineCursor', 'value'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'displayTreatment';
+        _displayTreatment?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'TimelineTimelineCursor', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

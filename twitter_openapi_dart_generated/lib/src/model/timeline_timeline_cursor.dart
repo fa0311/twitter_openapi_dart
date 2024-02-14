@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/cursor_type.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:twitter_openapi_dart_generated/src/model/display_treatment.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -16,19 +17,24 @@ part 'timeline_timeline_cursor.g.dart';
 /// Properties:
 /// * [typename]
 /// * [cursorType]
+/// * [displayTreatment]
 /// * [entryType]
 /// * [itemType]
+/// * [stopOnEmptyResponse]
 /// * [value]
 @BuiltValue()
 abstract class TimelineTimelineCursor
     implements Built<TimelineTimelineCursor, TimelineTimelineCursorBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
 
   @BuiltValueField(wireName: r'cursorType')
   CursorType get cursorType;
   // enum cursorTypeEnum {  Top,  Bottom,  ShowMore,  ShowMoreThreads,  Gap,  };
+
+  @BuiltValueField(wireName: r'displayTreatment')
+  DisplayTreatment? get displayTreatment;
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType? get entryType;
@@ -37,6 +43,9 @@ abstract class TimelineTimelineCursor
   @BuiltValueField(wireName: r'itemType')
   ContentEntryType? get itemType;
   // enum itemTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
+
+  @BuiltValueField(wireName: r'stopOnEmptyResponse')
+  bool get stopOnEmptyResponse;
 
   @BuiltValueField(wireName: r'value')
   String get value;
@@ -48,7 +57,8 @@ abstract class TimelineTimelineCursor
       _$TimelineTimelineCursor;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimelineTimelineCursorBuilder b) => b;
+  static void _defaults(TimelineTimelineCursorBuilder b) =>
+      b..stopOnEmptyResponse = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TimelineTimelineCursor> get serializer =>
@@ -81,6 +91,13 @@ class _$TimelineTimelineCursorSerializer
       object.cursorType,
       specifiedType: const FullType(CursorType),
     );
+    if (object.displayTreatment != null) {
+      yield r'displayTreatment';
+      yield serializers.serialize(
+        object.displayTreatment,
+        specifiedType: const FullType(DisplayTreatment),
+      );
+    }
     if (object.entryType != null) {
       yield r'entryType';
       yield serializers.serialize(
@@ -95,6 +112,11 @@ class _$TimelineTimelineCursorSerializer
         specifiedType: const FullType(ContentEntryType),
       );
     }
+    yield r'stopOnEmptyResponse';
+    yield serializers.serialize(
+      object.stopOnEmptyResponse,
+      specifiedType: const FullType(bool),
+    );
     yield r'value';
     yield serializers.serialize(
       object.value,
@@ -139,6 +161,13 @@ class _$TimelineTimelineCursorSerializer
           ) as CursorType;
           result.cursorType = valueDes;
           break;
+        case r'displayTreatment':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DisplayTreatment),
+          ) as DisplayTreatment;
+          result.displayTreatment.replace(valueDes);
+          break;
         case r'entryType':
           final valueDes = serializers.deserialize(
             value,
@@ -152,6 +181,13 @@ class _$TimelineTimelineCursorSerializer
             specifiedType: const FullType(ContentEntryType),
           ) as ContentEntryType;
           result.itemType = valueDes;
+          break;
+        case r'stopOnEmptyResponse':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.stopOnEmptyResponse = valueDes;
           break;
         case r'value':
           final valueDes = serializers.deserialize(

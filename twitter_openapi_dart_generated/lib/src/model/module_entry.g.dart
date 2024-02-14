@@ -8,17 +8,18 @@ part of 'module_entry.dart';
 
 class _$ModuleEntry extends ModuleEntry {
   @override
-  final ClientEventInfo clientEventInfo;
+  final ClientEventInfo? clientEventInfo;
+  @override
+  final FeedbackInfo? feedbackInfo;
   @override
   final ItemContentUnion itemContent;
 
   factory _$ModuleEntry([void Function(ModuleEntryBuilder)? updates]) =>
       (new ModuleEntryBuilder()..update(updates))._build();
 
-  _$ModuleEntry._({required this.clientEventInfo, required this.itemContent})
+  _$ModuleEntry._(
+      {this.clientEventInfo, this.feedbackInfo, required this.itemContent})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        clientEventInfo, r'ModuleEntry', 'clientEventInfo');
     BuiltValueNullFieldError.checkNotNull(
         itemContent, r'ModuleEntry', 'itemContent');
   }
@@ -35,6 +36,7 @@ class _$ModuleEntry extends ModuleEntry {
     if (identical(other, this)) return true;
     return other is ModuleEntry &&
         clientEventInfo == other.clientEventInfo &&
+        feedbackInfo == other.feedbackInfo &&
         itemContent == other.itemContent;
   }
 
@@ -42,6 +44,7 @@ class _$ModuleEntry extends ModuleEntry {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, clientEventInfo.hashCode);
+    _$hash = $jc(_$hash, feedbackInfo.hashCode);
     _$hash = $jc(_$hash, itemContent.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -51,6 +54,7 @@ class _$ModuleEntry extends ModuleEntry {
   String toString() {
     return (newBuiltValueToStringHelper(r'ModuleEntry')
           ..add('clientEventInfo', clientEventInfo)
+          ..add('feedbackInfo', feedbackInfo)
           ..add('itemContent', itemContent))
         .toString();
   }
@@ -65,6 +69,12 @@ class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
   set clientEventInfo(ClientEventInfoBuilder? clientEventInfo) =>
       _$this._clientEventInfo = clientEventInfo;
 
+  FeedbackInfoBuilder? _feedbackInfo;
+  FeedbackInfoBuilder get feedbackInfo =>
+      _$this._feedbackInfo ??= new FeedbackInfoBuilder();
+  set feedbackInfo(FeedbackInfoBuilder? feedbackInfo) =>
+      _$this._feedbackInfo = feedbackInfo;
+
   ItemContentUnionBuilder? _itemContent;
   ItemContentUnionBuilder get itemContent =>
       _$this._itemContent ??= new ItemContentUnionBuilder();
@@ -78,7 +88,8 @@ class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
   ModuleEntryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _clientEventInfo = $v.clientEventInfo.toBuilder();
+      _clientEventInfo = $v.clientEventInfo?.toBuilder();
+      _feedbackInfo = $v.feedbackInfo?.toBuilder();
       _itemContent = $v.itemContent.toBuilder();
       _$v = null;
     }
@@ -104,13 +115,16 @@ class ModuleEntryBuilder implements Builder<ModuleEntry, ModuleEntryBuilder> {
     try {
       _$result = _$v ??
           new _$ModuleEntry._(
-              clientEventInfo: clientEventInfo.build(),
+              clientEventInfo: _clientEventInfo?.build(),
+              feedbackInfo: _feedbackInfo?.build(),
               itemContent: itemContent.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'clientEventInfo';
-        clientEventInfo.build();
+        _clientEventInfo?.build();
+        _$failedField = 'feedbackInfo';
+        _feedbackInfo?.build();
         _$failedField = 'itemContent';
         itemContent.build();
       } catch (e) {
