@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **postCreateRetweet**
-> PostCreateRetweet200Response postCreateRetweet(pathQueryId, postCreateRetweetRequest)
+> CreateRetweetResponse postCreateRetweet(pathQueryId, postCreateRetweetRequest)
 
 
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCreateRetweet200Response**](PostCreateRetweet200Response.md)
+[**CreateRetweetResponse**](CreateRetweetResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postCreateTweet**
-> PostCreateTweet200Response postCreateTweet(pathQueryId, postCreateTweetRequest)
+> CreateTweetResponse postCreateTweet(pathQueryId, postCreateTweetRequest)
 
 
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCreateTweet200Response**](PostCreateTweet200Response.md)
+[**CreateTweetResponse**](CreateTweetResponse.md)
 
 ### Authorization
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDeleteRetweet**
-> PostDeleteRetweet200Response postDeleteRetweet(pathQueryId, postDeleteRetweetRequest)
+> DeleteRetweetResponse postDeleteRetweet(pathQueryId, postDeleteRetweetRequest)
 
 
 
@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostDeleteRetweet200Response**](PostDeleteRetweet200Response.md)
+[**DeleteRetweetResponse**](DeleteRetweetResponse.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDeleteTweet**
-> PostDeleteTweet200Response postDeleteTweet(pathQueryId, postDeleteTweetRequest)
+> DeleteTweetResponse postDeleteTweet(pathQueryId, postDeleteTweetRequest)
 
 
 
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostDeleteTweet200Response**](PostDeleteTweet200Response.md)
+[**DeleteTweetResponse**](DeleteTweetResponse.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postFavoriteTweet**
-> PostFavoriteTweet200Response postFavoriteTweet(pathQueryId, postFavoriteTweetRequest)
+> FavoriteTweetResponseData postFavoriteTweet(pathQueryId, postFavoriteTweetRequest)
 
 
 
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostFavoriteTweet200Response**](PostFavoriteTweet200Response.md)
+[**FavoriteTweetResponseData**](FavoriteTweetResponseData.md)
 
 ### Authorization
 
@@ -623,7 +623,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postUnfavoriteTweet**
-> PostUnfavoriteTweet200Response postUnfavoriteTweet(pathQueryId, postUnfavoriteTweetRequest)
+> UnfavoriteTweetResponseData postUnfavoriteTweet(pathQueryId, postUnfavoriteTweetRequest)
 
 
 
@@ -730,7 +730,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUnfavoriteTweet200Response**](PostUnfavoriteTweet200Response.md)
+[**UnfavoriteTweetResponseData**](UnfavoriteTweetResponseData.md)
 
 ### Authorization
 

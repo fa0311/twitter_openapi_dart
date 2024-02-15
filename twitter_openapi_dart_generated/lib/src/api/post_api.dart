@@ -8,18 +8,18 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/create_retweet_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/create_tweet_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/delete_retweet_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/delete_tweet_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/favorite_tweet_response_data.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
+import 'package:twitter_openapi_dart_generated/src/model/unfavorite_tweet_response_data.dart';
 
 class PostApi {
   final Dio _dio;
@@ -41,9 +41,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostCreateRetweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostCreateRetweet200Response>> postCreateRetweet({
+  Future<Response<CreateRetweetResponse>> postCreateRetweet({
     required String pathQueryId,
     required PostCreateRetweetRequest postCreateRetweetRequest,
     CancelToken? cancelToken,
@@ -217,7 +217,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostCreateRetweet200Response? _responseData;
+    CreateRetweetResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -225,8 +225,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostCreateRetweet200Response),
-            ) as PostCreateRetweet200Response;
+              specifiedType: const FullType(CreateRetweetResponse),
+            ) as CreateRetweetResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -237,7 +237,7 @@ class PostApi {
       );
     }
 
-    return Response<PostCreateRetweet200Response>(
+    return Response<CreateRetweetResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -262,9 +262,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostCreateTweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostCreateTweet200Response>> postCreateTweet({
+  Future<Response<CreateTweetResponse>> postCreateTweet({
     required String pathQueryId,
     required PostCreateTweetRequest postCreateTweetRequest,
     CancelToken? cancelToken,
@@ -438,7 +438,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostCreateTweet200Response? _responseData;
+    CreateTweetResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -446,8 +446,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostCreateTweet200Response),
-            ) as PostCreateTweet200Response;
+              specifiedType: const FullType(CreateTweetResponse),
+            ) as CreateTweetResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -458,7 +458,7 @@ class PostApi {
       );
     }
 
-    return Response<PostCreateTweet200Response>(
+    return Response<CreateTweetResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -483,9 +483,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostDeleteRetweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostDeleteRetweet200Response>> postDeleteRetweet({
+  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({
     required String pathQueryId,
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
     CancelToken? cancelToken,
@@ -659,7 +659,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostDeleteRetweet200Response? _responseData;
+    DeleteRetweetResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -667,8 +667,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostDeleteRetweet200Response),
-            ) as PostDeleteRetweet200Response;
+              specifiedType: const FullType(DeleteRetweetResponse),
+            ) as DeleteRetweetResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -679,7 +679,7 @@ class PostApi {
       );
     }
 
-    return Response<PostDeleteRetweet200Response>(
+    return Response<DeleteRetweetResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -704,9 +704,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostDeleteTweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostDeleteTweet200Response>> postDeleteTweet({
+  Future<Response<DeleteTweetResponse>> postDeleteTweet({
     required String pathQueryId,
     required PostDeleteTweetRequest postDeleteTweetRequest,
     CancelToken? cancelToken,
@@ -880,7 +880,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostDeleteTweet200Response? _responseData;
+    DeleteTweetResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -888,8 +888,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostDeleteTweet200Response),
-            ) as PostDeleteTweet200Response;
+              specifiedType: const FullType(DeleteTweetResponse),
+            ) as DeleteTweetResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -900,7 +900,7 @@ class PostApi {
       );
     }
 
-    return Response<PostDeleteTweet200Response>(
+    return Response<DeleteTweetResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -925,9 +925,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostFavoriteTweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostFavoriteTweet200Response>> postFavoriteTweet({
+  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({
     required String pathQueryId,
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
     CancelToken? cancelToken,
@@ -1101,7 +1101,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostFavoriteTweet200Response? _responseData;
+    FavoriteTweetResponseData? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1109,8 +1109,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostFavoriteTweet200Response),
-            ) as PostFavoriteTweet200Response;
+              specifiedType: const FullType(FavoriteTweetResponseData),
+            ) as FavoriteTweetResponseData;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1121,7 +1121,7 @@ class PostApi {
       );
     }
 
-    return Response<PostFavoriteTweet200Response>(
+    return Response<FavoriteTweetResponseData>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1146,9 +1146,9 @@ class PostApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [PostUnfavoriteTweet200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<PostUnfavoriteTweet200Response>> postUnfavoriteTweet({
+  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({
     required String pathQueryId,
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
     CancelToken? cancelToken,
@@ -1322,7 +1322,7 @@ class PostApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PostUnfavoriteTweet200Response? _responseData;
+    UnfavoriteTweetResponseData? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1330,8 +1330,8 @@ class PostApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(PostUnfavoriteTweet200Response),
-            ) as PostUnfavoriteTweet200Response;
+              specifiedType: const FullType(UnfavoriteTweetResponseData),
+            ) as UnfavoriteTweetResponseData;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1342,7 +1342,7 @@ class PostApi {
       );
     }
 
-    return Response<PostUnfavoriteTweet200Response>(
+    return Response<UnfavoriteTweetResponseData>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

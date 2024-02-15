@@ -115,24 +115,18 @@ import 'package:twitter_openapi_dart_generated/src/model/note_tweet_result_rich_
 import 'package:twitter_openapi_dart_generated/src/model/one_factor_login_eligibility.dart';
 import 'package:twitter_openapi_dart_generated/src/model/other200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/other_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_retweet_request_variables.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_features.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_media.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_media_media_entities_inner.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_reply.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_retweet_request_variables.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_delete_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_favorite_tweet_request.dart';
-import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/post_unfavorite_tweet_request.dart';
 import 'package:twitter_openapi_dart_generated/src/model/primary_community_topic.dart';
 import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
@@ -362,24 +356,18 @@ part 'serializers.g.dart';
   OneFactorLoginEligibility,
   Other200Response,
   OtherResponse,
-  PostCreateRetweet200Response,
   PostCreateRetweetRequest,
   PostCreateRetweetRequestVariables,
-  PostCreateTweet200Response,
   PostCreateTweetRequest,
   PostCreateTweetRequestFeatures,
   PostCreateTweetRequestVariables,
   PostCreateTweetRequestVariablesMedia,
   PostCreateTweetRequestVariablesMediaMediaEntitiesInner,
   PostCreateTweetRequestVariablesReply,
-  PostDeleteRetweet200Response,
   PostDeleteRetweetRequest,
   PostDeleteRetweetRequestVariables,
-  PostDeleteTweet200Response,
   PostDeleteTweetRequest,
-  PostFavoriteTweet200Response,
   PostFavoriteTweetRequest,
-  PostUnfavoriteTweet200Response,
   PostUnfavoriteTweetRequest,
   PrimaryCommunityTopic,
   ProfileResponse,
