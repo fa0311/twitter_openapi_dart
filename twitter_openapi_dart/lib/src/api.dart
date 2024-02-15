@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 
 import 'package:twitter_openapi_dart/src/api/default_api.dart';
@@ -8,6 +7,7 @@ import 'package:twitter_openapi_dart/src/api/post.dart';
 import 'package:twitter_openapi_dart/src/api/tweet_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_api.dart';
 import 'package:twitter_openapi_dart/src/api/user_list_api.dart';
+import 'package:twitter_openapi_dart/src/api/users_api.dart';
 import 'package:twitter_openapi_dart/src/api/v1.1_get.dart';
 import 'package:twitter_openapi_dart/src/api/v1.1_post.dart';
 import 'package:twitter_openapi_dart/src/api/v2.0_get.dart';
@@ -22,32 +22,100 @@ import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 /// It provides a more convenient way to use the api.
 /// It also provides a way to use the api without a token.
 class TwitterOpenapiDart {
-  static String hash = "48c2e11b112576bb3f5aefd1da3b4b3510cad8c1";
+  static String hash = "20a820717549ef5ea6e169c697895b4bb217aac2";
   static Uri placeholderUrl = Uri.https("raw.githubusercontent.com", "/fa0311/twitter-openapi/$hash/src/config/placeholder.json");
-  static Map<String, dynamic> placeholder = {};
-
   static Uri base = Uri.https("twitter.com", "/");
   static Uri home = base.resolve("home");
-
   static List<String> charset = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+  static String lang = "en";
+  static String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36";
+  static String accessToken = "AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA";
 
-  String lang;
-  String bearer;
-  String userAgent;
-  Map<String, dynamic>? flag = {};
+  static Map<String, String> apiKey = {
+    "Accept": "*/*",
+    "AcceptEncoding": "gzip, deflate, br",
+    "AcceptLanguage": "en-US,en;q=0.9",
+    "CacheControl": "no-cache",
+    "Pragma": "no-cache",
+    "SecChUa": '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+    "SecChUaMobile": "?0",
+    "SecChUaPlatform": '"Windows"',
+    "SecFetchDest": "empty",
+    "SecFetchMode": "cors",
+    "SecFetchSite": "same-origin",
+    "ClientLanguage": lang,
+    "ActiveUser": "yes",
+  };
 
-  TwitterOpenapiDart({
-    this.flag,
-    this.lang = "en",
-    this.userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36',
-    this.bearer = 'AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA',
-  });
+  static Map<String, String> browserHeaders = {
+    "accept": "text/plain, */*; q=0.01",
+    "accept-encoding": "gzip, deflate, br",
+    "accept-language": "en-US,en;q=0.9",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "sec-ch-ua": '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "user-agent": userAgent,
+  };
 
-  /// getCookieJar
-  /// Retrieve default cookies.
+  TwitterOpenapiDart();
+
+  Future<TwitterOpenapiDartClient> getTwitterOpenapiDartClient({List<Interceptor> interceptor = const []}) async {
+    final api = TwitterOpenapiDartGenerated();
+    api.dio.interceptors.addAll(interceptor);
+    api.dio.interceptors.add(HeaderAuth());
+
+    api.setApiKey("UserAgent", userAgent);
+    api.setBearerAuth("BearerAuth", accessToken);
+
+    for (var key in apiKey.keys) {
+      api.setApiKey(key, apiKey[key]!);
+    }
+
+    return TwitterOpenapiDartClient(
+      api: api,
+      flag: await getPlaceholder(),
+    );
+  }
+
+  /// getPlaceholder
+  /// get placeholder from fa0311/twitter-openapi
+  Future<Map<String, dynamic>> getPlaceholder() {
+    return Dio().requestUri(placeholderUrl, options: Options(method: "GET")).then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
+  }
+
+  /// getClientFromCookies
+  /// get [TwitterOpenapiDartClient] from cookies
   ///
+  /// parameters:
+  /// * [ct0] ct0 cookie
+  /// * [authToken] auth_token cookie
+
+  Future<TwitterOpenapiDartClient> getClientFromCookies(Map<String, String> cookies) async {
+    final cookie = CookieJar();
+    cookie.saveFromResponse(TwitterOpenapiDart.base, cookies.entries.map((e) => Cookie(e.key, e.value)).toList());
+    final interceptor = [CookieManager(cookie)];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
+  }
+
+  /// getClientFromCookiePath
+  /// get [TwitterOpenapiDartClient] from cookie path
+  ///
+  /// parameters:
+  /// * [cookiePath] cookie path
+
+  Future<TwitterOpenapiDartClient> getClientFromCookiePath(String cookiePath) async {
+    final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
+    final interceptor = [CookieManager(cookie)];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
+  }
+
   /// Return [CookieJar]
-  Future<CookieJar> getCookieJar() async {
+  Future<CookieJar> getGuestClient() async {
     final cookie = CookieJar();
     final dio = Dio()..interceptors.add(CookieManager(cookie));
     await dio.requestUri(
@@ -56,6 +124,7 @@ class TwitterOpenapiDart {
         followRedirects: false,
         validateStatus: (status) => status == null ? false : status < 400,
         method: "GET",
+        headers: TwitterOpenapiDart.browserHeaders,
       ),
     );
 
@@ -66,7 +135,10 @@ class TwitterOpenapiDart {
 
     final response = await dio.requestUri(
       TwitterOpenapiDart.base,
-      options: Options(method: "GET"),
+      options: Options(
+        method: "GET",
+        headers: TwitterOpenapiDart.browserHeaders,
+      ),
     );
     final html = response.data as String;
     final re = RegExp('<script nonce="([a-zA-Z0-9]{48})">(document.cookie="(.*?)";)+<\\/script>');
@@ -87,63 +159,6 @@ class TwitterOpenapiDart {
 
     return cookie;
   }
-
-  Future<TwitterOpenapiDartClient> getTwitterOpenapiDartClient({List<Interceptor> interceptor = const []}) async {
-    final api = TwitterOpenapiDartGenerated();
-    api.dio.interceptors.addAll(interceptor);
-    api.dio.interceptors.add(HeaderAuth());
-
-    api.setApiKey("UserAgent", userAgent);
-    api.setBearerAuth("BearerAuth", bearer);
-    api.setApiKey("ClientLanguage", lang);
-    api.setApiKey("ActiveUser", "yes");
-
-    return TwitterOpenapiDartClient(
-      api: api,
-      flag: flag ?? (await getPlaceholder()),
-    );
-  }
-
-  /// getClient
-  /// get [TwitterOpenapiDartClient]
-
-  Future<TwitterOpenapiDartClient> getClient() async {
-    final cookie = await getCookieJar();
-    final interceptor = [CookieManager(cookie)];
-    return getTwitterOpenapiDartClient(interceptor: interceptor);
-  }
-
-  /// getClientFromCookies
-  /// get [TwitterOpenapiDartClient] from cookies
-  ///
-  /// parameters:
-  /// * [ct0] ct0 cookie
-  /// * [authToken] auth_token cookie
-
-  Future<TwitterOpenapiDartClient> getClientFromCookies({required String ct0, required String authToken}) async {
-    final cookie = await getCookieJar();
-    cookie.saveFromResponse(TwitterOpenapiDart.base, [Cookie("ct0", ct0), Cookie("auth_token", authToken)]);
-    final interceptor = [CookieManager(cookie)];
-    return getTwitterOpenapiDartClient(interceptor: interceptor);
-  }
-
-  /// getClientFromCookiePath
-  /// get [TwitterOpenapiDartClient] from cookie path
-  ///
-  /// parameters:
-  /// * [cookiePath] cookie path
-
-  Future<TwitterOpenapiDartClient> getClientFromCookiePath(String cookiePath) async {
-    final cookie = PersistCookieJar(storage: FileStorage(cookiePath));
-    final interceptor = [CookieManager(cookie)];
-    return getTwitterOpenapiDartClient(interceptor: interceptor);
-  }
-
-  /// getPlaceholder
-  /// get placeholder from fa0311/twitter-openapi
-  Future<Map<String, dynamic>> getPlaceholder() {
-    return Dio().requestUri(placeholderUrl, options: Options(method: "GET")).then((value) => (json.decode(value.data) as Map).cast<String, dynamic>());
-  }
 }
 
 class TwitterOpenapiDartClient {
@@ -162,6 +177,10 @@ class TwitterOpenapiDartClient {
 
   UserApiUtils getUserApi() {
     return UserApiUtils(api.getUserApi(), flag);
+  }
+
+  UsersApiUtils getUsersApi() {
+    return UsersApiUtils(api.getUsersApi(), flag);
   }
 
   UserListApiUtils getUserListApi() {
