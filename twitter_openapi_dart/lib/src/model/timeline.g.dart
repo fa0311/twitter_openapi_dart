@@ -386,7 +386,6 @@ class TweetApiUtilsDataBuilder
   TweetApiUtilsData build() => _build();
 
   _$TweetApiUtilsData _build() {
-    TweetApiUtilsData.init(this);
     _$TweetApiUtilsData _$result;
     try {
       _$result = _$v ??

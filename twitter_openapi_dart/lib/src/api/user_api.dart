@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
+import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+
+typedef ResponseType<T> = TwitterApiUtilsResponse<UserApiUtilsData>;
 
 class UserApiUtils {
   final UserApi api;
@@ -9,10 +12,10 @@ class UserApiUtils {
 
   const UserApiUtils(this.api, this.flag);
 
-  Future<UserApiUtilsResponse> request<T>({
-    required ApiFunction<T> apiFn,
-    required UserResults Function(T) convertFn,
+  Future<ResponseType> request<T1>({
     required String key,
+    required ApiFunction apiFn,
+    required UserResults Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
     assert(flag[key] != null);
@@ -21,40 +24,24 @@ class UserApiUtils {
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );
-    final user = convertFn(response.data as T).result;
-    final raw = UserApiUtilsRaw(
-      (e) => e..response = response,
-    );
-    return UserApiUtilsResponse(
-      (e) => e
-        ..raw = raw.toBuilder()
-        ..header = buildHeader(response.headers).toBuilder()
-        ..data = user.toBuilder(),
-    );
-  }
 
-  Future<UsersApiUtilsResponse> requests<T>({
-    required ApiFunction<T> apiFn,
-    required List<UserResults> Function(T) convertFn,
-    required String key,
-    required Map<String, dynamic> param,
-  }) async {
-    assert(flag[key] != null);
-    final response = await apiFn(
-      pathQueryId: flag[key]!["queryId"],
-      variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
-      features: jsonEncode(flag[key]!["features"]),
-    );
-    final user = convertFn(response.data as T).map((e) => e.result);
-    final raw = UserApiUtilsRaw(
-      (e) => e..response = response,
-    );
-    return UsersApiUtilsResponse(
+    final checked = errorCheck<T1>(response);
+    final result = convertFn(checked);
+    if (result.result == null) {
+      // never reach this point.
+      throw Exception("No user");
+    }
+    final user = userOrNullConverter(result.result!);
+    if (user == null) {
+      // never reach this point.
+      throw Exception("No user");
+    }
+    final data = UserApiUtilsData(
       (e) => e
-        ..raw = raw.toBuilder()
-        ..header = buildHeader(response.headers).toBuilder()
-        ..data = user.toList(),
+        ..raw = result.toBuilder()
+        ..user = user.toBuilder(),
     );
+    return buildResponse(response: response, data: data);
   }
 
   /// getUserByScreenName
@@ -64,9 +51,9 @@ class UserApiUtils {
   /// * [screenName] The screen name of the user.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserApiUtilsResponse> getUserByScreenName({
+  Future<ResponseType> getUserByScreenName({
     required String screenName,
     Map<String, dynamic>? extraParam,
   }) async {
@@ -74,7 +61,7 @@ class UserApiUtils {
       "screen_name": screenName,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserResponse>(
       apiFn: api.getUserByScreenName,
       convertFn: (e) => e.data.user,
       key: 'UserByScreenName',
@@ -90,9 +77,9 @@ class UserApiUtils {
   /// * [userId] The ID of the user.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserApiUtilsResponse> getUserByRestId({
+  Future<ResponseType> getUserByRestId({
     required String userId,
     Map<String, dynamic>? extraParam,
   }) async {
@@ -100,36 +87,10 @@ class UserApiUtils {
       "userId": userId,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserResponse>(
       apiFn: api.getUserByRestId,
       convertFn: (e) => e.data.user,
       key: 'UserByRestId',
-      param: param,
-    );
-    return response;
-  }
-
-  /// getUsersByRestIds
-  /// Get multiple Users by their user ID.
-  ///
-  /// parameters:
-  /// * [userIds] The IDs of the users.
-  /// * [extraParam] Extra parameters.
-  ///
-  /// Returns a [Future] containing a [UsersApiUtilsResponse] as data.
-
-  Future<UsersApiUtilsResponse> getUsersByRestIds({
-    required List<String> userIds,
-    Map<String, dynamic>? extraParam,
-  }) async {
-    final param = {
-      "userIds": userIds,
-      ...?extraParam,
-    };
-    final response = await requests(
-      apiFn: api.getUsersByRestIds,
-      convertFn: (e) => e.data.users.toList(),
-      key: 'UsersByRestIds',
       param: param,
     );
     return response;

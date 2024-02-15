@@ -38,9 +38,6 @@ abstract class TweetApiUtilsData implements Built<TweetApiUtilsData, TweetApiUti
   TweetApiUtilsData? get retweeted;
   BuiltMap<String, JsonObject?>? get promotedMetadata;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void init(TweetApiUtilsDataBuilder b) => b..replies = b.replies ?? [];
-
   TweetApiUtilsData._();
 
   factory TweetApiUtilsData([void Function(TweetApiUtilsDataBuilder) updates]) = _$TweetApiUtilsData;

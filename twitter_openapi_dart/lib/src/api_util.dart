@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:collection/collection.dart';
@@ -9,7 +7,7 @@ import 'package:dio/dio.dart';
 
 import 'model/header.dart';
 
-T errorCheck<T>(Response<dynamic> data) {
+T errorCheck<T>(Response data) {
   if (data.data == null) {
     throw Exception("No data");
   }
@@ -107,19 +105,19 @@ User? userOrNullConverter(UserUnion userResults) {
   return null;
 }
 
-List<TimelineUser> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
+List<UserResults> userEntriesConverter(BuiltList<TimelineAddEntry> item) {
   return item
       .map((e) {
         if (e.content.oneOf.isType(TimelineTimelineItem)) {
           final item = (e.content.oneOf.value as TimelineTimelineItem).itemContent;
-          return item.oneOf.isType(TimelineUser) ? item.oneOf.value as TimelineUser : null;
+          return item.oneOf.isType(TimelineUser) ? (item.oneOf.value as TimelineUser).userResults : null;
         }
       })
       .whereNotNull()
       .toList();
 }
 
-List<UserApiUtilsData> buildUserResult(List<UserResults> user) {
+List<UserApiUtilsData> userResultConverter(List<UserResults> user) {
   return user
       .map((entry) {
         final result = entry.result;

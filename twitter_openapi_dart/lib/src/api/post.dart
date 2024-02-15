@@ -1,4 +1,6 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart/src/api_util.dart';
+import 'package:twitter_openapi_dart/src/model/response.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 import 'package:dio/dio.dart';
 
@@ -7,6 +9,11 @@ class PostApiUtils {
   final Map<String, dynamic> flag;
 
   const PostApiUtils(this.api, this.flag);
+
+  TwitterApiUtilsResponse<T1> builder<T1>(Response response) {
+    final checked = errorCheck<T1>(response);
+    return buildResponse(response: response, data: checked);
+  }
 
   /// postCreateTweet
   /// Create a Tweet.
@@ -18,7 +25,7 @@ class PostApiUtils {
   /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data.
   /// * [CreateTweetResponse] contains a [Tweet] as data.
 
-  Future<Response<CreateTweetResponse>> postCreateTweet({required String tweetText}) async {
+  Future<TwitterApiUtilsResponse<CreateTweetResponse>> postCreateTweet({required String tweetText}) async {
     final variables = PostCreateTweetRequestVariables(
       (e) => e
         ..tweetText = tweetText
@@ -34,7 +41,7 @@ class PostApiUtils {
           ..features = PostCreateTweetRequestFeatures((e) => e).toBuilder(),
       ),
     );
-    return response;
+    return builder<CreateTweetResponse>(response);
   }
 
   /// postDeleteTweet
@@ -46,14 +53,14 @@ class PostApiUtils {
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data.
 
-  Future<Response<DeleteTweetResponse>> postDeleteTweet({required String tweetId}) async {
+  Future<TwitterApiUtilsResponse<DeleteTweetResponse>> postDeleteTweet({required String tweetId}) async {
     final response = await api.postDeleteTweet(
       pathQueryId: flag["DeleteTweet"]!["queryId"],
       postDeleteTweetRequest: PostDeleteTweetRequest(
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return response;
+    return builder<DeleteTweetResponse>(response);
   }
 
   /// postCreateRetweet
@@ -65,14 +72,14 @@ class PostApiUtils {
   ///
   /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data.
 
-  Future<Response<CreateRetweetResponse>> postCreateRetweet({required String tweetId}) async {
+  Future<TwitterApiUtilsResponse<CreateRetweetResponse>> postCreateRetweet({required String tweetId}) async {
     final response = await api.postCreateRetweet(
       pathQueryId: flag["CreateRetweet"]!["queryId"].toString(),
       postCreateRetweetRequest: PostCreateRetweetRequest(
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return response;
+    return builder<CreateRetweetResponse>(response);
   }
 
   /// postDeleteRetweet
@@ -84,14 +91,14 @@ class PostApiUtils {
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data.
 
-  Future<Response<DeleteRetweetResponse>> postDeleteRetweet({required String sourceTweetId}) async {
+  Future<TwitterApiUtilsResponse<DeleteRetweetResponse>> postDeleteRetweet({required String sourceTweetId}) async {
     final response = await api.postDeleteRetweet(
       pathQueryId: flag["DeleteRetweet"]!["queryId"].toString(),
       postDeleteRetweetRequest: PostDeleteRetweetRequest(
         (e) => e..variables = PostDeleteRetweetRequestVariables((e) => e.sourceTweetId = sourceTweetId).toBuilder(),
       ),
     );
-    return response;
+    return builder<DeleteRetweetResponse>(response);
   }
 
   /// postFavoriteTweet
@@ -103,14 +110,14 @@ class PostApiUtils {
   ///
   /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data.
 
-  Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({required String tweetId}) async {
+  Future<TwitterApiUtilsResponse<FavoriteTweetResponseData>> postFavoriteTweet({required String tweetId}) async {
     final response = await api.postFavoriteTweet(
       pathQueryId: flag["FavoriteTweet"]!["queryId"],
       postFavoriteTweetRequest: PostFavoriteTweetRequest(
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return response;
+    return builder<FavoriteTweetResponseData>(response);
   }
 
   /// postUnfavoriteTweet
@@ -122,13 +129,13 @@ class PostApiUtils {
   ///
   /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data.
 
-  Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({required String tweetId}) async {
+  Future<TwitterApiUtilsResponse<UnfavoriteTweetResponseData>> postUnfavoriteTweet({required String tweetId}) async {
     final response = await api.postUnfavoriteTweet(
       pathQueryId: flag["UnfavoriteTweet"]!["queryId"],
       postUnfavoriteTweetRequest: PostUnfavoriteTweetRequest(
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return response;
+    return builder<UnfavoriteTweetResponseData>(response);
   }
 }

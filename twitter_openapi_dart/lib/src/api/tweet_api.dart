@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/model/timeline.dart';
 import 'package:twitter_openapi_dart/src/model/response.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+
+typedef ResponseType = TwitterApiUtilsResponse<TimelineApiUtilsResponse<TweetApiUtilsData>>;
 
 class TweetApiUtils {
   final TweetApi api;
@@ -11,10 +14,10 @@ class TweetApiUtils {
 
   const TweetApiUtils(this.api, this.flag);
 
-  Future<TwitterApiUtilsResponse> request<T>({
-    required ApiFunction<T> apiFn,
-    required ConvertTnstructionsFunction<T> convertFn,
+  Future<ResponseType> request<T1>({
     required String key,
+    required ApiFunction apiFn,
+    required BuiltList<InstructionUnion> Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
     assert(flag[key] != null);
@@ -23,23 +26,27 @@ class TweetApiUtils {
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );
-    final instruction = convertFn(response.data as T);
+
+    final checked = errorCheck<T1>(response);
+    final instruction = convertFn(checked);
+
     final entry = instructionToEntry(instruction);
-    final data = tweetEntriesConverter(entry);
+    final tweetList = tweetEntriesConverter(entry);
 
     final raw = ApiUtilsRaw(
       (e) => e
-        ..response = response
         ..instruction = instruction.toBuilder()
         ..entry = entry.toBuilder(),
     );
-    return TwitterApiUtilsResponse(
+
+    final data = TimelineApiUtilsResponse<TweetApiUtilsData>(
       (e) => e
         ..raw = raw.toBuilder()
-        ..header = buildHeader(response.headers).toBuilder()
-        ..cursor = entriesCursor(entry).toBuilder()
-        ..data = data,
+        ..cursor = response.data
+        ..data = tweetList.toBuiltList().toBuilder(),
     );
+
+    return buildResponse(response: response, data: data);
   }
 
   /// getTweetDetail
@@ -52,9 +59,9 @@ class TweetApiUtils {
   /// * [controllerData] The controller data.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getTweetDetail({
+  Future<ResponseType> getTweetDetail({
     required String focalTweetId,
     String? cursor,
     String? controllerData,
@@ -66,7 +73,7 @@ class TweetApiUtils {
       if (controllerData != null) "controller_data": controllerData,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<TweetDetailResponse>(
       apiFn: api.getTweetDetail,
       convertFn: (e) => e.data.threadedConversationWithInjectionsV2.instructions,
       key: 'TweetDetail',
@@ -87,9 +94,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getSearchTimeline({
+  Future<ResponseType> getSearchTimeline({
     required String rawQuery,
     String? product,
     String? cursor,
@@ -103,7 +110,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<SearchTimelineResponse>(
       apiFn: api.getSearchTimeline,
       convertFn: (e) => e.data.searchByRawQuery.searchTimeline.timeline.instructions,
       key: 'SearchTimeline',
@@ -122,9 +129,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getHomeTimeline({
+  Future<ResponseType> getHomeTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -134,7 +141,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<TimelineResponse>(
       apiFn: api.getHomeTimeline,
       convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeTimeline',
@@ -153,9 +160,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getHomeLatestTimeline({
+  Future<ResponseType> getHomeLatestTimeline({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -165,7 +172,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<TimelineResponse>(
       apiFn: api.getHomeLatestTimeline,
       convertFn: (e) => e.data.home.homeTimelineUrt.instructions,
       key: 'HomeLatestTimeline',
@@ -184,9 +191,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getListLatestTweetsTimeline({
+  Future<ResponseType> getListLatestTweetsTimeline({
     required String listId,
     String? cursor,
     int? count,
@@ -198,9 +205,9 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<ListLatestTweetsTimelineResponse>(
       apiFn: api.getListLatestTweetsTimeline,
-      convertFn: (e) => e.data.list.tweetsTimeline.timeline.instructions,
+      convertFn: (e) => e.data.list.tweetsTimeline.timeline?.instructions ?? BuiltList(),
       key: 'ListLatestTweetsTimeline',
       param: param,
     );
@@ -217,9 +224,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getUserTweets({
+  Future<ResponseType> getUserTweets({
     required String userId,
     String? cursor,
     int? count,
@@ -231,7 +238,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserTweetsResponse>(
       apiFn: api.getUserTweets,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweets',
@@ -250,9 +257,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getUserTweetsAndReplies({
+  Future<ResponseType> getUserTweetsAndReplies({
     required String userId,
     String? cursor,
     int? count,
@@ -264,7 +271,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserTweetsResponse>(
       apiFn: api.getUserTweetsAndReplies,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserTweetsAndReplies',
@@ -283,9 +290,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getUserMedia({
+  Future<ResponseType> getUserMedia({
     required String userId,
     String? cursor,
     int? count,
@@ -297,7 +304,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserTweetsResponse>(
       apiFn: api.getUserMedia,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'UserMedia',
@@ -317,9 +324,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getLikes({
+  Future<ResponseType> getLikes({
     required String userId,
     String? cursor,
     int? count,
@@ -331,7 +338,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<UserTweetsResponse>(
       apiFn: api.getLikes,
       convertFn: (e) => e.data.user.result.timelineV2.timeline.instructions,
       key: 'Likes',
@@ -351,9 +358,9 @@ class TweetApiUtils {
   /// * [count] The number of Tweets to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [TweetListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [TweetApiUtilsData] as data.
 
-  Future<TweetListApiUtilsResponse> getBookmarks({
+  Future<ResponseType> getBookmarks({
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
@@ -363,7 +370,7 @@ class TweetApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request(
+    final response = await request<BookmarksResponse>(
       apiFn: api.getBookmarks,
       convertFn: (e) => e.data.bookmarkTimelineV2.timeline.instructions,
       key: 'Bookmarks',
