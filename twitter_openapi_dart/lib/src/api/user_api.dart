@@ -14,7 +14,7 @@ class UserApiUtils {
 
   Future<ResponseType> request<T1>({
     required String key,
-    required ApiFunction apiFn,
+    required ApiFunction<T1> apiFn,
     required UserResults Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
@@ -25,8 +25,7 @@ class UserApiUtils {
       features: jsonEncode(flag[key]!["features"]),
     );
 
-    final checked = errorCheck<T1>(response);
-    final result = convertFn(checked);
+    final result = convertFn(response.data as T1);
     if (result.result == null) {
       // never reach this point.
       throw Exception("No user");
@@ -61,7 +60,7 @@ class UserApiUtils {
       "screen_name": screenName,
       ...?extraParam,
     };
-    final response = await request<UserResponse>(
+    final response = await request(
       apiFn: api.getUserByScreenName,
       convertFn: (e) => e.data.user,
       key: 'UserByScreenName',
@@ -87,7 +86,7 @@ class UserApiUtils {
       "userId": userId,
       ...?extraParam,
     };
-    final response = await request<UserResponse>(
+    final response = await request(
       apiFn: api.getUserByRestId,
       convertFn: (e) => e.data.user,
       key: 'UserByRestId',

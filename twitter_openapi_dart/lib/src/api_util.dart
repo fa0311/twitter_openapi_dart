@@ -7,20 +7,6 @@ import 'package:dio/dio.dart';
 
 import 'model/header.dart';
 
-T errorCheck<T>(Response data) {
-  if (data.data == null) {
-    throw Exception("No data");
-  }
-  final oneOf = data.data.oneOf;
-  if (oneOf is Errors) {
-    throw Exception(oneOf);
-  }
-  if (oneOf is T) {
-    return oneOf;
-  }
-  throw Exception("Error");
-}
-
 BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item) {
   return BuiltList.from(item.expand((e) {
     if (e.oneOf.isType(TimelineAddEntries)) {
@@ -32,7 +18,7 @@ BuiltList<TimelineAddEntry> instructionToEntry(BuiltList<InstructionUnion> item)
   }));
 }
 
-List<TweetApiUtilsData> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
+BuiltList<TweetApiUtilsData> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) {
   return item
       .map((e) {
         if (e.content.oneOf.isType(TimelineTimelineItem)) {
@@ -50,25 +36,18 @@ List<TweetApiUtilsData> tweetEntriesConverter(BuiltList<TimelineAddEntry> item) 
         }
       })
       .whereNotNull()
-      .toList();
+      .toBuiltList();
 }
 
 TweetApiUtilsData? buildTweetApiUtils(ItemResult itemResult, {BuiltMap<String, JsonObject?>? promotedMetadata, List<TimelineTweet>? reply}) {
   final tweet = tweetResultsConverter(itemResult);
   if (tweet == null) return null;
   final result = tweet.core?.userResults.result;
-  final user = result == null ? null : userOrNullConverter(result);
+  if (result == null) return null;
+  final user = userOrNullConverter(result);
   if (user == null) return null;
   final quoted = tweet.quotedStatusResult;
   final retweeted = tweet.legacy?.retweetedStatusResult;
-
-  // const tweet = tweetResultsConverter(args.result);
-  // if (tweet == undefined) return undefined;
-  // const result = tweet.core?.userResults.result;
-  // const user = result && userOrNullConverter(result);
-  // if (user == undefined) return undefined;
-  // const quoted = tweet.quotedStatusResult;
-  // const retweeted = tweet.legacy?.retweetedStatusResult;
 
   final replies = reply?.map((e) => buildTweetApiUtils(e.tweetResults, promotedMetadata: e.promotedMetadata)).whereNotNull().toList() ?? [];
 
@@ -100,7 +79,7 @@ Tweet? tweetResultsConverter(ItemResult tweetResults) {
 
 User? userOrNullConverter(UserUnion userResults) {
   if (userResults.oneOf.isType(User)) {
-    return userResults as User;
+    return userResults.oneOf.value as User;
   }
   return null;
 }

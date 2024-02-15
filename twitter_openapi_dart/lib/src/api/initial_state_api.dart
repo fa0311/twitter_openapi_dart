@@ -12,7 +12,13 @@ class InitialStateApi {
   const InitialStateApi(this.dio);
 
   Future<Response> request({required Uri url}) {
-    return dio.requestUri(url, options: Options(method: "GET", headers: {"User-Agent": userAgent}));
+    return dio.requestUri(
+      url,
+      options: Options(
+        method: "GET",
+        headers: TwitterOpenapiDart.browserHeaders,
+      ),
+    );
   }
 
   Future<InitialStateApiUtilsResponse> getInitialState({required Uri url}) async {
@@ -39,6 +45,7 @@ class InitialStateApi {
     final session = () {
       try {
         final session = initialState["session"];
+        session["oneFactorLoginEligibility"] ??= {"fetchStatus": "success"};
         return standardSerializers.deserialize(session, specifiedType: FullType(Session)) as Session;
       } catch (e) {
         return null;

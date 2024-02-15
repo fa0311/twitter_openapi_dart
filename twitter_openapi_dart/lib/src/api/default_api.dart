@@ -14,7 +14,7 @@ class DefaultApiUtils {
 
   Future<ResponseType<T2>> request<T1, T2>({
     required String key,
-    required ApiFunction apiFn,
+    required ApiFunction<T1> apiFn,
     required T2 Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
@@ -24,8 +24,7 @@ class DefaultApiUtils {
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );
-    final checked = errorCheck<T1>(response);
-    final data = convertFn(checked);
+    final data = convertFn(response.data as T1);
 
     return buildResponse(response: response, data: data);
   }
@@ -45,7 +44,7 @@ class DefaultApiUtils {
       "screen_name": screenName,
       ...?extraParam,
     };
-    final response = await request<ProfileResponse, UserResultByScreenName>(
+    final response = await request(
       key: 'ProfileSpotlightsQuery',
       apiFn: api.getProfileSpotlightsQuery,
       convertFn: (value) => value.data.userResultByScreenName,

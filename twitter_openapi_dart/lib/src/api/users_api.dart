@@ -15,7 +15,7 @@ class UsersApiUtils {
 
   Future<ResponseType> request<T1>({
     required String key,
-    required ApiFunction apiFn,
+    required ApiFunction<T1> apiFn,
     required BuiltList<UserResults> Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
@@ -26,9 +26,7 @@ class UsersApiUtils {
       features: jsonEncode(flag[key]!["features"]),
     );
 
-    final checked = errorCheck<T1>(response);
-
-    final userResult = convertFn(checked);
+    final userResult = convertFn(response.data as T1);
     final user = userResultConverter(userResult.toList());
     return buildResponse(response: response, data: user.toBuiltList());
   }
@@ -50,7 +48,7 @@ class UsersApiUtils {
       "userIds": userIds,
       ...?extraParam,
     };
-    final response = await request<UsersResponse>(
+    final response = await request(
       apiFn: api.getUsersByRestIds,
       convertFn: (e) => e.data.users,
       key: 'UsersByRestIds',

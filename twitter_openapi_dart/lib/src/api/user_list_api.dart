@@ -15,7 +15,7 @@ class UserListApiUtils {
 
   Future<ResponseType> request<T1>({
     required String key,
-    required ApiFunction apiFn,
+    required ApiFunction<T1> apiFn,
     required BuiltList<InstructionUnion> Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
@@ -26,8 +26,7 @@ class UserListApiUtils {
       features: jsonEncode(flag[key]!["features"]),
     );
 
-    final checked = errorCheck<T1>(response);
-    final instruction = convertFn(checked);
+    final instruction = convertFn(response.data as T1);
     final entry = instructionToEntry(instruction);
     final userList = userEntriesConverter(entry);
     final user = userResultConverter(userList);
@@ -69,7 +68,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request<FollowResponse>(
+    final response = await request(
       apiFn: api.getFollowers,
       convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Followers',
@@ -102,7 +101,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request<FollowResponse>(
+    final response = await request(
       apiFn: api.getFollowing,
       convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'Following',
@@ -135,7 +134,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request<FollowResponse>(
+    final response = await request(
       apiFn: api.getFollowersYouKnow,
       convertFn: (e) => e.data.user.result.timeline.timeline.instructions,
       key: 'FollowersYouKnow',
@@ -168,7 +167,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request<TweetFavoritersResponse>(
+    final response = await request(
       apiFn: api.getFavoriters,
       convertFn: (e) => e.data.favoritersTimeline.timeline.instructions,
       key: 'Favoriters',
@@ -200,7 +199,7 @@ class UserListApiUtils {
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
-    final response = await request<TweetRetweetersResponse>(
+    final response = await request(
       apiFn: api.getRetweeters,
       convertFn: (e) => e.data.retweetersTimeline.timeline.instructions,
       key: 'Retweeters',

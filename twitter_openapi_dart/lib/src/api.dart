@@ -33,7 +33,7 @@ class TwitterOpenapiDart {
 
   static Map<String, String> apiKey = {
     "Accept": "*/*",
-    "AcceptEncoding": "gzip, deflate, br",
+    // "AcceptEncoding": "gzip, deflate, br",
     "AcceptLanguage": "en-US,en;q=0.9",
     "CacheControl": "no-cache",
     "Pragma": "no-cache",
@@ -92,8 +92,7 @@ class TwitterOpenapiDart {
   /// get [TwitterOpenapiDartClient] from cookies
   ///
   /// parameters:
-  /// * [ct0] ct0 cookie
-  /// * [authToken] auth_token cookie
+  /// * [cookies] cookie
 
   Future<TwitterOpenapiDartClient> getClientFromCookies(Map<String, String> cookies) async {
     final cookie = CookieJar();

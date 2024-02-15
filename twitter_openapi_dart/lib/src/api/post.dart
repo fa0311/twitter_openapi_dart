@@ -10,9 +10,8 @@ class PostApiUtils {
 
   const PostApiUtils(this.api, this.flag);
 
-  TwitterApiUtilsResponse<T1> builder<T1>(Response response) {
-    final checked = errorCheck<T1>(response);
-    return buildResponse(response: response, data: checked);
+  TwitterApiUtilsResponse<T1> builder<T1>(Response<T1> response) {
+    return buildResponse(response: response, data: response.data as T1);
   }
 
   /// postCreateTweet
@@ -41,7 +40,7 @@ class PostApiUtils {
           ..features = PostCreateTweetRequestFeatures((e) => e).toBuilder(),
       ),
     );
-    return builder<CreateTweetResponse>(response);
+    return builder(response);
   }
 
   /// postDeleteTweet
@@ -60,7 +59,7 @@ class PostApiUtils {
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return builder<DeleteTweetResponse>(response);
+    return builder(response);
   }
 
   /// postCreateRetweet
@@ -79,7 +78,7 @@ class PostApiUtils {
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return builder<CreateRetweetResponse>(response);
+    return builder(response);
   }
 
   /// postDeleteRetweet
@@ -98,7 +97,7 @@ class PostApiUtils {
         (e) => e..variables = PostDeleteRetweetRequestVariables((e) => e.sourceTweetId = sourceTweetId).toBuilder(),
       ),
     );
-    return builder<DeleteRetweetResponse>(response);
+    return builder(response);
   }
 
   /// postFavoriteTweet
@@ -117,7 +116,7 @@ class PostApiUtils {
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return builder<FavoriteTweetResponseData>(response);
+    return builder(response);
   }
 
   /// postUnfavoriteTweet
@@ -136,6 +135,6 @@ class PostApiUtils {
         (e) => e..variables = PostCreateRetweetRequestVariables((e) => e.tweetId = tweetId).toBuilder(),
       ),
     );
-    return builder<UnfavoriteTweetResponseData>(response);
+    return builder(response);
   }
 }
