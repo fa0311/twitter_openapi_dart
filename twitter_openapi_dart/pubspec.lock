@@ -541,10 +541,10 @@ packages:
     dependency: "direct main"
     description:
       name: twitter_openapi_dart_generated
-      sha256: fe91f35195d0a50633a20d02a94784062d4a2f33ffdb0d577326f975d1ab8df2
+      sha256: "9570ab0cbfe9c7a629bdbba77e0bd125636dbb0518e314f9699c79cb024d105d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.12"
   typed_data:
     dependency: transitive
     description:
