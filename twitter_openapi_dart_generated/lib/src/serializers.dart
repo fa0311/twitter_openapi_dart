@@ -82,20 +82,6 @@ import 'package:twitter_openapi_dart_generated/src/model/follow_response_data.da
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_result.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_response_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/follow_timeline.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_bookmarks200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_favoriters200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_followers200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_home_latest_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_likes200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_list_latest_tweets_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_profile_spotlights_query200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_retweeters200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_search_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_tweet_detail200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_tweet_result_by_rest_id200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_user_by_rest_id200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_user_highlights_tweets200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_users_by_rest_ids200_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/highlight.dart';
 import 'package:twitter_openapi_dart_generated/src/model/home_timeline_home.dart';
 import 'package:twitter_openapi_dart_generated/src/model/home_timeline_response_data.dart';
@@ -343,20 +329,6 @@ part 'serializers.g.dart';
   FollowResponseResult,
   FollowResponseUser,
   FollowTimeline,
-  GetBookmarks200Response,
-  GetFavoriters200Response,
-  GetFollowers200Response,
-  GetHomeLatestTimeline200Response,
-  GetLikes200Response,
-  GetListLatestTweetsTimeline200Response,
-  GetProfileSpotlightsQuery200Response,
-  GetRetweeters200Response,
-  GetSearchTimeline200Response,
-  GetTweetDetail200Response,
-  GetTweetResultByRestId200Response,
-  GetUserByRestId200Response,
-  GetUserHighlightsTweets200Response,
-  GetUsersByRestIds200Response,
   Highlight,
   HomeTimelineHome,
   HomeTimelineResponseData,

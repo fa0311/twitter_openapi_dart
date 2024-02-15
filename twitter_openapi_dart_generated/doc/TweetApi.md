@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **getBookmarks**
-> GetBookmarks200Response getBookmarks(pathQueryId, variables, features)
+> BookmarksResponse getBookmarks(pathQueryId, variables, features)
 
 
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBookmarks200Response**](GetBookmarks200Response.md)
+[**BookmarksResponse**](BookmarksResponse.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHomeLatestTimeline**
-> GetHomeLatestTimeline200Response getHomeLatestTimeline(pathQueryId, variables, features)
+> TimelineResponse getHomeLatestTimeline(pathQueryId, variables, features)
 
 
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHomeLatestTimeline200Response**](GetHomeLatestTimeline200Response.md)
+[**TimelineResponse**](TimelineResponse.md)
 
 ### Authorization
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHomeTimeline**
-> GetHomeLatestTimeline200Response getHomeTimeline(pathQueryId, variables, features)
+> TimelineResponse getHomeTimeline(pathQueryId, variables, features)
 
 
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHomeLatestTimeline200Response**](GetHomeLatestTimeline200Response.md)
+[**TimelineResponse**](TimelineResponse.md)
 
 ### Authorization
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLikes**
-> GetLikes200Response getLikes(pathQueryId, variables, features)
+> UserTweetsResponse getLikes(pathQueryId, variables, features)
 
 
 
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLikes200Response**](GetLikes200Response.md)
+[**UserTweetsResponse**](UserTweetsResponse.md)
 
 ### Authorization
 
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getListLatestTweetsTimeline**
-> GetListLatestTweetsTimeline200Response getListLatestTweetsTimeline(pathQueryId, variables, features)
+> ListLatestTweetsTimelineResponse getListLatestTweetsTimeline(pathQueryId, variables, features)
 
 
 
@@ -624,7 +624,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetListLatestTweetsTimeline200Response**](GetListLatestTweetsTimeline200Response.md)
+[**ListLatestTweetsTimelineResponse**](ListLatestTweetsTimelineResponse.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSearchTimeline**
-> GetSearchTimeline200Response getSearchTimeline(pathQueryId, variables, features)
+> SearchTimelineResponse getSearchTimeline(pathQueryId, variables, features)
 
 
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchTimeline200Response**](GetSearchTimeline200Response.md)
+[**SearchTimelineResponse**](SearchTimelineResponse.md)
 
 ### Authorization
 
@@ -761,7 +761,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTweetDetail**
-> GetTweetDetail200Response getTweetDetail(pathQueryId, variables, features, fieldToggles)
+> TweetDetailResponse getTweetDetail(pathQueryId, variables, features, fieldToggles)
 
 
 
@@ -872,7 +872,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTweetDetail200Response**](GetTweetDetail200Response.md)
+[**TweetDetailResponse**](TweetDetailResponse.md)
 
 ### Authorization
 
@@ -886,7 +886,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserHighlightsTweets**
-> GetUserHighlightsTweets200Response getUserHighlightsTweets(pathQueryId, variables, features)
+> UserHighlightsTweetsResponse getUserHighlightsTweets(pathQueryId, variables, features)
 
 
 
@@ -995,7 +995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserHighlightsTweets200Response**](GetUserHighlightsTweets200Response.md)
+[**UserHighlightsTweetsResponse**](UserHighlightsTweetsResponse.md)
 
 ### Authorization
 
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserMedia**
-> GetLikes200Response getUserMedia(pathQueryId, variables, features)
+> UserTweetsResponse getUserMedia(pathQueryId, variables, features)
 
 
 
@@ -1118,7 +1118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLikes200Response**](GetLikes200Response.md)
+[**UserTweetsResponse**](UserTweetsResponse.md)
 
 ### Authorization
 
@@ -1132,7 +1132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserTweets**
-> GetLikes200Response getUserTweets(pathQueryId, variables, features)
+> UserTweetsResponse getUserTweets(pathQueryId, variables, features)
 
 
 
@@ -1241,7 +1241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLikes200Response**](GetLikes200Response.md)
+[**UserTweetsResponse**](UserTweetsResponse.md)
 
 ### Authorization
 
@@ -1255,7 +1255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserTweetsAndReplies**
-> GetLikes200Response getUserTweetsAndReplies(pathQueryId, variables, features)
+> UserTweetsResponse getUserTweetsAndReplies(pathQueryId, variables, features)
 
 
 
@@ -1364,7 +1364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLikes200Response**](GetLikes200Response.md)
+[**UserTweetsResponse**](UserTweetsResponse.md)
 
 ### Authorization
 

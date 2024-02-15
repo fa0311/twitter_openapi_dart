@@ -8,13 +8,13 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_bookmarks200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_home_latest_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_likes200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_list_latest_tweets_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_search_timeline200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_tweet_detail200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_user_highlights_tweets200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/bookmarks_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/list_latest_tweets_timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/search_timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_detail_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_highlights_tweets_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_tweets_response.dart';
 
 class TweetApi {
   final Dio _dio;
@@ -37,9 +37,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetBookmarks200Response] as data
+  /// Returns a [Future] containing a [Response] with a [BookmarksResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetBookmarks200Response>> getBookmarks({
+  Future<Response<BookmarksResponse>> getBookmarks({
     required String pathQueryId,
     String variables = '{"count": 20, "includePromotedContent": true}',
     String features =
@@ -203,7 +203,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetBookmarks200Response? _responseData;
+    BookmarksResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -211,8 +211,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetBookmarks200Response),
-            ) as GetBookmarks200Response;
+              specifiedType: const FullType(BookmarksResponse),
+            ) as BookmarksResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -223,7 +223,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetBookmarks200Response>(
+    return Response<BookmarksResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -249,9 +249,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetHomeLatestTimeline200Response] as data
+  /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetHomeLatestTimeline200Response>> getHomeLatestTimeline({
+  Future<Response<TimelineResponse>> getHomeLatestTimeline({
     required String pathQueryId,
     String variables =
         '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch"}',
@@ -416,7 +416,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetHomeLatestTimeline200Response? _responseData;
+    TimelineResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -424,8 +424,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetHomeLatestTimeline200Response),
-            ) as GetHomeLatestTimeline200Response;
+              specifiedType: const FullType(TimelineResponse),
+            ) as TimelineResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -436,7 +436,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetHomeLatestTimeline200Response>(
+    return Response<TimelineResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -462,9 +462,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetHomeLatestTimeline200Response] as data
+  /// Returns a [Future] containing a [Response] with a [TimelineResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetHomeLatestTimeline200Response>> getHomeTimeline({
+  Future<Response<TimelineResponse>> getHomeTimeline({
     required String pathQueryId,
     String variables =
         '{"count": 20, "includePromotedContent": true, "latestControlAvailable": true, "requestContext": "launch", "withCommunity": true, "seenTweetIds": ["1349129669258448897"]}',
@@ -629,7 +629,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetHomeLatestTimeline200Response? _responseData;
+    TimelineResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -637,8 +637,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetHomeLatestTimeline200Response),
-            ) as GetHomeLatestTimeline200Response;
+              specifiedType: const FullType(TimelineResponse),
+            ) as TimelineResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -649,7 +649,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetHomeLatestTimeline200Response>(
+    return Response<TimelineResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -675,9 +675,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetLikes200Response>> getLikes({
+  Future<Response<UserTweetsResponse>> getLikes({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 20, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
@@ -842,7 +842,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetLikes200Response? _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -850,8 +850,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetLikes200Response),
-            ) as GetLikes200Response;
+              specifiedType: const FullType(UserTweetsResponse),
+            ) as UserTweetsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -862,7 +862,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetLikes200Response>(
+    return Response<UserTweetsResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -888,9 +888,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetListLatestTweetsTimeline200Response] as data
+  /// Returns a [Future] containing a [Response] with a [ListLatestTweetsTimelineResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetListLatestTweetsTimeline200Response>>
+  Future<Response<ListLatestTweetsTimelineResponse>>
       getListLatestTweetsTimeline({
     required String pathQueryId,
     String variables = '{"listId": "1539453138322673664", "count": 20}',
@@ -1055,7 +1055,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetListLatestTweetsTimeline200Response? _responseData;
+    ListLatestTweetsTimelineResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1063,9 +1063,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType:
-                  const FullType(GetListLatestTweetsTimeline200Response),
-            ) as GetListLatestTweetsTimeline200Response;
+              specifiedType: const FullType(ListLatestTweetsTimelineResponse),
+            ) as ListLatestTweetsTimelineResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1076,7 +1075,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetListLatestTweetsTimeline200Response>(
+    return Response<ListLatestTweetsTimelineResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1102,9 +1101,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetSearchTimeline200Response] as data
+  /// Returns a [Future] containing a [Response] with a [SearchTimelineResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetSearchTimeline200Response>> getSearchTimeline({
+  Future<Response<SearchTimelineResponse>> getSearchTimeline({
     required String pathQueryId,
     String variables =
         '{"rawQuery": "elonmusk", "count": 20, "querySource": "typed_query", "product": "Top"}',
@@ -1269,7 +1268,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetSearchTimeline200Response? _responseData;
+    SearchTimelineResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1277,8 +1276,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetSearchTimeline200Response),
-            ) as GetSearchTimeline200Response;
+              specifiedType: const FullType(SearchTimelineResponse),
+            ) as SearchTimelineResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1289,7 +1288,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetSearchTimeline200Response>(
+    return Response<SearchTimelineResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1316,9 +1315,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetTweetDetail200Response] as data
+  /// Returns a [Future] containing a [Response] with a [TweetDetailResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetTweetDetail200Response>> getTweetDetail({
+  Future<Response<TweetDetailResponse>> getTweetDetail({
     required String pathQueryId,
     String variables =
         '{"focalTweetId": "1349129669258448897", "referrer": "home", "with_rux_injections": false, "includePromotedContent": true, "withCommunity": true, "withQuickPromoteEligibilityTweetFields": true, "withBirdwatchNotes": true, "withVoice": true, "withV2Timeline": true}',
@@ -1486,7 +1485,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetTweetDetail200Response? _responseData;
+    TweetDetailResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1494,8 +1493,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetTweetDetail200Response),
-            ) as GetTweetDetail200Response;
+              specifiedType: const FullType(TweetDetailResponse),
+            ) as TweetDetailResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1506,7 +1505,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetTweetDetail200Response>(
+    return Response<TweetDetailResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1532,9 +1531,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetUserHighlightsTweets200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserHighlightsTweetsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetUserHighlightsTweets200Response>> getUserHighlightsTweets({
+  Future<Response<UserHighlightsTweetsResponse>> getUserHighlightsTweets({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withVoice": true}',
@@ -1699,7 +1698,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetUserHighlightsTweets200Response? _responseData;
+    UserHighlightsTweetsResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1707,8 +1706,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetUserHighlightsTweets200Response),
-            ) as GetUserHighlightsTweets200Response;
+              specifiedType: const FullType(UserHighlightsTweetsResponse),
+            ) as UserHighlightsTweetsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1719,7 +1718,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetUserHighlightsTweets200Response>(
+    return Response<UserHighlightsTweetsResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1745,9 +1744,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetLikes200Response>> getUserMedia({
+  Future<Response<UserTweetsResponse>> getUserMedia({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": false, "withClientEventToken": false, "withBirdwatchNotes": false, "withVoice": true, "withV2Timeline": true}',
@@ -1912,7 +1911,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetLikes200Response? _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -1920,8 +1919,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetLikes200Response),
-            ) as GetLikes200Response;
+              specifiedType: const FullType(UserTweetsResponse),
+            ) as UserTweetsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -1932,7 +1931,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetLikes200Response>(
+    return Response<UserTweetsResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1958,9 +1957,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetLikes200Response>> getUserTweets({
+  Future<Response<UserTweetsResponse>> getUserTweets({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withQuickPromoteEligibilityTweetFields": true, "withVoice": true, "withV2Timeline": true}',
@@ -2125,7 +2124,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetLikes200Response? _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -2133,8 +2132,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetLikes200Response),
-            ) as GetLikes200Response;
+              specifiedType: const FullType(UserTweetsResponse),
+            ) as UserTweetsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2145,7 +2144,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetLikes200Response>(
+    return Response<UserTweetsResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -2171,9 +2170,9 @@ class TweetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetLikes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserTweetsResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetLikes200Response>> getUserTweetsAndReplies({
+  Future<Response<UserTweetsResponse>> getUserTweetsAndReplies({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "count": 40, "includePromotedContent": true, "withCommunity": true, "withVoice": true, "withV2Timeline": true}',
@@ -2338,7 +2337,7 @@ class TweetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetLikes200Response? _responseData;
+    UserTweetsResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -2346,8 +2345,8 @@ class TweetApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetLikes200Response),
-            ) as GetLikes200Response;
+              specifiedType: const FullType(UserTweetsResponse),
+            ) as UserTweetsResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -2358,7 +2357,7 @@ class TweetApi {
       );
     }
 
-    return Response<GetLikes200Response>(
+    return Response<UserTweetsResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getProfileSpotlightsQuery**
-> GetProfileSpotlightsQuery200Response getProfileSpotlightsQuery(pathQueryId, variables, features)
+> ProfileResponse getProfileSpotlightsQuery(pathQueryId, variables, features)
 
 
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetProfileSpotlightsQuery200Response**](GetProfileSpotlightsQuery200Response.md)
+[**ProfileResponse**](ProfileResponse.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTweetResultByRestId**
-> GetTweetResultByRestId200Response getTweetResultByRestId(pathQueryId, variables, features)
+> TweetResultByRestIdResponse getTweetResultByRestId(pathQueryId, variables, features)
 
 
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTweetResultByRestId200Response**](GetTweetResultByRestId200Response.md)
+[**TweetResultByRestIdResponse**](TweetResultByRestIdResponse.md)
 
 ### Authorization
 

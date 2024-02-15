@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **getFavoriters**
-> GetFavoriters200Response getFavoriters(pathQueryId, variables, features)
+> TweetFavoritersResponse getFavoriters(pathQueryId, variables, features)
 
 
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFavoriters200Response**](GetFavoriters200Response.md)
+[**TweetFavoritersResponse**](TweetFavoritersResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFollowers**
-> GetFollowers200Response getFollowers(pathQueryId, variables, features)
+> FollowResponse getFollowers(pathQueryId, variables, features)
 
 
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFollowers200Response**](GetFollowers200Response.md)
+[**FollowResponse**](FollowResponse.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFollowersYouKnow**
-> GetFollowers200Response getFollowersYouKnow(pathQueryId, variables, features)
+> FollowResponse getFollowersYouKnow(pathQueryId, variables, features)
 
 
 
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFollowers200Response**](GetFollowers200Response.md)
+[**FollowResponse**](FollowResponse.md)
 
 ### Authorization
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFollowing**
-> GetFollowers200Response getFollowing(pathQueryId, variables, features)
+> FollowResponse getFollowing(pathQueryId, variables, features)
 
 
 
@@ -495,7 +495,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFollowers200Response**](GetFollowers200Response.md)
+[**FollowResponse**](FollowResponse.md)
 
 ### Authorization
 
@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRetweeters**
-> GetRetweeters200Response getRetweeters(pathQueryId, variables, features)
+> TweetRetweetersResponse getRetweeters(pathQueryId, variables, features)
 
 
 
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRetweeters200Response**](GetRetweeters200Response.md)
+[**TweetRetweetersResponse**](TweetRetweetersResponse.md)
 
 ### Authorization
 

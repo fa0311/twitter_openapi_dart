@@ -8,8 +8,8 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_profile_spotlights_query200_response.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_tweet_result_by_rest_id200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/profile_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_result_by_rest_id_response.dart';
 
 class DefaultApi {
   final Dio _dio;
@@ -32,10 +32,9 @@ class DefaultApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetProfileSpotlightsQuery200Response] as data
+  /// Returns a [Future] containing a [Response] with a [ProfileResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetProfileSpotlightsQuery200Response>>
-      getProfileSpotlightsQuery({
+  Future<Response<ProfileResponse>> getProfileSpotlightsQuery({
     required String pathQueryId,
     String variables = '{"screen_name": "elonmusk"}',
     String features = '{}',
@@ -198,7 +197,7 @@ class DefaultApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetProfileSpotlightsQuery200Response? _responseData;
+    ProfileResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -206,9 +205,8 @@ class DefaultApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType:
-                  const FullType(GetProfileSpotlightsQuery200Response),
-            ) as GetProfileSpotlightsQuery200Response;
+              specifiedType: const FullType(ProfileResponse),
+            ) as ProfileResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -219,7 +217,7 @@ class DefaultApi {
       );
     }
 
-    return Response<GetProfileSpotlightsQuery200Response>(
+    return Response<ProfileResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -245,9 +243,9 @@ class DefaultApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetTweetResultByRestId200Response] as data
+  /// Returns a [Future] containing a [Response] with a [TweetResultByRestIdResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetTweetResultByRestId200Response>> getTweetResultByRestId({
+  Future<Response<TweetResultByRestIdResponse>> getTweetResultByRestId({
     required String pathQueryId,
     String variables =
         '{"tweetId": "1691730070669517096", "withCommunity": false, "includePromotedContent": false, "withVoice": false}',
@@ -412,7 +410,7 @@ class DefaultApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetTweetResultByRestId200Response? _responseData;
+    TweetResultByRestIdResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -420,8 +418,8 @@ class DefaultApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetTweetResultByRestId200Response),
-            ) as GetTweetResultByRestId200Response;
+              specifiedType: const FullType(TweetResultByRestIdResponse),
+            ) as TweetResultByRestIdResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -432,7 +430,7 @@ class DefaultApi {
       );
     }
 
-    return Response<GetTweetResultByRestId200Response>(
+    return Response<TweetResultByRestIdResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

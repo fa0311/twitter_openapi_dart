@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_users_by_rest_ids200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/users_response.dart';
 
 class UsersApi {
   final Dio _dio;
@@ -31,9 +31,9 @@ class UsersApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetUsersByRestIds200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UsersResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetUsersByRestIds200Response>> getUsersByRestIds({
+  Future<Response<UsersResponse>> getUsersByRestIds({
     required String pathQueryId,
     String variables = '{"userIds": ["44196397"]}',
     String features =
@@ -197,7 +197,7 @@ class UsersApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetUsersByRestIds200Response? _responseData;
+    UsersResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -205,8 +205,8 @@ class UsersApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetUsersByRestIds200Response),
-            ) as GetUsersByRestIds200Response;
+              specifiedType: const FullType(UsersResponse),
+            ) as UsersResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -217,7 +217,7 @@ class UsersApi {
       );
     }
 
-    return Response<GetUsersByRestIds200Response>(
+    return Response<UsersResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

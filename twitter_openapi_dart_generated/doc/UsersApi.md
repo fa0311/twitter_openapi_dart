@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getUsersByRestIds**
-> GetUsersByRestIds200Response getUsersByRestIds(pathQueryId, variables, features)
+> UsersResponse getUsersByRestIds(pathQueryId, variables, features)
 
 
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUsersByRestIds200Response**](GetUsersByRestIds200Response.md)
+[**UsersResponse**](UsersResponse.md)
 
 ### Authorization
 

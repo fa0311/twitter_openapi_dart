@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:twitter_openapi_dart_generated/src/api_util.dart';
-import 'package:twitter_openapi_dart_generated/src/model/get_user_by_rest_id200_response.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_response.dart';
 
 class UserApi {
   final Dio _dio;
@@ -31,9 +31,9 @@ class UserApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetUserByRestId200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetUserByRestId200Response>> getUserByRestId({
+  Future<Response<UserResponse>> getUserByRestId({
     required String pathQueryId,
     String variables =
         '{"userId": "44196397", "withSafetyModeUserFields": true}',
@@ -198,7 +198,7 @@ class UserApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetUserByRestId200Response? _responseData;
+    UserResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -206,8 +206,8 @@ class UserApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetUserByRestId200Response),
-            ) as GetUserByRestId200Response;
+              specifiedType: const FullType(UserResponse),
+            ) as UserResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -218,7 +218,7 @@ class UserApi {
       );
     }
 
-    return Response<GetUserByRestId200Response>(
+    return Response<UserResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -245,9 +245,9 @@ class UserApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetUserByRestId200Response] as data
+  /// Returns a [Future] containing a [Response] with a [UserResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<GetUserByRestId200Response>> getUserByScreenName({
+  Future<Response<UserResponse>> getUserByScreenName({
     required String pathQueryId,
     String variables =
         '{"screen_name": "elonmusk", "withSafetyModeUserFields": true}',
@@ -415,7 +415,7 @@ class UserApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetUserByRestId200Response? _responseData;
+    UserResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -423,8 +423,8 @@ class UserApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(GetUserByRestId200Response),
-            ) as GetUserByRestId200Response;
+              specifiedType: const FullType(UserResponse),
+            ) as UserResponse;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -435,7 +435,7 @@ class UserApi {
       );
     }
 
-    return Response<GetUserByRestId200Response>(
+    return Response<UserResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

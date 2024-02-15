@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getUserByRestId**
-> GetUserByRestId200Response getUserByRestId(pathQueryId, variables, features)
+> UserResponse getUserByRestId(pathQueryId, variables, features)
 
 
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserByScreenName**
-> GetUserByRestId200Response getUserByScreenName(pathQueryId, variables, features, fieldToggles)
+> UserResponse getUserByScreenName(pathQueryId, variables, features, fieldToggles)
 
 
 
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserByRestId200Response**](GetUserByRestId200Response.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
