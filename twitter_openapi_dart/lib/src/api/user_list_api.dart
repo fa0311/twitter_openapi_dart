@@ -195,6 +195,7 @@ class UserListApiUtils {
     Map<String, dynamic>? extraParam,
   }) async {
     final param = {
+      "tweetId": tweetId,
       if (count != null) "count": count,
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
