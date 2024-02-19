@@ -25,26 +25,28 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).
 
 ```dart
-final api = TwitterOpenapiDart()..addBeforeInterceptor(FlutterInappwebviewDio());
-final client = await api.getClient(initCookie: false);
+import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
+final api = TwitterOpenapiDart():
+final client = api.getTwitterOpenapiDartClient(FlutterInappwebviewDio());
 ```
 
 - [web.dart](https://github.com/fa0311/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/view/login/web.dart)
 - [inappwebview.dart](https://github.com/fa0311/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/auth/inappwebview.dart)
 
-#### Other
+#### Other Login
 
 ```dart
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
-final api = TwitterOpenapiDart();
-final client = await api.getClientFromCookies(authToken: "<auth token here>", ct0: "<csrf token here>");
+final api = TwitterOpenapiDart():
+final client = api.getClientFromCookies({"authToken": "<auth token here>", "ct0": "<csrf token here>"});
 ```
 
-#### Do not login
+#### Guest Mode
 
 ```dart
-final api = TwitterOpenapiDart();
-final client = await api.getClient();
+import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
+final api = TwitterOpenapiDart():
+final client = api.getGuestClient();
 ```
 
 ### API
