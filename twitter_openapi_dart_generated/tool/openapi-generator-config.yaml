@@ -3,7 +3,7 @@ outputDir: .
 
 pubName: twitter_openapi_dart_generated
 pubDescription: Twitter OpenAPI Dart
-pubVersion: 0.0.12
+pubVersion: 0.0.13
 pubAuthor: fa0311
 
 pubHomepage: https://github.com/fa0311/twitter_openapi_dart

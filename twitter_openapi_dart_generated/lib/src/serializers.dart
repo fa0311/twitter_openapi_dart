@@ -177,6 +177,7 @@ import 'package:twitter_openapi_dart_generated/src/model/timeline_topic_context.
 import 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timestamp.dart';
 import 'package:twitter_openapi_dart_generated/src/model/topic_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tracing.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
@@ -418,6 +419,7 @@ part 'serializers.g.dart';
   TimelineTweet,
   TimelineUser,
   TimelineV2,
+  Timestamp,
   TopicContext,
   Tracing,
   Tweet,

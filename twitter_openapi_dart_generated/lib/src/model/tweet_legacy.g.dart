@@ -10,10 +10,6 @@ const TweetLegacyLimitedActionsEnum
     _$tweetLegacyLimitedActionsEnum_limitedReplies =
     const TweetLegacyLimitedActionsEnum._('limitedReplies');
 const TweetLegacyLimitedActionsEnum
-    _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity =
-    const TweetLegacyLimitedActionsEnum._(
-        'communityTweetNonMemberPublicCommunity');
-const TweetLegacyLimitedActionsEnum
     _$tweetLegacyLimitedActionsEnum_nonCompliant =
     const TweetLegacyLimitedActionsEnum._('nonCompliant');
 const TweetLegacyLimitedActionsEnum
@@ -21,20 +17,30 @@ const TweetLegacyLimitedActionsEnum
     const TweetLegacyLimitedActionsEnum._('dynamicProductAd');
 const TweetLegacyLimitedActionsEnum _$tweetLegacyLimitedActionsEnum_staleTweet =
     const TweetLegacyLimitedActionsEnum._('staleTweet');
+const TweetLegacyLimitedActionsEnum
+    _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity =
+    const TweetLegacyLimitedActionsEnum._(
+        'communityTweetNonMemberPublicCommunity');
+const TweetLegacyLimitedActionsEnum
+    _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberClosedCommunity =
+    const TweetLegacyLimitedActionsEnum._(
+        'communityTweetNonMemberClosedCommunity');
 
 TweetLegacyLimitedActionsEnum _$tweetLegacyLimitedActionsEnumValueOf(
     String name) {
   switch (name) {
     case 'limitedReplies':
       return _$tweetLegacyLimitedActionsEnum_limitedReplies;
-    case 'communityTweetNonMemberPublicCommunity':
-      return _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity;
     case 'nonCompliant':
       return _$tweetLegacyLimitedActionsEnum_nonCompliant;
     case 'dynamicProductAd':
       return _$tweetLegacyLimitedActionsEnum_dynamicProductAd;
     case 'staleTweet':
       return _$tweetLegacyLimitedActionsEnum_staleTweet;
+    case 'communityTweetNonMemberPublicCommunity':
+      return _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity;
+    case 'communityTweetNonMemberClosedCommunity':
+      return _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberClosedCommunity;
     default:
       throw new ArgumentError(name);
   }
@@ -44,10 +50,11 @@ final BuiltSet<TweetLegacyLimitedActionsEnum>
     _$tweetLegacyLimitedActionsEnumValues = new BuiltSet<
         TweetLegacyLimitedActionsEnum>(const <TweetLegacyLimitedActionsEnum>[
   _$tweetLegacyLimitedActionsEnum_limitedReplies,
-  _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity,
   _$tweetLegacyLimitedActionsEnum_nonCompliant,
   _$tweetLegacyLimitedActionsEnum_dynamicProductAd,
   _$tweetLegacyLimitedActionsEnum_staleTweet,
+  _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity,
+  _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberClosedCommunity,
 ]);
 
 Serializer<TweetLegacyLimitedActionsEnum>
@@ -58,19 +65,23 @@ class _$TweetLegacyLimitedActionsEnumSerializer
     implements PrimitiveSerializer<TweetLegacyLimitedActionsEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'limitedReplies': 'limited_replies',
-    'communityTweetNonMemberPublicCommunity':
-        'community_tweet_non_member_public_community',
     'nonCompliant': 'non_compliant',
     'dynamicProductAd': 'dynamic_product_ad',
     'staleTweet': 'stale_tweet',
+    'communityTweetNonMemberPublicCommunity':
+        'community_tweet_non_member_public_community',
+    'communityTweetNonMemberClosedCommunity':
+        'community_tweet_non_member_closed_community',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'limited_replies': 'limitedReplies',
-    'community_tweet_non_member_public_community':
-        'communityTweetNonMemberPublicCommunity',
     'non_compliant': 'nonCompliant',
     'dynamic_product_ad': 'dynamicProductAd',
     'stale_tweet': 'staleTweet',
+    'community_tweet_non_member_public_community':
+        'communityTweetNonMemberPublicCommunity',
+    'community_tweet_non_member_closed_community':
+        'communityTweetNonMemberClosedCommunity',
   };
 
   @override

@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **superFollowing** | **bool** |  | [default to false]
 **userSeedTweetCount** | **int** |  | [optional] 
 **verificationInfo** | [**UserVerificationInfo**](UserVerificationInfo.md) |  | [optional] 
+**message** | **String** |  | [optional] 
 **reason** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

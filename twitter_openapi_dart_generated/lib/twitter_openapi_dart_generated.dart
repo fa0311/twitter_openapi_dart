@@ -183,6 +183,7 @@ export 'package:twitter_openapi_dart_generated/src/model/timeline_topic_context.
 export 'package:twitter_openapi_dart_generated/src/model/timeline_tweet.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_user.dart';
 export 'package:twitter_openapi_dart_generated/src/model/timeline_v2.dart';
+export 'package:twitter_openapi_dart_generated/src/model/timestamp.dart';
 export 'package:twitter_openapi_dart_generated/src/model/topic_context.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tracing.dart';
 export 'package:twitter_openapi_dart_generated/src/model/tweet.dart';

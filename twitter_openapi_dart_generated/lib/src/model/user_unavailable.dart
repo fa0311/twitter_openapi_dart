@@ -13,6 +13,7 @@ part 'user_unavailable.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [message]
 /// * [reason]
 @BuiltValue()
 abstract class UserUnavailable
@@ -20,6 +21,9 @@ abstract class UserUnavailable
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
   // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
+
+  @BuiltValueField(wireName: r'message')
+  String? get message;
 
   @BuiltValueField(wireName: r'reason')
   String get reason;
@@ -55,6 +59,13 @@ class _$UserUnavailableSerializer
       object.typename,
       specifiedType: const FullType(TypeName),
     );
+    if (object.message != null) {
+      yield r'message';
+      yield serializers.serialize(
+        object.message,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'reason';
     yield serializers.serialize(
       object.reason,
@@ -91,6 +102,13 @@ class _$UserUnavailableSerializer
             specifiedType: const FullType(TypeName),
           ) as TypeName;
           result.typename = valueDes;
+          break;
+        case r'message':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.message = valueDes;
           break;
         case r'reason':
           final valueDes = serializers.deserialize(

@@ -201,6 +201,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TimelineUser.serializer)
       ..add(TimelineUserUserDisplayTypeEnum.serializer)
       ..add(TimelineV2.serializer)
+      ..add(Timestamp.serializer)
       ..add(TopicContext.serializer)
       ..add(Tracing.serializer)
       ..add(Tweet.serializer)
@@ -320,6 +321,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
             ])
           ]),
           () => new ListBuilder<BuiltMap<String, JsonObject?>>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Timestamp)]),
+          () => new ListBuilder<Timestamp>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Url)]),
           () => new ListBuilder<Url>())
@@ -453,6 +457,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
           ]),
           () =>
               new ListBuilder<UserVerificationInfoReasonDescriptionEntities>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>())

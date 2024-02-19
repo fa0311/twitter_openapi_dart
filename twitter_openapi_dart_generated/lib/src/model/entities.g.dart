@@ -14,6 +14,8 @@ class _$Entities extends Entities {
   @override
   final BuiltList<BuiltMap<String, JsonObject?>> symbols;
   @override
+  final BuiltList<Timestamp>? timestamps;
+  @override
   final BuiltList<Url> urls;
   @override
   final BuiltList<BuiltMap<String, JsonObject?>> userMentions;
@@ -25,6 +27,7 @@ class _$Entities extends Entities {
       {required this.hashtags,
       this.media,
       required this.symbols,
+      this.timestamps,
       required this.urls,
       required this.userMentions})
       : super._() {
@@ -49,6 +52,7 @@ class _$Entities extends Entities {
         hashtags == other.hashtags &&
         media == other.media &&
         symbols == other.symbols &&
+        timestamps == other.timestamps &&
         urls == other.urls &&
         userMentions == other.userMentions;
   }
@@ -59,6 +63,7 @@ class _$Entities extends Entities {
     _$hash = $jc(_$hash, hashtags.hashCode);
     _$hash = $jc(_$hash, media.hashCode);
     _$hash = $jc(_$hash, symbols.hashCode);
+    _$hash = $jc(_$hash, timestamps.hashCode);
     _$hash = $jc(_$hash, urls.hashCode);
     _$hash = $jc(_$hash, userMentions.hashCode);
     _$hash = $jf(_$hash);
@@ -71,6 +76,7 @@ class _$Entities extends Entities {
           ..add('hashtags', hashtags)
           ..add('media', media)
           ..add('symbols', symbols)
+          ..add('timestamps', timestamps)
           ..add('urls', urls)
           ..add('userMentions', userMentions))
         .toString();
@@ -96,6 +102,12 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
   set symbols(ListBuilder<BuiltMap<String, JsonObject?>>? symbols) =>
       _$this._symbols = symbols;
 
+  ListBuilder<Timestamp>? _timestamps;
+  ListBuilder<Timestamp> get timestamps =>
+      _$this._timestamps ??= new ListBuilder<Timestamp>();
+  set timestamps(ListBuilder<Timestamp>? timestamps) =>
+      _$this._timestamps = timestamps;
+
   ListBuilder<Url>? _urls;
   ListBuilder<Url> get urls => _$this._urls ??= new ListBuilder<Url>();
   set urls(ListBuilder<Url>? urls) => _$this._urls = urls;
@@ -116,6 +128,7 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
       _hashtags = $v.hashtags.toBuilder();
       _media = $v.media?.toBuilder();
       _symbols = $v.symbols.toBuilder();
+      _timestamps = $v.timestamps?.toBuilder();
       _urls = $v.urls.toBuilder();
       _userMentions = $v.userMentions.toBuilder();
       _$v = null;
@@ -145,6 +158,7 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
               hashtags: hashtags.build(),
               media: _media?.build(),
               symbols: symbols.build(),
+              timestamps: _timestamps?.build(),
               urls: urls.build(),
               userMentions: userMentions.build());
     } catch (_) {
@@ -156,6 +170,8 @@ class EntitiesBuilder implements Builder<Entities, EntitiesBuilder> {
         _media?.build();
         _$failedField = 'symbols';
         symbols.build();
+        _$failedField = 'timestamps';
+        _timestamps?.build();
         _$failedField = 'urls';
         urls.build();
         _$failedField = 'userMentions';

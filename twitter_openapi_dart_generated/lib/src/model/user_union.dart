@@ -34,6 +34,7 @@ part 'user_union.g.dart';
 /// * [superFollowing]
 /// * [userSeedTweetCount]
 /// * [verificationInfo]
+/// * [message]
 /// * [reason]
 @BuiltValue()
 abstract class UserUnion implements Built<UserUnion, UserUnionBuilder> {

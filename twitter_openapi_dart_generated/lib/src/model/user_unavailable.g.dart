@@ -10,12 +10,15 @@ class _$UserUnavailable extends UserUnavailable {
   @override
   final TypeName typename;
   @override
+  final String? message;
+  @override
   final String reason;
 
   factory _$UserUnavailable([void Function(UserUnavailableBuilder)? updates]) =>
       (new UserUnavailableBuilder()..update(updates))._build();
 
-  _$UserUnavailable._({required this.typename, required this.reason})
+  _$UserUnavailable._(
+      {required this.typename, this.message, required this.reason})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'UserUnavailable', 'typename');
@@ -35,6 +38,7 @@ class _$UserUnavailable extends UserUnavailable {
     if (identical(other, this)) return true;
     return other is UserUnavailable &&
         typename == other.typename &&
+        message == other.message &&
         reason == other.reason;
   }
 
@@ -42,6 +46,7 @@ class _$UserUnavailable extends UserUnavailable {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, typename.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, reason.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -51,6 +56,7 @@ class _$UserUnavailable extends UserUnavailable {
   String toString() {
     return (newBuiltValueToStringHelper(r'UserUnavailable')
           ..add('typename', typename)
+          ..add('message', message)
           ..add('reason', reason))
         .toString();
   }
@@ -64,6 +70,10 @@ class UserUnavailableBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
+  String? _message;
+  String? get message => _$this._message;
+  set message(String? message) => _$this._message = message;
+
   String? _reason;
   String? get reason => _$this._reason;
   set reason(String? reason) => _$this._reason = reason;
@@ -76,6 +86,7 @@ class UserUnavailableBuilder
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
+      _message = $v.message;
       _reason = $v.reason;
       _$v = null;
     }
@@ -101,6 +112,7 @@ class UserUnavailableBuilder
         new _$UserUnavailable._(
             typename: BuiltValueNullFieldError.checkNotNull(
                 typename, r'UserUnavailable', 'typename'),
+            message: message,
             reason: BuiltValueNullFieldError.checkNotNull(
                 reason, r'UserUnavailable', 'reason'));
     replace(_$result);

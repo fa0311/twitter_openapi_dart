@@ -105,7 +105,7 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'limited_actions')
   TweetLegacyLimitedActionsEnum? get limitedActions;
-  // enum limitedActionsEnum {  limited_replies,  community_tweet_non_member_public_community,  non_compliant,  dynamic_product_ad,  stale_tweet,  };
+  // enum limitedActionsEnum {  limited_replies,  non_compliant,  dynamic_product_ad,  stale_tweet,  community_tweet_non_member_public_community,  community_tweet_non_member_closed_community,  };
 
   @BuiltValueField(wireName: r'place')
   BuiltMap<String, JsonObject?>? get place;
@@ -633,10 +633,6 @@ class TweetLegacyLimitedActionsEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'limited_replies')
   static const TweetLegacyLimitedActionsEnum limitedReplies =
       _$tweetLegacyLimitedActionsEnum_limitedReplies;
-  @BuiltValueEnumConst(wireName: r'community_tweet_non_member_public_community')
-  static const TweetLegacyLimitedActionsEnum
-      communityTweetNonMemberPublicCommunity =
-      _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity;
   @BuiltValueEnumConst(wireName: r'non_compliant')
   static const TweetLegacyLimitedActionsEnum nonCompliant =
       _$tweetLegacyLimitedActionsEnum_nonCompliant;
@@ -646,6 +642,14 @@ class TweetLegacyLimitedActionsEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'stale_tweet')
   static const TweetLegacyLimitedActionsEnum staleTweet =
       _$tweetLegacyLimitedActionsEnum_staleTweet;
+  @BuiltValueEnumConst(wireName: r'community_tweet_non_member_public_community')
+  static const TweetLegacyLimitedActionsEnum
+      communityTweetNonMemberPublicCommunity =
+      _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity;
+  @BuiltValueEnumConst(wireName: r'community_tweet_non_member_closed_community')
+  static const TweetLegacyLimitedActionsEnum
+      communityTweetNonMemberClosedCommunity =
+      _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberClosedCommunity;
 
   static Serializer<TweetLegacyLimitedActionsEnum> get serializer =>
       _$tweetLegacyLimitedActionsEnumSerializer;

@@ -166,6 +166,7 @@ doc/TimelineTopicContext.md
 doc/TimelineTweet.md
 doc/TimelineUser.md
 doc/TimelineV2.md
+doc/Timestamp.md
 doc/TopicContext.md
 doc/Tracing.md
 doc/Tweet.md
@@ -429,6 +430,7 @@ lib/src/model/timeline_topic_context.dart
 lib/src/model/timeline_tweet.dart
 lib/src/model/timeline_user.dart
 lib/src/model/timeline_v2.dart
+lib/src/model/timestamp.dart
 lib/src/model/topic_context.dart
 lib/src/model/tracing.dart
 lib/src/model/tweet.dart
@@ -505,4 +507,3 @@ lib/src/model/users_response.dart
 lib/src/model/users_response_data.dart
 lib/src/serializers.dart
 lib/twitter_openapi_dart_generated.dart
-pubspec.yaml

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **hashtags** | [**BuiltList&lt;BuiltMap&lt;String, JsonObject&gt;&gt;**](BuiltMap.md) |  | 
 **media** | [**BuiltList&lt;Media&gt;**](Media.md) |  | [optional] 
 **symbols** | [**BuiltList&lt;BuiltMap&lt;String, JsonObject&gt;&gt;**](BuiltMap.md) |  | 
+**timestamps** | [**BuiltList&lt;Timestamp&gt;**](Timestamp.md) |  | [optional] 
 **urls** | [**BuiltList&lt;Url&gt;**](Url.md) |  | 
 **userMentions** | [**BuiltList&lt;BuiltMap&lt;String, JsonObject&gt;&gt;**](BuiltMap.md) |  | 
 
