@@ -20,7 +20,7 @@ class _TwitterLoginState extends State<TwitterLogin> {
       appBar: AppBar(title: const Text('Web Login')),
       body: Center(
         child: InAppWebView(
-          initialUrlRequest: URLRequest(url: url.resolve("login")),
+          initialUrlRequest: URLRequest(url: WebUri.uri(url.resolve("login"))),
           onTitleChanged: (controller, title) async {
             final url = await controller.getUrl();
             if (url == null) return;

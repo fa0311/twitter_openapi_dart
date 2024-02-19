@@ -10,12 +10,20 @@ class TwitterWidget extends StatelessWidget {
     this.card = false,
   });
 
-  final TweetApiUtils tweet;
+  final TweetApiUtilsData tweet;
   final bool card;
 
   @override
   Widget build(BuildContext context) {
     final view = tweet.quoted == null ? (tweet.retweeted ?? tweet) : tweet;
+
+    final legacy = view.tweet.legacy;
+
+    if (legacy == null) {
+      return const SizedBox(
+        child: Text("This tweet is not available."),
+      );
+    }
 
     return Padding(
       padding: const EdgeInsets.all(5),
@@ -60,26 +68,26 @@ class TwitterWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(view.tweet.legacy.fullText),
-                    if ((view.tweet.legacy.entities.media?.length ?? 0) == 1)
+                    Text(legacy.fullText),
+                    if ((legacy.entities.media?.length ?? 0) == 1)
                       ConstrainedBox(
                         constraints: const BoxConstraints(maxHeight: 200.0, minWidth: double.infinity),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
                           child: CachedNetworkImage(
-                            imageUrl: view.tweet.legacy.entities.media!.first.mediaUrlHttps,
+                            imageUrl: legacy.entities.media!.first.mediaUrlHttps,
                             progressIndicatorBuilder: (context, url, progress) => CircleAvatar(backgroundColor: Colors.black.withAlpha(0)),
                             errorWidget: (context, url, error) => const Icon(Icons.error),
                             fit: BoxFit.fitWidth,
                           ),
                         ),
                       ),
-                    if ((view.tweet.legacy.entities.media?.length ?? 0) > 1)
+                    if ((legacy.entities.media?.length ?? 0) > 1)
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
-                            ...view.tweet.legacy.entities.media!.map(
+                            ...legacy.entities.media!.map(
                               (e) => ConstrainedBox(
                                 constraints: const BoxConstraints(maxHeight: 200.0),
                                 child: ClipRRect(
@@ -104,7 +112,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.comment, size: 16),
-                              Text(view.tweet.legacy.replyCount.toString()),
+                              Text(legacy.replyCount.toString()),
                             ],
                           ),
                         ),
@@ -112,7 +120,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.recycling, size: 16),
-                              Text(view.tweet.legacy.retweetCount.toString()),
+                              Text(legacy.retweetCount.toString()),
                             ],
                           ),
                         ),
@@ -120,7 +128,7 @@ class TwitterWidget extends StatelessWidget {
                           child: Row(
                             children: [
                               const Icon(Icons.favorite, size: 16),
-                              Text(view.tweet.legacy.favoriteCount.toString()),
+                              Text(legacy.favoriteCount.toString()),
                             ],
                           ),
                         ),
@@ -132,7 +140,7 @@ class TwitterWidget extends StatelessWidget {
             ],
           ),
           if (tweet.quoted != null) TwitterWidget(tweet: tweet.quoted!),
-          ...tweet.reply.map((e) => TwitterWidget(tweet: e)),
+          ...tweet.replies.map((e) => TwitterWidget(tweet: e)),
         ],
       ),
     );

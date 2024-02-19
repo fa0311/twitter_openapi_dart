@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future guestMode() async {
-    final client = await TwitterOpenapiDart().getClient();
+    final client = await TwitterOpenapiDart().getGuestClient();
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => ApiSelectPage(
