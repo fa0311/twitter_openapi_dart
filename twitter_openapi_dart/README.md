@@ -25,18 +25,17 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 Load cookie from [flutter_inappwebview](https://github.com/pichillilorenzo/flutter_inappwebview).
 
 ```dart
-import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
-final api = TwitterOpenapiDart():
-final client = api.getTwitterOpenapiDartClient(FlutterInappwebviewDio());
+final interceptor = FlutterInappwebviewDio();
+final api = TwitterOpenapiDart();
+final client = api.getTwitterOpenapiDartClient(interceptor: [interceptor]);
 ```
 
-- [web.dart](https://github.com/fa0311/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/view/login/web.dart)
+- [web.dart](https://github.com/fa03Z11/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/view/login/web.dart)
 - [inappwebview.dart](https://github.com/fa0311/twitter_openapi_dart/tree/main/twitter_openapi_dart/example/flutter_example/lib/auth/inappwebview.dart)
 
 #### Other Login
 
 ```dart
-import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 final api = TwitterOpenapiDart():
 final client = api.getClientFromCookies({"authToken": "<auth token here>", "ct0": "<csrf token here>"});
 ```
@@ -44,7 +43,6 @@ final client = api.getClientFromCookies({"authToken": "<auth token here>", "ct0"
 #### Guest Mode
 
 ```dart
-import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 final api = TwitterOpenapiDart():
 final client = api.getGuestClient();
 ```
