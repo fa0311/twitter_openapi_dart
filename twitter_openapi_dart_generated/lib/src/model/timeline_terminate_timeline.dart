@@ -21,7 +21,7 @@ abstract class TimelineTerminateTimeline
         Built<TimelineTerminateTimeline, TimelineTerminateTimelineBuilder> {
   @BuiltValueField(wireName: r'direction')
   TimelineTerminateTimelineDirectionEnum get direction;
-  // enum directionEnum {  Top,  Bottom,  };
+  // enum directionEnum {  Top,  Bottom,  TopAndBottom,  };
 
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
@@ -143,6 +143,9 @@ class TimelineTerminateTimelineDirectionEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Bottom')
   static const TimelineTerminateTimelineDirectionEnum bottom =
       _$timelineTerminateTimelineDirectionEnum_bottom;
+  @BuiltValueEnumConst(wireName: r'TopAndBottom')
+  static const TimelineTerminateTimelineDirectionEnum topAndBottom =
+      _$timelineTerminateTimelineDirectionEnum_topAndBottom;
 
   static Serializer<TimelineTerminateTimelineDirectionEnum> get serializer =>
       _$timelineTerminateTimelineDirectionEnumSerializer;
