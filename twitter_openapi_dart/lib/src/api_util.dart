@@ -25,17 +25,22 @@ BuiltList<TweetApiUtilsData> tweetEntriesConverter(BuiltList<TimelineAddEntry> i
           final item = (e.content.oneOf.value as TimelineTimelineItem).itemContent;
           final timeline = item.oneOf.isType(TimelineTweet) ? item.oneOf.value as TimelineTweet : null;
           if (timeline == null) return null;
-          return buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata);
+          return [buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata)];
         } else if (e.content.oneOf.isType(TimelineTimelineModule)) {
           final item = (e.content.oneOf.value as TimelineTimelineModule).items ?? BuiltList();
-          final timelineList =
-              item.where((e) => e.item.itemContent.oneOf.isType(TimelineTweet)).map((e) => e.item.itemContent.oneOf.value as TimelineTweet).toList();
+          final timelineList = item.map((e) => e.item.itemContent.oneOf).where((e) => e.isType(TimelineTweet)).map((e) => e.value as TimelineTweet).toList();
           if (timelineList.isEmpty) return null;
-          final timeline = timelineList.first;
-          return buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata, reply: timelineList..removeAt(0));
+          final displayType = (e.content.oneOf.value as TimelineTimelineModule).displayType;
+          if (displayType == DisplayType.verticalGrid) {
+            return timelineList.map((e) => buildTweetApiUtils(e.tweetResults, promotedMetadata: e.promotedMetadata));
+          } else {
+            final timeline = timelineList.first;
+            return [buildTweetApiUtils(timeline.tweetResults, promotedMetadata: timeline.promotedMetadata, reply: timelineList..removeAt(0))];
+          }
         }
       })
       .whereNotNull()
+      .expand((e) => e.whereNotNull())
       .toBuiltList();
 }
 
