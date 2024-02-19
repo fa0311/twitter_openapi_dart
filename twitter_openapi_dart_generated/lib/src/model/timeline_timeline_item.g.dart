@@ -10,11 +10,11 @@ class _$TimelineTimelineItem extends TimelineTimelineItem {
   @override
   final TypeName typename;
   @override
-  final JsonObject? clientEventInfo;
+  final ClientEventInfo? clientEventInfo;
   @override
   final ContentEntryType entryType;
   @override
-  final JsonObject? feedbackInfo;
+  final BuiltMap<String, JsonObject?>? feedbackInfo;
   @override
   final ItemContentUnion itemContent;
 
@@ -89,18 +89,20 @@ class TimelineTimelineItemBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  JsonObject? _clientEventInfo;
-  JsonObject? get clientEventInfo => _$this._clientEventInfo;
-  set clientEventInfo(JsonObject? clientEventInfo) =>
+  ClientEventInfoBuilder? _clientEventInfo;
+  ClientEventInfoBuilder get clientEventInfo =>
+      _$this._clientEventInfo ??= new ClientEventInfoBuilder();
+  set clientEventInfo(ClientEventInfoBuilder? clientEventInfo) =>
       _$this._clientEventInfo = clientEventInfo;
 
   ContentEntryType? _entryType;
   ContentEntryType? get entryType => _$this._entryType;
   set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
 
-  JsonObject? _feedbackInfo;
-  JsonObject? get feedbackInfo => _$this._feedbackInfo;
-  set feedbackInfo(JsonObject? feedbackInfo) =>
+  MapBuilder<String, JsonObject?>? _feedbackInfo;
+  MapBuilder<String, JsonObject?> get feedbackInfo =>
+      _$this._feedbackInfo ??= new MapBuilder<String, JsonObject?>();
+  set feedbackInfo(MapBuilder<String, JsonObject?>? feedbackInfo) =>
       _$this._feedbackInfo = feedbackInfo;
 
   ItemContentUnionBuilder? _itemContent;
@@ -117,9 +119,9 @@ class TimelineTimelineItemBuilder
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
-      _clientEventInfo = $v.clientEventInfo;
+      _clientEventInfo = $v.clientEventInfo?.toBuilder();
       _entryType = $v.entryType;
-      _feedbackInfo = $v.feedbackInfo;
+      _feedbackInfo = $v.feedbackInfo?.toBuilder();
       _itemContent = $v.itemContent.toBuilder();
       _$v = null;
     }
@@ -147,14 +149,19 @@ class TimelineTimelineItemBuilder
           new _$TimelineTimelineItem._(
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineTimelineItem', 'typename'),
-              clientEventInfo: clientEventInfo,
+              clientEventInfo: _clientEventInfo?.build(),
               entryType: BuiltValueNullFieldError.checkNotNull(
                   entryType, r'TimelineTimelineItem', 'entryType'),
-              feedbackInfo: feedbackInfo,
+              feedbackInfo: _feedbackInfo?.build(),
               itemContent: itemContent.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'clientEventInfo';
+        _clientEventInfo?.build();
+
+        _$failedField = 'feedbackInfo';
+        _feedbackInfo?.build();
         _$failedField = 'itemContent';
         itemContent.build();
       } catch (e) {

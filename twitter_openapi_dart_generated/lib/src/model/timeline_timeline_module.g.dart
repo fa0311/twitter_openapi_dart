@@ -10,17 +10,21 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
   @override
   final TypeName typename;
   @override
-  final JsonObject clientEventInfo;
+  final BuiltMap<String, JsonObject?> clientEventInfo;
   @override
-  final String displayType;
+  final DisplayType displayType;
   @override
   final ContentEntryType entryType;
   @override
-  final JsonObject? footer;
+  final FeedbackInfo? feedbackInfo;
   @override
-  final JsonObject? header;
+  final BuiltMap<String, JsonObject?>? footer;
+  @override
+  final BuiltMap<String, JsonObject?>? header;
   @override
   final BuiltList<ModuleItem>? items;
+  @override
+  final BuiltMap<String, JsonObject?>? metadata;
 
   factory _$TimelineTimelineModule(
           [void Function(TimelineTimelineModuleBuilder)? updates]) =>
@@ -31,9 +35,11 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
       required this.clientEventInfo,
       required this.displayType,
       required this.entryType,
+      this.feedbackInfo,
       this.footer,
       this.header,
-      this.items})
+      this.items,
+      this.metadata})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         typename, r'TimelineTimelineModule', 'typename');
@@ -62,9 +68,11 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
         clientEventInfo == other.clientEventInfo &&
         displayType == other.displayType &&
         entryType == other.entryType &&
+        feedbackInfo == other.feedbackInfo &&
         footer == other.footer &&
         header == other.header &&
-        items == other.items;
+        items == other.items &&
+        metadata == other.metadata;
   }
 
   @override
@@ -74,9 +82,11 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
     _$hash = $jc(_$hash, clientEventInfo.hashCode);
     _$hash = $jc(_$hash, displayType.hashCode);
     _$hash = $jc(_$hash, entryType.hashCode);
+    _$hash = $jc(_$hash, feedbackInfo.hashCode);
     _$hash = $jc(_$hash, footer.hashCode);
     _$hash = $jc(_$hash, header.hashCode);
     _$hash = $jc(_$hash, items.hashCode);
+    _$hash = $jc(_$hash, metadata.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -88,9 +98,11 @@ class _$TimelineTimelineModule extends TimelineTimelineModule {
           ..add('clientEventInfo', clientEventInfo)
           ..add('displayType', displayType)
           ..add('entryType', entryType)
+          ..add('feedbackInfo', feedbackInfo)
           ..add('footer', footer)
           ..add('header', header)
-          ..add('items', items))
+          ..add('items', items)
+          ..add('metadata', metadata))
         .toString();
   }
 }
@@ -103,31 +115,49 @@ class TimelineTimelineModuleBuilder
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
 
-  JsonObject? _clientEventInfo;
-  JsonObject? get clientEventInfo => _$this._clientEventInfo;
-  set clientEventInfo(JsonObject? clientEventInfo) =>
+  MapBuilder<String, JsonObject?>? _clientEventInfo;
+  MapBuilder<String, JsonObject?> get clientEventInfo =>
+      _$this._clientEventInfo ??= new MapBuilder<String, JsonObject?>();
+  set clientEventInfo(MapBuilder<String, JsonObject?>? clientEventInfo) =>
       _$this._clientEventInfo = clientEventInfo;
 
-  String? _displayType;
-  String? get displayType => _$this._displayType;
-  set displayType(String? displayType) => _$this._displayType = displayType;
+  DisplayType? _displayType;
+  DisplayType? get displayType => _$this._displayType;
+  set displayType(DisplayType? displayType) =>
+      _$this._displayType = displayType;
 
   ContentEntryType? _entryType;
   ContentEntryType? get entryType => _$this._entryType;
   set entryType(ContentEntryType? entryType) => _$this._entryType = entryType;
 
-  JsonObject? _footer;
-  JsonObject? get footer => _$this._footer;
-  set footer(JsonObject? footer) => _$this._footer = footer;
+  FeedbackInfoBuilder? _feedbackInfo;
+  FeedbackInfoBuilder get feedbackInfo =>
+      _$this._feedbackInfo ??= new FeedbackInfoBuilder();
+  set feedbackInfo(FeedbackInfoBuilder? feedbackInfo) =>
+      _$this._feedbackInfo = feedbackInfo;
 
-  JsonObject? _header;
-  JsonObject? get header => _$this._header;
-  set header(JsonObject? header) => _$this._header = header;
+  MapBuilder<String, JsonObject?>? _footer;
+  MapBuilder<String, JsonObject?> get footer =>
+      _$this._footer ??= new MapBuilder<String, JsonObject?>();
+  set footer(MapBuilder<String, JsonObject?>? footer) =>
+      _$this._footer = footer;
+
+  MapBuilder<String, JsonObject?>? _header;
+  MapBuilder<String, JsonObject?> get header =>
+      _$this._header ??= new MapBuilder<String, JsonObject?>();
+  set header(MapBuilder<String, JsonObject?>? header) =>
+      _$this._header = header;
 
   ListBuilder<ModuleItem>? _items;
   ListBuilder<ModuleItem> get items =>
       _$this._items ??= new ListBuilder<ModuleItem>();
   set items(ListBuilder<ModuleItem>? items) => _$this._items = items;
+
+  MapBuilder<String, JsonObject?>? _metadata;
+  MapBuilder<String, JsonObject?> get metadata =>
+      _$this._metadata ??= new MapBuilder<String, JsonObject?>();
+  set metadata(MapBuilder<String, JsonObject?>? metadata) =>
+      _$this._metadata = metadata;
 
   TimelineTimelineModuleBuilder() {
     TimelineTimelineModule._defaults(this);
@@ -137,12 +167,14 @@ class TimelineTimelineModuleBuilder
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
-      _clientEventInfo = $v.clientEventInfo;
+      _clientEventInfo = $v.clientEventInfo.toBuilder();
       _displayType = $v.displayType;
       _entryType = $v.entryType;
-      _footer = $v.footer;
-      _header = $v.header;
+      _feedbackInfo = $v.feedbackInfo?.toBuilder();
+      _footer = $v.footer?.toBuilder();
+      _header = $v.header?.toBuilder();
       _items = $v.items?.toBuilder();
+      _metadata = $v.metadata?.toBuilder();
       _$v = null;
     }
     return this;
@@ -169,22 +201,32 @@ class TimelineTimelineModuleBuilder
           new _$TimelineTimelineModule._(
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineTimelineModule', 'typename'),
-              clientEventInfo: BuiltValueNullFieldError.checkNotNull(
-                  clientEventInfo,
-                  r'TimelineTimelineModule',
-                  'clientEventInfo'),
+              clientEventInfo: clientEventInfo.build(),
               displayType: BuiltValueNullFieldError.checkNotNull(
                   displayType, r'TimelineTimelineModule', 'displayType'),
               entryType: BuiltValueNullFieldError.checkNotNull(
                   entryType, r'TimelineTimelineModule', 'entryType'),
-              footer: footer,
-              header: header,
-              items: _items?.build());
+              feedbackInfo: _feedbackInfo?.build(),
+              footer: _footer?.build(),
+              header: _header?.build(),
+              items: _items?.build(),
+              metadata: _metadata?.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'clientEventInfo';
+        clientEventInfo.build();
+
+        _$failedField = 'feedbackInfo';
+        _feedbackInfo?.build();
+        _$failedField = 'footer';
+        _footer?.build();
+        _$failedField = 'header';
+        _header?.build();
         _$failedField = 'items';
         _items?.build();
+        _$failedField = 'metadata';
+        _metadata?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TimelineTimelineModule', _$failedField, e.toString());

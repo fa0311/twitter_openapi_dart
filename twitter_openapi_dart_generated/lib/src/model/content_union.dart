@@ -3,9 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_item.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_cursor.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_timeline_module.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -25,8 +24,11 @@ part 'content_union.g.dart';
 /// * [footer]
 /// * [header]
 /// * [items]
+/// * [metadata]
 /// * [cursorType]
+/// * [displayTreatment]
 /// * [itemType]
+/// * [stopOnEmptyResponse]
 /// * [value]
 @BuiltValue()
 abstract class ContentUnion
@@ -160,32 +162,4 @@ class _$ContentUnionSerializer implements PrimitiveSerializer<ContentUnion> {
         value: oneOfResult);
     return result.build();
   }
-}
-
-class ContentUnionCursorTypeEnum extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Top')
-  static const ContentUnionCursorTypeEnum top =
-      _$contentUnionCursorTypeEnum_top;
-  @BuiltValueEnumConst(wireName: r'Bottom')
-  static const ContentUnionCursorTypeEnum bottom =
-      _$contentUnionCursorTypeEnum_bottom;
-  @BuiltValueEnumConst(wireName: r'ShowMore')
-  static const ContentUnionCursorTypeEnum showMore =
-      _$contentUnionCursorTypeEnum_showMore;
-  @BuiltValueEnumConst(wireName: r'ShowMoreThreads')
-  static const ContentUnionCursorTypeEnum showMoreThreads =
-      _$contentUnionCursorTypeEnum_showMoreThreads;
-  @BuiltValueEnumConst(wireName: r'Gap')
-  static const ContentUnionCursorTypeEnum gap =
-      _$contentUnionCursorTypeEnum_gap;
-
-  static Serializer<ContentUnionCursorTypeEnum> get serializer =>
-      _$contentUnionCursorTypeEnumSerializer;
-
-  const ContentUnionCursorTypeEnum._(String name) : super(name);
-
-  static BuiltSet<ContentUnionCursorTypeEnum> get values =>
-      _$contentUnionCursorTypeEnumValues;
-  static ContentUnionCursorTypeEnum valueOf(String name) =>
-      _$contentUnionCursorTypeEnumValueOf(name);
 }

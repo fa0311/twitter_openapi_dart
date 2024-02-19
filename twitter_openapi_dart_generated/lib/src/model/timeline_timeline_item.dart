@@ -5,6 +5,8 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/item_content_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/client_event_info.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_entry_type.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
@@ -25,17 +27,17 @@ abstract class TimelineTimelineItem
     implements Built<TimelineTimelineItem, TimelineTimelineItemBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
 
   @BuiltValueField(wireName: r'clientEventInfo')
-  JsonObject? get clientEventInfo;
+  ClientEventInfo? get clientEventInfo;
 
   @BuiltValueField(wireName: r'entryType')
   ContentEntryType get entryType;
   // enum entryTypeEnum {  TimelineTimelineItem,  TimelineTimelineCursor,  TimelineTimelineModule,  };
 
   @BuiltValueField(wireName: r'feedbackInfo')
-  JsonObject? get feedbackInfo;
+  BuiltMap<String, JsonObject?>? get feedbackInfo;
 
   @BuiltValueField(wireName: r'itemContent')
   ItemContentUnion get itemContent;
@@ -78,7 +80,7 @@ class _$TimelineTimelineItemSerializer
       yield r'clientEventInfo';
       yield serializers.serialize(
         object.clientEventInfo,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(ClientEventInfo),
       );
     }
     yield r'entryType';
@@ -90,7 +92,8 @@ class _$TimelineTimelineItemSerializer
       yield r'feedbackInfo';
       yield serializers.serialize(
         object.feedbackInfo,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     yield r'itemContent';
@@ -133,9 +136,9 @@ class _$TimelineTimelineItemSerializer
         case r'clientEventInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.clientEventInfo = valueDes;
+            specifiedType: const FullType(ClientEventInfo),
+          ) as ClientEventInfo;
+          result.clientEventInfo.replace(valueDes);
           break;
         case r'entryType':
           final valueDes = serializers.deserialize(
@@ -147,9 +150,10 @@ class _$TimelineTimelineItemSerializer
         case r'feedbackInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.feedbackInfo = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.feedbackInfo.replace(valueDes);
           break;
         case r'itemContent':
           final valueDes = serializers.deserialize(

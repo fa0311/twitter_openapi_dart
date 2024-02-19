@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/user_result_by_screen_name_legacy.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -26,7 +27,7 @@ abstract class UserResultByScreenNameResult
             UserResultByScreenNameResultBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
 
   @BuiltValueField(wireName: r'id')
   String get id;
@@ -35,7 +36,7 @@ abstract class UserResultByScreenNameResult
   UserResultByScreenNameLegacy get legacy;
 
   @BuiltValueField(wireName: r'profilemodules')
-  JsonObject get profilemodules;
+  BuiltMap<String, JsonObject?> get profilemodules;
 
   @BuiltValueField(wireName: r'rest_id')
   String get restId;
@@ -88,7 +89,8 @@ class _$UserResultByScreenNameResultSerializer
     yield r'profilemodules';
     yield serializers.serialize(
       object.profilemodules,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(
+          BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
     );
     yield r'rest_id';
     yield serializers.serialize(
@@ -144,9 +146,10 @@ class _$UserResultByScreenNameResultSerializer
         case r'profilemodules':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.profilemodules = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.profilemodules.replace(valueDes);
           break;
         case r'rest_id':
           final valueDes = serializers.deserialize(

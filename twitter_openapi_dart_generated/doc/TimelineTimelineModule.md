@@ -9,12 +9,14 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **typename** | [**TypeName**](TypeName.md) |  | 
-**clientEventInfo** | [**JsonObject**](.md) |  | 
-**displayType** | **String** |  | 
+**clientEventInfo** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | 
+**displayType** | [**DisplayType**](DisplayType.md) |  | 
 **entryType** | [**ContentEntryType**](ContentEntryType.md) |  | 
-**footer** | [**JsonObject**](.md) |  | [optional] 
-**header** | [**JsonObject**](.md) |  | [optional] 
+**feedbackInfo** | [**FeedbackInfo**](FeedbackInfo.md) |  | [optional] 
+**footer** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
+**header** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **items** | [**BuiltList&lt;ModuleItem&gt;**](ModuleItem.md) |  | [optional] 
+**metadata** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

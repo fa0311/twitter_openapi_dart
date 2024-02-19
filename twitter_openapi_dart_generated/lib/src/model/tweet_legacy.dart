@@ -3,11 +3,14 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_scopes.dart';
 import 'package:twitter_openapi_dart_generated/src/model/extended_entities.dart';
+import 'package:twitter_openapi_dart_generated/src/model/quoted_status_permalink.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet_legacy_self_thread.dart';
 import 'package:twitter_openapi_dart_generated/src/model/entities.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
+import 'package:twitter_openapi_dart_generated/src/model/self_thread.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,6 +21,7 @@ part 'tweet_legacy.g.dart';
 /// Properties:
 /// * [bookmarkCount]
 /// * [bookmarked]
+/// * [conversationControl]
 /// * [conversationIdStr]
 /// * [createdAt]
 /// * [displayTextRange]
@@ -27,15 +31,23 @@ part 'tweet_legacy.g.dart';
 /// * [favorited]
 /// * [fullText]
 /// * [idStr]
+/// * [inReplyToScreenName]
+/// * [inReplyToStatusIdStr]
+/// * [inReplyToUserIdStr]
 /// * [isQuoteStatus]
 /// * [lang]
+/// * [limitedActions]
+/// * [place]
 /// * [possiblySensitive]
 /// * [possiblySensitiveEditable]
 /// * [quoteCount]
+/// * [quotedStatusIdStr]
+/// * [quotedStatusPermalink]
 /// * [replyCount]
 /// * [retweetCount]
 /// * [retweeted]
 /// * [retweetedStatusResult]
+/// * [scopes]
 /// * [selfThread]
 /// * [userIdStr]
 @BuiltValue()
@@ -45,6 +57,9 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'bookmarked')
   bool get bookmarked;
+
+  @BuiltValueField(wireName: r'conversation_control')
+  BuiltMap<String, JsonObject?>? get conversationControl;
 
   @BuiltValueField(wireName: r'conversation_id_str')
   String get conversationIdStr;
@@ -73,11 +88,27 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   @BuiltValueField(wireName: r'id_str')
   String get idStr;
 
+  @BuiltValueField(wireName: r'in_reply_to_screen_name')
+  String? get inReplyToScreenName;
+
+  @BuiltValueField(wireName: r'in_reply_to_status_id_str')
+  String? get inReplyToStatusIdStr;
+
+  @BuiltValueField(wireName: r'in_reply_to_user_id_str')
+  String? get inReplyToUserIdStr;
+
   @BuiltValueField(wireName: r'is_quote_status')
   bool get isQuoteStatus;
 
   @BuiltValueField(wireName: r'lang')
   String get lang;
+
+  @BuiltValueField(wireName: r'limited_actions')
+  TweetLegacyLimitedActionsEnum? get limitedActions;
+  // enum limitedActionsEnum {  limited_replies,  non_compliant,  dynamic_product_ad,  stale_tweet,  community_tweet_non_member_public_community,  community_tweet_non_member_closed_community,  };
+
+  @BuiltValueField(wireName: r'place')
+  BuiltMap<String, JsonObject?>? get place;
 
   @BuiltValueField(wireName: r'possibly_sensitive')
   bool? get possiblySensitive;
@@ -87,6 +118,12 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
 
   @BuiltValueField(wireName: r'quote_count')
   int get quoteCount;
+
+  @BuiltValueField(wireName: r'quoted_status_id_str')
+  String? get quotedStatusIdStr;
+
+  @BuiltValueField(wireName: r'quoted_status_permalink')
+  QuotedStatusPermalink? get quotedStatusPermalink;
 
   @BuiltValueField(wireName: r'reply_count')
   int get replyCount;
@@ -100,8 +137,11 @@ abstract class TweetLegacy implements Built<TweetLegacy, TweetLegacyBuilder> {
   @BuiltValueField(wireName: r'retweeted_status_result')
   ItemResult? get retweetedStatusResult;
 
+  @BuiltValueField(wireName: r'scopes')
+  TweetLegacyScopes? get scopes;
+
   @BuiltValueField(wireName: r'self_thread')
-  TweetLegacySelfThread? get selfThread;
+  SelfThread? get selfThread;
 
   @BuiltValueField(wireName: r'user_id_str')
   String get userIdStr;
@@ -141,6 +181,14 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.bookmarked,
       specifiedType: const FullType(bool),
     );
+    if (object.conversationControl != null) {
+      yield r'conversation_control';
+      yield serializers.serialize(
+        object.conversationControl,
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+      );
+    }
     yield r'conversation_id_str';
     yield serializers.serialize(
       object.conversationIdStr,
@@ -188,6 +236,27 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.idStr,
       specifiedType: const FullType(String),
     );
+    if (object.inReplyToScreenName != null) {
+      yield r'in_reply_to_screen_name';
+      yield serializers.serialize(
+        object.inReplyToScreenName,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.inReplyToStatusIdStr != null) {
+      yield r'in_reply_to_status_id_str';
+      yield serializers.serialize(
+        object.inReplyToStatusIdStr,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.inReplyToUserIdStr != null) {
+      yield r'in_reply_to_user_id_str';
+      yield serializers.serialize(
+        object.inReplyToUserIdStr,
+        specifiedType: const FullType(String),
+      );
+    }
     yield r'is_quote_status';
     yield serializers.serialize(
       object.isQuoteStatus,
@@ -198,6 +267,21 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.lang,
       specifiedType: const FullType(String),
     );
+    if (object.limitedActions != null) {
+      yield r'limited_actions';
+      yield serializers.serialize(
+        object.limitedActions,
+        specifiedType: const FullType(TweetLegacyLimitedActionsEnum),
+      );
+    }
+    if (object.place != null) {
+      yield r'place';
+      yield serializers.serialize(
+        object.place,
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+      );
+    }
     if (object.possiblySensitive != null) {
       yield r'possibly_sensitive';
       yield serializers.serialize(
@@ -217,6 +301,20 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
       object.quoteCount,
       specifiedType: const FullType(int),
     );
+    if (object.quotedStatusIdStr != null) {
+      yield r'quoted_status_id_str';
+      yield serializers.serialize(
+        object.quotedStatusIdStr,
+        specifiedType: const FullType(String),
+      );
+    }
+    if (object.quotedStatusPermalink != null) {
+      yield r'quoted_status_permalink';
+      yield serializers.serialize(
+        object.quotedStatusPermalink,
+        specifiedType: const FullType(QuotedStatusPermalink),
+      );
+    }
     yield r'reply_count';
     yield serializers.serialize(
       object.replyCount,
@@ -239,11 +337,18 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
         specifiedType: const FullType(ItemResult),
       );
     }
+    if (object.scopes != null) {
+      yield r'scopes';
+      yield serializers.serialize(
+        object.scopes,
+        specifiedType: const FullType(TweetLegacyScopes),
+      );
+    }
     if (object.selfThread != null) {
       yield r'self_thread';
       yield serializers.serialize(
         object.selfThread,
-        specifiedType: const FullType(TweetLegacySelfThread),
+        specifiedType: const FullType(SelfThread),
       );
     }
     yield r'user_id_str';
@@ -289,6 +394,14 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.bookmarked = valueDes;
+          break;
+        case r'conversation_control':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.conversationControl.replace(valueDes);
           break;
         case r'conversation_id_str':
           final valueDes = serializers.deserialize(
@@ -353,6 +466,27 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
           ) as String;
           result.idStr = valueDes;
           break;
+        case r'in_reply_to_screen_name':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.inReplyToScreenName = valueDes;
+          break;
+        case r'in_reply_to_status_id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.inReplyToStatusIdStr = valueDes;
+          break;
+        case r'in_reply_to_user_id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.inReplyToUserIdStr = valueDes;
+          break;
         case r'is_quote_status':
           final valueDes = serializers.deserialize(
             value,
@@ -366,6 +500,21 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(String),
           ) as String;
           result.lang = valueDes;
+          break;
+        case r'limited_actions':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetLegacyLimitedActionsEnum),
+          ) as TweetLegacyLimitedActionsEnum;
+          result.limitedActions = valueDes;
+          break;
+        case r'place':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.place.replace(valueDes);
           break;
         case r'possibly_sensitive':
           final valueDes = serializers.deserialize(
@@ -387,6 +536,20 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
             specifiedType: const FullType(int),
           ) as int;
           result.quoteCount = valueDes;
+          break;
+        case r'quoted_status_id_str':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.quotedStatusIdStr = valueDes;
+          break;
+        case r'quoted_status_permalink':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(QuotedStatusPermalink),
+          ) as QuotedStatusPermalink;
+          result.quotedStatusPermalink.replace(valueDes);
           break;
         case r'reply_count':
           final valueDes = serializers.deserialize(
@@ -416,11 +579,18 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
           ) as ItemResult;
           result.retweetedStatusResult.replace(valueDes);
           break;
+        case r'scopes':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetLegacyScopes),
+          ) as TweetLegacyScopes;
+          result.scopes.replace(valueDes);
+          break;
         case r'self_thread':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(TweetLegacySelfThread),
-          ) as TweetLegacySelfThread;
+            specifiedType: const FullType(SelfThread),
+          ) as SelfThread;
           result.selfThread.replace(valueDes);
           break;
         case r'user_id_str':
@@ -457,4 +627,37 @@ class _$TweetLegacySerializer implements PrimitiveSerializer<TweetLegacy> {
     );
     return result.build();
   }
+}
+
+class TweetLegacyLimitedActionsEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'limited_replies')
+  static const TweetLegacyLimitedActionsEnum limitedReplies =
+      _$tweetLegacyLimitedActionsEnum_limitedReplies;
+  @BuiltValueEnumConst(wireName: r'non_compliant')
+  static const TweetLegacyLimitedActionsEnum nonCompliant =
+      _$tweetLegacyLimitedActionsEnum_nonCompliant;
+  @BuiltValueEnumConst(wireName: r'dynamic_product_ad')
+  static const TweetLegacyLimitedActionsEnum dynamicProductAd =
+      _$tweetLegacyLimitedActionsEnum_dynamicProductAd;
+  @BuiltValueEnumConst(wireName: r'stale_tweet')
+  static const TweetLegacyLimitedActionsEnum staleTweet =
+      _$tweetLegacyLimitedActionsEnum_staleTweet;
+  @BuiltValueEnumConst(wireName: r'community_tweet_non_member_public_community')
+  static const TweetLegacyLimitedActionsEnum
+      communityTweetNonMemberPublicCommunity =
+      _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberPublicCommunity;
+  @BuiltValueEnumConst(wireName: r'community_tweet_non_member_closed_community')
+  static const TweetLegacyLimitedActionsEnum
+      communityTweetNonMemberClosedCommunity =
+      _$tweetLegacyLimitedActionsEnum_communityTweetNonMemberClosedCommunity;
+
+  static Serializer<TweetLegacyLimitedActionsEnum> get serializer =>
+      _$tweetLegacyLimitedActionsEnumSerializer;
+
+  const TweetLegacyLimitedActionsEnum._(String name) : super(name);
+
+  static BuiltSet<TweetLegacyLimitedActionsEnum> get values =>
+      _$tweetLegacyLimitedActionsEnumValues;
+  static TweetLegacyLimitedActionsEnum valueOf(String name) =>
+      _$tweetLegacyLimitedActionsEnumValueOf(name);
 }

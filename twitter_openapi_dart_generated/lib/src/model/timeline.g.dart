@@ -10,9 +10,9 @@ class _$Timeline extends Timeline {
   @override
   final BuiltList<InstructionUnion> instructions;
   @override
-  final JsonObject? metadata;
+  final BuiltMap<String, JsonObject?>? metadata;
   @override
-  final JsonObject? responseObjects;
+  final BuiltMap<String, JsonObject?>? responseObjects;
 
   factory _$Timeline([void Function(TimelineBuilder)? updates]) =>
       (new TimelineBuilder()..update(updates))._build();
@@ -69,13 +69,16 @@ class TimelineBuilder implements Builder<Timeline, TimelineBuilder> {
   set instructions(ListBuilder<InstructionUnion>? instructions) =>
       _$this._instructions = instructions;
 
-  JsonObject? _metadata;
-  JsonObject? get metadata => _$this._metadata;
-  set metadata(JsonObject? metadata) => _$this._metadata = metadata;
+  MapBuilder<String, JsonObject?>? _metadata;
+  MapBuilder<String, JsonObject?> get metadata =>
+      _$this._metadata ??= new MapBuilder<String, JsonObject?>();
+  set metadata(MapBuilder<String, JsonObject?>? metadata) =>
+      _$this._metadata = metadata;
 
-  JsonObject? _responseObjects;
-  JsonObject? get responseObjects => _$this._responseObjects;
-  set responseObjects(JsonObject? responseObjects) =>
+  MapBuilder<String, JsonObject?>? _responseObjects;
+  MapBuilder<String, JsonObject?> get responseObjects =>
+      _$this._responseObjects ??= new MapBuilder<String, JsonObject?>();
+  set responseObjects(MapBuilder<String, JsonObject?>? responseObjects) =>
       _$this._responseObjects = responseObjects;
 
   TimelineBuilder() {
@@ -86,8 +89,8 @@ class TimelineBuilder implements Builder<Timeline, TimelineBuilder> {
     final $v = _$v;
     if ($v != null) {
       _instructions = $v.instructions.toBuilder();
-      _metadata = $v.metadata;
-      _responseObjects = $v.responseObjects;
+      _metadata = $v.metadata?.toBuilder();
+      _responseObjects = $v.responseObjects?.toBuilder();
       _$v = null;
     }
     return this;
@@ -113,13 +116,17 @@ class TimelineBuilder implements Builder<Timeline, TimelineBuilder> {
       _$result = _$v ??
           new _$Timeline._(
               instructions: instructions.build(),
-              metadata: metadata,
-              responseObjects: responseObjects);
+              metadata: _metadata?.build(),
+              responseObjects: _responseObjects?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'instructions';
         instructions.build();
+        _$failedField = 'metadata';
+        _metadata?.build();
+        _$failedField = 'responseObjects';
+        _responseObjects?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'Timeline', _$failedField, e.toString());

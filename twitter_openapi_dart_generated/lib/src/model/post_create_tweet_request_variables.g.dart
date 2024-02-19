@@ -13,6 +13,8 @@ class _$PostCreateTweetRequestVariables
   @override
   final PostCreateTweetRequestVariablesMedia media;
   @override
+  final PostCreateTweetRequestVariablesReply? reply;
+  @override
   final BuiltList<JsonObject> semanticAnnotationIds;
   @override
   final String tweetText;
@@ -24,6 +26,7 @@ class _$PostCreateTweetRequestVariables
   _$PostCreateTweetRequestVariables._(
       {required this.darkRequest,
       required this.media,
+      this.reply,
       required this.semanticAnnotationIds,
       required this.tweetText})
       : super._() {
@@ -52,6 +55,7 @@ class _$PostCreateTweetRequestVariables
     return other is PostCreateTweetRequestVariables &&
         darkRequest == other.darkRequest &&
         media == other.media &&
+        reply == other.reply &&
         semanticAnnotationIds == other.semanticAnnotationIds &&
         tweetText == other.tweetText;
   }
@@ -61,6 +65,7 @@ class _$PostCreateTweetRequestVariables
     var _$hash = 0;
     _$hash = $jc(_$hash, darkRequest.hashCode);
     _$hash = $jc(_$hash, media.hashCode);
+    _$hash = $jc(_$hash, reply.hashCode);
     _$hash = $jc(_$hash, semanticAnnotationIds.hashCode);
     _$hash = $jc(_$hash, tweetText.hashCode);
     _$hash = $jf(_$hash);
@@ -72,6 +77,7 @@ class _$PostCreateTweetRequestVariables
     return (newBuiltValueToStringHelper(r'PostCreateTweetRequestVariables')
           ..add('darkRequest', darkRequest)
           ..add('media', media)
+          ..add('reply', reply)
           ..add('semanticAnnotationIds', semanticAnnotationIds)
           ..add('tweetText', tweetText))
         .toString();
@@ -94,6 +100,12 @@ class PostCreateTweetRequestVariablesBuilder
   set media(PostCreateTweetRequestVariablesMediaBuilder? media) =>
       _$this._media = media;
 
+  PostCreateTweetRequestVariablesReplyBuilder? _reply;
+  PostCreateTweetRequestVariablesReplyBuilder get reply =>
+      _$this._reply ??= new PostCreateTweetRequestVariablesReplyBuilder();
+  set reply(PostCreateTweetRequestVariablesReplyBuilder? reply) =>
+      _$this._reply = reply;
+
   ListBuilder<JsonObject>? _semanticAnnotationIds;
   ListBuilder<JsonObject> get semanticAnnotationIds =>
       _$this._semanticAnnotationIds ??= new ListBuilder<JsonObject>();
@@ -113,6 +125,7 @@ class PostCreateTweetRequestVariablesBuilder
     if ($v != null) {
       _darkRequest = $v.darkRequest;
       _media = $v.media.toBuilder();
+      _reply = $v.reply?.toBuilder();
       _semanticAnnotationIds = $v.semanticAnnotationIds.toBuilder();
       _tweetText = $v.tweetText;
       _$v = null;
@@ -142,6 +155,7 @@ class PostCreateTweetRequestVariablesBuilder
               darkRequest: BuiltValueNullFieldError.checkNotNull(darkRequest,
                   r'PostCreateTweetRequestVariables', 'darkRequest'),
               media: media.build(),
+              reply: _reply?.build(),
               semanticAnnotationIds: semanticAnnotationIds.build(),
               tweetText: BuiltValueNullFieldError.checkNotNull(
                   tweetText, r'PostCreateTweetRequestVariables', 'tweetText'));
@@ -150,6 +164,8 @@ class PostCreateTweetRequestVariablesBuilder
       try {
         _$failedField = 'media';
         media.build();
+        _$failedField = 'reply';
+        _reply?.build();
         _$failedField = 'semanticAnnotationIds';
         semanticAnnotationIds.build();
       } catch (e) {

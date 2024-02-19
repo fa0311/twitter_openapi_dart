@@ -1,9 +1,9 @@
-inputSpec: twitter-openapi/dist/compatible/openapi-3.0.yaml
+inputSpec: twitter-openapi/dist/compatible_discriminator/openapi-3.0.yaml
 outputDir: .
 
 pubName: twitter_openapi_dart_generated
 pubDescription: Twitter OpenAPI Dart
-pubVersion: 0.0.9
+pubVersion: 0.0.13
 pubAuthor: fa0311
 
 pubHomepage: https://github.com/fa0311/twitter_openapi_dart

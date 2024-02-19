@@ -11,32 +11,33 @@ part 'post_create_tweet_request_features.g.dart';
 /// PostCreateTweetRequestFeatures
 ///
 /// Properties:
-/// * [blueBusinessProfileImageShapeEnabled]
+/// * [c9sTweetAnatomyModeratorBadgeEnabled]
 /// * [freedomOfSpeechNotReachFetchEnabled]
 /// * [graphqlIsTranslatableRwebTweetIsTranslatableEnabled]
-/// * [interactiveTextEnabled]
 /// * [longformNotetweetsConsumptionEnabled]
+/// * [longformNotetweetsInlineMediaEnabled]
 /// * [longformNotetweetsRichTextReadEnabled]
 /// * [responsiveWebEditTweetApiEnabled]
 /// * [responsiveWebEnhanceCardsEnabled]
 /// * [responsiveWebGraphqlExcludeDirectiveEnabled]
 /// * [responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled]
 /// * [responsiveWebGraphqlTimelineNavigationEnabled]
-/// * [responsiveWebTextConversationsEnabled]
+/// * [responsiveWebMediaDownloadVideoEnabled]
+/// * [responsiveWebTwitterArticleTweetConsumptionEnabled]
+/// * [rwebVideoTimestampsEnabled]
 /// * [standardizedNudgesMisinfo]
 /// * [tweetAwardsWebTippingEnabled]
 /// * [tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled]
 /// * [tweetypieUnmentionOptimizationEnabled]
 /// * [verifiedPhoneLabelEnabled]
-/// * [vibeApiEnabled]
 /// * [viewCountsEverywhereApiEnabled]
 @BuiltValue()
 abstract class PostCreateTweetRequestFeatures
     implements
         Built<PostCreateTweetRequestFeatures,
             PostCreateTweetRequestFeaturesBuilder> {
-  @BuiltValueField(wireName: r'blue_business_profile_image_shape_enabled')
-  bool get blueBusinessProfileImageShapeEnabled;
+  @BuiltValueField(wireName: r'c9s_tweet_anatomy_moderator_badge_enabled')
+  bool get c9sTweetAnatomyModeratorBadgeEnabled;
 
   @BuiltValueField(wireName: r'freedom_of_speech_not_reach_fetch_enabled')
   bool get freedomOfSpeechNotReachFetchEnabled;
@@ -45,11 +46,11 @@ abstract class PostCreateTweetRequestFeatures
       wireName: r'graphql_is_translatable_rweb_tweet_is_translatable_enabled')
   bool get graphqlIsTranslatableRwebTweetIsTranslatableEnabled;
 
-  @BuiltValueField(wireName: r'interactive_text_enabled')
-  bool get interactiveTextEnabled;
-
   @BuiltValueField(wireName: r'longform_notetweets_consumption_enabled')
   bool get longformNotetweetsConsumptionEnabled;
+
+  @BuiltValueField(wireName: r'longform_notetweets_inline_media_enabled')
+  bool get longformNotetweetsInlineMediaEnabled;
 
   @BuiltValueField(wireName: r'longform_notetweets_rich_text_read_enabled')
   bool get longformNotetweetsRichTextReadEnabled;
@@ -73,8 +74,15 @@ abstract class PostCreateTweetRequestFeatures
       wireName: r'responsive_web_graphql_timeline_navigation_enabled')
   bool get responsiveWebGraphqlTimelineNavigationEnabled;
 
-  @BuiltValueField(wireName: r'responsive_web_text_conversations_enabled')
-  bool get responsiveWebTextConversationsEnabled;
+  @BuiltValueField(wireName: r'responsive_web_media_download_video_enabled')
+  bool get responsiveWebMediaDownloadVideoEnabled;
+
+  @BuiltValueField(
+      wireName: r'responsive_web_twitter_article_tweet_consumption_enabled')
+  bool get responsiveWebTwitterArticleTweetConsumptionEnabled;
+
+  @BuiltValueField(wireName: r'rweb_video_timestamps_enabled')
+  bool get rwebVideoTimestampsEnabled;
 
   @BuiltValueField(wireName: r'standardized_nudges_misinfo')
   bool get standardizedNudgesMisinfo;
@@ -93,9 +101,6 @@ abstract class PostCreateTweetRequestFeatures
   @BuiltValueField(wireName: r'verified_phone_label_enabled')
   bool get verifiedPhoneLabelEnabled;
 
-  @BuiltValueField(wireName: r'vibe_api_enabled')
-  bool get vibeApiEnabled;
-
   @BuiltValueField(wireName: r'view_counts_everywhere_api_enabled')
   bool get viewCountsEverywhereApiEnabled;
 
@@ -107,24 +112,25 @@ abstract class PostCreateTweetRequestFeatures
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PostCreateTweetRequestFeaturesBuilder b) => b
-    ..blueBusinessProfileImageShapeEnabled = true
+    ..c9sTweetAnatomyModeratorBadgeEnabled = true
     ..freedomOfSpeechNotReachFetchEnabled = true
     ..graphqlIsTranslatableRwebTweetIsTranslatableEnabled = true
-    ..interactiveTextEnabled = true
     ..longformNotetweetsConsumptionEnabled = true
+    ..longformNotetweetsInlineMediaEnabled = true
     ..longformNotetweetsRichTextReadEnabled = true
     ..responsiveWebEditTweetApiEnabled = true
     ..responsiveWebEnhanceCardsEnabled = false
     ..responsiveWebGraphqlExcludeDirectiveEnabled = true
     ..responsiveWebGraphqlSkipUserProfileImageExtensionsEnabled = false
     ..responsiveWebGraphqlTimelineNavigationEnabled = true
-    ..responsiveWebTextConversationsEnabled = false
+    ..responsiveWebMediaDownloadVideoEnabled = false
+    ..responsiveWebTwitterArticleTweetConsumptionEnabled = true
+    ..rwebVideoTimestampsEnabled = true
     ..standardizedNudgesMisinfo = true
     ..tweetAwardsWebTippingEnabled = false
-    ..tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = false
+    ..tweetWithVisibilityResultsPreferGqlLimitedActionsPolicyEnabled = true
     ..tweetypieUnmentionOptimizationEnabled = true
     ..verifiedPhoneLabelEnabled = false
-    ..vibeApiEnabled = true
     ..viewCountsEverywhereApiEnabled = true;
 
   @BuiltValueSerializer(custom: true)
@@ -148,9 +154,9 @@ class _$PostCreateTweetRequestFeaturesSerializer
     PostCreateTweetRequestFeatures object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'blue_business_profile_image_shape_enabled';
+    yield r'c9s_tweet_anatomy_moderator_badge_enabled';
     yield serializers.serialize(
-      object.blueBusinessProfileImageShapeEnabled,
+      object.c9sTweetAnatomyModeratorBadgeEnabled,
       specifiedType: const FullType(bool),
     );
     yield r'freedom_of_speech_not_reach_fetch_enabled';
@@ -163,14 +169,14 @@ class _$PostCreateTweetRequestFeaturesSerializer
       object.graphqlIsTranslatableRwebTweetIsTranslatableEnabled,
       specifiedType: const FullType(bool),
     );
-    yield r'interactive_text_enabled';
-    yield serializers.serialize(
-      object.interactiveTextEnabled,
-      specifiedType: const FullType(bool),
-    );
     yield r'longform_notetweets_consumption_enabled';
     yield serializers.serialize(
       object.longformNotetweetsConsumptionEnabled,
+      specifiedType: const FullType(bool),
+    );
+    yield r'longform_notetweets_inline_media_enabled';
+    yield serializers.serialize(
+      object.longformNotetweetsInlineMediaEnabled,
       specifiedType: const FullType(bool),
     );
     yield r'longform_notetweets_rich_text_read_enabled';
@@ -203,9 +209,19 @@ class _$PostCreateTweetRequestFeaturesSerializer
       object.responsiveWebGraphqlTimelineNavigationEnabled,
       specifiedType: const FullType(bool),
     );
-    yield r'responsive_web_text_conversations_enabled';
+    yield r'responsive_web_media_download_video_enabled';
     yield serializers.serialize(
-      object.responsiveWebTextConversationsEnabled,
+      object.responsiveWebMediaDownloadVideoEnabled,
+      specifiedType: const FullType(bool),
+    );
+    yield r'responsive_web_twitter_article_tweet_consumption_enabled';
+    yield serializers.serialize(
+      object.responsiveWebTwitterArticleTweetConsumptionEnabled,
+      specifiedType: const FullType(bool),
+    );
+    yield r'rweb_video_timestamps_enabled';
+    yield serializers.serialize(
+      object.rwebVideoTimestampsEnabled,
       specifiedType: const FullType(bool),
     );
     yield r'standardized_nudges_misinfo';
@@ -231,11 +247,6 @@ class _$PostCreateTweetRequestFeaturesSerializer
     yield r'verified_phone_label_enabled';
     yield serializers.serialize(
       object.verifiedPhoneLabelEnabled,
-      specifiedType: const FullType(bool),
-    );
-    yield r'vibe_api_enabled';
-    yield serializers.serialize(
-      object.vibeApiEnabled,
       specifiedType: const FullType(bool),
     );
     yield r'view_counts_everywhere_api_enabled';
@@ -268,12 +279,12 @@ class _$PostCreateTweetRequestFeaturesSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'blue_business_profile_image_shape_enabled':
+        case r'c9s_tweet_anatomy_moderator_badge_enabled':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
-          result.blueBusinessProfileImageShapeEnabled = valueDes;
+          result.c9sTweetAnatomyModeratorBadgeEnabled = valueDes;
           break;
         case r'freedom_of_speech_not_reach_fetch_enabled':
           final valueDes = serializers.deserialize(
@@ -289,19 +300,19 @@ class _$PostCreateTweetRequestFeaturesSerializer
           ) as bool;
           result.graphqlIsTranslatableRwebTweetIsTranslatableEnabled = valueDes;
           break;
-        case r'interactive_text_enabled':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.interactiveTextEnabled = valueDes;
-          break;
         case r'longform_notetweets_consumption_enabled':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
           result.longformNotetweetsConsumptionEnabled = valueDes;
+          break;
+        case r'longform_notetweets_inline_media_enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.longformNotetweetsInlineMediaEnabled = valueDes;
           break;
         case r'longform_notetweets_rich_text_read_enabled':
           final valueDes = serializers.deserialize(
@@ -346,12 +357,26 @@ class _$PostCreateTweetRequestFeaturesSerializer
           ) as bool;
           result.responsiveWebGraphqlTimelineNavigationEnabled = valueDes;
           break;
-        case r'responsive_web_text_conversations_enabled':
+        case r'responsive_web_media_download_video_enabled':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
-          result.responsiveWebTextConversationsEnabled = valueDes;
+          result.responsiveWebMediaDownloadVideoEnabled = valueDes;
+          break;
+        case r'responsive_web_twitter_article_tweet_consumption_enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.responsiveWebTwitterArticleTweetConsumptionEnabled = valueDes;
+          break;
+        case r'rweb_video_timestamps_enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.rwebVideoTimestampsEnabled = valueDes;
           break;
         case r'standardized_nudges_misinfo':
           final valueDes = serializers.deserialize(
@@ -388,13 +413,6 @@ class _$PostCreateTweetRequestFeaturesSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.verifiedPhoneLabelEnabled = valueDes;
-          break;
-        case r'vibe_api_enabled':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.vibeApiEnabled = valueDes;
           break;
         case r'view_counts_everywhere_api_enabled':
           final valueDes = serializers.deserialize(

@@ -1,8 +1,11 @@
 import 'dart:convert';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart/src/api_util.dart';
 import 'package:twitter_openapi_dart/src/util/type.dart';
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
+
+typedef ResponseType = TwitterApiUtilsResponse<TimelineApiUtilsResponse<UserApiUtilsData>>;
 
 class UserListApiUtils {
   final UserListApi api;
@@ -10,10 +13,10 @@ class UserListApiUtils {
 
   const UserListApiUtils(this.api, this.flag);
 
-  Future<UserListApiUtilsResponse> request<T>({
-    required ApiFunction<T> apiFn,
-    required ConvertTnstructionsFunction<T> convertFn,
+  Future<ResponseType> request<T1>({
     required String key,
+    required ApiFunction<T1> apiFn,
+    required BuiltList<InstructionUnion> Function(T1) convertFn,
     required Map<String, dynamic> param,
   }) async {
     assert(flag[key] != null);
@@ -22,25 +25,23 @@ class UserListApiUtils {
       variables: jsonEncode(flag[key]!["variables"]..addAll(param)),
       features: jsonEncode(flag[key]!["features"]),
     );
-    final instruction = convertFn(response.data as T);
+
+    final instruction = convertFn(response.data as T1);
     final entry = instructionToEntry(instruction);
     final userList = userEntriesConverter(entry);
-    final data = userList.map((user) => buildUserResponse(user)).toList();
-
+    final user = userResultConverter(userList);
     final raw = ApiUtilsRaw(
       (e) => e
-        ..response = response
         ..instruction = instruction.toBuilder()
         ..entry = entry.toBuilder(),
     );
-
-    return UserListApiUtilsResponse(
+    final data = TimelineApiUtilsResponse<UserApiUtilsData>(
       (e) => e
         ..raw = raw.toBuilder()
-        ..header = buildHeader(response.headers).toBuilder()
-        ..data = data
-        ..cursor = entriesCursor(entry).toBuilder(),
+        ..cursor = entriesCursor(entry).toBuilder()
+        ..data = user.toBuiltList().toBuilder(),
     );
+    return buildResponse(response: response, data: data);
   }
 
   /// getFollowers
@@ -53,9 +54,9 @@ class UserListApiUtils {
   /// * [count] The number of users to get.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserListApiUtilsResponse> getFollowers({
+  Future<ResponseType> getFollowers({
     required String userId,
     String? cursor,
     int? count,
@@ -86,9 +87,9 @@ class UserListApiUtils {
   /// * [count] The number of users to get.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserListApiUtilsResponse> getFollowing({
+  Future<ResponseType> getFollowing({
     required String userId,
     String? cursor,
     int? count,
@@ -119,9 +120,9 @@ class UserListApiUtils {
   /// * [count] The number of users to get.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserListApiUtilsResponse> getFollowersYouKnow({
+  Future<ResponseType> getFollowersYouKnow({
     required String userId,
     String? cursor,
     int? count,
@@ -152,9 +153,9 @@ class UserListApiUtils {
   /// * [count] The number of users to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserListApiUtilsResponse> getFavoriters({
+  Future<ResponseType> getFavoriters({
     required String tweetId,
     String? cursor,
     int? count,
@@ -167,7 +168,7 @@ class UserListApiUtils {
       ...?extraParam,
     };
     final response = await request(
-      apiFn: api.getTweetFavoriters,
+      apiFn: api.getFavoriters,
       convertFn: (e) => e.data.favoritersTimeline.timeline.instructions,
       key: 'Favoriters',
       param: param,
@@ -185,21 +186,22 @@ class UserListApiUtils {
   /// * [count] The number of users to return per page.
   /// * [extraParam] Extra parameters.
   ///
-  /// Returns a [Future] containing a [UserListApiUtilsResponse] as data.
+  /// Returns a [Future] containing a [UserApiUtilsData] as data.
 
-  Future<UserListApiUtilsResponse> getRetweeters({
+  Future<ResponseType> getRetweeters({
     required String tweetId,
     String? cursor,
     int? count,
     Map<String, dynamic>? extraParam,
   }) async {
     final param = {
+      "tweetId": tweetId,
       if (count != null) "count": count,
       if (cursor != null) "cursor": cursor,
       ...?extraParam,
     };
     final response = await request(
-      apiFn: api.getTweetRetweeters,
+      apiFn: api.getRetweeters,
       convertFn: (e) => e.data.retweetersTimeline.timeline.instructions,
       key: 'Retweeters',
       param: param,

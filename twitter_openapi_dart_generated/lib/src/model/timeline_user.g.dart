@@ -6,15 +6,82 @@ part of 'timeline_user.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$TimelineUser extends TimelineUser {
+const TimelineUserUserDisplayTypeEnum _$timelineUserUserDisplayTypeEnum_user =
+    const TimelineUserUserDisplayTypeEnum._('user');
+const TimelineUserUserDisplayTypeEnum
+    _$timelineUserUserDisplayTypeEnum_userDetailed =
+    const TimelineUserUserDisplayTypeEnum._('userDetailed');
+const TimelineUserUserDisplayTypeEnum
+    _$timelineUserUserDisplayTypeEnum_subscribableUser =
+    const TimelineUserUserDisplayTypeEnum._('subscribableUser');
+
+TimelineUserUserDisplayTypeEnum _$timelineUserUserDisplayTypeEnumValueOf(
+    String name) {
+  switch (name) {
+    case 'user':
+      return _$timelineUserUserDisplayTypeEnum_user;
+    case 'userDetailed':
+      return _$timelineUserUserDisplayTypeEnum_userDetailed;
+    case 'subscribableUser':
+      return _$timelineUserUserDisplayTypeEnum_subscribableUser;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<TimelineUserUserDisplayTypeEnum>
+    _$timelineUserUserDisplayTypeEnumValues = new BuiltSet<
+        TimelineUserUserDisplayTypeEnum>(const <TimelineUserUserDisplayTypeEnum>[
+  _$timelineUserUserDisplayTypeEnum_user,
+  _$timelineUserUserDisplayTypeEnum_userDetailed,
+  _$timelineUserUserDisplayTypeEnum_subscribableUser,
+]);
+
+Serializer<TimelineUserUserDisplayTypeEnum>
+    _$timelineUserUserDisplayTypeEnumSerializer =
+    new _$TimelineUserUserDisplayTypeEnumSerializer();
+
+class _$TimelineUserUserDisplayTypeEnumSerializer
+    implements PrimitiveSerializer<TimelineUserUserDisplayTypeEnum> {
+  static const Map<String, Object> _toWire = const <String, Object>{
+    'user': 'User',
+    'userDetailed': 'UserDetailed',
+    'subscribableUser': 'SubscribableUser',
+  };
+  static const Map<Object, String> _fromWire = const <Object, String>{
+    'User': 'user',
+    'UserDetailed': 'userDetailed',
+    'SubscribableUser': 'subscribableUser',
+  };
+
   @override
-  final SocialContext? socialContext;
+  final Iterable<Type> types = const <Type>[TimelineUserUserDisplayTypeEnum];
+  @override
+  final String wireName = 'TimelineUserUserDisplayTypeEnum';
+
+  @override
+  Object serialize(
+          Serializers serializers, TimelineUserUserDisplayTypeEnum object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      _toWire[object.name] ?? object.name;
+
+  @override
+  TimelineUserUserDisplayTypeEnum deserialize(
+          Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      TimelineUserUserDisplayTypeEnum.valueOf(
+          _fromWire[serialized] ?? (serialized is String ? serialized : ''));
+}
+
+class _$TimelineUser extends TimelineUser {
   @override
   final TypeName typename;
   @override
   final ContentItemType itemType;
   @override
-  final String userDisplayType;
+  final SocialContextUnion? socialContext;
+  @override
+  final TimelineUserUserDisplayTypeEnum userDisplayType;
   @override
   final UserResults userResults;
 
@@ -22,9 +89,9 @@ class _$TimelineUser extends TimelineUser {
       (new TimelineUserBuilder()..update(updates))._build();
 
   _$TimelineUser._(
-      {this.socialContext,
-      required this.typename,
+      {required this.typename,
       required this.itemType,
+      this.socialContext,
       required this.userDisplayType,
       required this.userResults})
       : super._() {
@@ -49,9 +116,9 @@ class _$TimelineUser extends TimelineUser {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TimelineUser &&
-        socialContext == other.socialContext &&
         typename == other.typename &&
         itemType == other.itemType &&
+        socialContext == other.socialContext &&
         userDisplayType == other.userDisplayType &&
         userResults == other.userResults;
   }
@@ -59,9 +126,9 @@ class _$TimelineUser extends TimelineUser {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, typename.hashCode);
     _$hash = $jc(_$hash, itemType.hashCode);
+    _$hash = $jc(_$hash, socialContext.hashCode);
     _$hash = $jc(_$hash, userDisplayType.hashCode);
     _$hash = $jc(_$hash, userResults.hashCode);
     _$hash = $jf(_$hash);
@@ -71,9 +138,9 @@ class _$TimelineUser extends TimelineUser {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'TimelineUser')
-          ..add('socialContext', socialContext)
           ..add('typename', typename)
           ..add('itemType', itemType)
+          ..add('socialContext', socialContext)
           ..add('userDisplayType', userDisplayType)
           ..add('userResults', userResults))
         .toString();
@@ -84,12 +151,6 @@ class TimelineUserBuilder
     implements Builder<TimelineUser, TimelineUserBuilder> {
   _$TimelineUser? _$v;
 
-  SocialContextBuilder? _socialContext;
-  SocialContextBuilder get socialContext =>
-      _$this._socialContext ??= new SocialContextBuilder();
-  set socialContext(SocialContextBuilder? socialContext) =>
-      _$this._socialContext = socialContext;
-
   TypeName? _typename;
   TypeName? get typename => _$this._typename;
   set typename(TypeName? typename) => _$this._typename = typename;
@@ -98,9 +159,16 @@ class TimelineUserBuilder
   ContentItemType? get itemType => _$this._itemType;
   set itemType(ContentItemType? itemType) => _$this._itemType = itemType;
 
-  String? _userDisplayType;
-  String? get userDisplayType => _$this._userDisplayType;
-  set userDisplayType(String? userDisplayType) =>
+  SocialContextUnionBuilder? _socialContext;
+  SocialContextUnionBuilder get socialContext =>
+      _$this._socialContext ??= new SocialContextUnionBuilder();
+  set socialContext(SocialContextUnionBuilder? socialContext) =>
+      _$this._socialContext = socialContext;
+
+  TimelineUserUserDisplayTypeEnum? _userDisplayType;
+  TimelineUserUserDisplayTypeEnum? get userDisplayType =>
+      _$this._userDisplayType;
+  set userDisplayType(TimelineUserUserDisplayTypeEnum? userDisplayType) =>
       _$this._userDisplayType = userDisplayType;
 
   UserResultsBuilder? _userResults;
@@ -116,9 +184,9 @@ class TimelineUserBuilder
   TimelineUserBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _socialContext = $v.socialContext?.toBuilder();
       _typename = $v.typename;
       _itemType = $v.itemType;
+      _socialContext = $v.socialContext?.toBuilder();
       _userDisplayType = $v.userDisplayType;
       _userResults = $v.userResults.toBuilder();
       _$v = null;
@@ -145,11 +213,11 @@ class TimelineUserBuilder
     try {
       _$result = _$v ??
           new _$TimelineUser._(
-              socialContext: _socialContext?.build(),
               typename: BuiltValueNullFieldError.checkNotNull(
                   typename, r'TimelineUser', 'typename'),
               itemType: BuiltValueNullFieldError.checkNotNull(
                   itemType, r'TimelineUser', 'itemType'),
+              socialContext: _socialContext?.build(),
               userDisplayType: BuiltValueNullFieldError.checkNotNull(
                   userDisplayType, r'TimelineUser', 'userDisplayType'),
               userResults: userResults.build());

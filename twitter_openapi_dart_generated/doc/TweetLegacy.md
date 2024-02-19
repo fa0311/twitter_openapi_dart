@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bookmarkCount** | **int** |  | 
 **bookmarked** | **bool** |  | 
+**conversationControl** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **conversationIdStr** | **String** |  | 
 **createdAt** | **String** |  | 
 **displayTextRange** | **BuiltList&lt;int&gt;** |  | 
@@ -19,16 +20,24 @@ Name | Type | Description | Notes
 **favorited** | **bool** |  | 
 **fullText** | **String** |  | 
 **idStr** | **String** |  | 
+**inReplyToScreenName** | **String** |  | [optional] 
+**inReplyToStatusIdStr** | **String** |  | [optional] 
+**inReplyToUserIdStr** | **String** |  | [optional] 
 **isQuoteStatus** | **bool** |  | 
 **lang** | **String** |  | 
+**limitedActions** | **String** |  | [optional] 
+**place** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **possiblySensitive** | **bool** |  | [optional] [default to false]
 **possiblySensitiveEditable** | **bool** |  | [optional] [default to false]
 **quoteCount** | **int** |  | 
+**quotedStatusIdStr** | **String** |  | [optional] 
+**quotedStatusPermalink** | [**QuotedStatusPermalink**](QuotedStatusPermalink.md) |  | [optional] 
 **replyCount** | **int** |  | 
 **retweetCount** | **int** |  | 
 **retweeted** | **bool** |  | 
 **retweetedStatusResult** | [**ItemResult**](ItemResult.md) |  | [optional] 
-**selfThread** | [**TweetLegacySelfThread**](TweetLegacySelfThread.md) |  | [optional] 
+**scopes** | [**TweetLegacyScopes**](TweetLegacyScopes.md) |  | [optional] 
+**selfThread** | [**SelfThread**](SelfThread.md) |  | [optional] 
 **userIdStr** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

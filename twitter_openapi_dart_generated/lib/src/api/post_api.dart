@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
+import 'package:twitter_openapi_dart_generated/src/api_util.dart';
 import 'package:twitter_openapi_dart_generated/src/model/create_retweet_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/create_tweet_response.dart';
 import 'package:twitter_openapi_dart_generated/src/model/delete_retweet_response.dart';
@@ -41,7 +42,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CreateRetweetResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<CreateRetweetResponse>> postCreateRetweet({
     required String pathQueryId,
     required PostCreateRetweetRequest postCreateRetweetRequest,
@@ -52,8 +53,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/CreateRetweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/CreateRetweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -65,6 +68,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -87,6 +143,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -99,20 +167,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -128,12 +197,12 @@ class PostApi {
       _bodyData = _serializers.serialize(postCreateRetweetRequest,
           specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -159,10 +228,10 @@ class PostApi {
               specifiedType: const FullType(CreateRetweetResponse),
             ) as CreateRetweetResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -194,7 +263,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CreateTweetResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<CreateTweetResponse>> postCreateTweet({
     required String pathQueryId,
     required PostCreateTweetRequest postCreateTweetRequest,
@@ -205,8 +274,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/CreateTweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/CreateTweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -218,6 +289,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -240,6 +364,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -252,20 +388,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -281,12 +418,12 @@ class PostApi {
       _bodyData =
           _serializers.serialize(postCreateTweetRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -312,10 +449,10 @@ class PostApi {
               specifiedType: const FullType(CreateTweetResponse),
             ) as CreateTweetResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -347,7 +484,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteRetweetResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<DeleteRetweetResponse>> postDeleteRetweet({
     required String pathQueryId,
     required PostDeleteRetweetRequest postDeleteRetweetRequest,
@@ -358,8 +495,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/DeleteRetweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/DeleteRetweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -371,6 +510,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -393,6 +585,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -405,20 +609,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -434,12 +639,12 @@ class PostApi {
       _bodyData = _serializers.serialize(postDeleteRetweetRequest,
           specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -465,10 +670,10 @@ class PostApi {
               specifiedType: const FullType(DeleteRetweetResponse),
             ) as DeleteRetweetResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -500,7 +705,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeleteTweetResponse] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<DeleteTweetResponse>> postDeleteTweet({
     required String pathQueryId,
     required PostDeleteTweetRequest postDeleteTweetRequest,
@@ -511,8 +716,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/DeleteTweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/DeleteTweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -524,6 +731,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -546,6 +806,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -558,20 +830,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -587,12 +860,12 @@ class PostApi {
       _bodyData =
           _serializers.serialize(postDeleteTweetRequest, specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -618,10 +891,10 @@ class PostApi {
               specifiedType: const FullType(DeleteTweetResponse),
             ) as DeleteTweetResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -653,7 +926,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [FavoriteTweetResponseData] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<FavoriteTweetResponseData>> postFavoriteTweet({
     required String pathQueryId,
     required PostFavoriteTweetRequest postFavoriteTweetRequest,
@@ -664,8 +937,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/FavoriteTweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/FavoriteTweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -677,6 +952,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -699,6 +1027,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -711,20 +1051,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -740,12 +1081,12 @@ class PostApi {
       _bodyData = _serializers.serialize(postFavoriteTweetRequest,
           specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -771,10 +1112,10 @@ class PostApi {
               specifiedType: const FullType(FavoriteTweetResponseData),
             ) as FavoriteTweetResponseData;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -806,7 +1147,7 @@ class PostApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UnfavoriteTweetResponseData] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UnfavoriteTweetResponseData>> postUnfavoriteTweet({
     required String pathQueryId,
     required PostUnfavoriteTweetRequest postUnfavoriteTweetRequest,
@@ -817,8 +1158,10 @@ class PostApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/graphql/{pathQueryId}/UnfavoriteTweet'
-        .replaceAll('{' r'pathQueryId' '}', pathQueryId.toString());
+    final _path = r'/graphql/{pathQueryId}/UnfavoriteTweet'.replaceAll(
+        '{' r'pathQueryId' '}',
+        encodeQueryParameter(_serializers, pathQueryId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -830,6 +1173,59 @@ class PostApi {
             'type': 'apiKey',
             'name': 'ClientLanguage',
             'keyName': 'x-twitter-client-language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Accept',
+            'keyName': 'Accept',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CsrfToken',
+            'keyName': 'x-csrf-token',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'GuestToken',
+            'keyName': 'x-guest-token',
+            'where': 'header',
+          },
+          {
+            'type': 'http',
+            'scheme': 'bearer',
+            'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
             'where': 'header',
           },
           {
@@ -852,6 +1248,18 @@ class PostApi {
           },
           {
             'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
             'name': 'CookieAuthToken',
             'keyName': 'auth_token',
             'where': '',
@@ -864,20 +1272,21 @@ class PostApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CsrfToken',
-            'keyName': 'x-csrf-token',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'GuestToken',
-            'keyName': 'x-guest-token',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
             'where': 'header',
           },
           {
-            'type': 'http',
-            'scheme': 'bearer',
-            'name': 'BearerAuth',
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -893,12 +1302,12 @@ class PostApi {
       _bodyData = _serializers.serialize(postUnfavoriteTweetRequest,
           specifiedType: _type);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );
@@ -924,10 +1333,10 @@ class PostApi {
               specifiedType: const FullType(UnfavoriteTweetResponseData),
             ) as UnfavoriteTweetResponseData;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
         stackTrace: stackTrace,
       );

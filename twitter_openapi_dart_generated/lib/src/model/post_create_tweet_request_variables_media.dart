@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/post_create_tweet_request_variables_media_media_entities_inner.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -21,7 +21,8 @@ abstract class PostCreateTweetRequestVariablesMedia
         Built<PostCreateTweetRequestVariablesMedia,
             PostCreateTweetRequestVariablesMediaBuilder> {
   @BuiltValueField(wireName: r'media_entities')
-  BuiltList<JsonObject> get mediaEntities;
+  BuiltList<PostCreateTweetRequestVariablesMediaMediaEntitiesInner>
+      get mediaEntities;
 
   @BuiltValueField(wireName: r'possibly_sensitive')
   bool get possiblySensitive;
@@ -60,7 +61,8 @@ class _$PostCreateTweetRequestVariablesMediaSerializer
     yield r'media_entities';
     yield serializers.serialize(
       object.mediaEntities,
-      specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      specifiedType: const FullType(BuiltList,
+          [FullType(PostCreateTweetRequestVariablesMediaMediaEntitiesInner)]),
     );
     yield r'possibly_sensitive';
     yield serializers.serialize(
@@ -95,8 +97,11 @@ class _$PostCreateTweetRequestVariablesMediaSerializer
         case r'media_entities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(PostCreateTweetRequestVariablesMediaMediaEntitiesInner)
+            ]),
+          ) as BuiltList<
+              PostCreateTweetRequestVariablesMediaMediaEntitiesInner>;
           result.mediaEntities.replace(valueDes);
           break;
         case r'possibly_sensitive':

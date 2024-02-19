@@ -17,7 +17,7 @@ part 'list_tweets_timeline.g.dart';
 abstract class ListTweetsTimeline
     implements Built<ListTweetsTimeline, ListTweetsTimelineBuilder> {
   @BuiltValueField(wireName: r'timeline')
-  Timeline get timeline;
+  Timeline? get timeline;
 
   ListTweetsTimeline._();
 
@@ -45,11 +45,13 @@ class _$ListTweetsTimelineSerializer
     ListTweetsTimeline object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'timeline';
-    yield serializers.serialize(
-      object.timeline,
-      specifiedType: const FullType(Timeline),
-    );
+    if (object.timeline != null) {
+      yield r'timeline';
+      yield serializers.serialize(
+        object.timeline,
+        specifiedType: const FullType(Timeline),
+      );
+    }
   }
 
   @override

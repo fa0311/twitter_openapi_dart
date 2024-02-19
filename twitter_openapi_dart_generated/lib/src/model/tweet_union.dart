@@ -4,8 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/tweet_with_visibility_results.dart';
-import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet_tombstone.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
@@ -16,17 +16,29 @@ part 'tweet_union.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [authorCommunityRelationship]
+/// * [birdwatchPivot]
 /// * [card]
 /// * [core]
 /// * [editControl]
 /// * [editPrespective]
+/// * [hasBirdwatchNotes]
 /// * [isTranslatable]
 /// * [legacy]
+/// * [noteTweet]
+/// * [previousCounts]
+/// * [quickPromoteEligibility]
+/// * [quotedRefResult]
 /// * [quotedStatusResult]
 /// * [restId]
+/// * [source_]
+/// * [superFollowsReplyUserResult]
+/// * [unifiedCard]
 /// * [unmentionData]
 /// * [views]
+/// * [limitedActionResults]
 /// * [tweet]
+/// * [tweetInterstitial]
 @BuiltValue()
 abstract class TweetUnion implements Built<TweetUnion, TweetUnionBuilder> {
   /// One Of [Tweet], [TweetTombstone], [TweetWithVisibilityResults]

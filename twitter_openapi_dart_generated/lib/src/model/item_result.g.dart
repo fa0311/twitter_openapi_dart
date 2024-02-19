@@ -10,14 +10,12 @@ class _$ItemResult extends ItemResult {
   @override
   final TypeName? typename;
   @override
-  final TweetUnion result;
+  final TweetUnion? result;
 
   factory _$ItemResult([void Function(ItemResultBuilder)? updates]) =>
       (new ItemResultBuilder()..update(updates))._build();
 
-  _$ItemResult._({this.typename, required this.result}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(result, r'ItemResult', 'result');
-  }
+  _$ItemResult._({this.typename, this.result}) : super._();
 
   @override
   ItemResult rebuild(void Function(ItemResultBuilder) updates) =>
@@ -71,7 +69,7 @@ class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
     final $v = _$v;
     if ($v != null) {
       _typename = $v.typename;
-      _result = $v.result.toBuilder();
+      _result = $v.result?.toBuilder();
       _$v = null;
     }
     return this;
@@ -94,13 +92,13 @@ class ItemResultBuilder implements Builder<ItemResult, ItemResultBuilder> {
   _$ItemResult _build() {
     _$ItemResult _$result;
     try {
-      _$result =
-          _$v ?? new _$ItemResult._(typename: typename, result: result.build());
+      _$result = _$v ??
+          new _$ItemResult._(typename: typename, result: _result?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'result';
-        result.build();
+        _result?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ItemResult', _$failedField, e.toString());

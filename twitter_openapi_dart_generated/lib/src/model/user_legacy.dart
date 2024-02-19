@@ -51,7 +51,9 @@ part 'user_legacy.g.dart';
 /// * [translatorType]
 /// * [url]
 /// * [verified]
+/// * [verifiedType]
 /// * [wantRetweets]
+/// * [withheldInCountries]
 @BuiltValue()
 abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   @BuiltValueField(wireName: r'blocked_by')
@@ -79,7 +81,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   String get description;
 
   @BuiltValueField(wireName: r'entities')
-  JsonObject get entities;
+  BuiltMap<String, JsonObject?> get entities;
 
   @BuiltValueField(wireName: r'fast_followers_count')
   int get fastFollowersCount;
@@ -88,16 +90,16 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   int get favouritesCount;
 
   @BuiltValueField(wireName: r'follow_request_sent')
-  bool get followRequestSent;
+  bool? get followRequestSent;
 
   @BuiltValueField(wireName: r'followed_by')
-  bool get followedBy;
+  bool? get followedBy;
 
   @BuiltValueField(wireName: r'followers_count')
   int get followersCount;
 
   @BuiltValueField(wireName: r'following')
-  bool get following;
+  bool? get following;
 
   @BuiltValueField(wireName: r'friends_count')
   int get friendsCount;
@@ -127,7 +129,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   int get normalFollowersCount;
 
   @BuiltValueField(wireName: r'notifications')
-  bool get notifications;
+  bool? get notifications;
 
   @BuiltValueField(wireName: r'pinned_tweet_ids_str')
   BuiltList<String> get pinnedTweetIdsStr;
@@ -151,7 +153,7 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   String get profileInterstitialType;
 
   @BuiltValueField(wireName: r'protected')
-  bool get protected;
+  bool? get protected;
 
   @BuiltValueField(wireName: r'screen_name')
   String get screenName;
@@ -168,8 +170,15 @@ abstract class UserLegacy implements Built<UserLegacy, UserLegacyBuilder> {
   @BuiltValueField(wireName: r'verified')
   bool get verified;
 
+  @BuiltValueField(wireName: r'verified_type')
+  UserLegacyVerifiedTypeEnum? get verifiedType;
+  // enum verifiedTypeEnum {  Business,  Government,  };
+
   @BuiltValueField(wireName: r'want_retweets')
   bool get wantRetweets;
+
+  @BuiltValueField(wireName: r'withheld_in_countries')
+  BuiltList<String>? get withheldInCountries;
 
   UserLegacy._();
 
@@ -260,7 +269,8 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     yield r'entities';
     yield serializers.serialize(
       object.entities,
-      specifiedType: const FullType(JsonObject),
+      specifiedType: const FullType(
+          BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
     );
     yield r'fast_followers_count';
     yield serializers.serialize(
@@ -272,26 +282,32 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.favouritesCount,
       specifiedType: const FullType(int),
     );
-    yield r'follow_request_sent';
-    yield serializers.serialize(
-      object.followRequestSent,
-      specifiedType: const FullType(bool),
-    );
-    yield r'followed_by';
-    yield serializers.serialize(
-      object.followedBy,
-      specifiedType: const FullType(bool),
-    );
+    if (object.followRequestSent != null) {
+      yield r'follow_request_sent';
+      yield serializers.serialize(
+        object.followRequestSent,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.followedBy != null) {
+      yield r'followed_by';
+      yield serializers.serialize(
+        object.followedBy,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'followers_count';
     yield serializers.serialize(
       object.followersCount,
       specifiedType: const FullType(int),
     );
-    yield r'following';
-    yield serializers.serialize(
-      object.following,
-      specifiedType: const FullType(bool),
-    );
+    if (object.following != null) {
+      yield r'following';
+      yield serializers.serialize(
+        object.following,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'friends_count';
     yield serializers.serialize(
       object.friendsCount,
@@ -337,11 +353,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.normalFollowersCount,
       specifiedType: const FullType(int),
     );
-    yield r'notifications';
-    yield serializers.serialize(
-      object.notifications,
-      specifiedType: const FullType(bool),
-    );
+    if (object.notifications != null) {
+      yield r'notifications';
+      yield serializers.serialize(
+        object.notifications,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'pinned_tweet_ids_str';
     yield serializers.serialize(
       object.pinnedTweetIdsStr,
@@ -383,11 +401,13 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.profileInterstitialType,
       specifiedType: const FullType(String),
     );
-    yield r'protected';
-    yield serializers.serialize(
-      object.protected,
-      specifiedType: const FullType(bool),
-    );
+    if (object.protected != null) {
+      yield r'protected';
+      yield serializers.serialize(
+        object.protected,
+        specifiedType: const FullType(bool),
+      );
+    }
     yield r'screen_name';
     yield serializers.serialize(
       object.screenName,
@@ -415,11 +435,25 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
       object.verified,
       specifiedType: const FullType(bool),
     );
+    if (object.verifiedType != null) {
+      yield r'verified_type';
+      yield serializers.serialize(
+        object.verifiedType,
+        specifiedType: const FullType(UserLegacyVerifiedTypeEnum),
+      );
+    }
     yield r'want_retweets';
     yield serializers.serialize(
       object.wantRetweets,
       specifiedType: const FullType(bool),
     );
+    if (object.withheldInCountries != null) {
+      yield r'withheld_in_countries';
+      yield serializers.serialize(
+        object.withheldInCountries,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
   }
 
   @override
@@ -504,9 +538,10 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
         case r'entities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.entities = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.entities.replace(valueDes);
           break;
         case r'fast_followers_count':
           final valueDes = serializers.deserialize(
@@ -711,12 +746,26 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
           ) as bool;
           result.verified = valueDes;
           break;
+        case r'verified_type':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(UserLegacyVerifiedTypeEnum),
+          ) as UserLegacyVerifiedTypeEnum;
+          result.verifiedType = valueDes;
+          break;
         case r'want_retweets':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
           result.wantRetweets = valueDes;
+          break;
+        case r'withheld_in_countries':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.withheldInCountries.replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -745,4 +794,23 @@ class _$UserLegacySerializer implements PrimitiveSerializer<UserLegacy> {
     );
     return result.build();
   }
+}
+
+class UserLegacyVerifiedTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'Business')
+  static const UserLegacyVerifiedTypeEnum business =
+      _$userLegacyVerifiedTypeEnum_business;
+  @BuiltValueEnumConst(wireName: r'Government')
+  static const UserLegacyVerifiedTypeEnum government =
+      _$userLegacyVerifiedTypeEnum_government;
+
+  static Serializer<UserLegacyVerifiedTypeEnum> get serializer =>
+      _$userLegacyVerifiedTypeEnumSerializer;
+
+  const UserLegacyVerifiedTypeEnum._(String name) : super(name);
+
+  static BuiltSet<UserLegacyVerifiedTypeEnum> get values =>
+      _$userLegacyVerifiedTypeEnumValues;
+  static UserLegacyVerifiedTypeEnum valueOf(String name) =>
+      _$userLegacyVerifiedTypeEnumValueOf(name);
 }

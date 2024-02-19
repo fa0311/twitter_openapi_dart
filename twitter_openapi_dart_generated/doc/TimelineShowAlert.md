@@ -9,10 +9,10 @@ import 'package:twitter_openapi_dart_generated/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **alertType** | **String** |  | [optional] 
-**colorConfig** | [**JsonObject**](.md) |  | [optional] 
+**colorConfig** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **displayDurationMs** | **int** |  | [optional] 
 **displayLocation** | **String** |  | [optional] 
-**iconDisplayInfo** | [**JsonObject**](.md) |  | [optional] 
+**iconDisplayInfo** | [**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md) |  | [optional] 
 **richText** | [**TimelineShowAlertRichText**](TimelineShowAlertRichText.md) |  | 
 **triggerDelayMs** | **int** |  | [optional] 
 **type** | [**InstructionType**](InstructionType.md) |  | 

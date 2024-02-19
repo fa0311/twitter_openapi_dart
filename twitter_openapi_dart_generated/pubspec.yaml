@@ -1,19 +1,17 @@
 name: twitter_openapi_dart_generated
-version: 0.0.9
-description: Twitter OpenAPI Dart
+version: 0.0.13
 homepage: https://github.com/fa0311/twitter_openapi_dart
-
-environment:
-  sdk: '>=2.15.0 <3.0.0'
-
-dependencies:
-  dio: '^5.0.0'
+description: Twitter OpenAPI Dart
+environment: 
+  sdk: '>=2.15.0 <4.0.0'
+dependencies: 
+  built_collection: '>=5.1.1 <6.0.0'
+  built_value: '>=8.4.0 <9.0.0'
+  dio: ^5.2.0
   one_of: '>=1.5.0 <2.0.0'
   one_of_serializer: '>=1.5.0 <2.0.0'
-  built_value: '>=8.4.0 <9.0.0'
-  built_collection: '>=5.1.1 <6.0.0'
-
-dev_dependencies:
-  built_value_generator: '>=8.4.0 <9.0.0'
+dev_dependencies: 
   build_runner: any
+  built_value_generator: '>=8.4.0 <9.0.0'
+  pubspec_dependency_sorter: ^1.0.4
   test: ^1.16.0

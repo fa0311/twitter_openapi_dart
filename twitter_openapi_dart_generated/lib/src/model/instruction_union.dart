@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/timeline_replace_entry.dart';
+import 'package:twitter_openapi_dart_generated/src/model/timeline_show_cover.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_terminate_timeline.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_pin_entry.dart';
 import 'package:twitter_openapi_dart_generated/src/model/timeline_show_alert.dart';
@@ -36,10 +37,12 @@ part 'instruction_union.g.dart';
 /// * [triggerDelayMs]
 /// * [usersResults]
 /// * [direction]
+/// * [clientEventInfo]
+/// * [cover]
 @BuiltValue()
 abstract class InstructionUnion
     implements Built<InstructionUnion, InstructionUnionBuilder> {
-  /// One Of [TimelineAddEntries], [TimelineAddToModule], [TimelineClearCache], [TimelinePinEntry], [TimelineReplaceEntry], [TimelineShowAlert], [TimelineTerminateTimeline]
+  /// One Of [TimelineAddEntries], [TimelineAddToModule], [TimelineClearCache], [TimelinePinEntry], [TimelineReplaceEntry], [TimelineShowAlert], [TimelineShowCover], [TimelineTerminateTimeline]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'type';
@@ -51,6 +54,7 @@ abstract class InstructionUnion
     r'TimelinePinEntry': TimelinePinEntry,
     r'TimelineReplaceEntry': TimelineReplaceEntry,
     r'TimelineShowAlert': TimelineShowAlert,
+    r'TimelineShowCover': TimelineShowCover,
     r'TimelineTerminateTimeline': TimelineTerminateTimeline,
   };
 
@@ -87,6 +91,9 @@ extension InstructionUnionDiscriminatorExt on InstructionUnion {
     if (this is TimelineShowAlert) {
       return r'TimelineShowAlert';
     }
+    if (this is TimelineShowCover) {
+      return r'TimelineShowCover';
+    }
     if (this is TimelineTerminateTimeline) {
       return r'TimelineTerminateTimeline';
     }
@@ -113,6 +120,9 @@ extension InstructionUnionBuilderDiscriminatorExt on InstructionUnionBuilder {
     }
     if (this is TimelineShowAlertBuilder) {
       return r'TimelineShowAlert';
+    }
+    if (this is TimelineShowCoverBuilder) {
+      return r'TimelineShowCover';
     }
     if (this is TimelineTerminateTimelineBuilder) {
       return r'TimelineTerminateTimeline';
@@ -167,6 +177,7 @@ class _$InstructionUnionSerializer
       TimelinePinEntry,
       TimelineReplaceEntry,
       TimelineShowAlert,
+      TimelineShowCover,
       TimelineTerminateTimeline,
     ];
     Object oneOfResult;
@@ -213,6 +224,13 @@ class _$InstructionUnionSerializer
           specifiedType: FullType(TimelineShowAlert),
         ) as TimelineShowAlert;
         oneOfType = TimelineShowAlert;
+        break;
+      case r'TimelineShowCover':
+        oneOfResult = serializers.deserialize(
+          oneOfDataSrc,
+          specifiedType: FullType(TimelineShowCover),
+        ) as TimelineShowCover;
+        oneOfType = TimelineShowCover;
         break;
       case r'TimelineTerminateTimeline':
         oneOfResult = serializers.deserialize(

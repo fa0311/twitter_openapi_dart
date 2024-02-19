@@ -3,9 +3,11 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:twitter_openapi_dart_generated/src/model/highlight.dart';
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/item_result.dart';
-import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
@@ -16,28 +18,32 @@ part 'timeline_tweet.g.dart';
 /// TimelineTweet
 ///
 /// Properties:
-/// * [socialContext]
 /// * [typename]
+/// * [highlights]
 /// * [itemType]
 /// * [promotedMetadata]
+/// * [socialContext]
 /// * [tweetDisplayType]
 /// * [tweetResults]
 @BuiltValue()
 abstract class TimelineTweet
     implements Built<TimelineTweet, TimelineTweetBuilder> {
-  @BuiltValueField(wireName: r'SocialContext')
-  SocialContext? get socialContext;
-
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
+
+  @BuiltValueField(wireName: r'highlights')
+  Highlight? get highlights;
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  };
 
   @BuiltValueField(wireName: r'promotedMetadata')
-  JsonObject? get promotedMetadata;
+  BuiltMap<String, JsonObject?>? get promotedMetadata;
+
+  @BuiltValueField(wireName: r'socialContext')
+  SocialContextUnion? get socialContext;
 
   @BuiltValueField(wireName: r'tweetDisplayType')
   String get tweetDisplayType;
@@ -70,18 +76,18 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
     TimelineTweet object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.socialContext != null) {
-      yield r'SocialContext';
-      yield serializers.serialize(
-        object.socialContext,
-        specifiedType: const FullType(SocialContext),
-      );
-    }
     yield r'__typename';
     yield serializers.serialize(
       object.typename,
       specifiedType: const FullType(TypeName),
     );
+    if (object.highlights != null) {
+      yield r'highlights';
+      yield serializers.serialize(
+        object.highlights,
+        specifiedType: const FullType(Highlight),
+      );
+    }
     yield r'itemType';
     yield serializers.serialize(
       object.itemType,
@@ -91,7 +97,15 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
       yield r'promotedMetadata';
       yield serializers.serialize(
         object.promotedMetadata,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+      );
+    }
+    if (object.socialContext != null) {
+      yield r'socialContext';
+      yield serializers.serialize(
+        object.socialContext,
+        specifiedType: const FullType(SocialContextUnion),
       );
     }
     yield r'tweetDisplayType';
@@ -129,19 +143,19 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'SocialContext':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(SocialContext),
-          ) as SocialContext;
-          result.socialContext.replace(valueDes);
-          break;
         case r'__typename':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(TypeName),
           ) as TypeName;
           result.typename = valueDes;
+          break;
+        case r'highlights':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(Highlight),
+          ) as Highlight;
+          result.highlights.replace(valueDes);
           break;
         case r'itemType':
           final valueDes = serializers.deserialize(
@@ -153,9 +167,17 @@ class _$TimelineTweetSerializer implements PrimitiveSerializer<TimelineTweet> {
         case r'promotedMetadata':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.promotedMetadata = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.promotedMetadata.replace(valueDes);
+          break;
+        case r'socialContext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(SocialContextUnion),
+          ) as SocialContextUnion;
+          result.socialContext.replace(valueDes);
           break;
         case r'tweetDisplayType':
           final valueDes = serializers.deserialize(

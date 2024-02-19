@@ -25,7 +25,7 @@ abstract class TimelineTerminateTimeline
 
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
-  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineClearCache,  TimelinePinEntry,  TimelineReplaceEntry,  TimelineShowAlert,  TimelineTerminateTimeline,  };
+  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineClearCache,  TimelinePinEntry,  TimelineReplaceEntry,  TimelineShowAlert,  TimelineTerminateTimeline,  TimelineShowCover,  };
 
   TimelineTerminateTimeline._();
 

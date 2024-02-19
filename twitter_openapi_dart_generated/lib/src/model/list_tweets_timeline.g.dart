@@ -8,16 +8,13 @@ part of 'list_tweets_timeline.dart';
 
 class _$ListTweetsTimeline extends ListTweetsTimeline {
   @override
-  final Timeline timeline;
+  final Timeline? timeline;
 
   factory _$ListTweetsTimeline(
           [void Function(ListTweetsTimelineBuilder)? updates]) =>
       (new ListTweetsTimelineBuilder()..update(updates))._build();
 
-  _$ListTweetsTimeline._({required this.timeline}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        timeline, r'ListTweetsTimeline', 'timeline');
-  }
+  _$ListTweetsTimeline._({this.timeline}) : super._();
 
   @override
   ListTweetsTimeline rebuild(
@@ -65,7 +62,7 @@ class ListTweetsTimelineBuilder
   ListTweetsTimelineBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _timeline = $v.timeline.toBuilder();
+      _timeline = $v.timeline?.toBuilder();
       _$v = null;
     }
     return this;
@@ -88,12 +85,13 @@ class ListTweetsTimelineBuilder
   _$ListTweetsTimeline _build() {
     _$ListTweetsTimeline _$result;
     try {
-      _$result = _$v ?? new _$ListTweetsTimeline._(timeline: timeline.build());
+      _$result =
+          _$v ?? new _$ListTweetsTimeline._(timeline: _timeline?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'timeline';
-        timeline.build();
+        _timeline?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ListTweetsTimeline', _$failedField, e.toString());

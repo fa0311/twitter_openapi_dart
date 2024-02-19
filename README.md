@@ -34,9 +34,8 @@ cd twitter_openapi_dart_generated
 ```
 
 ```shell
-python -V # Python 3.10.8
 flutter --version # Flutter 3.7.12
-openapi-generator-cli version # 6.5.0
+openapi-generator-cli version # 7.1.0
 ```
 
 ```shell
@@ -46,18 +45,16 @@ dart pub run build_runner build --delete-conflicting-outputs
 
 Setup
 
-It cannot be installed from pub.dev.  
-Plan to release it in v1.0.0 with pub.dev.  
-Recommend adding the latest commit hash after #ref as many destructive changes are made.
-
-```yaml
-dependencies:
-  twitter_openapi_dart_generated:
-    git:
-        url: https://github.com/fa0311/twitter_openapi_dart.git
-        path: twitter_openapi_dart_generated
-        ref: <commit hash here>
+```sh
+dart pub add twitter_openapi_dart_generated
 ```
+
+License
+
+This project is dual licensed. You can choose one of the following licenses:
+
+- [Custom License](./LICENSE)
+- [GNU Affero General Public License v3.0](./LICENSE.AGPL)
 
 Usage
 

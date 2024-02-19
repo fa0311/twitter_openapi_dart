@@ -45,7 +45,7 @@ class V11GetApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> getFriendsFollowingList({
     int includeProfileInterstitialType = 1,
     int includeBlocking = 1,
@@ -87,32 +87,32 @@ class V11GetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -131,6 +131,72 @@ class V11GetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,
@@ -204,7 +270,7 @@ class V11GetApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> getSearchTypeahead({
     int includeExtIsBlueVerified = 1,
     int includeExtVerifiedType = 1,
@@ -235,32 +301,32 @@ class V11GetApi {
           },
           {
             'type': 'apiKey',
-            'name': 'CookieCt0',
-            'keyName': 'ct0',
-            'where': '',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'ActiveUser',
-            'keyName': 'x-twitter-active-user',
+            'name': 'Accept',
+            'keyName': 'Accept',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'UserAgent',
-            'keyName': 'user-agent',
+            'name': 'SecFetchDest',
+            'keyName': 'Sec-Fetch-Dest',
             'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'CookieAuthToken',
-            'keyName': 'auth_token',
-            'where': '',
+            'name': 'Pragma',
+            'keyName': 'Pragma',
+            'where': 'header',
           },
           {
             'type': 'apiKey',
-            'name': 'AuthType',
-            'keyName': 'x-twitter-auth-type',
+            'name': 'SecChUaPlatform',
+            'keyName': 'Sec-Ch-Ua-Platform',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchMode',
+            'keyName': 'Sec-Fetch-Mode',
             'where': 'header',
           },
           {
@@ -279,6 +345,72 @@ class V11GetApi {
             'type': 'http',
             'scheme': 'bearer',
             'name': 'BearerAuth',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUa',
+            'keyName': 'Sec-Ch-Ua',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieCt0',
+            'keyName': 'ct0',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'ActiveUser',
+            'keyName': 'x-twitter-active-user',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'UserAgent',
+            'keyName': 'user-agent',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptLanguage',
+            'keyName': 'Accept-Language',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecFetchSite',
+            'keyName': 'Sec-Fetch-Site',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CookieAuthToken',
+            'keyName': 'auth_token',
+            'where': '',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AuthType',
+            'keyName': 'x-twitter-auth-type',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'CacheControl',
+            'keyName': 'Cache-Control',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'SecChUaMobile',
+            'keyName': 'Sec-Ch-Ua-Mobile',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'AcceptEncoding',
+            'keyName': 'Accept-Encoding',
+            'where': 'header',
           },
         ],
         ...?extra,

@@ -4,8 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/user_results.dart';
-import 'package:twitter_openapi_dart_generated/src/model/social_context.dart';
+import 'package:twitter_openapi_dart_generated/src/model/social_context_union.dart';
 import 'package:twitter_openapi_dart_generated/src/model/content_item_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,27 +16,28 @@ part 'timeline_user.g.dart';
 /// TimelineUser
 ///
 /// Properties:
-/// * [socialContext]
 /// * [typename]
 /// * [itemType]
+/// * [socialContext]
 /// * [userDisplayType]
 /// * [userResults]
 @BuiltValue()
 abstract class TimelineUser
     implements Built<TimelineUser, TimelineUserBuilder> {
-  @BuiltValueField(wireName: r'SocialContext')
-  SocialContext? get socialContext;
-
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
 
   @BuiltValueField(wireName: r'itemType')
   ContentItemType get itemType;
-  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  };
+  // enum itemTypeEnum {  TimelineTweet,  TimelineTimelineCursor,  TimelineUser,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  };
+
+  @BuiltValueField(wireName: r'socialContext')
+  SocialContextUnion? get socialContext;
 
   @BuiltValueField(wireName: r'userDisplayType')
-  String get userDisplayType;
+  TimelineUserUserDisplayTypeEnum get userDisplayType;
+  // enum userDisplayTypeEnum {  User,  UserDetailed,  SubscribableUser,  };
 
   @BuiltValueField(wireName: r'user_results')
   UserResults get userResults;
@@ -63,13 +65,6 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     TimelineUser object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.socialContext != null) {
-      yield r'SocialContext';
-      yield serializers.serialize(
-        object.socialContext,
-        specifiedType: const FullType(SocialContext),
-      );
-    }
     yield r'__typename';
     yield serializers.serialize(
       object.typename,
@@ -80,10 +75,17 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
       object.itemType,
       specifiedType: const FullType(ContentItemType),
     );
+    if (object.socialContext != null) {
+      yield r'socialContext';
+      yield serializers.serialize(
+        object.socialContext,
+        specifiedType: const FullType(SocialContextUnion),
+      );
+    }
     yield r'userDisplayType';
     yield serializers.serialize(
       object.userDisplayType,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType(TimelineUserUserDisplayTypeEnum),
     );
     yield r'user_results';
     yield serializers.serialize(
@@ -115,13 +117,6 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
-        case r'SocialContext':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(SocialContext),
-          ) as SocialContext;
-          result.socialContext.replace(valueDes);
-          break;
         case r'__typename':
           final valueDes = serializers.deserialize(
             value,
@@ -136,11 +131,18 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
           ) as ContentItemType;
           result.itemType = valueDes;
           break;
+        case r'socialContext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(SocialContextUnion),
+          ) as SocialContextUnion;
+          result.socialContext.replace(valueDes);
+          break;
         case r'userDisplayType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(TimelineUserUserDisplayTypeEnum),
+          ) as TimelineUserUserDisplayTypeEnum;
           result.userDisplayType = valueDes;
           break;
         case r'user_results':
@@ -177,4 +179,26 @@ class _$TimelineUserSerializer implements PrimitiveSerializer<TimelineUser> {
     );
     return result.build();
   }
+}
+
+class TimelineUserUserDisplayTypeEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'User')
+  static const TimelineUserUserDisplayTypeEnum user =
+      _$timelineUserUserDisplayTypeEnum_user;
+  @BuiltValueEnumConst(wireName: r'UserDetailed')
+  static const TimelineUserUserDisplayTypeEnum userDetailed =
+      _$timelineUserUserDisplayTypeEnum_userDetailed;
+  @BuiltValueEnumConst(wireName: r'SubscribableUser')
+  static const TimelineUserUserDisplayTypeEnum subscribableUser =
+      _$timelineUserUserDisplayTypeEnum_subscribableUser;
+
+  static Serializer<TimelineUserUserDisplayTypeEnum> get serializer =>
+      _$timelineUserUserDisplayTypeEnumSerializer;
+
+  const TimelineUserUserDisplayTypeEnum._(String name) : super(name);
+
+  static BuiltSet<TimelineUserUserDisplayTypeEnum> get values =>
+      _$timelineUserUserDisplayTypeEnumValues;
+  static TimelineUserUserDisplayTypeEnum valueOf(String name) =>
+      _$timelineUserUserDisplayTypeEnumValueOf(name);
 }

@@ -33,7 +33,7 @@ abstract class TimelineShowAlert
   // enum alertTypeEnum {  NewTweets,  };
 
   @BuiltValueField(wireName: r'colorConfig')
-  JsonObject? get colorConfig;
+  BuiltMap<String, JsonObject?>? get colorConfig;
 
   @BuiltValueField(wireName: r'displayDurationMs')
   int? get displayDurationMs;
@@ -43,7 +43,7 @@ abstract class TimelineShowAlert
   // enum displayLocationEnum {  Top,  };
 
   @BuiltValueField(wireName: r'iconDisplayInfo')
-  JsonObject? get iconDisplayInfo;
+  BuiltMap<String, JsonObject?>? get iconDisplayInfo;
 
   @BuiltValueField(wireName: r'richText')
   TimelineShowAlertRichText get richText;
@@ -53,7 +53,7 @@ abstract class TimelineShowAlert
 
   @BuiltValueField(wireName: r'type')
   InstructionType get type;
-  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineClearCache,  TimelinePinEntry,  TimelineReplaceEntry,  TimelineShowAlert,  TimelineTerminateTimeline,  };
+  // enum typeEnum {  TimelineAddEntries,  TimelineAddToModule,  TimelineClearCache,  TimelinePinEntry,  TimelineReplaceEntry,  TimelineShowAlert,  TimelineTerminateTimeline,  TimelineShowCover,  };
 
   @BuiltValueField(wireName: r'usersResults')
   BuiltList<UserResults> get usersResults;
@@ -95,7 +95,8 @@ class _$TimelineShowAlertSerializer
       yield r'colorConfig';
       yield serializers.serialize(
         object.colorConfig,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     if (object.displayDurationMs != null) {
@@ -116,7 +117,8 @@ class _$TimelineShowAlertSerializer
       yield r'iconDisplayInfo';
       yield serializers.serialize(
         object.iconDisplayInfo,
-        specifiedType: const FullType(JsonObject),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
       );
     }
     yield r'richText';
@@ -176,9 +178,10 @@ class _$TimelineShowAlertSerializer
         case r'colorConfig':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.colorConfig = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.colorConfig.replace(valueDes);
           break;
         case r'displayDurationMs':
           final valueDes = serializers.deserialize(
@@ -197,9 +200,10 @@ class _$TimelineShowAlertSerializer
         case r'iconDisplayInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(JsonObject),
-          ) as JsonObject;
-          result.iconDisplayInfo = valueDes;
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.iconDisplayInfo.replace(valueDes);
           break;
         case r'richText':
           final valueDes = serializers.deserialize(

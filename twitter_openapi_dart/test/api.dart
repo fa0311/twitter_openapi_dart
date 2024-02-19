@@ -3,30 +3,40 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
+import 'package:twitter_openapi_dart_generated/twitter_openapi_dart_generated.dart';
 
 const int testCount = 100;
 
-void printTweet(TweetApiUtils tweet) {
-  print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
-  for (final tweet in tweet.reply) {
-    print("${tweet.user.legacy.screenName}: ${tweet.tweet.legacy.fullText}".replaceAll("\n", " "));
+void printTweet(TweetApiUtilsData tweet) {
+  printLegacyTweet(tweet.user.legacy, tweet.tweet.legacy);
+  for (final reply in tweet.replies) {
+    printLegacyTweet(reply.user.legacy, reply.tweet.legacy);
   }
-  print("┄" * 50);
 }
 
-void printUser(UserApiUtils user) {
-  final legacy = user.user.legacy;
-  print(legacy.screenName);
-  print("listedCount: ${legacy.listedCount}");
-  print("followedBy: ${legacy.followedBy} following: ${legacy.following}");
-  print("friendsCount: ${legacy.friendsCount} followersCount: ${legacy.followersCount}");
+void printLegacyTweet(UserLegacy u, TweetLegacy? t) {
+  final text = "${u.screenName.padLeft(20)}: ${t?.fullText ?? 'Deleted Tweet'}";
+  print(text.replaceAll("\n", " "));
+}
+
+void printUser(UserApiUtilsData user) {
+  printLegacyUser(user.user.legacy);
+}
+
+bool printLegacyUser(UserLegacy u) {
+  print(u.screenName);
+  print("listedCount: ${u.listedCount}");
+  print("followedBy: ${u.followedBy} following: ${u.following}");
+  final text = "friendsCount: ${u.friendsCount} followersCount: ${u.followersCount}";
+  print(text);
   print("┄" * 50);
+  return true;
 }
 
 Future<TwitterOpenapiDartClient> getClient() async {
   final cookies = (json.decode(await File("test/cookies.json").readAsString()) as Map).cast<String, String>();
   final api = TwitterOpenapiDart();
-  final client = await api.getClientFromCookies(authToken: cookies["auth_token"]!, ct0: cookies["ct0"]!);
+  final client = await api.getClientFromCookies(cookies);
   // final client = await api.getClient();
   // client.addAfterInterceptor(LogInterceptor(request: false, responseHeader: false));
   return client;

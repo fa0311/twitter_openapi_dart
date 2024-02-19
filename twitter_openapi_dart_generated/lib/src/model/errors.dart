@@ -1,0 +1,109 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+// ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:twitter_openapi_dart_generated/src/model/error.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+
+part 'errors.g.dart';
+
+/// Errors
+///
+/// Properties:
+/// * [errors]
+@BuiltValue()
+abstract class Errors implements Built<Errors, ErrorsBuilder> {
+  @BuiltValueField(wireName: r'errors')
+  BuiltList<Error> get errors;
+
+  Errors._();
+
+  factory Errors([void updates(ErrorsBuilder b)]) = _$Errors;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ErrorsBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Errors> get serializer => _$ErrorsSerializer();
+}
+
+class _$ErrorsSerializer implements PrimitiveSerializer<Errors> {
+  @override
+  final Iterable<Type> types = const [Errors, _$Errors];
+
+  @override
+  final String wireName = r'Errors';
+
+  Iterable<Object?> _serializeProperties(
+    Serializers serializers,
+    Errors object, {
+    FullType specifiedType = FullType.unspecified,
+  }) sync* {
+    yield r'errors';
+    yield serializers.serialize(
+      object.errors,
+      specifiedType: const FullType(BuiltList, [FullType(Error)]),
+    );
+  }
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Errors object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
+  }
+
+  void _deserializeProperties(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+    required List<Object?> serializedList,
+    required ErrorsBuilder result,
+    required List<Object?> unhandled,
+  }) {
+    for (var i = 0; i < serializedList.length; i += 2) {
+      final key = serializedList[i] as String;
+      final value = serializedList[i + 1];
+      switch (key) {
+        case r'errors':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(Error)]),
+          ) as BuiltList<Error>;
+          result.errors.replace(valueDes);
+          break;
+        default:
+          unhandled.add(key);
+          unhandled.add(value);
+          break;
+      }
+    }
+  }
+
+  @override
+  Errors deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ErrorsBuilder();
+    final serializedList = (serialized as Iterable<Object?>).toList();
+    final unhandled = <Object?>[];
+    _deserializeProperties(
+      serializers,
+      serialized,
+      specifiedType: specifiedType,
+      serializedList: serializedList,
+      unhandled: unhandled,
+      result: result,
+    );
+    return result.build();
+  }
+}

@@ -9,7 +9,8 @@ part of 'post_create_tweet_request_variables_media.dart';
 class _$PostCreateTweetRequestVariablesMedia
     extends PostCreateTweetRequestVariablesMedia {
   @override
-  final BuiltList<JsonObject> mediaEntities;
+  final BuiltList<PostCreateTweetRequestVariablesMediaMediaEntitiesInner>
+      mediaEntities;
   @override
   final bool possiblySensitive;
 
@@ -69,10 +70,14 @@ class PostCreateTweetRequestVariablesMediaBuilder
             PostCreateTweetRequestVariablesMediaBuilder> {
   _$PostCreateTweetRequestVariablesMedia? _$v;
 
-  ListBuilder<JsonObject>? _mediaEntities;
-  ListBuilder<JsonObject> get mediaEntities =>
-      _$this._mediaEntities ??= new ListBuilder<JsonObject>();
-  set mediaEntities(ListBuilder<JsonObject>? mediaEntities) =>
+  ListBuilder<PostCreateTweetRequestVariablesMediaMediaEntitiesInner>?
+      _mediaEntities;
+  ListBuilder<PostCreateTweetRequestVariablesMediaMediaEntitiesInner>
+      get mediaEntities => _$this._mediaEntities ??= new ListBuilder<
+          PostCreateTweetRequestVariablesMediaMediaEntitiesInner>();
+  set mediaEntities(
+          ListBuilder<PostCreateTweetRequestVariablesMediaMediaEntitiesInner>?
+              mediaEntities) =>
       _$this._mediaEntities = mediaEntities;
 
   bool? _possiblySensitive;

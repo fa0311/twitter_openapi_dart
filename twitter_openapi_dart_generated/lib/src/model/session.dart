@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/user_features.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/communities_actions.dart';
 import 'package:built_value/json_object.dart';
 import 'package:twitter_openapi_dart_generated/src/model/one_factor_login_eligibility.dart';
@@ -65,7 +66,8 @@ abstract class Session implements Built<Session, SessionBuilder> {
   int get superFollowersCount;
 
   @BuiltValueField(wireName: r'superFollowsApplicationStatus')
-  String get superFollowsApplicationStatus;
+  SessionSuperFollowsApplicationStatusEnum get superFollowsApplicationStatus;
+  // enum superFollowsApplicationStatusEnum {  NotStarted,  };
 
   @BuiltValueField(wireName: r'userFeatures')
   UserFeatures get userFeatures;
@@ -156,7 +158,7 @@ class _$SessionSerializer implements PrimitiveSerializer<Session> {
     yield r'superFollowsApplicationStatus';
     yield serializers.serialize(
       object.superFollowsApplicationStatus,
-      specifiedType: const FullType(String),
+      specifiedType: const FullType(SessionSuperFollowsApplicationStatusEnum),
     );
     yield r'userFeatures';
     yield serializers.serialize(
@@ -273,8 +275,9 @@ class _$SessionSerializer implements PrimitiveSerializer<Session> {
         case r'superFollowsApplicationStatus':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType:
+                const FullType(SessionSuperFollowsApplicationStatusEnum),
+          ) as SessionSuperFollowsApplicationStatusEnum;
           result.superFollowsApplicationStatus = valueDes;
           break;
         case r'userFeatures':
@@ -318,4 +321,20 @@ class _$SessionSerializer implements PrimitiveSerializer<Session> {
     );
     return result.build();
   }
+}
+
+class SessionSuperFollowsApplicationStatusEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'NotStarted')
+  static const SessionSuperFollowsApplicationStatusEnum notStarted =
+      _$sessionSuperFollowsApplicationStatusEnum_notStarted;
+
+  static Serializer<SessionSuperFollowsApplicationStatusEnum> get serializer =>
+      _$sessionSuperFollowsApplicationStatusEnumSerializer;
+
+  const SessionSuperFollowsApplicationStatusEnum._(String name) : super(name);
+
+  static BuiltSet<SessionSuperFollowsApplicationStatusEnum> get values =>
+      _$sessionSuperFollowsApplicationStatusEnumValues;
+  static SessionSuperFollowsApplicationStatusEnum valueOf(String name) =>
+      _$sessionSuperFollowsApplicationStatusEnumValueOf(name);
 }

@@ -25,6 +25,8 @@ class InstructionType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TimelineTerminateTimeline')
   static const InstructionType timelineTerminateTimeline =
       _$timelineTerminateTimeline;
+  @BuiltValueEnumConst(wireName: r'TimelineShowCover')
+  static const InstructionType timelineShowCover = _$timelineShowCover;
 
   static Serializer<InstructionType> get serializer =>
       _$instructionTypeSerializer;

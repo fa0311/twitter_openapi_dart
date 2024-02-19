@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:twitter_openapi_dart_generated/src/model/user.dart';
+import 'package:twitter_openapi_dart_generated/src/model/user_union.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,7 @@ part 'user_results.g.dart';
 @BuiltValue()
 abstract class UserResults implements Built<UserResults, UserResultsBuilder> {
   @BuiltValueField(wireName: r'result')
-  User get result;
+  UserUnion? get result;
 
   UserResults._();
 
@@ -41,11 +41,13 @@ class _$UserResultsSerializer implements PrimitiveSerializer<UserResults> {
     UserResults object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    yield r'result';
-    yield serializers.serialize(
-      object.result,
-      specifiedType: const FullType(User),
-    );
+    if (object.result != null) {
+      yield r'result';
+      yield serializers.serialize(
+        object.result,
+        specifiedType: const FullType(UserUnion),
+      );
+    }
   }
 
   @override
@@ -74,8 +76,8 @@ class _$UserResultsSerializer implements PrimitiveSerializer<UserResults> {
         case r'result':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(User),
-          ) as User;
+            specifiedType: const FullType(UserUnion),
+          ) as UserUnion;
           result.result.replace(valueDes);
           break;
         default:

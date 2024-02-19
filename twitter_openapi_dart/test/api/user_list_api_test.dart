@@ -7,7 +7,7 @@ main() async {
 
   test('getFollowers', () async {
     final result = await client.getUserListApi().getFollowers(userId: "44196397");
-    for (final tweet in result.data) {
+    for (final tweet in result.data.data) {
       printUser(tweet);
     }
     expect(0, 0);
@@ -15,7 +15,7 @@ main() async {
 
   test('getFollowing', () async {
     final result = await client.getUserListApi().getFollowing(userId: "44196397");
-    for (final tweet in result.data) {
+    for (final tweet in result.data.data) {
       printUser(tweet);
     }
     expect(0, 0);
@@ -23,7 +23,7 @@ main() async {
 
   test('getFollowersYouKnow', () async {
     final result = await client.getUserListApi().getFollowersYouKnow(userId: "44196397");
-    for (final tweet in result.data) {
+    for (final tweet in result.data.data) {
       printUser(tweet);
     }
     expect(0, 0);
@@ -31,14 +31,14 @@ main() async {
 
   test('getFavoriters', () async {
     final result = await client.getUserListApi().getFavoriters(tweetId: "1349129669258448897");
-    for (final tweet in result.data) {
+    for (final tweet in result.data.data) {
       printUser(tweet);
     }
     expect(0, 0);
   });
   test('getRetweeters', () async {
     final result = await client.getUserListApi().getRetweeters(tweetId: "1349129669258448897");
-    for (final tweet in result.data) {
+    for (final tweet in result.data.data) {
       printUser(tweet);
     }
     expect(0, 0);

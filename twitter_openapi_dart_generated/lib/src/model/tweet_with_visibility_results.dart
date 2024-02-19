@@ -4,7 +4,10 @@
 
 // ignore_for_file: unused_element
 import 'package:twitter_openapi_dart_generated/src/model/type_name.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:twitter_openapi_dart_generated/src/model/tweet.dart';
+import 'package:twitter_openapi_dart_generated/src/model/tweet_interstitial.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,17 +17,25 @@ part 'tweet_with_visibility_results.g.dart';
 ///
 /// Properties:
 /// * [typename]
+/// * [limitedActionResults]
 /// * [tweet]
+/// * [tweetInterstitial]
 @BuiltValue()
 abstract class TweetWithVisibilityResults
     implements
         Built<TweetWithVisibilityResults, TweetWithVisibilityResultsBuilder> {
   @BuiltValueField(wireName: r'__typename')
   TypeName get typename;
-  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  Tweet,  User,  };
+  // enum typenameEnum {  TimelineTweet,  TimelineTimelineItem,  TimelineUser,  TimelineTimelineCursor,  TweetWithVisibilityResults,  ContextualTweetInterstitial,  TimelineTimelineModule,  TweetTombstone,  TimelinePrompt,  TimelineMessagePrompt,  TimelineCommunity,  TweetUnavailable,  Tweet,  User,  UserUnavailable,  Community,  CommunityDeleteActionUnavailable,  CommunityJoinAction,  CommunityLeaveActionUnavailable,  CommunityTweetPinActionUnavailable,  CommunityInvitesUnavailable,  CommunityJoinRequestsUnavailable,  };
+
+  @BuiltValueField(wireName: r'limitedActionResults')
+  BuiltMap<String, JsonObject?>? get limitedActionResults;
 
   @BuiltValueField(wireName: r'tweet')
   Tweet get tweet;
+
+  @BuiltValueField(wireName: r'tweetInterstitial')
+  TweetInterstitial? get tweetInterstitial;
 
   TweetWithVisibilityResults._();
 
@@ -61,11 +72,26 @@ class _$TweetWithVisibilityResultsSerializer
       object.typename,
       specifiedType: const FullType(TypeName),
     );
+    if (object.limitedActionResults != null) {
+      yield r'limitedActionResults';
+      yield serializers.serialize(
+        object.limitedActionResults,
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+      );
+    }
     yield r'tweet';
     yield serializers.serialize(
       object.tweet,
       specifiedType: const FullType(Tweet),
     );
+    if (object.tweetInterstitial != null) {
+      yield r'tweetInterstitial';
+      yield serializers.serialize(
+        object.tweetInterstitial,
+        specifiedType: const FullType(TweetInterstitial),
+      );
+    }
   }
 
   @override
@@ -98,12 +124,27 @@ class _$TweetWithVisibilityResultsSerializer
           ) as TypeName;
           result.typename = valueDes;
           break;
+        case r'limitedActionResults':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+          ) as BuiltMap<String, JsonObject?>;
+          result.limitedActionResults.replace(valueDes);
+          break;
         case r'tweet':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(Tweet),
           ) as Tweet;
           result.tweet.replace(valueDes);
+          break;
+        case r'tweetInterstitial':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TweetInterstitial),
+          ) as TweetInterstitial;
+          result.tweetInterstitial.replace(valueDes);
           break;
         default:
           unhandled.add(key);

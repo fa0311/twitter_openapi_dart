@@ -21,6 +21,9 @@ class TypeName extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TweetWithVisibilityResults')
   static const TypeName tweetWithVisibilityResults =
       _$tweetWithVisibilityResults;
+  @BuiltValueEnumConst(wireName: r'ContextualTweetInterstitial')
+  static const TypeName contextualTweetInterstitial =
+      _$contextualTweetInterstitial;
   @BuiltValueEnumConst(wireName: r'TimelineTimelineModule')
   static const TypeName timelineTimelineModule = _$timelineTimelineModule;
   @BuiltValueEnumConst(wireName: r'TweetTombstone')
@@ -29,10 +32,35 @@ class TypeName extends EnumClass {
   static const TypeName timelinePrompt = _$timelinePrompt;
   @BuiltValueEnumConst(wireName: r'TimelineMessagePrompt')
   static const TypeName timelineMessagePrompt = _$timelineMessagePrompt;
+  @BuiltValueEnumConst(wireName: r'TimelineCommunity')
+  static const TypeName timelineCommunity = _$timelineCommunity;
+  @BuiltValueEnumConst(wireName: r'TweetUnavailable')
+  static const TypeName tweetUnavailable = _$tweetUnavailable;
   @BuiltValueEnumConst(wireName: r'Tweet')
   static const TypeName tweet = _$tweet;
   @BuiltValueEnumConst(wireName: r'User')
   static const TypeName user = _$user;
+  @BuiltValueEnumConst(wireName: r'UserUnavailable')
+  static const TypeName userUnavailable = _$userUnavailable;
+  @BuiltValueEnumConst(wireName: r'Community')
+  static const TypeName community = _$community;
+  @BuiltValueEnumConst(wireName: r'CommunityDeleteActionUnavailable')
+  static const TypeName communityDeleteActionUnavailable =
+      _$communityDeleteActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityJoinAction')
+  static const TypeName communityJoinAction = _$communityJoinAction;
+  @BuiltValueEnumConst(wireName: r'CommunityLeaveActionUnavailable')
+  static const TypeName communityLeaveActionUnavailable =
+      _$communityLeaveActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityTweetPinActionUnavailable')
+  static const TypeName communityTweetPinActionUnavailable =
+      _$communityTweetPinActionUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityInvitesUnavailable')
+  static const TypeName communityInvitesUnavailable =
+      _$communityInvitesUnavailable;
+  @BuiltValueEnumConst(wireName: r'CommunityJoinRequestsUnavailable')
+  static const TypeName communityJoinRequestsUnavailable =
+      _$communityJoinRequestsUnavailable;
 
   static Serializer<TypeName> get serializer => _$typeNameSerializer;
 

@@ -8,7 +8,7 @@ part of 'timeline_show_alert_rich_text.dart';
 
 class _$TimelineShowAlertRichText extends TimelineShowAlertRichText {
   @override
-  final BuiltList<JsonObject>? entities;
+  final BuiltList<BuiltMap<String, JsonObject?>>? entities;
   @override
   final String? text;
 
@@ -58,10 +58,10 @@ class TimelineShowAlertRichTextBuilder
         Builder<TimelineShowAlertRichText, TimelineShowAlertRichTextBuilder> {
   _$TimelineShowAlertRichText? _$v;
 
-  ListBuilder<JsonObject>? _entities;
-  ListBuilder<JsonObject> get entities =>
-      _$this._entities ??= new ListBuilder<JsonObject>();
-  set entities(ListBuilder<JsonObject>? entities) =>
+  ListBuilder<BuiltMap<String, JsonObject?>>? _entities;
+  ListBuilder<BuiltMap<String, JsonObject?>> get entities =>
+      _$this._entities ??= new ListBuilder<BuiltMap<String, JsonObject?>>();
+  set entities(ListBuilder<BuiltMap<String, JsonObject?>>? entities) =>
       _$this._entities = entities;
 
   String? _text;

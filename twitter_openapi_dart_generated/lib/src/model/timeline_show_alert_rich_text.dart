@@ -20,7 +20,7 @@ abstract class TimelineShowAlertRichText
     implements
         Built<TimelineShowAlertRichText, TimelineShowAlertRichTextBuilder> {
   @BuiltValueField(wireName: r'entities')
-  BuiltList<JsonObject>? get entities;
+  BuiltList<BuiltMap<String, JsonObject?>>? get entities;
 
   @BuiltValueField(wireName: r'text')
   String? get text;
@@ -59,7 +59,9 @@ class _$TimelineShowAlertRichTextSerializer
       yield r'entities';
       yield serializers.serialize(
         object.entities,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+        specifiedType: const FullType(BuiltList, [
+          FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+        ]),
       );
     }
     if (object.text != null) {
@@ -97,8 +99,11 @@ class _$TimelineShowAlertRichTextSerializer
         case r'entities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-          ) as BuiltList<JsonObject>;
+            specifiedType: const FullType(BuiltList, [
+              FullType(
+                  BuiltMap, [FullType(String), FullType.nullable(JsonObject)])
+            ]),
+          ) as BuiltList<BuiltMap<String, JsonObject?>>;
           result.entities.replace(valueDes);
           break;
         case r'text':
