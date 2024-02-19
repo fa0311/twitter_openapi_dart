@@ -33,3 +33,7 @@ add UserByRestId, UsersByRestIds
 ## 0.0.8
 
 Migration of twitter_openapi_dart_generated v0.0.9
+
+## 0.0.9
+
+[CHANGELOG](https://github.com/fa0311/twitter_openapi_dart/pull/47)
