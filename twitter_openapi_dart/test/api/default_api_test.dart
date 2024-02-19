@@ -11,4 +11,12 @@ main() async {
     print("followedBy: ${legacy.followedBy} following: ${legacy.following}");
     expect(0, 0);
   });
+
+  test('getTweetResultByRestId', () async {
+    final result = await client.getDefaultApi().getTweetResultByRestId(tweetId: "1691730070669517096");
+    final legacy = result.data!.user.legacy;
+    print(legacy.screenName);
+    print("followedBy: ${legacy.followedBy} following: ${legacy.following}");
+    expect(0, 0);
+  });
 }

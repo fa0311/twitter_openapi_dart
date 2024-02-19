@@ -41,3 +41,7 @@ Migration of twitter_openapi_dart_generated v0.0.9
 ## 0.0.10
 
 Update README
+
+## 0.0.11
+
+Fix Guest Api
