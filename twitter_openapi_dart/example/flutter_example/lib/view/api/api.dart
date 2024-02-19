@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/component/tile.dart';
+import 'package:flutter_example/view/api/tweet.dart';
 import 'package:flutter_example/view/api/tweet_list.dart';
 import 'package:flutter_example/view/api/user_list.dart';
 import 'package:flutter_example/widget/user.dart';
@@ -20,8 +21,6 @@ class ApiSelectPage extends StatefulWidget {
 }
 
 class _ApiSelectPageState extends State<ApiSelectPage> {
-  List<TweetApiUtils> tweetList = [];
-
   Future getInitialStateApi() async {
     final home = await widget.client.getInitialStateApi().getHome();
 
@@ -124,6 +123,17 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
     );
   }
 
+  Future getGuestTweetResultByRestId() async {
+    final tweet = await widget.client.getDefaultApi().getTweetResultByRestId(tweetId: "1349129669258448897");
+    return Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TweetWidget(
+          tweet: tweet.data!,
+        ),
+      ),
+    );
+  }
+
   Future getFollowers() {
     return Navigator.of(context).push(
       MaterialPageRoute(
@@ -169,10 +179,12 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getUserTweetsAndReplies"),
                 onTap: getUserTweetsAndReplies,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getUserMedia"),
                 onTap: getUserMedia,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getLikes"),
@@ -192,6 +204,7 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getListLatestTweetsTimeline"),
                 onTap: getListLatestTweetsTimeline,
+                enabled: !widget.limitedMode,
               ),
               FutureTile(
                 title: const Text("getBookmarks"),
@@ -201,6 +214,11 @@ class _ApiSelectPageState extends State<ApiSelectPage> {
               FutureTile(
                 title: const Text("getTweetDetail"),
                 onTap: getTweetDetail,
+                enabled: !widget.limitedMode,
+              ),
+              FutureTile(
+                title: const Text("getGuestTweetResultByRestId"),
+                onTap: getGuestTweetResultByRestId,
               ),
               FutureTile(
                 title: const Text("getFollowers"),

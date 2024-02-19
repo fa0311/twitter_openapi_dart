@@ -113,8 +113,8 @@ class TwitterOpenapiDart {
     return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 
-  /// Return [CookieJar]
-  Future<CookieJar> getGuestClient() async {
+  /// Return [TwitterOpenapiDartClient]
+  Future<TwitterOpenapiDartClient> getGuestClient() async {
     final cookie = CookieJar();
     final dio = Dio()..interceptors.add(CookieManager(cookie));
     await dio.requestUri(
@@ -156,7 +156,8 @@ class TwitterOpenapiDart {
 
     cookie.saveFromResponse(TwitterOpenapiDart.base, documentCookie);
 
-    return cookie;
+    final interceptor = [CookieManager(cookie)];
+    return getTwitterOpenapiDartClient(interceptor: interceptor);
   }
 }
 

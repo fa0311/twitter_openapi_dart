@@ -6,7 +6,7 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 class UserWidget extends StatelessWidget {
   const UserWidget({super.key, required this.user});
 
-  final UserApiUtils user;
+  final UserApiUtilsData user;
 
   @override
   Widget build(BuildContext context) {

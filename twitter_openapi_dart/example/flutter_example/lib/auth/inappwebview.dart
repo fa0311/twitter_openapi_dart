@@ -6,13 +6,13 @@ class FlutterInappwebviewDio extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     try {
-      final cookie = await CookieManager.instance().getCookies(url: options.uri);
+      final cookie = await CookieManager.instance().getCookies(url: WebUri.uri(options.uri));
       if (cookie.isNotEmpty) {
         options.headers[HttpHeaders.cookieHeader] = getCookies(cookie);
       }
       handler.next(options);
     } catch (e) {
-      handler.reject(DioError(requestOptions: options, error: e), true);
+      handler.reject(DioException(requestOptions: options, error: e), true);
     }
   }
 

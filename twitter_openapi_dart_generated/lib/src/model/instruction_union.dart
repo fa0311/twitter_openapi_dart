@@ -290,6 +290,9 @@ class InstructionUnionDirectionEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Bottom')
   static const InstructionUnionDirectionEnum bottom =
       _$instructionUnionDirectionEnum_bottom;
+  @BuiltValueEnumConst(wireName: r'TopAndBottom')
+  static const InstructionUnionDirectionEnum topAndBottom =
+      _$instructionUnionDirectionEnum_topAndBottom;
 
   static Serializer<InstructionUnionDirectionEnum> get serializer =>
       _$instructionUnionDirectionEnumSerializer;

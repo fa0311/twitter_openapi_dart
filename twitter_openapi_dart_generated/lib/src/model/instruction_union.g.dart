@@ -49,6 +49,9 @@ const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_top =
     const InstructionUnionDirectionEnum._('top');
 const InstructionUnionDirectionEnum _$instructionUnionDirectionEnum_bottom =
     const InstructionUnionDirectionEnum._('bottom');
+const InstructionUnionDirectionEnum
+    _$instructionUnionDirectionEnum_topAndBottom =
+    const InstructionUnionDirectionEnum._('topAndBottom');
 
 InstructionUnionDirectionEnum _$instructionUnionDirectionEnumValueOf(
     String name) {
@@ -57,6 +60,8 @@ InstructionUnionDirectionEnum _$instructionUnionDirectionEnumValueOf(
       return _$instructionUnionDirectionEnum_top;
     case 'bottom':
       return _$instructionUnionDirectionEnum_bottom;
+    case 'topAndBottom':
+      return _$instructionUnionDirectionEnum_topAndBottom;
     default:
       throw new ArgumentError(name);
   }
@@ -67,6 +72,7 @@ final BuiltSet<InstructionUnionDirectionEnum>
         InstructionUnionDirectionEnum>(const <InstructionUnionDirectionEnum>[
   _$instructionUnionDirectionEnum_top,
   _$instructionUnionDirectionEnum_bottom,
+  _$instructionUnionDirectionEnum_topAndBottom,
 ]);
 
 Serializer<InstructionUnionAlertTypeEnum>
@@ -142,10 +148,12 @@ class _$InstructionUnionDirectionEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'top': 'Top',
     'bottom': 'Bottom',
+    'topAndBottom': 'TopAndBottom',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
+    'TopAndBottom': 'topAndBottom',
   };
 
   @override

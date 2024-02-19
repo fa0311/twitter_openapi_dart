@@ -52,4 +52,20 @@ class DefaultApiUtils {
     );
     return response;
   }
+
+  Future<ResponseType<TweetApiUtilsData?>> getTweetResultByRestId({
+    required String tweetId,
+    Map<String, dynamic>? extraParam,
+  }) {
+    final param = {
+      "tweetId": tweetId,
+      ...?extraParam,
+    };
+    return request(
+      key: 'TweetResultByRestId',
+      apiFn: api.getTweetResultByRestId,
+      convertFn: (value) => buildTweetApiUtils(value.data.tweetResult),
+      param: param,
+    );
+  }
 }

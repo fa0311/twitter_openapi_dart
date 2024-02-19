@@ -12,6 +12,9 @@ const TimelineTerminateTimelineDirectionEnum
 const TimelineTerminateTimelineDirectionEnum
     _$timelineTerminateTimelineDirectionEnum_bottom =
     const TimelineTerminateTimelineDirectionEnum._('bottom');
+const TimelineTerminateTimelineDirectionEnum
+    _$timelineTerminateTimelineDirectionEnum_topAndBottom =
+    const TimelineTerminateTimelineDirectionEnum._('topAndBottom');
 
 TimelineTerminateTimelineDirectionEnum
     _$timelineTerminateTimelineDirectionEnumValueOf(String name) {
@@ -20,6 +23,8 @@ TimelineTerminateTimelineDirectionEnum
       return _$timelineTerminateTimelineDirectionEnum_top;
     case 'bottom':
       return _$timelineTerminateTimelineDirectionEnum_bottom;
+    case 'topAndBottom':
+      return _$timelineTerminateTimelineDirectionEnum_topAndBottom;
     default:
       throw new ArgumentError(name);
   }
@@ -30,6 +35,7 @@ final BuiltSet<TimelineTerminateTimelineDirectionEnum>
         TimelineTerminateTimelineDirectionEnum>(const <TimelineTerminateTimelineDirectionEnum>[
   _$timelineTerminateTimelineDirectionEnum_top,
   _$timelineTerminateTimelineDirectionEnum_bottom,
+  _$timelineTerminateTimelineDirectionEnum_topAndBottom,
 ]);
 
 Serializer<TimelineTerminateTimelineDirectionEnum>
@@ -41,10 +47,12 @@ class _$TimelineTerminateTimelineDirectionEnumSerializer
   static const Map<String, Object> _toWire = const <String, Object>{
     'top': 'Top',
     'bottom': 'Bottom',
+    'topAndBottom': 'TopAndBottom',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Top': 'top',
     'Bottom': 'bottom',
+    'TopAndBottom': 'topAndBottom',
   };
 
   @override

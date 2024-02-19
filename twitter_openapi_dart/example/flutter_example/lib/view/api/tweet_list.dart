@@ -7,14 +7,14 @@ import 'package:twitter_openapi_dart/twitter_openapi_dart.dart';
 class TweetListWidget extends StatefulWidget {
   const TweetListWidget({super.key, required this.builder});
 
-  final Future<TweetListApiUtilsResponse> Function(String?) builder;
+  final Future<TwitterApiUtilsResponse<TimelineApiUtilsResponse<TweetApiUtilsData>>> Function(String?) builder;
 
   @override
   State<TweetListWidget> createState() => _TweetListWidgetState();
 }
 
 class _TweetListWidgetState extends State<TweetListWidget> {
-  List<TweetApiUtils> tweetList = [];
+  List<TweetApiUtilsData> tweetList = [];
   String? cursorTop;
   String? cursorBottom;
 
@@ -27,17 +27,17 @@ class _TweetListWidgetState extends State<TweetListWidget> {
   Future sendRequest({required bool? flag}) async {
     if (flag == null) {
       final response = await widget.builder(cursorTop);
-      cursorTop = response.cursor.top?.value;
-      cursorBottom = response.cursor.bottom?.value;
-      setState(() => tweetList.addAll(response.data));
+      cursorTop = response.data.cursor.top?.value;
+      cursorBottom = response.data.cursor.bottom?.value;
+      setState(() => tweetList.addAll(response.data.data));
     } else if (flag) {
       final response = await widget.builder(cursorTop);
-      cursorTop = response.cursor.top?.value;
-      setState(() => tweetList.insertAll(0, response.data));
+      cursorTop = response.data.cursor.top?.value;
+      setState(() => tweetList.insertAll(0, response.data.data));
     } else {
       final response = await widget.builder(cursorBottom);
-      cursorBottom = response.cursor.bottom?.value;
-      setState(() => tweetList.addAll(response.data));
+      cursorBottom = response.data.cursor.bottom?.value;
+      setState(() => tweetList.addAll(response.data.data));
     }
   }
 
